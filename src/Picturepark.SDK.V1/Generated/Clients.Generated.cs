@@ -57,6 +57,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -174,8 +175,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -222,6 +231,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(BusinessProcessCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -344,8 +354,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -393,6 +411,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ChangeStateAsync(string id, BusinessProcessStateChangeRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -516,8 +535,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -564,6 +591,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task UpdateNotificationAsync(string id, BusinessProcessNotificationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -681,8 +709,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -728,6 +764,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -840,8 +877,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -890,6 +935,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcessWaitForStateResult> WaitForStatesCoreAsync(string id, System.Collections.Generic.IEnumerable<string> states = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1016,8 +1062,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -1066,6 +1120,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForLifeCyclesCoreAsync(string id, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycles = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1192,8 +1247,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -1242,6 +1305,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionCoreAsync(string id, System.TimeSpan? timeout = null, bool? waitForContinuationCompletion = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1368,8 +1432,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -1416,6 +1488,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1534,8 +1607,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -1584,6 +1665,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessSummaryBase> GetSummaryAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1701,8 +1783,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -1752,6 +1842,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessBatch> GetSuccessfulItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1878,8 +1969,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -1929,6 +2028,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessBatch> GetFailedItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -2055,8 +2155,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -2103,6 +2211,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -2225,8 +2334,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -2402,6 +2519,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessRuleConfiguration> GetConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -2518,8 +2636,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -2566,6 +2692,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -2688,8 +2815,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -2736,6 +2871,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessRuleTraceLogSearchResult> SearchTracesAsync(BusinessRuleTraceLogSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -2858,8 +2994,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -2907,6 +3051,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RunScheduleAsync(BusinessRuleSchedule schedule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -3029,8 +3174,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -3206,6 +3359,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Channel>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -3322,8 +3476,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -3370,6 +3532,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Channel> CreateAsync(ChannelCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -3492,8 +3655,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -3540,6 +3711,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Channel> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -3657,8 +3829,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -3706,6 +3886,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Channel> UpdateAsync(string id, ChannelUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -3829,8 +4010,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -3877,6 +4066,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -3988,8 +4178,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -4035,6 +4233,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -4151,8 +4350,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -4198,6 +4405,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SortFieldInfo>> GetSortFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -4314,8 +4522,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -4361,6 +4577,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -4477,8 +4694,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -4655,6 +4880,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentPermissionSetDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -4772,8 +4998,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -4821,6 +5055,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentPermissionSetDetail> UpdateAsync(string id, ContentPermissionSetUpdateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -4944,8 +5179,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -4991,6 +5234,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -5102,8 +5346,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -5150,6 +5402,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentPermissionSetDetail> CreateAsync(ContentPermissionSetCreateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -5272,8 +5525,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -5320,6 +5581,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentPermissionSetDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -5441,8 +5703,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -5489,6 +5759,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -5606,8 +5877,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -5654,6 +5933,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -5771,8 +6051,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -5819,6 +6107,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(ContentPermissionSetCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -5941,8 +6230,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -5989,6 +6286,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(ContentPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -6111,8 +6409,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -6159,6 +6465,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -6281,8 +6588,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -6328,6 +6643,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -6444,8 +6760,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -6492,6 +6816,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetUserPermissionRights>> GetPermissionsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -6613,8 +6938,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -6661,6 +6994,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -6783,8 +7117,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -6961,6 +7303,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="ContentNotFoundException">Content not found</exception>
@@ -7071,8 +7414,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -7137,6 +7488,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
@@ -7249,8 +7601,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -7314,6 +7674,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -7440,8 +7801,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -7511,6 +7880,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> EditOutputAsync(string contentId, string outputFormatId, string conversionPreset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -7620,8 +7990,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -7692,6 +8070,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string id, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -7812,8 +8191,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -7879,6 +8266,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -8006,8 +8394,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -8067,6 +8463,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -8165,8 +8562,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -8247,6 +8652,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -8375,8 +8781,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -8442,6 +8856,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -8566,8 +8981,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -8633,6 +9056,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string id, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -8758,8 +9182,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -8811,6 +9243,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, ContentOwnershipTransferRequest request, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -8937,8 +9370,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -8985,6 +9426,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckContentSchemaChangeAsync(CheckContentSchemaIdChangeRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -9107,8 +9549,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -9156,6 +9606,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckUpdateFileAsync(string id, ContentFileUpdateCheckRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -9279,8 +9730,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -9328,6 +9787,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateFileAsync(string id, ContentFileUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -9451,8 +9911,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -9500,6 +9968,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesAsync(string id, ContentReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -9623,8 +10092,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -9671,6 +10148,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -9788,8 +10266,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -9836,6 +10322,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -9958,8 +10445,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -10006,6 +10501,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DownloadLink> GetDownloadLinkAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -10123,8 +10619,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -10171,6 +10675,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(ContentCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -10293,8 +10798,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -10340,6 +10853,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
@@ -10450,8 +10964,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -10512,6 +11034,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> UpdatePermissionsManyCoreAsync(ContentPermissionsUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -10634,8 +11157,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -10682,6 +11213,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyCoreAsync(ContentOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -10804,8 +11336,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -10852,6 +11392,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ContentDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -10974,8 +11515,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -11022,6 +11571,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyByFilterAsync(ContentDeleteManyFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -11144,8 +11694,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -11192,6 +11750,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RestoreManyAsync(ContentRestoreManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -11314,8 +11873,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -11362,6 +11929,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesManyAsync(ContentManyReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -11484,8 +12052,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -11532,6 +12108,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsManyAsync(OutputResolveManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -11654,8 +12231,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -11702,6 +12287,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RepairContentsByFilterAsync(ContentRepairByFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -11824,8 +12410,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -11872,6 +12466,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RepairContentsBatchAsync(ContentRepairBatchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -11994,8 +12589,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -12042,6 +12645,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByIdsCoreAsync(ContentFieldsBatchUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -12164,8 +12768,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -12212,6 +12824,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByFilterCoreAsync(ContentFieldsBatchUpdateFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -12334,8 +12947,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -12382,6 +13003,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -12494,8 +13116,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -12552,6 +13182,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateOnChannelAsync(ContentAggregationOnChannelRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -12674,8 +13305,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -12722,6 +13361,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -12844,8 +13484,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -12893,6 +13541,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<HistoricVersionSearchResult> GetVersionsAsync(string id, HistoricVersionSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -13016,8 +13665,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -13065,6 +13722,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<string> CreateVersionDownloadLinkAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -13186,8 +13844,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -13235,6 +13901,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteVersionAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -13350,8 +14017,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -13398,6 +14073,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="CommentNotFoundException">Comment not found</exception>
@@ -13504,8 +14180,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -13569,6 +14253,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<Comment> UpdateCommentCoreAsync(string id, string commentId, CommentEditable request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -13698,8 +14383,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -13748,6 +14441,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task DeleteCommentCoreAsync(string id, string commentId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -13865,8 +14559,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -13915,6 +14617,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Comment> CreateCommentAsync(string id, CommentCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -14043,8 +14746,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -14092,6 +14803,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<CommentSearchResult> SearchCommentsAsync(string id, CommentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -14215,8 +14927,392 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Sets/unsets a DisplayContent for a content with an id given in the request
+        /// </summary>
+        /// <param name="id">Id of the content</param>
+        /// <param name="setDisplayContentRequest">Request with DisplayContentId</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="timeout">Timeout for the operation</param>
+        /// <param name="waitForContinuation">Wait for the creation of the search doc update.</param>
+        /// <returns>Result of the operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public virtual async System.Threading.Tasks.Task<ContentDetail> SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (setDisplayContentRequest == null)
+                throw new System.ArgumentNullException("setDisplayContentRequest");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/displayContent?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (resolveBehaviors != null)
+            {
+                foreach (var item_ in resolveBehaviors) { urlBuilder_.Append(System.Uri.EscapeDataString("resolveBehaviors") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            }
+            if (timeout != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitForContinuation != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitForContinuation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitForContinuation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(setDisplayContentRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ContentDetail>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            throw new ApiException("Unauthorized", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 403)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 404)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 405)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Process many requests to set/unset display contents for given contents
+        /// </summary>
+        /// <param name="setDisplayContentsManyRequest">Set many display contents request</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public virtual async System.Threading.Tasks.Task<BusinessProcess> SetManyDisplayContentsAsync(SetDisplayContentsManyRequest setDisplayContentsManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (setDisplayContentsManyRequest == null)
+                throw new System.ArgumentNullException("setDisplayContentsManyRequest");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/many/displayContent");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(setDisplayContentsManyRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<BusinessProcess>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Unauthorized", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 403)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 404)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 405)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -14393,6 +15489,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ConversionPresetTemplateSearchResult> SearchAsync(ConversionPresetTemplateSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -14515,8 +15612,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -14564,6 +15669,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ConversionPresetTemplateDetail> CreateAsync(ConversionPresetTemplateCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -14691,8 +15797,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -14738,6 +15852,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -14847,8 +15962,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -14911,6 +16034,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ConversionPresetTemplateDetail> UpdateAsync(string id, ConversionPresetTemplateUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15039,8 +16163,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -15087,6 +16219,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15203,8 +16336,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -15251,6 +16392,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ConversionPresetTemplateDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15368,8 +16510,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -15416,6 +16566,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(ConversionPresetTemplateCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15538,8 +16689,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -15586,6 +16745,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15708,8 +16868,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -15756,6 +16924,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ConversionPresetTemplateDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -15878,8 +17047,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -16055,6 +17232,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DisplayValueStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -16171,8 +17349,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -16218,6 +17404,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RerenderAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -16335,8 +17522,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -16514,6 +17709,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistory> GetCurrentAsync(string documentType, string documentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -16632,8 +17828,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -16682,6 +17886,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, long documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -16804,8 +18009,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -16854,6 +18067,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistoryDifference> CompareWithCurrentAsync(string documentType, string documentId, long? version = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -16977,8 +18191,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -17028,6 +18250,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistoryDifference> CompareWithVersionAsync(string documentType, string documentId, long documentVersion, long? version = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -17155,8 +18378,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -17203,6 +18434,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -17325,8 +18557,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -17502,6 +18742,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProvider>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -17618,8 +18859,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -17665,6 +18914,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProviderBasicInfo>> GetAllBasicInfosAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -17781,8 +19031,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -17829,6 +19087,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<IdentityProvider> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -17946,8 +19205,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -17995,6 +19262,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<IdentityProvider> UpdateAsync(string id, IdentityProviderEditable provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -18118,8 +19386,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -18165,6 +19441,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetSynchronizableAttributesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -18281,8 +19558,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -18798,6 +20083,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<object> GetCoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -18905,8 +20191,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -19094,6 +20388,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemDetail> GetAsync(string id, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -19216,8 +20511,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -19271,6 +20574,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<ListItemDetail> UpdateCoreAsync(string id, ListItemUpdateRequest request, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -19411,8 +20715,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -19463,6 +20775,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
@@ -19575,8 +20888,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -19642,6 +20963,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string id, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -19767,8 +21089,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -19816,6 +21146,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesAsync(string id, ListItemReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -19939,8 +21270,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -19993,6 +21332,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest request, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -20132,8 +21472,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -20181,6 +21529,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -20306,8 +21655,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -20354,6 +21711,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(ListItemCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -20476,8 +21834,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -20524,6 +21890,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateManyCoreAsync(ListItemUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -20646,8 +22013,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -20694,6 +22069,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ListItemDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -20816,8 +22192,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -20864,6 +22248,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -20986,8 +22371,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -21034,6 +22427,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RestoreManyAsync(ListItemRestoreManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -21156,8 +22550,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -21204,6 +22606,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesManyAsync(ListItemManyReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -21326,8 +22729,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -21374,6 +22785,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByIdsCoreAsync(ListItemFieldsBatchUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -21496,8 +22908,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -21544,6 +22964,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByFilterCoreAsync(ListItemFieldsBatchUpdateFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -21666,8 +23087,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -21714,6 +23143,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -21836,8 +23266,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -21884,6 +23322,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -22006,8 +23445,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -22184,6 +23631,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<LiveStreamSearchResult> SearchAsync(LiveStreamSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -22306,8 +23754,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -22483,6 +23939,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<MetadataStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -22599,8 +24056,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -22646,6 +24111,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateOutdatedAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -22763,8 +24229,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -22941,6 +24415,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Notification> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -23058,8 +24533,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -23106,6 +24589,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Notification> MarkAsReadAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -23224,8 +24708,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -23272,6 +24764,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<NotificationCompactResult> SearchAsync(NotificationSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -23394,8 +24887,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -23442,6 +24943,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(NotificationAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -23564,8 +25066,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -23610,6 +25120,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task MarkAllAsReadAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -23721,8 +25232,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -23768,6 +25287,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<EmailNotificationsSettings> GetEmailNotificationSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -23884,8 +25404,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -23932,6 +25460,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<EmailNotificationsSettings> PutEmailNotificationSettingsAsync(EmailNotificationsSettings configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -24054,8 +25583,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -24100,6 +25637,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<NotificationType>>> GetAvailableNotificationTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -24216,8 +25754,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -24398,6 +25944,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetDownloadFileNamePatternsAsync(string id, System.Collections.Generic.IDictionary<string, string> patterns, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -24521,8 +26068,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -24569,6 +26124,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -24691,8 +26247,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -24740,6 +26304,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackStateAsync(string id, OutputFormatSetXmpWritebackStateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -24863,8 +26428,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -24911,6 +26484,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -25033,8 +26607,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -25082,6 +26664,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetPermissionAsync(string id, OutputFormatSetPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -25205,8 +26788,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -25253,6 +26844,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetPermissionManyAsync(OutputFormatSetPermissionManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -25375,8 +26967,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -25423,6 +27023,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -25543,8 +27144,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -25604,6 +27213,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -25713,8 +27323,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -25775,6 +27393,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> CreateCoreAsync(OutputFormat request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -25897,8 +27516,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -25946,6 +27573,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateCoreAsync(string id, OutputFormatEditable request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -26069,8 +27697,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -26117,6 +27753,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteCoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -26234,8 +27871,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -26282,6 +27927,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<OutputFormatDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -26399,8 +28045,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -26447,6 +28101,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(OutputFormatCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -26569,8 +28224,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -26617,6 +28280,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateManyCoreAsync(OutputFormatUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -26739,8 +28403,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -26787,6 +28459,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyCoreAsync(OutputFormatDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -26909,8 +28582,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -27087,6 +28768,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<OutputDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -27204,8 +28886,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -27252,6 +28942,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<OutputSearchResult> SearchAsync(OutputSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -27374,8 +29065,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -27422,6 +29121,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -27544,8 +29244,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -27721,6 +29429,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -27837,8 +29546,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -27885,6 +29602,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfileUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -28007,8 +29725,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -28054,6 +29780,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RequestDeletionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -28165,8 +29892,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -28343,6 +30078,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -28460,8 +30196,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -28509,6 +30253,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<SchemaPermissionSetDetail> UpdateAsync(string id, SchemaPermissionSetUpdateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -28632,8 +30377,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -28679,6 +30432,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -28790,8 +30544,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -28838,6 +30600,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<SchemaPermissionSetDetail> CreateAsync(SchemaPermissionSetCreateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -28960,8 +30723,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -29008,6 +30779,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaPermissionSetDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -29129,8 +30901,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -29177,6 +30957,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -29294,8 +31075,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -29342,6 +31131,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -29459,8 +31249,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -29507,6 +31305,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(SchemaPermissionSetCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -29629,8 +31428,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -29677,6 +31484,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(SchemaPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -29799,8 +31607,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -29847,6 +31663,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -29969,8 +31786,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -30016,6 +31841,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -30132,8 +31958,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -30180,6 +32014,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetUserPermissionRights>> GetPermissionsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -30301,8 +32136,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -30349,6 +32192,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -30471,8 +32315,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -30648,6 +32500,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="SchemaNotFoundException">Requested schema could not be found</exception>
@@ -30753,8 +32606,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -30816,6 +32677,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -30921,8 +32783,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -30997,6 +32867,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -31096,8 +32967,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -31172,6 +33051,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<SchemaExistsResponse> ExistsCoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -31289,8 +33169,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -31338,6 +33226,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -31456,8 +33345,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -31504,6 +33401,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -31614,8 +33512,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -31679,6 +33585,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -31801,8 +33708,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -31850,6 +33765,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="DuplicateSchemaException">Schema with this name already exists</exception>
@@ -31967,8 +33883,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -32028,6 +33952,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -32137,8 +34062,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -32198,6 +34131,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="DuplicateSchemaException">One or more schemas in the request already exist</exception>
@@ -32310,8 +34244,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -32371,6 +34313,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -32481,8 +34424,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -32544,6 +34495,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, bool? sourceSchema = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -32669,8 +34621,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -32717,6 +34677,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -32839,8 +34800,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -32887,6 +34856,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -33009,8 +34979,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -33057,6 +35035,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -33174,8 +35153,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -33222,6 +35209,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -33343,8 +35331,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -33391,6 +35387,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -33508,8 +35505,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -33556,6 +35561,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -33677,8 +35683,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -33725,6 +35739,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SortFieldInfo>> GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable<SchemaType> schemaTypes = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -33846,8 +35861,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -34023,6 +36046,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="FileTransferNotFoundException">File transfer not found</exception>
@@ -34134,8 +36158,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -34329,6 +36361,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareDetail> GetShareJsonAsync(string token, string lang = null, System.Collections.Generic.IEnumerable<ShareResolveBehavior> resolveBehaviors = null, int? contentResolveLimit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -34459,8 +36492,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -34510,6 +36551,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareContentDetailResult> GetShareContentsAsync(string token, string lang = null, int? limit = null, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -34640,8 +36682,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -34688,6 +36738,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareOutputsResult> GetOutputsInShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -34805,8 +36856,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -34855,6 +36914,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string token, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -34974,8 +37034,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -35045,6 +37113,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DownloadLink> CreateShareSelectionDownloadLinkAsync(string token, ShareDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -35168,8 +37237,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -35220,6 +37297,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -35341,8 +37419,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -35412,6 +37498,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadWithConversionPresetAsync(string token, string conversionPreset, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -35523,8 +37610,205 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 200 || status_ == 206)
+                        {
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
+                        }
+                        else
+                        if (status_ == 206)
+                        {
+                            var responseStream_ = response_.Content == null ? System.IO.Stream.Null : await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_);
+                            disposeClient_ = false; disposeResponse_ = false; // response and client are disposed by FileResponse
+                            return fileResponse_;
+                        }
+                        else
+                        if (status_ == 412)
+                        {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            throw new ApiException("A server side error occurred.", status_, responseText_, headers_, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Download shared display content outputs
+        /// </summary>
+        /// <param name="token">Share token</param>
+        /// <param name="contentId">The content id</param>
+        /// <param name="outputFormatId">Id of the output format</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public virtual async System.Threading.Tasks.Task<FileResponse> DownloadDisplayContentOutputsAsync(string token, string contentId, string outputFormatId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/d/{token}/displayContent/{contentId}/{outputFormatId}");
+            urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(ConvertToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(ConvertToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/octet-stream"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Unauthorized", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 403)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 404)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 405)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -35594,6 +37878,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="ShareNotFoundException">Share could not be found</exception>
@@ -35708,8 +37993,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -35770,6 +38063,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
@@ -35881,8 +38175,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -35945,6 +38247,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareContentDetailResult> GetContentsInShareAsync(string id, int? limit = null, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -36071,8 +38374,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -36117,6 +38428,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PermissionValidationException">No permission to share</exception>
@@ -36215,8 +38527,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -36291,6 +38611,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ShareDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -36413,8 +38734,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -36461,6 +38790,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RevokeAsync(ShareRevokeManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -36583,8 +38913,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -36631,6 +38969,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -36753,8 +39092,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -36801,6 +39148,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -36923,8 +39271,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -37101,6 +39457,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentStatisticsAggregated> GetSingleContentStatisticsAsync(string contentId, System.Collections.Generic.IEnumerable<System.TimeSpan> timeFrames = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -37223,8 +39580,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -37271,6 +39636,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ExportContentStatisticsAsync(ExportContentStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -37393,8 +39759,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -37441,6 +39815,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DownloadLink> ResolveDownloadLinkAsync(string referenceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -37558,8 +39933,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -37606,6 +39989,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> AddContentEventsAsync(AddContentEventsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -37728,8 +40112,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -37906,6 +40298,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Template> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -38023,8 +40416,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -38072,6 +40473,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Template> UpdateAsync(string id, TemplateUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -38195,8 +40597,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -38242,6 +40652,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -38353,8 +40764,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -38401,6 +40820,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Template> CreateAsync(TemplateCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -38523,8 +40943,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -38570,6 +40998,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Template>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -38686,8 +41115,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -38734,6 +41171,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<TemplateSearchResult> SearchAsync(TemplateSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -38856,8 +41294,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -39033,6 +41479,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="MaximumTransferSizeException">A server side error occurred.</exception>
@@ -39143,8 +41590,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -39205,6 +41660,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<TransferDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -39322,8 +41778,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -39370,6 +41834,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -39481,8 +41946,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -39530,6 +42003,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Transfer> ImportAsync(string id, ImportTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -39653,8 +42127,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -39702,6 +42184,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Transfer> PartialImportAsync(string id, ImportTransferPartialRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -39825,8 +42308,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -39873,6 +42364,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -39985,8 +42477,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -40033,6 +42533,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -40155,8 +42656,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -40203,6 +42712,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileTransferDetail> GetFileAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -40320,8 +42830,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -40368,6 +42886,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -40490,8 +43009,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -40537,6 +43064,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteFilesAsync(FileTransferDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -40653,8 +43181,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -40700,6 +43236,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -40816,8 +43353,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -40870,6 +43415,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -41002,8 +43548,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -41180,6 +43734,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserRoleSearchResult> SearchAsync(UserRoleSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -41302,8 +43857,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -41349,6 +43912,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -41458,8 +44022,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -41520,6 +44092,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserRoleDetail> CreateAsync(UserRoleCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -41642,8 +44215,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -41690,6 +44271,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(UserRoleCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -41812,8 +44394,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -41860,6 +44450,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(UserRoleUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -41982,8 +44573,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -42030,6 +44629,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(UserRoleDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -42152,8 +44752,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -42200,6 +44808,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserRoleDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -42317,8 +44926,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -42366,6 +44983,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserRoleDetail> UpdateAsync(string id, UserRoleEditable request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -42489,8 +45107,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -42536,6 +45162,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -42647,8 +45274,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -42825,6 +45460,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -42942,8 +45578,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -42991,6 +45635,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> UpdateAsync(string id, UserUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -43114,8 +45759,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -43163,6 +45816,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task LockAsync(string id, UserLockRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -43280,8 +45934,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -43328,6 +45990,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> LockManyAsync(UserLockManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -43450,8 +46113,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -43499,6 +46170,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task ReviewAsync(string id, UserReviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -43616,8 +46288,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -43664,6 +46344,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ReviewManyAsync(UserReviewManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -43786,8 +46467,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -43834,6 +46523,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task InviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -43946,8 +46636,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -43994,6 +46692,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> InviteManyAsync(UserInviteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -44116,8 +46815,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -44164,6 +46871,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task ReinviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -44276,8 +46984,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -44324,6 +47040,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ReInviteManyAsync(UserReinviteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -44446,8 +47163,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -44494,6 +47219,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> AssignUserRolesAsync(UserRoleAssignManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -44616,8 +47342,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -44665,6 +47399,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -44782,8 +47517,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -44830,6 +47573,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task ArchiveAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -44942,8 +47686,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -44990,6 +47742,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -45102,8 +47855,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -45150,6 +47911,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task CancelDeletionRequestAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -45262,8 +48024,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -45310,6 +48080,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> GetByOwnerTokenAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -45427,8 +48198,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -45475,6 +48254,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> CreateAsync(UserCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -45597,8 +48377,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -45645,6 +48433,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -45766,8 +48555,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -45814,6 +48611,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserSearchResult> SearchAsync(UserSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -45936,8 +48734,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -45984,6 +48790,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -46106,8 +48913,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -46154,6 +48969,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -46276,8 +49092,195 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// List users, result contains only essential info about user. Requires the `ListUsers` or the `ManageUsers` UserRight.
+        /// </summary>
+        /// <param name="request">User list request.</param>
+        /// <returns>Result of the list users</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public virtual async System.Threading.Tasks.Task<UserListResult> ListAsync(UserListRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (request == null)
+                throw new System.ArgumentNullException("request");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/list");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<UserListResult>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            throw new ApiException("Unauthorized", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 403)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 404)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 405)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -46453,6 +49456,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<XmpMappingTargets> GetAvailableTargetsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -46569,8 +49573,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -46617,6 +49629,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<XmpMappingEntrySearchResult> SearchAsync(XmpMappingEntrySearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -46739,8 +49752,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -46787,6 +49808,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(XmpMappingEntryCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -46909,8 +49931,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -46956,6 +49986,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -47065,8 +50096,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -47128,6 +50167,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string id, XmpMappingEntry request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -47251,8 +50291,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -47299,6 +50347,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -47416,8 +50465,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -47464,6 +50521,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<XmpMappingEntry> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -47581,8 +50639,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -47629,6 +50695,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(XmpMappingEntryCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -47751,8 +50818,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -47799,6 +50874,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(XmpMappingEntryUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -47921,8 +50997,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)
@@ -47969,6 +51053,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(XmpMappingEntryDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -48091,8 +51176,16 @@ namespace Picturepark.SDK.V1
                         else
                         if (status_ == 429)
                         {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", status_, responseText_, headers_, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == 500)

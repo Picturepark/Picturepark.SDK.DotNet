@@ -127,7 +127,7 @@
   
   <h5 id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BusinessProcessClient : ClientBase, IBusinessProcessClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class BusinessProcessClient : ClientBase</code></pre>
   </div>
   
   
@@ -140,9 +140,9 @@
   
   <a id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">BusinessProcessClient(ICloudManagerServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.#ctor(Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">BusinessProcessClient(ICloudManagerServiceSettings, Http.HttpClient)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient__ctor_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -155,7 +155,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html">ICloudManagerServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -301,7 +301,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p>
       </td>
     </tr>
@@ -315,58 +315,6 @@
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -440,6 +388,60 @@
   </div>
   
   
+  <a id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient_SearchAsync_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.SearchAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.SearchAsync(BusinessProcessSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(BusinessProcessSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcessSearchResult&gt; SearchAsync(BusinessProcessSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">BusinessProcessSearchRequest</span></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessSearchResult</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient_WaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.WaitForCompletionAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_CloudManager_BusinessProcessClient_WaitForCompletionAsync_System_String_System_String_System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.BusinessProcessClient.WaitForCompletionAsync(System.String,System.String,System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_BusinessProcessClient_WaitForCompletionAsync_System_String_System_String_System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForCompletionAsync(String, String, Nullable&lt;TimeSpan&gt;, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
@@ -497,7 +499,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html">BusinessProcessWaitForLifeCycleResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForLifeCycleResult</span>&gt;
         <p>
       </td>
     </tr>
@@ -511,58 +513,6 @@
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   

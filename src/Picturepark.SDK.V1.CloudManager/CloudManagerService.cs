@@ -52,6 +52,8 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public IOutputFormatClient OutputFormat { get; private set; }
 
+        public ICustomerAssetClient CustomerAsset { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -75,6 +77,7 @@ namespace Picturepark.SDK.V1.CloudManager
             Maintenance = new MaintenanceClient(settings, httpClient);
             GlobalConfiguration = new GlobalConfigurationClient(settings, httpClient);
             OutputFormat = new OutputFormatClient(settings, httpClient);
+            CustomerAsset = new CustomerAssetClient(settings, httpClient);
         }
     }
 }
