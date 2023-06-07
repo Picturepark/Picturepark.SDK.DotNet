@@ -26014,7 +26014,6 @@
           "snapshotFullbackupScheduleTime",
           "snapshotRetentionTime",
           "contentBackupState",
-          "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "skipSignUpCaptcha",
@@ -26236,9 +26235,20 @@
           "contentBackupState": {
             "$ref": "#/components/schemas/ContentBackupState"
           },
-          "apiCallsPerMinute": {
-            "type": "integer",
-            "format": "int32"
+          "apiLimits": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ReadWriteApiLimits"
+              }
+            ]
+          },
+          "apiClientLimits": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ReadWriteApiLimits"
+            }
           },
           "boostValues": {
             "type": "array",
@@ -28151,6 +28161,66 @@
           "Resetting"
         ]
       },
+      "ReadWriteApiLimits": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "read": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiLimits"
+              }
+            ]
+          },
+          "write": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiLimits"
+              }
+            ]
+          }
+        }
+      },
+      "ApiLimits": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "thirtySeconds",
+          "minute",
+          "fiveMinutes",
+          "fifteenMinutes",
+          "hour",
+          "twelveHours"
+        ],
+        "properties": {
+          "thirtySeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fiveMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fifteenMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hour": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "twelveHours": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "CustomerConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -28187,7 +28257,6 @@
           "editCollectionRetentionTime",
           "notificationEventCollectionRetentionTime",
           "contentBackupState",
-          "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "isClone",
@@ -28510,9 +28579,20 @@
             "format": "date-time",
             "nullable": true
           },
-          "apiCallsPerMinute": {
-            "type": "integer",
-            "format": "int32"
+          "apiLimits": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ReadWriteApiLimits"
+              }
+            ]
+          },
+          "apiClientLimits": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ReadWriteApiLimits"
+            }
           },
           "defaultContentPermissionSetIds": {
             "type": "array",
@@ -28662,7 +28742,6 @@
           "replacedOriginalsRetentionTime",
           "useSsl",
           "enableQueryDetails",
-          "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "skipSignUpCaptcha",
@@ -28809,9 +28888,20 @@
             "format": "int32",
             "nullable": true
           },
-          "apiCallsPerMinute": {
-            "type": "integer",
-            "format": "int32"
+          "apiLimits": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ReadWriteApiLimits"
+              }
+            ]
+          },
+          "apiClientLimits": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ReadWriteApiLimits"
+            }
           },
           "defaultContentPermissionSetIds": {
             "type": "array",
