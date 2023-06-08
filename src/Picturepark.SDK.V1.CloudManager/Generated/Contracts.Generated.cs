@@ -16119,8 +16119,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentBackupState ContentBackupState { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
-        public int ApiCallsPerMinute { get; set; }
+        [Newtonsoft.Json.JsonProperty("apiLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ReadWriteApiLimits ApiLimits { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("apiClientLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, ReadWriteApiLimits> ApiClientLimits { get; set; }
 
         [Newtonsoft.Json.JsonProperty("boostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<double> BoostValues { get; set; }
@@ -18503,6 +18506,66 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ReadWriteApiLimits
+    {
+        [Newtonsoft.Json.JsonProperty("read", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ApiLimits Read { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("write", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ApiLimits Write { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ReadWriteApiLimits FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReadWriteApiLimits>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ApiLimits
+    {
+        [Newtonsoft.Json.JsonProperty("thirtySeconds", Required = Newtonsoft.Json.Required.Always)]
+        public int ThirtySeconds { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("minute", Required = Newtonsoft.Json.Required.Always)]
+        public int Minute { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fiveMinutes", Required = Newtonsoft.Json.Required.Always)]
+        public int FiveMinutes { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fifteenMinutes", Required = Newtonsoft.Json.Required.Always)]
+        public int FifteenMinutes { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("hour", Required = Newtonsoft.Json.Required.Always)]
+        public int Hour { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("twelveHours", Required = Newtonsoft.Json.Required.Always)]
+        public int TwelveHours { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ApiLimits FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ApiLimits>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class CustomerConfiguration
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -18743,8 +18806,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contentBackupEnableDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? ContentBackupEnableDate { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
-        public int ApiCallsPerMinute { get; set; }
+        [Newtonsoft.Json.JsonProperty("apiLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ReadWriteApiLimits ApiLimits { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("apiClientLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, ReadWriteApiLimits> ApiClientLimits { get; set; }
 
         [Newtonsoft.Json.JsonProperty("defaultContentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DefaultContentPermissionSetIds { get; set; }
@@ -18987,8 +19053,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("sortableFieldThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? SortableFieldThreshold { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
-        public int ApiCallsPerMinute { get; set; }
+        [Newtonsoft.Json.JsonProperty("apiLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ReadWriteApiLimits ApiLimits { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("apiClientLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, ReadWriteApiLimits> ApiClientLimits { get; set; }
 
         [Newtonsoft.Json.JsonProperty("defaultContentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DefaultContentPermissionSetIds { get; set; }
