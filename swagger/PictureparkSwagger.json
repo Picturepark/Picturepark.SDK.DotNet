@@ -44516,6 +44516,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -46806,6 +46808,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -48814,6 +48818,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -49373,6 +49379,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -50235,7 +50243,6 @@
             "NotificationDetailTagging": "#/components/schemas/NotificationDetailTagging",
             "NotificationDetailBatchRendering": "#/components/schemas/NotificationDetailBatchRendering",
             "NotificationDetailStatisticsExport": "#/components/schemas/NotificationDetailStatisticsExport",
-            "NotificationDetailProgressWithRelatedItemsBase": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase",
             "NotificationDetailMetadataItemCreateRelatedItems": "#/components/schemas/NotificationDetailMetadataItemCreateRelatedItems",
             "NotificationDetailMetadataItemCreateRelatedItemsBySchema": "#/components/schemas/NotificationDetailMetadataItemCreateRelatedItemsBySchema",
             "NotificationDetailMetadataItemUpdateOutdated": "#/components/schemas/NotificationDetailMetadataItemUpdateOutdated",
@@ -50658,7 +50665,7 @@
       "NotificationDetailMetadataItemCreateRelatedItems": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50666,32 +50673,10 @@
           }
         ]
       },
-      "NotificationDetailProgressWithRelatedItemsBase": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationDetailProgressBase"
-          },
-          {
-            "type": "object",
-            "x-abstract": true,
-            "additionalProperties": false,
-            "properties": {
-              "relatedItemCount": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "relatedItemProgress": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
       "NotificationDetailMetadataItemCreateRelatedItemsBySchema": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50702,7 +50687,7 @@
       "NotificationDetailMetadataItemUpdateOutdated": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50775,7 +50760,7 @@
       "NotificationDetailMetadataItemDeactivationBase": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50797,7 +50782,7 @@
       "NotificationDetailListItemMetadataBatchEdit": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",

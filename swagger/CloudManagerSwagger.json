@@ -15,6 +15,373 @@
     }
   },
   "paths": {
+    "/apiClient/{id}/limits": {
+      "get": {
+        "tags": [
+          "ApiClientLimits"
+        ],
+        "operationId": "ApiClientLimit_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadWriteApiLimits"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ApiClientLimits"
+        ],
+        "operationId": "ApiClientLimit_Upsert",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "limits",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadWriteApiLimits"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadWriteApiLimits"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ApiClientLimits"
+        ],
+        "operationId": "ApiClientLimit_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/BusinessProcesses/{alias}/{id}/waitCompletion": {
       "get": {
         "tags": [
@@ -9877,121 +10244,6 @@
         }
       }
     },
-    "/cloud/service/configuration": {
-      "post": {
-        "tags": [
-          "GlobalConfiguration"
-        ],
-        "operationId": "GlobalConfiguration_CreateService",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateServiceConfigurationRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
     "/Maintenance/customer/{id}/schemas/touch": {
       "post": {
         "tags": [
@@ -14665,218 +14917,63 @@
   },
   "components": {
     "schemas": {
-      "BusinessProcessWaitForLifeCycleResult": {
+      "ReadWriteApiLimits": {
         "type": "object",
-        "description": "Result from waiting for life cycle(s) on a business process",
         "additionalProperties": false,
-        "required": [
-          "businessProcess"
-        ],
         "properties": {
-          "lifeCycleHit": {
-            "description": "The life cycle that was hit.",
+          "read": {
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+                "$ref": "#/components/schemas/ApiLimits"
               }
             ]
           },
-          "businessProcess": {
-            "description": "The business process.",
+          "write": {
+            "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BusinessProcess"
+                "$ref": "#/components/schemas/ApiLimits"
               }
             ]
           }
         }
       },
-      "BusinessProcessLifeCycle": {
-        "type": "string",
-        "description": "Life cycle of the business process",
-        "x-enumNames": [
-          "Draft",
-          "InProgress",
-          "Succeeded",
-          "Cancelled",
-          "CancellationInProgress",
-          "Failed",
-          "SucceededWithErrors"
-        ],
-        "enum": [
-          "Draft",
-          "InProgress",
-          "Succeeded",
-          "Cancelled",
-          "CancellationInProgress",
-          "Failed",
-          "SucceededWithErrors"
-        ]
-      },
-      "BusinessProcess": {
+      "ApiLimits": {
         "type": "object",
-        "discriminator": {
-          "propertyName": "kind"
-        },
-        "description": "Business process",
         "additionalProperties": false,
         "required": [
-          "id",
-          "processDefinitionId",
-          "kind",
-          "supportsCancellation",
-          "businessProcessScope",
-          "lifeCycle",
-          "startDate",
-          "endDate",
-          "finished"
+          "thirtySeconds",
+          "minute",
+          "fiveMinutes",
+          "fifteenMinutes",
+          "hour",
+          "twelveHours"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of the business process.",
-            "minLength": 1
+          "thirtySeconds": {
+            "type": "integer",
+            "format": "int32"
           },
-          "processDefinitionId": {
-            "type": "string",
-            "description": "ID of the business process definition associated to the business process.",
-            "minLength": 1
+          "minute": {
+            "type": "integer",
+            "format": "int32"
           },
-          "referenceId": {
-            "type": "string",
-            "description": "ID of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
-            "nullable": true
+          "fiveMinutes": {
+            "type": "integer",
+            "format": "int32"
           },
-          "referenceDocType": {
-            "type": "string",
-            "description": "Type of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
-            "nullable": true
+          "fifteenMinutes": {
+            "type": "integer",
+            "format": "int32"
           },
-          "supportsCancellation": {
-            "type": "boolean",
-            "description": "True if the business process execution can be cancelled. False otherwise."
+          "hour": {
+            "type": "integer",
+            "format": "int32"
           },
-          "businessProcessScope": {
-            "description": "Scope of the business process.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BusinessProcessScope"
-              }
-            ]
-          },
-          "lifeCycle": {
-            "description": "Current life cycle of the business process.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
-              }
-            ]
-          },
-          "startDate": {
-            "type": "string",
-            "description": "When the business process started.",
-            "format": "date-time"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "When the business process finished.",
-            "format": "date-time"
-          },
-          "finished": {
-            "type": "boolean",
-            "description": "Is the business process finished."
-          },
-          "stateHistory": {
-            "type": "array",
-            "description": "List containing the history of all the state transitions of the business process.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BusinessProcessState"
-            }
-          },
-          "currentState": {
-            "type": "string",
-            "description": "Current state of the business process.",
-            "nullable": true
-          },
-          "lastReportedProgress": {
-            "type": "string",
-            "description": "Timestamp when the business process last reported progress.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "continuationBusinessProcessId": {
-            "type": "string",
-            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
-            "nullable": true
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "BusinessProcessScope": {
-        "type": "string",
-        "description": "Scope of the business process",
-        "x-enumNames": [
-          "System",
-          "User"
-        ],
-        "enum": [
-          "System",
-          "User"
-        ]
-      },
-      "BusinessProcessState": {
-        "type": "object",
-        "description": "State transition information of a business process",
-        "additionalProperties": false,
-        "required": [
-          "state",
-          "timestamp"
-        ],
-        "properties": {
-          "state": {
-            "type": "string",
-            "description": "State of the business process",
-            "minLength": 1
-          },
-          "timestamp": {
-            "type": "string",
-            "description": "Date and time of when the state transition was performed.",
-            "format": "date-time"
-          },
-          "error": {
-            "description": "Eventual error associated to the state transition.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ErrorResponse"
-              }
-            ]
-          }
-        }
-      },
-      "ErrorResponse": {
-        "type": "object",
-        "description": "Error information with serialized exception",
-        "additionalProperties": false,
-        "properties": {
-          "exception": {
-            "type": "string",
-            "description": "Serialized PictureparkBusinessException.",
-            "nullable": true
-          },
-          "traceId": {
-            "type": "string",
-            "description": "Trace ID.",
-            "nullable": true
-          },
-          "traceJobId": {
-            "type": "string",
-            "description": "Trace job ID.",
-            "nullable": true
+          "twelveHours": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -21038,6 +21135,28 @@
           }
         ]
       },
+      "BusinessProcessLifeCycle": {
+        "type": "string",
+        "description": "Life cycle of the business process",
+        "x-enumNames": [
+          "Draft",
+          "InProgress",
+          "Succeeded",
+          "Cancelled",
+          "CancellationInProgress",
+          "Failed",
+          "SucceededWithErrors"
+        ],
+        "enum": [
+          "Draft",
+          "InProgress",
+          "Succeeded",
+          "Cancelled",
+          "CancellationInProgress",
+          "Failed",
+          "SucceededWithErrors"
+        ]
+      },
       "OnlyAccessibleToRecipientException": {
         "allOf": [
           {
@@ -22667,6 +22786,199 @@
             }
           }
         ]
+      },
+      "BusinessProcessWaitForLifeCycleResult": {
+        "type": "object",
+        "description": "Result from waiting for life cycle(s) on a business process",
+        "additionalProperties": false,
+        "required": [
+          "businessProcess"
+        ],
+        "properties": {
+          "lifeCycleHit": {
+            "description": "The life cycle that was hit.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
+          },
+          "businessProcess": {
+            "description": "The business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcess"
+              }
+            ]
+          }
+        }
+      },
+      "BusinessProcess": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind"
+        },
+        "description": "Business process",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "processDefinitionId",
+          "kind",
+          "supportsCancellation",
+          "businessProcessScope",
+          "lifeCycle",
+          "startDate",
+          "endDate",
+          "finished"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the business process.",
+            "minLength": 1
+          },
+          "processDefinitionId": {
+            "type": "string",
+            "description": "ID of the business process definition associated to the business process.",
+            "minLength": 1
+          },
+          "referenceId": {
+            "type": "string",
+            "description": "ID of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
+            "nullable": true
+          },
+          "referenceDocType": {
+            "type": "string",
+            "description": "Type of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
+            "nullable": true
+          },
+          "supportsCancellation": {
+            "type": "boolean",
+            "description": "True if the business process execution can be cancelled. False otherwise."
+          },
+          "businessProcessScope": {
+            "description": "Scope of the business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessScope"
+              }
+            ]
+          },
+          "lifeCycle": {
+            "description": "Current life cycle of the business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "description": "When the business process started.",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "When the business process finished.",
+            "format": "date-time"
+          },
+          "finished": {
+            "type": "boolean",
+            "description": "Is the business process finished."
+          },
+          "stateHistory": {
+            "type": "array",
+            "description": "List containing the history of all the state transitions of the business process.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessProcessState"
+            }
+          },
+          "currentState": {
+            "type": "string",
+            "description": "Current state of the business process.",
+            "nullable": true
+          },
+          "lastReportedProgress": {
+            "type": "string",
+            "description": "Timestamp when the business process last reported progress.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "continuationBusinessProcessId": {
+            "type": "string",
+            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessProcessScope": {
+        "type": "string",
+        "description": "Scope of the business process",
+        "x-enumNames": [
+          "System",
+          "User"
+        ],
+        "enum": [
+          "System",
+          "User"
+        ]
+      },
+      "BusinessProcessState": {
+        "type": "object",
+        "description": "State transition information of a business process",
+        "additionalProperties": false,
+        "required": [
+          "state",
+          "timestamp"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "State of the business process",
+            "minLength": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Date and time of when the state transition was performed.",
+            "format": "date-time"
+          },
+          "error": {
+            "description": "Eventual error associated to the state transition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Error information with serialized exception",
+        "additionalProperties": false,
+        "properties": {
+          "exception": {
+            "type": "string",
+            "description": "Serialized PictureparkBusinessException.",
+            "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "description": "Trace ID.",
+            "nullable": true
+          },
+          "traceJobId": {
+            "type": "string",
+            "description": "Trace job ID.",
+            "nullable": true
+          }
+        }
       },
       "BusinessProcessSearchResult": {
         "allOf": [
@@ -28161,66 +28473,6 @@
           "Resetting"
         ]
       },
-      "ReadWriteApiLimits": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "read": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ApiLimits"
-              }
-            ]
-          },
-          "write": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ApiLimits"
-              }
-            ]
-          }
-        }
-      },
-      "ApiLimits": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "thirtySeconds",
-          "minute",
-          "fiveMinutes",
-          "fifteenMinutes",
-          "hour",
-          "twelveHours"
-        ],
-        "properties": {
-          "thirtySeconds": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "minute": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fiveMinutes": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fifteenMinutes": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "hour": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "twelveHours": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
       "CustomerConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -30502,15 +30754,6 @@
                 "$ref": "#/components/schemas/FilterBase"
               }
             ]
-          }
-        }
-      },
-      "CreateServiceConfigurationRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "queueConfigurations": {
-            "nullable": true
           }
         }
       },

@@ -21658,6 +21658,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <br/>They are referenced list items that reference at least a list item that do not exist in the system.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -24647,6 +24648,7 @@ namespace Picturepark.SDK.V1.Contract
         /// All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -27189,6 +27191,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <br/>They are referenced list items that reference at least a list item that do not exist in the system.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -27932,6 +27935,7 @@ namespace Picturepark.SDK.V1.Contract
         /// All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -29487,7 +29491,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailMetadataItemCreateRelatedItems : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailMetadataItemCreateRelatedItems : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -29506,31 +29510,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class NotificationDetailProgressWithRelatedItemsBase : NotificationDetailProgressBase
-    {
-        [Newtonsoft.Json.JsonProperty("relatedItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long RelatedItemCount { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("relatedItemProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long RelatedItemProgress { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NotificationDetailProgressWithRelatedItemsBase FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailProgressWithRelatedItemsBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailMetadataItemCreateRelatedItemsBySchema : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailMetadataItemCreateRelatedItemsBySchema : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -29549,7 +29529,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailMetadataItemUpdateOutdated : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailMetadataItemUpdateOutdated : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -29665,7 +29645,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class NotificationDetailMetadataItemDeactivationBase : NotificationDetailProgressWithRelatedItemsBase
+    public abstract partial class NotificationDetailMetadataItemDeactivationBase : NotificationDetailProgressBase
     {
         [Newtonsoft.Json.JsonProperty("referencingItemsCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long ReferencingItemsCount { get; set; }
@@ -29689,7 +29669,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailListItemMetadataBatchEdit : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailListItemMetadataBatchEdit : NotificationDetailProgressBase
     {
 
         public string ToJson()
