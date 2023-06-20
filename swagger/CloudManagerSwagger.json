@@ -26650,6 +26650,17 @@
               "serviceId": {
                 "type": "string",
                 "nullable": true
+              },
+              "servingStaleContentEnabled": {
+                "type": "boolean"
+              },
+              "timeToServingStaleContent": {
+                "type": "string",
+                "format": "duration"
+              },
+              "defaultMaxAge": {
+                "type": "string",
+                "format": "duration"
               }
             }
           }
