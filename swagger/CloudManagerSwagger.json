@@ -26651,16 +26651,19 @@
                 "type": "string",
                 "nullable": true
               },
-              "servingStaleContentEnabled": {
-                "type": "boolean"
+              "servingStaleContentEnabledOverride": {
+                "type": "boolean",
+                "nullable": true
               },
-              "timeToServingStaleContent": {
+              "timeToServingStaleContentOverride": {
                 "type": "string",
-                "format": "duration"
+                "format": "duration",
+                "nullable": true
               },
-              "defaultMaxAge": {
+              "maxAgeOverride": {
                 "type": "string",
-                "format": "duration"
+                "format": "duration",
+                "nullable": true
               }
             }
           }
