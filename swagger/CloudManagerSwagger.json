@@ -26650,6 +26650,20 @@
               "serviceId": {
                 "type": "string",
                 "nullable": true
+              },
+              "servingStaleContentEnabledOverride": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "timeToServingStaleContentOverride": {
+                "type": "string",
+                "format": "duration",
+                "nullable": true
+              },
+              "maxAgeOverride": {
+                "type": "string",
+                "format": "duration",
+                "nullable": true
               }
             }
           }

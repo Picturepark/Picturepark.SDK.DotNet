@@ -16293,6 +16293,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("serviceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("servingStaleContentEnabledOverride", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? ServingStaleContentEnabledOverride { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("timeToServingStaleContentOverride", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.TimeSpan? TimeToServingStaleContentOverride { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("maxAgeOverride", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.TimeSpan? MaxAgeOverride { get; set; }
+
         public string ToJson()
         {
 
