@@ -10301,15 +10301,15 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Index>> GetIndicesAsync(string alias, bool? onlyForReshard = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Index>> GetIndicesAsync(string alias, bool onlyForReshard, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (onlyForReshard == null)
+                throw new System.ArgumentNullException("onlyForReshard");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/indices?");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
-            if (onlyForReshard != null)
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("onlyForReshard") + "=").Append(System.Uri.EscapeDataString(ConvertToString(onlyForReshard, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
+            urlBuilder_.Append(System.Uri.EscapeDataString("onlyForReshard") + "=").Append(System.Uri.EscapeDataString(ConvertToString(onlyForReshard, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
 
             var client_ = _httpClient;
@@ -11344,15 +11344,15 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task<UserWithRoles> SetAnonymousAccessAsync(string alias, bool? enabled = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<UserWithRoles> SetAnonymousAccessAsync(string alias, bool enabled, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (enabled == null)
+                throw new System.ArgumentNullException("enabled");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/anonymousAccess?");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
-            if (enabled != null)
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("enabled") + "=").Append(System.Uri.EscapeDataString(ConvertToString(enabled, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
+            urlBuilder_.Append(System.Uri.EscapeDataString("enabled") + "=").Append(System.Uri.EscapeDataString(ConvertToString(enabled, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
 
             var client_ = _httpClient;

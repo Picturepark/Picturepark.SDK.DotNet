@@ -6783,6 +6783,7 @@
           {
             "name": "onlyForReshard",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "boolean"
             },
@@ -7563,6 +7564,7 @@
           {
             "name": "enabled",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "boolean"
             },
