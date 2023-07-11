@@ -7543,6 +7543,136 @@
         }
       }
     },
+    "/Customer/{alias}/anonymousAccess": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_SetAnonymousAccess",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "enabled",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserWithRoles"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/CustomerQueuePriority/{customerId}/queuePriority/effective": {
       "get": {
         "tags": [
@@ -14913,6 +15043,128 @@
           }
         }
       }
+    },
+    "/customer/{alias}/anonymousUser": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetAnonymousUser",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserWithRoles"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
     }
   },
   "components": {
@@ -15625,6 +15877,23 @@
             "additionalProperties": false,
             "properties": {
               "ownerToken": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidOperationWithAnonymousUserException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
                 "type": "string",
                 "nullable": true
               }
@@ -28924,6 +29193,14 @@
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
+          },
+          "anonymousUserExternalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "anonymousUserRoleId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -29318,7 +29595,8 @@
           "isLocked",
           "isSupportUser",
           "isReadOnly",
-          "isFederated"
+          "isFederated",
+          "isAnonymousUser"
         ],
         "properties": {
           "userRoleIds": {
@@ -29380,6 +29658,10 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "isAnonymousUser": {
+            "type": "boolean",
+            "description": "Anonymous user is the automatically logged in user if public access is allowed."
           },
           "lastActivity": {
             "type": "string",

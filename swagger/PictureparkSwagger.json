@@ -31688,6 +31688,23 @@
           }
         ]
       },
+      "InvalidOperationWithAnonymousUserException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -48172,7 +48189,8 @@
           "licenseInformation",
           "settings",
           "hasDashboard",
-          "cloudName"
+          "cloudName",
+          "anonymousAccessEnabled"
         ],
         "properties": {
           "customerId": {
@@ -48286,6 +48304,10 @@
             "type": "string",
             "description": "Cloud name customer is located in.",
             "minLength": 1
+          },
+          "anonymousAccessEnabled": {
+            "type": "boolean",
+            "description": "True if anonymous access to customer's UI is allowed."
           }
         }
       },
@@ -52949,7 +52971,8 @@
           "isLocked",
           "termsConsentExpired",
           "isDeveloper",
-          "isFederated"
+          "isFederated",
+          "isAnonymousUser"
         ],
         "properties": {
           "id": {
@@ -53033,6 +53056,10 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "isAnonymousUser": {
+            "type": "boolean",
+            "description": "Anonymous user is the automatically logged in user if public access is allowed."
           }
         }
       },
@@ -58739,7 +58766,11 @@
               },
               "isSupportUser": {
                 "type": "boolean",
-                "description": "The support user is a user created for Picturepark support personnel."
+                "description": "Support user is a user created for Picturepark support personnel."
+              },
+              "isAnonymousUser": {
+                "type": "boolean",
+                "description": "Anonymous user is the automatically logged in user if public access is allowed."
               },
               "isReadOnly": {
                 "type": "boolean",
@@ -59193,7 +59224,8 @@
           "isLocked",
           "isSupportUser",
           "isReadOnly",
-          "isFederated"
+          "isFederated",
+          "isAnonymousUser"
         ],
         "properties": {
           "userRoleIds": {
@@ -59255,6 +59287,10 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "isAnonymousUser": {
+            "type": "boolean",
+            "description": "Anonymous user is the automatically logged in user if public access is allowed."
           },
           "lastActivity": {
             "type": "string",
@@ -59341,6 +59377,7 @@
         "required": [
           "lifeCycleFilter",
           "includeServiceUser",
+          "includeAnonymousUser",
           "editableOnly"
         ],
         "properties": {
@@ -59385,6 +59422,10 @@
           "includeServiceUser": {
             "type": "boolean",
             "description": "Includes the service user in result."
+          },
+          "includeAnonymousUser": {
+            "type": "boolean",
+            "description": "Includes the anonymous user in result."
           },
           "editableOnly": {
             "type": "boolean",
