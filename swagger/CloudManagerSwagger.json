@@ -29277,8 +29277,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "behavior",
-          "size"
+          "behavior"
         ],
         "properties": {
           "behavior": {
@@ -29286,7 +29285,8 @@
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
         }
       },

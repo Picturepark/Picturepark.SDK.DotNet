@@ -19043,8 +19043,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public MultiTermQueryRewriteBehavior Behavior { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Always)]
-        public int Size { get; set; }
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Size { get; set; }
 
         public string ToJson()
         {
