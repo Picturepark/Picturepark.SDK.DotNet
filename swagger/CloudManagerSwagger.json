@@ -29203,6 +29203,14 @@
           "anonymousUserRoleId": {
             "type": "string",
             "nullable": true
+          },
+          "elasticSearchMultiTermQueryRewrite": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElasticMultiTermQueryRewrite"
+              }
+            ]
           }
         }
       },
@@ -29264,6 +29272,43 @@
             "nullable": true
           }
         }
+      },
+      "ElasticMultiTermQueryRewrite": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "behavior"
+        ],
+        "properties": {
+          "behavior": {
+            "$ref": "#/components/schemas/MultiTermQueryRewriteBehavior"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "MultiTermQueryRewriteBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "ConstantScore",
+          "ConstantScoreBoolean",
+          "ScoringBoolean",
+          "TopTermsBlendedFreqsN",
+          "TopTermsBoostN",
+          "TopTermsN"
+        ],
+        "enum": [
+          "ConstantScore",
+          "ConstantScoreBoolean",
+          "ScoringBoolean",
+          "TopTermsBlendedFreqsN",
+          "TopTermsBoostN",
+          "TopTermsN"
+        ]
       },
       "CustomerUpdateRequest": {
         "type": "object",
@@ -29507,6 +29552,14 @@
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
+          },
+          "elasticSearchMultiTermQueryRewrite": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElasticMultiTermQueryRewrite"
+              }
+            ]
           }
         }
       },

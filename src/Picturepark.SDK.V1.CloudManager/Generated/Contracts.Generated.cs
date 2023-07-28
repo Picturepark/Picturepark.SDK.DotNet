@@ -18942,6 +18942,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("anonymousUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AnonymousUserRoleId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("elasticSearchMultiTermQueryRewrite", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ElasticMultiTermQueryRewrite ElasticSearchMultiTermQueryRewrite { get; set; }
+
         public string ToJson()
         {
 
@@ -19029,6 +19032,56 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ActivityMapping>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ElasticMultiTermQueryRewrite
+    {
+        [Newtonsoft.Json.JsonProperty("behavior", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public MultiTermQueryRewriteBehavior Behavior { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Size { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ElasticMultiTermQueryRewrite FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ElasticMultiTermQueryRewrite>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum MultiTermQueryRewriteBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ConstantScore")]
+        ConstantScore = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ConstantScoreBoolean")]
+        ConstantScoreBoolean = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ScoringBoolean")]
+        ScoringBoolean = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"TopTermsBlendedFreqsN")]
+        TopTermsBlendedFreqsN = 3,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"TopTermsBoostN")]
+        TopTermsBoostN = 4,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"TopTermsN")]
+        TopTermsN = 5,
 
     }
 
@@ -19185,6 +19238,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
         public bool DisableIdsRegisterLink { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("elasticSearchMultiTermQueryRewrite", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ElasticMultiTermQueryRewrite ElasticSearchMultiTermQueryRewrite { get; set; }
 
         public string ToJson()
         {
