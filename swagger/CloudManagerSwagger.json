@@ -15903,6 +15903,23 @@
           }
         ]
       },
+      "InvalidOperationWithAnonymousUserRoleException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserRoleId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
