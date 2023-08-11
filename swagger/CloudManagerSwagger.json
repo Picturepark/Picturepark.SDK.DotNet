@@ -29203,6 +29203,14 @@
           "anonymousUserRoleId": {
             "type": "string",
             "nullable": true
+          },
+          "elasticSearchMultiTermQueryRewrite": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElasticMultiTermQueryRewrite"
+              }
+            ]
           }
         }
       },
@@ -29264,6 +29272,43 @@
             "nullable": true
           }
         }
+      },
+      "ElasticMultiTermQueryRewrite": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "behavior"
+        ],
+        "properties": {
+          "behavior": {
+            "$ref": "#/components/schemas/MultiTermQueryRewriteBehavior"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "MultiTermQueryRewriteBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "ConstantScore",
+          "ConstantScoreBoolean",
+          "ScoringBoolean",
+          "TopTermsBlendedFreqsN",
+          "TopTermsBoostN",
+          "TopTermsN"
+        ],
+        "enum": [
+          "ConstantScore",
+          "ConstantScoreBoolean",
+          "ScoringBoolean",
+          "TopTermsBlendedFreqsN",
+          "TopTermsBoostN",
+          "TopTermsN"
+        ]
       },
       "CustomerUpdateRequest": {
         "type": "object",
@@ -29507,6 +29552,14 @@
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
+          },
+          "elasticSearchMultiTermQueryRewrite": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElasticMultiTermQueryRewrite"
+              }
+            ]
           }
         }
       },
@@ -30900,6 +30953,60 @@
             "type": "string",
             "description": "Prefix to be used for the zip file created when downloading multiple contents",
             "minLength": 1
+          },
+          "desiredMaintenance": {
+            "description": "Desired maintenance schedule and blocking periods",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MaintenanceWindow"
+              }
+            ]
+          }
+        }
+      },
+      "MaintenanceWindow": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "desiredScheduleDuration"
+        ],
+        "properties": {
+          "desiredScheduleDuration": {
+            "type": "string",
+            "description": "Maximum desired duration of maintenance window when started at the times specified by the DesiredScheduleCronExpression.",
+            "format": "duration"
+          },
+          "desiredScheduleCronExpression": {
+            "type": "string",
+            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
+            "nullable": true
+          },
+          "blockingPeriods": {
+            "type": "array",
+            "description": "List of blocking periods in absolute times during which no maintenance should be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BlockingPeriod"
+            }
+          }
+        }
+      },
+      "BlockingPeriod": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
