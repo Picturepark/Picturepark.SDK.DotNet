@@ -1644,6 +1644,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("LanguageCodeNotExistingException", typeof(LanguageCodeNotExistingException))]
     [JsonInheritanceAttribute("UserByOwnerTokenNotFoundException", typeof(UserByOwnerTokenNotFoundException))]
     [JsonInheritanceAttribute("InvalidOperationWithAnonymousUserException", typeof(InvalidOperationWithAnonymousUserException))]
+    [JsonInheritanceAttribute("InvalidOperationWithAnonymousUserRoleException", typeof(InvalidOperationWithAnonymousUserRoleException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("FocalPointCropSizeMissingException", typeof(FocalPointCropSizeMissingException))]
@@ -1698,6 +1699,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
     [JsonInheritanceAttribute("ItemIdDuplicatedException", typeof(ItemIdDuplicatedException))]
     [JsonInheritanceAttribute("RequestSizeLimitExceededException", typeof(RequestSizeLimitExceededException))]
+    [JsonInheritanceAttribute("CronExpressionInvalidException", typeof(CronExpressionInvalidException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
@@ -2774,6 +2776,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidOperationWithAnonymousUserException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidOperationWithAnonymousUserRoleException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserRoleId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static InvalidOperationWithAnonymousUserRoleException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidOperationWithAnonymousUserRoleException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -4241,6 +4265,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RequestSizeLimitExceededException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CronExpressionInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("cronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CronExpression { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CronExpressionInvalidException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CronExpressionInvalidException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -20957,7 +21003,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// Cron expression that specifies the desired starting times for scheduled maintenance.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("desiredScheduleCronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DesiredScheduleCronExpression { get; set; }
+        public string DesiredScheduleCronExpression { get; set; } = "* * * * *";
 
         /// <summary>
         /// List of blocking periods in absolute times during which no maintenance should be performed.

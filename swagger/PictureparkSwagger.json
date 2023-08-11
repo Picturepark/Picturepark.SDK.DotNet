@@ -31705,6 +31705,23 @@
           }
         ]
       },
+      "InvalidOperationWithAnonymousUserRoleException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserRoleId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -32782,6 +32799,23 @@
               "requestedAmount": {
                 "type": "integer",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CronExpressionInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cronExpression": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -50669,7 +50703,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "sessionHash": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },

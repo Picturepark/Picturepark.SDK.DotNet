@@ -15903,6 +15903,23 @@
           }
         ]
       },
+      "InvalidOperationWithAnonymousUserRoleException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserRoleId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -16980,6 +16997,23 @@
               "requestedAmount": {
                 "type": "integer",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CronExpressionInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cronExpression": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -30975,11 +31009,13 @@
           "desiredScheduleDuration": {
             "type": "string",
             "description": "Maximum desired duration of maintenance window when started at the times specified by the DesiredScheduleCronExpression.",
-            "format": "duration"
+            "format": "duration",
+            "default": "1.00:00:00"
           },
           "desiredScheduleCronExpression": {
             "type": "string",
             "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
+            "default": "* * * * *",
             "nullable": true
           },
           "blockingPeriods": {
