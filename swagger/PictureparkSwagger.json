@@ -50703,13 +50703,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "sessionHash": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },

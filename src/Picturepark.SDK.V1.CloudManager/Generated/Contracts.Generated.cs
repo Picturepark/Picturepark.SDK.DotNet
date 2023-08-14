@@ -20993,17 +20993,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial class MaintenanceWindow
     {
         /// <summary>
-        /// Maximum desired duration of maintenance window when started at the times specified by the DesiredScheduleCronExpression.
+        /// List of schedules during which the maintenance is allowed to be performed.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("desiredScheduleDuration", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan DesiredScheduleDuration { get; set; }
-
-        /// <summary>
-        /// Cron expression that specifies the desired starting times for scheduled maintenance.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("desiredScheduleCronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DesiredScheduleCronExpression { get; set; } = "* * * * *";
+        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<MaintenanceSchedule> Schedules { get; set; }
 
         /// <summary>
         /// List of blocking periods in absolute times during which no maintenance should be performed.
@@ -21021,6 +21014,37 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<MaintenanceWindow>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class MaintenanceSchedule
+    {
+        /// <summary>
+        /// Cron expression that specifies the desired starting times for scheduled maintenance.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("cronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CronExpression { get; set; }
+
+        /// <summary>
+        /// Maximum desired duration of maintenance window when started at the times specified by the CronExpression.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("duration", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan Duration { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static MaintenanceSchedule FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaintenanceSchedule>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

@@ -29530,8 +29530,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class NotificationDetailBatchRendering : NotificationDetailProgressBase
     {
-        [Newtonsoft.Json.JsonProperty("sessionHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SessionHash { get; set; }
 
         public string ToJson()
         {

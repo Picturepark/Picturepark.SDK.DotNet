@@ -31002,21 +31002,14 @@
       "MaintenanceWindow": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "desiredScheduleDuration"
-        ],
         "properties": {
-          "desiredScheduleDuration": {
-            "type": "string",
-            "description": "Maximum desired duration of maintenance window when started at the times specified by the DesiredScheduleCronExpression.",
-            "format": "duration",
-            "default": "1.00:00:00"
-          },
-          "desiredScheduleCronExpression": {
-            "type": "string",
-            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
-            "default": "* * * * *",
-            "nullable": true
+          "schedules": {
+            "type": "array",
+            "description": "List of schedules during which the maintenance is allowed to be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MaintenanceSchedule"
+            }
           },
           "blockingPeriods": {
             "type": "array",
@@ -31025,6 +31018,25 @@
             "items": {
               "$ref": "#/components/schemas/BlockingPeriod"
             }
+          }
+        }
+      },
+      "MaintenanceSchedule": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "duration"
+        ],
+        "properties": {
+          "cronExpression": {
+            "type": "string",
+            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "description": "Maximum desired duration of maintenance window when started at the times specified by the CronExpression.",
+            "format": "duration"
           }
         }
       },
