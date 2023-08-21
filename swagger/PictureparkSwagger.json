@@ -58555,7 +58555,8 @@
         "required": [
           "limit",
           "debugMode",
-          "includeAdministratorSystemUserRole"
+          "includeAdministratorSystemUserRole",
+          "includeAnonymousUserRole"
         ],
         "properties": {
           "searchString": {
@@ -58615,6 +58616,10 @@
           "includeAdministratorSystemUserRole": {
             "type": "boolean",
             "description": "Defines if the user roles with system user role Administrator is returned."
+          },
+          "includeAnonymousUserRole": {
+            "type": "boolean",
+            "description": "Defines if anonymous user role should be returned."
           }
         }
       },

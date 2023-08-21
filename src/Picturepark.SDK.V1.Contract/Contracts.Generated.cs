@@ -39552,6 +39552,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("includeAdministratorSystemUserRole", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAdministratorSystemUserRole { get; set; }
 
+        /// <summary>
+        /// Defines if anonymous user role should be returned.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("includeAnonymousUserRole", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAnonymousUserRole { get; set; }
+
         public string ToJson()
         {
 
