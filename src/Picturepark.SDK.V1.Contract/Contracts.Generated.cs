@@ -4292,6 +4292,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserNotLinkedWithIdsException", typeof(UserNotLinkedWithIdsException))]
     [JsonInheritanceAttribute("LanguageCodeNotExistingException", typeof(LanguageCodeNotExistingException))]
     [JsonInheritanceAttribute("UserByOwnerTokenNotFoundException", typeof(UserByOwnerTokenNotFoundException))]
+    [JsonInheritanceAttribute("InvalidOperationWithAnonymousUserException", typeof(InvalidOperationWithAnonymousUserException))]
+    [JsonInheritanceAttribute("InvalidOperationWithAnonymousUserRoleException", typeof(InvalidOperationWithAnonymousUserRoleException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("FocalPointCropSizeMissingException", typeof(FocalPointCropSizeMissingException))]
@@ -5385,6 +5387,50 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserByOwnerTokenNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidOperationWithAnonymousUserException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static InvalidOperationWithAnonymousUserException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidOperationWithAnonymousUserException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidOperationWithAnonymousUserRoleException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserRoleId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static InvalidOperationWithAnonymousUserRoleException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidOperationWithAnonymousUserRoleException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -21658,6 +21704,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <br/>They are referenced list items that reference at least a list item that do not exist in the system.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -24647,6 +24694,7 @@ namespace Picturepark.SDK.V1.Contract
         /// All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -26503,6 +26551,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string CloudName { get; set; }
 
+        /// <summary>
+        /// True if anonymous access to customer's UI is allowed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("anonymousAccessEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool AnonymousAccessEnabled { get; set; }
+
         public string ToJson()
         {
 
@@ -27189,6 +27243,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <br/>They are referenced list items that reference at least a list item that do not exist in the system.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -27932,6 +27987,7 @@ namespace Picturepark.SDK.V1.Contract
         /// All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No longer set by the system, will be removed in the future.")]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
 
         /// <summary>
@@ -29487,7 +29543,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailMetadataItemCreateRelatedItems : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailMetadataItemCreateRelatedItems : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -29506,31 +29562,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class NotificationDetailProgressWithRelatedItemsBase : NotificationDetailProgressBase
-    {
-        [Newtonsoft.Json.JsonProperty("relatedItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long RelatedItemCount { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("relatedItemProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long RelatedItemProgress { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NotificationDetailProgressWithRelatedItemsBase FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailProgressWithRelatedItemsBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailMetadataItemCreateRelatedItemsBySchema : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailMetadataItemCreateRelatedItemsBySchema : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -29549,7 +29581,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailMetadataItemUpdateOutdated : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailMetadataItemUpdateOutdated : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -29665,7 +29697,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class NotificationDetailMetadataItemDeactivationBase : NotificationDetailProgressWithRelatedItemsBase
+    public abstract partial class NotificationDetailMetadataItemDeactivationBase : NotificationDetailProgressBase
     {
         [Newtonsoft.Json.JsonProperty("referencingItemsCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long ReferencingItemsCount { get; set; }
@@ -29689,7 +29721,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailListItemMetadataBatchEdit : NotificationDetailProgressWithRelatedItemsBase
+    public partial class NotificationDetailListItemMetadataBatchEdit : NotificationDetailProgressBase
     {
 
         public string ToJson()
@@ -32600,6 +32632,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isFederated", Required = Newtonsoft.Json.Required.Always)]
         public bool IsFederated { get; set; }
+
+        /// <summary>
+        /// Anonymous user is the automatically logged in user if public access is allowed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isAnonymousUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsAnonymousUser { get; set; }
 
         public string ToJson()
         {
@@ -39514,6 +39552,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("includeAdministratorSystemUserRole", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAdministratorSystemUserRole { get; set; }
 
+        /// <summary>
+        /// Defines if anonymous user role should be returned.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("includeAnonymousUserRole", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAnonymousUserRole { get; set; }
+
         public string ToJson()
         {
 
@@ -39732,10 +39776,16 @@ namespace Picturepark.SDK.V1.Contract
         public LifeCycle LifeCycle { get; set; }
 
         /// <summary>
-        /// The support user is a user created for Picturepark support personnel.
+        /// Support user is a user created for Picturepark support personnel.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSupportUser { get; set; }
+
+        /// <summary>
+        /// Anonymous user is the automatically logged in user if public access is allowed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isAnonymousUser", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsAnonymousUser { get; set; }
 
         /// <summary>
         /// Read-only users can't be removed from the system, e.g. service user.
@@ -40437,6 +40487,12 @@ namespace Picturepark.SDK.V1.Contract
         public bool IsFederated { get; set; }
 
         /// <summary>
+        /// Anonymous user is the automatically logged in user if public access is allowed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isAnonymousUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsAnonymousUser { get; set; }
+
+        /// <summary>
         /// Last activity of user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("lastActivity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -40583,6 +40639,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeServiceUser { get; set; }
+
+        /// <summary>
+        /// Includes the anonymous user in result.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("includeAnonymousUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAnonymousUser { get; set; }
 
         /// <summary>
         /// Restricts the results to users that are editable for calling user.

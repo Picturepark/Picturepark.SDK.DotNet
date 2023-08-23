@@ -31688,6 +31688,40 @@
           }
         ]
       },
+      "InvalidOperationWithAnonymousUserException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidOperationWithAnonymousUserRoleException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserRoleId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -44516,6 +44550,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -46806,6 +46842,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -48168,7 +48206,8 @@
           "licenseInformation",
           "settings",
           "hasDashboard",
-          "cloudName"
+          "cloudName",
+          "anonymousAccessEnabled"
         ],
         "properties": {
           "customerId": {
@@ -48282,6 +48321,10 @@
             "type": "string",
             "description": "Cloud name customer is located in.",
             "minLength": 1
+          },
+          "anonymousAccessEnabled": {
+            "type": "boolean",
+            "description": "True if anonymous access to customer's UI is allowed."
           }
         }
       },
@@ -48814,6 +48857,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -49373,6 +49418,8 @@
           "brokenIndirectReferenceIds": {
             "type": "array",
             "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "deprecated": true,
+            "x-deprecatedMessage": "No longer set by the system, will be removed in the future.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -50235,7 +50282,6 @@
             "NotificationDetailTagging": "#/components/schemas/NotificationDetailTagging",
             "NotificationDetailBatchRendering": "#/components/schemas/NotificationDetailBatchRendering",
             "NotificationDetailStatisticsExport": "#/components/schemas/NotificationDetailStatisticsExport",
-            "NotificationDetailProgressWithRelatedItemsBase": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase",
             "NotificationDetailMetadataItemCreateRelatedItems": "#/components/schemas/NotificationDetailMetadataItemCreateRelatedItems",
             "NotificationDetailMetadataItemCreateRelatedItemsBySchema": "#/components/schemas/NotificationDetailMetadataItemCreateRelatedItemsBySchema",
             "NotificationDetailMetadataItemUpdateOutdated": "#/components/schemas/NotificationDetailMetadataItemUpdateOutdated",
@@ -50658,7 +50704,7 @@
       "NotificationDetailMetadataItemCreateRelatedItems": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50666,32 +50712,10 @@
           }
         ]
       },
-      "NotificationDetailProgressWithRelatedItemsBase": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationDetailProgressBase"
-          },
-          {
-            "type": "object",
-            "x-abstract": true,
-            "additionalProperties": false,
-            "properties": {
-              "relatedItemCount": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "relatedItemProgress": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
       "NotificationDetailMetadataItemCreateRelatedItemsBySchema": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50702,7 +50726,7 @@
       "NotificationDetailMetadataItemUpdateOutdated": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50775,7 +50799,7 @@
       "NotificationDetailMetadataItemDeactivationBase": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -50797,7 +50821,7 @@
       "NotificationDetailListItemMetadataBatchEdit": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
           },
           {
             "type": "object",
@@ -52964,7 +52988,8 @@
           "isLocked",
           "termsConsentExpired",
           "isDeveloper",
-          "isFederated"
+          "isFederated",
+          "isAnonymousUser"
         ],
         "properties": {
           "id": {
@@ -53048,6 +53073,10 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "isAnonymousUser": {
+            "type": "boolean",
+            "description": "Anonymous user is the automatically logged in user if public access is allowed."
           }
         }
       },
@@ -58526,7 +58555,8 @@
         "required": [
           "limit",
           "debugMode",
-          "includeAdministratorSystemUserRole"
+          "includeAdministratorSystemUserRole",
+          "includeAnonymousUserRole"
         ],
         "properties": {
           "searchString": {
@@ -58586,6 +58616,10 @@
           "includeAdministratorSystemUserRole": {
             "type": "boolean",
             "description": "Defines if the user roles with system user role Administrator is returned."
+          },
+          "includeAnonymousUserRole": {
+            "type": "boolean",
+            "description": "Defines if anonymous user role should be returned."
           }
         }
       },
@@ -58754,7 +58788,11 @@
               },
               "isSupportUser": {
                 "type": "boolean",
-                "description": "The support user is a user created for Picturepark support personnel."
+                "description": "Support user is a user created for Picturepark support personnel."
+              },
+              "isAnonymousUser": {
+                "type": "boolean",
+                "description": "Anonymous user is the automatically logged in user if public access is allowed."
               },
               "isReadOnly": {
                 "type": "boolean",
@@ -59208,7 +59246,8 @@
           "isLocked",
           "isSupportUser",
           "isReadOnly",
-          "isFederated"
+          "isFederated",
+          "isAnonymousUser"
         ],
         "properties": {
           "userRoleIds": {
@@ -59270,6 +59309,10 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "isAnonymousUser": {
+            "type": "boolean",
+            "description": "Anonymous user is the automatically logged in user if public access is allowed."
           },
           "lastActivity": {
             "type": "string",
@@ -59356,6 +59399,7 @@
         "required": [
           "lifeCycleFilter",
           "includeServiceUser",
+          "includeAnonymousUser",
           "editableOnly"
         ],
         "properties": {
@@ -59400,6 +59444,10 @@
           "includeServiceUser": {
             "type": "boolean",
             "description": "Includes the service user in result."
+          },
+          "includeAnonymousUser": {
+            "type": "boolean",
+            "description": "Includes the anonymous user in result."
           },
           "editableOnly": {
             "type": "boolean",
