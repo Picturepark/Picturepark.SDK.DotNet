@@ -826,6 +826,7 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         /// <param name="id">The ID of the content to replace.</param>
         /// <param name="request">Content file update request</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -834,7 +835,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateFileAsync(string id, ContentFileUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> UpdateFileAsync(string id, ContentFileUpdateRequest request, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -1538,6 +1539,73 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>SystemStatus</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<SystemStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial interface IIngestClient
+    {
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Create ingest container.
+        /// </summary>
+        /// <returns>Ingest container create result containing container name and SAS token for uploading data.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<IngestContainerCreateResult> CreateIngestContainerAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Import all files from the specified container.
+        /// </summary>
+        /// <param name="containerName">Container name</param>
+        /// <param name="request">Import request</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ImportAllAsync(string containerName, ImportAllFromContainerRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Import specified files from the specified container.
+        /// </summary>
+        /// <param name="containerName">Container name</param>
+        /// <param name="request">Import request</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ImportPartialAsync(string containerName, ImportPartialFromContainerRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Import specified urls.
+        /// </summary>
+        /// <param name="request">Import request</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ImportFromUrlsAsync(ImportFromUrlsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
     }
 
@@ -2667,6 +2735,24 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="FileTransferNotFoundException">File transfer not found</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
         System.Threading.Tasks.Task<Transfer> ImportAsync(SchemaImportRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Import schemas
+        /// </summary>
+        /// <param name="body">Body</param>
+        /// <param name="name">Name of the schema import</param>
+        /// <param name="allowMissingDependencies">Indicates if missing dependencies between imported list items should be allowed</param>
+        /// <param name="importListItems">Indicates if list items should be imported</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ImportJsonAsync(System.IO.Stream body = null, string name = null, bool? allowMissingDependencies = null, bool? importListItems = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
     }
 
@@ -4265,6 +4351,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("FileTransferNotFoundException", typeof(FileTransferNotFoundException))]
     [JsonInheritanceAttribute("ShareNotFoundException", typeof(ShareNotFoundException))]
     [JsonInheritanceAttribute("PermissionValidationException", typeof(PermissionValidationException))]
+    [JsonInheritanceAttribute("PictureparkContradictoryArgumentsException", typeof(PictureparkContradictoryArgumentsException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
@@ -4293,6 +4380,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("LanguageCodeNotExistingException", typeof(LanguageCodeNotExistingException))]
     [JsonInheritanceAttribute("UserByOwnerTokenNotFoundException", typeof(UserByOwnerTokenNotFoundException))]
     [JsonInheritanceAttribute("InvalidOperationWithAnonymousUserException", typeof(InvalidOperationWithAnonymousUserException))]
+    [JsonInheritanceAttribute("InvalidOperationWithAnonymousUserRoleException", typeof(InvalidOperationWithAnonymousUserRoleException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("FocalPointCropSizeMissingException", typeof(FocalPointCropSizeMissingException))]
@@ -4344,6 +4432,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
     [JsonInheritanceAttribute("ItemIdDuplicatedException", typeof(ItemIdDuplicatedException))]
+    [JsonInheritanceAttribute("CronExpressionInvalidException", typeof(CronExpressionInvalidException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
@@ -4620,6 +4709,17 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("VirtualDisplayContentNotSupportedException", typeof(VirtualDisplayContentNotSupportedException))]
     [JsonInheritanceAttribute("NestedDisplayContentNotSupportedException", typeof(NestedDisplayContentNotSupportedException))]
     [JsonInheritanceAttribute("SelfReferencingDisplayContentNotSupportedException", typeof(SelfReferencingDisplayContentNotSupportedException))]
+    [JsonInheritanceAttribute("ConcurrentFileReplacementException", typeof(ConcurrentFileReplacementException))]
+    [JsonInheritanceAttribute("IngestContainerCreationFailedException", typeof(IngestContainerCreationFailedException))]
+    [JsonInheritanceAttribute("IngestContainerNotFoundException", typeof(IngestContainerNotFoundException))]
+    [JsonInheritanceAttribute("IngestContainerEmptyException", typeof(IngestContainerEmptyException))]
+    [JsonInheritanceAttribute("IngestFileNotFoundException", typeof(IngestFileNotFoundException))]
+    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgress", typeof(IngestContainerImportAlreadyInProgress))]
+    [JsonInheritanceAttribute("IngestContainerImportRequestValidationFailedException", typeof(IngestContainerImportRequestValidationFailedException))]
+    [JsonInheritanceAttribute("IngestFileInvalidFileNameOverrideExtensionException", typeof(IngestFileInvalidFileNameOverrideExtensionException))]
+    [JsonInheritanceAttribute("IngestFileAlreadyImportedException", typeof(IngestFileAlreadyImportedException))]
+    [JsonInheritanceAttribute("IngestUrlInvalidException", typeof(IngestUrlInvalidException))]
+    [JsonInheritanceAttribute("IngestDownloadFailedException", typeof(IngestDownloadFailedException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -4732,6 +4832,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkForbiddenException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PictureparkContradictoryArgumentsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("argumentNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ArgumentNames { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PictureparkContradictoryArgumentsException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkContradictoryArgumentsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -5408,6 +5530,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidOperationWithAnonymousUserException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidOperationWithAnonymousUserRoleException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserRoleId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static InvalidOperationWithAnonymousUserRoleException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidOperationWithAnonymousUserRoleException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -6882,6 +7026,28 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CronExpressionInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("cronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CronExpression { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CronExpressionInvalidException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CronExpressionInvalidException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class CustomerViolationException : PictureparkException
     {
         [Newtonsoft.Json.JsonProperty("expectedCustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8043,6 +8209,9 @@ namespace Picturepark.SDK.V1.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListUsers")]
         ListUsers = 28,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageIngest")]
+        ManageIngest = 29,
 
     }
 
@@ -14497,6 +14666,261 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SelfReferencingDisplayContentNotSupportedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ConcurrentFileReplacementException : PictureparkConflictException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("expectedOriginalFileVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ExpectedOriginalFileVersion { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("actualOriginalFileVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ActualOriginalFileVersion { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ConcurrentFileReplacementException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConcurrentFileReplacementException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestContainerCreationFailedException : PictureparkBusinessException
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestContainerCreationFailedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerCreationFailedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestContainerNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Container { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestContainerNotFoundException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestContainerEmptyException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Container { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestContainerEmptyException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerEmptyException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestFileNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Container { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestFileNotFoundException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestFileNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestContainerImportAlreadyInProgress : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Container { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestContainerImportAlreadyInProgress FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgress>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestContainerImportRequestValidationFailedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, InvalidMetadataException> Exceptions { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestContainerImportRequestValidationFailedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportRequestValidationFailedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestFileInvalidFileNameOverrideExtensionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("expectedExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedExtension { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestFileInvalidFileNameOverrideExtensionException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestFileInvalidFileNameOverrideExtensionException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestFileAlreadyImportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Container { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestFileAlreadyImportedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestFileAlreadyImportedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestUrlInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestUrlInvalidException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestUrlInvalidException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IngestDownloadFailedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestDownloadFailedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestDownloadFailedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -22738,9 +23162,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// ID of the file transfer to use to replace the content file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileTransferId { get; set; }
+
+        /// <summary>
+        /// Location of the file in a Azure blob container.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("ingestFile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public IngestFile IngestFile { get; set; }
 
         public string ToJson()
         {
@@ -22752,6 +23181,47 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFileUpdateRequestBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// File location in an ingest container.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class IngestFile
+    {
+        /// <summary>
+        /// Name of the container.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("containerName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ContainerName { get; set; }
+
+        /// <summary>
+        /// Blob name.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("blobName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string BlobName { get; set; }
+
+        /// <summary>
+        /// Overrides filename from blob storage.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fileNameOverride", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileNameOverride { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestFile FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestFile>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -27171,6 +27641,271 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
+    /// Ingest container creation result.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class IngestContainerCreateResult
+    {
+        /// <summary>
+        /// Name of the container.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("containerName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ContainerName { get; set; }
+
+        /// <summary>
+        /// SAS token that allows uploading to the container.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sasToken", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string SasToken { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IngestContainerCreateResult FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerCreateResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Requests to import all files from a container.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ImportAllFromContainerRequest : FileImportRequest
+    {
+        /// <summary>
+        /// Import options.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ImportOptions Options { get; set; } = new ImportOptions();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ImportAllFromContainerRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImportAllFromContainerRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Options for importing ingest containers.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ImportOptions
+    {
+        /// <summary>
+        /// Indicates of progress should be shown to user.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+
+        /// <summary>
+        /// Indicates if a collection of the imported contents should be created.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("createCollection", Required = Newtonsoft.Json.Required.Always)]
+        public bool CreateCollection { get; set; }
+
+        /// <summary>
+        /// Name of the collection when CreateCollection is set to true.
+        /// <br/>Mandatory if CreateCollection is true.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("collectionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ImportOptions FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImportOptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Import request for a file from an Azure ingest container.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FileImportRequest
+    {
+        /// <summary>
+        /// Layer Schemas to assign to content.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
+
+        /// <summary>
+        /// Metadata to assign to content.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Metadata { get; set; }
+
+        /// <summary>
+        /// Permission set IDs to assign to content.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
+
+        /// <summary>
+        /// Display content to assign to content.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayContentId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static FileImportRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileImportRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Import specific files from a container.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ImportPartialFromContainerRequest
+    {
+        /// <summary>
+        /// Items to import.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, FileImportWithFileNameOverrideRequest> Items { get; set; }
+
+        /// <summary>
+        /// Import options.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ImportOptions Options { get; set; } = new ImportOptions();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ImportPartialFromContainerRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImportPartialFromContainerRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Import request for a file from an Azure ingest container allowing to override the ingested file name.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FileImportWithFileNameOverrideRequest : FileImportRequest
+    {
+        /// <summary>
+        /// Overrides filename from blob storage.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fileNameOverride", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileNameOverride { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static FileImportWithFileNameOverrideRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileImportWithFileNameOverrideRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Import specified urls.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ImportFromUrlsRequest
+    {
+        /// <summary>
+        /// Items to import.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, UrlImportRequest> Items { get; set; }
+
+        /// <summary>
+        /// Import options.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ImportOptions Options { get; set; } = new ImportOptions();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ImportFromUrlsRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImportFromUrlsRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Import request for a URL.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UrlImportRequest : FileImportWithFileNameOverrideRequest
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UrlImportRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UrlImportRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
     /// List item detail
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -28746,17 +29481,29 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NewComment")]
         NewComment = 94,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestInProgress")]
+        IngestInProgress = 95,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestCompleted")]
+        IngestCompleted = 96,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestFailed")]
+        IngestFailed = 97,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
+        IngestCompletedWithErrors = 98,
+
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 95,
+        UserEmailConflictSolved = 99,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedSubject")]
-        UserEmailConflictSolvedSubject = 96,
+        UserEmailConflictSolvedSubject = 100,
 
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
-        SupportUserDeactivation = 97,
+        SupportUserDeactivation = 101,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 98,
+        ImportFailedTitle = 102,
 
     }
 
@@ -29058,6 +29805,21 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NewComment")]
         NewComment = 97,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestDataExtractionInProgress")]
+        IngestDataExtractionInProgress = 98,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestContentCreationInProgress")]
+        IngestContentCreationInProgress = 99,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestCompleted")]
+        IngestCompleted = 100,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestFailed")]
+        IngestFailed = 101,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
+        IngestCompletedWithErrors = 102,
+
     }
 
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
@@ -29083,6 +29845,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotificationDetailListItemMetadataBatchEdit", typeof(NotificationDetailListItemMetadataBatchEdit))]
     [JsonInheritanceAttribute("NotificationDetailListItemDeactivation", typeof(NotificationDetailListItemDeactivation))]
     [JsonInheritanceAttribute("NotificationDetailComment", typeof(NotificationDetailComment))]
+    [JsonInheritanceAttribute("NotificationDetailContentIngest", typeof(NotificationDetailContentIngest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class NotificationDetailBase
     {
@@ -29251,8 +30014,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferId { get; set; }
 
         [Newtonsoft.Json.JsonProperty("importedSchemaCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -29268,9 +30030,11 @@ namespace Picturepark.SDK.V1.Contract
         public long SkippedListItemCount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("relatedItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public long RelatedItemCount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("relatedItemProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public long RelatedItemProgress { get; set; }
 
         public string ToJson()
@@ -29784,6 +30548,30 @@ namespace Picturepark.SDK.V1.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"Mentioned")]
         Mentioned = 2,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class NotificationDetailContentIngest : NotificationDetailProgressBase
+    {
+        [Newtonsoft.Json.JsonProperty("dataExtractionProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long DataExtractionProgress { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static NotificationDetailContentIngest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailContentIngest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
 
     }
 
@@ -39528,6 +40316,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("includeAdministratorSystemUserRole", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAdministratorSystemUserRole { get; set; }
+
+        /// <summary>
+        /// Defines if anonymous user role should be returned.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("includeAnonymousUserRole", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAnonymousUserRole { get; set; }
 
         public string ToJson()
         {
