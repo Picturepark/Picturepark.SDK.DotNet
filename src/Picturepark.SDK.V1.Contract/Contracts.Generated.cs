@@ -27676,7 +27676,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Requests to import all files from a container.
+    /// Requests to import all files from an ingest container.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ImportAllFromContainerRequest : FileImportRequest
@@ -27744,7 +27744,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Import request for a file from an Azure ingest container.
+    /// Import request for a file from an ingest container.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class FileImportRequest
@@ -27789,7 +27789,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Import specific files from a container.
+    /// Import specific files from an ingest container.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ImportPartialFromContainerRequest
@@ -27803,9 +27803,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Import options.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public ImportOptions Options { get; set; } = new ImportOptions();
+        [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ImportOptions Options { get; set; }
 
         public string ToJson()
         {
@@ -27823,7 +27822,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Import request for a file from an Azure ingest container allowing to override the ingested file name.
+    /// Import request for a file from an ingest container allowing to override the ingested file name.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class FileImportWithFileNameOverrideRequest : FileImportRequest

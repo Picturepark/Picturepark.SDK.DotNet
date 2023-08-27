@@ -151,7 +151,7 @@ public class IngestTests : IClassFixture<ClientFixture>
     {
         // Arrange
         var sourceContentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
-        var targetContentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
+        var targetContentId = await _fixture.GetRandomContentIdAsync($"fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc -id:{sourceContentId}", 20).ConfigureAwait(false);
 
         using var memoryStream = new MemoryStream();
         using (var fileResponse = await _fixture.Client.Content.DownloadAsync(sourceContentId, "Original"))

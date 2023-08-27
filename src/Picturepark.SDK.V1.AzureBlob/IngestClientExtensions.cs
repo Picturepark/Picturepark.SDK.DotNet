@@ -14,7 +14,7 @@ public static class IngestClientExtensions
     {
         var items = new List<IngestFile>();
 
-        var container = await client.CreateIngestContainerAsync(ct);
+        var container = await client.CreateIngestContainerAsync(ct).ConfigureAwait(false);
 
         var containerClient = new BlobContainerClient(new Uri(container.SasToken));
 
@@ -23,8 +23,8 @@ public static class IngestClientExtensions
             var fileName = Path.IsPathRooted(file) ? Path.GetFileName(file) : file;
             var blobClient = containerClient.GetBlobClient(fileName);
 
-            await using var fs = File.OpenRead(file);
-            await blobClient.UploadAsync(fs, ct);
+            using var fs = File.OpenRead(file);
+            await blobClient.UploadAsync(fs, ct).ConfigureAwait(false);
 
             items.Add(new IngestFile { ContainerName = container.ContainerName, BlobName = fileName });
         }
@@ -39,8 +39,8 @@ public static class IngestClientExtensions
     {
         var fileName = Path.IsPathRooted(filePath) ? Path.GetFileName(filePath) : filePath;
 
-        await using var fs = File.OpenRead(filePath);
-        return await client.UploadFileAsync(fileName, fs, ct);
+        using var fs = File.OpenRead(filePath);
+        return await client.UploadFileAsync(fileName, fs, ct).ConfigureAwait(false);
     }
 
     public static async Task<IngestFile> UploadFileAsync(
@@ -49,12 +49,12 @@ public static class IngestClientExtensions
         Stream file,
         CancellationToken ct = default)
     {
-        var container = await client.CreateIngestContainerAsync(ct);
+        var container = await client.CreateIngestContainerAsync(ct).ConfigureAwait(false);
 
         var containerClient = new BlobContainerClient(new Uri(container.SasToken));
         var blobClient = containerClient.GetBlobClient(fileName);
 
-        await blobClient.UploadAsync(file, ct);
+        await blobClient.UploadAsync(file, ct).ConfigureAwait(false);
 
         return new IngestFile { ContainerName = container.ContainerName, BlobName = fileName };
     }
@@ -70,7 +70,7 @@ public static class IngestClientExtensions
         if (!files.Any())
             return ContentBatchOperationWithRequestIdResult.Empty;
 
-        var containerNames = files.Select(f => f.ContainerName).ToHashSet();
+        var containerNames = new HashSet<string>(files.Select(f => f.ContainerName));
         if (containerNames.Count > 1)
             throw new InvalidOperationException("Only files from the same container can be imported in one request");
 
@@ -91,7 +91,7 @@ public static class IngestClientExtensions
                 ct),
             timeout,
             waitSearchDocCreation,
-            ct);
+            ct).ConfigureAwait(false);
     }
 
     public static async Task<ContentBatchOperationWithRequestIdResult> ImportFilesAsync(
@@ -102,8 +102,8 @@ public static class IngestClientExtensions
         bool waitSearchDocCreation = true,
         CancellationToken ct = default)
     {
-        var fileLocations = await client.UploadFilesAsync(files, ct);
-        return await client.ImportFilesAsync(fileLocations, metadataForAllFiles, timeout, waitSearchDocCreation, ct);
+        var fileLocations = await client.UploadFilesAsync(files, ct).ConfigureAwait(false);
+        return await client.ImportFilesAsync(fileLocations, metadataForAllFiles, timeout, waitSearchDocCreation, ct).ConfigureAwait(false);
     }
 
     public static async Task<ContentBatchOperationWithRequestIdResult> ImportFilesAsync(
@@ -116,7 +116,7 @@ public static class IngestClientExtensions
         if (!requests.Any())
             return ContentBatchOperationWithRequestIdResult.Empty;
 
-        var containerNames = requests.Keys.Select(f => f.ContainerName).ToHashSet();
+        var containerNames = new HashSet<string>(requests.Keys.Select(f => f.ContainerName));
         if (containerNames.Count > 1)
             throw new InvalidOperationException("Only files from the same container can be imported in one request");
 
@@ -134,7 +134,7 @@ public static class IngestClientExtensions
                 ct),
             timeout,
             waitSearchDocCreation,
-            ct);
+            ct).ConfigureAwait(false);
     }
 
     private static async Task<ContentBatchOperationWithRequestIdResult> ImportFilesAsync(
@@ -147,7 +147,7 @@ public static class IngestClientExtensions
         if (client is not InternalIngestClient internalClient)
             throw new InvalidArgumentException();
 
-        var businessProcess = await businessProcessFactory();
+        var businessProcess = await businessProcessFactory().ConfigureAwait(false);
 
         var result = await internalClient.BusinessProcessClient.WaitForCompletionAsync(businessProcess.Id, timeout, waitSearchDocCreation, ct)
             .ConfigureAwait(false);

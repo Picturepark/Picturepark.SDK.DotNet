@@ -49698,7 +49698,7 @@
           },
           {
             "type": "object",
-            "description": "Requests to import all files from a container.",
+            "description": "Requests to import all files from an ingest container.",
             "additionalProperties": false,
             "required": [
               "options"
@@ -49742,7 +49742,7 @@
       },
       "FileImportRequest": {
         "type": "object",
-        "description": "Import request for a file from an Azure ingest container.",
+        "description": "Import request for a file from an ingest container.",
         "additionalProperties": false,
         "properties": {
           "layerSchemaIds": {
@@ -49775,11 +49775,8 @@
       },
       "ImportPartialFromContainerRequest": {
         "type": "object",
-        "description": "Import specific files from a container.",
+        "description": "Import specific files from an ingest container.",
         "additionalProperties": false,
-        "required": [
-          "options"
-        ],
         "properties": {
           "items": {
             "type": "object",
@@ -49791,6 +49788,7 @@
           },
           "options": {
             "description": "Import options.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ImportOptions"
@@ -49806,7 +49804,7 @@
           },
           {
             "type": "object",
-            "description": "Import request for a file from an Azure ingest container allowing to override the ingested file name.",
+            "description": "Import request for a file from an ingest container allowing to override the ingested file name.",
             "additionalProperties": false,
             "properties": {
               "fileNameOverride": {
