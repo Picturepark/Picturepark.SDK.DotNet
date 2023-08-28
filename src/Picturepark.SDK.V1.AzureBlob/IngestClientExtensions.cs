@@ -285,4 +285,46 @@ public static class IngestClientExtensions
             result.LifeCycleHit,
             internalClient.BusinessProcessClient);
     }
+
+    /// <summary>
+    /// Imports specified URLs into Content Platform.
+    /// </summary>
+    /// <param name="client">Ingest client</param>
+    /// <param name="requests">Requests</param>
+    /// <param name="options">Import options</param>
+    /// <param name="timeout">Time to wait for business process completion</param>
+    /// <param name="waitSearchDocCreation">Indicates if search document creation should be awaited</param>
+    /// <param name="ct">Cancellation token</param>
+    /// <returns>ContentBatchOperationWithRequestIdResult</returns>
+    public static async Task<ContentBatchOperationWithRequestIdResult> ImportFromUrlsAsync(
+        this IIngestClient client,
+        IDictionary<string, UrlImportRequest> requests,
+        ImportOptions? options = null,
+        TimeSpan? timeout = null,
+        bool waitSearchDocCreation = true,
+        CancellationToken ct = default)
+    {
+        if (!requests.Any())
+            return ContentBatchOperationWithRequestIdResult.Empty;
+
+        if (client is not InternalIngestClient internalClient)
+            throw new InvalidArgumentException();
+
+        var businessProcess = await client.ImportFromUrlsAsync(
+            new ImportFromUrlsRequest
+            {
+                Options = options,
+                Items = requests
+            },
+            ct).ConfigureAwait(false);
+
+        var result = await internalClient.BusinessProcessClient.WaitForCompletionAsync(businessProcess.Id, timeout, waitSearchDocCreation, ct)
+            .ConfigureAwait(false);
+
+        return new ContentBatchOperationWithRequestIdResult(
+            internalClient.ContentClient,
+            businessProcess.Id,
+            result.LifeCycleHit,
+            internalClient.BusinessProcessClient);
+    }
 }

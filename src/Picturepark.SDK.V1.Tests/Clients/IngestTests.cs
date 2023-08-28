@@ -204,6 +204,32 @@ public class IngestTests : IClassFixture<ClientFixture>
     }
 
     [Fact]
+    public async Task Should_import_urls()
+    {
+        // Arrange
+        const string url = "https://upload.wikimedia.org/wikipedia/commons/1/19/Atlantis_Kennedy_Space_Center_Visitor_Complex_2.jpg";
+
+        // Act
+        var result = await _fixture.Client.Ingest.ImportFromUrlsAsync(
+            new Dictionary<string, UrlImportRequest>
+            {
+                [url] = new()
+                {
+                    FileNameOverride = "file1.jpg"
+                }
+            },
+            new ImportOptions
+            {
+                CreateCollection = true,
+                CollectionName = nameof(Should_import_urls)
+            });
+
+        // Assert
+        var detail = await result.FetchDetail();
+        detail.SucceededItems.Should().HaveCount(1);
+    }
+
+    [Fact]
     public async Task Should_check_file_for_content_schema_change()
     {
         // Arrange

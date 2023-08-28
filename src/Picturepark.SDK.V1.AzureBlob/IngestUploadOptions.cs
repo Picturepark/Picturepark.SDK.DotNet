@@ -8,8 +8,9 @@ namespace Picturepark.SDK.V1.AzureBlob;
 public class IngestUploadOptions
 {
     /// <summary>
-    /// Number of concurrent uploads.
+    /// Number of concurrently uploaded blobs.
     /// </summary>
+    /// <remarks>To change options for individual blobs, see <see cref="BlobUploadOptions"/></remarks>
     public int ConcurrentUploads { get; set; } = 4;
 
     /// <summary>
