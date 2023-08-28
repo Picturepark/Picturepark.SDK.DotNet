@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyConfiguration("")]
@@ -7,3 +8,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 
 [assembly: ComVisible(false)]
+
+[assembly: InternalsVisibleTo("Picturepark.SDK.V1.AzureBlob")]

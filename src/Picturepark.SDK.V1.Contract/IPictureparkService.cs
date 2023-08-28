@@ -59,5 +59,7 @@ namespace Picturepark.SDK.V1.Contract
         IStatisticClient Statistics { get; }
 
         IConversionPresetTemplateClient ConversionPresetTemplate { get; }
+
+        IIngestClient Ingest { get; }
     }
 }

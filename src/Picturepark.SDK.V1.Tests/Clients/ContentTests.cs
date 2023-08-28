@@ -492,6 +492,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        public async Task ShouldCreateContentWithRequestId()
+        {
+            // Arrange
+            var request = new ContentCreateRequest
+            {
+                RequestId = "request",
+                Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
+                ContentSchemaId = "ContentItem"
+            };
+
+            // Act
+            var result = await _client.Content.CreateManyAsync(
+                new ContentCreateManyRequest
+                {
+                    Items = new List<ContentCreateRequest> { request },
+                    AllowMissingDependencies = false
+                }).ConfigureAwait(false);
+
+            // Assert
+            Assert.NotNull(result);
+
+            var detail = await result.FetchDetail();
+            var item = detail.SucceededItems.Should().ContainSingle(r => r.RequestId == "request").Which;
+            item.Item.ContentSchemaId.Should().Be("ContentItem");
+        }
+
+        [Fact]
         public async Task ShouldCreateContents()
         {
             // Arrange
