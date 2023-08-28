@@ -32,7 +32,7 @@ public class IngestTests : IClassFixture<ClientFixture>
 
         await File.WriteAllTextAsync(tempFile, "Hello world");
 
-        var result = await _fixture.Client.Ingest.ImportFilesAsync(new[] { tempFile });
+        var result = await _fixture.Client.Ingest.UploadAndImportFilesAsync(new[] { tempFile });
         var detail = await result.FetchDetail();
 
         detail.SucceededItems.Should().ContainSingle(c => c.RequestId == filename);
@@ -48,7 +48,7 @@ public class IngestTests : IClassFixture<ClientFixture>
         await _fixture.Client.Schema.CreateManyAsync(schemas, enableForBinaryFiles: true);
 
         // Act
-        var result = await _fixture.Client.Ingest.ImportFilesAsync(
+        var result = await _fixture.Client.Ingest.UploadAndImportFilesAsync(
             new[] { Path.Combine(_fixture.ExampleFilesBasePath, filename) },
             new FileImportRequest
             {
@@ -124,6 +124,31 @@ public class IngestTests : IClassFixture<ClientFixture>
     }
 
     [Fact]
+    public async Task Should_upload_and_then_import()
+    {
+        // Arrange
+        const string fileName = "0030_JabLtzJl8bc.jpg";
+        var filePath = Path.Combine(_fixture.ExampleFilesBasePath, fileName);
+
+        var items = Enumerable.Range(0, 3).Select(i => new IngestUploadItem($"file{i}.jpg", () => File.OpenRead(filePath)));
+
+        // Act
+        var files = await _fixture.Client.Ingest.UploadFilesAsync(items, new IngestUploadOptions { ConcurrentUploads = 2 });
+        var result = await _fixture.Client.Ingest.ImportFilesAsync(
+            files,
+            new ImportOptions
+            {
+                CreateCollection = true,
+                CollectionName = nameof(Should_upload_and_then_import),
+                NotifyProgress = true
+            });
+
+        // Assert
+        var detail = await result.FetchDetail();
+        detail.SucceededItems.Should().HaveCount(3);
+    }
+
+    [Fact]
     public async Task Should_use_file_name_override()
     {
         // Arrange
@@ -162,7 +187,7 @@ public class IngestTests : IClassFixture<ClientFixture>
         memoryStream.Seek(0, SeekOrigin.Begin);
 
         // Act
-        var location = await _fixture.Client.Ingest.UploadFileAsync("file.jpg", memoryStream);
+        var location = await _fixture.Client.Ingest.UploadFileAsync(new IngestUploadItem("file.jpg", () => memoryStream, leaveStreamOpen: true));
         var businessProcess = await _fixture.Client.Content.UpdateFileAsync(
             targetContentId,
             new ContentFileUpdateRequest { IngestFile = location });
