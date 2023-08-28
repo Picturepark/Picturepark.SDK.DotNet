@@ -32,8 +32,8 @@ public class IngestUploadItem
 
     public void Deconstruct(out string fileName, out Func<Stream> openStream, out bool leaveStreamOpen)
     {
-        fileName = this.FileName;
-        openStream = this.OpenStream;
-        leaveStreamOpen = this.LeaveStreamOpen;
+        fileName = FileName;
+        openStream = OpenStream;
+        leaveStreamOpen = LeaveStreamOpen;
     }
 }

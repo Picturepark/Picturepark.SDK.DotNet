@@ -271,6 +271,7 @@ public static class IngestClientExtensions
             containerName,
             new ImportPartialFromContainerRequest
             {
+                Options = options,
                 Items = requests.ToDictionary(r => r.Key.BlobName, r => r.Value)
             },
             ct).ConfigureAwait(false);
