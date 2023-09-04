@@ -12300,7 +12300,7 @@
         "security": [
           {
             "Bearer": [
-              "transfer_write"
+              "ingest_write"
             ]
           }
         ]
@@ -12420,7 +12420,7 @@
         "security": [
           {
             "Bearer": [
-              "transfer_write"
+              "ingest_write"
             ]
           }
         ]
@@ -12540,7 +12540,7 @@
         "security": [
           {
             "Bearer": [
-              "transfer_write"
+              "ingest_write"
             ]
           }
         ]
@@ -12647,7 +12647,7 @@
         "security": [
           {
             "Bearer": [
-              "transfer_write"
+              "ingest_write"
             ]
           }
         ]
@@ -62501,8 +62501,7 @@
               "documenthistory_read": "Read document history",
               "identityprovider_read": "Read identity providers",
               "identityprovider_write": "Write identity providers",
-              "transfer_read": "Read ingest and transfers",
-              "transfer_write": "Write ingest and transfers",
+              "ingest_write": "Write ingest",
               "jsonschema_read": "Read json schemas",
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
@@ -62521,6 +62520,8 @@
               "statistics_write": "Write statistics",
               "template_read": "Read templates",
               "template_write": "Write templates",
+              "transfer_read": "Read transfers",
+              "transfer_write": "Write transfers",
               "userrole_read": "Read user roles",
               "userrole_write": "Write user roles",
               "user_read": "Read users",
