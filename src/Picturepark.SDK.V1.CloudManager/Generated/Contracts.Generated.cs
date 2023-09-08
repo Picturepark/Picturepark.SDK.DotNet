@@ -191,6 +191,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<SnapshotRestoreAllClusters> Restore2Async(SnapshotCustomerRestoreAllClustersRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotCustomerCloneRequest> CloneRequestAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -224,6 +235,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<Customer> Import2Async(CustomerImportAllClustersRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -246,7 +268,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<SnapshotRestore> Restore2Async(SnapshotEnvironmentRestoreRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SnapshotRestore> Restore3Async(SnapshotEnvironmentRestoreRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -14550,6 +14572,77 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SnapshotRestoreAllClusters
+    {
+        [Newtonsoft.Json.JsonProperty("snapshotRestoreViewItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, SnapshotRestore> SnapshotRestoreViewItems { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SnapshotRestoreAllClusters FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRestoreAllClusters>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SnapshotCustomerRestoreAllClustersRequest : SnapshotBaseRestoreRequest2
+    {
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string CustomerId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("clusters", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Clusters { get; set; } = new System.Collections.Generic.List<string>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SnapshotCustomerRestoreAllClustersRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerRestoreAllClustersRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class SnapshotBaseRestoreRequest2
+    {
+        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SnapshotName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RepositoryName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SnapshotBaseRestoreRequest2 FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotBaseRestoreRequest2>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class SnapshotCustomerCloneRequest
     {
         [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -15307,6 +15400,39 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerHostConfigurationCreation>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Request used to import customer from another sub-cloud
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerImportAllClustersRequest : CustomerImportRequest
+    {
+        /// <summary>
+        /// Collection of clusters for which the restore and import should be performed
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("clusters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Clusters { get; set; }
+
+        /// <summary>
+        /// Indicates if it's needed to recreate secondary indices
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("recreateSecondaryIndices", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool RecreateSecondaryIndices { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerImportAllClustersRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerImportAllClustersRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

@@ -29492,17 +29492,20 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
         IngestCompletedWithErrors = 98,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
+        IngestCancelled = 99,
+
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 99,
+        UserEmailConflictSolved = 100,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedSubject")]
-        UserEmailConflictSolvedSubject = 100,
+        UserEmailConflictSolvedSubject = 101,
 
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
-        SupportUserDeactivation = 101,
+        SupportUserDeactivation = 102,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 102,
+        ImportFailedTitle = 103,
 
     }
 
@@ -29818,6 +29821,9 @@ namespace Picturepark.SDK.V1.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
         IngestCompletedWithErrors = 102,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
+        IngestCancelled = 103,
 
     }
 
