@@ -1658,13 +1658,13 @@
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_Restore2",
+        "operationId": "CloudBackup_RestoreIndices",
         "requestBody": {
           "x-name": "request",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SnapshotCustomerRestoreAllIndicesRequest"
+                "$ref": "#/components/schemas/SnapshotCustomerRestoreIndicesRequest"
               }
             }
           },
@@ -1677,7 +1677,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SnapshotCustomerRestoreAllIndices"
+                  "$ref": "#/components/schemas/SnapshotCustomerRestoreIndices"
                 }
               }
             }
@@ -2134,7 +2134,7 @@
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_Import2",
+        "operationId": "CloudBackup_ImportAllClusters",
         "requestBody": {
           "x-name": "request",
           "content": {
@@ -21645,6 +21645,37 @@
           }
         ]
       },
+      "CrossClusterRestoreException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SnapshotNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -25546,7 +25577,7 @@
           }
         }
       },
-      "SnapshotCustomerRestoreAllIndices": {
+      "SnapshotCustomerRestoreIndices": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -25559,7 +25590,7 @@
           }
         }
       },
-      "SnapshotCustomerRestoreAllIndicesRequest": {
+      "SnapshotCustomerRestoreIndicesRequest": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SnapshotBaseRestoreRequest2"
