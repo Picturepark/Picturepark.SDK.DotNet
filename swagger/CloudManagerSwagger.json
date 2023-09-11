@@ -1653,7 +1653,7 @@
         }
       }
     },
-    "/backup/customer/restore/allClusters": {
+    "/backup/customer/restore/indices": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1664,7 +1664,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SnapshotCustomerRestoreAllClustersRequest"
+                "$ref": "#/components/schemas/SnapshotCustomerRestoreAllIndicesRequest"
               }
             }
           },
@@ -1677,7 +1677,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SnapshotRestoreAllClusters"
+                  "$ref": "#/components/schemas/SnapshotCustomerRestoreAllIndices"
                 }
               }
             }
@@ -2398,128 +2398,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SnapshotEnqueueResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/backup/environment/restore": {
-      "post": {
-        "tags": [
-          "CloudBackup"
-        ],
-        "operationId": "CloudBackup_Restore3",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SnapshotEnvironmentRestoreRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SnapshotRestore"
                 }
               }
             }
@@ -21756,6 +21634,17 @@
           }
         ]
       },
+      "CoreClusterNotProvidedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -25657,11 +25546,11 @@
           }
         }
       },
-      "SnapshotRestoreAllClusters": {
+      "SnapshotCustomerRestoreAllIndices": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "snapshotRestoreViewItems": {
+          "result": {
             "type": "object",
             "nullable": true,
             "additionalProperties": {
@@ -25670,7 +25559,7 @@
           }
         }
       },
-      "SnapshotCustomerRestoreAllClustersRequest": {
+      "SnapshotCustomerRestoreAllIndicesRequest": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SnapshotBaseRestoreRequest2"
@@ -26386,10 +26275,6 @@
                 "items": {
                   "type": "string"
                 }
-              },
-              "recreateSecondaryIndices": {
-                "type": "boolean",
-                "description": "Indicates if it's needed to recreate secondary indices"
               }
             }
           }
@@ -26410,17 +26295,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/SnapshotBaseCreateRequest"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "SnapshotEnvironmentRestoreRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SnapshotBaseRestoreRequest"
           },
           {
             "type": "object",

@@ -37658,6 +37658,17 @@
           }
         ]
       },
+      "CoreClusterNotProvidedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
