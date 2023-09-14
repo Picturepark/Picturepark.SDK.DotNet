@@ -12224,7 +12224,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class CrossClusterRestoreException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Exceptions> Exceptions { get; set; }
+        public System.Collections.Generic.ICollection<PictureparkException> Exceptions { get; set; }
 
         public string ToJson()
         {
@@ -43667,26 +43667,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithRenderingError>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class Exceptions
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static Exceptions FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Exceptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

@@ -158,7 +158,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<CustomerSnapshotAllClustersResultViewItem> CreateSnapshotWithSecondaryIndicesGETAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SnapshotCustomerAllClustersResult> CreateSnapshotWithSecondaryIndicesGETAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -191,7 +191,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<SnapshotCustomerRestoreIndices> RestoreIndicesAsync(SnapshotCustomerRestoreIndicesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RestoreSnapshotIndices> RestoreIndicesAsync(RestoreSnapshotIndicesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -9537,7 +9537,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial class CrossClusterRestoreException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Exceptions> Exceptions { get; set; }
+        public System.Collections.Generic.ICollection<PictureparkException> Exceptions { get; set; }
 
         public string ToJson()
         {
@@ -14425,7 +14425,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class CustomerSnapshotAllClustersResultViewItem
+    public partial class SnapshotCustomerAllClustersResult
     {
         [Newtonsoft.Json.JsonProperty("repositoryId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RepositoryId { get; set; }
@@ -14439,9 +14439,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerAlias { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("indicesByClusters", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<string>> IndicesByClusters { get; set; } = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.ICollection<string>>();
+        [Newtonsoft.Json.JsonProperty("indicesByClusters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<string>> IndicesByClusters { get; set; }
 
         [Newtonsoft.Json.JsonProperty("duration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.TimeSpan? Duration { get; set; }
@@ -14464,10 +14463,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static CustomerSnapshotAllClustersResultViewItem FromJson(string data)
+        public static SnapshotCustomerAllClustersResult FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerSnapshotAllClustersResultViewItem>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerAllClustersResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -14626,7 +14625,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SnapshotCustomerRestoreIndices
+    public partial class RestoreSnapshotIndices
     {
         [Newtonsoft.Json.JsonProperty("result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, SnapshotRestore> Result { get; set; }
@@ -14637,17 +14636,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static SnapshotCustomerRestoreIndices FromJson(string data)
+        public static RestoreSnapshotIndices FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerRestoreIndices>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RestoreSnapshotIndices>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SnapshotCustomerRestoreIndicesRequest : SnapshotBaseRestoreRequest2
+    public partial class RestoreSnapshotIndicesRequest : SnapshotBaseRestoreRequest
     {
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -14663,34 +14662,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static SnapshotCustomerRestoreIndicesRequest FromJson(string data)
+        public static RestoreSnapshotIndicesRequest FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerRestoreIndicesRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class SnapshotBaseRestoreRequest2
-    {
-        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SnapshotName { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RepositoryName { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static SnapshotBaseRestoreRequest2 FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotBaseRestoreRequest2>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RestoreSnapshotIndicesRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -24004,26 +23979,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFileRemoveInfo>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class Exceptions
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static Exceptions FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Exceptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

@@ -37682,7 +37682,7 @@
                 "type": "array",
                 "nullable": true,
                 "items": {
-                  "$ref": "#/components/schemas/Exception"
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }

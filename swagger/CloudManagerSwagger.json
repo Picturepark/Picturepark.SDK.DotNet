@@ -1299,7 +1299,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CustomerSnapshotAllClustersResultViewItem"
+                  "$ref": "#/components/schemas/SnapshotCustomerAllClustersResult"
                 }
               }
             }
@@ -1664,7 +1664,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SnapshotCustomerRestoreIndicesRequest"
+                "$ref": "#/components/schemas/RestoreSnapshotIndicesRequest"
               }
             }
           },
@@ -1677,7 +1677,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SnapshotCustomerRestoreIndices"
+                  "$ref": "#/components/schemas/RestoreSnapshotIndices"
                 }
               }
             }
@@ -21658,7 +21658,7 @@
                 "type": "array",
                 "nullable": true,
                 "items": {
-                  "$ref": "#/components/schemas/Exception"
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -25402,12 +25402,9 @@
           }
         }
       },
-      "CustomerSnapshotAllClustersResultViewItem": {
+      "SnapshotCustomerAllClustersResult": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "indicesByClusters"
-        ],
         "properties": {
           "repositoryId": {
             "type": "string",
@@ -25427,6 +25424,7 @@
           },
           "indicesByClusters": {
             "type": "object",
+            "nullable": true,
             "additionalProperties": {
               "type": "array",
               "items": {
@@ -25577,7 +25575,7 @@
           }
         }
       },
-      "SnapshotCustomerRestoreIndices": {
+      "RestoreSnapshotIndices": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -25590,10 +25588,10 @@
           }
         }
       },
-      "SnapshotCustomerRestoreIndicesRequest": {
+      "RestoreSnapshotIndicesRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SnapshotBaseRestoreRequest2"
+            "$ref": "#/components/schemas/SnapshotBaseRestoreRequest"
           },
           {
             "type": "object",
@@ -25616,21 +25614,6 @@
             }
           }
         ]
-      },
-      "SnapshotBaseRestoreRequest2": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "properties": {
-          "snapshotName": {
-            "type": "string",
-            "nullable": true
-          },
-          "repositoryName": {
-            "type": "string",
-            "nullable": true
-          }
-        }
       },
       "SnapshotCustomerCloneRequest": {
         "type": "object",
