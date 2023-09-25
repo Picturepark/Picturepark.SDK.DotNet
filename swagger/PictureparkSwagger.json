@@ -46291,6 +46291,10 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "notifyProgress": {
+                "type": "boolean",
+                "description": "Indicates if progress should be shown to user."
               }
             }
           }
@@ -51050,6 +51054,10 @@
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled",
           "ImportFailedTitle"
         ],
         "enum": [
@@ -51156,6 +51164,10 @@
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled",
           "ImportFailedTitle"
         ]
       },
@@ -51266,7 +51278,12 @@
           "IngestCompleted",
           "IngestFailed",
           "IngestCompletedWithErrors",
-          "IngestCancelled"
+          "IngestCancelled",
+          "IngestReplaceFileDataExtractionInProgress",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled"
         ],
         "enum": [
           "TransferInProgressMessage",
@@ -51372,7 +51389,12 @@
           "IngestCompleted",
           "IngestFailed",
           "IngestCompletedWithErrors",
-          "IngestCancelled"
+          "IngestCancelled",
+          "IngestReplaceFileDataExtractionInProgress",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled"
         ]
       },
       "NotificationDetailBase": {
@@ -51407,7 +51429,8 @@
             "NotificationDetailListItemMetadataBatchEdit": "#/components/schemas/NotificationDetailListItemMetadataBatchEdit",
             "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation",
             "NotificationDetailComment": "#/components/schemas/NotificationDetailComment",
-            "NotificationDetailContentIngest": "#/components/schemas/NotificationDetailContentIngest"
+            "NotificationDetailContentIngest": "#/components/schemas/NotificationDetailContentIngest",
+            "NotificationDetailContentFileReplace": "#/components/schemas/NotificationDetailContentFileReplace"
           }
         },
         "x-abstract": true,
@@ -52017,6 +52040,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "NotificationDetailContentFileReplace": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
