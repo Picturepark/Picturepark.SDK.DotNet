@@ -23317,6 +23317,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("acceptableLayerUnassignments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> AcceptableLayerUnassignments { get; set; }
 
+        /// <summary>
+        /// Indicates if progress should be shown to user.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool NotifyProgress { get; set; }
+
         public string ToJson()
         {
 
@@ -29569,8 +29575,20 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
         SupportUserDeactivation = 102,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileInProgress")]
+        IngestReplaceFileInProgress = 103,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCompleted")]
+        IngestReplaceFileCompleted = 104,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileFailed")]
+        IngestReplaceFileFailed = 105,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCancelled")]
+        IngestReplaceFileCancelled = 106,
+
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 103,
+        ImportFailedTitle = 107,
 
     }
 
@@ -29890,6 +29908,21 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
         IngestCancelled = 103,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileDataExtractionInProgress")]
+        IngestReplaceFileDataExtractionInProgress = 104,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileInProgress")]
+        IngestReplaceFileInProgress = 105,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCompleted")]
+        IngestReplaceFileCompleted = 106,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileFailed")]
+        IngestReplaceFileFailed = 107,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCancelled")]
+        IngestReplaceFileCancelled = 108,
+
     }
 
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
@@ -29916,6 +29949,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotificationDetailListItemDeactivation", typeof(NotificationDetailListItemDeactivation))]
     [JsonInheritanceAttribute("NotificationDetailComment", typeof(NotificationDetailComment))]
     [JsonInheritanceAttribute("NotificationDetailContentIngest", typeof(NotificationDetailContentIngest))]
+    [JsonInheritanceAttribute("NotificationDetailContentFileReplace", typeof(NotificationDetailContentFileReplace))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class NotificationDetailBase
     {
@@ -30640,6 +30674,25 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailContentIngest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class NotificationDetailContentFileReplace : NotificationDetailBusinessProcessBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static NotificationDetailContentFileReplace FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailContentFileReplace>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
