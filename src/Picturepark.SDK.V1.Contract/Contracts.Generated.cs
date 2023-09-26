@@ -43702,13 +43702,8 @@ namespace Picturepark.SDK.V1.Contract
     /// Meta information for a dynamic view field where the filter could not be rendered successfully.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class DynamicViewFieldMetaWithRenderingError : DynamicViewFieldMetaBase
+    public partial class DynamicViewFieldMetaWithRenderingError : DynamicViewFieldMetaWithErrorBase
     {
-        /// <summary>
-        /// Error.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error { get; set; }
 
         public string ToJson()
         {
@@ -43720,6 +43715,30 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithRenderingError>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class DynamicViewFieldMetaWithErrorBase : DynamicViewFieldMetaBase
+    {
+        /// <summary>
+        /// The serialized PictureparkException
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Error { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static DynamicViewFieldMetaWithErrorBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithErrorBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

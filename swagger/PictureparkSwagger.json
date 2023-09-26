@@ -62500,6 +62500,7 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "DynamicViewFieldMetaWithErrorBase": "#/components/schemas/DynamicViewFieldMetaWithErrorBase",
             "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
@@ -62537,16 +62538,28 @@
       "DynamicViewFieldMetaWithRenderingError": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+            "$ref": "#/components/schemas/DynamicViewFieldMetaWithErrorBase"
           },
           {
             "type": "object",
             "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithErrorBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
-                "description": "Error.",
+                "description": "The serialized PictureparkException",
                 "nullable": true
               }
             }
