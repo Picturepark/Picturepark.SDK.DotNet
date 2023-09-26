@@ -37658,6 +37658,48 @@
           }
         ]
       },
+      "CoreClusterNotProvidedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CrossClusterRestoreException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SnapshotNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -40519,7 +40561,6 @@
           }
         },
         "description": "The filters' base class",
-        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "kind"
@@ -46250,6 +46291,10 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "notifyProgress": {
+                "type": "boolean",
+                "description": "Indicates if progress should be shown to user."
               }
             }
           }
@@ -51009,6 +51054,10 @@
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled",
           "ImportFailedTitle"
         ],
         "enum": [
@@ -51115,6 +51164,10 @@
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled",
           "ImportFailedTitle"
         ]
       },
@@ -51225,7 +51278,12 @@
           "IngestCompleted",
           "IngestFailed",
           "IngestCompletedWithErrors",
-          "IngestCancelled"
+          "IngestCancelled",
+          "IngestReplaceFileDataExtractionInProgress",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled"
         ],
         "enum": [
           "TransferInProgressMessage",
@@ -51331,7 +51389,12 @@
           "IngestCompleted",
           "IngestFailed",
           "IngestCompletedWithErrors",
-          "IngestCancelled"
+          "IngestCancelled",
+          "IngestReplaceFileDataExtractionInProgress",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled"
         ]
       },
       "NotificationDetailBase": {
@@ -51366,7 +51429,8 @@
             "NotificationDetailListItemMetadataBatchEdit": "#/components/schemas/NotificationDetailListItemMetadataBatchEdit",
             "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation",
             "NotificationDetailComment": "#/components/schemas/NotificationDetailComment",
-            "NotificationDetailContentIngest": "#/components/schemas/NotificationDetailContentIngest"
+            "NotificationDetailContentIngest": "#/components/schemas/NotificationDetailContentIngest",
+            "NotificationDetailContentFileReplace": "#/components/schemas/NotificationDetailContentFileReplace"
           }
         },
         "x-abstract": true,
@@ -51976,6 +52040,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "NotificationDetailContentFileReplace": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -62425,6 +62500,7 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "DynamicViewFieldMetaWithErrorBase": "#/components/schemas/DynamicViewFieldMetaWithErrorBase",
             "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
@@ -62462,16 +62538,28 @@
       "DynamicViewFieldMetaWithRenderingError": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+            "$ref": "#/components/schemas/DynamicViewFieldMetaWithErrorBase"
           },
           {
             "type": "object",
             "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithErrorBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
-                "description": "Error.",
+                "description": "The serialized PictureparkException",
                 "nullable": true
               }
             }
