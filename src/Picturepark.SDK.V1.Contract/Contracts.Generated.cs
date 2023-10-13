@@ -5177,6 +5177,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("CoreClusterNotProvidedException", typeof(CoreClusterNotProvidedException))]
     [JsonInheritanceAttribute("CrossClusterRestoreException", typeof(CrossClusterRestoreException))]
     [JsonInheritanceAttribute("SnapshotNotFoundException", typeof(SnapshotNotFoundException))]
+    [JsonInheritanceAttribute("SnapshotExistingIndicesNotClosedException", typeof(SnapshotExistingIndicesNotClosedException))]
     [JsonInheritanceAttribute("AddMetadataLanguageTimeoutException", typeof(AddMetadataLanguageTimeoutException))]
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
@@ -12827,6 +12828,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SnapshotExistingIndicesNotClosedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("existingNotClosedIndicesInCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<string>> ExistingNotClosedIndicesInCluster { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SnapshotExistingIndicesNotClosedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotExistingIndicesNotClosedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
