@@ -56,7 +56,7 @@ public class IngestTests : IClassFixture<ClientFixture>
                 Metadata = new DataDictionary
                 {
                     [schemas.Single().Id] = new SampleLayer { ImportedFrom = nameof(Should_import_files_with_metadata) }
-                }
+                },
             });
 
         var detail = await result.FetchDetail();
@@ -79,13 +79,13 @@ public class IngestTests : IClassFixture<ClientFixture>
         var firstResult = await _fixture.Client.Ingest.ImportFilesAsync(
             new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
             {
-                [files[firstFileName]] = new()
+                [files[firstFileName]] = new (),
             });
 
         var secondResult = await _fixture.Client.Ingest.ImportFilesAsync(
             new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
             {
-                [files[secondFileName]] = new()
+                [files[secondFileName]] = new (),
             });
 
         async Task AssertFileName(ContentBatchOperationWithRequestIdResult result, string filename)
@@ -109,7 +109,7 @@ public class IngestTests : IClassFixture<ClientFixture>
         var file = await _fixture.Client.Ingest.UploadFileAsync(Path.Combine(_fixture.ExampleFilesBasePath, fileName));
         var request = new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
         {
-            [file] = new()
+            [file] = new (),
         };
 
         // Act
@@ -157,10 +157,10 @@ public class IngestTests : IClassFixture<ClientFixture>
         var file = await _fixture.Client.Ingest.UploadFileAsync(Path.Combine(_fixture.ExampleFilesBasePath, fileName));
         var request = new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
         {
-            [file] = new()
+            [file] = new ()
             {
                 FileNameOverride = "file.jpg"
-            }
+            },
         };
 
         // Act
@@ -213,7 +213,7 @@ public class IngestTests : IClassFixture<ClientFixture>
         var result = await _fixture.Client.Ingest.ImportFromUrlsAsync(
             new Dictionary<string, UrlImportRequest>
             {
-                [url] = new()
+                [url] = new ()
                 {
                     FileNameOverride = "file1.jpg"
                 }
@@ -242,7 +242,7 @@ public class IngestTests : IClassFixture<ClientFixture>
             {
                 Schemas = new List<SchemaCreateRequest>
                 {
-                    new()
+                    new ()
                     {
                         Id = contentSchemaId,
                         Names = new TranslatedStringDictionary { ["en"] = contentSchemaId },
@@ -250,7 +250,7 @@ public class IngestTests : IClassFixture<ClientFixture>
                         Types = new[] { SchemaType.Content },
                         ViewForAll = true
                     },
-                    new()
+                    new ()
                     {
                         Id = layerId,
                         Names = new TranslatedStringDictionary { ["en"] = layerId },
@@ -261,7 +261,7 @@ public class IngestTests : IClassFixture<ClientFixture>
                             contentSchemaId,
                             nameof(DocumentMetadata)
                         }
-                    }
+                    },
                 }
             });
 
