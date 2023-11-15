@@ -1,0 +1,2496 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface ICloudBackupClient
+   | Picturepark.SDK.V1 API </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface ICloudBackupClient
+   | Picturepark.SDK.V1 API ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient">
+  <h1 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient">Interface ICloudBackupClient
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  
+  
+  
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICloudBackupClient</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ArchiveAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ArchiveAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ArchiveAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryArchiveRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ArchiveAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryArchiveRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ArchiveAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryArchiveRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ArchiveAsync(SnapshotRepositoryArchiveRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ArchiveAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryArchiveRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; ArchiveAsync(SnapshotRepositoryArchiveRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryArchiveRequest.html">SnapshotRepositoryArchiveRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CleanupAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CleanupAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CleanupAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CleanupAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CleanupAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CleanupAsync(CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CleanupAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepositoryCleanupResult&gt; CleanupAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCleanupResult.html">SnapshotRepositoryCleanupResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CloneAsync(SnapshotCustomerCloneRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Customer&gt; CloneAsync(SnapshotCustomerCloneRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html">SnapshotCustomerCloneRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneRequestAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneRequestAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneRequestAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneRequestAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneRequestAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CloneRequestAsync(CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneRequestAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotCustomerCloneRequest&gt; CloneRequestAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html">SnapshotCustomerCloneRequest</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest.html">SnapshotRepositoryEnvironmentCreateRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest.html">SnapshotRepositoryCustomerCreateRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateSnapshot2Async(SnapshotEnvironmentCreateRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotEnqueueResult&gt; CreateSnapshot2Async(SnapshotEnvironmentCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest.html">SnapshotEnvironmentCreateRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnqueueResult.html">SnapshotEnqueueResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateSnapshotAsync(SnapshotCustomerCreateRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotEnqueueResult&gt; CreateSnapshotAsync(SnapshotCustomerCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest.html">SnapshotCustomerCreateRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnqueueResult.html">SnapshotEnqueueResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotWithSecondaryIndicesAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotWithSecondaryIndicesAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotWithSecondaryIndicesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerAllClustersRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotWithSecondaryIndicesAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerAllClustersRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotWithSecondaryIndicesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerAllClustersRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateSnapshotWithSecondaryIndicesAsync(SnapshotCustomerAllClustersRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotWithSecondaryIndicesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerAllClustersRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotEnqueueResult&gt; CreateSnapshotWithSecondaryIndicesAsync(SnapshotCustomerAllClustersRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerAllClustersRequest.html">SnapshotCustomerAllClustersRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnqueueResult.html">SnapshotEnqueueResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ExportAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ExportAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ExportAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerExportRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ExportAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerExportRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ExportAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerExportRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ExportAsync(CustomerExportRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ExportAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerExportRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CustomerExportResult&gt; ExportAsync(CustomerExportRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerExportRequest.html">CustomerExportRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerExportResult.html">CustomerExportResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetGlobalRepositoryStateAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.GetGlobalRepositoryStateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetGlobalRepositoryStateAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.GetGlobalRepositoryStateAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetGlobalRepositoryStateAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetGlobalRepositoryStateAsync(CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetGlobalRepositoryStateAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;GlobalSnapshotRepositoryStateResult&gt; GetGlobalRepositoryStateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.GlobalSnapshotRepositoryStateResult.html">GlobalSnapshotRepositoryStateResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetSnapshotAllClustersAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.GetSnapshotAllClustersAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetSnapshotAllClustersAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.GetSnapshotAllClustersAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetSnapshotAllClustersAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetSnapshotAllClustersAsync(String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_GetSnapshotAllClustersAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotCustomerAllClustersResult&gt; GetSnapshotAllClustersAsync(string tokenId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">tokenId</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerAllClustersResult.html">SnapshotCustomerAllClustersResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAllClustersAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ImportAllClustersAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAllClustersAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerImportAllClustersRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ImportAllClustersAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerImportAllClustersRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAllClustersAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerImportAllClustersRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ImportAllClustersAsync(CustomerImportAllClustersRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAllClustersAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerImportAllClustersRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Customer&gt; ImportAllClustersAsync(CustomerImportAllClustersRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerImportAllClustersRequest.html">CustomerImportAllClustersRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ImportAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerImportRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.ImportAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerImportRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerImportRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ImportAsync(CustomerImportRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_ImportAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerImportRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Customer&gt; ImportAsync(CustomerImportRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerImportRequest.html">CustomerImportRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RestoreAsync(SnapshotCustomerRestoreRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRestore&gt; RestoreAsync(SnapshotCustomerRestoreRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest.html">SnapshotCustomerRestoreRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreIndicesAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreIndicesAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreIndicesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_RestoreSnapshotIndicesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreIndicesAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.RestoreSnapshotIndicesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreIndicesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_RestoreSnapshotIndicesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RestoreIndicesAsync(RestoreSnapshotIndicesRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreIndicesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_RestoreSnapshotIndicesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;RestoreSnapshotIndices&gt; RestoreIndicesAsync(RestoreSnapshotIndicesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.RestoreSnapshotIndicesRequest.html">RestoreSnapshotIndicesRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.RestoreSnapshotIndices.html">RestoreSnapshotIndices</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_Search2Async_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.Search2Async*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_Search2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositorySearchByNameRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.Search2Async(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositorySearchByNameRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_Search2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositorySearchByNameRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">Search2Async(SnapshotRepositorySearchByNameRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_Search2Async_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositorySearchByNameRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; Search2Async(SnapshotRepositorySearchByNameRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositorySearchByNameRequest.html">SnapshotRepositorySearchByNameRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(SnapshotEnvironmentSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotEnvironmentSearchResult&gt; SearchAsync(SnapshotEnvironmentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchRequest.html">SnapshotEnvironmentSearchRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchResult.html">SnapshotEnvironmentSearchResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchEnvironmentRepositoriesAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchEnvironmentRepositoriesAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchEnvironmentRepositoriesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchEnvironmentRepositoriesAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchEnvironmentRepositoriesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchEnvironmentRepositoriesAsync(SnapshotRepositoryEnvironmentSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchEnvironmentRepositoriesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepositorySearchResult&gt; SearchEnvironmentRepositoriesAsync(SnapshotRepositoryEnvironmentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentSearchRequest.html">SnapshotRepositoryEnvironmentSearchRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositorySearchResult.html">SnapshotRepositorySearchResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepositorySearchResult&gt; SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest.html">SnapshotRepositoryCustomerSearchRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositorySearchResult.html">SnapshotRepositorySearchResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchSnapshotsAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchSnapshotsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchSnapshotsAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchSnapshotsAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchSnapshotsAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchSnapshotsAsync(SnapshotCustomerSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchSnapshotsAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SnapshotCustomerSearchResult&gt; SearchSnapshotsAsync(SnapshotCustomerSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html">SnapshotCustomerSearchRequest</a></span>
+        <span class="parametername">request</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchResult.html">SnapshotCustomerSearchResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

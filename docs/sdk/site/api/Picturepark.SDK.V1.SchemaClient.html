@@ -143,64 +143,6 @@
   
   <a id="Picturepark_SDK_V1_SchemaClient__ctor_" data-uid="Picturepark.SDK.V1.SchemaClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_SchemaClient__ctor_IInfoClient_IBusinessProcessClient_IPictureparkServiceSettings_HttpClient_" data-uid="Picturepark.SDK.V1.SchemaClient.#ctor(IInfoClient,IBusinessProcessClient,IPictureparkServiceSettings,HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient__ctor_IInfoClient_IBusinessProcessClient_IPictureparkServiceSettings_HttpClient_" class="expander" data-toggle="collapse">SchemaClient(IInfoClient, IBusinessProcessClient, IPictureparkServiceSettings, HttpClient)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient__ctor_IInfoClient_IBusinessProcessClient_IPictureparkServiceSettings_HttpClient_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SchemaClient(IInfoClient infoClient, IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">IInfoClient</span></span>
-        <span class="parametername">infoClient</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">IBusinessProcessClient</span></span>
-        <span class="parametername">businessProcessClient</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">IPictureparkServiceSettings</span></span>
-        <span class="parametername">settings</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">HttpClient</span></span>
-        <span class="parametername">httpClient</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient__ctor_" data-uid="Picturepark.SDK.V1.SchemaClient.#ctor*"></a>
-  
   <h4 id="Picturepark_SDK_V1_SchemaClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.SchemaClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">SchemaClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_SchemaClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
@@ -379,271 +321,9 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_CreateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync(SchemaDetail,System.Boolean,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(SchemaDetail, Boolean, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates the given <see cref="!:SchemaDetail"></see>.</p>
+  <h5 id="Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Create a new schema.</p>
 </div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaCreateResult&gt; CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SchemaDetail</span></span>
-        <span class="parametername">schemaDetail</span>
-        <p><p>The schema detail.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">enableForBinaryFiles</span>
-        <p><p>Specifies whether to enable the schema for binary files.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p><p>Maximum time to wait for the operation to complete.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>The cancellation token.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaCreateResult</span>&gt;
-        <p><p>The task.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_CreateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaDetail_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync(SchemaDetail,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaDetail_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(SchemaDetail, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_CreateAsync_SchemaDetail_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates the given <see cref="!:SchemaDetail"></see>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaCreateResult&gt; CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SchemaDetail</span></span>
-        <span class="parametername">schemaDetail</span>
-        <p><p>The schema detail.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p><p>Maximum time to wait for the operation to complete.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>The cancellation token.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaCreateResult</span>&gt;
-        <p><p>The task.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_CreateManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateManyAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_CreateManyAsync_IEnumerable_SchemaDetail__System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateManyAsync(IEnumerable{SchemaDetail},System.Boolean,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_CreateManyAsync_IEnumerable_SchemaDetail__System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(IEnumerable&lt;SchemaDetail&gt;, Boolean, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_CreateManyAsync_IEnumerable_SchemaDetail__System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaBatchOperationResult&gt; CreateManyAsync(IEnumerable&lt;SchemaDetail&gt; schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<span class="xref">SchemaDetail</span>&gt;</span>
-        <span class="parametername">schemaDetails</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">enableForBinaryFiles</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_CreateManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateManyAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_CreateManyAsync_SchemaCreateManyRequest_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateManyAsync(SchemaCreateManyRequest,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_CreateManyAsync_SchemaCreateManyRequest_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(SchemaCreateManyRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_CreateManyAsync_SchemaCreateManyRequest_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaBatchOperationResult&gt; CreateManyAsync(SchemaCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SchemaCreateManyRequest</span></span>
-        <span class="parametername">request</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -701,79 +381,9 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAsync(SchemaDetail,System.Boolean,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateOrUpdateAsync(SchemaDetail, Boolean, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Creates or updates the given <see cref="!:SchemaDetail"></see>.</p>
+  <h5 id="Picturepark_SDK_V1_SchemaClient_CreateManyCoreAsync_SchemaCreateManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Creates new schemas. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
 </div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ISchemaResult&gt; CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SchemaDetail</span></span>
-        <span class="parametername">schemaDetail</span>
-        <p><p>The schema detail.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">enableForBinaryFiles</span>
-        <p><p>Specifies whether to enable the schema for binary files.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p><p>Maximum time to wait for the operation to complete.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>The cancellation token.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ISchemaResult</span>&gt;
-        <p><p>The task.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -840,63 +450,10 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_ExistsAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ExistsAsync(String, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_ExistsAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Checks whether a schema ID already exists.</p>
+  <h5 id="Picturepark_SDK_V1_SchemaClient_DeleteAsync_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deletes an existing schema.
+<br>Depending on how much the schema is referenced, the operation can take a lot of time.</p>
 </div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;bool&gt; ExistsAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">schemaId</span>
-        <p><p>The schema ID.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>The cancellation token.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;
-        <p><p>The task.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -954,6 +511,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_SchemaClient_ExistsCoreAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Checks if the schema already exists.</p>
+</div>
   
   
   
@@ -1019,81 +579,9 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GenerateSchemasAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_Type_IEnumerable_SchemaDetail__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GenerateSchemasAsync(Type,IEnumerable{SchemaDetail},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_Type_IEnumerable_SchemaDetail__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GenerateSchemasAsync(Type, IEnumerable&lt;SchemaDetail&gt;, Boolean, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_Type_IEnumerable_SchemaDetail__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Generates the <see cref="!:SchemaDetail"></see>s for the given type and the referenced types.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GenerateSchemasAsync(Type type, IEnumerable&lt;SchemaDetail&gt; schemaDetails = null, bool generateDependencySchema = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">Type</span></span>
-        <span class="parametername">type</span>
-        <p><p>The type.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<span class="xref">SchemaDetail</span>&gt;</span>
-        <span class="parametername">schemaDetails</span>
-        <p><p>The existing schema details.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">generateDependencySchema</span>
-        <p><p>Specifies whether to generate dependent schemas.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>The cancellation token.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ICollection</span>&lt;<span class="xref">SchemaDetail</span>&gt;&gt;
-        <p><p>The collection of schema details.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  <h5 id="Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_Type_IEnumerable_SchemaDetail__System_Boolean_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: When generating multiple schemas or schemas for types with dependencies, please use the CreateMany method to create them at the server to avoid dependency problems.</p>
+  <h5 id="Picturepark_SDK_V1_SchemaClient_FieldExistsAsync_System_String_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Checks if the field in the specified schema already exists.
+<br>Also returns a flag indicating if the field was previously deleted and the ID can therefore not be reused.</p>
 </div>
   
   
@@ -1266,6 +754,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_SchemaClient_GetAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets the schema detail by schema ID.</p>
+</div>
   
   
   
@@ -1437,6 +928,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_SchemaClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets multiple schema details by given schema IDs.
+<br>Can fetch 100 schema details at most.</p>
+</div>
   
   
   
@@ -1567,6 +1062,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_SchemaClient_GetReferencedAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Can fetch referencing schemas for 100 schemas at most.</p>
+</div>
   
   
   
@@ -1750,6 +1248,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_SchemaClient_SearchAsync_SchemaSearchRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Searches schemas as specified in the search request.</p>
+</div>
   
   
   
@@ -1824,6 +1325,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_SchemaClient_TransferOwnershipAsync_System_String_SchemaOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Transfer ownership of the schema specified in id</p>
+</div>
   
   
   
@@ -1881,79 +1385,10 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync(SchemaDetail,System.Boolean,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_UpdateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(SchemaDetail, Boolean, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_UpdateAsync_SchemaDetail_System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Updates the given <see cref="!:SchemaDetail"></see>.</p>
+  <h5 id="Picturepark_SDK_V1_SchemaClient_TransferOwnershipManyAsync_SchemaOwnershipTransferManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Transfers ownership of multiple schemas to specified user. The target user must have the ManageSchemas user right.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
 </div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaUpdateResult&gt; UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SchemaDetail</span></span>
-        <span class="parametername">schemaDetail</span>
-        <p><p>The schema detail.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">enableForBinaryFiles</span>
-        <p><p>Specifies whether to enable the schema for binary files.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p><p>Maximum time to wait for the operation to complete.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>The cancellation token.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaUpdateResult</span>&gt;
-        <p><p>The task.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2028,133 +1463,10 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateManyAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_IEnumerable_SchemaDetail__System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateManyAsync(IEnumerable{SchemaDetail},System.Boolean,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_IEnumerable_SchemaDetail__System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(IEnumerable&lt;SchemaDetail&gt;, Boolean, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_IEnumerable_SchemaDetail__System_Boolean_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaBatchOperationResult&gt; UpdateManyAsync(IEnumerable&lt;SchemaDetail&gt; schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<span class="xref">SchemaDetail</span>&gt;</span>
-        <span class="parametername">schemaDetails</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Boolean</span></span>
-        <span class="parametername">enableForBinaryFiles</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateManyAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_SchemaUpdateManyRequest_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateManyAsync(SchemaUpdateManyRequest,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_SchemaUpdateManyRequest_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(SchemaUpdateManyRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_UpdateManyAsync_SchemaUpdateManyRequest_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaBatchOperationResult&gt; UpdateManyAsync(SchemaUpdateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">SchemaUpdateManyRequest</span></span>
-        <span class="parametername">request</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
+  <h5 id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_System_String_SchemaUpdateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates an existing schema.
+<br>Depending on how much the schema is referenced by existing data, the operation can take a lot of time.</p>
+</div>
   
   
   
@@ -2212,66 +1524,10 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_SchemaClient_WaitForBusinessProcessAndReturnResult_" data-uid="Picturepark.SDK.V1.SchemaClient.WaitForBusinessProcessAndReturnResult*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_SchemaClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForBusinessProcessAndReturnResult(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaBatchOperationResult&gt; WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">businessProcessId</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
-        <span class="parametername">timeout</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
+  <h5 id="Picturepark_SDK_V1_SchemaClient_UpdateManyCoreAsync_SchemaUpdateManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates multiple existing schemas.
+<br>Prefer this whenever you have updates for multiple schemas. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   

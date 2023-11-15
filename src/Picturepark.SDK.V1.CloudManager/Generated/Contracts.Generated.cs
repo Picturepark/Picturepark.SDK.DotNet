@@ -16774,6 +16774,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
         public bool DisableIdsRegisterLink { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("customerSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerSettingsUpdateRequest CustomerSettings { get; set; }
+
         public string ToJson()
         {
 
@@ -19190,6 +19193,170 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
+    /// <summary>
+    /// Customer settings update request
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerSettingsUpdateRequest : CustomerSettings
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerSettingsUpdateRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerSettingsUpdateRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Customer settings
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerSettings
+    {
+        /// <summary>
+        /// Default expiration time as time span that will be applied as default by the UI when creating a new Share
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("uiDefaultShareExpirationTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.TimeSpan? UiDefaultShareExpirationTime { get; set; }
+
+        /// <summary>
+        /// Prefix to be used for the zip file created when downloading multiple contents
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("downloadPrefixName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string DownloadPrefixName { get; set; }
+
+        /// <summary>
+        /// Desired maintenance schedule and blocking periods
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("desiredMaintenance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MaintenanceWindow DesiredMaintenance { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerSettings FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerSettings>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Maintenance window
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class MaintenanceWindow
+    {
+        /// <summary>
+        /// List of schedules during which the maintenance is allowed to be performed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<MaintenanceSchedule> Schedules { get; set; }
+
+        /// <summary>
+        /// List of blocking periods in absolute times during which no maintenance should be performed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("blockingPeriods", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BlockingPeriod> BlockingPeriods { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static MaintenanceWindow FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaintenanceWindow>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Maintenance schedule
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class MaintenanceSchedule
+    {
+        /// <summary>
+        /// Cron expression that specifies the desired starting times for scheduled maintenance.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("cronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CronExpression { get; set; }
+
+        /// <summary>
+        /// Maximum desired duration of maintenance window when started at the times specified by the CronExpression.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("duration", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan Duration { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static MaintenanceSchedule FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaintenanceSchedule>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Blocking period for a maintenance
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BlockingPeriod
+    {
+        /// <summary>
+        /// Start of the blocking period. It must be before End.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Start { get; set; }
+
+        /// <summary>
+        /// End of the blocking period. It must be after Start.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("end", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime End { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BlockingPeriod FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BlockingPeriod>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class CustomerConfiguration
     {
@@ -21492,170 +21659,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderCreateRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Customer settings
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class CustomerSettings
-    {
-        /// <summary>
-        /// Default expiration time as time span that will be applied as default by the UI when creating a new Share
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("uiDefaultShareExpirationTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.TimeSpan? UiDefaultShareExpirationTime { get; set; }
-
-        /// <summary>
-        /// Prefix to be used for the zip file created when downloading multiple contents
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("downloadPrefixName", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string DownloadPrefixName { get; set; }
-
-        /// <summary>
-        /// Desired maintenance schedule and blocking periods
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("desiredMaintenance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MaintenanceWindow DesiredMaintenance { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static CustomerSettings FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerSettings>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Maintenance window
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class MaintenanceWindow
-    {
-        /// <summary>
-        /// List of schedules during which the maintenance is allowed to be performed.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<MaintenanceSchedule> Schedules { get; set; }
-
-        /// <summary>
-        /// List of blocking periods in absolute times during which no maintenance should be performed.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("blockingPeriods", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BlockingPeriod> BlockingPeriods { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static MaintenanceWindow FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaintenanceWindow>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Maintenance schedule
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class MaintenanceSchedule
-    {
-        /// <summary>
-        /// Cron expression that specifies the desired starting times for scheduled maintenance.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("cronExpression", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CronExpression { get; set; }
-
-        /// <summary>
-        /// Maximum desired duration of maintenance window when started at the times specified by the CronExpression.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("duration", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan Duration { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static MaintenanceSchedule FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaintenanceSchedule>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Blocking period for a maintenance
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BlockingPeriod
-    {
-        /// <summary>
-        /// Start of the blocking period. It must be before End.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime Start { get; set; }
-
-        /// <summary>
-        /// End of the blocking period. It must be after Start.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("end", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime End { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BlockingPeriod FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BlockingPeriod>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Customer settings update request
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class CustomerSettingsUpdateRequest : CustomerSettings
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static CustomerSettingsUpdateRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerSettingsUpdateRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

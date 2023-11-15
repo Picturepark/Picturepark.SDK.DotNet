@@ -311,6 +311,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_CancelAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only available if the business process indicates support for cancellation in SupportsCancellation.</p>
+</div>
   
   
   
@@ -376,6 +379,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_BusinessProcessStateChangeRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only available for business processes created through Create. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -548,6 +554,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_GetDetailsAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets details of the given business process.</p>
+</div>
   
   
   
@@ -881,6 +890,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Search for business processes.</p>
+</div>
   
   
   
@@ -945,6 +957,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only available for business processes created through Create.</p>
+</div>
   
   
   
@@ -1085,6 +1100,14 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCoreAsync_System_String_System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Shortcut to wait for the business process to hit one of the finished life cycles.
+<br>Finished life cycles are:
+<br>- Succeeded
+<br>- SucceededWithErrors
+<br>- Cancelled
+<br>- Failed</p>
+</div>
   
   
   
@@ -1225,6 +1248,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Wait for the business process to hit one of the given life cycles.</p>
+</div>
   
   
   
@@ -1365,6 +1391,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
+  <h5 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForStatesCoreAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Wait for the business process to hit one of the given states.</p>
+</div>
   
   
   

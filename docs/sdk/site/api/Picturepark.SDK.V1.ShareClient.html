@@ -312,6 +312,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ShareClient_AggregateAsync_ShareAggregationRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Aggregates shares either created by or sent to current user.</p>
+</div>
   
   
   
@@ -369,6 +372,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ShareClient_CreateAsync_ShareBaseCreateRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Create a new share (basic or embed). The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -491,6 +497,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ShareClient_DeleteManyAsync_ShareDeleteManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deletes multiple shares. Returns a business process which will hold a batch response detail containing information about successful and failed rows. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -739,87 +748,9 @@
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_ShareClient_DownloadWithContentIdAsync_" data-uid="Picturepark.SDK.V1.ShareClient.DownloadWithContentIdAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_ShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ShareClient.DownloadWithContentIdAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DownloadWithContentIdAsync(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_ShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;FileResponse&gt; DownloadWithContentIdAsync(string token, string contentId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">token</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
-        <span class="parametername">width</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
-        <span class="parametername">height</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">range</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">FileResponse</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
+  <h5 id="Picturepark_SDK_V1_ShareClient_DownloadSingleContentAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Download single content in a specific output format (or automatically determined format if none is specified). To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.</p>
+</div>
   
   
   
@@ -872,94 +803,6 @@
         <span class="parametername">cancellationToken</span>
         <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">FileResponse</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_ShareClient_DownloadWithOutputFormatIdAsync_" data-uid="Picturepark.SDK.V1.ShareClient.DownloadWithOutputFormatIdAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_ShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ShareClient.DownloadWithOutputFormatIdAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DownloadWithOutputFormatIdAsync(String, String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_ShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;FileResponse&gt; DownloadWithOutputFormatIdAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">token</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">outputFormatId</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
-        <span class="parametername">width</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
-        <span class="parametername">height</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">range</span>
-        <p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p>
       </td>
     </tr>
   </table>
@@ -1053,6 +896,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ShareClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_ShareResolveBehavior__System_Nullable_System_Int32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get share by id (basic or embed).</p>
+</div>
   
   
   
@@ -1528,6 +1374,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ShareClient_SearchAsync_ShareSearchRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Search shares either created by or sent to current user.</p>
+</div>
   
   
   
@@ -1593,6 +1442,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ShareClient_UpdateAsync_System_String_ShareBaseUpdateRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates a single share. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   

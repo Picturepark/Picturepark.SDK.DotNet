@@ -369,6 +369,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_ArchiveAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only deleted users can be archived. If a user, before being deleted, was an owner of contents, schemas or permissions sets, the archiving through this endpoint won&apos;t be possible:
+<br>            in such a case the archiving will be executed automatically by the system after the retention time is passed.</p>
+</div>
   
   
   
@@ -540,6 +544,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_CreateAsync_UserCreateRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>User will not be invited.</p>
+</div>
   
   
   
@@ -776,6 +783,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Can fetch 100 users at most.</p>
+</div>
   
   
   
@@ -833,6 +843,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_InviteAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Formally invites a user, e.g. sends an invitation email. Transitions AuthorizationState to Invited, implicitly reviews user.</p>
+</div>
   
   
   
@@ -890,6 +903,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_InviteManyAsync_UserInviteManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Formally invites users, e.g. sends an invitation email. Transitions to Invited, implicitly reviews user. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1012,6 +1028,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_LockAsync_System_String_UserLockRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Does not affect AuthorizationState of user.
+<br>If User is already in desired state, this will be returned as error.</p>
+</div>
   
   
   
@@ -1069,6 +1089,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_LockManyAsync_UserLockManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Does not affect AuthorizationState of users
+<br>Users which are already in desired state will be returned as errors. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1195,6 +1219,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_ReinviteAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Formally re-invites a user, e.g. sends an invitation email.</p>
+</div>
   
   
   
@@ -1252,6 +1279,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_ReInviteManyAsync_UserReinviteManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Formally re-invites users, e.g. sends an invitation email. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1309,6 +1339,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_RestoreAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Restores previously deleted user, who was not cleaned up yet.</p>
+</div>
   
   
   
@@ -1374,6 +1407,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_ReviewAsync_System_String_UserReviewRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Users with AuthorizationState != ToBeReviewed are considered reviewed.</p>
+</div>
   
   
   
@@ -1431,6 +1467,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_UserClient_ReviewManyAsync_UserReviewManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Users with AuthorizationState != ToBeReviewed are considered reviewed. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   

@@ -27104,6 +27104,14 @@
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
+          },
+          "customerSettings": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerSettingsUpdateRequest"
+              }
+            ]
           }
         }
       },
@@ -29040,6 +29048,112 @@
           "twelveHours": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "CustomerSettingsUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerSettings"
+          },
+          {
+            "type": "object",
+            "description": "Customer settings update request",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CustomerSettings": {
+        "type": "object",
+        "description": "Customer settings",
+        "additionalProperties": false,
+        "required": [
+          "downloadPrefixName"
+        ],
+        "properties": {
+          "uiDefaultShareExpirationTime": {
+            "type": "string",
+            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
+            "format": "duration",
+            "nullable": true
+          },
+          "downloadPrefixName": {
+            "type": "string",
+            "description": "Prefix to be used for the zip file created when downloading multiple contents",
+            "minLength": 1
+          },
+          "desiredMaintenance": {
+            "description": "Desired maintenance schedule and blocking periods",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MaintenanceWindow"
+              }
+            ]
+          }
+        }
+      },
+      "MaintenanceWindow": {
+        "type": "object",
+        "description": "Maintenance window",
+        "additionalProperties": false,
+        "properties": {
+          "schedules": {
+            "type": "array",
+            "description": "List of schedules during which the maintenance is allowed to be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MaintenanceSchedule"
+            }
+          },
+          "blockingPeriods": {
+            "type": "array",
+            "description": "List of blocking periods in absolute times during which no maintenance should be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BlockingPeriod"
+            }
+          }
+        }
+      },
+      "MaintenanceSchedule": {
+        "type": "object",
+        "description": "Maintenance schedule",
+        "additionalProperties": false,
+        "required": [
+          "duration"
+        ],
+        "properties": {
+          "cronExpression": {
+            "type": "string",
+            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "description": "Maximum desired duration of maintenance window when started at the times specified by the CronExpression.",
+            "format": "duration"
+          }
+        }
+      },
+      "BlockingPeriod": {
+        "type": "object",
+        "description": "Blocking period for a maintenance",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start of the blocking period. It must be before End.",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "description": "End of the blocking period. It must be after Start.",
+            "format": "date-time"
           }
         }
       },
@@ -31254,112 +31368,6 @@
             ]
           }
         }
-      },
-      "CustomerSettings": {
-        "type": "object",
-        "description": "Customer settings",
-        "additionalProperties": false,
-        "required": [
-          "downloadPrefixName"
-        ],
-        "properties": {
-          "uiDefaultShareExpirationTime": {
-            "type": "string",
-            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
-            "format": "duration",
-            "nullable": true
-          },
-          "downloadPrefixName": {
-            "type": "string",
-            "description": "Prefix to be used for the zip file created when downloading multiple contents",
-            "minLength": 1
-          },
-          "desiredMaintenance": {
-            "description": "Desired maintenance schedule and blocking periods",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/MaintenanceWindow"
-              }
-            ]
-          }
-        }
-      },
-      "MaintenanceWindow": {
-        "type": "object",
-        "description": "Maintenance window",
-        "additionalProperties": false,
-        "properties": {
-          "schedules": {
-            "type": "array",
-            "description": "List of schedules during which the maintenance is allowed to be performed.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/MaintenanceSchedule"
-            }
-          },
-          "blockingPeriods": {
-            "type": "array",
-            "description": "List of blocking periods in absolute times during which no maintenance should be performed.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BlockingPeriod"
-            }
-          }
-        }
-      },
-      "MaintenanceSchedule": {
-        "type": "object",
-        "description": "Maintenance schedule",
-        "additionalProperties": false,
-        "required": [
-          "duration"
-        ],
-        "properties": {
-          "cronExpression": {
-            "type": "string",
-            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
-            "nullable": true
-          },
-          "duration": {
-            "type": "string",
-            "description": "Maximum desired duration of maintenance window when started at the times specified by the CronExpression.",
-            "format": "duration"
-          }
-        }
-      },
-      "BlockingPeriod": {
-        "type": "object",
-        "description": "Blocking period for a maintenance",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "end"
-        ],
-        "properties": {
-          "start": {
-            "type": "string",
-            "description": "Start of the blocking period. It must be before End.",
-            "format": "date-time"
-          },
-          "end": {
-            "type": "string",
-            "description": "End of the blocking period. It must be after Start.",
-            "format": "date-time"
-          }
-        }
-      },
-      "CustomerSettingsUpdateRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CustomerSettings"
-          },
-          {
-            "type": "object",
-            "description": "Customer settings update request",
-            "additionalProperties": false
-          }
-        ]
       },
       "EnvironmentConfiguration": {
         "type": "object",
