@@ -312,6 +312,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_OutputClient_GetAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets a output document by id.</p>
+</div>
   
   
   
@@ -438,6 +441,11 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Resets retry attempt counters on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.
+<br>The number the counters are reset to is determined by a global configuration value. If OutputIds are specified, the rest of the fields are ignored.
+<br>Can reset 100 outputs at most. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -495,6 +503,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_OutputClient_SearchAsync_OutputSearchRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>ContentIds must be mandatory filled.</p>
+</div>
   
   
   

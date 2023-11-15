@@ -304,6 +304,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_MetadataClient_GetStatusAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the status of the metadata items (contents and list items) compared to the schema model.</p>
+</div>
   
   
   
@@ -422,6 +425,11 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_MetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Update outdated metadata items (contents and list items). The changes to the schemas are enforced: data related to removed fields are deleted; eventual references to removed fields are dropped; calculated values are recalculated;
+<br>the ids of the schemas&apos; fields the could not be reused become available again.
+<br>The operation can take a long time and it is therefore executed asynchronously and not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   

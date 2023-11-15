@@ -304,6 +304,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_DisplayValueClient_GetStatusAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Get the status of the display values compared to the schema model.</p>
+</div>
   
   
   
@@ -422,6 +425,11 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_DisplayValueClient_RerenderAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The re-rendering only work on those display values that are out of date or not created yet. The process is therefore based on the information returned by the &quot;status&quot; endpoint: if the status is red, the display values of the data
+<br>corresponding to the ContentOrLayerSchemaIds and ListSchemaIds are recalculated.
+<br>The operation is executed asynchronously and it is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
