@@ -34949,6 +34949,12 @@ namespace Picturepark.SDK.V1.Contract
         public bool Required { get; set; }
 
         /// <summary>
+        /// Defines additional only UI-specific behavior
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("uiBehavior", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UiFieldBehavior UiBehavior { get; set; }
+
+        /// <summary>
         /// Field is stored for filtering.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Always)]
@@ -34976,6 +34982,30 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UiFieldBehavior
+    {
+        /// <summary>
+        /// Indicates if a field value is required from UI side
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("suggestRequired", Required = Newtonsoft.Json.Required.Always)]
+        public bool SuggestRequired { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UiFieldBehavior FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UiFieldBehavior>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

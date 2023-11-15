@@ -54952,6 +54952,15 @@
             "type": "boolean",
             "description": "Defines if a field value is mandatory or not."
           },
+          "uiBehavior": {
+            "description": "Defines additional only UI-specific behavior",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UiFieldBehavior"
+              }
+            ]
+          },
           "index": {
             "type": "boolean",
             "description": "Field is stored for filtering."
@@ -54966,6 +54975,19 @@
           },
           "kind": {
             "type": "string"
+          }
+        }
+      },
+      "UiFieldBehavior": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "suggestRequired"
+        ],
+        "properties": {
+          "suggestRequired": {
+            "type": "boolean",
+            "description": "Indicates if a field value is required from UI side"
           }
         }
       },
