@@ -12,10 +12,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         private async Task Setup()
         {
-            await SetupSchema<ContentItem>().ConfigureAwait(false);
-            await SetupSchema<AllDataTypesContract>().ConfigureAwait(false);
-            await SetupSchema<PersonShot>().ConfigureAwait(false);
-            await SetupSchema<SimpleLayer>().ConfigureAwait(false);
+            await SetupSchema<ContentItem>();
+            await SetupSchema<AllDataTypesContract>();
+            await SetupSchema<PersonShot>();
+            await SetupSchema<SimpleLayer>();
         }
     }
 }

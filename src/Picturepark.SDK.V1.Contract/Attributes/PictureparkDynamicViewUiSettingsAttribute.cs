@@ -3,7 +3,7 @@
 namespace Picturepark.SDK.V1.Contract.Attributes
 {
     /// <summary>
-    /// Sets the UI settings of a single / multi relationship field
+    /// Sets the UI settings of a single / multi relationship field.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class PictureparkDynamicViewUiSettingsAttribute : PictureparkItemFieldUiSettingsAttributeBase

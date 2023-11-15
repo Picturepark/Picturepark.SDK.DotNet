@@ -113,7 +113,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         protected async Task SetupSchema<T>() where T : class
         {
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<T>(Client).ConfigureAwait(false);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<T>(Client);
         }
     }
 }

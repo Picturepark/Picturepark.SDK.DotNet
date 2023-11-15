@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldContainSomeSynchronizableAttributes()
         {
             // Act
-            var results = await _client.IdentityProvider.GetSynchronizableAttributesAsync().ConfigureAwait(false);
+            var results = await _client.IdentityProvider.GetSynchronizableAttributesAsync();
 
             // Assert
             results.Should().NotBeEmpty("there should be some synchronizable attributes");

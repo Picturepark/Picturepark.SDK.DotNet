@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
             var tasks = createRequests.Select(r => Client.Channel.CreateAsync(r));
 
-            var created = await Task.WhenAll(tasks).ConfigureAwait(false);
+            var created = await Task.WhenAll(tasks);
 
             foreach (var set in created)
             {

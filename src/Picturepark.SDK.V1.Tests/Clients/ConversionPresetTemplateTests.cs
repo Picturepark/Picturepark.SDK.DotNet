@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 OutputFormatId = "Preview"
             };
 
-            var conversionPresetTemplate = await _client.ConversionPresetTemplate.CreateAsync(createRequest).ConfigureAwait(false);
+            var conversionPresetTemplate = await _client.ConversionPresetTemplate.CreateAsync(createRequest);
             conversionPresetTemplate.Should().NotBeNull();
             conversionPresetTemplate.Template.Should().EndWith(guid);
 
@@ -41,13 +41,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Descriptions = createRequest.Descriptions,
                 Template = createRequest.Template + " mod"
             };
-            conversionPresetTemplate = await _client.ConversionPresetTemplate.UpdateAsync(conversionPresetTemplate.Id, updateRequest).ConfigureAwait(false);
+            conversionPresetTemplate = await _client.ConversionPresetTemplate.UpdateAsync(conversionPresetTemplate.Id, updateRequest);
             conversionPresetTemplate.Should().NotBeNull();
             conversionPresetTemplate.Template.Should().EndWith("mod");
 
-            await _client.ConversionPresetTemplate.DeleteAsync(conversionPresetTemplate.Id).ConfigureAwait(false);
+            await _client.ConversionPresetTemplate.DeleteAsync(conversionPresetTemplate.Id);
 
-            await Assert.ThrowsAsync<ConversionPresetTemplateNotFoundException>(async () => await _client.ConversionPresetTemplate.GetAsync(conversionPresetTemplate.Id)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ConversionPresetTemplateNotFoundException>(async () => await _client.ConversionPresetTemplate.GetAsync(conversionPresetTemplate.Id));
         }
 
         [Fact]
@@ -68,11 +68,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     .ToArray()
             };
 
-            var businessProcess = await _client.ConversionPresetTemplate.CreateManyAsync(createRequestMany).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var businessProcess = await _client.ConversionPresetTemplate.CreateManyAsync(createRequestMany);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
-            var businessProcessBatch = await _client.BusinessProcess.GetSuccessfulItemsAsync(businessProcess.Id, 3).ConfigureAwait(false);
+            var businessProcessBatch = await _client.BusinessProcess.GetSuccessfulItemsAsync(businessProcess.Id, 3);
             var successfulRows = ((BusinessProcessBatchItemBatchResponse)businessProcessBatch.Data).Items;
             successfulRows.Count.Should().Be(3);
             successfulRows.Select(r => r.RequestId).Should().BeEquivalentTo("0", "1", "2");
@@ -93,24 +93,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     .ToArray()
             };
 
-            businessProcess = await _client.ConversionPresetTemplate.UpdateManyAsync(updateRequestMany).ConfigureAwait(false);
-            waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            businessProcess = await _client.ConversionPresetTemplate.UpdateManyAsync(updateRequestMany);
+            waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
-            businessProcessBatch = await _client.BusinessProcess.GetSuccessfulItemsAsync(businessProcess.Id, 3).ConfigureAwait(false);
+            businessProcessBatch = await _client.BusinessProcess.GetSuccessfulItemsAsync(businessProcess.Id, 3);
             successfulRows = ((BusinessProcessBatchItemBatchResponse)businessProcessBatch.Data).Items;
             successfulRows.Count.Should().Be(3);
             successfulRows.Select(r => r.Id).Should().BeEquivalentTo(createdIds);
 
-            var conversionPresetTemplates = await _client.ConversionPresetTemplate.GetManyAsync(createdIds).ConfigureAwait(false);
+            var conversionPresetTemplates = await _client.ConversionPresetTemplate.GetManyAsync(createdIds);
             conversionPresetTemplates.Should().HaveCount(createdIds.Length);
             conversionPresetTemplates.Select(p => p.Template).Should().OnlyContain(s => s.EndsWith("mod"));
 
-            businessProcess = await _client.ConversionPresetTemplate.DeleteManyAsync(new ConversionPresetTemplateDeleteManyRequest { Ids = createdIds }).ConfigureAwait(false);
-            waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            businessProcess = await _client.ConversionPresetTemplate.DeleteManyAsync(new ConversionPresetTemplateDeleteManyRequest { Ids = createdIds });
+            waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
-            conversionPresetTemplates = await _client.ConversionPresetTemplate.GetManyAsync(createdIds).ConfigureAwait(false);
+            conversionPresetTemplates = await _client.ConversionPresetTemplate.GetManyAsync(createdIds);
             conversionPresetTemplates.Should().BeEmpty();
         }
 
@@ -132,15 +132,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     .ToArray()
             };
 
-            var businessProcess = await _client.ConversionPresetTemplate.CreateManyAsync(createRequestMany).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
-            var successfulRows = ((BusinessProcessBatchItemBatchResponse)(await _client.BusinessProcess.GetSuccessfulItemsAsync(businessProcess.Id, 3).ConfigureAwait(false)).Data).Items;
+            var businessProcess = await _client.ConversionPresetTemplate.CreateManyAsync(createRequestMany);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
+            var successfulRows = ((BusinessProcessBatchItemBatchResponse)(await _client.BusinessProcess.GetSuccessfulItemsAsync(businessProcess.Id, 3)).Data).Items;
             var searchRequest = new ConversionPresetTemplateSearchRequest
             {
                 Filter = new TermsFilter { Field = nameof(ConversionPresetTemplate.Id).ToLowerCamelCase(), Terms = successfulRows.Select(r => r.Id).ToArray() }, SearchString = "1"
             };
 
-            var searchResult = await _client.ConversionPresetTemplate.SearchAsync(searchRequest).ConfigureAwait(false);
+            var searchResult = await _client.ConversionPresetTemplate.SearchAsync(searchRequest);
             searchResult.Results.Should().HaveCount(1).And.Subject.First().Template.Should().Be("My template 1");
         }
     }

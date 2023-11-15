@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Act
             var searchResult =
-                await _client.User.SearchAsync(new UserSearchRequest { Limit = 10 }).ConfigureAwait(false);
+                await _client.User.SearchAsync(new UserSearchRequest { Limit = 10 });
 
             // Assert
             Assert.True(searchResult.Results.Any());
@@ -39,9 +39,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var sharedName = $"Name_{Guid.NewGuid():N}";
-            var user1 = await CreateUser(sharedName).ConfigureAwait(false);
-            var user2 = await CreateUser(sharedName).ConfigureAwait(false);
-            var user3 = await CreateUser().ConfigureAwait(false);
+            var user1 = await CreateUser(sharedName);
+            var user2 = await CreateUser(sharedName);
+            var user3 = await CreateUser();
 
             // Act
             var searchRequest = new UserSearchRequest
@@ -53,7 +53,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         { Field = nameof(User.FirstName).ToLowerCamelCase(), Name = "userNameAggregation" }
                 }
             };
-            var searchResult = await _client.User.SearchAsync(searchRequest).ConfigureAwait(false);
+            var searchResult = await _client.User.SearchAsync(searchRequest);
 
             // Assert
             searchResult.Results.Should().HaveCount(3).And.Subject.Select(r => r.Id).Should()
@@ -72,12 +72,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 50)
-                .ConfigureAwait(false);
-            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
-            var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId).ConfigureAwait(false);
+                ;
+            var content = await _client.Content.GetAsync(contentId);
+            var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId);
 
             // Act
-            var user = await _client.User.GetAsync(owner.Id).ConfigureAwait(false);
+            var user = await _client.User.GetAsync(owner.Id);
 
             // Assert
             Assert.Equal(owner.Id, user.Id);
@@ -92,11 +92,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 50)
-                .ConfigureAwait(false);
-            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
+                ;
+            var content = await _client.Content.GetAsync(contentId);
 
             // Act
-            var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId).ConfigureAwait(false);
+            var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId);
 
             // Assert
             Assert.NotNull(owner);
@@ -111,7 +111,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var userCount = 3;
 
-            await _fixture.Users.Create(userCount).ConfigureAwait(false);
+            await _fixture.Users.Create(userCount);
         }
 
         [Theory,
@@ -122,24 +122,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldLockAndUnlockUsers(int count)
         {
             // Arrange
-            var activeUsers = await _fixture.Users.Create(count).ConfigureAwait(false);
+            var activeUsers = await _fixture.Users.Create(count);
             var activeUserIds = activeUsers.Select(u => u.Id).ToArray();
 
             async Task CheckIfUsersAreLocked(bool isLocked) =>
-                (await _client.User.GetManyAsync(activeUserIds).ConfigureAwait(false)).Should()
+                (await _client.User.GetManyAsync(activeUserIds)).Should()
                 .OnlyContain(u => u.IsLocked == isLocked);
 
             // Act
-            await LockUnlockCall(activeUserIds, true).ConfigureAwait(false);
+            await LockUnlockCall(activeUserIds, true);
 
             // Assert
-            await CheckIfUsersAreLocked(true).ConfigureAwait(false);
+            await CheckIfUsersAreLocked(true);
 
             // Act
-            await LockUnlockCall(activeUserIds, false).ConfigureAwait(false);
+            await LockUnlockCall(activeUserIds, false);
 
             // Assert
-            await CheckIfUsersAreLocked(false).ConfigureAwait(false);
+            await CheckIfUsersAreLocked(false);
         }
 
         [Fact]
@@ -150,15 +150,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var city = "Aarray";
 
             // Arrange
-            var user = await _fixture.Users.Create().ConfigureAwait(false);
+            var user = await _fixture.Users.Create();
 
             user.Comment = comment;
             user.Address = user.Address ?? new UserAddress();
             user.Address.City = city;
 
             // Act
-            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user.AsUpdateRequest()).ConfigureAwait(false);
-            var updatedUser = await _client.User.GetAsync(user.Id).ConfigureAwait(false);
+            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user.AsUpdateRequest());
+            var updatedUser = await _client.User.GetAsync(user.Id);
 
             // Assert
             updatedUserResponse.Comment.Should().Be(
@@ -182,10 +182,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReturnMultipleUsersCorrectly()
         {
             // Arrange
-            var users = await _fixture.Users.Create(5).ConfigureAwait(false);
+            var users = await _fixture.Users.Create(5);
 
             // Act
-            var retrievedUsers = await _client.User.GetManyAsync(users.Select(u => u.Id)).ConfigureAwait(false);
+            var retrievedUsers = await _client.User.GetManyAsync(users.Select(u => u.Id));
 
             // Assert
             retrievedUsers.Should().BeEquivalentTo(users);
@@ -203,7 +203,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSingleUser()
         {
             // Act
-            var user = await CreateUser().ConfigureAwait(false);
+            var user = await CreateUser();
 
             // Assert
             user.Should().NotBeNull();
@@ -221,7 +221,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var roleOneName = $"Role with one user ({nameof(ShouldAggregateByRoles)})";
             var roleTwoName = $"Role with two users ({nameof(ShouldAggregateByRoles)})";
 
-            var users = await _fixture.Users.Create(3).ConfigureAwait(false);
+            var users = await _fixture.Users.Create(3);
             var roles = await _client.UserRole.CreateManyAsync(new UserRoleCreateManyRequest
             {
                 Items = new List<UserRoleCreateRequest>
@@ -237,7 +237,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         RequestId = "two"
                     }
                 }
-            }).ConfigureAwait(false);
+            });
 
             var roleOneUserId = roles.Rows.Single(r => r.RequestId == "one").Id;
             var roleTwoUsersId = roles.Rows.Single(r => r.RequestId == "two").Id;
@@ -247,18 +247,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Operation = UserRoleAssignmentOperationType.Add,
                 UserIds = users.Select(u => u.Id).Take(2).ToList(),
                 UserRoleIds = new List<string> { roleTwoUsersId }
-            }).ConfigureAwait(false);
+            });
 
-            await _client.BusinessProcess.WaitForCompletionAsync(bpOne.Id, roleAssignTimeout).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(bpOne.Id, roleAssignTimeout);
 
             var bpTwo = await _client.User.AssignUserRolesAsync(new UserRoleAssignManyRequest
             {
                 Operation = UserRoleAssignmentOperationType.Add,
                 UserIds = users.Select(u => u.Id).Take(1).ToList(),
                 UserRoleIds = new List<string> { roleOneUserId }
-            }).ConfigureAwait(false);
+            });
 
-            await _client.BusinessProcess.WaitForCompletionAsync(bpTwo.Id, roleAssignTimeout).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(bpTwo.Id, roleAssignTimeout);
 
             // Act
             var result = await _client.User.SearchAsync(new UserSearchRequest
@@ -281,7 +281,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         }
                     }
                 }
-            }).ConfigureAwait(false);
+            });
 
             // Assert
             result.Results.Should().HaveCount(users.Count);
@@ -305,14 +305,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldArchiveSingleUser()
         {
             // Arrange
-            var user = await CreateUser().ConfigureAwait(false);
-            await _client.User.DeleteAsync(user.Id, new UserDeleteRequest()).ConfigureAwait(false);
+            var user = await CreateUser();
+            await _client.User.DeleteAsync(user.Id, new UserDeleteRequest());
 
             // Act
-            await _client.User.ArchiveAsync(user.Id).ConfigureAwait(false);
+            await _client.User.ArchiveAsync(user.Id);
 
             // Assert
-            await Assert.ThrowsAsync<UserNotFoundException>(() => _client.User.GetAsync(user.Id)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<UserNotFoundException>(() => _client.User.GetAsync(user.Id));
         }
 
         [Fact]
@@ -323,8 +323,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string user2TestFirstName = $"{nameof(user2TestFirstName)}_{Guid.NewGuid():N}";
 
             // Arrange
-            var user1 = await CreateUser(user1TestFirstName).ConfigureAwait(false);
-            var user2 = await CreateUser(user2TestFirstName).ConfigureAwait(false);
+            var user1 = await CreateUser(user1TestFirstName);
+            var user2 = await CreateUser(user2TestFirstName);
 
             // Act
             var listUsersResult =
@@ -332,7 +332,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     Filter = FilterBase.FromExpression<User>(user => user.FirstName, user1TestFirstName, user2TestFirstName),
                     Limit = 10
-                }).ConfigureAwait(false);
+                });
 
             // Assert
             Assert.Equal(2, listUsersResult.Results.Count);
@@ -342,10 +342,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var lockRequests = ids.Select(async id =>
             {
-                await _client.User.LockAsync(id, new UserLockRequest { Lock = @lock }).ConfigureAwait(false);
+                await _client.User.LockAsync(id, new UserLockRequest { Lock = @lock });
             });
 
-            await Task.WhenAll(lockRequests).ConfigureAwait(false);
+            await Task.WhenAll(lockRequests);
         }
 
         private async Task<UserDetail> CreateUser(string firstName = null, string lastName = null, string emailAddress = null)
@@ -358,7 +358,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LanguageCode = "en"
             };
 
-            return await _client.User.CreateAsync(request).ConfigureAwait(false);
+            return await _client.User.CreateAsync(request);
         }
     }
 }

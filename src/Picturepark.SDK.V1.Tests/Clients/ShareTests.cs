@@ -30,11 +30,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
-            }).ConfigureAwait(false);
+            });
 
             // Act
             var request = new ShareAggregationRequest
@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var result = await _client.Share.AggregateAsync(request).ConfigureAwait(false);
+            var result = await _client.Share.AggregateAsync(request);
 
             // Assert
             var aggregation = result.GetByName("ShareType");
@@ -70,18 +70,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var shareId1 = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = description1,
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = name
-            }).ConfigureAwait(false);
+            });
             var shareId2 = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = description2,
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = name
-            }).ConfigureAwait(false);
+            });
 
             // Act
             var request = new ShareSearchRequest
@@ -111,7 +111,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var result = await _client.Share.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.Share.SearchAsync(request);
 
             // Assert
             result.Results.Should().HaveCount(2).And.Subject.Select(r => r.Id).Should().BeEquivalentTo(shareId1, shareId2);
@@ -134,22 +134,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
-            }).ConfigureAwait(false);
+            });
 
-            var share = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(shareId);
 
             // Act
             var request = share.AsEmbedUpdateRequest(r => r.Description = "Foo");
 
-            var updateBp = await _client.Share.UpdateAsync(shareId, request).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(updateBp.Id).ConfigureAwait(false);
+            var updateBp = await _client.Share.UpdateAsync(shareId, request);
+            await _client.BusinessProcess.WaitForCompletionAsync(updateBp.Id);
 
             // Assert
-            var updatedShare = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var updatedShare = await _client.Share.GetAsync(shareId);
             updatedShare.Description.Should().Be("Foo");
             updatedShare.Schemas.Should().BeNull();
         }
@@ -158,25 +158,25 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Shares")]
         public async Task ShouldPreserveEmbedsWhenUsingAsEmbedUpdateRequestExtension()
         {
-            var embedContents = await GetRandomEmbedContentWithConversionPreset(2).ConfigureAwait(false);
+            var embedContents = await GetRandomEmbedContentWithConversionPreset(2);
 
             // Arrange
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
                 Contents = embedContents.Cast<ShareContentBase>().ToArray(),
                 Name = "Embed share"
-            }).ConfigureAwait(false);
+            });
 
-            var share = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(shareId);
 
             // Act
             var request = share.AsEmbedUpdateRequest(r => r.Description = "Foo");
 
-            var updateBp = await _client.Share.UpdateAsync(shareId, request).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(updateBp.Id).ConfigureAwait(false);
+            var updateBp = await _client.Share.UpdateAsync(shareId, request);
+            await _client.BusinessProcess.WaitForCompletionAsync(updateBp.Id);
 
             // Assert
-            var updatedShare = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var updatedShare = await _client.Share.GetAsync(shareId);
             updatedShare.Description.Should().Be("Foo");
             updatedShare.Contents.OfType<EmbedContent>().Should().BeEquivalentTo(share.Contents);
         }
@@ -188,13 +188,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
-            }).ConfigureAwait(false);
+            });
 
-            var share = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(shareId);
             shareId.Should().Be(share.Id);
 
             // Act
@@ -203,17 +203,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Ids = new List<string> { shareId }
             };
 
-            var deleteBusinessProcess = await _client.Share.DeleteManyAsync(deleteManyRequest).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(deleteBusinessProcess.Id).ConfigureAwait(false);
+            var deleteBusinessProcess = await _client.Share.DeleteManyAsync(deleteManyRequest);
+            await _client.BusinessProcess.WaitForCompletionAsync(deleteBusinessProcess.Id);
 
-            var summary = await _client.BusinessProcess.GetSummaryAsync(deleteBusinessProcess.Id).ConfigureAwait(false) as BusinessProcessSummaryBatchBased;
+            var summary = await _client.BusinessProcess.GetSummaryAsync(deleteBusinessProcess.Id) as BusinessProcessSummaryBatchBased;
             summary.Should().NotBeNull();
             summary.SucceededItemCount.Should().Be(1);
 
             await Assert.ThrowsAsync<ShareNotFoundException>(async () =>
             {
-                await _client.Share.GetAsync(shareId).ConfigureAwait(false);
-            }).ConfigureAwait(false);
+                await _client.Share.GetAsync(shareId);
+            });
         }
 
         [Fact]
@@ -224,7 +224,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var createResult = await CreateShareAndReturnId(new ShareBasicCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = "Description of Basic share aaa",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Basic share aaa",
@@ -233,7 +233,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     _fixture.Configuration.EmailRecipient
                 },
                 LanguageCode = "en"
-            }).ConfigureAwait(false);
+            });
 
             // Assert
             createResult.Should().NotBeNull();
@@ -266,11 +266,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var createBusinessProcess = await _client.Share.CreateAsync(request).ConfigureAwait(false);
+            var createBusinessProcess = await _client.Share.CreateAsync(request);
 
             // Assert
             await Assert.ThrowsAsync<ContentNotFoundException>(
-                async () => await _client.BusinessProcess.WaitForCompletionAsync(createBusinessProcess.Id).ConfigureAwait(false)).ConfigureAwait(false);
+                async () => await _client.BusinessProcess.WaitForCompletionAsync(createBusinessProcess.Id));
         }
 
         [Fact]
@@ -281,14 +281,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
-            }).ConfigureAwait(false);
+            });
 
             // Assert
-            var share = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(shareId);
             share.Id.Should().Be(shareId);
             share.Schemas.Should().BeNull();
         }
@@ -298,7 +298,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldFailOnSharingDuplicatedContentOutputs()
         {
             // Arrange
-            var contents = await GetRandomShareContent(1).ConfigureAwait(false);
+            var contents = await GetRandomShareContent(1);
 
             // Share content twice
             contents.Add(contents.First());
@@ -311,8 +311,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Description = "Description of Embed share bbb",
                     ExpirationDate = new DateTime(2020, 12, 31),
                     Name = "Embed share bbb"
-                }).ConfigureAwait(false);
-            }).ConfigureAwait(false);
+                });
+            });
         }
 
         [Fact]
@@ -323,11 +323,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var name = "Embed share to search" + new Random().Next(0, 999999);
             await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
-                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Contents = await GetRandomShareContent(),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = name
-            }).ConfigureAwait(false);
+            });
 
             // Act
             var request = new ShareSearchRequest
@@ -344,7 +344,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Share.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.Share.SearchAsync(request);
 
             // Assert
             result.TotalResults.Should().Be(1);
@@ -361,7 +361,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             while (contentIds.Count < 2)
             {
-                var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false);
+                var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30);
 
                 if (!contentIds.Contains(contentId))
                     contentIds.Add(contentId);
@@ -377,11 +377,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
-            var contents = await _client.Content.GetManyAsync(contentIds).ConfigureAwait(false);
+            var contents = await _client.Content.GetManyAsync(contentIds);
             var contentSchemaIds = contents.Select(s => s.ContentSchemaId).Distinct().ToList();
 
-            var shareId = await CreateShareAndReturnId(request).ConfigureAwait(false);
-            var embedDetail = await _client.Share.GetAsync(shareId, new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas }).ConfigureAwait(false);
+            var shareId = await CreateShareAndReturnId(request);
+            var embedDetail = await _client.Share.GetAsync(shareId, new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas });
 
             embedDetail.Should().NotBeNull();
             embedDetail.Id.Should().Be(shareId);
@@ -389,7 +389,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             embedDetail.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => contentSchemaIds.Contains(s.Id));
 
             // Act
-            var result = await _client.Share.GetShareJsonAsync(((ShareDataEmbed)embedDetail.Data).Token, resolveBehaviors: new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas }).ConfigureAwait(false);
+            var result = await _client.Share.GetShareJsonAsync(((ShareDataEmbed)embedDetail.Data).Token, resolveBehaviors: new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas });
 
             result.Should().NotBeNull();
             result.Id.Should().Be(shareId);
@@ -401,21 +401,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetShareOutputByToken()
         {
             // Arrange
-            var contents = await GetRandomShareContent(".jpg").ConfigureAwait(false);
+            var contents = await GetRandomShareContent(".jpg");
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
                 Contents = contents,
                 Description = "Description of Embed share",
                 ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
-            }).ConfigureAwait(false);
+            });
 
-            var embedDetail = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(shareId);
 
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
 
             // Act
-            using (var result = await _client.Share.DownloadAsync(shareOutput.Token).ConfigureAwait(false))
+            using (var result = await _client.Share.DownloadAsync(shareOutput.Token))
             {
                 // Assert
                 Assert.NotNull(result);
@@ -426,21 +426,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Shares")]
         public async Task ShouldGetShareOutputByContentIdAndOutputFormatId()
         {
-            var contents = await GetRandomShareContent(".jpg").ConfigureAwait(false);
+            var contents = await GetRandomShareContent(".jpg");
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
                 Contents = contents,
                 Description = "Description of Embed share",
                 ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
-            }).ConfigureAwait(false);
+            });
 
-            var embedDetail = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(shareId);
 
             // Act
             using (var result = await _client.Share
                 .DownloadWithOutputFormatIdAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original")
-                .ConfigureAwait(false))
+                )
             {
                 // Assert
                 Assert.NotNull(result);
@@ -453,7 +453,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [InlineData("resize-to:200x150", 200, 150)]
         public async Task ShouldUsePresetToEditOutput(string preset, int expectedWidth, int expectedHeight)
         {
-            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 1).ConfigureAwait(false);
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 1);
             var contentId = randomContents.Results.Single().Id;
 
             var shareId = await CreateShareAndReturnId(
@@ -480,18 +480,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Description = "Description of Embed share",
                     ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                     Name = "Embed share with conversion"
-                }).ConfigureAwait(false);
+                });
 
-            var embedDetail = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(shareId);
             var token = embedDetail.ContentSelections.Single().Outputs.OfType<ShareOutputEmbed>().Single(o => !o.DynamicRendering).Token;
 
             // Act
             using (var result = await _client.Share
                 .DownloadWithConversionPresetAsync(token, preset)
-                .ConfigureAwait(false))
+                )
             {
                 var tempFile = Path.GetTempFileName();
-                await result.Stream.WriteToFileAsync(tempFile).ConfigureAwait(false);
+                await result.Stream.WriteToFileAsync(tempFile);
 
                 var bitmap = new Bitmap(tempFile);
                 bitmap.Width.Should().Be(expectedWidth);
@@ -517,7 +517,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
-            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
 
             var importRequest = new ImportTransferRequest
             {
@@ -526,10 +526,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LayerSchemaIds = new List<string>()
             };
 
-            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
+            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout);
 
             // Assert
-            var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
             var contentIds = transferResult.Select(r => r.ContentId).ToList();
 
             Assert.Equal(importFilePaths.Count, contentIds.Count);
@@ -550,13 +550,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
-            var shareId = await CreateShareAndReturnId(request).ConfigureAwait(false);
-            var embedDetail = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var shareId = await CreateShareAndReturnId(request);
+            var embedDetail = await _client.Share.GetAsync(shareId);
 
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.Single().Outputs.First();
 
             // Act
-            using (var result = await _client.Share.DownloadAsync(shareOutput.Token, 10, 10).ConfigureAwait(false))
+            using (var result = await _client.Share.DownloadAsync(shareOutput.Token, 10, 10))
             {
                 // Assert
                 Assert.NotNull(result);
@@ -575,7 +575,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 OutputAccess = OutputAccess.Full,
                 Name = formatIdOriginal + "-share",
                 LanguageCode = "en"
-            }).ConfigureAwait(false);
+            });
 
             var previewId = await CreateShareAndReturnId(new ShareBasicCreateRequest()
             {
@@ -583,7 +583,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 OutputAccess = OutputAccess.Preview,
                 Name = formatIdPreview + "-share",
                 LanguageCode = "en"
-            }).ConfigureAwait(false);
+            });
 
             await AssertSharesContainCorrectOutputs(fullId, previewId, formatIdOriginal, formatIdPreview);
         }
@@ -599,14 +599,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Contents = shareContents,
                 OutputAccess = OutputAccess.Full,
                 Name = formatIdOriginal + "-share"
-            }).ConfigureAwait(false);
+            });
 
             var previewId = await CreateShareAndReturnId(new ShareEmbedCreateRequest()
             {
                 Contents = shareContents,
                 OutputAccess = OutputAccess.Preview,
                 Name = formatIdPreview + "-share"
-            }).ConfigureAwait(false);
+            });
 
             await AssertSharesContainCorrectOutputs(fullId, previewId, formatIdOriginal, formatIdPreview);
         }
@@ -616,10 +616,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldRetrieveContentsBasedOnLimit()
         {
             // Arrange
-            var shareId = await CreateShareWithContentsAndReturnId(10).ConfigureAwait(false);
+            var shareId = await CreateShareWithContentsAndReturnId(10);
 
             // Act
-            var share = await _client.Share.GetAsync(shareId, new ShareResolveBehavior[0], 5).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(shareId, new ShareResolveBehavior[0], 5);
 
             // Assert
             share.ContentSelections.Should().HaveCount(5);
@@ -631,7 +631,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldPageOverContentsInShare()
         {
             // Arrange
-            var shareId = await CreateShareWithContentsAndReturnId(10).ConfigureAwait(false);
+            var shareId = await CreateShareWithContentsAndReturnId(10);
 
             // Act
             string pageToken = null;
@@ -641,7 +641,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             do
             {
-                result = await _client.Share.GetContentsInShareAsync(shareId, 2, pageToken).ConfigureAwait(false);
+                result = await _client.Share.GetContentsInShareAsync(shareId, 2, pageToken);
                 totalContents += result.Results.Count;
             }
             while ((pageToken = result.PageToken) != null);
@@ -656,8 +656,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string formatIdOriginal,
             string formatIdPreview)
         {
-            var shareFull = await _client.Share.GetAsync(shareFullId).ConfigureAwait(false);
-            var sharePreview = await _client.Share.GetAsync(sharePreviewId).ConfigureAwait(false);
+            var shareFull = await _client.Share.GetAsync(shareFullId);
+            var sharePreview = await _client.Share.GetAsync(sharePreviewId);
 
             shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
             shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdOriginal);
@@ -692,9 +692,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 };
             }).ToList();
 
-            await _client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = formats }).ConfigureAwait(false);
+            await _client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = formats });
 
-            var contentToShare = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 10).ConfigureAwait(false);
+            var contentToShare = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 10);
             return (
                 formats[0].Id,
                 formats[1].Id,
@@ -706,7 +706,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var outputFormatIds = new List<string> { "Original" };
 
-            var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count).ConfigureAwait(false);
+            var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count);
             var shareContentItems = randomContents.Results.Select(i =>
                 new ShareContent
                 {
@@ -721,7 +721,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var outputFormatIds = new List<string> { "Original", "Preview" };
 
-            var randomContents = await _fixture.GetRandomContentsAsync(searchstring, count).ConfigureAwait(false);
+            var randomContents = await _fixture.GetRandomContentsAsync(searchstring, count);
             var shareContentItems = randomContents.Results.Select(i =>
                 new ShareContent
                 {
@@ -736,7 +736,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var outputFormatIds = new List<string> { "Original" };
 
-            var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count, new[] { ContentType.Bitmap }).ConfigureAwait(false);
+            var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count, new[] { ContentType.Bitmap });
             var embedContentItems = randomContents.Results.Select(i =>
                 new EmbedContent
                 {
@@ -750,7 +750,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<string> CreateShareWithContentsAndReturnId(int count)
         {
-            var contents = await _fixture.GetRandomContentsAsync("fileMetadata.fileExtension:.jpg", count).ConfigureAwait(false);
+            var contents = await _fixture.GetRandomContentsAsync("fileMetadata.fileExtension:.jpg", count);
             return await CreateShareAndReturnId(
                 new ShareBasicCreateRequest
                 {
@@ -762,13 +762,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             OutputFormatIds = new[] { "Original" }
                         }).ToList<ShareContentBase>(),
                     Name = $"{Guid.NewGuid():N}"
-                }).ConfigureAwait(false);
+                });
         }
 
         private async Task<string> CreateShareAndReturnId(ShareBaseCreateRequest createRequest)
         {
-            var createProcess = await _client.Share.CreateAsync(createRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(createProcess.Id).ConfigureAwait(false);
+            var createProcess = await _client.Share.CreateAsync(createRequest);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(createProcess.Id);
 
             if (waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded)
                 _fixture.CreatedShareIds.Enqueue(createProcess.ReferenceId);

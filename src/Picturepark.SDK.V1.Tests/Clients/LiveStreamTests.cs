@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var time = DateTime.Now;
-            await _fixture.Users.Create().ConfigureAwait(false);
+            await _fixture.Users.Create();
 
             var request = new LiveStreamSearchRequest
             {
@@ -34,10 +34,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Give some time for the live stream event to be processed
-            await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
+            await Task.Delay(TimeSpan.FromSeconds(5));
 
             // Act
-            var result = await _client.LiveStream.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.LiveStream.SearchAsync(request);
 
             // Assert
             result.Results.Should().NotBeEmpty();

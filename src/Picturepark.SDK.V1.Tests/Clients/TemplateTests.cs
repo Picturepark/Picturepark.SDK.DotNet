@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_get_all()
         {
             // Act
-            var templates = await _client.Template.GetAllAsync().ConfigureAwait(false);
+            var templates = await _client.Template.GetAllAsync();
 
             // Assert
             templates.Should().NotBeEmpty();
@@ -35,11 +35,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_get_single()
         {
             // Arrange
-            var templates = await _client.Template.GetAllAsync().ConfigureAwait(false);
+            var templates = await _client.Template.GetAllAsync();
             var templateId = templates.First().Id;
 
             // Act
-            var template = await _client.Template.GetAsync(templateId).ConfigureAwait(false);
+            var template = await _client.Template.GetAsync(templateId);
 
             // Assert
             template.Should().NotBeNull();
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             new TemplateValue { MediaType = "text/plain", Text = "Plain template" },
                             new TemplateValue { MediaType = "text/html", Text = "HTML template" },
                         }
-                    }).ConfigureAwait(false);
+                    });
 
                 // Assert
                 template.Should().NotBeNull();
@@ -78,7 +78,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             finally
             {
                 if (!string.IsNullOrEmpty(templateId))
-                    await _client.Template.DeleteAsync(templateId).ConfigureAwait(false);
+                    await _client.Template.DeleteAsync(templateId);
             }
         }
 
@@ -86,7 +86,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_update_custom()
         {
             // Arrange
-            var template = await CreateCustomTemplate().ConfigureAwait(false);
+            var template = await CreateCustomTemplate();
 
             // Act
             template.Values.Single(v => v.MediaType == "text/plain").Text = "Updated";
@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     Names = template.Names,
                     Values = template.Values
-                }).ConfigureAwait(false);
+                });
 
             // Assert
             updated.Values.Single(v => v.MediaType == "text/plain").Text.Should().Be("Updated");
@@ -107,13 +107,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_delete_custom()
         {
             // Arrange
-            var template = await CreateCustomTemplate().ConfigureAwait(false);
+            var template = await CreateCustomTemplate();
 
             // Act
-            await _client.Template.DeleteAsync(template.Id).ConfigureAwait(false);
+            await _client.Template.DeleteAsync(template.Id);
 
             // Assert
-            var ex = await Record.ExceptionAsync(() => _client.Template.GetAsync(template.Id)).ConfigureAwait(false);
+            var ex = await Record.ExceptionAsync(() => _client.Template.GetAsync(template.Id));
             ex.Should().BeOfType<TemplateNotFoundException>();
         }
 
@@ -134,7 +134,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         new TemplateValue { MediaType = "text/plain", Text = "Plain template" },
                         new TemplateValue { MediaType = "text/html", Text = "HTML template" },
                     }
-                }).ConfigureAwait(false);
+                });
         }
     }
 }
