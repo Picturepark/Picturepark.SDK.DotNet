@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Docs", "01 Docs", "{99AB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1.CloudManager.Tests", "Picturepark.SDK.V1.CloudManager.Tests\Picturepark.SDK.V1.CloudManager.Tests.csproj", "{EF5D52AE-86B8-4D85-A116-EB43215F7D13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.SDK.V1.AzureBlob", "Picturepark.SDK.V1.AzureBlob\Picturepark.SDK.V1.AzureBlob.csproj", "{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,14 @@ Global
 		{EF5D52AE-86B8-4D85-A116-EB43215F7D13}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF5D52AE-86B8-4D85-A116-EB43215F7D13}.Release|x64.ActiveCfg = Release|Any CPU
 		{EF5D52AE-86B8-4D85-A116-EB43215F7D13}.Release|x64.Build.0 = Release|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Debug|x64.Build.0 = Debug|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Release|x64.ActiveCfg = Release|Any CPU
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +118,7 @@ Global
 		{BEFC853A-CF61-4CE7-A6A1-8DDB54A9AD8C} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{EF5D52AE-86B8-4D85-A116-EB43215F7D13} = {88E65D30-2F71-46D3-AA5B-542EFDD0D57C}
+		{7DD6E4BE-7824-4336-A769-85CE1A2AA9C0} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70A30629-AE14-4536-92CE-8B5D33E11089}

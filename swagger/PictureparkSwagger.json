@@ -6197,6 +6197,16 @@
               "nullable": true
             },
             "x-position": 1
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 3
           }
         ],
         "requestBody": {
@@ -12200,6 +12210,447 @@
             }
           }
         }
+      }
+    },
+    "/v1/Ingest": {
+      "post": {
+        "tags": [
+          "Ingest"
+        ],
+        "summary": "Create ingest container.",
+        "operationId": "Ingest_CreateIngestContainer",
+        "responses": {
+          "200": {
+            "description": "Ingest container create result containing container name and SAS token for uploading data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IngestContainerCreateResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "ingest_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Ingest/{containerName}/import/all": {
+      "post": {
+        "tags": [
+          "Ingest"
+        ],
+        "summary": "Import all files from the specified container.",
+        "operationId": "Ingest_ImportAll",
+        "parameters": [
+          {
+            "name": "containerName",
+            "in": "path",
+            "required": true,
+            "description": "Container name",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Import request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportAllFromContainerRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "ingest_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Ingest/{containerName}/import/partial": {
+      "post": {
+        "tags": [
+          "Ingest"
+        ],
+        "summary": "Import specified files from the specified container.",
+        "operationId": "Ingest_ImportPartial",
+        "parameters": [
+          {
+            "name": "containerName",
+            "in": "path",
+            "required": true,
+            "description": "Container name",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Import request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportPartialFromContainerRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "ingest_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Ingest/import/fromUrls": {
+      "post": {
+        "tags": [
+          "Ingest"
+        ],
+        "summary": "Import specified urls.",
+        "operationId": "Ingest_ImportFromUrls",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Import request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportFromUrlsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "ingest_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/JsonSchemas/{id}": {
@@ -21846,6 +22297,143 @@
         ]
       }
     },
+    "/v1/SchemaTransfers/import/json": {
+      "post": {
+        "tags": [
+          "SchemaTransfer"
+        ],
+        "summary": "Import schemas",
+        "description": "Maximum uploaded file size is 500Mib The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "SchemaTransfer_ImportJson",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of the schema import",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "description": "Indicates if missing dependencies between imported list items should be allowed",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "importListItems",
+            "in": "query",
+            "description": "Indicates if list items should be imported",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "body",
+          "description": "Body",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Shares/json/{token}": {
       "get": {
         "tags": [
@@ -31191,6 +31779,26 @@
           }
         ]
       },
+      "PictureparkContradictoryArgumentsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "argumentNames": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "UserEmailAlreadyExistsException": {
         "allOf": [
           {
@@ -32804,6 +33412,23 @@
           }
         ]
       },
+      "CronExpressionInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cronExpression": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "CustomerViolationException": {
         "allOf": [
           {
@@ -33664,7 +34289,8 @@
           "ManageConversionPresetTemplates",
           "ManageComments",
           "ManageAllComments",
-          "ListUsers"
+          "ListUsers",
+          "ManageIngest"
         ],
         "enum": [
           "ManageContent",
@@ -33695,7 +34321,8 @@
           "ManageConversionPresetTemplates",
           "ManageComments",
           "ManageAllComments",
-          "ListUsers"
+          "ListUsers",
+          "ManageIngest"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -37031,6 +37658,71 @@
           }
         ]
       },
+      "CoreClusterNotProvidedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CrossClusterRestoreException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SnapshotNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SnapshotExistingIndicesNotClosedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "existingNotClosedIndicesInCluster": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -38855,6 +39547,212 @@
           }
         ]
       },
+      "ConcurrentFileReplacementException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkConflictException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "expectedOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "actualOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestContainerCreationFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "IngestContainerNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestContainerEmptyException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestFileNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              },
+              "fileName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestContainerImportAlreadyInProgress": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestContainerImportRequestValidationFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/InvalidMetadataException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "IngestFileInvalidFileNameOverrideExtensionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "expectedExtension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestFileAlreadyImportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              },
+              "fileName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestUrlInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestDownloadFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessCreateRequest": {
         "type": "object",
         "description": "Create request to create a BusinessProcess.",
@@ -39686,6 +40584,7 @@
           }
         },
         "description": "The filters' base class",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "kind"
@@ -45348,14 +46247,46 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "fileTransferId"
-        ],
         "properties": {
           "fileTransferId": {
             "type": "string",
             "description": "ID of the file transfer to use to replace the content file.",
+            "nullable": true
+          },
+          "ingestFile": {
+            "description": "Location of the file in a Azure blob container.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IngestFile"
+              }
+            ]
+          }
+        }
+      },
+      "IngestFile": {
+        "type": "object",
+        "description": "File location in an ingest container.",
+        "additionalProperties": false,
+        "required": [
+          "containerName",
+          "blobName"
+        ],
+        "properties": {
+          "containerName": {
+            "type": "string",
+            "description": "Name of the container.",
             "minLength": 1
+          },
+          "blobName": {
+            "type": "string",
+            "description": "Blob name.",
+            "minLength": 1
+          },
+          "fileNameOverride": {
+            "type": "string",
+            "description": "Overrides filename from blob storage.",
+            "nullable": true
           }
         }
       },
@@ -45384,6 +46315,10 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "notifyProgress": {
+                "type": "boolean",
+                "description": "Indicates if progress should be shown to user."
               }
             }
           }
@@ -48805,6 +49740,190 @@
           "UpdateInProgress"
         ]
       },
+      "IngestContainerCreateResult": {
+        "type": "object",
+        "description": "Ingest container creation result.",
+        "additionalProperties": false,
+        "required": [
+          "containerName",
+          "sasToken"
+        ],
+        "properties": {
+          "containerName": {
+            "type": "string",
+            "description": "Name of the container.",
+            "minLength": 1
+          },
+          "sasToken": {
+            "type": "string",
+            "description": "SAS token that allows uploading to the container.",
+            "minLength": 1
+          }
+        }
+      },
+      "ImportAllFromContainerRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileImportRequest"
+          },
+          {
+            "type": "object",
+            "description": "Requests to import all files from an ingest container.",
+            "additionalProperties": false,
+            "required": [
+              "options"
+            ],
+            "properties": {
+              "options": {
+                "description": "Import options.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ImportOptions"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ImportOptions": {
+        "type": "object",
+        "description": "Options for importing ingest containers.",
+        "additionalProperties": false,
+        "required": [
+          "notifyProgress",
+          "createCollection"
+        ],
+        "properties": {
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Indicates of progress should be shown to user."
+          },
+          "createCollection": {
+            "type": "boolean",
+            "description": "Indicates if a collection of the imported contents should be created."
+          },
+          "collectionName": {
+            "type": "string",
+            "description": "Name of the collection when CreateCollection is set to true.\nMandatory if CreateCollection is true.",
+            "nullable": true
+          }
+        }
+      },
+      "FileImportRequest": {
+        "type": "object",
+        "description": "Import request for a file from an ingest container.",
+        "additionalProperties": false,
+        "properties": {
+          "layerSchemaIds": {
+            "type": "array",
+            "description": "Layer Schemas to assign to content.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Metadata to assign to content.",
+            "nullable": true
+          },
+          "contentPermissionSetIds": {
+            "type": "array",
+            "description": "Permission set IDs to assign to content.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "displayContentId": {
+            "type": "string",
+            "description": "Display content to assign to content.",
+            "nullable": true
+          }
+        }
+      },
+      "ImportPartialFromContainerRequest": {
+        "type": "object",
+        "description": "Import specific files from an ingest container.",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "object",
+            "description": "Items to import.",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FileImportWithFileNameOverrideRequest"
+            }
+          },
+          "options": {
+            "description": "Import options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImportOptions"
+              }
+            ]
+          }
+        }
+      },
+      "FileImportWithFileNameOverrideRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileImportRequest"
+          },
+          {
+            "type": "object",
+            "description": "Import request for a file from an ingest container allowing to override the ingested file name.",
+            "additionalProperties": false,
+            "properties": {
+              "fileNameOverride": {
+                "type": "string",
+                "description": "Overrides filename from blob storage.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ImportFromUrlsRequest": {
+        "type": "object",
+        "description": "Import specified urls.",
+        "additionalProperties": false,
+        "required": [
+          "options"
+        ],
+        "properties": {
+          "items": {
+            "type": "object",
+            "description": "Items to import.",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/UrlImportRequest"
+            }
+          },
+          "options": {
+            "description": "Import options.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImportOptions"
+              }
+            ]
+          }
+        }
+      },
+      "UrlImportRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileImportWithFileNameOverrideRequest"
+          },
+          {
+            "type": "object",
+            "description": "Import request for a URL.",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ListItemDetail": {
         "type": "object",
         "description": "List item detail",
@@ -49951,9 +51070,18 @@
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
           "NewComment",
+          "IngestInProgress",
+          "IngestCompleted",
+          "IngestFailed",
+          "IngestCompletedWithErrors",
+          "IngestCancelled",
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled",
           "ImportFailedTitle"
         ],
         "enum": [
@@ -50052,9 +51180,18 @@
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
           "NewComment",
+          "IngestInProgress",
+          "IngestCompleted",
+          "IngestFailed",
+          "IngestCompletedWithErrors",
+          "IngestCancelled",
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled",
           "ImportFailedTitle"
         ]
       },
@@ -50159,7 +51296,18 @@
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
-          "NewComment"
+          "NewComment",
+          "IngestDataExtractionInProgress",
+          "IngestContentCreationInProgress",
+          "IngestCompleted",
+          "IngestFailed",
+          "IngestCompletedWithErrors",
+          "IngestCancelled",
+          "IngestReplaceFileDataExtractionInProgress",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled"
         ],
         "enum": [
           "TransferInProgressMessage",
@@ -50259,7 +51407,18 @@
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
-          "NewComment"
+          "NewComment",
+          "IngestDataExtractionInProgress",
+          "IngestContentCreationInProgress",
+          "IngestCompleted",
+          "IngestFailed",
+          "IngestCompletedWithErrors",
+          "IngestCancelled",
+          "IngestReplaceFileDataExtractionInProgress",
+          "IngestReplaceFileInProgress",
+          "IngestReplaceFileCompleted",
+          "IngestReplaceFileFailed",
+          "IngestReplaceFileCancelled"
         ]
       },
       "NotificationDetailBase": {
@@ -50293,7 +51452,9 @@
             "NotificationDetailContentDeactivation": "#/components/schemas/NotificationDetailContentDeactivation",
             "NotificationDetailListItemMetadataBatchEdit": "#/components/schemas/NotificationDetailListItemMetadataBatchEdit",
             "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation",
-            "NotificationDetailComment": "#/components/schemas/NotificationDetailComment"
+            "NotificationDetailComment": "#/components/schemas/NotificationDetailComment",
+            "NotificationDetailContentIngest": "#/components/schemas/NotificationDetailContentIngest",
+            "NotificationDetailContentFileReplace": "#/components/schemas/NotificationDetailContentFileReplace"
           }
         },
         "x-abstract": true,
@@ -50436,9 +51597,6 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "transferId"
-            ],
             "properties": {
               "schemaCount": {
                 "type": "integer",
@@ -50462,7 +51620,7 @@
               },
               "transferId": {
                 "type": "string",
-                "minLength": 1
+                "nullable": true
               },
               "importedSchemaCount": {
                 "type": "integer",
@@ -50482,11 +51640,13 @@
               },
               "relatedItemCount": {
                 "type": "integer",
-                "format": "int64"
+                "format": "int64",
+                "deprecated": true
               },
               "relatedItemProgress": {
                 "type": "integer",
-                "format": "int64"
+                "format": "int64",
+                "deprecated": true
               }
             }
           }
@@ -50884,6 +52044,38 @@
           "Owned",
           "Replied",
           "Mentioned"
+        ]
+      },
+      "NotificationDetailContentIngest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailProgressBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "dataExtractionProgress": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailContentFileReplace": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
         ]
       },
       "NotificationState": {
@@ -61332,6 +62524,7 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "DynamicViewFieldMetaWithErrorBase": "#/components/schemas/DynamicViewFieldMetaWithErrorBase",
             "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
@@ -61369,16 +62562,28 @@
       "DynamicViewFieldMetaWithRenderingError": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+            "$ref": "#/components/schemas/DynamicViewFieldMetaWithErrorBase"
           },
           {
             "type": "object",
             "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithErrorBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
-                "description": "Error.",
+                "description": "The serialized PictureparkException",
                 "nullable": true
               }
             }
@@ -61413,6 +62618,7 @@
               "documenthistory_read": "Read document history",
               "identityprovider_read": "Read identity providers",
               "identityprovider_write": "Write identity providers",
+              "ingest_write": "Write ingest",
               "jsonschema_read": "Read json schemas",
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
@@ -61485,6 +62691,10 @@
     {
       "name": "Info",
       "description": "Endpoint to get basic configuration information."
+    },
+    {
+      "name": "Ingest",
+      "description": "Endpoints to ingest data.\r\n\r\nNote: These endpoints are in public preview and might be changed in a future release without backwards compatibility.\r\n\r\nTo ingest a set of files into Content Platform:\r\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "JsonSchema",

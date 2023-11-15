@@ -21,6 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Picturepark.SDK.V1.AzureBlob\Picturepark.SDK.V1.AzureBlob.csproj" />
     <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
     <ProjectReference Include="..\Picturepark.SDK.V1.Localization\Picturepark.SDK.V1.Localization.csproj" />
     <ProjectReference Include="..\Picturepark.SDK.V1\Picturepark.SDK.V1.csproj" />
