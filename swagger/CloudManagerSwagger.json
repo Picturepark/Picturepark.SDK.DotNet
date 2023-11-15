@@ -7801,6 +7801,131 @@
         }
       }
     },
+    "/customer/{customerId}/operations/pending": {
+      "get": {
+        "tags": [
+          "CustomerOperations"
+        ],
+        "operationId": "CustomerOperation_GetPendingOperations",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PendingOperationItem"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/CustomerQueuePriority/{customerId}/queuePriority/effective": {
       "get": {
         "tags": [
@@ -24745,6 +24870,7 @@
           },
           "endTime": {
             "type": "string",
+            "description": "Only populated when all snapshots have finished",
             "format": "date-time",
             "nullable": true
           },
@@ -26978,6 +27104,14 @@
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
+          },
+          "customerSettings": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerSettingsUpdateRequest"
+              }
+            ]
           }
         }
       },
@@ -28917,6 +29051,112 @@
           }
         }
       },
+      "CustomerSettingsUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerSettings"
+          },
+          {
+            "type": "object",
+            "description": "Customer settings update request",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CustomerSettings": {
+        "type": "object",
+        "description": "Customer settings",
+        "additionalProperties": false,
+        "required": [
+          "downloadPrefixName"
+        ],
+        "properties": {
+          "uiDefaultShareExpirationTime": {
+            "type": "string",
+            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
+            "format": "duration",
+            "nullable": true
+          },
+          "downloadPrefixName": {
+            "type": "string",
+            "description": "Prefix to be used for the zip file created when downloading multiple contents",
+            "minLength": 1
+          },
+          "desiredMaintenance": {
+            "description": "Desired maintenance schedule and blocking periods",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MaintenanceWindow"
+              }
+            ]
+          }
+        }
+      },
+      "MaintenanceWindow": {
+        "type": "object",
+        "description": "Maintenance window",
+        "additionalProperties": false,
+        "properties": {
+          "schedules": {
+            "type": "array",
+            "description": "List of schedules during which the maintenance is allowed to be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MaintenanceSchedule"
+            }
+          },
+          "blockingPeriods": {
+            "type": "array",
+            "description": "List of blocking periods in absolute times during which no maintenance should be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BlockingPeriod"
+            }
+          }
+        }
+      },
+      "MaintenanceSchedule": {
+        "type": "object",
+        "description": "Maintenance schedule",
+        "additionalProperties": false,
+        "required": [
+          "duration"
+        ],
+        "properties": {
+          "cronExpression": {
+            "type": "string",
+            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "description": "Maximum desired duration of maintenance window when started at the times specified by the CronExpression.",
+            "format": "duration"
+          }
+        }
+      },
+      "BlockingPeriod": {
+        "type": "object",
+        "description": "Blocking period for a maintenance",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start of the blocking period. It must be before End.",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "description": "End of the blocking period. It must be after Start.",
+            "format": "date-time"
+          }
+        }
+      },
       "CustomerConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -30583,6 +30823,25 @@
           }
         }
       },
+      "PendingOperationItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "nothingPending"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "nothingPending": {
+            "type": "boolean"
+          },
+          "additionalInformation": {
+            "nullable": true
+          }
+        }
+      },
       "CustomerQueuePriorityConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -31109,112 +31368,6 @@
             ]
           }
         }
-      },
-      "CustomerSettings": {
-        "type": "object",
-        "description": "Customer settings",
-        "additionalProperties": false,
-        "required": [
-          "downloadPrefixName"
-        ],
-        "properties": {
-          "uiDefaultShareExpirationTime": {
-            "type": "string",
-            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
-            "format": "duration",
-            "nullable": true
-          },
-          "downloadPrefixName": {
-            "type": "string",
-            "description": "Prefix to be used for the zip file created when downloading multiple contents",
-            "minLength": 1
-          },
-          "desiredMaintenance": {
-            "description": "Desired maintenance schedule and blocking periods",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/MaintenanceWindow"
-              }
-            ]
-          }
-        }
-      },
-      "MaintenanceWindow": {
-        "type": "object",
-        "description": "Maintenance window",
-        "additionalProperties": false,
-        "properties": {
-          "schedules": {
-            "type": "array",
-            "description": "List of schedules during which the maintenance is allowed to be performed.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/MaintenanceSchedule"
-            }
-          },
-          "blockingPeriods": {
-            "type": "array",
-            "description": "List of blocking periods in absolute times during which no maintenance should be performed.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BlockingPeriod"
-            }
-          }
-        }
-      },
-      "MaintenanceSchedule": {
-        "type": "object",
-        "description": "Maintenance schedule",
-        "additionalProperties": false,
-        "required": [
-          "duration"
-        ],
-        "properties": {
-          "cronExpression": {
-            "type": "string",
-            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
-            "nullable": true
-          },
-          "duration": {
-            "type": "string",
-            "description": "Maximum desired duration of maintenance window when started at the times specified by the CronExpression.",
-            "format": "duration"
-          }
-        }
-      },
-      "BlockingPeriod": {
-        "type": "object",
-        "description": "Blocking period for a maintenance",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "end"
-        ],
-        "properties": {
-          "start": {
-            "type": "string",
-            "description": "Start of the blocking period. It must be before End.",
-            "format": "date-time"
-          },
-          "end": {
-            "type": "string",
-            "description": "End of the blocking period. It must be after Start.",
-            "format": "date-time"
-          }
-        }
-      },
-      "CustomerSettingsUpdateRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CustomerSettings"
-          },
-          {
-            "type": "object",
-            "description": "Customer settings update request",
-            "additionalProperties": false
-          }
-        ]
       },
       "EnvironmentConfiguration": {
         "type": "object",
