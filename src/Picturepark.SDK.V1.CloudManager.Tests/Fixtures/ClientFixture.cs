@@ -47,18 +47,5 @@ namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
         {
             _client.Dispose();
         }
-
-        public ServiceProviderCreateRequest CreateSampleProviderRequest()
-        {
-            var randomId = Guid.NewGuid().ToString();
-
-            return new ServiceProviderCreateRequest()
-            {
-                ExternalId = $"acme-{randomId}",
-                Name = $"ACME 3.14 - {randomId}",
-                Secret = randomId,
-                BaseUrl = $"http://{randomId}"
-            };
-        }
     }
 }

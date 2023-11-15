@@ -20,3 +20,7 @@ dotnet pack "%~dp0/../src/Picturepark.SDK.V1.ServiceProvider/" --output "%~dp0/P
 del "%~dp0/../src/Picturepark.SDK.V1.CloudManager/project.lock.json"
 dotnet restore "%~dp0/../src/Picturepark.SDK.V1.CloudManager/" --no-cache
 dotnet pack "%~dp0/../src/Picturepark.SDK.V1.CloudManager/" --output "%~dp0/Packages" --configuration Release
+
+del "%~dp0/../src/Picturepark.SDK.V1.AzureBlob/project.lock.json"
+dotnet restore "%~dp0/../src/Picturepark.SDK.V1.AzureBlob/" --no-cache
+dotnet pack "%~dp0/../src/Picturepark.SDK.V1.AzureBlob/" --output "%~dp0/Packages" --configuration Release
