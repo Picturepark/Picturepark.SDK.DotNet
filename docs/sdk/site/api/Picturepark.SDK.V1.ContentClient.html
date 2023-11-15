@@ -363,6 +363,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_AggregateAsync_ContentAggregationRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Aggregates content by content fields values as specified in the aggregation request.</p>
+</div>
   
   
   
@@ -420,6 +423,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_AggregateOnChannelAsync_ContentAggregationOnChannelRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Aggregates content by content fields values as specified in the aggregators saved on a channel.</p>
+</div>
   
   
   
@@ -544,6 +550,11 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_BatchUpdateFieldsByFilterCoreAsync_ContentFieldsBatchUpdateFilterRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates metadata layers&apos; fields of multiple contents. For file-less contents, the content&apos;s fields themselves can be updated as well.
+<br>A filter must be provided to limit the update to specific contents. The same set of changes is applied to all the contents.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -668,6 +679,12 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_BatchUpdateFieldsByIdsCoreAsync_ContentFieldsBatchUpdateRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates metadata layers&apos; fields of multiple contents. For file-less contents, the content&apos;s fields themselves can be updated as well.
+<br>A list of content IDs must be provided to limit the update to specific contents. The same set of changes is applied to all the contents.
+<br>See <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs">ShouldUpdateMetadataMany</a> tests.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -941,6 +958,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_CreateAsync_ContentCreateRequest_System_Collections_Generic_IEnumerable_ContentResolveBehavior__System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Create a single file-less content item. To import files, see <a href="#tag/Transfer">Transfer</a>.</p>
+</div>
   
   
   
@@ -1071,6 +1091,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_CreateDownloadLinkAsync_ContentDownloadLinkCreateRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Creates a download link for one or more contents. The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1195,6 +1218,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_CreateManyCoreAsync_ContentCreateManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Create multiple file-less content items. To import files, see <a href="#tag/Transfer">Transfer</a>.
+<br>The operation is executed asynchronous and it&apos;s not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1343,6 +1370,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deletes a single content. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be hard deleted.</p>
+</div>
   
   
   
@@ -1519,6 +1549,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_DeleteManyAsync_ContentDeleteManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deletes multiple contents. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be hard deleted.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1576,6 +1610,11 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_DeleteManyByFilterAsync_ContentDeleteManyFilterRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deletes multiple contents. A filter must be provided to limit the deletion to specific contents.
+<br>The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be hard deleted.
+<br>The operation is executed asynchronously and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -1729,6 +1768,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_DownloadAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Download a single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.
+<br>To use conversion presets on download, e.g. to crop or rotate, please see <a href="#operation/Content_EditOutput">EditOutput</a>.</p>
+</div>
   
   
   
@@ -1918,6 +1961,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_DownloadThumbnailAsync_System_String_ThumbnailSize_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Provides a lightweight endpoint to download content thumbnails.</p>
+</div>
   
   
   
@@ -1990,6 +2036,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_EditOutputAsync_System_String_System_String_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Edits a single content in a specific output format.</p>
+</div>
   
   
   
@@ -2055,6 +2104,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_ContentResolveBehavior__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets the content detail by ID.</p>
+</div>
   
   
   
@@ -2288,6 +2340,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_ContentResolveBehavior__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets multiple content details by IDs.
+<br>Can fetch 100 contents at most.</p>
+</div>
   
   
   
@@ -2345,6 +2401,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_GetOutputsAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Retrieves all outputs available for content, also dynamic rendered outputs are returned, if requested.</p>
+</div>
   
   
   
@@ -2402,6 +2461,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_GetOutputsManyAsync_OutputResolveManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Retrieves all outputs available for contents, also dynamic rendered outputs are returned, if requested.
+<br>A maximum of 1000 content ids can be specified.</p>
+</div>
   
   
   
@@ -2467,6 +2530,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_GetReferencesAsync_System_String_ContentReferencesRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets the references (list items, contents, shares) to a single content.</p>
+</div>
   
   
   
@@ -2524,6 +2590,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_GetReferencesManyAsync_ContentManyReferencesRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gets references (list items, contents, shares) to content documents defined by IDs.</p>
+</div>
   
   
   
@@ -2775,6 +2844,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_RepairContentsBatchAsync_ContentRepairBatchRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A repair operation re-extracts Metadata from the originally uploaded file, applies it and triggers follow-up actions where needed (e.g. Rendering, XmpWriteback)
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -2832,6 +2905,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_RepairContentsByFilterAsync_ContentRepairByFilterRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A repair operation re-extracts Metadata from the originally uploaded file, applies it and triggers follow-up actions where needed (e.g. Rendering, XmpWriteback)
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -2915,6 +2992,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_RestoreAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Restores a previously deleted content.</p>
+</div>
   
   
   
@@ -2972,6 +3052,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_RestoreManyAsync_ContentRestoreManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Restores previously deleted contents.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -3029,6 +3113,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_SearchAsync_ContentSearchRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Searches contents as specified in the search request.</p>
+</div>
   
   
   
@@ -3323,6 +3410,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_TransferOwnershipAsync_System_String_ContentOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Transfers ownership of a content to another user. The target user must have the ManageContent UserRight.</p>
+</div>
   
   
   
@@ -3447,6 +3537,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_TransferOwnershipManyCoreAsync_ContentOwnershipTransferManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Transfers ownerships of multiple contents to specified users. The target users must have the ManageContent UserRight.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -3589,16 +3683,16 @@
   
   <a id="Picturepark_SDK_V1_ContentClient_UpdateFileAsync_" data-uid="Picturepark.SDK.V1.ContentClient.UpdateFileAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.UpdateFileAsync(System.String,ContentFileUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateFileAsync(String, ContentFileUpdateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.UpdateFileAsync(System.String,ContentFileUpdateRequest,System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateFileAsync(String, ContentFileUpdateRequest, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Update content file</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; UpdateFileAsync(string id, ContentFileUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; UpdateFileAsync(string id, ContentFileUpdateRequest request, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3616,6 +3710,14 @@
         <span class="pull-right"><span class="xref">ContentFileUpdateRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Content file update request</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.</p>
 </p>
       </td>
     </tr>
@@ -3646,6 +3748,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_UpdateFileAsync_System_String_ContentFileUpdateRequest_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates binary file of existing content. The file must already be uploaded before calling this endpoint. See <a href="#tag/Transfer">Transfer</a>.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -3745,6 +3851,12 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_UpdateMetadataAsync_System_String_ContentMetadataUpdateRequest_System_Collections_Generic_IEnumerable_ContentResolveBehavior__System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates metadata layers of a specified content. For file-less contents, the content itself can be updated as well.
+<br>The update is flexible enough to allow the update of only the fields that are specified in the request (leaving untouched the other existing ones) or to allow
+<br>the entire replacement of all the values of a schema or even of all the schemas.
+<br>See <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs">ShouldUpdateMetadata</a> tests.</p>
+</div>
   
   
   
@@ -3869,6 +3981,11 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_UpdateMetadataManyCoreAsync_ContentMetadataUpdateManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates metadata layers of multiple contents. For file-less contents, the contents itself can be updated a swell.
+<br>See <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs">ShouldUpdateMetadata</a> tests.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   
@@ -3960,6 +4077,9 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_UpdatePermissionsAsync_System_String_ContentPermissionsUpdateRequest_System_Collections_Generic_IEnumerable_ContentResolveBehavior__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates the content permission sets of a single content. To get a list of available content permission sets, see <a href="operation/Permission_SearchContentPermissions">Permissions</a></p>
+</div>
   
   
   
@@ -4084,6 +4204,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_ContentClient_UpdatePermissionsManyCoreAsync_ContentPermissionsUpdateManyRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates the content permission sets of multiple contents. To get a list of available content permission sets, see <a href="#operation/Permission_SearchContentPermissions">Permissions</a>
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
   
   
   

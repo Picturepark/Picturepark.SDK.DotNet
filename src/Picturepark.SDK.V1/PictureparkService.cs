@@ -1,5 +1,6 @@
 ﻿using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
+using Picturepark.SDK.V1.Partial;
 
 namespace Picturepark.SDK.V1
 {
@@ -80,6 +81,8 @@ namespace Picturepark.SDK.V1
 
         public IConversionPresetTemplateClient ConversionPresetTemplate { get; private set; }
 
+        public IIngestClient Ingest { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -119,6 +122,7 @@ namespace Picturepark.SDK.V1
             Template = new TemplateClient(settings, httpClient);
             Statistics = new StatisticClient(settings, httpClient);
             ConversionPresetTemplate = new ConversionPresetTemplateClient(settings, httpClient);
+            Ingest = new InternalIngestClient(BusinessProcess, Content, settings, httpClient);
         }
     }
 }

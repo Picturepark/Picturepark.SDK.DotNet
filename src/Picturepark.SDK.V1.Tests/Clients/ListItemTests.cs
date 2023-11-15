@@ -970,7 +970,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
+        [Trait("Stack", "ListItem")]
         public async Task ShouldFetchResultFromCreateMany()
         {
             // Arrange
@@ -1208,7 +1208,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
+        [Trait("Stack", "ListItem")]
         public async Task ShouldBatchUpdateWithoutWithoutWaitingSearchDocs()
         {
             // Arrange

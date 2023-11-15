@@ -5,6 +5,8 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.IO;
 using System.Linq;
+using System.Text;
+using FluentAssertions;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -86,6 +88,40 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Tear down
             await _client.Schema.DeleteAsync(schema.Id).ConfigureAwait(false);
+        }
+
+        [Fact]
+        public async Task ShouldImportPlanetSchemaUsingJsonUpload()
+        {
+            // Arrange
+            const string schemaId = "Planet";
+            var version = await _client.Info.GetVersionAsync().ConfigureAwait(false);
+
+            var planetJson = (await File.ReadAllTextAsync(Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json")))
+                .Replace("{{contractVersion}}", version.ContractVersion);
+
+            var stream = new MemoryStream(Encoding.UTF8.GetBytes(planetJson));
+
+            // Act
+            var businessProcess = await _client.SchemaTransfer.ImportJsonAsync(stream, allowMissingDependencies: true, importListItems: true);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromMinutes(2));
+
+            // Assert
+            var schema = await _client.Schema.GetAsync(schemaId);
+            schema.Id.Should().Be(schemaId);
+
+            // Tear down
+            var listItemDeletionBusinessProcess = await _client.ListItem.DeleteManyByFilterAsync(
+                new ListItemDeleteManyFilterRequest
+                {
+                    FilterRequest = new ListItemFilterRequest
+                    {
+                        SchemaIds = new[] { schemaId }
+                    }
+                });
+
+            await _client.BusinessProcess.WaitForCompletionAsync(listItemDeletionBusinessProcess.Id, TimeSpan.FromMinutes(2));
+            await _client.Schema.DeleteAsync(schemaId);
         }
     }
 }

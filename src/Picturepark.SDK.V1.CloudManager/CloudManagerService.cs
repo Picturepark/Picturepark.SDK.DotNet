@@ -3,7 +3,6 @@ using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 using Picturepark.SDK.V1.CloudManager.Contract;
 using IOutputFormatClient = Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient;
-using IServiceProviderClient = Picturepark.SDK.V1.CloudManager.Contract.IServiceProviderClient;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
@@ -35,8 +34,6 @@ namespace Picturepark.SDK.V1.CloudManager
         public IUpdateClient Update { get; private set; }
 
         public ICloudBackupClient CloudBackup { get; private set; }
-
-        public IServiceProviderClient ServiceProvider { get; private set; }
 
         public ICustomerServiceProviderClient CustomerServiceProvider { get; private set; }
 
@@ -71,7 +68,6 @@ namespace Picturepark.SDK.V1.CloudManager
             CloudBackup = new CloudBackupClient(settings, httpClient);
             EnvironmentProcess = new EnvironmentProcessClient(settings, httpClient);
             Environment = new EnvironmentClient(settings, httpClient);
-            ServiceProvider = new ServiceProviderClient(settings, httpClient);
             CustomerServiceProvider = new CustomerServiceProviderClient(settings, httpClient);
             ContentBackup = new ContentBackupClient(settings, httpClient);
             Maintenance = new MaintenanceClient(settings, httpClient);

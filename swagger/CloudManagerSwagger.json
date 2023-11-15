@@ -15,373 +15,6 @@
     }
   },
   "paths": {
-    "/apiClient/{id}/limits": {
-      "get": {
-        "tags": [
-          "ApiClientLimits"
-        ],
-        "operationId": "ApiClientLimit_Get",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReadWriteApiLimits"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "ApiClientLimits"
-        ],
-        "operationId": "ApiClientLimit_Upsert",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "requestBody": {
-          "x-name": "limits",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ReadWriteApiLimits"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReadWriteApiLimits"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ApiClientLimits"
-        ],
-        "operationId": "ApiClientLimit_Delete",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
     "/BusinessProcesses/{alias}/{id}/waitCompletion": {
       "get": {
         "tags": [
@@ -1153,6 +786,250 @@
         }
       }
     },
+    "/backup/customer/snapshot/allClusters": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateSnapshotWithSecondaryIndices",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotCustomerAllClustersRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotEnqueueResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/backup/customer/snapshot/allClusters/{tokenId}": {
+      "get": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_GetSnapshotAllClusters",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotCustomerAllClustersResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/backup/customer/export": {
       "put": {
         "tags": [
@@ -1312,6 +1189,128 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SnapshotRestore"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/backup/customer/restore/indices": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_RestoreIndices",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RestoreSnapshotIndicesRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestoreSnapshotIndices"
                 }
               }
             }
@@ -1763,6 +1762,128 @@
         }
       }
     },
+    "/backup/customer/import/allClusters": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_ImportAllClusters",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerImportAllClustersRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/backup/environment/repository": {
       "put": {
         "tags": [
@@ -1910,128 +2031,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SnapshotEnqueueResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/backup/environment/restore": {
-      "post": {
-        "tags": [
-          "CloudBackup"
-        ],
-        "operationId": "CloudBackup_Restore2",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SnapshotEnvironmentRestoreRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SnapshotRestore"
                 }
               }
             }
@@ -5739,6 +5738,133 @@
         }
       }
     },
+    "/Customer/{id}/delete": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_DeleteWithOptions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDeleteRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/Customer/search": {
       "post": {
         "tags": [
@@ -7578,6 +7704,131 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UserWithRoles"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/customer/{customerId}/operations/pending": {
+      "get": {
+        "tags": [
+          "CustomerOperations"
+        ],
+        "operationId": "CustomerOperation_GetPendingOperations",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PendingOperationItem"
+                  }
                 }
               }
             }
@@ -11187,212 +11438,6 @@
         }
       }
     },
-    "/MessageQueue/initialize": {
-      "post": {
-        "tags": [
-          "MessageQueue"
-        ],
-        "operationId": "MessageQueue_Initialize",
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/MessageQueue/reset": {
-      "post": {
-        "tags": [
-          "MessageQueue"
-        ],
-        "operationId": "MessageQueue_Reset",
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
     "/OutputFormat/customer/{customerId}/outputformats/{id}": {
       "get": {
         "tags": [
@@ -11837,243 +11882,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/service/serviceProvider": {
-      "post": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "operationId": "ServiceProvider_Create",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceProviderCreateRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceProvider"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/service/serviceProvider/{id}": {
-      "delete": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "operationId": "ServiceProvider_Delete",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -15171,63 +14979,218 @@
   },
   "components": {
     "schemas": {
-      "ReadWriteApiLimits": {
+      "BusinessProcessWaitForLifeCycleResult": {
         "type": "object",
+        "description": "Result from waiting for life cycle(s) on a business process",
         "additionalProperties": false,
+        "required": [
+          "businessProcess"
+        ],
         "properties": {
-          "read": {
+          "lifeCycleHit": {
+            "description": "The life cycle that was hit.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/ApiLimits"
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
               }
             ]
           },
-          "write": {
-            "nullable": true,
+          "businessProcess": {
+            "description": "The business process.",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/ApiLimits"
+                "$ref": "#/components/schemas/BusinessProcess"
               }
             ]
           }
         }
       },
-      "ApiLimits": {
+      "BusinessProcessLifeCycle": {
+        "type": "string",
+        "description": "Life cycle of the business process",
+        "x-enumNames": [
+          "Draft",
+          "InProgress",
+          "Succeeded",
+          "Cancelled",
+          "CancellationInProgress",
+          "Failed",
+          "SucceededWithErrors"
+        ],
+        "enum": [
+          "Draft",
+          "InProgress",
+          "Succeeded",
+          "Cancelled",
+          "CancellationInProgress",
+          "Failed",
+          "SucceededWithErrors"
+        ]
+      },
+      "BusinessProcess": {
         "type": "object",
+        "discriminator": {
+          "propertyName": "kind"
+        },
+        "description": "Business process",
         "additionalProperties": false,
         "required": [
-          "thirtySeconds",
-          "minute",
-          "fiveMinutes",
-          "fifteenMinutes",
-          "hour",
-          "twelveHours"
+          "id",
+          "processDefinitionId",
+          "kind",
+          "supportsCancellation",
+          "businessProcessScope",
+          "lifeCycle",
+          "startDate",
+          "endDate",
+          "finished"
         ],
         "properties": {
-          "thirtySeconds": {
-            "type": "integer",
-            "format": "int32"
+          "id": {
+            "type": "string",
+            "description": "ID of the business process.",
+            "minLength": 1
           },
-          "minute": {
-            "type": "integer",
-            "format": "int32"
+          "processDefinitionId": {
+            "type": "string",
+            "description": "ID of the business process definition associated to the business process.",
+            "minLength": 1
           },
-          "fiveMinutes": {
-            "type": "integer",
-            "format": "int32"
+          "referenceId": {
+            "type": "string",
+            "description": "ID of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
+            "nullable": true
           },
-          "fifteenMinutes": {
-            "type": "integer",
-            "format": "int32"
+          "referenceDocType": {
+            "type": "string",
+            "description": "Type of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
+            "nullable": true
           },
-          "hour": {
-            "type": "integer",
-            "format": "int32"
+          "supportsCancellation": {
+            "type": "boolean",
+            "description": "True if the business process execution can be cancelled. False otherwise."
           },
-          "twelveHours": {
-            "type": "integer",
-            "format": "int32"
+          "businessProcessScope": {
+            "description": "Scope of the business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessScope"
+              }
+            ]
+          },
+          "lifeCycle": {
+            "description": "Current life cycle of the business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "description": "When the business process started.",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "When the business process finished.",
+            "format": "date-time"
+          },
+          "finished": {
+            "type": "boolean",
+            "description": "Is the business process finished."
+          },
+          "stateHistory": {
+            "type": "array",
+            "description": "List containing the history of all the state transitions of the business process.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessProcessState"
+            }
+          },
+          "currentState": {
+            "type": "string",
+            "description": "Current state of the business process.",
+            "nullable": true
+          },
+          "lastReportedProgress": {
+            "type": "string",
+            "description": "Timestamp when the business process last reported progress.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "continuationBusinessProcessId": {
+            "type": "string",
+            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessProcessScope": {
+        "type": "string",
+        "description": "Scope of the business process",
+        "x-enumNames": [
+          "System",
+          "User"
+        ],
+        "enum": [
+          "System",
+          "User"
+        ]
+      },
+      "BusinessProcessState": {
+        "type": "object",
+        "description": "State transition information of a business process",
+        "additionalProperties": false,
+        "required": [
+          "state",
+          "timestamp"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "State of the business process",
+            "minLength": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Date and time of when the state transition was performed.",
+            "format": "date-time"
+          },
+          "error": {
+            "description": "Eventual error associated to the state transition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Error information with serialized exception",
+        "additionalProperties": false,
+        "properties": {
+          "exception": {
+            "type": "string",
+            "description": "Serialized PictureparkBusinessException.",
+            "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "description": "Trace ID.",
+            "nullable": true
+          },
+          "traceJobId": {
+            "type": "string",
+            "description": "Trace job ID.",
+            "nullable": true
           }
         }
       },
@@ -15386,6 +15349,26 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "PictureparkContradictoryArgumentsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "argumentNames": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ]
       },
@@ -17002,6 +16985,23 @@
           }
         ]
       },
+      "CronExpressionInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cronExpression": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "CustomerViolationException": {
         "allOf": [
           {
@@ -17862,7 +17862,8 @@
           "ManageConversionPresetTemplates",
           "ManageComments",
           "ManageAllComments",
-          "ListUsers"
+          "ListUsers",
+          "ManageIngest"
         ],
         "enum": [
           "ManageContent",
@@ -17893,7 +17894,8 @@
           "ManageConversionPresetTemplates",
           "ManageComments",
           "ManageAllComments",
-          "ListUsers"
+          "ListUsers",
+          "ManageIngest"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -21229,6 +21231,71 @@
           }
         ]
       },
+      "CoreClusterNotProvidedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CrossClusterRestoreException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SnapshotNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SnapshotExistingIndicesNotClosedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "existingNotClosedIndicesInCluster": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -21421,28 +21488,6 @@
               }
             }
           }
-        ]
-      },
-      "BusinessProcessLifeCycle": {
-        "type": "string",
-        "description": "Life cycle of the business process",
-        "x-enumNames": [
-          "Draft",
-          "InProgress",
-          "Succeeded",
-          "Cancelled",
-          "CancellationInProgress",
-          "Failed",
-          "SucceededWithErrors"
-        ],
-        "enum": [
-          "Draft",
-          "InProgress",
-          "Succeeded",
-          "Cancelled",
-          "CancellationInProgress",
-          "Failed",
-          "SucceededWithErrors"
         ]
       },
       "OnlyAccessibleToRecipientException": {
@@ -23075,198 +23120,211 @@
           }
         ]
       },
-      "BusinessProcessWaitForLifeCycleResult": {
-        "type": "object",
-        "description": "Result from waiting for life cycle(s) on a business process",
-        "additionalProperties": false,
-        "required": [
-          "businessProcess"
-        ],
-        "properties": {
-          "lifeCycleHit": {
-            "description": "The life cycle that was hit.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+      "ConcurrentFileReplacementException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkConflictException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "expectedOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "actualOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
               }
-            ]
-          },
-          "businessProcess": {
-            "description": "The business process.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BusinessProcess"
-              }
-            ]
-          }
-        }
-      },
-      "BusinessProcess": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind"
-        },
-        "description": "Business process",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "processDefinitionId",
-          "kind",
-          "supportsCancellation",
-          "businessProcessScope",
-          "lifeCycle",
-          "startDate",
-          "endDate",
-          "finished"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of the business process.",
-            "minLength": 1
-          },
-          "processDefinitionId": {
-            "type": "string",
-            "description": "ID of the business process definition associated to the business process.",
-            "minLength": 1
-          },
-          "referenceId": {
-            "type": "string",
-            "description": "ID of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
-            "nullable": true
-          },
-          "referenceDocType": {
-            "type": "string",
-            "description": "Type of the document that is modified by the running of the business process. Used during the cancellation of the business process.",
-            "nullable": true
-          },
-          "supportsCancellation": {
-            "type": "boolean",
-            "description": "True if the business process execution can be cancelled. False otherwise."
-          },
-          "businessProcessScope": {
-            "description": "Scope of the business process.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BusinessProcessScope"
-              }
-            ]
-          },
-          "lifeCycle": {
-            "description": "Current life cycle of the business process.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
-              }
-            ]
-          },
-          "startDate": {
-            "type": "string",
-            "description": "When the business process started.",
-            "format": "date-time"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "When the business process finished.",
-            "format": "date-time"
-          },
-          "finished": {
-            "type": "boolean",
-            "description": "Is the business process finished."
-          },
-          "stateHistory": {
-            "type": "array",
-            "description": "List containing the history of all the state transitions of the business process.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BusinessProcessState"
             }
-          },
-          "currentState": {
-            "type": "string",
-            "description": "Current state of the business process.",
-            "nullable": true
-          },
-          "lastReportedProgress": {
-            "type": "string",
-            "description": "Timestamp when the business process last reported progress.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "continuationBusinessProcessId": {
-            "type": "string",
-            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
-            "nullable": true
-          },
-          "kind": {
-            "type": "string"
           }
-        }
-      },
-      "BusinessProcessScope": {
-        "type": "string",
-        "description": "Scope of the business process",
-        "x-enumNames": [
-          "System",
-          "User"
-        ],
-        "enum": [
-          "System",
-          "User"
         ]
       },
-      "BusinessProcessState": {
-        "type": "object",
-        "description": "State transition information of a business process",
-        "additionalProperties": false,
-        "required": [
-          "state",
-          "timestamp"
-        ],
-        "properties": {
-          "state": {
-            "type": "string",
-            "description": "State of the business process",
-            "minLength": 1
+      "IngestContainerCreationFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
           },
-          "timestamp": {
-            "type": "string",
-            "description": "Date and time of when the state transition was performed.",
-            "format": "date-time"
-          },
-          "error": {
-            "description": "Eventual error associated to the state transition.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ErrorResponse"
-              }
-            ]
+          {
+            "type": "object",
+            "additionalProperties": false
           }
-        }
+        ]
       },
-      "ErrorResponse": {
-        "type": "object",
-        "description": "Error information with serialized exception",
-        "additionalProperties": false,
-        "properties": {
-          "exception": {
-            "type": "string",
-            "description": "Serialized PictureparkBusinessException.",
-            "nullable": true
+      "IngestContainerNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
-          "traceId": {
-            "type": "string",
-            "description": "Trace ID.",
-            "nullable": true
-          },
-          "traceJobId": {
-            "type": "string",
-            "description": "Trace job ID.",
-            "nullable": true
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
-        }
+        ]
+      },
+      "IngestContainerEmptyException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestFileNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              },
+              "fileName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestContainerImportAlreadyInProgress": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestContainerImportRequestValidationFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/InvalidMetadataException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "IngestFileInvalidFileNameOverrideExtensionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "expectedExtension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestFileAlreadyImportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "container": {
+                "type": "string",
+                "nullable": true
+              },
+              "fileName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestUrlInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IngestDownloadFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "BusinessProcessSearchResult": {
         "allOf": [
@@ -23430,6 +23488,7 @@
           }
         },
         "description": "The filters' base class",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "kind"
@@ -24637,6 +24696,11 @@
           "startTime": {
             "type": "string",
             "format": "date-time"
+          },
+          "expires": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
@@ -24709,11 +24773,13 @@
           },
           "timestamp": {
             "type": "string",
-            "description": "Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
+            "description": "Timestamp when creating the request (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
             "format": "date-time"
           },
-          "tokenId": {
+          "expires": {
             "type": "string",
+            "description": "Time at which the repository becomes eligible for cleanup",
+            "format": "date-time",
             "nullable": true
           }
         }
@@ -24731,6 +24797,97 @@
           "Update",
           "Deletion"
         ]
+      },
+      "SnapshotCustomerAllClustersRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "customerAlias",
+          "snapshotInactive"
+        ],
+        "properties": {
+          "customerAlias": {
+            "type": "string",
+            "minLength": 1
+          },
+          "repositoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "snapshotName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expires": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "snapshotInactive": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
+      "SnapshotCustomerAllClustersResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "repositoryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "repositoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "snapshotName": {
+            "type": "string",
+            "nullable": true
+          },
+          "entityId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "indicesByClusters": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "duration": {
+            "type": "string",
+            "format": "duration",
+            "nullable": true
+          },
+          "endTime": {
+            "type": "string",
+            "description": "Only populated when all snapshots have finished",
+            "format": "date-time",
+            "nullable": true
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
       },
       "CustomerExportResult": {
         "type": "object",
@@ -24849,6 +25006,46 @@
             "nullable": true
           }
         }
+      },
+      "RestoreSnapshotIndices": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "result": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnapshotRestore"
+            }
+          }
+        }
+      },
+      "RestoreSnapshotIndicesRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SnapshotBaseRestoreRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "customerId",
+              "clusters"
+            ],
+            "properties": {
+              "customerId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
       },
       "SnapshotCustomerCloneRequest": {
         "type": "object",
@@ -25507,6 +25704,28 @@
           }
         ]
       },
+      "CustomerImportAllClustersRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerImportRequest"
+          },
+          {
+            "type": "object",
+            "description": "Request used to import customer from another sub-cloud",
+            "additionalProperties": false,
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "description": "Collection of clusters for which the restore and import should be performed",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "SnapshotRepositoryEnvironmentCreateRequest": {
         "allOf": [
           {
@@ -25522,17 +25741,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/SnapshotBaseCreateRequest"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "SnapshotEnvironmentRestoreRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SnapshotBaseRestoreRequest"
           },
           {
             "type": "object",
@@ -26896,6 +27104,14 @@
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
+          },
+          "customerSettings": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerSettingsUpdateRequest"
+              }
+            ]
           }
         }
       },
@@ -28775,6 +28991,172 @@
           "Resetting"
         ]
       },
+      "ReadWriteApiLimits": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "read": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiLimits"
+              }
+            ]
+          },
+          "write": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApiLimits"
+              }
+            ]
+          }
+        }
+      },
+      "ApiLimits": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "thirtySeconds",
+          "minute",
+          "fiveMinutes",
+          "fifteenMinutes",
+          "hour",
+          "twelveHours"
+        ],
+        "properties": {
+          "thirtySeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fiveMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fifteenMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hour": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "twelveHours": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CustomerSettingsUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerSettings"
+          },
+          {
+            "type": "object",
+            "description": "Customer settings update request",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CustomerSettings": {
+        "type": "object",
+        "description": "Customer settings",
+        "additionalProperties": false,
+        "required": [
+          "downloadPrefixName"
+        ],
+        "properties": {
+          "uiDefaultShareExpirationTime": {
+            "type": "string",
+            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
+            "format": "duration",
+            "nullable": true
+          },
+          "downloadPrefixName": {
+            "type": "string",
+            "description": "Prefix to be used for the zip file created when downloading multiple contents",
+            "minLength": 1
+          },
+          "desiredMaintenance": {
+            "description": "Desired maintenance schedule and blocking periods",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MaintenanceWindow"
+              }
+            ]
+          }
+        }
+      },
+      "MaintenanceWindow": {
+        "type": "object",
+        "description": "Maintenance window",
+        "additionalProperties": false,
+        "properties": {
+          "schedules": {
+            "type": "array",
+            "description": "List of schedules during which the maintenance is allowed to be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MaintenanceSchedule"
+            }
+          },
+          "blockingPeriods": {
+            "type": "array",
+            "description": "List of blocking periods in absolute times during which no maintenance should be performed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BlockingPeriod"
+            }
+          }
+        }
+      },
+      "MaintenanceSchedule": {
+        "type": "object",
+        "description": "Maintenance schedule",
+        "additionalProperties": false,
+        "required": [
+          "duration"
+        ],
+        "properties": {
+          "cronExpression": {
+            "type": "string",
+            "description": "Cron expression that specifies the desired starting times for scheduled maintenance.",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "description": "Maximum desired duration of maintenance window when started at the times specified by the CronExpression.",
+            "format": "duration"
+          }
+        }
+      },
+      "BlockingPeriod": {
+        "type": "object",
+        "description": "Blocking period for a maintenance",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start of the blocking period. It must be before End.",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "description": "End of the blocking period. It must be after Start.",
+            "format": "date-time"
+          }
+        }
+      },
       "CustomerConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -29577,6 +29959,22 @@
                 "$ref": "#/components/schemas/ElasticMultiTermQueryRewrite"
               }
             ]
+          }
+        }
+      },
+      "CustomerDeleteRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "preserveInExternalSystems"
+        ],
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "preserveInExternalSystems": {
+            "type": "boolean"
           }
         }
       },
@@ -30425,6 +30823,25 @@
           }
         }
       },
+      "PendingOperationItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "nothingPending"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "nothingPending": {
+            "type": "boolean"
+          },
+          "additionalInformation": {
+            "nullable": true
+          }
+        }
+      },
       "CustomerQueuePriorityConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -30952,39 +31369,6 @@
           }
         }
       },
-      "CustomerSettings": {
-        "type": "object",
-        "description": "Customer settings",
-        "additionalProperties": false,
-        "required": [
-          "downloadPrefixName"
-        ],
-        "properties": {
-          "uiDefaultShareExpirationTime": {
-            "type": "string",
-            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
-            "format": "duration",
-            "nullable": true
-          },
-          "downloadPrefixName": {
-            "type": "string",
-            "description": "Prefix to be used for the zip file created when downloading multiple contents",
-            "minLength": 1
-          }
-        }
-      },
-      "CustomerSettingsUpdateRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CustomerSettings"
-          },
-          {
-            "type": "object",
-            "description": "Customer settings update request",
-            "additionalProperties": false
-          }
-        ]
-      },
       "EnvironmentConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -31388,50 +31772,6 @@
                 "$ref": "#/components/schemas/User"
               }
             ]
-          }
-        }
-      },
-      "ServiceProvider": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "externalId": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "baseUrl": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ServiceProviderCreateRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "externalId": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "secret": {
-            "type": "string",
-            "nullable": true
-          },
-          "baseUrl": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
@@ -32976,6 +33316,7 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
+            "DynamicViewFieldMetaWithErrorBase": "#/components/schemas/DynamicViewFieldMetaWithErrorBase",
             "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
@@ -33013,16 +33354,28 @@
       "DynamicViewFieldMetaWithRenderingError": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+            "$ref": "#/components/schemas/DynamicViewFieldMetaWithErrorBase"
           },
           {
             "type": "object",
             "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithErrorBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
-                "description": "Error.",
+                "description": "The serialized PictureparkException",
                 "nullable": true
               }
             }
