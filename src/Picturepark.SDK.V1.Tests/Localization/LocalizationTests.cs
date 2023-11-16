@@ -1,4 +1,5 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using System;
+using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Localization;
 using Xunit;
 
@@ -8,6 +9,7 @@ namespace Picturepark.SDK.V1.Tests.Localization
     {
         [Fact]
         [Trait("Stack", "Localization")]
+        [Obsolete("Obsolete")]
         public void ShouldLocalizeException()
         {
             // Arrange
@@ -24,6 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Localization
 
         [Fact]
         [Trait("Stack", "Localization")]
+        [Obsolete("Obsolete")]
         public void ShouldLocalizeTextFromStringCode()
         {
             // Act
@@ -35,6 +38,7 @@ namespace Picturepark.SDK.V1.Tests.Localization
 
         [Fact]
         [Trait("Stack", "Localization")]
+        [Obsolete("Obsolete")]
         public void ShouldLocalizeTextFromIntegerCode()
         {
             // Act

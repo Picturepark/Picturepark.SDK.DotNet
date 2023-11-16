@@ -921,6 +921,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
+        [Obsolete("Obsolete")]
         public async Task ShouldUseLocalDateForDisplayValue()
         {
             // Arrange
