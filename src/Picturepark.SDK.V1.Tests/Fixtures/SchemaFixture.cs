@@ -25,8 +25,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 AppendSchemaIdSuffix(schema, schemaSuffix);
             }
 
-            var result = await Client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-            var detail = await result.FetchDetail().ConfigureAwait(false);
+            var result = await Client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1));
+            var detail = await result.FetchDetail();
 
             return detail.SucceededItems.ToArray();
         }

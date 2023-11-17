@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetChannels()
         {
             // Act
-            var channels = await _client.Channel.GetAllAsync().ConfigureAwait(false);
+            var channels = await _client.Channel.GetAllAsync();
 
             // Assert
             channels.Should().NotBeEmpty();
@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createdChannel = await _fixture.CreateChannel();
 
             // Act
-            var channel = await _client.Channel.GetAsync(createdChannel.Id).ConfigureAwait(false);
+            var channel = await _client.Channel.GetAsync(createdChannel.Id);
 
             // Assert
             channel.Should().NotBeNull();
@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var updatedChannel = await _client.Channel.UpdateAsync(createdChannel.Id, updateRequest).ConfigureAwait(false);
+            var updatedChannel = await _client.Channel.UpdateAsync(createdChannel.Id, updateRequest);
 
             // Assert
             updatedChannel.Should().NotBeNull();
@@ -73,10 +73,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createdChannel = await _fixture.CreateChannel();
 
             // Act
-            await _client.Channel.DeleteAsync(createdChannel.Id).ConfigureAwait(false);
+            await _client.Channel.DeleteAsync(createdChannel.Id);
 
             // Assert
-            await Assert.ThrowsAsync<ChannelsNotFoundException>(async () => await _client.Channel.GetAsync(createdChannel.Id).ConfigureAwait(false));
+            await Assert.ThrowsAsync<ChannelsNotFoundException>(async () => await _client.Channel.GetAsync(createdChannel.Id));
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetAggregationFields()
         {
             // Act
-            var fieldsInfo = await _client.Channel.GetAggregationFieldsAsync().ConfigureAwait(false);
+            var fieldsInfo = await _client.Channel.GetAggregationFieldsAsync();
 
             // Assert
             fieldsInfo.Count(f => !f.Static).Should().BePositive();
@@ -96,7 +96,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetFilterFields()
         {
             // Act
-            var fieldsInfo = await _client.Channel.GetFilterFieldsAsync().ConfigureAwait(false);
+            var fieldsInfo = await _client.Channel.GetFilterFieldsAsync();
 
             // Assert
             fieldsInfo.Count(f => !f.Static).Should().BePositive();
@@ -108,7 +108,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetSortFields()
         {
             // Act
-            var sortFields = await _client.Channel.GetSortFieldsAsync().ConfigureAwait(false);
+            var sortFields = await _client.Channel.GetSortFieldsAsync();
 
             // Assert
             sortFields.Count(f => !f.Static).Should().BePositive();

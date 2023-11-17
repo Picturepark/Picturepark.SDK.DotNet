@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldOverwriteField()
         {
             // Act
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Teacher)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Teacher));
 
             // Assert
             Assert.Equal(2, schemas.Count);
@@ -31,14 +31,14 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             // check person
             var person = schemas.First(x => x.Id == "Person");
             Assert.Equal(3, person.Fields.Count);
-            Assert.Equal(0, person.FieldsOverwrite.Count);
+            Assert.Empty(person.FieldsOverwrite);
 
             Assert.False(person.Fields.First(f => f.Id == "parent").Required);
 
             // check teacher
             var teacher = schemas.Last(x => x.Id == "Teacher");
-            Assert.Equal(0, teacher.Fields.Count);
-            Assert.Equal(1, teacher.FieldsOverwrite.Count);
+            Assert.Empty(teacher.Fields);
+            Assert.Single(teacher.FieldsOverwrite);
 
             Assert.True(teacher.FieldsOverwrite.First(f => f.Id == "parent").Required);
 

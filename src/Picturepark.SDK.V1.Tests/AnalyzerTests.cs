@@ -26,15 +26,15 @@ namespace Picturepark.SDK.V1.Tests
         public async Task ShouldSearchAnalyzedFields()
         {
             // Arrange
-            if (!await _client.Schema.ExistsAsync(nameof(AnalyzerTestObject)).ConfigureAwait(false))
+            if (!await _client.Schema.ExistsAsync(nameof(AnalyzerTestObject)))
             {
-                var schemas = await _client.Schema.GenerateSchemasAsync(typeof(AnalyzerTestObject)).ConfigureAwait(false);
+                var schemas = await _client.Schema.GenerateSchemasAsync(typeof(AnalyzerTestObject));
                 var schemasToCreate = new List<SchemaDetail>();
                 var schemasToUpdate = new List<SchemaDetail>();
 
                 foreach (var schema in schemas)
                 {
-                    if (await _client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false))
+                    if (await _client.Schema.ExistsAsync(schema.Id))
                     {
                         schemasToUpdate.Add(schema);
                     }
@@ -44,11 +44,11 @@ namespace Picturepark.SDK.V1.Tests
                     }
                 }
 
-                await _client.Schema.CreateManyAsync(schemasToCreate, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                await _client.Schema.CreateManyAsync(schemasToCreate, false, TimeSpan.FromMinutes(1));
 
                 foreach (var schema in schemasToUpdate)
                 {
-                    await _client.Schema.UpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                    await _client.Schema.UpdateAsync(schema, true, TimeSpan.FromMinutes(1));
                 }
 
                 var analyzerValue = new AnalyzerTestObject
@@ -65,8 +65,8 @@ namespace Picturepark.SDK.V1.Tests
                     KeywordLowercaseField = "JpG"
                 };
 
-                var res = await _client.ListItem.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
-                var resDetail = await res.FetchDetail().ConfigureAwait(false);
+                var res = await _client.ListItem.CreateFromObjectAsync(analyzerValue);
+                var resDetail = await res.FetchDetail();
                 resDetail.SucceededItems.Should().NotBeEmpty();
             }
 
@@ -76,7 +76,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.SimpleField, "simple", Analyzer.Simple)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(simpleResults.TotalResults > 0);
 
@@ -84,7 +84,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.PathHierarchyField, "Path/Hierarchy", Analyzer.PathHierarchy)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(pathResults.TotalResults > 0);
 
@@ -92,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.LanguageField, "citi", language: "en", useAnalyzer: true)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(languageResults.TotalResults > 0);
 
@@ -100,7 +100,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.EdgeNGramField, "edg", Analyzer.EdgeNGram)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(edgeNgramResults.TotalResults > 0);
 
@@ -108,7 +108,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NGramField, "mfield", Analyzer.NGram)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(ngramResults.TotalResults > 0);
 
@@ -116,7 +116,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NoDiacriticsField, "brot", Analyzer.NoDiacritics)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(noDiactricsResults.TotalResults > 0);
 
@@ -124,7 +124,7 @@ namespace Picturepark.SDK.V1.Tests
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.KeywordLowercaseField, "jPg", Analyzer.KeywordLowercase)
-            }).ConfigureAwait(false);
+            });
 
             Assert.True(keywordLowercaseResults.TotalResults > 0);
         }

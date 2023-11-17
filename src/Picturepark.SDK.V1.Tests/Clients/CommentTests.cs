@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task ShouldCreateUpdateAndDelete()
         {
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client).ConfigureAwait(false);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client);
 
             var request = new ContentCreateRequest
             {
@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(ContentItem)
             };
 
-            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }).ConfigureAwait(false);
+            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail });
 
             var message = Guid.NewGuid().ToString("N");
             var createRequest = new CommentCreateRequest
@@ -38,7 +38,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Message = message
             };
 
-            var comment = await _client.Content.CreateCommentAsync(content.Id, createRequest).ConfigureAwait(false);
+            var comment = await _client.Content.CreateCommentAsync(content.Id, createRequest);
             comment.Should().NotBeNull();
             comment.Message.Should().Be(message);
 
@@ -47,20 +47,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Message = updatedMessage
             };
-            comment = await _client.Content.UpdateCommentAsync(comment.Id, updateRequest).ConfigureAwait(false);
+            comment = await _client.Content.UpdateCommentAsync(comment.Id, updateRequest);
             comment.Should().NotBeNull();
             comment.Message.Should().Be(updatedMessage);
 
-            await _client.Content.DeleteCommentAsync(comment.Id).ConfigureAwait(false);
+            await _client.Content.DeleteCommentAsync(comment.Id);
 
-            await Assert.ThrowsAsync<CommentNotFoundException>(() => _client.Content.GetCommentAsync(comment.Id)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<CommentNotFoundException>(() => _client.Content.GetCommentAsync(comment.Id));
         }
 
         [Fact]
         public async Task ShouldSearch()
         {
             // Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client).ConfigureAwait(false);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client);
 
             var request = new ContentCreateRequest
             {
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(ContentItem)
             };
 
-            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }).ConfigureAwait(false);
+            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail });
 
             var messages = Enumerable.Range(0, 5).Select(_ => Guid.NewGuid().ToString("N")).ToArray();
 
@@ -80,7 +80,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Message = message
                 };
 
-                await _client.Content.CreateCommentAsync(content.Id, createRequest).ConfigureAwait(false);
+                await _client.Content.CreateCommentAsync(content.Id, createRequest);
             }
 
             CommentSearchResult comments = null;
@@ -89,7 +89,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 // Act
                 comments = await _client.Content
                     .SearchCommentsAsync(content.Id, new CommentSearchRequest { Ascending = true })
-                    .ConfigureAwait(false);
+                    ;
 
                 // Assert
                 comments.Results.Should().HaveCount(5);
@@ -101,7 +101,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     foreach (var comment in comments.Results)
                     {
-                        await _client.Content.DeleteCommentAsync(comment.Id).ConfigureAwait(false);
+                        await _client.Content.DeleteCommentAsync(comment.Id);
                     }
                 }
             }

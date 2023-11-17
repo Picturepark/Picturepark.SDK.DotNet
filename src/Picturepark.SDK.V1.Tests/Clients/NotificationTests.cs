@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldSearch()
         {
             // Arrange
-            var shareId = await CreateShareForNotification().ConfigureAwait(false);
+            var shareId = await CreateShareForNotification();
 
             // Act
             var result = await _client.Notification.SearchAsync(
@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         new SortInfo { Field = "audit.creationDate", Direction = SortDirection.Desc }
                     },
                     Limit = 500
-                }).ConfigureAwait(false);
+                });
 
             // Assert
             result.Results.Should().Contain(r => r.ReferenceDocType == "ShareDoc" && r.ReferenceId == shareId);
@@ -46,10 +46,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             // Arrange
-            var notificationId = await GetNotificationId().ConfigureAwait(false);
+            var notificationId = await GetNotificationId();
 
             // Act
-            var notification = await _client.Notification.GetAsync(notificationId).ConfigureAwait(false);
+            var notification = await _client.Notification.GetAsync(notificationId);
 
             // Assert
             notification.TitleCode.Should().Be(TitleCode.ShareNewShareTitle);
@@ -60,13 +60,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldMarkAsRead()
         {
             // Arrange
-            var notificationId = await GetNotificationId().ConfigureAwait(false);
+            var notificationId = await GetNotificationId();
 
             // Act
-            await _client.Notification.MarkAsReadAsync(notificationId).ConfigureAwait(false);
+            await _client.Notification.MarkAsReadAsync(notificationId);
 
             // Assert
-            var notification = await _client.Notification.GetAsync(notificationId).ConfigureAwait(false);
+            var notification = await _client.Notification.GetAsync(notificationId);
             notification.State.Should().Be(NotificationState.Read);
         }
 
@@ -74,17 +74,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldMarkAllAsRead()
         {
             // Arrange
-            var notificationId1 = await GetNotificationId().ConfigureAwait(false);
-            var notificationId2 = await GetNotificationId().ConfigureAwait(false);
+            var notificationId1 = await GetNotificationId();
+            var notificationId2 = await GetNotificationId();
 
             // Act
-            await _client.Notification.MarkAllAsReadAsync().ConfigureAwait(false);
+            await _client.Notification.MarkAllAsReadAsync();
 
             // Assert
-            var notification = await _client.Notification.GetAsync(notificationId1).ConfigureAwait(false);
+            var notification = await _client.Notification.GetAsync(notificationId1);
             notification.State.Should().Be(NotificationState.Read);
 
-            notification = await _client.Notification.GetAsync(notificationId2).ConfigureAwait(false);
+            notification = await _client.Notification.GetAsync(notificationId2);
             notification.State.Should().Be(NotificationState.Read);
         }
 
@@ -92,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetDigestConfiguration()
         {
             // Act
-            var configuration = await _client.Notification.GetEmailNotificationSettingsAsync().ConfigureAwait(false);
+            var configuration = await _client.Notification.GetEmailNotificationSettingsAsync();
 
             // Assert
             configuration.Should().NotBeNull();
@@ -116,8 +116,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             Message = new TranslatedStringDictionary { [_fixture.DefaultLanguage] = "Message" }
                         }
                     }
-                }).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+                });
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
             // Act
             var configuration = await _client.Notification.PutEmailNotificationSettingsAsync(
@@ -132,7 +132,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             Exclusions = new[] { notificationId }
                         }
                     }
-                }).ConfigureAwait(false);
+                });
 
             // Assert
             configuration.Sources.Values.Single().Interval.Should().Be(EmailNotificationsInterval.Hourly);
@@ -144,7 +144,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<string> GetNotificationId()
         {
-            var shareId = await CreateShareForNotification().ConfigureAwait(false);
+            var shareId = await CreateShareForNotification();
 
             var result = await _client.Notification.SearchAsync(
                 new NotificationSearchRequest
@@ -162,7 +162,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         new SortInfo { Field = "audit.creationDate", Direction = SortDirection.Desc }
                     },
                     Limit = 1
-                }).ConfigureAwait(false);
+                });
 
             return result.Results.Single().Id;
         }
@@ -175,9 +175,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Name = $"{Guid.NewGuid():N}",
                     SuppressNotifications = false,
                     LanguageCode = "en"
-                }).ConfigureAwait(false);
+                });
 
-            var result = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var result = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
             result.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
             return businessProcess.ReferenceId;
         }

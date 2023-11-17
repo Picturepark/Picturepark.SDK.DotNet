@@ -36,8 +36,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     ImportListItems = true
                 };
 
-                await _client.SchemaTransfer.ImportAsync(request).ConfigureAwait(false);
-            }).ConfigureAwait(false);
+                await _client.SchemaTransfer.ImportAsync(request);
+            });
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             const string schemaId = "Planet";
 
-            var version = await _client.Info.GetVersionAsync().ConfigureAwait(false);
+            var version = await _client.Info.GetVersionAsync();
 
             var transferName = new Random().Next(1000, 9999).ToString();
 
@@ -62,10 +62,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 tempPlanetFile
             };
 
-            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions()).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions());
 
             // get the only uploaded file
-            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
 
             var request = new SchemaImportRequest()
             {
@@ -76,18 +76,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             // import schema
-            var transfer = await _client.SchemaTransfer.ImportAsync(request).ConfigureAwait(false);
+            var transfer = await _client.SchemaTransfer.ImportAsync(request);
 
             // wait for completion
-            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId, new TimeSpan(0, 2, 0)).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId, new TimeSpan(0, 2, 0));
 
-            var schema = await _client.Schema.GetAsync(schemaId).ConfigureAwait(false);
+            var schema = await _client.Schema.GetAsync(schemaId);
 
             // Assert
             Assert.Equal(schemaId, schema.Id);
 
             // Tear down
-            await _client.Schema.DeleteAsync(schema.Id).ConfigureAwait(false);
+            await _client.Schema.DeleteAsync(schema.Id);
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             const string schemaId = "Planet";
-            var version = await _client.Info.GetVersionAsync().ConfigureAwait(false);
+            var version = await _client.Info.GetVersionAsync();
 
             var planetJson = (await File.ReadAllTextAsync(Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json")))
                 .Replace("{{contractVersion}}", version.ContractVersion);

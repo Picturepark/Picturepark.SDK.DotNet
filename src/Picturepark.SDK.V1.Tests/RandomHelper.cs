@@ -49,7 +49,7 @@ namespace Picturepark.SDK.V1.Tests
         {
             string permissionSetId = string.Empty;
             PermissionSetSearchRequest request = new PermissionSetSearchRequest { Limit = limit };
-            PermissionSetSearchResult result = await client.ContentPermissionSet.SearchAsync(request).ConfigureAwait(false);
+            PermissionSetSearchResult result = await client.ContentPermissionSet.SearchAsync(request);
 
             if (result.Results.Count > 0)
             {
@@ -79,7 +79,7 @@ namespace Picturepark.SDK.V1.Tests
         {
             string permissionSetId = string.Empty;
             var request = new PermissionSetSearchRequest { Limit = limit };
-            PermissionSetSearchResult result = await client.SchemaPermissionSet.SearchAsync(request).ConfigureAwait(false);
+            PermissionSetSearchResult result = await client.SchemaPermissionSet.SearchAsync(request);
 
             if (result.Results.Count > 0)
             {

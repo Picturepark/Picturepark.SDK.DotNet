@@ -23,9 +23,9 @@ namespace Picturepark.SDK.V1.Tests.Helpers
                     }
                 }).ToArray();
 
-            var created = await Client.ContentPermissionSet.CreateManyAsync(new ContentPermissionSetCreateManyRequest { Items = createRequests }).ConfigureAwait(false);
+            var created = await Client.ContentPermissionSet.CreateManyAsync(new ContentPermissionSetCreateManyRequest { Items = createRequests });
 
-            var createdSets = await Client.ContentPermissionSet.GetManyAsync(created.Rows.Select(r => r.Id)).ConfigureAwait(false);
+            var createdSets = await Client.ContentPermissionSet.GetManyAsync(created.Rows.Select(r => r.Id));
 
             AddCreated(createdSets.Select(s => s.Id));
 

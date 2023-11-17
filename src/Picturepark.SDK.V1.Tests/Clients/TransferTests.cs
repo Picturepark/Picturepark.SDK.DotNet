@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetBlacklist()
         {
             // Act
-            var blacklist = await _client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var blacklist = await _client.Transfer.GetBlacklistAsync();
 
             // Assert
             Assert.NotNull(blacklist?.Items);
@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
+            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files);
 
             // Assert
             Assert.NotNull(result);
@@ -60,7 +60,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDeleteFiles()
         {
             // Arrange
-            var (createTransferResult, fileId) = await CreateFileTransferAsync().ConfigureAwait(false);
+            var (createTransferResult, fileId) = await CreateFileTransferAsync();
 
             // Act
             var request = new FileTransferDeleteRequest
@@ -69,15 +69,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 FileTransferIds = new List<string> { fileId }
             };
 
-            await _client.Transfer.GetFileAsync(fileId).ConfigureAwait(false);
+            await _client.Transfer.GetFileAsync(fileId);
 
-            await _client.Transfer.DeleteFilesAsync(request).ConfigureAwait(false);
+            await _client.Transfer.DeleteFilesAsync(request);
 
             // Assert
             await Assert.ThrowsAsync<FileTransferNotFoundException>(async () =>
             {
-                await _client.Transfer.GetFileAsync(fileId).ConfigureAwait(false);
-            }).ConfigureAwait(false);
+                await _client.Transfer.GetFileAsync(fileId);
+            });
         }
 
         [Fact]
@@ -91,13 +91,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
 
-            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
+            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files);
 
             // Act
-            await _client.Transfer.CancelAsync(result.Transfer.Id).ConfigureAwait(false);
+            await _client.Transfer.CancelAsync(result.Transfer.Id);
 
             // Assert
-            var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
+            var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id);
 
             new[] { TransferState.TransferReady, TransferState.UploadCancellationInProgress, TransferState.UploadCancelled }.Should()
                 .Contain(currentTransfer.State);
@@ -114,15 +114,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
 
-            var result = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions()).ConfigureAwait(false);
+            var result = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions());
 
             // Act
-            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId);
 
             // Assert
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
-            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
+            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id);
             transfer.State.Should().Be(TransferState.TransferReady);
         }
 
@@ -151,7 +151,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList()
             };
 
-            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
+            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(request);
 
             // Assert
             Assert.NotNull(result.Transfer);
@@ -188,8 +188,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList()
             };
 
-            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
-            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(request);
+            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
 
             // Assert
             fileTransfers.Should().HaveCount(2);
@@ -209,17 +209,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 "http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
                 "http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
             };
-            var result = await CreateWebTransferAsync(urls).ConfigureAwait(false);
+            var result = await CreateWebTransferAsync(urls);
 
             // Act
             var transferId = result.Transfer.Id;
-            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
+            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id);
 
-            await _client.Transfer.DeleteAsync(transferId).ConfigureAwait(false);
+            await _client.Transfer.DeleteAsync(transferId);
 
             // Assert
             Assert.NotNull(transfer);
-            await Assert.ThrowsAsync<TransferNotFoundException>(async () => await _client.Transfer.GetAsync(transferId).ConfigureAwait(false));
+            await Assert.ThrowsAsync<TransferNotFoundException>(async () => await _client.Transfer.GetAsync(transferId));
         }
 
         [Fact]
@@ -233,10 +233,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 "http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
                 "http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
             };
-            var result = await CreateWebTransferAsync(urls).ConfigureAwait(false);
+            var result = await CreateWebTransferAsync(urls);
 
             // Act
-            TransferDetail transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
+            TransferDetail transfer = await _client.Transfer.GetAsync(result.Transfer.Id);
 
             // Assert
             Assert.NotNull(result);
@@ -248,10 +248,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetFile()
         {
             // Arrange
-            var (createdTransfer, fileId) = await CreateFileTransferAsync().ConfigureAwait(false);
+            var (createdTransfer, fileId) = await CreateFileTransferAsync();
 
             // Act
-            var transfer = await _client.Transfer.GetFileAsync(fileId).ConfigureAwait(false);
+            var transfer = await _client.Transfer.GetFileAsync(fileId);
 
             // Assert
             transfer.Should().NotBeNull();
@@ -267,11 +267,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new TransferSearchRequest { Limit = 1, SearchString = "*" };
 
             // Act
-            TransferSearchResult result = await _client.Transfer.SearchAsync(request).ConfigureAwait(false);
+            TransferSearchResult result = await _client.Transfer.SearchAsync(request);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(1, result.Results.Count);
+            Assert.Single(result.Results);
         }
 
         [Fact]
@@ -282,7 +282,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new FileTransferSearchRequest { Limit = 20, SearchString = "*" };
 
             // Act
-            FileTransferSearchResult result = await _client.Transfer.SearchFilesAsync(request).ConfigureAwait(false);
+            FileTransferSearchResult result = await _client.Transfer.SearchFilesAsync(request);
 
             // Assert
             Assert.NotNull(result);
@@ -316,8 +316,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
 
-            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
-            var uploadFiles = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, numberOfUploadFiles).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
+            var uploadFiles = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, numberOfUploadFiles);
 
             var transfer = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, new ImportTransferPartialRequest
             {
@@ -328,12 +328,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         FileId = uploadFiles.First().Id
                     }
                 }
-            }).ConfigureAwait(false);
+            });
 
-            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId);
 
             // Assert
-            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id, numberOfUploadFiles).ConfigureAwait(false);
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id, numberOfUploadFiles);
             result.Should().ContainSingle(x => x.State == FileTransferState.ImportCompleted);
         }
 
@@ -345,16 +345,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var fileTransfers = new List<FileTransferCreateItem>();
             var timeout = TimeSpan.FromMinutes(2);
 
-            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
-            string personId = await CreatePerson().ConfigureAwait(false);
+            await SetupSchema(typeof(PersonShot));
+            string personId = await CreatePerson();
 
             var urls = new[]
             {
                 "https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png"
             };
 
-            var createTransferResult = await CreateWebTransferAsync(urls).ConfigureAwait(false);
-            var files = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, 1).ConfigureAwait(false);
+            var createTransferResult = await CreateWebTransferAsync(urls);
+            var files = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, 1);
 
             foreach (FileTransfer file in files)
             {
@@ -377,17 +377,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var importResult = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, partialRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(importResult.BusinessProcessId, timeout).ConfigureAwait(false);
+            var importResult = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, partialRequest);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(importResult.BusinessProcessId, timeout);
 
             // Assert
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
-            var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
             var contentIds = result.Select(r => r.ContentId);
             contentIds.Should().HaveCount(1);
 
-            var createdContent = await _client.Content.GetAsync(contentIds.First(), new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
+            var createdContent = await _client.Content.GetAsync(contentIds.First(), new[] { ContentResolveBehavior.Metadata });
             var jMetadata = JObject.FromObject(createdContent.Metadata);
             jMetadata[nameof(PersonShot).ToLowerCamelCase()]["persons"][0]["_refId"].Value<string>().Should().Be(personId);
         }
@@ -421,7 +421,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
-            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
 
             var importRequest = new ImportTransferRequest
             {
@@ -430,10 +430,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LayerSchemaIds = new List<string>()
             };
 
-            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
+            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout);
 
             // Assert
-            var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
             var contentIds = result.Select(r => r.ContentId);
 
             Assert.Equal(importFilePaths.Count(), contentIds.Count());
@@ -460,7 +460,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     WaitForTransferCompletion = true,
                     ErrorDelegate = args => Console.WriteLine(args.Exception),
                     SuccessDelegate = Console.WriteLine
-                }).ConfigureAwait(false);
+                });
 
             // Assert
             result.FileUploads.Should().HaveCount(2);
@@ -484,10 +484,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         new TransferUploadFile { RequestId = "file", FileName = Path.GetFileName(file) }
                     }
-                }).ConfigureAwait(false);
+                });
 
             await _client.BusinessProcess.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, TimeSpan.FromMinutes(2))
-                .ConfigureAwait(false);
+                ;
 
             await Assert.ThrowsAnyAsync<ChunkSizeOutOfRangeException>(
                 async () =>
@@ -498,13 +498,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         using (var fs = File.OpenRead(file))
                         {
                             var buffer = new byte[1024];
-                            await fs.ReadAsync(buffer, 0, 1024, cts.Token).ConfigureAwait(false);
+                            await fs.ReadAsync(buffer, 0, 1024, cts.Token);
 
                             using (var ms = new MemoryStream(buffer))
-                                await _client.Transfer.UploadFileAsync(1, 1024, 1024 * 1024, 1024, transfer.Id, "file", ms, cts.Token).ConfigureAwait(false);
+                                await _client.Transfer.UploadFileAsync(1, 1024, 1024 * 1024, 1024, transfer.Id, "file", ms, cts.Token);
                         }
                     }
-                }).ConfigureAwait(false);
+                });
 
             File.Delete(file);
 
@@ -532,10 +532,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     WaitForTransferCompletion = false,
                     ErrorDelegate = args => Console.WriteLine(args.Exception),
                     SuccessDelegate = Console.WriteLine
-                }).ConfigureAwait(false);
+                });
 
             // Assert
-            var businessProcess = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId).ConfigureAwait(false);
+            var businessProcess = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId);
             businessProcess.BusinessProcess.LastReportedProgress.Should().NotBeNull();
         }
 
@@ -544,7 +544,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCallErrorDelegateForBlacklistedFile()
         {
             // Arrange
-            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync();
             var filename = blacklist.Items.First().Match;
             var called = false;
 
@@ -557,7 +557,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _fixture.Client.Transfer.UploadFilesAsync(
                 $"{Guid.NewGuid():N}",
                 new[] { new FileLocations(filename) },
-                options).ConfigureAwait(false);
+                options);
 
             // Assert
             called.Should().BeTrue();
@@ -568,14 +568,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReturnEmptyResultIfAllFilesBlacklisted()
         {
             // Arrange
-            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync();
             var filename = blacklist.Items.First().Match;
 
             // Act
             var result = await _fixture.Client.Transfer.UploadFilesAsync(
                 $"{Guid.NewGuid():N}",
                 new[] { new FileLocations(filename) },
-                null).ConfigureAwait(false);
+                null);
 
             // Assert
             result.Transfer.Should().BeNull();
@@ -603,7 +603,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new FileLocations(filename),
                 },
-                options).ConfigureAwait(false);
+                options);
 
             // Assert
             errorDelegateArgs.file.AbsoluteSourcePath.Should().Be(filename);
@@ -625,15 +625,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     nameof(ShouldUploadEmptyFiles) + "-" + Guid.NewGuid().ToString("N"),
                     new[] { new FileLocations(filename) },
                     uploadOptions,
-                    TimeSpan.FromMinutes(2)).ConfigureAwait(false);
+                    TimeSpan.FromMinutes(2));
 
                 // Assert
-                var transferDetail = await _client.Transfer.GetAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+                var transferDetail = await _client.Transfer.GetAsync(createTransferResult.Transfer.Id);
                 transferDetail.State.Should().Be(TransferState.TransferReady);
 
-                var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(transferDetail.Id).ConfigureAwait(false);
+                var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(transferDetail.Id);
                 var fileTransferId = fileTransfers.Single().Id;
-                var fileTransferDetail = await _client.Transfer.GetFileAsync(fileTransferId).ConfigureAwait(false);
+                var fileTransferDetail = await _client.Transfer.GetFileAsync(fileTransferId);
 
                 var fileMetadata = fileTransferDetail.FileMetadata.Should().BeOfType<FileMetadata>().Which;
 
@@ -651,7 +651,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<string> urls)
         {
-            return await CreateWebTransferAsync(urls.Select(url => (url, (string)null)).ToArray()).ConfigureAwait(false);
+            return await CreateWebTransferAsync(urls.Select(url => (url, (string)null)).ToArray());
         }
 
         private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<(string url, string targetFileName)> urls)
@@ -670,23 +670,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList()
             };
 
-            return await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
+            return await _client.Transfer.CreateAndWaitForCompletionAsync(request);
         }
 
         private async Task SetupSchema(Type type)
         {
-            var schemas = await _client.Schema.GenerateSchemasAsync(type).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(type);
             var schemasToCreate = new List<SchemaDetail>();
 
             foreach (var schema in schemas)
             {
-                if (!await _client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false))
+                if (!await _client.Schema.ExistsAsync(schema.Id))
                 {
                     schemasToCreate.Add(schema);
                 }
             }
 
-            await _client.Schema.CreateManyAsync(schemasToCreate, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            await _client.Schema.CreateManyAsync(schemasToCreate, true, TimeSpan.FromMinutes(1));
         }
 
         private async Task<string> CreatePerson()
@@ -697,8 +697,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LastName = "LastName",
                 BirthDate = DateTime.UtcNow.AddYears(-20),
                 EmailAddress = "first.last@testyyy.com"
-            }).ConfigureAwait(false);
-            return (await operationResult.FetchDetail().ConfigureAwait(false)).SucceededIds.First();
+            });
+            return (await operationResult.FetchDetail()).SucceededIds.First();
         }
 
         private async Task<List<string>> GetContentsDownloadUrls(ContentSearchResult contentSearchResult)
@@ -717,7 +717,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         }
                     }
                 };
-                var downloadResult = await _client.Content.CreateAndAwaitDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
+                var downloadResult = await _client.Content.CreateAndAwaitDownloadLinkAsync(downloadRequest);
                 urls.Add(downloadResult.DownloadUrl);
             }
 

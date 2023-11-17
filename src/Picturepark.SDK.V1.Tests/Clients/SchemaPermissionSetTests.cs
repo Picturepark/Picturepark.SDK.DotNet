@@ -26,10 +26,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_get_schema_permission_set()
         {
             // Arrange
-            var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
+            var permissionSet = await _fixture.CreatePermissionSet();
 
             // Act
-            var result = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
+            var result = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id);
 
             // Assert
             result.Should().NotBeNull();
@@ -44,8 +44,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_update_schema_permission_set()
         {
             // Arrange
-            var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
-            var userRoleId = (await CreateUserRole(UserRight.ManageAllShares).ConfigureAwait(false)).Id;
+            var permissionSet = await _fixture.CreatePermissionSet();
+            var userRoleId = (await CreateUserRole(UserRight.ManageAllShares)).Id;
 
             // Act
             var result = await _client.SchemaPermissionSet.UpdateAsync(
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         new UserRoleRightsOfMetadataRight
                             { UserRoleId = userRoleId, Rights = new[] { MetadataRight.View, MetadataRight.ManageItems } }
                     }
-                }).ConfigureAwait(false);
+                });
 
             // Assert
             result.Should().NotBeNull();
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Audit.CreatedByUser.Should().BeResolved();
             result.Audit.ModifiedByUser.Should().BeResolved();
 
-            var verifyPermissionSet = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
+            var verifyPermissionSet = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id);
 
             verifyPermissionSet.UserRolesRights.Should().HaveCount(1)
                 .And.Subject.First().UserRoleId.Should().Be(userRoleId);
@@ -79,10 +79,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_delete_schema_permission_set()
         {
             // Arrange
-            var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
+            var permissionSet = await _fixture.CreatePermissionSet();
 
             // Act
-            await _client.SchemaPermissionSet.DeleteAsync(permissionSet.Id).ConfigureAwait(false);
+            await _client.SchemaPermissionSet.DeleteAsync(permissionSet.Id);
 
             // Assert
             Action verifyPermissionSet = () => _client.SchemaPermissionSet.GetAsync(permissionSet.Id).GetAwaiter().GetResult();
@@ -95,7 +95,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_delete_multiple_schema_permission_sets()
         {
             // Arrange
-            var permissionSets = await _fixture.CreatePermissionSets(5).ConfigureAwait(false);
+            var permissionSets = await _fixture.CreatePermissionSets(5);
             var toDeleteIds = permissionSets.Take(3).Select(s => s.Id).ToArray();
             var shouldStayIds = permissionSets.Skip(3).Select(s => s.Id).ToArray();
 
@@ -104,13 +104,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new PermissionSetDeleteManyRequest
                 {
                     PermissionSetIds = toDeleteIds
-                }).ConfigureAwait(false);
+                });
 
             // Assert
-            var verifyDeletedPermissionSets = await _client.SchemaPermissionSet.GetManyAsync(toDeleteIds).ConfigureAwait(false);
+            var verifyDeletedPermissionSets = await _client.SchemaPermissionSet.GetManyAsync(toDeleteIds);
             verifyDeletedPermissionSets.Should().BeEmpty();
 
-            var verifyPermissionSets = await _client.SchemaPermissionSet.GetManyAsync(shouldStayIds).ConfigureAwait(false);
+            var verifyPermissionSets = await _client.SchemaPermissionSet.GetManyAsync(shouldStayIds);
             verifyPermissionSets.Select(s => s.Id).Should().BeEquivalentTo(shouldStayIds);
 
             verifyPermissionSets.ToList().ForEach(schemaPermissionSet =>
@@ -126,19 +126,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task Should_transfer_ownership_of_permission_set()
         {
             // Arrange
-            var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
-            var userRole = await CreateUserRole(UserRight.ManagePermissions).ConfigureAwait(false);
-            var user = await _fixture.Users.Create().ConfigureAwait(false);
+            var permissionSet = await _fixture.CreatePermissionSet();
+            var userRole = await CreateUserRole(UserRight.ManagePermissions);
+            var user = await _fixture.Users.Create();
             user.UserRoles.Add(new UserRoleAssignment { UserRole = userRole });
             await _client.User.UpdateAsync(user.Id, user.AsUpdateRequest());
-            var sessionUser = (await _client.Profile.GetAsync().ConfigureAwait(false)).Id;
+            var sessionUser = (await _client.Profile.GetAsync()).Id;
 
             // Act
             await _client.SchemaPermissionSet.TransferOwnershipAsync(
                 permissionSet.Id, new PermissionSetOwnershipTransferRequest { TransferUserId = user.Id });
 
             // Assert
-            var verifyPermissionSet = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
+            var verifyPermissionSet = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id);
             var ownerTokenId = user.OwnerTokens.First().Id;
 
             verifyPermissionSet.OwnerTokenId.Should().Be(ownerTokenId);
@@ -156,7 +156,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new PermissionSetSearchRequest { Limit = 20 };
 
             // Act
-            var result = await _client.SchemaPermissionSet.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.SchemaPermissionSet.SearchAsync(request);
 
             // Assert
             result.Results.Should().NotBeEmpty();
@@ -176,7 +176,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.SchemaPermissionSet.CreateAsync(request).ConfigureAwait(false);
+            var result = await _client.SchemaPermissionSet.CreateAsync(request);
 
             // Assert
             result.Should().NotBeNull();
@@ -190,7 +190,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Names = { { "en", testName } },
                 UserRights = { userRight }
-            }).ConfigureAwait(false);
+            });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DotLiquid;
 using NGettext;
 using Picturepark.SDK.V1.Contract;
@@ -25,6 +26,7 @@ namespace Picturepark.SDK.V1.Localization
         /// <param name="exception">The exception.</param>
         /// <param name="language">The language.</param>
         /// <returns>The localized error message.</returns>
+        [Obsolete]
         public static string GetLocalizedErrorCode(PictureparkException exception, string language)
         {
             var errorAsString = exception.GetType().Name;
@@ -35,6 +37,7 @@ namespace Picturepark.SDK.V1.Localization
         /// <param name="code">The code to identify the text.</param>
         /// <param name="language">The language.</param>
         /// <returns>The localized text.</returns>
+        [Obsolete]
         public static string GetLocalizedText(int code, string language)
         {
             return GetLocalizedText(code.ToString(), new Dictionary<string, object>(), language);
@@ -45,6 +48,7 @@ namespace Picturepark.SDK.V1.Localization
         /// <param name="additionalData">The additional placeholder data to use in the text.</param>
         /// <param name="language">The language.</param>
         /// <returns>The localized text.</returns>
+        [Obsolete]
         public static string GetLocalizedText(int code, IDictionary<string, object> additionalData, string language)
         {
             return GetLocalizedText(code.ToString(), additionalData, language);
@@ -54,6 +58,7 @@ namespace Picturepark.SDK.V1.Localization
         /// <param name="code">The code to identify the text.</param>
         /// <param name="language">The language.</param>
         /// <returns>The localized text.</returns>
+        [Obsolete]
         public static string GetLocalizedText(string code, string language)
         {
             return GetLocalizedText(code, new Dictionary<string, object>(), language);
@@ -64,11 +69,13 @@ namespace Picturepark.SDK.V1.Localization
         /// <param name="additionalData">The additional placeholder data to use in the text.</param>
         /// <param name="language">The language.</param>
         /// <returns>The localized text.</returns>
+        [Obsolete]
         public static string GetLocalizedText(string code, IDictionary<string, object> additionalData, string language)
         {
             return GetLocalizedText(code, language, Hash.FromDictionary(additionalData));
         }
 
+        [Obsolete]
         public static string GetDateTimeLocalizedDisplayValue(string value)
         {
             Liquid.UseRubyDateFormat = true;
@@ -76,6 +83,7 @@ namespace Picturepark.SDK.V1.Localization
             return template.Render();
         }
 
+        [Obsolete]
         public static void ReplaceDateTimeLocalizedDisplayValueInObject(object obj)
         {
             var type = obj.GetType();

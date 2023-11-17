@@ -1,4 +1,5 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using System;
+using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1.Localization
 {
@@ -8,6 +9,7 @@ namespace Picturepark.SDK.V1.Localization
         /// <param name="exception">The exception.</param>
         /// <param name="language">The language.</param>
         /// <returns>The localized error message.</returns>
+        [Obsolete]
         public static string GetLocalizedErrorCode(this PictureparkException exception, string language)
         {
             return LocalizationService.GetLocalizedErrorCode(exception, language);

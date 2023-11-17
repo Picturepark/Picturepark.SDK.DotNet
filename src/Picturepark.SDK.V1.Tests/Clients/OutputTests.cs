@@ -23,10 +23,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             // Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Outputs }).ConfigureAwait(false);
+            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Outputs });
             Assert.True(contentId == contentDetail.Id, "Delivery goes wrong. We never ordered such pizza.");
 
             Assert.True(contentDetail.Outputs.Any());
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.False(string.IsNullOrEmpty(outputId));
 
             // Act
-            OutputDetail result = await _client.Output.GetAsync(outputId).ConfigureAwait(false);
+            OutputDetail result = await _client.Output.GetAsync(outputId);
 
             // Assert
             Assert.True(result.ContentId == contentId);
@@ -45,14 +45,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetByContentIds()
         {
             // Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
             var request = new OutputSearchRequest
             {
                 ContentIds = new List<string> { contentId }
             };
 
             // Act
-            var result = await _client.Output.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.Output.SearchAsync(request);
 
             // Assert
             Assert.True(result.Results.ToList()[0].ContentId == contentId);
