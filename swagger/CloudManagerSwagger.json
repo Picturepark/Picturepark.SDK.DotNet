@@ -27440,13 +27440,17 @@
                 "nullable": true
               },
               "system": {
-                "type": "boolean"
+                "type": "boolean",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
               },
               "dynamic": {
                 "type": "boolean"
               },
               "dataExtraction": {
-                "type": "boolean"
+                "type": "boolean",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
               },
               "temporary": {
                 "type": "boolean"

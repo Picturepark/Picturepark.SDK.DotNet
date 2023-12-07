@@ -17147,12 +17147,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Will be removed in future versions")]
         public bool System { get; set; }
 
         [Newtonsoft.Json.JsonProperty("dynamic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Dynamic { get; set; }
 
         [Newtonsoft.Json.JsonProperty("dataExtraction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Will be removed in future versions")]
         public bool DataExtraction { get; set; }
 
         [Newtonsoft.Json.JsonProperty("temporary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

@@ -53882,7 +53882,9 @@
               },
               "system": {
                 "type": "boolean",
-                "description": "Marks if this is a system output format."
+                "description": "Marks if this is a system output format.",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
               },
               "dynamic": {
                 "type": "boolean",
@@ -53890,7 +53892,9 @@
               },
               "dataExtraction": {
                 "type": "boolean",
-                "description": "Specifies if output format should be taken into account during data extraction."
+                "description": "Specifies if output format should be taken into account during data extraction.",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
               },
               "temporary": {
                 "type": "boolean",

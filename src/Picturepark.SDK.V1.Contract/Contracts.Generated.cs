@@ -33648,6 +33648,7 @@ namespace Picturepark.SDK.V1.Contract
         /// Marks if this is a system output format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Will be removed in future versions")]
         public bool System { get; set; }
 
         /// <summary>
@@ -33660,6 +33661,7 @@ namespace Picturepark.SDK.V1.Contract
         /// Specifies if output format should be taken into account during data extraction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dataExtraction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Will be removed in future versions")]
         public bool DataExtraction { get; set; }
 
         /// <summary>
