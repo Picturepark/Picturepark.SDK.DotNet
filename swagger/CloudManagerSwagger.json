@@ -11472,7 +11472,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormatDetail"
+                  "$ref": "#/components/schemas/StaticOutputFormatDetail"
                 }
               }
             }
@@ -11601,7 +11601,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OutputFormatEditable"
+                "$ref": "#/components/schemas/StaticOutputFormatEditable"
               }
             }
           },
@@ -11865,7 +11865,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OutputFormat"
+                "$ref": "#/components/schemas/StaticOutputFormat"
               }
             }
           },
@@ -26962,7 +26962,7 @@
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/OutputFormat"
+              "$ref": "#/components/schemas/StaticOutputFormat"
             }
           },
           "contentRetentionTime": {
@@ -27425,39 +27425,113 @@
           }
         }
       },
-      "OutputFormat": {
+      "StaticOutputFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StaticOutputFormatEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a static output format used in cloud manager.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              },
+              "system": {
+                "type": "boolean"
+              },
+              "dynamic": {
+                "type": "boolean"
+              },
+              "dataExtraction": {
+                "type": "boolean"
+              },
+              "temporary": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "StaticOutputFormatEditable": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OutputFormatEditable"
           },
           {
             "type": "object",
-            "description": "Represents an output format.",
             "additionalProperties": false,
             "properties": {
-              "id": {
-                "type": "string",
-                "description": "Output format ID.",
-                "nullable": true
-              },
-              "system": {
-                "type": "boolean",
-                "description": "Marks if this is a system output format."
-              },
-              "dynamic": {
-                "type": "boolean",
-                "description": "A dynamic output format is not rendered automatically, but only on demand."
-              },
-              "dataExtraction": {
-                "type": "boolean",
-                "description": "Specifies if output format should be taken into account during data extraction."
-              },
-              "temporary": {
-                "type": "boolean",
-                "description": "Temporary outputs will not be backed up."
+              "storageAttributes": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputFormatStorageAttributes"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "OutputFormatStorageAttributes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "azure": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AzureStorageAttributes"
+              }
+            ]
+          }
+        }
+      },
+      "AzureStorageAttributes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "accessTierPhases": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AzureStorageAccessTierPhase"
+            }
+          }
+        }
+      },
+      "AzureStorageAccessTierPhase": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tier"
+        ],
+        "properties": {
+          "tier": {
+            "$ref": "#/components/schemas/AzureStorageAccessTier"
+          },
+          "duration": {
+            "type": "string",
+            "format": "duration",
+            "nullable": true
+          }
+        }
+      },
+      "AzureStorageAccessTier": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Hot",
+          "Cool",
+          "Cold"
+        ],
+        "enum": [
+          "Hot",
+          "Cool",
+          "Cold"
         ]
       },
       "OutputFormatEditable": {
@@ -31713,18 +31787,16 @@
           }
         }
       },
-      "OutputFormatDetail": {
+      "StaticOutputFormatDetail": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/OutputFormat"
+            "$ref": "#/components/schemas/StaticOutputFormat"
           },
           {
             "type": "object",
-            "description": "Represents an output format.",
             "additionalProperties": false,
             "properties": {
               "audit": {
-                "description": "Audit information.",
                 "nullable": true,
                 "oneOf": [
                   {

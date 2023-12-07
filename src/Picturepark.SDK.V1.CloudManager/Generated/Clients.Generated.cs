@@ -17775,7 +17775,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task<OutputFormatDetail> GetAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<StaticOutputFormatDetail> GetAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/OutputFormat/customer/{customerId}/outputformats/{id}");
@@ -17814,7 +17814,7 @@ namespace Picturepark.SDK.V1.CloudManager
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<OutputFormatDetail>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<StaticOutputFormatDetail>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -17946,7 +17946,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string customerId, string id, OutputFormatEditable format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string customerId, string id, StaticOutputFormatEditable format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (format == null)
                 throw new System.ArgumentNullException("format");
@@ -18295,7 +18295,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(string customerId, OutputFormat format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(string customerId, StaticOutputFormat format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (format == null)
                 throw new System.ArgumentNullException("format");
