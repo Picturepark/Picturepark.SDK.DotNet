@@ -39574,6 +39574,40 @@
           }
         ]
       },
+      "ContentSearchQueryInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "nullable": true
+              },
+              "searchType": {
+                "$ref": "#/components/schemas/ContentSearchType"
+              }
+            }
+          }
+        ]
+      },
+      "ContentSearchType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Metadata",
+          "FullText",
+          "MetadataAndFullText"
+        ],
+        "enum": [
+          "Metadata",
+          "FullText",
+          "MetadataAndFullText"
+        ]
+      },
       "IngestContainerCreationFailedException": {
         "allOf": [
           {
@@ -47042,20 +47076,6 @@
             }
           }
         }
-      },
-      "ContentSearchType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Metadata",
-          "FullText",
-          "MetadataAndFullText"
-        ],
-        "enum": [
-          "Metadata",
-          "FullText",
-          "MetadataAndFullText"
-        ]
       },
       "LifeCycleFilter": {
         "type": "string",
