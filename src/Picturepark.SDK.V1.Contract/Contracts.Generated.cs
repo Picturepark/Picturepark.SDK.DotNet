@@ -5285,6 +5285,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NestedDisplayContentNotSupportedException", typeof(NestedDisplayContentNotSupportedException))]
     [JsonInheritanceAttribute("SelfReferencingDisplayContentNotSupportedException", typeof(SelfReferencingDisplayContentNotSupportedException))]
     [JsonInheritanceAttribute("ConcurrentFileReplacementException", typeof(ConcurrentFileReplacementException))]
+    [JsonInheritanceAttribute("ContentSearchQueryInvalidException", typeof(ContentSearchQueryInvalidException))]
     [JsonInheritanceAttribute("IngestContainerCreationFailedException", typeof(IngestContainerCreationFailedException))]
     [JsonInheritanceAttribute("IngestContainerNotFoundException", typeof(IngestContainerNotFoundException))]
     [JsonInheritanceAttribute("IngestContainerEmptyException", typeof(IngestContainerEmptyException))]
@@ -15360,6 +15361,47 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentSearchQueryInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentSearchType SearchType { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentSearchQueryInvalidException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchQueryInvalidException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum ContentSearchType
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Metadata")]
+        Metadata = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"FullText")]
+        FullText = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"MetadataAndFullText")]
+        MetadataAndFullText = 2,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class IngestContainerCreationFailedException : PictureparkBusinessException
     {
 
@@ -24921,21 +24963,6 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFilterRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public enum ContentSearchType
-    {
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Metadata")]
-        Metadata = 0,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"FullText")]
-        FullText = 1,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"MetadataAndFullText")]
-        MetadataAndFullText = 2,
 
     }
 
