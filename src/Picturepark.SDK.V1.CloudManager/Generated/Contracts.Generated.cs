@@ -14144,6 +14144,13 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BackupEntityType EntityType { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? StartTime { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("expires", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Expires { get; set; }
+
         [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.Always)]
         public bool IsArchived { get; set; }
 
@@ -14201,9 +14208,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RepositoryName { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime StartTime { get; set; }
+        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? StartTime { get; set; }
 
         [Newtonsoft.Json.JsonProperty("expires", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? Expires { get; set; }
@@ -15579,9 +15585,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>
         /// The repository start time.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("repositoryStartTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime RepositoryStartTime { get; set; }
+        [Newtonsoft.Json.JsonProperty("repositoryStartTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? RepositoryStartTime { get; set; }
+
+        /// <summary>
+        /// The repository expiration.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("repositoryExpiry", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? RepositoryExpiry { get; set; }
 
         /// <summary>
         /// Is the repository already archived?

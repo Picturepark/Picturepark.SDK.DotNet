@@ -24663,6 +24663,7 @@
         "additionalProperties": false,
         "required": [
           "entityType",
+          "expires",
           "isArchived"
         ],
         "properties": {
@@ -24680,6 +24681,15 @@
           },
           "entityType": {
             "$ref": "#/components/schemas/BackupEntityType"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expires": {
+            "type": "string",
+            "format": "date-time"
           },
           "isArchived": {
             "type": "boolean"
@@ -24719,9 +24729,6 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "startTime"
-        ],
         "properties": {
           "repositoryName": {
             "type": "string",
@@ -24729,7 +24736,8 @@
           },
           "startTime": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "expires": {
             "type": "string",
@@ -25844,7 +25852,6 @@
           "durationInMilliseconds",
           "endTime",
           "endTimeInMilliseconds",
-          "repositoryStartTime",
           "repositoryIsArchived",
           "startTime",
           "startTimeInMilliseconds",
@@ -25896,7 +25903,14 @@
           "repositoryStartTime": {
             "type": "string",
             "description": "The repository start time.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
+          },
+          "repositoryExpiry": {
+            "type": "string",
+            "description": "The repository expiration.",
+            "format": "date-time",
+            "nullable": true
           },
           "repositoryIsArchived": {
             "type": "boolean",
