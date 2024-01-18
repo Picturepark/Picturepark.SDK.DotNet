@@ -165,7 +165,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             var ex = await Record.ExceptionAsync(() => _client.OutputFormat.GetAsync(outputFormat.Id));
-            ex.Should().BeOfType<PictureparkNotFoundException>();
+            ex.Should().BeOfType<OutputFormatNotFoundException>();
         }
 
         [Fact]
@@ -439,7 +439,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadResult = await _client.Ingest.UploadAndImportFilesAsync(
                 new[] { Path.Combine(_fixture.ExampleFilesBasePath, "sample006.pdf") });
 
-            var details = await uploadResult.FetchDetail();
+            var details = await uploadResult.FetchDetail(new[] { ContentResolveBehavior.Content });
             var content = details.SucceededItems.Single().Item;
 
             var formatId = $"{nameof(ShouldCreateCopyFormatAndCopySourceFile)}{Guid.NewGuid():N}";
