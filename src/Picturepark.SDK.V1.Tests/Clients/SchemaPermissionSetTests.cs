@@ -85,9 +85,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.SchemaPermissionSet.DeleteAsync(permissionSet.Id);
 
             // Assert
-            Action verifyPermissionSet = () => _client.SchemaPermissionSet.GetAsync(permissionSet.Id).GetAwaiter().GetResult();
-
-            verifyPermissionSet.Should().Throw<PermissionSetNotFoundException>();
+            var ex = await Record.ExceptionAsync(() => _client.SchemaPermissionSet.GetAsync(permissionSet.Id));
+            ex.Should().BeOfType<PermissionSetNotFoundException>();
         }
 
         [Fact]

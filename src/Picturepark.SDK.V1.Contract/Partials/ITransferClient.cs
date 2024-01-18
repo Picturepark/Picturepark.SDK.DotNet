@@ -11,6 +11,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="transferId">The transfer ID.</param>
         /// <param name="limit">The maximum number of search results.</param>
         /// <returns>The result.</returns>
+        [Obsolete]
         Task<IReadOnlyCollection<FileTransfer>> SearchFilesByTransferIdAsync(string transferId, int? limit = null);
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
@@ -20,6 +21,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created transfer object.</returns>
+        [Obsolete]
         Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<FileLocations> files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
@@ -29,6 +31,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created transfer object.</returns>
+        [Obsolete]
         Task UploadFilesAsync(Transfer transfer, IEnumerable<FileLocations> files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Transfers the uploaded files and waits for its completions.</summary>
@@ -37,6 +40,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellcation token.</param>
         /// <returns>The task.</returns>
+        [Obsolete]
         Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Creates a transfer and waits for its completion.</summary>
@@ -44,6 +48,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The transfer.</returns>
+        [Obsolete]
         Task<CreateTransferResult> CreateAndWaitForCompletionAsync(CreateTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Creates a transfer and waits for its completion.</summary>
@@ -53,6 +58,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="uploadOptions">The upload options.</param>
         /// <returns>The transfer.</returns>
+        [Obsolete]
         Task<CreateTransferResult> CreateAndWaitForCompletionAsync(
             string transferName,
             IEnumerable<FileLocations> files,

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Tests.Contracts;
-using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
+    [Obsolete("Tests obsolete Transfer methods and will be removed in the future, please use Ingest methods")]
     public class TransferTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
@@ -646,8 +646,25 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        private Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync() =>
-           TransferHelper.CreateSingleFileTransferAsync(_client, Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg"));
+        private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
+        {
+            string filePath = Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg");
+            var transferName = new Random().Next(1000, 9999).ToString();
+            var files = new FileLocations[] { filePath };
+
+            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files);
+            await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, files, new UploadOptions());
+
+            var searchRequest = new FileTransferSearchRequest
+            {
+                Limit = 1,
+                SearchString = "*",
+                Filter = FilterBase.FromExpression<FileTransfer>(i => i.TransferId, createTransferResult.Transfer.Id)
+            };
+            var searchResult = await _client.Transfer.SearchFilesAsync(searchRequest);
+            var fileId = searchResult.Results.ToList()[0].Id;
+            return (createTransferResult, fileId);
+        }
 
         private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<string> urls)
         {
@@ -699,29 +716,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 EmailAddress = "first.last@testyyy.com"
             });
             return (await operationResult.FetchDetail()).SucceededIds.First();
-        }
-
-        private async Task<List<string>> GetContentsDownloadUrls(ContentSearchResult contentSearchResult)
-        {
-            var urls = new List<string>();
-            foreach (var content in contentSearchResult.Results)
-            {
-                var downloadRequest = new ContentDownloadLinkCreateRequest()
-                {
-                    Contents = new List<ContentDownloadRequestItem>
-                    {
-                        new ContentDownloadRequestItem
-                        {
-                            ContentId = content.Id,
-                            OutputFormatId = "Original",
-                        }
-                    }
-                };
-                var downloadResult = await _client.Content.CreateAndAwaitDownloadLinkAsync(downloadRequest);
-                urls.Add(downloadResult.DownloadUrl);
-            }
-
-            return urls;
         }
     }
 }
