@@ -25717,6 +25717,7 @@
             ]
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -25824,6 +25825,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -25923,6 +25925,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26044,6 +26047,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26165,6 +26169,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26266,6 +26271,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26373,6 +26379,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26480,6 +26487,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26587,6 +26595,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26687,6 +26696,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26782,6 +26792,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26950,6 +26961,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -62800,7 +62812,7 @@
     },
     {
       "name": "Transfer",
-      "description": "Endpoints to work with transfers.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to work with transfers.\r\n\r\nNote: These endpoints are deprecated and will be removed in future release. Please use [Ingest](#tag/Ingest) endpoints for new projects and consider switching existing code to use Ingest endpoints as well.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "UserRole",

@@ -9,6 +9,7 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using FluentAssertions;
+using Picturepark.SDK.V1.AzureBlob;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -503,39 +504,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Shares")]
         public async Task ShouldGetShareOutputByContentIdAndSize()
         {
-            // Arrange transfer
-            var timeout = TimeSpan.FromMinutes(2);
-            var transferName = nameof(ShouldGetShareOutputByContentIdAndSize) + "-" + new Random().Next(1000, 9999);
-
-            var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "0033_aeVA-j1y2BY.jpg").ToList();
-
-            var importFilePaths = filesInDirectory.Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}")).ToList();
-
             // Act
-            var uploadOptions = new UploadOptions
-            {
-                SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = args => Console.WriteLine(args.Exception)
-            };
-            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
-
-            var importRequest = new ImportTransferRequest
-            {
-                ContentPermissionSetIds = new List<string>(),
-                Metadata = null,
-                LayerSchemaIds = new List<string>()
-            };
-
-            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout);
+            var ingestResult = await _client.Ingest.UploadAndImportFilesAsync(
+                new[] { Path.Combine(_fixture.ExampleFilesBasePath, "0033_aeVA-j1y2BY.jpg") });
 
             // Assert
-            var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
-            var contentIds = transferResult.Select(r => r.ContentId).ToList();
-
-            Assert.Equal(importFilePaths.Count, contentIds.Count);
+            var details = await ingestResult.FetchDetail();
+            var contentId = details.SucceededIds.Single();
 
             // Arrange get share
-            var contentId = contentIds.First();
             var outputFormatIds = new List<string> { "Original", "Preview" };
             var shareContentItems = new List<ShareContentBase>
             {
@@ -556,11 +533,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.Single().Outputs.First();
 
             // Act
-            using (var result = await _client.Share.DownloadAsync(shareOutput.Token, 10, 10))
-            {
-                // Assert
-                Assert.NotNull(result);
-            }
+            using var result = await _client.Share.DownloadAsync(shareOutput.Token, 10, 10);
+
+            // Assert
+            Assert.NotNull(result);
         }
 
         [Fact]

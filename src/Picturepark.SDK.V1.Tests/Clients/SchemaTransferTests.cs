@@ -41,6 +41,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        [Obsolete("Tests obsolete Transfer methods and will be removed in the future, please use json upload")]
         public async Task ShouldImportPlanetSchema()
         {
             // Arrange

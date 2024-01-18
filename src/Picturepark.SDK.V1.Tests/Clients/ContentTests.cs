@@ -13,12 +13,11 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.AzureBlob;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Providers;
 using Picturepark.SDK.V1.Contract.SystemTypes;
-using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -656,23 +655,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDownloadFileFormatIconIfOutputForThumbnailNotRendered(ThumbnailSize size)
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.json", 20);
+            var planetJsonPath = Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json");
+            var importResult = await _client.Ingest.UploadAndImportFilesAsync(new[] { planetJsonPath });
+            var details = await importResult.FetchDetail();
 
-            if (string.IsNullOrEmpty(contentId))
-            {
-                var planetJsonPath = Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json");
-                var (createResult, _) = await TransferHelper.CreateSingleFileTransferAsync(_client, planetJsonPath, new UploadOptions { WaitForTransferCompletion = true });
-                await _client.Transfer.ImportAndWaitForCompletionAsync(createResult.Transfer, new ImportTransferRequest());
-
-                contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.json", 20);
-            }
+            var contentId = details.SucceededIds.Single();
 
             // Act
-            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size))
-            {
-                // Assert
-                await AssertFileResponseOkAndNonEmpty(response, "image/svg+xml");
-            }
+            using var response = await _client.Content.DownloadThumbnailAsync(contentId, size);
+
+            // Assert
+            await AssertFileResponseOkAndNonEmpty(response, "image/svg+xml");
         }
 
         [Fact]
@@ -1624,38 +1617,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20);
 
-            // Create transfer
-            var filePaths = new FileLocations[]
-            {
-                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
-            };
-            string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
-            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, filePaths);
-
-            // Upload file
-            var uploadOptions = new UploadOptions
-            {
-                SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = args => Console.WriteLine(args.Exception)
-            };
-
-            await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions);
-
-            // Search filetransfers to get id
-            var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
-            FileTransferSearchResult result = await _client.Transfer.SearchFilesAsync(request);
-
-            Assert.Equal(1, result.TotalResults);
-
-            var updateRequest = new ContentFileUpdateRequest
-            {
-                FileTransferId = result.Results.First().Id
-            };
+            var file = await _client.Ingest.UploadFileAsync(Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg"));
+            var updateRequest = new ContentFileUpdateRequest { IngestFile = file };
 
             var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest);
             var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
         }
 
         [Fact]
@@ -1703,12 +1671,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             content.LayerSchemaIds.Should().ContainSingle().Which.Should().Be(layerId);
 
-            var uploadedImage = await UploadFileAndGetFileTransfer("*.jpg");
+            var uploadedImage = await UploadFile("*.jpg");
 
             // check up-front if the replacement can be done or would cause layer removal
             var replacementCheck = await _client.Content.CheckUpdateFileAsync(
                 content.Id,
-                new ContentFileUpdateCheckRequest { FileTransferId = uploadedImage.Id });
+                new ContentFileUpdateCheckRequest { IngestFile = uploadedImage });
 
             replacementCheck.Errors.Should().BeEmpty();
             var problematicChange = replacementCheck.ProblematicChanges.Should().ContainSingle().Which;
@@ -1730,7 +1698,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 content.Id,
                 new ContentFileUpdateRequest
                 {
-                    FileTransferId = uploadedImage.Id,
+                    IngestFile = uploadedImage,
                     AllowContentTypeChange = true,
                     AcceptableLayerUnassignments = problematicChange.IncompatibleLayerAssignments
                 });
@@ -1892,24 +1860,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldHandleDuplicateFilenameWhenDownloading()
         {
             // Arrange
-            var numberOfUploads = 2;
-            var files = new FileLocations[]
-            {
-                Path.Combine(_fixture.ExampleFilesBasePath, "0559_BYu8ITUWMfc.jpg")
-            };
+            const int numberOfUploads = 2;
 
             for (var i = 0; i < numberOfUploads; i++)
             {
-                var transfer = await _client.Transfer.UploadFilesAsync(
-                    nameof(ShouldHandleDuplicateFilenameWhenDownloading) + Guid.NewGuid().ToString("N"),
-                    files,
-                    new UploadOptions { WaitForTransferCompletion = true });
-
-                var result = await _client.Transfer
-                    .ImportAsync(transfer.Transfer.Id, new ImportTransferRequest())
-                    ;
-
-                await _client.BusinessProcess.WaitForCompletionAsync(result.BusinessProcessId);
+                await _client.Ingest.UploadAndImportFilesAsync(
+                    new[]
+                    {
+                        Path.Combine(_fixture.ExampleFilesBasePath, "0559_BYu8ITUWMfc.jpg"),
+                    });
             }
 
             var contents = await _client.Content.SearchAsync(new ContentSearchRequest { SearchString = "fileMetadata.fileName:0559_BYu8ITUWMfc.jpg" });
@@ -2305,80 +2264,49 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return (createdSchemas.First(s => s.Types.Contains(SchemaType.Content)), createdSchemas.First(s => s.Types.Contains(SchemaType.Layer)));
         }
 
-        private async Task<Transfer> UploadContents(string searchPattern = "*.jpg", int count = 1, [CallerMemberName] string testName = null)
+        private IEnumerable<string> GetFilePaths(string searchPattern = "*.jpg", int count = 1)
         {
-            var transferName = testName + "-" + new Random().Next(1000, 9999);
             var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, searchPattern).ToList();
 
             var numberOfFilesInDirectory = filesInDirectory.Count;
             var numberOfUploadFiles = Math.Min(count, numberOfFilesInDirectory);
 
-            var randomNumber = new Random().Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
-            var importFilePaths = filesInDirectory
+            var randomNumber = Random.Shared.Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
+            return filesInDirectory
                 .Skip(randomNumber)
-                .Take(numberOfUploadFiles)
-                .Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}"))
-                .ToList();
-
-            // Act
-            var uploadOptions = new UploadOptions
-            {
-                ConcurrentUploads = 4,
-                SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = args => Console.WriteLine(args.Exception)
-            };
-            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
-            return createTransferResult.Transfer;
+                .Take(numberOfUploadFiles);
         }
 
-        private async Task<IReadOnlyList<string>> UploadAndImportContents(int count = 1, string searchPattern = "*.jpg", [CallerMemberName] string testName = null)
+        private async Task<IReadOnlyList<string>> UploadAndImportContents(int count = 1, string searchPattern = "*.jpg")
         {
-            var timeout = TimeSpan.FromMinutes(2);
-            var transfer = await UploadContents(count: count, searchPattern: searchPattern, testName: testName);
+            var importResult = await _client.Ingest.UploadAndImportFilesAsync(GetFilePaths(searchPattern, count));
+            var details = await importResult.FetchDetail();
 
-            var importRequest = new ImportTransferRequest
-            {
-                ContentPermissionSetIds = new List<string>(),
-                Metadata = null,
-                LayerSchemaIds = new List<string>()
-            };
-
-            await _client.Transfer.ImportAndWaitForCompletionAsync(transfer, importRequest, timeout);
-
-            // Assert
-            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id);
-            return result.Select(r => r.ContentId).ToArray();
+            return details.SucceededIds;
         }
 
-        private async Task UploadAndReplaceContent(string contentId, string searchPattern = "*.jpg", Action<ContentFileUpdateRequest> requestModifier = null, [CallerMemberName] string testName = null)
+        private async Task UploadAndReplaceContent(string contentId, string searchPattern = "*.jpg", Action<ContentFileUpdateRequest> requestModifier = null)
         {
-            var fileTransfer = await UploadFileAndGetFileTransfer(searchPattern, testName);
+            var file = await UploadFile(searchPattern);
 
-            var contentFileUpdateRequest = new ContentFileUpdateRequest { FileTransferId = fileTransfer.Id };
+            var contentFileUpdateRequest = new ContentFileUpdateRequest { IngestFile = file };
             requestModifier?.Invoke(contentFileUpdateRequest);
 
-            var waitResult = await ReplaceContentFile(contentId, contentFileUpdateRequest);
+            await ReplaceContentFile(contentId, contentFileUpdateRequest);
         }
 
-        private async Task<BusinessProcessWaitForLifeCycleResult> ReplaceContentFile(string contentId, ContentFileUpdateRequest updateRequest)
+        private async Task ReplaceContentFile(string contentId, ContentFileUpdateRequest updateRequest)
         {
             var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest);
             var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
-            return waitResult;
         }
 
-        private async Task<FileTransfer> UploadFileAndGetFileTransfer(string searchPattern = ".jpg", [CallerMemberName] string testName = null)
+        private async Task<IngestFile> UploadFile(string searchPattern = ".jpg")
         {
-            var transfer = await UploadContents(count: 1, searchPattern: searchPattern, testName: testName);
-
-            // Search filetransfers to get id
-            var request = new FileTransferSearchRequest { Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };
-            var result = await _client.Transfer.SearchFilesAsync(request);
-
-            result.TotalResults.Should().Be(1);
-            return result.Results.Single();
+            var filePath = GetFilePaths(searchPattern, count: 1).Single();
+            return await _client.Ingest.UploadFileAsync(filePath);
         }
     }
 }
