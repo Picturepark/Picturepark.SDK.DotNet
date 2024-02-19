@@ -32,7 +32,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var results = await _client.BusinessProcess.SearchAsync(request).ConfigureAwait(false);
+            var results = await _client.BusinessProcess.SearchAsync(request);
 
             // Assert
             Assert.NotNull(results);
@@ -45,21 +45,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
 
             // 1. Create or update schema
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
-            await _client.Schema.CreateOrUpdateAsync(schemas.First(), false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(BusinessProcessTest));
+            await _client.Schema.CreateOrUpdateAsync(schemas.First(), false, TimeSpan.FromMinutes(1));
 
             // 2. Create list items
             var listItemDetail1 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 Content = new BusinessProcessTest { Name = "Test1" },
                 ContentSchemaId = nameof(BusinessProcessTest)
-            }).ConfigureAwait(false);
+            });
 
             var listItemDetail2 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 Content = new BusinessProcessTest { Name = "Test2" },
                 ContentSchemaId = nameof(BusinessProcessTest)
-            }).ConfigureAwait(false);
+            });
 
             // 3. Initialize change request
             var updateRequest = new ListItemFieldsBatchUpdateRequest
@@ -82,16 +82,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var result = await _client.ListItem.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
+            var result = await _client.ListItem.BatchUpdateFieldsByIdsAsync(updateRequest);
 
             // Act
-            var summary = await _client.BusinessProcess.GetSummaryAsync(result.BusinessProcessId).ConfigureAwait(false) as BusinessProcessSummaryBatchBased;
+            var summary = await _client.BusinessProcess.GetSummaryAsync(result.BusinessProcessId) as BusinessProcessSummaryBatchBased;
             var rows = new List<BatchResponseRow>();
 
             string pageToken = null;
             do
             {
-                var page = await _client.BusinessProcess.GetSuccessfulItemsAsync(result.BusinessProcessId, 1, pageToken).ConfigureAwait(false);
+                var page = await _client.BusinessProcess.GetSuccessfulItemsAsync(result.BusinessProcessId, 1, pageToken);
                 if (page.Data is BusinessProcessBatchItemBatchResponse batchResponse)
                     rows.AddRange(batchResponse.Items);
 
@@ -109,7 +109,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task Should_create_external_business_process()
         {
-            var businessProcess = await CreateBusinessProcess().ConfigureAwait(false);
+            var businessProcess = await CreateBusinessProcess();
 
             businessProcess.SupportsCancellation.Should().BeFalse();
             businessProcess.CurrentState.Should().Be("Started");
@@ -118,7 +118,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task Should_change_business_process_state()
         {
-            var businessProcess = await CreateBusinessProcess().ConfigureAwait(false);
+            var businessProcess = await CreateBusinessProcess();
 
             var updated = await _client.BusinessProcess.ChangeStateAsync(
                 businessProcess.Id,
@@ -126,7 +126,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     State = "Intermediate",
                     LifeCycle = BusinessProcessLifeCycle.InProgress
-                }).ConfigureAwait(false);
+                });
 
             updated.CurrentState.Should().Be("Intermediate");
             updated.LifeCycle.Should().Be(BusinessProcessLifeCycle.InProgress);
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task Should_post_notification_update()
         {
-            var businessProcess = await CreateBusinessProcess().ConfigureAwait(false);
+            var businessProcess = await CreateBusinessProcess();
 
             // passes when no exception is risen
             await _client.BusinessProcess.UpdateNotificationAsync(
@@ -154,17 +154,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         { "de", "Aktualisierte Nachricht" }
                     },
                     EventType = NotificationEventType.Warning
-                }).ConfigureAwait(false);
+                });
         }
 
         [Fact]
         public async Task Should_cancel_running_business_process()
         {
-            var businessProcess = await CreateBusinessProcess(supportsCancellation: true).ConfigureAwait(false);
+            var businessProcess = await CreateBusinessProcess(supportsCancellation: true);
 
-            await _client.BusinessProcess.CancelAsync(businessProcess.Id).ConfigureAwait(false);
+            await _client.BusinessProcess.CancelAsync(businessProcess.Id);
 
-            businessProcess = await _client.BusinessProcess.GetAsync(businessProcess.Id).ConfigureAwait(false);
+            businessProcess = await _client.BusinessProcess.GetAsync(businessProcess.Id);
             businessProcess.LifeCycle.Should().Be(BusinessProcessLifeCycle.CancellationInProgress);
 
             businessProcess = await _client.BusinessProcess.ChangeStateAsync(
@@ -173,7 +173,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     LifeCycle = BusinessProcessLifeCycle.Cancelled,
                     State = "Cancelled"
-                }).ConfigureAwait(false);
+                });
 
             businessProcess.CurrentState.Should().Be("Cancelled");
             businessProcess.LifeCycle.Should().Be(BusinessProcessLifeCycle.Cancelled);
@@ -182,9 +182,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task Should_get_business_process()
         {
-            var businessProcess = await CreateBusinessProcess().ConfigureAwait(false);
+            var businessProcess = await CreateBusinessProcess();
 
-            var retrieved = await _client.BusinessProcess.GetAsync(businessProcess.Id).ConfigureAwait(false);
+            var retrieved = await _client.BusinessProcess.GetAsync(businessProcess.Id);
             retrieved.Id.Should().Be(businessProcess.Id);
         }
 
@@ -209,7 +209,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             { "de", "Titel" }
                         }
                     }
-                }).ConfigureAwait(false);
+                });
 
             return businessProcess;
         }

@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetProfile()
         {
             // Act
-            var profile = await _client.Profile.GetAsync().ConfigureAwait(false);
+            var profile = await _client.Profile.GetAsync();
 
             // Assert
             profile.Should().NotBeNull();
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateProfile()
         {
             // Arrange
-            var profile = await _client.Profile.GetAsync().ConfigureAwait(false);
+            var profile = await _client.Profile.GetAsync();
 
             // Act
             var updateRequest = new UserProfileUpdateRequest
@@ -47,7 +47,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LastName = profile.LastName
             };
 
-            var updatedProfile = await _client.Profile.UpdateAsync(updateRequest).ConfigureAwait(false);
+            var updatedProfile = await _client.Profile.UpdateAsync(updateRequest);
 
             // Assert
             updatedProfile.FirstName.Should().Be(profile.FirstName + "1");

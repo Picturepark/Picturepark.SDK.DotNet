@@ -25717,6 +25717,7 @@
             ]
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -25824,6 +25825,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -25923,6 +25925,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26044,6 +26047,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26165,6 +26169,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26266,6 +26271,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26373,6 +26379,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26480,6 +26487,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26587,6 +26595,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26687,6 +26696,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26782,6 +26792,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -26950,6 +26961,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -39574,6 +39586,40 @@
           }
         ]
       },
+      "ContentSearchQueryInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "nullable": true
+              },
+              "searchType": {
+                "$ref": "#/components/schemas/ContentSearchType"
+              }
+            }
+          }
+        ]
+      },
+      "ContentSearchType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Metadata",
+          "FullText",
+          "MetadataAndFullText"
+        ],
+        "enum": [
+          "Metadata",
+          "FullText",
+          "MetadataAndFullText"
+        ]
+      },
       "IngestContainerCreationFailedException": {
         "allOf": [
           {
@@ -47043,20 +47089,6 @@
           }
         }
       },
-      "ContentSearchType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Metadata",
-          "FullText",
-          "MetadataAndFullText"
-        ],
-        "enum": [
-          "Metadata",
-          "FullText",
-          "MetadataAndFullText"
-        ]
-      },
       "LifeCycleFilter": {
         "type": "string",
         "description": "",
@@ -53882,7 +53914,9 @@
               },
               "system": {
                 "type": "boolean",
-                "description": "Marks if this is a system output format."
+                "description": "Marks if this is a system output format.",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
               },
               "dynamic": {
                 "type": "boolean",
@@ -53890,7 +53924,9 @@
               },
               "dataExtraction": {
                 "type": "boolean",
-                "description": "Specifies if output format should be taken into account during data extraction."
+                "description": "Specifies if output format should be taken into account during data extraction.",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
               },
               "temporary": {
                 "type": "boolean",
@@ -54952,6 +54988,15 @@
             "type": "boolean",
             "description": "Defines if a field value is mandatory or not."
           },
+          "uiBehavior": {
+            "description": "Defines additional only UI-specific behavior",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UiFieldBehavior"
+              }
+            ]
+          },
           "index": {
             "type": "boolean",
             "description": "Field is stored for filtering."
@@ -54966,6 +55011,19 @@
           },
           "kind": {
             "type": "string"
+          }
+        }
+      },
+      "UiFieldBehavior": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "suggestRequired"
+        ],
+        "properties": {
+          "suggestRequired": {
+            "type": "boolean",
+            "description": "Indicates if a field value is required from UI side"
           }
         }
       },
@@ -62754,7 +62812,7 @@
     },
     {
       "name": "Transfer",
-      "description": "Endpoints to work with transfers.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to work with transfers.\r\n\r\nNote: These endpoints are deprecated and will be removed in future release. Please use [Ingest](#tag/Ingest) endpoints for new projects and consider switching existing code to use Ingest endpoints as well.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "UserRole",

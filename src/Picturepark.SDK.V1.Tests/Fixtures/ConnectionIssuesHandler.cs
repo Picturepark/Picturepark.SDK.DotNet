@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 try
                 {
-                    return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+                    return await base.SendAsync(request, cancellationToken);
                 }
                 catch (HttpRequestException ex)
                 {
@@ -69,7 +69,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 }
 
                 // back off a bit
-                await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).ConfigureAwait(false);
+                await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken);
             }
             while (!_failAll);
 

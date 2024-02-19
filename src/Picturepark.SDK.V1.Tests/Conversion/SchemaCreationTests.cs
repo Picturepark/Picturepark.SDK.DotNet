@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldInvokeFilterProvider()
         {
             // Act
-            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndFilterProvider)).ConfigureAwait(false);
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndFilterProvider));
 
             // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndFilterProvider));
@@ -65,7 +65,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldInvokeSchemaIndexingInfoProvider()
         {
             // Act
-            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider)).ConfigureAwait(false);
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
 
             // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
@@ -81,7 +81,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldConvertRelationUiSettings()
         {
             // Act
-            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider)).ConfigureAwait(false);
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
 
             // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
@@ -116,7 +116,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldIgnoreJsonProperty()
         {
             // Act
-            var jsonTransformSchemas = await _client.Schema.GenerateSchemasAsync(typeof(JsonTransform)).ConfigureAwait(false);
+            var jsonTransformSchemas = await _client.Schema.GenerateSchemasAsync(typeof(JsonTransform));
 
             // Assert
             var jsonTransformSchema = jsonTransformSchemas.First();
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldUseRenamedJsonProperty()
         {
             // Act
-            var jsonTransformSchemas = await _client.Schema.GenerateSchemasAsync(typeof(JsonTransform)).ConfigureAwait(false);
+            var jsonTransformSchemas = await _client.Schema.GenerateSchemasAsync(typeof(JsonTransform));
 
             // Assert
             var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));
@@ -165,7 +165,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldNotAllowRelationsMarkedAsSortable()
         {
-            await Assert.ThrowsAsync<InvalidOperationException>(async() => await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableRelation)).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<InvalidOperationException>(async() => await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableRelation)));
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -183,7 +183,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldNotAllowGeopointsMarkedAsSortable()
         {
-            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableGeopoint)).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableGeopoint)));
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -197,7 +197,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldMarkFieldAsSortableWhenMarkedWithSortAttribute()
         {
-            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableString)).ConfigureAwait(false);
+            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableString));
             Assert.True(schema.First().Fields.First().Sortable);
         }
 
@@ -227,7 +227,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldNotAllowMultipleDisplayPatternsOfSameTypeAndLanguage()
         {
             await Assert.ThrowsAsync<InvalidOperationException>(
-                async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassWithMultipleDisplayPatternsForEnglishName)).ConfigureAwait(false)).ConfigureAwait(false);
+                async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassWithMultipleDisplayPatternsForEnglishName)));
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -241,7 +241,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldSetViewForAllForStructs()
         {
-            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassStruct)).ConfigureAwait(false);
+            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassStruct));
             schema.Single().ViewForAll.Should().BeTrue();
         }
 
@@ -254,7 +254,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldSetViewForAllForContents()
         {
-            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassContent)).ConfigureAwait(false);
+            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassContent));
             schema.Single().ViewForAll.Should().BeTrue();
         }
 
@@ -267,7 +267,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldSupportCyclicDependencies()
         {
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee));
             schemas.Count.Should().Be(2);
 
             var employeeSchema = schemas.Single(x => x.Id == nameof(Employee));
@@ -294,7 +294,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldSupportCyclicDependenciesWithIndirectCycle()
         {
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Country)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Country));
             schemas.Count.Should().Be(3);
 
             var countrySchema = schemas.Single(x => x.Id == nameof(Country));
@@ -341,7 +341,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldGenerateTriggerField()
         {
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithTrigger)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithTrigger));
             schemas.Should().HaveCount(1);
 
             var schema = schemas.Single();
@@ -365,7 +365,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldGenerateDynamicViewField()
         {
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithDynamicView)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithDynamicView));
             var schema = schemas.Should().ContainSingle().Which;
 
             var viewField = schema.Fields.Should().ContainSingle().Which.Should().BeOfType<FieldDynamicView>().Which;
@@ -426,7 +426,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldGenerateFormattedStringFields()
         {
-            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(SchemaWithFormattedStrings)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(SchemaWithFormattedStrings));
             var schema = schemas.Should().ContainSingle().Which;
 
             var nonTranslatedFields = schema.Fields.OfType<FieldString>().ToList();

@@ -35,7 +35,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes
         }
 
         /// <summary>
-        /// Ordered sort information to be applied in search request
+        /// Ordered sort information to be applied in search request.
         /// </summary>
         public IReadOnlyList<SortInfo> SortInfos { get; }
     }

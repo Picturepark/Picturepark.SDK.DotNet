@@ -28,7 +28,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSearchAndDelete()
         {
             // Arrange
-            var roles = await CreateRoles().ConfigureAwait(false);
+            var roles = await CreateRoles();
 
             try
             {
@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 var res = await _client.UserRole.SearchAsync(new UserRoleSearchRequest
                 {
                     Filter = FilterBase.FromExpression<UserRole>(r => r.Names, "en", new[] { JamesBond, PeterGriffin })
-                }).ConfigureAwait(false);
+                });
 
                 // Assert
                 res.Results.Should().HaveCount(2)
@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
             finally
             {
-                await Delete(roles).ConfigureAwait(false);
+                await Delete(roles);
             }
         }
 
@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateSingle()
         {
             // Arrange
-            var roles = await CreateRoles().ConfigureAwait(false);
+            var roles = await CreateRoles();
 
             try
             {
@@ -70,13 +70,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 update.Names["en"] = UpdatedRoleName;
 
                 // Act
-                var updatedRole = await _client.UserRole.UpdateAsync(role.Id, update).ConfigureAwait(false);
+                var updatedRole = await _client.UserRole.UpdateAsync(role.Id, update);
 
                 // Assert
                 updatedRole.Names.Should().ContainKey("en").And.Subject["en"].Should().Be(UpdatedRoleName);
                 updatedRole.UserRights.Should().BeEquivalentTo(role.UserRights);
 
-                var updateRoleFromApi = await _client.UserRole.GetAsync(role.Id).ConfigureAwait(false);
+                var updateRoleFromApi = await _client.UserRole.GetAsync(role.Id);
                 updateRoleFromApi.Names.Should().ContainKey("en").And.Subject["en"].Should().Be(UpdatedRoleName);
                 updateRoleFromApi.UserRights.Should().BeEquivalentTo(role.UserRights);
 
@@ -88,7 +88,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
             finally
             {
-                await Delete(roles).ConfigureAwait(false);
+                await Delete(roles);
             }
         }
 
@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateAndGetMany()
         {
             // Arrange
-            var roles = await CreateRoles().ConfigureAwait(false);
+            var roles = await CreateRoles();
 
             try
             {
@@ -111,12 +111,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 role2.Names["en"] = UpdatedRoleName2;
 
                 // Act
-                var bulkResponse = await _client.UserRole.UpdateManyAsync(update).ConfigureAwait(false);
+                var bulkResponse = await _client.UserRole.UpdateManyAsync(update);
 
                 // Assert
                 bulkResponse.Rows.Should().OnlyContain(r => r.Succeeded);
 
-                var getManyResult = await _client.UserRole.GetManyAsync(update.Items.Select(u => u.Id)).ConfigureAwait(false);
+                var getManyResult = await _client.UserRole.GetManyAsync(update.Items.Select(u => u.Id));
                 var updatedRoles = getManyResult.ToDictionary(u => u.Id);
 
                 updatedRoles[role1.Id].Names.Should().ContainKey("en").And.Subject["en"].Should().Be(UpdatedRoleName);
@@ -134,7 +134,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
             finally
             {
-                await Delete(roles).ConfigureAwait(false);
+                await Delete(roles);
             }
         }
 
@@ -186,7 +186,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.UserRole.CreateManyAsync(createManyRequest).ConfigureAwait(false);
+            var result = await _client.UserRole.CreateManyAsync(createManyRequest);
 
             try
             {
@@ -194,13 +194,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 var idToRequestLookup = result.Rows.ToDictionary(r => r.Id, r => r.RequestId);
                 result.Rows.Should().HaveCount(4).And.Subject.Where(r => r.RequestId != null).Should().HaveCount(3);
 
-                var roles = await _client.UserRole.GetManyAsync(idToRequestLookup.Keys).ConfigureAwait(false);
+                var roles = await _client.UserRole.GetManyAsync(idToRequestLookup.Keys);
 
                 roles.Should().OnlyContain(ur => ur.Names["en"] == "Group B" || ur.Names["en"] == $"Group {idToRequestLookup[ur.Id]}");
             }
             finally
             {
-                await Delete(result.Rows.Select(r => r.Id)).ConfigureAwait(false);
+                await Delete(result.Rows.Select(r => r.Id));
             }
         }
 
@@ -223,7 +223,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         { "en", JamesBond }
                     }),
                     UserRights = new[] { UserRight.ManageTransfer }
-                }).ConfigureAwait(false);
+                });
 
                 // Asserts
                 role1.Audit.CreatedByUser.Should().BeResolved();
@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
             catch
             {
-                await Delete(new[] { role1 }).ConfigureAwait(false);
+                await Delete(new[] { role1 });
                 throw;
             }
 
@@ -244,11 +244,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         { "en", PeterGriffin }
                     }),
                     UserRights = new[] { UserRight.ManageChannels }
-                }).ConfigureAwait(false);
+                });
             }
             catch
             {
-                await Delete(new[] { role1, role2 } ).ConfigureAwait(false);
+                await Delete(new[] { role1, role2 } );
                 throw;
             }
 

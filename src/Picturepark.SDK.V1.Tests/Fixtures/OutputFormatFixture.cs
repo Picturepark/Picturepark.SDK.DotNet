@@ -38,10 +38,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 };
             }).ToArray();
 
-            var created = await Client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = createRequests }).ConfigureAwait(false);
-            var detail = await created.FetchDetail().ConfigureAwait(false);
+            var created = await Client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = createRequests });
+            var detail = await created.FetchDetail();
 
-            var createdFormats = await Client.OutputFormat.GetManyAsync(detail.SucceededIds).ConfigureAwait(false);
+            var createdFormats = await Client.OutputFormat.GetManyAsync(detail.SucceededIds);
 
             foreach (var of in createdFormats)
             {

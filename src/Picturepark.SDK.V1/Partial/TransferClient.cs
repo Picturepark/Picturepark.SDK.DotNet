@@ -9,6 +9,7 @@ using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
+    [Obsolete("These methods are deprecated and will be removed in future release. Please use Ingest methods for new projects and consider switching existing code to use Ingest methods as well.")]
     public partial class TransferClient
     {
         private static readonly SemaphoreSlim BlacklistCacheSemaphore = new SemaphoreSlim(1, 1);

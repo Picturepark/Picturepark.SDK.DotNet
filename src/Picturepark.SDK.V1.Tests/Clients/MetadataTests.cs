@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetStatus()
         {
             // Act
-            var metadataStatus = await _client.Metadata.GetStatusAsync().ConfigureAwait(false);
+            var metadataStatus = await _client.Metadata.GetStatusAsync();
 
             // Assert
             metadataStatus.ContentOrLayerSchemaIds.Should().NotBeNull();
@@ -39,29 +39,29 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange: create content with predefined schema
             var schemaId = $"Schema{Guid.NewGuid():N}";
             var uniqueName = $"Name_{Guid.NewGuid():N}";
-            var (schemaCreateResult, content) = await CreateSchemaAndContent(schemaId, uniqueName).ConfigureAwait(false);
+            var (schemaCreateResult, content) = await CreateSchemaAndContent(schemaId, uniqueName);
 
             content.ContentAs<JObject>()["name"].Value<string>().Should().Be(uniqueName);
 
             // Remove schema fields in order to turn the metadata status to red
             schemaCreateResult.Schema.Fields.Clear();
-            await _client.Schema.UpdateAsync(schemaCreateResult.Schema, false).ConfigureAwait(false);
+            await _client.Schema.UpdateAsync(schemaCreateResult.Schema, false);
 
-            var metadataStatus = await _client.Metadata.GetStatusAsync().ConfigureAwait(false);
+            var metadataStatus = await _client.Metadata.GetStatusAsync();
             metadataStatus.State.Should().Be(MetadataState.Outdated);
             metadataStatus.ContentOrLayerSchemaIds.Should().Contain(schemaId);
             metadataStatus.FieldIdsToCleanup.Should().ContainKey(schemaId.ToLowerCamelCase());
             metadataStatus.FieldIdsToCleanup[schemaId.ToLowerCamelCase()].Should().Contain("name");
 
             // Update outdated metadata and await for its completion
-            var businessProcess = await _client.Metadata.UpdateOutdatedAsync().ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var businessProcess = await _client.Metadata.UpdateOutdatedAsync();
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
             // Assert
-            content = await _client.Content.GetAsync(content.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            content = await _client.Content.GetAsync(content.Id, new[] { ContentResolveBehavior.Content });
             content.ContentAs<JObject>().Should().NotContainKey("name");
 
-            metadataStatus = await _client.Metadata.GetStatusAsync().ConfigureAwait(false);
+            metadataStatus = await _client.Metadata.GetStatusAsync();
             metadataStatus.State.Should().Be(MetadataState.UpToDate);
             metadataStatus.ContentOrLayerSchemaIds.Should().NotContain(schemaId);
             metadataStatus.FieldIdsToCleanup.Should().NotContainKey(schemaId.ToLower());
@@ -74,19 +74,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var schemaId = $"Schema{Guid.NewGuid():N}";
             var uniqueName = $"Name_{Guid.NewGuid():N}";
 
-            var (schemaCreateResult, content) = await CreateSchemaAndContent(schemaId, uniqueName).ConfigureAwait(false);
+            var (schemaCreateResult, content) = await CreateSchemaAndContent(schemaId, uniqueName);
 
             // Remove schema fields in order to turn the metadata status to red
             schemaCreateResult.Schema.Fields.Clear();
-            var schemaUpdateResult = await _client.Schema.UpdateAsync(schemaCreateResult.Schema, false).ConfigureAwait(false);
+            var schemaUpdateResult = await _client.Schema.UpdateAsync(schemaCreateResult.Schema, false);
 
             // Update outdated metadata and await for its completion
-            var businessProcess = await _client.Metadata.UpdateOutdatedAsync().ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var businessProcess = await _client.Metadata.UpdateOutdatedAsync();
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
             // Act: update schema adding field with previous id but different type
             schemaUpdateResult.Schema.Fields.Add(new FieldTranslatedString { Id = "name", Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, "Name Translated" } } });
-            schemaUpdateResult = await _client.Schema.UpdateAsync(schemaUpdateResult.Schema, false).ConfigureAwait(false);
+            schemaUpdateResult = await _client.Schema.UpdateAsync(schemaUpdateResult.Schema, false);
 
             // Assert
             schemaUpdateResult.Schema.Fields.Should().Contain(f => f.Id == "name");
@@ -103,7 +103,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         Fields = new List<FieldBase> { new FieldString { Id = "name", Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, "Name" } } } },
                         Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, schemaId } }
                     })
-                .ConfigureAwait(false);
+                ;
 
             var request = new ContentCreateRequest
             {
@@ -111,7 +111,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = schemaId
             };
 
-            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.Content });
 
             return (schemaResult, content);
         }

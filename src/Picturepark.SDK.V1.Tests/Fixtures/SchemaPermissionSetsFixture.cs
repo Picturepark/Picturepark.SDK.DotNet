@@ -22,9 +22,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                     }
                 }).ToArray();
 
-            var created = await Client.SchemaPermissionSet.CreateManyAsync(new SchemaPermissionSetCreateManyRequest { Items = createRequests }).ConfigureAwait(false);
+            var created = await Client.SchemaPermissionSet.CreateManyAsync(new SchemaPermissionSetCreateManyRequest { Items = createRequests });
 
-            var createdSets = await Client.SchemaPermissionSet.GetManyAsync(created.Rows.Select(r => r.Id)).ConfigureAwait(false);
+            var createdSets = await Client.SchemaPermissionSet.GetManyAsync(created.Rows.Select(r => r.Id));
 
             foreach (var set in createdSets)
             {

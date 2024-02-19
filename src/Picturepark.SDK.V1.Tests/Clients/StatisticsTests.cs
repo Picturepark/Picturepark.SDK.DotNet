@@ -46,28 +46,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         }
                     }
                 }
-            }).ConfigureAwait(false);
+            });
         }
 
         public async Task DisposeAsync()
         {
-            await Task.Delay(0).ConfigureAwait(false);
+            await Task.Delay(0);
         }
 
         [Fact]
         public async Task ShouldGetSingleStatistics()
         {
             // Arrange
-            var contentId = await CreateContent().ConfigureAwait(false);
+            var contentId = await CreateContent();
             var eventTime = DateTime.UtcNow - TimeSpan.FromHours(3);
 
-            var writtenDownloads = await WriteSingleContentEvent(eventTime, contentId).ConfigureAwait(false);
+            var writtenDownloads = await WriteSingleContentEvent(eventTime, contentId);
 
             // Act
             var timeFrameToAggregateSeparately = TimeSpan.FromHours(2);
             var singleContentStatistics = await _fixture.Client.Statistics.GetSingleContentStatisticsAsync(
                 contentId,
-                new[] { timeFrameToAggregateSeparately }).ConfigureAwait(false);
+                new[] { timeFrameToAggregateSeparately });
 
             // Assert
             singleContentStatistics.Overall.Downloads.Total.Should().Be(writtenDownloads.Total);
@@ -81,7 +81,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task ShouldWriteAndExportStatistics()
         {
-            var contentIds = await CreateContents(20).ConfigureAwait(false);
+            var contentIds = await CreateContents(20);
 
             var fullCurrentHour = new DateTime(DateTime.UtcNow.Ticks / TimeSpan.TicksPerHour * TimeSpan.TicksPerHour, DateTimeKind.Utc);
 
@@ -111,8 +111,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var writeRequest = new AddContentEventsRequest { Events = events.ToArray() };
 
-            var writeProcess = await _fixture.Client.Statistics.AddContentEventsAsync(writeRequest).ConfigureAwait(false);
-            await AwaitProcessAndEnsureSuccess(writeProcess).ConfigureAwait(false);
+            var writeProcess = await _fixture.Client.Statistics.AddContentEventsAsync(writeRequest);
+            await AwaitProcessAndEnsureSuccess(writeProcess);
 
             var exportRequest = new ExportContentStatisticsRequest
             {
@@ -129,14 +129,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 AggregateApiClients = false,
                 IncludeContentNames = true
             };
-            var exportProcess = await _fixture.Client.Statistics.ExportContentStatisticsAsync(exportRequest).ConfigureAwait(false);
+            var exportProcess = await _fixture.Client.Statistics.ExportContentStatisticsAsync(exportRequest);
 
-            await AwaitProcessAndEnsureSuccess(exportProcess).ConfigureAwait(false);
+            await AwaitProcessAndEnsureSuccess(exportProcess);
 
             // Use referenceId of export BusinessProcess to resolve download Url
-            var downloadLink = await _fixture.Client.Statistics.ResolveDownloadLinkAsync(exportProcess.ReferenceId).ConfigureAwait(false);
+            var downloadLink = await _fixture.Client.Statistics.ResolveDownloadLinkAsync(exportProcess.ReferenceId);
 
-            var csvContent = await Download(downloadLink).ConfigureAwait(false);
+            var csvContent = await Download(downloadLink);
             var csvRecords = csvContent.Split(new[] { "\r\n" }, StringSplitOptions.None);
 
             // Header, 60 contents, blank new line at the end
@@ -171,10 +171,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private static async Task<string> Download(DownloadLink downloadLink)
         {
             using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl).ConfigureAwait(false))
+            using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl))
             {
                 response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                return await response.Content.ReadAsStringAsync();
             }
         }
 
@@ -208,15 +208,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var writeRequest = new AddContentEventsRequest { Events = new[] { contentEvent } };
 
-            var writeProcess = await _fixture.Client.Statistics.AddContentEventsAsync(writeRequest).ConfigureAwait(false);
-            await AwaitProcessAndEnsureSuccess(writeProcess).ConfigureAwait(false);
+            var writeProcess = await _fixture.Client.Statistics.AddContentEventsAsync(writeRequest);
+            await AwaitProcessAndEnsureSuccess(writeProcess);
 
             return writtenDownloads;
         }
 
         private async Task AwaitProcessAndEnsureSuccess(BusinessProcess businessProcess)
         {
-            var result = await _fixture.Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var result = await _fixture.Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
             result.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
         }
 
@@ -228,14 +228,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = new { testName }
             });
 
-            var result = await _fixture.Client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = createRequests.ToList() }).ConfigureAwait(false);
-            var detail = await result.FetchDetail().ConfigureAwait(false);
+            var result = await _fixture.Client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = createRequests.ToList() });
+            var detail = await result.FetchDetail();
             return detail.SucceededIds;
         }
 
         private async Task<string> CreateContent([CallerMemberName] string testName = null)
         {
-            var created = await CreateContents(1, testName).ConfigureAwait(false);
+            var created = await CreateContents(1, testName);
             return created.Single();
         }
     }

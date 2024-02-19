@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVersion()
         {
             // Act
-            var version = await _client.Info.GetVersionAsync().ConfigureAwait(false);
+            var version = await _client.Info.GetVersionAsync();
 
             // Assert
             Assert.NotNull(version.ContractVersion);
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetStatus()
         {
             // Act
-            var status = await _client.Info.GetStatusAsync().ConfigureAwait(false);
+            var status = await _client.Info.GetStatusAsync();
 
             // Assert
             status.DisplayValuesStatus.Should().NotBeNull();

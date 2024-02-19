@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.DocumentHistory.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.DocumentHistory.SearchAsync(request);
 
             // Assert
             result.Results.Should().NotBeEmpty().And.OnlyHaveUniqueItems(d => $"{d.DocumentType}_{d.DocumentId}_{d.DocumentVersion}");
@@ -41,10 +41,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetCurrent()
         {
             // Arrange
-            var documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            var documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
 
             // Act
-            var result = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, documentId).ConfigureAwait(false);
+            var result = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, documentId);
 
             // Assert
             Assert.True(result.DocumentId == documentId);
@@ -55,11 +55,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVersion()
         {
             // Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            string documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
             long versionId = 1;
 
             // Act
-            var result = await _client.DocumentHistory.GetVersionAsync(typeof(Content).Name, documentId, versionId).ConfigureAwait(false);
+            var result = await _client.DocumentHistory.GetVersionAsync(typeof(Content).Name, documentId, versionId);
 
             // Assert
             Assert.Equal(versionId, result.DocumentVersion);
@@ -71,11 +71,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             string location = "testlocation" + new Random().Next(0, 999999);
-            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
 
-            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
-            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
-            var history = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, contentId).ConfigureAwait(false);
+            var schema = await CreateTestSchemaAsync();
+            var content = await _client.Content.GetAsync(contentId);
+            var history = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, contentId);
 
             var updateRequest = new ContentFieldsBatchUpdateRequest
             {
@@ -93,13 +93,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var result = await _client.Content.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
+            var result = await _client.Content.BatchUpdateFieldsByIdsAsync(updateRequest);
 
             // Refetch content and compare versions
-            var updatedHistory = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, contentId).ConfigureAwait(false);
+            var updatedHistory = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, contentId);
 
             // Act
-            var difference = await _client.DocumentHistory.CompareWithVersionAsync(typeof(Content).Name, contentId, updatedHistory.DocumentVersion, history.DocumentVersion).ConfigureAwait(false);
+            var difference = await _client.DocumentHistory.CompareWithVersionAsync(typeof(Content).Name, contentId, updatedHistory.DocumentVersion, history.DocumentVersion);
 
             // Assert
             Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
@@ -112,11 +112,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCompareWithCurrent()
         {
             // Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            string documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
             long oldVersionId = 1;
 
             // Act
-            var difference = await _client.DocumentHistory.CompareWithCurrentAsync(typeof(Content).Name, documentId, oldVersionId).ConfigureAwait(false);
+            var difference = await _client.DocumentHistory.CompareWithCurrentAsync(typeof(Content).Name, documentId, oldVersionId);
 
             // Assert
             Assert.True(difference.OldDocumentVersion <= difference.NewDocumentVersion);
@@ -125,7 +125,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private async Task<SchemaDetail> CreateTestSchemaAsync()
         {
             var schemaId = "Schema" + new Random().Next(0, 999999);
-            var config = await _client.Info.GetInfoAsync().ConfigureAwait(false);
+            var config = await _client.Info.GetInfoAsync();
             var schemaItem = new SchemaDetail
             {
                 Id = schemaId,
@@ -151,7 +151,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 DisplayPatterns = new List<DisplayPattern>()
             };
 
-            var result = await _client.Schema.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var result = await _client.Schema.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1));
             return result.Schema;
         }
     }

@@ -9,12 +9,12 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
     {
         public async Task InitializeAsync()
         {
-            await SetupSchema<Tag>().ConfigureAwait(false);
+            await SetupSchema<Tag>();
 
-            (await Client.Info.GetInfoAsync().ConfigureAwait(false)).LanguageConfiguration.MetadataLanguages.Should()
+            (await Client.Info.GetInfoAsync()).LanguageConfiguration.MetadataLanguages.Should()
                 .Contain(new[] { "en", "de" }, "some tests require customer used for testing to have both 'en' and 'de' metadata languages configured");
 
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(Client).ConfigureAwait(false);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(Client);
         }
 
         public Task DisposeAsync() => Task.FromResult(0);

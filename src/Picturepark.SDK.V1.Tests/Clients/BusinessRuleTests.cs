@@ -67,11 +67,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(request).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(request);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
             // retrieve config again
-            var storedConfiguration = await _client.BusinessRule.GetConfigurationAsync().ConfigureAwait(false);
+            var storedConfiguration = await _client.BusinessRule.GetConfigurationAsync();
             storedConfiguration.DisableRuleEngine.Should().BeTrue();
             storedConfiguration.Rules.Should().HaveCount(1);
         }
@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         new FieldString { Id = "title", Names = new TranslatedStringDictionary { { "en", "title" } } }
                     }
-                }).ConfigureAwait(false);
+                });
 
             var ruleId = $"{Guid.NewGuid():N}";
             var request = new BusinessRuleConfigurationUpdateRequest
@@ -122,12 +122,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(request).ConfigureAwait(false);
-            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(request);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
             // Act
             var content = await _client.Content.CreateAsync(new ContentCreateRequest { ContentSchemaId = contentSchemaId, Content = new { title = "test" } })
-                .ConfigureAwait(false);
+                ;
 
             // Assert
             var result = await _client.BusinessRule.SearchTracesAsync(
@@ -149,7 +149,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             Field = nameof(BusinessRuleTraceLog.RuleIds).ToLowerCamelCase()
                         }
                     }
-                }).ConfigureAwait(false);
+                });
 
             var traceLog = result.Results.Should().ContainSingle().Which;
             traceLog.RuleIds.Should().HaveCount(1).And.Contain(ruleId);

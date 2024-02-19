@@ -1,4 +1,5 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using System;
+using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 using Picturepark.SDK.V1.Partial;
 
@@ -49,6 +50,7 @@ namespace Picturepark.SDK.V1
 
         public IShareClient Share { get; private set; }
 
+        [Obsolete("Transfer API is deprecated and will be removed in future release. Please use Ingest API for new projects and consider switching existing code to use Ingest API as well.")]
         public ITransferClient Transfer { get; private set; }
 
         public IUserClient User { get; private set; }
@@ -105,7 +107,9 @@ namespace Picturepark.SDK.V1
             UserRole = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
             Schema = new SchemaClient(Info, BusinessProcess, settings, httpClient);
+            #pragma warning disable CS0618 // Type or member is obsolete
             Transfer = new TransferClient(BusinessProcess, settings, httpClient);
+            #pragma warning restore CS0618 // Type or member is obsolete
             ListItem = new ListItemClient(BusinessProcess, settings, httpClient);
             LiveStream = new LiveStreamClient(settings, httpClient);
             Content = new ContentClient(BusinessProcess, settings, httpClient);

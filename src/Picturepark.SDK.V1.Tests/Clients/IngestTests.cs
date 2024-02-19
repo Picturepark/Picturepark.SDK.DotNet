@@ -56,7 +56,7 @@ public class IngestTests : IClassFixture<ClientFixture>
                 Metadata = new DataDictionary
                 {
                     [schemas.Single().Id] = new SampleLayer { ImportedFrom = nameof(Should_import_files_with_metadata) }
-                }
+                },
             });
 
         var detail = await result.FetchDetail();
@@ -79,13 +79,13 @@ public class IngestTests : IClassFixture<ClientFixture>
         var firstResult = await _fixture.Client.Ingest.ImportFilesAsync(
             new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
             {
-                [files[firstFileName]] = new()
+                [files[firstFileName]] = new(),
             });
 
         var secondResult = await _fixture.Client.Ingest.ImportFilesAsync(
             new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
             {
-                [files[secondFileName]] = new()
+                [files[secondFileName]] = new(),
             });
 
         async Task AssertFileName(ContentBatchOperationWithRequestIdResult result, string filename)
@@ -109,7 +109,7 @@ public class IngestTests : IClassFixture<ClientFixture>
         var file = await _fixture.Client.Ingest.UploadFileAsync(Path.Combine(_fixture.ExampleFilesBasePath, fileName));
         var request = new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
         {
-            [file] = new()
+            [file] = new(),
         };
 
         // Act
@@ -160,7 +160,7 @@ public class IngestTests : IClassFixture<ClientFixture>
             [file] = new()
             {
                 FileNameOverride = "file.jpg"
-            }
+            },
         };
 
         // Act
@@ -175,8 +175,8 @@ public class IngestTests : IClassFixture<ClientFixture>
     public async Task Should_replace_content()
     {
         // Arrange
-        var sourceContentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
-        var targetContentId = await _fixture.GetRandomContentIdAsync($"fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc -id:{sourceContentId}", 20).ConfigureAwait(false);
+        var sourceContentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20);
+        var targetContentId = await _fixture.GetRandomContentIdAsync($"fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc -id:{sourceContentId}", 20);
 
         using var memoryStream = new MemoryStream();
         using (var fileResponse = await _fixture.Client.Content.DownloadAsync(sourceContentId, "Original"))
@@ -261,7 +261,7 @@ public class IngestTests : IClassFixture<ClientFixture>
                             contentSchemaId,
                             nameof(DocumentMetadata)
                         }
-                    }
+                    },
                 }
             });
 
@@ -331,8 +331,8 @@ public class IngestTests : IClassFixture<ClientFixture>
 
     private async Task ReplaceContentFile(string contentId, ContentFileUpdateRequest updateRequest)
     {
-        var businessProcess = await _fixture.Client.Content.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
-        var waitResult = await _fixture.Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+        var businessProcess = await _fixture.Client.Content.UpdateFileAsync(contentId, updateRequest);
+        var waitResult = await _fixture.Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id);
 
         waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
     }

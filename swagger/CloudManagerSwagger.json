@@ -11191,6 +11191,121 @@
         }
       }
     },
+    "/Maintenance/customer/{id}/metadata/markAllDisplayPatternsForRerendering": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_MarkAllDisplayPatternsForRerendering",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/Maintenance/customer/{id}/statistics/events": {
       "post": {
         "tags": [
@@ -11472,7 +11587,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormatDetail"
+                  "$ref": "#/components/schemas/StaticOutputFormatDetail"
                 }
               }
             }
@@ -11601,7 +11716,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OutputFormatEditable"
+                "$ref": "#/components/schemas/StaticOutputFormatEditable"
               }
             }
           },
@@ -11865,7 +11980,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OutputFormat"
+                "$ref": "#/components/schemas/StaticOutputFormat"
               }
             }
           },
@@ -23147,6 +23262,40 @@
           }
         ]
       },
+      "ContentSearchQueryInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "nullable": true
+              },
+              "searchType": {
+                "$ref": "#/components/schemas/ContentSearchType"
+              }
+            }
+          }
+        ]
+      },
+      "ContentSearchType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Metadata",
+          "FullText",
+          "MetadataAndFullText"
+        ],
+        "enum": [
+          "Metadata",
+          "FullText",
+          "MetadataAndFullText"
+        ]
+      },
       "IngestContainerCreationFailedException": {
         "allOf": [
           {
@@ -24629,6 +24778,7 @@
         "additionalProperties": false,
         "required": [
           "entityType",
+          "expires",
           "isArchived"
         ],
         "properties": {
@@ -24646,6 +24796,15 @@
           },
           "entityType": {
             "$ref": "#/components/schemas/BackupEntityType"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expires": {
+            "type": "string",
+            "format": "date-time"
           },
           "isArchived": {
             "type": "boolean"
@@ -24685,9 +24844,6 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "startTime"
-        ],
         "properties": {
           "repositoryName": {
             "type": "string",
@@ -24695,7 +24851,8 @@
           },
           "startTime": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "expires": {
             "type": "string",
@@ -25810,7 +25967,6 @@
           "durationInMilliseconds",
           "endTime",
           "endTimeInMilliseconds",
-          "repositoryStartTime",
           "repositoryIsArchived",
           "startTime",
           "startTimeInMilliseconds",
@@ -25862,7 +26018,14 @@
           "repositoryStartTime": {
             "type": "string",
             "description": "The repository start time.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
+          },
+          "repositoryExpiry": {
+            "type": "string",
+            "description": "The repository expiration.",
+            "format": "date-time",
+            "nullable": true
           },
           "repositoryIsArchived": {
             "type": "boolean",
@@ -26962,7 +27125,7 @@
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/OutputFormat"
+              "$ref": "#/components/schemas/StaticOutputFormat"
             }
           },
           "contentRetentionTime": {
@@ -27425,39 +27588,117 @@
           }
         }
       },
-      "OutputFormat": {
+      "StaticOutputFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StaticOutputFormatEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a static output format used in cloud manager.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              },
+              "system": {
+                "type": "boolean",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
+              },
+              "dynamic": {
+                "type": "boolean"
+              },
+              "dataExtraction": {
+                "type": "boolean",
+                "deprecated": true,
+                "x-deprecatedMessage": "Will be removed in future versions"
+              },
+              "temporary": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "StaticOutputFormatEditable": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OutputFormatEditable"
           },
           {
             "type": "object",
-            "description": "Represents an output format.",
             "additionalProperties": false,
             "properties": {
-              "id": {
-                "type": "string",
-                "description": "Output format ID.",
-                "nullable": true
-              },
-              "system": {
-                "type": "boolean",
-                "description": "Marks if this is a system output format."
-              },
-              "dynamic": {
-                "type": "boolean",
-                "description": "A dynamic output format is not rendered automatically, but only on demand."
-              },
-              "dataExtraction": {
-                "type": "boolean",
-                "description": "Specifies if output format should be taken into account during data extraction."
-              },
-              "temporary": {
-                "type": "boolean",
-                "description": "Temporary outputs will not be backed up."
+              "storageAttributes": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputFormatStorageAttributes"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "OutputFormatStorageAttributes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "azure": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AzureStorageAttributes"
+              }
+            ]
+          }
+        }
+      },
+      "AzureStorageAttributes": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "accessTierPhases": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AzureStorageAccessTierPhase"
+            }
+          }
+        }
+      },
+      "AzureStorageAccessTierPhase": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tier"
+        ],
+        "properties": {
+          "tier": {
+            "$ref": "#/components/schemas/AzureStorageAccessTier"
+          },
+          "duration": {
+            "type": "string",
+            "format": "duration",
+            "nullable": true
+          }
+        }
+      },
+      "AzureStorageAccessTier": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Hot",
+          "Cool",
+          "Cold"
+        ],
+        "enum": [
+          "Hot",
+          "Cool",
+          "Cold"
         ]
       },
       "OutputFormatEditable": {
@@ -31713,18 +31954,16 @@
           }
         }
       },
-      "OutputFormatDetail": {
+      "StaticOutputFormatDetail": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/OutputFormat"
+            "$ref": "#/components/schemas/StaticOutputFormat"
           },
           {
             "type": "object",
-            "description": "Represents an output format.",
             "additionalProperties": false,
             "properties": {
               "audit": {
-                "description": "Audit information.",
                 "nullable": true,
                 "oneOf": [
                   {

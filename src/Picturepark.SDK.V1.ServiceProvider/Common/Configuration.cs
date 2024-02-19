@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Picturepark.SDK.V1.ServiceProvider
 {
@@ -7,7 +8,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
         public Configuration()
         {
             SerializerSettings = new JsonSerializerSettings();
-            SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter { CamelCaseText = false });
+            SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter { NamingStrategy = new DefaultNamingStrategy() });
             SerializerSettings.Culture = System.Globalization.CultureInfo.InvariantCulture;
             SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
