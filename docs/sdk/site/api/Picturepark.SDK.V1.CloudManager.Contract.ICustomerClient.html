@@ -1135,15 +1135,15 @@
   
   <a id="Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.GetIndicesAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.GetIndicesAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetIndicesAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_System_String_System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.GetIndicesAsync(System.String,System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_System_String_System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetIndicesAsync(String, Boolean, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_GetIndicesAsync_System_String_System_Boolean_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;Index&gt;&gt; GetIndicesAsync(string alias, bool? onlyForReshard = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;Index&gt;&gt; GetIndicesAsync(string alias, bool onlyForReshard, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1157,7 +1157,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">onlyForReshard</span>
         <p>
       </td>
@@ -1982,6 +1982,126 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.CustomerSearchResult.html">CustomerSearchResult</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_SetAnonymousAccessAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.SetAnonymousAccessAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_SetAnonymousAccessAsync_System_String_System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.SetAnonymousAccessAsync(System.String,System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_SetAnonymousAccessAsync_System_String_System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SetAnonymousAccessAsync(String, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICustomerClient_SetAnonymousAccessAsync_System_String_System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;UserWithRoles&gt; SetAnonymousAccessAsync(string alias, bool enabled, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">alias</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">enabled</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles.html">UserWithRoles</a>&gt;
         <p>
       </td>
     </tr>
