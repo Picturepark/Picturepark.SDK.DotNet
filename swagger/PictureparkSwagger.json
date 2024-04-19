@@ -37237,31 +37237,6 @@
           "Virtual"
         ]
       },
-      "ContentBackupFailedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "outputFormatId": {
-                "type": "string",
-                "nullable": true
-              },
-              "outputId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "ContentLayerSameRootException": {
         "allOf": [
           {
@@ -51047,12 +51022,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51157,12 +51126,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51272,12 +51235,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51383,12 +51340,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51466,7 +51417,6 @@
             "NotificationDetailSchemaImport": "#/components/schemas/NotificationDetailSchemaImport",
             "NotificationDetailIndexReindexProgress": "#/components/schemas/NotificationDetailIndexReindexProgress",
             "NotificationDetailUserRegistered": "#/components/schemas/NotificationDetailUserRegistered",
-            "NotificationDetailContentBackupRecovery": "#/components/schemas/NotificationDetailContentBackupRecovery",
             "NotificationDetailExternalBusinessProcess": "#/components/schemas/NotificationDetailExternalBusinessProcess",
             "NotificationDetailBusinessRule": "#/components/schemas/NotificationDetailBusinessRule",
             "NotificationDetailProgressBase": "#/components/schemas/NotificationDetailProgressBase",
@@ -51731,27 +51681,6 @@
               "userId": {
                 "type": "string",
                 "minLength": 1
-              }
-            }
-          }
-        ]
-      },
-      "NotificationDetailContentBackupRecovery": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentTotalCount": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "contentProgressCount": {
-                "type": "integer",
-                "format": "int64"
               }
             }
           }
