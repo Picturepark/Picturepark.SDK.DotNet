@@ -41,8 +41,6 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public IEnvironmentProcessClient EnvironmentProcess { get; private set; }
 
-        public IContentBackupClient ContentBackup { get; private set; }
-
         public IMaintenanceClient Maintenance { get; private set; }
 
         public IGlobalConfigurationClient GlobalConfiguration { get; private set; }
@@ -69,7 +67,6 @@ namespace Picturepark.SDK.V1.CloudManager
             EnvironmentProcess = new EnvironmentProcessClient(settings, httpClient);
             Environment = new EnvironmentClient(settings, httpClient);
             CustomerServiceProvider = new CustomerServiceProviderClient(settings, httpClient);
-            ContentBackup = new ContentBackupClient(settings, httpClient);
             Maintenance = new MaintenanceClient(settings, httpClient);
             GlobalConfiguration = new GlobalConfigurationClient(settings, httpClient);
             OutputFormat = new OutputFormatClient(settings, httpClient);

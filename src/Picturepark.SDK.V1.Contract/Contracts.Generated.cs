@@ -5168,7 +5168,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
-    [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
     [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
     [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
@@ -12240,34 +12239,6 @@ namespace Picturepark.SDK.V1.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"Virtual")]
         Virtual = 20,
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ContentBackupFailedException : PictureparkBusinessException
-    {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupFailedException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFailedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
 
     }
 
@@ -30019,209 +29990,191 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemBatchEditProgressCompletedWithErrors")]
         ListItemBatchEditProgressCompletedWithErrors = 39,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryDraft")]
-        ContentBackupRecoveryDraft = 40,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryInProgress")]
-        ContentBackupRecoveryInProgress = 41,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCompleted")]
-        ContentBackupRecoveryCompleted = 42,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryForcefullyCompleted")]
-        ContentBackupRecoveryForcefullyCompleted = 43,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCancelled")]
-        ContentBackupRecoveryCancelled = 44,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryFailed")]
-        ContentBackupRecoveryFailed = 45,
-
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditInProgress")]
-        ContentOwnershipBatchEditInProgress = 46,
+        ContentOwnershipBatchEditInProgress = 40,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditCompleted")]
-        ContentOwnershipBatchEditCompleted = 47,
+        ContentOwnershipBatchEditCompleted = 41,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressFailed")]
-        ContentOwnershipBatchEditProgressFailed = 48,
+        ContentOwnershipBatchEditProgressFailed = 42,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressCompletedWithErrors")]
-        ContentOwnershipBatchEditProgressCompletedWithErrors = 49,
+        ContentOwnershipBatchEditProgressCompletedWithErrors = 43,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditInProgress")]
-        ContentPermissionsBatchEditInProgress = 50,
+        ContentPermissionsBatchEditInProgress = 44,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditCompleted")]
-        ContentPermissionsBatchEditCompleted = 51,
+        ContentPermissionsBatchEditCompleted = 45,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressFailed")]
-        ContentPermissionsBatchEditProgressFailed = 52,
+        ContentPermissionsBatchEditProgressFailed = 46,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressCompletedWithErrors")]
-        ContentPermissionsBatchEditProgressCompletedWithErrors = 53,
+        ContentPermissionsBatchEditProgressCompletedWithErrors = 47,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyInProgress")]
-        ListItemDeactivateManyInProgress = 54,
+        ListItemDeactivateManyInProgress = 48,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyCompleted")]
-        ListItemDeactivateManyCompleted = 55,
+        ListItemDeactivateManyCompleted = 49,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressFailed")]
-        ListItemDeactivateManyProgressFailed = 56,
+        ListItemDeactivateManyProgressFailed = 50,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressCompletedWithErrors")]
-        ListItemDeactivateManyProgressCompletedWithErrors = 57,
+        ListItemDeactivateManyProgressCompletedWithErrors = 51,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyInProgress")]
-        ContentDeactivateManyInProgress = 58,
+        ContentDeactivateManyInProgress = 52,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyCompleted")]
-        ContentDeactivateManyCompleted = 59,
+        ContentDeactivateManyCompleted = 53,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressFailed")]
-        ContentDeactivateManyProgressFailed = 60,
+        ContentDeactivateManyProgressFailed = 54,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressCompletedWithErrors")]
-        ContentDeactivateManyProgressCompletedWithErrors = 61,
+        ContentDeactivateManyProgressCompletedWithErrors = 55,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ExternalBusinessProcessTitle")]
-        ExternalBusinessProcessTitle = 62,
+        ExternalBusinessProcessTitle = 56,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsInProgress")]
-        MetadataRelatedItemsInProgress = 63,
+        MetadataRelatedItemsInProgress = 57,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressFailed")]
-        MetadataRelatedItemsProgressFailed = 64,
+        MetadataRelatedItemsProgressFailed = 58,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressCompletedWithErrors")]
-        MetadataRelatedItemsProgressCompletedWithErrors = 65,
+        MetadataRelatedItemsProgressCompletedWithErrors = 59,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsCompleted")]
-        MetadataRelatedItemsCompleted = 66,
+        MetadataRelatedItemsCompleted = 60,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingInProgress")]
-        AutoTaggingInProgress = 67,
+        AutoTaggingInProgress = 61,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceeded")]
-        AutoTaggingSucceeded = 68,
+        AutoTaggingSucceeded = 62,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceededWithErrors")]
-        AutoTaggingSucceededWithErrors = 69,
+        AutoTaggingSucceededWithErrors = 63,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingFailed")]
-        AutoTaggingFailed = 70,
+        AutoTaggingFailed = 64,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingCancelled")]
-        AutoTaggingCancelled = 71,
+        AutoTaggingCancelled = 65,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyInProgress")]
-        ContentUpdateManyInProgress = 72,
+        ContentUpdateManyInProgress = 66,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompleted")]
-        ContentUpdateManyCompleted = 73,
+        ContentUpdateManyCompleted = 67,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompletedWithErrors")]
-        ContentUpdateManyCompletedWithErrors = 74,
+        ContentUpdateManyCompletedWithErrors = 68,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyFailed")]
-        ContentUpdateManyFailed = 75,
+        ContentUpdateManyFailed = 69,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaInProgress")]
-        MetadataRelatedItemsBySchemaInProgress = 76,
+        MetadataRelatedItemsBySchemaInProgress = 70,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaFailed")]
-        MetadataRelatedItemsBySchemaFailed = 77,
+        MetadataRelatedItemsBySchemaFailed = 71,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompletedWithErrors")]
-        MetadataRelatedItemsBySchemaCompletedWithErrors = 78,
+        MetadataRelatedItemsBySchemaCompletedWithErrors = 72,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompleted")]
-        MetadataRelatedItemsBySchemaCompleted = 79,
+        MetadataRelatedItemsBySchemaCompleted = 73,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateInProgress")]
-        MetadataOutdatedItemsUpdateInProgress = 80,
+        MetadataOutdatedItemsUpdateInProgress = 74,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompleted")]
-        MetadataOutdatedItemsUpdateCompleted = 81,
+        MetadataOutdatedItemsUpdateCompleted = 75,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompletedWithErrors")]
-        MetadataOutdatedItemsUpdateCompletedWithErrors = 82,
+        MetadataOutdatedItemsUpdateCompletedWithErrors = 76,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateFailed")]
-        MetadataOutdatedItemsUpdateFailed = 83,
+        MetadataOutdatedItemsUpdateFailed = 77,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingInProgress")]
-        BatchRenderingInProgress = 84,
+        BatchRenderingInProgress = 78,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompleted")]
-        BatchRenderingCompleted = 85,
+        BatchRenderingCompleted = 79,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompletedWithErrors")]
-        BatchRenderingCompletedWithErrors = 86,
+        BatchRenderingCompletedWithErrors = 80,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingFailed")]
-        BatchRenderingFailed = 87,
+        BatchRenderingFailed = 81,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleTitle")]
-        BusinessRuleTitle = 88,
+        BusinessRuleTitle = 82,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
-        StatisticsExportDraft = 89,
+        StatisticsExportDraft = 83,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
-        StatisticsExportInProgress = 90,
+        StatisticsExportInProgress = 84,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
-        StatisticsExportCompleted = 91,
+        StatisticsExportCompleted = 85,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
-        StatisticsExportFailed = 92,
+        StatisticsExportFailed = 86,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
-        StatisticsExportCancelled = 93,
+        StatisticsExportCancelled = 87,
 
         [System.Runtime.Serialization.EnumMember(Value = @"NewComment")]
-        NewComment = 94,
+        NewComment = 88,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestInProgress")]
-        IngestInProgress = 95,
+        IngestInProgress = 89,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompleted")]
-        IngestCompleted = 96,
+        IngestCompleted = 90,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestFailed")]
-        IngestFailed = 97,
+        IngestFailed = 91,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
-        IngestCompletedWithErrors = 98,
+        IngestCompletedWithErrors = 92,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
-        IngestCancelled = 99,
+        IngestCancelled = 93,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 100,
+        UserEmailConflictSolved = 94,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedSubject")]
-        UserEmailConflictSolvedSubject = 101,
+        UserEmailConflictSolvedSubject = 95,
 
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
-        SupportUserDeactivation = 102,
+        SupportUserDeactivation = 96,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileInProgress")]
-        IngestReplaceFileInProgress = 103,
+        IngestReplaceFileInProgress = 97,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCompleted")]
-        IngestReplaceFileCompleted = 104,
+        IngestReplaceFileCompleted = 98,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileFailed")]
-        IngestReplaceFileFailed = 105,
+        IngestReplaceFileFailed = 99,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCancelled")]
-        IngestReplaceFileCancelled = 106,
+        IngestReplaceFileCancelled = 100,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 107,
+        ImportFailedTitle = 101,
 
     }
 
@@ -30352,209 +30305,191 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemBatchEditProgressCompletedWithErrors")]
         ListItemBatchEditProgressCompletedWithErrors = 40,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryDraft")]
-        ContentBackupRecoveryDraft = 41,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryInProgress")]
-        ContentBackupRecoveryInProgress = 42,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCompleted")]
-        ContentBackupRecoveryCompleted = 43,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryForcefullyCompleted")]
-        ContentBackupRecoveryForcefullyCompleted = 44,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCancelled")]
-        ContentBackupRecoveryCancelled = 45,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryFailed")]
-        ContentBackupRecoveryFailed = 46,
-
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditInProgress")]
-        ContentOwnershipBatchEditInProgress = 47,
+        ContentOwnershipBatchEditInProgress = 41,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditCompleted")]
-        ContentOwnershipBatchEditCompleted = 48,
+        ContentOwnershipBatchEditCompleted = 42,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressFailed")]
-        ContentOwnershipBatchEditProgressFailed = 49,
+        ContentOwnershipBatchEditProgressFailed = 43,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressCompletedWithErrors")]
-        ContentOwnershipBatchEditProgressCompletedWithErrors = 50,
+        ContentOwnershipBatchEditProgressCompletedWithErrors = 44,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditInProgress")]
-        ContentPermissionsBatchEditInProgress = 51,
+        ContentPermissionsBatchEditInProgress = 45,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditCompleted")]
-        ContentPermissionsBatchEditCompleted = 52,
+        ContentPermissionsBatchEditCompleted = 46,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressFailed")]
-        ContentPermissionsBatchEditProgressFailed = 53,
+        ContentPermissionsBatchEditProgressFailed = 47,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressCompletedWithErrors")]
-        ContentPermissionsBatchEditProgressCompletedWithErrors = 54,
+        ContentPermissionsBatchEditProgressCompletedWithErrors = 48,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserTriggeredDeactivationRequestMessage")]
-        UserTriggeredDeactivationRequestMessage = 55,
+        UserTriggeredDeactivationRequestMessage = 49,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 56,
+        UserEmailConflictSolved = 50,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyInProgress")]
-        ListItemDeactivateManyInProgress = 57,
+        ListItemDeactivateManyInProgress = 51,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyCompleted")]
-        ListItemDeactivateManyCompleted = 58,
+        ListItemDeactivateManyCompleted = 52,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressFailed")]
-        ListItemDeactivateManyProgressFailed = 59,
+        ListItemDeactivateManyProgressFailed = 53,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressCompletedWithErrors")]
-        ListItemDeactivateManyProgressCompletedWithErrors = 60,
+        ListItemDeactivateManyProgressCompletedWithErrors = 54,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyInProgress")]
-        ContentDeactivateManyInProgress = 61,
+        ContentDeactivateManyInProgress = 55,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyCompleted")]
-        ContentDeactivateManyCompleted = 62,
+        ContentDeactivateManyCompleted = 56,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressFailed")]
-        ContentDeactivateManyProgressFailed = 63,
+        ContentDeactivateManyProgressFailed = 57,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressCompletedWithErrors")]
-        ContentDeactivateManyProgressCompletedWithErrors = 64,
+        ContentDeactivateManyProgressCompletedWithErrors = 58,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ExternalBusinessProcessMessage")]
-        ExternalBusinessProcessMessage = 65,
+        ExternalBusinessProcessMessage = 59,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsInProgress")]
-        MetadataRelatedItemsInProgress = 66,
+        MetadataRelatedItemsInProgress = 60,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressFailed")]
-        MetadataRelatedItemsProgressFailed = 67,
+        MetadataRelatedItemsProgressFailed = 61,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressCompletedWithErrors")]
-        MetadataRelatedItemsProgressCompletedWithErrors = 68,
+        MetadataRelatedItemsProgressCompletedWithErrors = 62,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsCompleted")]
-        MetadataRelatedItemsCompleted = 69,
+        MetadataRelatedItemsCompleted = 63,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingInProgress")]
-        AutoTaggingInProgress = 70,
+        AutoTaggingInProgress = 64,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceeded")]
-        AutoTaggingSucceeded = 71,
+        AutoTaggingSucceeded = 65,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceededWithErrors")]
-        AutoTaggingSucceededWithErrors = 72,
+        AutoTaggingSucceededWithErrors = 66,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingFailed")]
-        AutoTaggingFailed = 73,
+        AutoTaggingFailed = 67,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingCancelled")]
-        AutoTaggingCancelled = 74,
+        AutoTaggingCancelled = 68,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyInProgress")]
-        ContentUpdateManyInProgress = 75,
+        ContentUpdateManyInProgress = 69,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompleted")]
-        ContentUpdateManyCompleted = 76,
+        ContentUpdateManyCompleted = 70,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompletedWithErrors")]
-        ContentUpdateManyCompletedWithErrors = 77,
+        ContentUpdateManyCompletedWithErrors = 71,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyFailed")]
-        ContentUpdateManyFailed = 78,
+        ContentUpdateManyFailed = 72,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaInProgress")]
-        MetadataRelatedItemsBySchemaInProgress = 79,
+        MetadataRelatedItemsBySchemaInProgress = 73,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaFailed")]
-        MetadataRelatedItemsBySchemaFailed = 80,
+        MetadataRelatedItemsBySchemaFailed = 74,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompletedWithErrors")]
-        MetadataRelatedItemsBySchemaCompletedWithErrors = 81,
+        MetadataRelatedItemsBySchemaCompletedWithErrors = 75,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompleted")]
-        MetadataRelatedItemsBySchemaCompleted = 82,
+        MetadataRelatedItemsBySchemaCompleted = 76,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateInProgress")]
-        MetadataOutdatedItemsUpdateInProgress = 83,
+        MetadataOutdatedItemsUpdateInProgress = 77,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompleted")]
-        MetadataOutdatedItemsUpdateCompleted = 84,
+        MetadataOutdatedItemsUpdateCompleted = 78,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompletedWithErrors")]
-        MetadataOutdatedItemsUpdateCompletedWithErrors = 85,
+        MetadataOutdatedItemsUpdateCompletedWithErrors = 79,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateFailed")]
-        MetadataOutdatedItemsUpdateFailed = 86,
+        MetadataOutdatedItemsUpdateFailed = 80,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingInProgress")]
-        BatchRenderingInProgress = 87,
+        BatchRenderingInProgress = 81,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompleted")]
-        BatchRenderingCompleted = 88,
+        BatchRenderingCompleted = 82,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompletedWithErrors")]
-        BatchRenderingCompletedWithErrors = 89,
+        BatchRenderingCompletedWithErrors = 83,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingFailed")]
-        BatchRenderingFailed = 90,
+        BatchRenderingFailed = 84,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleMessage")]
-        BusinessRuleMessage = 91,
+        BusinessRuleMessage = 85,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
-        StatisticsExportDraft = 92,
+        StatisticsExportDraft = 86,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
-        StatisticsExportInProgress = 93,
+        StatisticsExportInProgress = 87,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
-        StatisticsExportCompleted = 94,
+        StatisticsExportCompleted = 88,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
-        StatisticsExportFailed = 95,
+        StatisticsExportFailed = 89,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
-        StatisticsExportCancelled = 96,
+        StatisticsExportCancelled = 90,
 
         [System.Runtime.Serialization.EnumMember(Value = @"NewComment")]
-        NewComment = 97,
+        NewComment = 91,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestDataExtractionInProgress")]
-        IngestDataExtractionInProgress = 98,
+        IngestDataExtractionInProgress = 92,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestContentCreationInProgress")]
-        IngestContentCreationInProgress = 99,
+        IngestContentCreationInProgress = 93,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompleted")]
-        IngestCompleted = 100,
+        IngestCompleted = 94,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestFailed")]
-        IngestFailed = 101,
+        IngestFailed = 95,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
-        IngestCompletedWithErrors = 102,
+        IngestCompletedWithErrors = 96,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
-        IngestCancelled = 103,
+        IngestCancelled = 97,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileDataExtractionInProgress")]
-        IngestReplaceFileDataExtractionInProgress = 104,
+        IngestReplaceFileDataExtractionInProgress = 98,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileInProgress")]
-        IngestReplaceFileInProgress = 105,
+        IngestReplaceFileInProgress = 99,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCompleted")]
-        IngestReplaceFileCompleted = 106,
+        IngestReplaceFileCompleted = 100,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileFailed")]
-        IngestReplaceFileFailed = 107,
+        IngestReplaceFileFailed = 101,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCancelled")]
-        IngestReplaceFileCancelled = 108,
+        IngestReplaceFileCancelled = 102,
 
     }
 
@@ -30565,7 +30500,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotificationDetailSchemaImport", typeof(NotificationDetailSchemaImport))]
     [JsonInheritanceAttribute("NotificationDetailIndexReindexProgress", typeof(NotificationDetailIndexReindexProgress))]
     [JsonInheritanceAttribute("NotificationDetailUserRegistered", typeof(NotificationDetailUserRegistered))]
-    [JsonInheritanceAttribute("NotificationDetailContentBackupRecovery", typeof(NotificationDetailContentBackupRecovery))]
     [JsonInheritanceAttribute("NotificationDetailExternalBusinessProcess", typeof(NotificationDetailExternalBusinessProcess))]
     [JsonInheritanceAttribute("NotificationDetailBusinessRule", typeof(NotificationDetailBusinessRule))]
     [JsonInheritanceAttribute("NotificationDetailTagging", typeof(NotificationDetailTagging))]
@@ -30837,30 +30771,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailUserRegistered>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailContentBackupRecovery : NotificationDetailBusinessProcessBase
-    {
-        [Newtonsoft.Json.JsonProperty("contentTotalCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long ContentTotalCount { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("contentProgressCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long ContentProgressCount { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NotificationDetailContentBackupRecovery FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailContentBackupRecovery>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
