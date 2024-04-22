@@ -25527,6 +25527,11 @@
             "type": "string",
             "format": "duration"
           },
+          "useSsl": {
+            "type": "boolean",
+            "deprecated": true,
+            "nullable": true
+          },
           "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "duration"
@@ -25553,6 +25558,16 @@
           "adminUserPassword": {
             "type": "string",
             "nullable": true
+          },
+          "contentBackupState": {
+            "deprecated": true,
+            "x-deprecatedMessage": "ContentBackup functionality has been removed",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentBackupState"
+              }
+            ]
           },
           "apiLimits": {
             "nullable": true,
@@ -27564,6 +27579,22 @@
           }
         ]
       },
+      "ContentBackupState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Recovery",
+          "Enabled",
+          "Resetting"
+        ],
+        "enum": [
+          "Disabled",
+          "Recovery",
+          "Enabled",
+          "Resetting"
+        ]
+      },
       "ReadWriteApiLimits": {
         "type": "object",
         "additionalProperties": false,
@@ -28228,22 +28259,6 @@
             "nullable": true
           }
         }
-      },
-      "ContentBackupState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Disabled",
-          "Recovery",
-          "Enabled",
-          "Resetting"
-        ],
-        "enum": [
-          "Disabled",
-          "Recovery",
-          "Enabled",
-          "Resetting"
-        ]
       },
       "ActivityMapping": {
         "type": "object",
