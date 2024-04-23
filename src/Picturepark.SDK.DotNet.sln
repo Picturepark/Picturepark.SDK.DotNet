@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\build\02_RunTests.ps1 = ..\build\02_RunTests.ps1
 		Picturepark.SDK.DotNet.ruleset = Picturepark.SDK.DotNet.ruleset
 		version.json = version.json
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 API", "02 API", "{4B2AA4DC-FA39-4146-8AA2-50D1908601AB}"
