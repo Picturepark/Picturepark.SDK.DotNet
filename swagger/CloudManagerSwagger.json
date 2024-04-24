@@ -25668,11 +25668,13 @@
         "description": "License backup option",
         "x-enumNames": [
           "None",
-          "SuisseSafe"
+          "SuisseSafe",
+          "SuisseAzureArchiveStorage"
         ],
         "enum": [
           "None",
-          "SuisseSafe"
+          "SuisseSafe",
+          "SuisseAzureArchiveStorage"
         ]
       },
       "LicenseSubscription": {

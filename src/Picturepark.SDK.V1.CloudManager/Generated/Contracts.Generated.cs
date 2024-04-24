@@ -15171,6 +15171,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"SuisseSafe")]
         SuisseSafe = 1,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"SuisseAzureArchiveStorage")]
+        SuisseAzureArchiveStorage = 2,
+
     }
 
     /// <summary>
