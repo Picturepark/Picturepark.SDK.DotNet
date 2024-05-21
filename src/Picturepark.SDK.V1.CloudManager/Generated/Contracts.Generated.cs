@@ -951,6 +951,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<BusinessProcess> CreateRelatedItemsAsync(string id, CreateRelatedItemsByQueryRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> AddStatisticsEventsAsync(string id, AddContentEventsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -21698,6 +21709,45 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RecalculateFileInformationRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CreateRelatedItemsByQueryRequest
+    {
+        [Newtonsoft.Json.JsonProperty("renderDisplayValues", Required = Newtonsoft.Json.Required.Always)]
+        public bool RenderDisplayValues { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fixDisplayValuesIds", Required = Newtonsoft.Json.Required.Always)]
+        public bool FixDisplayValuesIds { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("createRelatedItemsForContents", Required = Newtonsoft.Json.Required.Always)]
+        public bool CreateRelatedItemsForContents { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("createRelatedItemsForListItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool CreateRelatedItemsForListItems { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("contentElasticSearchQueryJson", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentElasticSearchQueryJson { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("listItemElasticSearchQueryJson", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ListItemElasticSearchQueryJson { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CreateRelatedItemsByQueryRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateRelatedItemsByQueryRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
