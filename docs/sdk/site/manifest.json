@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Dev/projects/Picturepark/Picturepark.SDK.DotNet/docs/sdk",
+  "source_base_path": "C:/Projects/Picturepark.SDK.DotNet/docs/sdk",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "BNEhpwTXz/uolLjCBnhnjWnDE6OLXC6zoDKQvb8qtcE="
+          "hash": "aIs00ObxjV8D4CdTDPg8WW26EMHxCcVn7A5Mm4HQG3E="
         }
       },
       "is_incremental": false,
@@ -2780,6 +2780,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CreateRelatedItemsByQueryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CreateRelatedItemsByQueryRequest.html",
+          "hash": "ZBai2IaP1qhhuWWVvehmu8eiL+P0lWa4cjfvomAZmgo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CronExpressionInvalidException.yml",
       "output": {
         ".html": {
@@ -4812,7 +4824,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient.html",
-          "hash": "So62/DtjzaVBW+rpxF/QfW5zuG7UOcsJLO6F9SJ/58o="
+          "hash": "Q2Z2f7LbX4stYQn55gB5yLWdIZq7wIWS1BvQeyFTnqo="
         }
       },
       "is_incremental": false,
@@ -5628,7 +5640,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.html",
-          "hash": "eUB1A9SyeY2qmpacG+rgKUc8AnVy/YC44lxgsr//Ky8="
+          "hash": "nXXiZYWY6WaqJmM4fRhi5kCakBYuWGMqlpvQxceXIVc="
         }
       },
       "is_incremental": false,
@@ -10380,7 +10392,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.html",
-          "hash": "KAUXmzxF/ZFrFqEtg8UOFW+Mfl1IYmeaPjRbfqM6xNI="
+          "hash": "STVGy/4ge7FgPsFAR9YBX7u0NVW025ZZcM+MTZ8u86Q="
         }
       },
       "is_incremental": false,
@@ -10632,7 +10644,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.MaintenanceClient.html",
-          "hash": "IF9MESxZTMRFe8K323j63ru2wLw+mmk/gT3wkUvMWJc="
+          "hash": "c/L+ND14QEw/WD3mA0OiDIlYzC5giZ7nrf8Fp+CDRwA="
         }
       },
       "is_incremental": false,
@@ -26823,7 +26835,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Priority_Queue.IPriorityQueue-2.html",
-          "hash": "16fLfqfJKTD2VH1gec8fd8Z+1rQsBxnnxjueoN97Y8E="
+          "hash": "XvLZYGerPtZIT2CKAGrPW90GmleK0Q9xCcWQ8OFWteI="
         }
       },
       "is_incremental": false,
@@ -27435,7 +27447,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "0/RLN/iQ7hbQWt6jibvlmjgA+VbfPvcdy5E7XAa4VGU="
+          "hash": "yxGxr+V63L7B+CdNcKxPJNQ/D3gnIpbArBOiGZwdYV4="
         }
       },
       "is_incremental": false,
@@ -27472,8 +27484,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 2283,
-          "skipped_file_count": 22
+          "total_file_count": 2284,
+          "skipped_file_count": 2284
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
