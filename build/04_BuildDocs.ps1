@@ -1,5 +1,10 @@
 $ErrorActionPreference = "Stop" 
 
+if ((Get-ItemPropertyValue 'HKLM:\System\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled') -ne 1) {
+    Write-Host "Filesystem LongPathsEnabled must be set, please run 'Set-ItemProperty 'HKLM:\System\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -value 1' as admin"
+    Return 1
+}
+
 cd $PSScriptRoot
 
 # register package source (powershell nuget only supports v2 for now)
