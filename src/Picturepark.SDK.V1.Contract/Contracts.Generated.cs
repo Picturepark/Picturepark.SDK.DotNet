@@ -19866,7 +19866,14 @@ namespace Picturepark.SDK.V1.Contract
         /// Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration
         /// </summary>
         [Newtonsoft.Json.JsonProperty("namedCache", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Use LayerId property directly instead")]
         public string NamedCache { get; set; }
+
+        /// <summary>
+        /// ID of layer to assign items in.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
 
         /// <summary>
         /// List of refIds of the items that should be assigned.
@@ -20465,7 +20472,9 @@ namespace Picturepark.SDK.V1.Contract
         public string SchemaId { get; set; }
 
         /// <summary>
-        /// List of IDs of fields to use as a composite key
+        /// List of IDs of fields to lookup value in.
+        /// <br/>Fields need to be marked with SimpleSearch = true in schema configuration. Additionally, if case insensitive lookup should be used, the
+        /// <br/>simple analyzer must be added to the field as well.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("keyFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> KeyFields { get; set; }
@@ -20500,6 +20509,7 @@ namespace Picturepark.SDK.V1.Contract
     /// <summary>
     /// Creates a cache for all multi tag boxes in a schema
     /// <br/>Lookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter
+    /// <br/>Obsolete: Directly set SchemaId property on action AssignTagboxItemsInLayerAction instead
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class SchemaTagboxFilterLookupNamedCacheConfiguration : NamedCacheConfigurationBase

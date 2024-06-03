@@ -29631,7 +29631,8 @@
             "LowItemCountRequestRateBonus": "#/components/schemas/LowItemCountRequestRateBonus",
             "InheritFromCurrentProcessingMessage": "#/components/schemas/InheritFromCurrentProcessingMessage",
             "LowMessageRateBonus": "#/components/schemas/LowMessageRateBonus",
-            "Constant": "#/components/schemas/Constant"
+            "Constant": "#/components/schemas/Constant",
+            "BackgroundOperation": "#/components/schemas/BackgroundOperation"
           }
         },
         "x-abstract": true,
@@ -29915,6 +29916,25 @@
               "interactive": {
                 "type": "boolean",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BackgroundOperation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "priority": {
+                "type": "number",
+                "format": "double",
+                "maximum": 1.0,
+                "minimum": 0.0
               }
             }
           }
