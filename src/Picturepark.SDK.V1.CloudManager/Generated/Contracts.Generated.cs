@@ -20839,6 +20839,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InheritFromCurrentProcessingMessage", typeof(InheritFromCurrentProcessingMessage))]
     [JsonInheritanceAttribute("LowMessageRateBonus", typeof(LowMessageRateBonus))]
     [JsonInheritanceAttribute("Constant", typeof(Constant))]
+    [JsonInheritanceAttribute("BackgroundOperation", typeof(BackgroundOperation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class QueuePriorityModelConfiguration
     {
@@ -21195,6 +21196,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Constant>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BackgroundOperation : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public double Priority { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BackgroundOperation FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BackgroundOperation>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

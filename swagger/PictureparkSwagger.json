@@ -43177,6 +43177,13 @@
               "namedCache": {
                 "type": "string",
                 "description": "Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration",
+                "deprecated": true,
+                "x-deprecatedMessage": "Use LayerId property directly instead",
+                "nullable": true
+              },
+              "layerId": {
+                "type": "string",
+                "description": "ID of layer to assign items in.",
                 "nullable": true
               },
               "refIds": {
@@ -43650,7 +43657,7 @@
               },
               "keyFields": {
                 "type": "array",
-                "description": "List of IDs of fields to use as a composite key",
+                "description": "List of IDs of fields to lookup value in.\nFields need to be marked with SimpleSearch = true in schema configuration. Additionally, if case insensitive lookup should be used, the\nsimple analyzer must be added to the field as well.",
                 "nullable": true,
                 "items": {
                   "type": "string"
@@ -43680,7 +43687,9 @@
           },
           {
             "type": "object",
-            "description": "Creates a cache for all multi tag boxes in a schema\nLookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter",
+            "description": "Creates a cache for all multi tag boxes in a schema\nLookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter\nObsolete: Directly set SchemaId property on action AssignTagboxItemsInLayerAction instead",
+            "deprecated": true,
+            "x-deprecatedMessage": "Directly set SchemaId property on action AssignTagboxItemsInLayerAction instead",
             "additionalProperties": false,
             "properties": {
               "schemaId": {
