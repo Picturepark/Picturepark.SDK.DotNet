@@ -63,6 +63,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -421,6 +424,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ChangeStateAsync(string id, BusinessProcessStateChangeRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -605,6 +611,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task UpdateNotificationAsync(string id, BusinessProcessNotificationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -782,6 +791,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}/cancel");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -956,6 +968,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcessWaitForStateResult> WaitForStatesCoreAsync(string id, System.Collections.Generic.IEnumerable<string> states = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}/waitStates?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1144,6 +1159,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForLifeCyclesCoreAsync(string id, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycles = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}/waitLifeCycles?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1337,6 +1355,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionCoreAsync(string id, System.TimeSpan? timeout = null, bool? waitForContinuationCompletion = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}/waitCompletion?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1524,6 +1545,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}/details");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1700,6 +1724,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessSummaryBase> GetSummaryAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/BusinessProcesses/{id}/summary");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1877,6 +1904,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessBatch> GetSuccessfulItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (limit == null)
                 throw new System.ArgumentNullException("limit");
 
@@ -2063,6 +2093,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessBatch> GetFailedItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (limit == null)
                 throw new System.ArgumentNullException("limit");
 
@@ -3763,6 +3796,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Channel> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Channels/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -3941,6 +3977,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Channel> UpdateAsync(string id, ChannelUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -4125,6 +4164,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Channels/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -4942,6 +4984,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentPermissionSetDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ContentPermissionSets/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -5120,6 +5165,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentPermissionSetDetail> UpdateAsync(string id, ContentPermissionSetUpdateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (permissionSet == null)
                 throw new System.ArgumentNullException("permissionSet");
 
@@ -5303,6 +5351,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ContentPermissionSets/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -5838,6 +5889,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -6016,6 +6070,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ContentPermissionSets/{id}/permissions");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7414,6 +7471,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ContentNotFoundException">Content not found</exception>
         public virtual async System.Threading.Tasks.Task<ContentDetail> GetAsync(string id, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7602,6 +7662,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7999,6 +8062,15 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> EditOutputAsync(string contentId, string outputFormatId, string conversionPreset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
+
+            if (outputFormatId == null)
+                throw new System.ArgumentNullException("outputFormatId");
+
+            if (conversionPreset == null)
+                throw new System.ArgumentNullException("conversionPreset");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/downloads/{contentId}/{outputFormatId}/{conversionPreset}");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(ConvertToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -8192,6 +8264,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string id, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (size == null)
                 throw new System.ArgumentNullException("size");
 
@@ -8597,6 +8672,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (ids == null)
+                throw new System.ArgumentNullException("ids");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents?");
             foreach (var item_ in ids) { urlBuilder_.Append(System.Uri.EscapeDataString("ids") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -8790,6 +8868,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         public virtual async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string id, ContentMetadataUpdateRequest request, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -8998,6 +9079,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         public virtual async System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string id, ContentPermissionsUpdateRequest request, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -9200,6 +9284,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string id, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/restore?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9390,6 +9477,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, ContentOwnershipTransferRequest request, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -9755,6 +9845,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckUpdateFileAsync(string id, ContentFileUpdateCheckRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -9942,6 +10035,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateFileAsync(string id, ContentFileUpdateRequest request, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -10132,6 +10228,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesAsync(string id, ContentReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -10316,6 +10415,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/outputs");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -10673,6 +10775,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DownloadLink> GetDownloadLinkAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/downloadLink/{token}");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -13794,6 +13899,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<HistoricVersionSearchResult> GetVersionsAsync(string id, HistoricVersionSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -13976,6 +14084,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<string> CreateVersionDownloadLinkAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (versionId == null)
                 throw new System.ArgumentNullException("versionId");
 
@@ -14155,6 +14266,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteVersionAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (versionId == null)
                 throw new System.ArgumentNullException("versionId");
 
@@ -14329,6 +14443,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="CommentNotFoundException">Comment not found</exception>
         protected virtual async System.Threading.Tasks.Task<Comment> GetCommentCoreAsync(string id, string commentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            if (commentId == null)
+                throw new System.ArgumentNullException("commentId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/comments/{commentId}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -14507,6 +14627,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<Comment> UpdateCommentCoreAsync(string id, string commentId, CommentEditable request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            if (commentId == null)
+                throw new System.ArgumentNullException("commentId");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -14696,6 +14822,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task DeleteCommentCoreAsync(string id, string commentId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            if (commentId == null)
+                throw new System.ArgumentNullException("commentId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/comments/{commentId}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -14872,6 +15004,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Comment> CreateCommentAsync(string id, CommentCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -15059,6 +15194,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<CommentSearchResult> SearchCommentsAsync(string id, CommentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -15244,6 +15382,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentDetail> SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (setDisplayContentRequest == null)
                 throw new System.ArgumentNullException("setDisplayContentRequest");
 
@@ -16304,6 +16445,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ConversionPresetTemplateDetail> UpdateAsync(string id, ConversionPresetTemplateUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -16493,6 +16637,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -16669,6 +16816,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ConversionPresetTemplateDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -18009,6 +18159,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistory> GetCurrentAsync(string documentType, string documentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (documentType == null)
+                throw new System.ArgumentNullException("documentType");
+
+            if (documentId == null)
+                throw new System.ArgumentNullException("documentId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/{documentType}/{documentId}/current");
             urlBuilder_.Replace("{documentType}", System.Uri.EscapeDataString(ConvertToString(documentType, System.Globalization.CultureInfo.InvariantCulture)));
@@ -18189,6 +18345,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, long documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (documentType == null)
+                throw new System.ArgumentNullException("documentType");
+
+            if (documentId == null)
+                throw new System.ArgumentNullException("documentId");
+
             if (documentVersion == null)
                 throw new System.ArgumentNullException("documentVersion");
 
@@ -18373,6 +18535,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistoryDifference> CompareWithCurrentAsync(string documentType, string documentId, long? version = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (documentType == null)
+                throw new System.ArgumentNullException("documentType");
+
+            if (documentId == null)
+                throw new System.ArgumentNullException("documentId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/{documentType}/{documentId}/current/compare?");
             urlBuilder_.Replace("{documentType}", System.Uri.EscapeDataString(ConvertToString(documentType, System.Globalization.CultureInfo.InvariantCulture)));
@@ -18559,6 +18727,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DocumentHistoryDifference> CompareWithVersionAsync(string documentType, string documentId, long documentVersion, long? version = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (documentType == null)
+                throw new System.ArgumentNullException("documentType");
+
+            if (documentId == null)
+                throw new System.ArgumentNullException("documentId");
+
             if (documentVersion == null)
                 throw new System.ArgumentNullException("documentVersion");
 
@@ -19406,6 +19580,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<IdentityProvider> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/IdentityProviders/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -19584,6 +19761,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<IdentityProvider> UpdateAsync(string id, IdentityProviderEditable provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (provider == null)
                 throw new System.ArgumentNullException("provider");
 
@@ -20593,6 +20773,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ImportAllAsync(string containerName, ImportAllFromContainerRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (containerName == null)
+                throw new System.ArgumentNullException("containerName");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -20775,6 +20958,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ImportPartialAsync(string containerName, ImportPartialFromContainerRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (containerName == null)
+                throw new System.ArgumentNullException("containerName");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -21268,6 +21454,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<object> GetCoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/JsonSchemas/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -21576,6 +21765,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemDetail> GetAsync(string id, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ListItems/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -21765,6 +21957,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<ListItemDetail> UpdateCoreAsync(string id, ListItemUpdateRequest request, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -21972,6 +22167,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ListItems/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -22161,6 +22359,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string id, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ListItems/{id}/restore?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -22347,6 +22548,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesAsync(string id, ListItemReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -25685,6 +25889,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Notification> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Notifications/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -25859,6 +26066,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Notification> MarkAsReadAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Notifications/{id}/markAsRead");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -27220,6 +27430,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetDownloadFileNamePatternsAsync(string id, System.Collections.Generic.IDictionary<string, string> patterns, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (patterns == null)
                 throw new System.ArgumentNullException("patterns");
 
@@ -27589,6 +27802,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackStateAsync(string id, OutputFormatSetXmpWritebackStateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -27958,6 +28174,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> SetPermissionAsync(string id, OutputFormatSetPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -28886,6 +29105,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateCoreAsync(string id, OutputFormatEditable request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -29070,6 +29292,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteCoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/OutputFormats/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -29247,6 +29472,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<OutputFormatDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/OutputFormats/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -30103,6 +30331,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<OutputDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Outputs/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -31436,6 +31667,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/SchemaPermissionSets/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -31614,6 +31848,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<SchemaPermissionSetDetail> UpdateAsync(string id, SchemaPermissionSetUpdateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (permissionSet == null)
                 throw new System.ArgumentNullException("permissionSet");
 
@@ -31797,6 +32034,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/SchemaPermissionSets/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -32332,6 +32572,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -32510,6 +32753,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/SchemaPermissionSets/{id}/permissions");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -33907,6 +34153,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="SchemaNotFoundException">Requested schema could not be found</exception>
         public virtual async System.Threading.Tasks.Task<SchemaDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -34091,6 +34340,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="SchemaNotFoundException">Schema with this ID could not be found</exception>
         public virtual async System.Threading.Tasks.Task<SchemaUpdateResult> UpdateAsync(string id, SchemaUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -34286,6 +34538,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="SchemaNotFoundException">Schema with this ID could not be found</exception>
         public virtual async System.Threading.Tasks.Task<SchemaDeleteResult> DeleteAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -34468,6 +34723,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         protected virtual async System.Threading.Tasks.Task<SchemaExistsResponse> ExistsCoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}/exists");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -34647,6 +34905,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (schemaId == null)
+                throw new System.ArgumentNullException("schemaId");
+
+            if (fieldId == null)
+                throw new System.ArgumentNullException("fieldId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{schemaId}/{fieldId}/exists");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(ConvertToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -34827,6 +35091,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string id, bool? sourceSchema = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}/referenced?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -35012,6 +35279,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -36489,6 +36759,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}/aggregationFields");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -36841,6 +37114,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}/filterFields");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -38015,6 +38291,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareDetail> GetShareJsonAsync(string token, string lang = null, System.Collections.Generic.IEnumerable<ShareResolveBehavior> resolveBehaviors = null, int? contentResolveLimit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/json/{token}?");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -38205,6 +38484,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareContentDetailResult> GetShareContentsAsync(string token, string lang = null, int? limit = null, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/json/{token}/contents?");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -38392,6 +38674,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareOutputsResult> GetOutputsInShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/json/{token}/outputs");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -38568,6 +38853,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string token, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/d/{token}?");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -38767,6 +39055,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DownloadLink> CreateShareSelectionDownloadLinkAsync(string token, ShareDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -38955,6 +39246,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/d/{token}/{contentId}/{outputFormatId}?");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -39156,6 +39453,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadWithConversionPresetAsync(string token, string conversionPreset, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
+            if (conversionPreset == null)
+                throw new System.ArgumentNullException("conversionPreset");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/d/{token}/{conversionPreset}");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -39347,6 +39650,15 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<FileResponse> DownloadDisplayContentOutputsAsync(string token, string contentId, string outputFormatId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
+
+            if (outputFormatId == null)
+                throw new System.ArgumentNullException("outputFormatId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/d/{token}/displayContent/{contentId}/{outputFormatId}");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
@@ -39541,6 +39853,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ShareNotFoundException">Share could not be found</exception>
         public virtual async System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Collections.Generic.IEnumerable<ShareResolveBehavior> resolveBehaviors = null, int? contentResolveLimit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -39729,6 +40044,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string id, ShareBaseUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -39912,6 +40230,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ShareContentDetailResult> GetContentsInShareAsync(string id, int? limit = null, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Shares/{id}/contents?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -41139,6 +41460,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<ContentStatisticsAggregated> GetSingleContentStatisticsAsync(string contentId, System.Collections.Generic.IEnumerable<System.TimeSpan> timeFrames = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Statistics/contents/{contentId}?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(ConvertToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -41504,6 +41828,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<DownloadLink> ResolveDownloadLinkAsync(string referenceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (referenceId == null)
+                throw new System.ArgumentNullException("referenceId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Statistics/downloadLink/{referenceId}");
             urlBuilder_.Replace("{referenceId}", System.Uri.EscapeDataString(ConvertToString(referenceId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -41991,6 +42318,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Template> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Templates/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -42166,6 +42496,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<Template> UpdateAsync(string id, TemplateUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -42346,6 +42679,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Templates/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -43365,6 +43701,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<TransferDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Transfers/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -43543,6 +43882,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Transfers/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -43719,6 +44061,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<Transfer> ImportAsync(string id, ImportTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -43910,6 +44255,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<Transfer> PartialImportAsync(string id, ImportTransferPartialRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -44096,6 +44444,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Transfers/{id}/cancel");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -44447,6 +44798,9 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<FileTransferDetail> GetFileAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Transfers/files/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -45174,6 +45528,12 @@ namespace Picturepark.SDK.V1
         [System.Obsolete]
         public virtual async System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (transferId == null)
+                throw new System.ArgumentNullException("transferId");
+
+            if (requestId == null)
+                throw new System.ArgumentNullException("requestId");
+
             if (chunkNumber == null)
                 throw new System.ArgumentNullException("chunkNumber");
 
@@ -46590,6 +46950,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserRoleDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/UserRoles/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -46768,6 +47131,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserRoleDetail> UpdateAsync(string id, UserRoleEditable request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -46951,6 +47317,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/UserRoles/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -47249,6 +47618,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -47424,6 +47796,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> UpdateAsync(string id, UserUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -47610,6 +47985,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task LockAsync(string id, UserLockRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -47973,6 +48351,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task ReviewAsync(string id, UserReviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -48334,6 +48715,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task InviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/{id}/invite");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -48689,6 +49073,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task ReinviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/{id}/reinvite");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -49222,6 +49609,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -49401,6 +49791,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task ArchiveAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/{id}/archive");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -49573,6 +49966,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/{id}/restore");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -49742,6 +50138,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task CancelDeletionRequestAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/{id}/cancelDeletionRequest");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -49911,6 +50310,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<UserDetail> GetByOwnerTokenAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (tokenId == null)
+                throw new System.ArgumentNullException("tokenId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Users/owner/{tokenId}");
             urlBuilder_.Replace("{tokenId}", System.Uri.EscapeDataString(ConvertToString(tokenId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -52020,6 +52422,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string id, XmpMappingEntry request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -52204,6 +52609,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/XmpMappings/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -52381,6 +52789,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public virtual async System.Threading.Tasks.Task<XmpMappingEntry> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/XmpMappings/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));

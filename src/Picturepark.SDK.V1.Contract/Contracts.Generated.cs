@@ -43725,12 +43725,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class TupleOfStringAndString
     {
-        [Newtonsoft.Json.JsonProperty("item1", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("item1", Required = Newtonsoft.Json.Required.AllowNull)]
         public string Item1 { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("item2", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("item2", Required = Newtonsoft.Json.Required.AllowNull)]
         public string Item2 { get; set; }
 
         public string ToJson()

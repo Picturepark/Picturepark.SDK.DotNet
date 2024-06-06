@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -30,8 +30,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -245,8 +244,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -366,8 +364,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -480,8 +477,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -581,8 +577,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -715,8 +710,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -849,8 +843,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -978,8 +971,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -1086,8 +1078,7 @@
             "required": true,
             "description": "Business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -1193,8 +1184,7 @@
             "required": true,
             "description": "Business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -1321,8 +1311,7 @@
             "required": true,
             "description": "Business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -2181,8 +2170,7 @@
             "required": true,
             "description": "The channel ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2287,8 +2275,7 @@
             "required": true,
             "description": "ID of channel to update",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2406,8 +2393,7 @@
             "required": true,
             "description": "ID of the channel that should be deleted.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2798,8 +2784,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2904,8 +2889,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3023,8 +3007,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3345,8 +3328,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3459,8 +3441,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -4216,8 +4197,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4229,7 +4209,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -4361,8 +4340,7 @@
             "required": true,
             "description": "The ID of the content to delete.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4681,8 +4659,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4692,8 +4669,7 @@
             "required": true,
             "description": "The output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -4703,8 +4679,7 @@
             "required": true,
             "description": "The conversion preset.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 3
           }
@@ -4826,8 +4801,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4972,7 +4946,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5151,7 +5124,6 @@
             "description": "List of content IDs",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "type": "string"
               }
@@ -5166,7 +5138,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5327,8 +5298,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -5340,7 +5310,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5518,8 +5487,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -5531,7 +5499,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5699,8 +5666,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -5831,8 +5797,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -6072,8 +6037,7 @@
             "required": true,
             "description": "The ID of the content to replace.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6193,8 +6157,7 @@
             "required": true,
             "description": "The ID of the content to replace.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -6324,8 +6287,7 @@
             "required": true,
             "description": "The content ID whose references to retrieve.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6445,8 +6407,7 @@
             "required": true,
             "description": "ID of content.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6663,8 +6624,7 @@
             "required": true,
             "description": "Token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8525,8 +8485,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8645,8 +8604,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8763,8 +8721,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8874,8 +8831,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8885,8 +8841,7 @@
             "required": true,
             "description": "Comment ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -9014,8 +8969,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9025,8 +8979,7 @@
             "required": true,
             "description": "Comment ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -9154,8 +9107,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9165,8 +9117,7 @@
             "required": true,
             "description": "Comment ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -9276,8 +9227,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9407,8 +9357,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -9527,8 +9476,7 @@
             "required": true,
             "description": "Id of the content",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9540,7 +9488,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -10155,8 +10102,7 @@
             "required": true,
             "description": "Conversion preset template ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10285,8 +10231,7 @@
             "required": true,
             "description": "Conversion preset template ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10395,8 +10340,7 @@
             "required": true,
             "description": "Conversion preset template ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -11015,8 +10959,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11026,8 +10969,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -11134,8 +11076,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11145,8 +11086,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -11264,8 +11204,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11275,8 +11214,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -11393,8 +11331,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11404,8 +11341,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -11836,8 +11772,7 @@
             "required": true,
             "description": "Identity provider ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -11942,8 +11877,7 @@
             "required": true,
             "description": "Identity provider ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12320,8 +12254,7 @@
             "required": true,
             "description": "Container name",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12440,8 +12373,7 @@
             "required": true,
             "description": "Container name",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12668,8 +12600,7 @@
             "required": true,
             "description": "The ID of the schema whose json schema to retrieve.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12774,8 +12705,7 @@
             "required": true,
             "description": "The list item ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -12895,8 +12825,7 @@
             "required": true,
             "description": "The list item ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -13060,8 +12989,7 @@
             "required": true,
             "description": "The ID of the list item to delete.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -13216,8 +13144,7 @@
             "required": true,
             "description": "The list item ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -13348,8 +13275,7 @@
             "required": true,
             "description": "The ID of the list item.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15128,8 +15054,7 @@
             "required": true,
             "description": "ID of notification",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15235,8 +15160,7 @@
             "required": true,
             "description": "ID of notification",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15943,8 +15867,7 @@
             "required": true,
             "description": "ID of the output format.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -16172,8 +16095,7 @@
             "required": true,
             "description": "ID of the output format.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -16401,8 +16323,7 @@
             "required": true,
             "description": "ID of the output format.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -16998,8 +16919,7 @@
             "required": true,
             "description": "Output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17117,8 +17037,7 @@
             "required": true,
             "description": "Output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17223,8 +17142,7 @@
             "required": true,
             "description": "Output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17653,8 +17571,7 @@
             "required": true,
             "description": "Output ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18266,8 +18183,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18372,8 +18288,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18491,8 +18406,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18813,8 +18727,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18927,8 +18840,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -19684,8 +19596,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -19814,8 +19725,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20003,8 +19913,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20181,8 +20090,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -20289,8 +20197,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20300,8 +20207,7 @@
             "required": true,
             "description": "The field ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -20408,8 +20314,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20553,8 +20458,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -21605,8 +21509,7 @@
             "required": true,
             "description": "The ID of the schema.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -21829,8 +21732,7 @@
             "required": true,
             "description": "The ID of the schema.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -22448,8 +22350,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -22584,8 +22485,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -22714,8 +22614,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -22814,8 +22713,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -22959,8 +22857,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -23073,8 +22970,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23084,8 +22980,7 @@
             "required": true,
             "description": "The content id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -23242,8 +23137,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23253,8 +23147,7 @@
             "required": true,
             "description": "Image editing specification",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -23378,8 +23271,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23389,8 +23281,7 @@
             "required": true,
             "description": "The content id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -23400,8 +23291,7 @@
             "required": true,
             "description": "Id of the output format",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 3
           }
@@ -23516,8 +23406,7 @@
             "required": true,
             "description": "Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23672,8 +23561,7 @@
             "required": true,
             "description": "The share id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -23815,8 +23703,7 @@
             "required": true,
             "description": "Share Id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -24529,8 +24416,7 @@
             "required": true,
             "description": "Id of Content",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -24761,8 +24647,7 @@
             "required": true,
             "description": "Reference id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -24976,8 +24861,7 @@
             "required": true,
             "description": "ID of template.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25081,8 +24965,7 @@
             "required": true,
             "description": "ID of template.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25199,8 +25082,7 @@
             "required": true,
             "description": "ID of template",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25741,8 +25623,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25848,8 +25729,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25950,8 +25830,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26072,8 +25951,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26194,8 +26072,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26403,8 +26280,7 @@
             "required": true,
             "description": "ID of file transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26861,8 +26737,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 5
           },
@@ -26872,8 +26747,7 @@
             "required": true,
             "description": "Identifier of file.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 6
           }
@@ -27660,8 +27534,7 @@
             "required": true,
             "description": "User role ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -27766,8 +27639,7 @@
             "required": true,
             "description": "User role ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -27885,8 +27757,7 @@
             "required": true,
             "description": "User role ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -27985,8 +27856,7 @@
             "required": true,
             "description": "User ID to search for.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28090,8 +27960,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28211,8 +28080,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28433,8 +28301,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28655,8 +28522,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28864,8 +28730,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29179,8 +29044,7 @@
             "required": true,
             "description": "User ID",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29293,8 +29157,7 @@
             "required": true,
             "description": "User ID",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29394,8 +29257,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29494,8 +29356,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29594,8 +29455,7 @@
             "required": true,
             "description": "ID of the owner token.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -30799,8 +30659,7 @@
             "required": true,
             "description": "Xmp mapping ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -30918,8 +30777,7 @@
             "required": true,
             "description": "Xmp mapping ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -31024,8 +30882,7 @@
             "required": true,
             "description": "Xmp mapping ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -61965,10 +61822,12 @@
         ],
         "properties": {
           "item1": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "item2": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
