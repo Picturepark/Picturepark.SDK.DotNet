@@ -59,6 +59,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string alias, string id, System.TimeSpan? timeout = null, bool? waitForContinuationCompletion = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/BusinessProcesses/{alias}/{id}/waitCompletion?");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -239,6 +245,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> GetAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/BusinessProcesses/{alias}/{id}");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -716,6 +728,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> PurgeForCustomerAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{alias}/cdn");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1545,6 +1560,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<SnapshotCustomerAllClustersResult> GetSnapshotAllClustersAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (tokenId == null)
+                throw new System.ArgumentNullException("tokenId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot/allClusters/{tokenId}");
             urlBuilder_.Replace("{tokenId}", System.Uri.EscapeDataString(ConvertToString(tokenId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -4822,6 +4840,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         protected virtual async System.Threading.Tasks.Task PutLogoCoreAsync(string customerId, LogoKind type, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             if (type == null)
                 throw new System.ArgumentNullException("type");
 
@@ -4993,6 +5014,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task DeleteLogoAsync(string customerId, LogoKind type, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             if (type == null)
                 throw new System.ArgumentNullException("type");
 
@@ -5161,6 +5185,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         protected virtual async System.Threading.Tasks.Task PutWatermarkCoreAsync(string customerId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerAssets/{customerId}/watermark");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -5328,6 +5355,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task DeleteWatermarkAsync(string customerId, string fileName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (fileName == null)
+                throw new System.ArgumentNullException("fileName");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerAssets/{customerId}/watermark/{fileName}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -6314,6 +6347,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerConfiguration> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -6484,6 +6520,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -6648,6 +6687,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task DeleteWithOptionsAsync(string id, CustomerDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -6995,6 +7037,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserWithRoles>> GetUsersAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/users");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7165,6 +7210,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task RestoreAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/restore");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7330,6 +7378,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task InvalidateAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/invalidate");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7495,6 +7546,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<Index> ReindexAsync(string alias, SearchIndexReindexShardsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -7672,6 +7726,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetAvailableMetadataLanguagesAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/metadataLanguagesAvailable");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -7842,6 +7899,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<EnvironmentProcess> AddMetadataLanguageAsync(string alias, CustomerMetadataLanguageCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -8024,6 +8084,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<EnvironmentProcess> UpdateBoostValuesAsync(string alias, CustomerBoostValuesUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -8206,6 +8269,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Index>> GetIndicesAsync(string alias, bool onlyForReshard, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (onlyForReshard == null)
                 throw new System.ArgumentNullException("onlyForReshard");
 
@@ -8381,6 +8447,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<EnvironmentProcess> ReshardElasticIndicesAsync(string alias, CustomerReshardRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -8563,6 +8632,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ChangeStorageSiloAsync(string alias, ChangeStorageSiloRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -8740,6 +8812,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task ClearCacheSiloAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/clearCacheSilo");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -8905,6 +8980,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerHostConfiguration> GetHostConfigurationAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{alias}/hostConfiguration");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9075,6 +9153,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerHostConfigurationEditable> UpdateHostConfigurationAsync(string alias, CustomerHostConfigurationWriteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -9252,6 +9333,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<UserWithRoles> SetAnonymousAccessAsync(string alias, bool enabled, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (enabled == null)
                 throw new System.ArgumentNullException("enabled");
 
@@ -9558,6 +9642,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PendingOperationItem>> GetPendingOperationsAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerId}/operations/pending");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -9858,6 +9945,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> GetEffectiveAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerQueuePriority/{customerId}/queuePriority/effective");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -10028,6 +10118,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> GetCustomAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerQueuePriority/{customerId}/queuePriority/custom");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -10198,6 +10291,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<QueuePriorityConfiguration> GetEffectiveForQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (queueFamily == null)
+                throw new System.ArgumentNullException("queueFamily");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerQueuePriority/{customerId}/queuePriority/{queueFamily}/effective");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -10369,6 +10468,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<QueuePriorityConfiguration> GetCustomForQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (queueFamily == null)
+                throw new System.ArgumentNullException("queueFamily");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerQueuePriority/{customerId}/queuePriority/{queueFamily}/custom");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -10540,6 +10645,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> UpdateAsync(string customerId, CustomerQueuePriorityConfiguration updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             if (updateRequest == null)
                 throw new System.ArgumentNullException("updateRequest");
 
@@ -10717,6 +10825,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task ResetAllQueueConfigurationsAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerQueuePriority/{customerId}/queuePriority");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -10881,6 +10992,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> UpdateForQueueAsync(string customerId, string queueFamily, QueuePriorityConfiguration updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (queueFamily == null)
+                throw new System.ArgumentNullException("queueFamily");
+
             if (updateRequest == null)
                 throw new System.ArgumentNullException("updateRequest");
 
@@ -11059,6 +11176,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> ResetQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (queueFamily == null)
+                throw new System.ArgumentNullException("queueFamily");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerQueuePriority/{customerId}/queuePriority/{queueFamily}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -11536,6 +11659,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task DeleteAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/service/customer/{alias}/serviceProvider/{id}");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -11831,6 +11960,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerSettings> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerSettings/customer/{customerId}/customerSettings");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -12001,6 +12133,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerSettings> UpdateAsync(string customerId, CustomerSettingsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             if (updateRequest == null)
                 throw new System.ArgumentNullException("updateRequest");
 
@@ -12777,6 +12912,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/EnvironmentProcesses/{id}/cancel");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -12942,6 +13080,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task AcknowledgeAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/EnvironmentProcesses/{id}/acknowledge");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -13107,6 +13248,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<EnvironmentProcess> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/EnvironmentProcesses/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -13277,6 +13421,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<EnvironmentProcessWaitResult> WaitForLifeCyclesAsync(string id, System.Collections.Generic.IEnumerable<EnvironmentProcessLifeCycle> lifeCycles = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/EnvironmentProcesses/{id}/wait?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -14398,6 +14545,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> TouchSchemasAsync(string id, TouchSchemasRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -14580,6 +14730,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(string id, OutputResetRetryAttemptsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -14762,6 +14915,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> RecalculateFileInformationAsync(string id, RecalculateFileInformationRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -14944,6 +15100,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateOutdatedMetadataAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Maintenance/customer/{id}/metadata/updateOutdated?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -15120,6 +15279,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task MarkAllDisplayPatternsForRerenderingAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Maintenance/customer/{id}/metadata/markAllDisplayPatternsForRerendering");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -15285,6 +15447,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateRelatedItemsAsync(string id, CreateRelatedItemsByQueryRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -15467,6 +15632,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> AddStatisticsEventsAsync(string id, AddContentEventsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -15943,6 +16111,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<StaticOutputFormatDetail> GetAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/OutputFormat/customer/{customerId}/outputformats/{id}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -16114,6 +16288,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string customerId, string id, StaticOutputFormatEditable format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             if (format == null)
                 throw new System.ArgumentNullException("format");
 
@@ -16292,6 +16472,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/OutputFormat/customer/{customerId}/outputformats/{id}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
@@ -16463,6 +16649,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(string customerId, StaticOutputFormat format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
+
             if (format == null)
                 throw new System.ArgumentNullException("format");
 
@@ -17096,6 +17285,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task ShutdownAsync(string serviceName, string nodeId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (serviceName == null)
+                throw new System.ArgumentNullException("serviceName");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Services/{serviceName}/shutdown?");
             urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(ConvertToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
@@ -17265,6 +17457,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task RestartAsync(string serviceName, string nodeId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (serviceName == null)
+                throw new System.ArgumentNullException("serviceName");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Services/{serviceName}/restart?");
             urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(ConvertToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
@@ -19749,6 +19944,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<UpdateInfo> GetAvailableCustomerUpdateAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Updates/customers/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -20088,6 +20286,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Updates/customers/{id}/version");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
@@ -20904,6 +21105,12 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/{alias}/{id}/getUserDeveloperFlag");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
@@ -21075,6 +21282,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<bool> UpdateUserDeveloperFlagAsync(string alias, UserDeveloperFlagUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             if (request == null)
                 throw new System.ArgumentNullException("request");
 
@@ -21252,6 +21462,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         public virtual async System.Threading.Tasks.Task<UserWithRoles> GetAnonymousUserAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (alias == null)
+                throw new System.ArgumentNullException("alias");
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{alias}/anonymousUser");
             urlBuilder_.Replace("{alias}", System.Uri.EscapeDataString(ConvertToString(alias, System.Globalization.CultureInfo.InvariantCulture)));
