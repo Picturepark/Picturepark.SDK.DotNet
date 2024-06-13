@@ -15105,17 +15105,6 @@
           }
         ]
       },
-      "UnmodifiedOriginalOutputNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/OutputNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "UnableToCreateOrModifyStaticOutputFormatException": {
         "allOf": [
           {
@@ -19574,27 +19563,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "version": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
-      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
