@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using FluentAssertions;
 using Picturepark.SDK.V1.AzureBlob;
+using SkiaSharp;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -494,9 +495,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 var tempFile = Path.GetTempFileName();
                 await result.Stream.WriteToFileAsync(tempFile);
 
-                var bitmap = new Bitmap(tempFile);
-                bitmap.Width.Should().Be(expectedWidth);
-                bitmap.Height.Should().Be(expectedHeight);
+                var imageInfo = SKBitmap.DecodeBounds(tempFile);
+                imageInfo.Width.Should().Be(expectedWidth);
+                imageInfo.Height.Should().Be(expectedHeight);
             }
         }
 
