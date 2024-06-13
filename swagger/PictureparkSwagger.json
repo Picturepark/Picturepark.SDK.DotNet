@@ -32670,17 +32670,6 @@
           }
         ]
       },
-      "UnmodifiedOriginalOutputNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/OutputNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "UnableToCreateOrModifyStaticOutputFormatException": {
         "allOf": [
           {
@@ -37139,27 +37128,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "version": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
-      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -48043,7 +48011,9 @@
         "properties": {
           "excludeXmpWritebackGenerated": {
             "type": "boolean",
-            "description": "Will exclude the historic versions that were created by XMP writeback"
+            "description": "Will exclude the historic versions that were created by XMP writeback",
+            "deprecated": true,
+            "x-deprecatedMessage": "XmpWriteback for Original is not supported, so this has no effect"
           },
           "limit": {
             "type": "integer",
