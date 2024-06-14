@@ -18,6 +18,7 @@ using Picturepark.SDK.V1.AzureBlob;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Providers;
 using Picturepark.SDK.V1.Contract.SystemTypes;
+using SkiaSharp;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -1112,16 +1113,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             File.Exists(filePath).Should().BeTrue();
 
-            using (var bitmap = new Bitmap(filePath))
-            {
-                Math.Max(bitmap.Width, bitmap.Height).Should().Be(resizeTarget, "should resize to target");
+            var imageInfo = SKBitmap.DecodeBounds(filePath);
+            Math.Max(imageInfo.Width, imageInfo.Height).Should().Be(resizeTarget, "should resize to target");
 
-                var resizedAspectRatio = (float)bitmap.Width / bitmap.Height;
-                resizedAspectRatio.Should().BeInRange(
+            var resizedAspectRatio = (float)imageInfo.Width / imageInfo.Height;
+            resizedAspectRatio.Should().BeInRange(
                     0.98f * sourceAspectRatio,
                     1.02f * sourceAspectRatio,
                     "should keep aspect ratio");
-            }
         }
 
         [Fact]
@@ -1132,13 +1131,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             contentId.Should().NotBeNullOrEmpty();
 
             // Act
-            using (var response = await _client.Content.EditOutputAsync(contentId, "Preview", "resize-to:200x200"))
-            {
-                // Assert
-                var bitmap = new Bitmap(response.Stream);
-                bitmap.Width.Should().Be(200);
-                bitmap.Height.Should().Be(200);
-            }
+            using var response = await _client.Content.EditOutputAsync(contentId, "Preview", "resize-to:200x200");
+
+            // Assert
+            var imageInfo = SKBitmap.DecodeBounds(response.Stream);
+            imageInfo.Width.Should().Be(200);
+            imageInfo.Height.Should().Be(200);
         }
 
         [Fact]
@@ -1211,11 +1209,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var expectedHeight = (bottomRight.Y - topLeft.Y) * imageMetadata.Height;
             var expectedWidth = (bottomRight.X - topLeft.X) * imageMetadata.Width;
 
-            using (var bitmap = new Bitmap(filePath))
-            {
-                bitmap.Height.Should().BeInRange((int)(0.98f * expectedHeight), (int)(1.02f * expectedHeight));
-                bitmap.Width.Should().BeInRange((int)(0.98f * expectedWidth), (int)(1.02f * expectedWidth));
-            }
+            var imageInfo = SKBitmap.DecodeBounds(filePath);
+            imageInfo.Height.Should().BeInRange((int)(0.98f * expectedHeight), (int)(1.02f * expectedHeight));
+            imageInfo.Width.Should().BeInRange((int)(0.98f * expectedWidth), (int)(1.02f * expectedWidth));
         }
 
         [Fact]
