@@ -21921,7 +21921,7 @@
           }
         ]
       },
-      "IngestContainerImportAlreadyInProgress": {
+      "IngestContainerImportAlreadyInProgressException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
