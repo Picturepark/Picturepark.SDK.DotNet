@@ -39486,7 +39486,7 @@
           }
         ]
       },
-      "IngestContainerImportAlreadyInProgress": {
+      "IngestContainerImportAlreadyInProgressException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -49599,7 +49599,7 @@
           },
           "sasToken": {
             "type": "string",
-            "description": "SAS token that allows uploading to the container.",
+            "description": "SAS token that allows uploading to the container.\nNote: The token is valid for at most 24h after which all files uploaded, but not imported will be deleted.",
             "minLength": 1
           }
         }

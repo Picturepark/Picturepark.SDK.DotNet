@@ -5299,7 +5299,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("IngestContainerNotFoundException", typeof(IngestContainerNotFoundException))]
     [JsonInheritanceAttribute("IngestContainerEmptyException", typeof(IngestContainerEmptyException))]
     [JsonInheritanceAttribute("IngestFileNotFoundException", typeof(IngestFileNotFoundException))]
-    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgress", typeof(IngestContainerImportAlreadyInProgress))]
+    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgressException", typeof(IngestContainerImportAlreadyInProgressException))]
     [JsonInheritanceAttribute("IngestContainerImportRequestValidationFailedException", typeof(IngestContainerImportRequestValidationFailedException))]
     [JsonInheritanceAttribute("IngestFileInvalidFileNameOverrideExtensionException", typeof(IngestFileInvalidFileNameOverrideExtensionException))]
     [JsonInheritanceAttribute("IngestFileAlreadyImportedException", typeof(IngestFileAlreadyImportedException))]
@@ -15427,7 +15427,7 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IngestContainerImportAlreadyInProgress : PictureparkValidationException
+    public partial class IngestContainerImportAlreadyInProgressException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Container { get; set; }
@@ -15438,10 +15438,10 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static IngestContainerImportAlreadyInProgress FromJson(string data)
+        public static IngestContainerImportAlreadyInProgressException FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgress>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgressException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -28294,6 +28294,7 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>
         /// SAS token that allows uploading to the container.
+        /// <br/>Note: The token is valid for at most 24h after which all files uploaded, but not imported will be deleted.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sasToken", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
