@@ -5325,6 +5325,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exceptionMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExceptionMessage { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("cloudName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CloudName { get; set; }
+
         public string ToJson()
         {
 
@@ -21951,8 +21954,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Email address of the user (doubles as username).
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
 
         /// <summary>
