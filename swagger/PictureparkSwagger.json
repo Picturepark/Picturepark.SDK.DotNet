@@ -31585,6 +31585,10 @@
                 "type": "string",
                 "nullable": true
               },
+              "cloudName": {
+                "type": "string",
+                "nullable": true
+              },
               "kind": {
                 "type": "string"
               }
@@ -44714,7 +44718,6 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "emailAddress",
           "isDeleted"
         ],
         "properties": {
@@ -44736,7 +44739,7 @@
           "emailAddress": {
             "type": "string",
             "description": "Email address of the user (doubles as username).",
-            "minLength": 1
+            "nullable": true
           },
           "isDeleted": {
             "type": "boolean",
