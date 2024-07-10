@@ -157,6 +157,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             });
 
+            // Assert
             searchResult.Results.Should().ContainSingle().Which.Id.Should().Be(contentId);
         }
 
