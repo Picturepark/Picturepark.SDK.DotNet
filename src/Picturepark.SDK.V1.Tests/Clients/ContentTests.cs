@@ -133,6 +133,34 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        public async Task ShouldSearchByPermissionSet()
+        {
+            // Arrange
+            var newPermissionSetId = (await _fixture.ContentPermissions.Create(1)).Single().Id;
+            var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 100);
+
+            var permissionsSetIds = (await _client.Content.GetAsync(contentId)).ContentPermissionSetIds;
+            permissionsSetIds.Add(newPermissionSetId);
+
+            await _fixture.Client.Content.UpdatePermissionsAsync(contentId, new ContentPermissionsUpdateRequest
+            {
+                ContentPermissionSetIds = permissionsSetIds
+            });
+
+            // Act
+            var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
+            {
+                Filter = new TermFilter
+                {
+                    Field = "permissionSetIds",
+                    Term = newPermissionSetId
+                }
+            });
+
+            searchResult.Results.Should().ContainSingle().Which.Id.Should().Be(contentId);
+        }
+
+        [Fact]
         public async Task ShouldAggregateWithAggregators()
         {
             var request = new ContentAggregationRequest
