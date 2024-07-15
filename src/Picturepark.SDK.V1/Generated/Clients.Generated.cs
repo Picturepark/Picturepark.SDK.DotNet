@@ -30877,6 +30877,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        [System.Obsolete]
         public virtual async System.Threading.Tasks.Task<OutputSearchResult> SearchAsync(OutputSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (request == null)

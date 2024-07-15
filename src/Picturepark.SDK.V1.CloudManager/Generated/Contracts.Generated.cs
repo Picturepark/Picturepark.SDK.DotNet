@@ -22360,7 +22360,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [System.Obsolete("Replaced by OutputRenderingStateV2")]
         public OutputRenderingState RenderingState { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2 RenderingStateV2 { get; set; }
 
         public string ToJson()
         {
@@ -22398,6 +22403,24 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"RerenderRequested")]
         RerenderRequested = 5,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputRenderingStateV2
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Renderable")]
+        Renderable = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
+        InProgress = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 3,
 
     }
 
