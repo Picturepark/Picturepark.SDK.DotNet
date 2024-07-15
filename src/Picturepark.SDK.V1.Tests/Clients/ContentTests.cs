@@ -135,17 +135,27 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task ShouldSearchByPermissionSet()
         {
-            // Arrange
+            // Arrange: Create new permissionSet and assign it to a random content
             var newPermissionSetId = (await _fixture.ContentPermissions.Create(1)).Single().Id;
             var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 100);
 
-            var permissionsSetIds = (await _client.Content.GetAsync(contentId)).ContentPermissionSetIds;
-            permissionsSetIds.Add(newPermissionSetId);
-
-            await _fixture.Client.Content.UpdatePermissionsAsync(contentId, new ContentPermissionsUpdateRequest
+            var updateBusinessProcess = await _client.Content.UpdatePermissionsByFilterAsync(new ContentPermissionsBatchUpdateFilterRequest
             {
-                ContentPermissionSetIds = permissionsSetIds
+                FilterRequest = new ContentFilterRequest
+                {
+                    Filter = new TermFilter
+                    {
+                        Field = nameof(Content.Id).ToLowerCamelCase(),
+                        Term = contentId
+                    }
+                },
+                ChangeCommands = new List<PermissionSetsCommandBase>
+                {
+                    new PermissionSetsAddCommand { PermissionSetIds = new List<string> { newPermissionSetId } }
+                }
             });
+
+            await _client.BusinessProcess.WaitForCompletionAsync(updateBusinessProcess.Id);
 
             // Act
             var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
