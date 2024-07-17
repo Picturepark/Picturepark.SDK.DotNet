@@ -22951,10 +22951,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Category of OutputFormat which this output represents.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("outputFormatCategory", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("outputFormatCategory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputFormatCategory OutputFormatCategory { get; set; }
+        public OutputFormatCategory? OutputFormatCategory { get; set; }
 
         /// <summary>
         /// The ID of the content for which this output has been created.
@@ -22966,11 +22965,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Obsolete("Replaced by RenderingStateV2")]
-        public OutputRenderingState RenderingState { get; set; }
+        public OutputRenderingState? RenderingState { get; set; }
 
         /// <summary>
         /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
@@ -22982,10 +22980,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputAvailabilityState AvailabilityState { get; set; }
+        public OutputAvailabilityState? AvailabilityState { get; set; }
 
         /// <summary>
         /// Detail of the output that are format dependent.
@@ -24541,11 +24538,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Obsolete("Replaced by RenderingStateV2")]
-        public OutputRenderingState RenderingState { get; set; }
+        public OutputRenderingState? RenderingState { get; set; }
 
         /// <summary>
         /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
@@ -24557,10 +24553,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputAvailabilityState AvailabilityState { get; set; }
+        public OutputAvailabilityState? AvailabilityState { get; set; }
 
         /// <summary>
         /// Whether this Output belongs to a dynamic OutputFormat.
@@ -38242,11 +38237,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Obsolete("Replaced by OutputRenderingStateV2")]
-        public OutputRenderingState RenderingState { get; set; }
+        public OutputRenderingState? RenderingState { get; set; }
 
         /// <summary>
         /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.

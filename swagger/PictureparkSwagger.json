@@ -45669,12 +45669,9 @@
         "additionalProperties": false,
         "required": [
           "outputFormatId",
-          "outputFormatCategory",
           "contentId",
-          "availabilityState",
           "dynamicRendering",
           "kind",
-          "renderingState",
           "attemptsLeft"
         ],
         "properties": {
@@ -45690,6 +45687,7 @@
           },
           "outputFormatCategory": {
             "description": "Category of OutputFormat which this output represents.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputFormatCategory"
@@ -45705,6 +45703,7 @@
             "description": "The rendering state of the output file.",
             "deprecated": true,
             "x-deprecatedMessage": "Replaced by RenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
@@ -45722,6 +45721,7 @@
           },
           "availabilityState": {
             "description": "Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputAvailabilityState"
@@ -46822,8 +46822,6 @@
         "required": [
           "outputFormatId",
           "contentId",
-          "availabilityState",
-          "renderingState",
           "dynamicRendering"
         ],
         "properties": {
@@ -46846,6 +46844,7 @@
             "description": "The rendering state of the output file.",
             "deprecated": true,
             "x-deprecatedMessage": "Replaced by RenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
@@ -46863,6 +46862,7 @@
           },
           "availabilityState": {
             "description": "Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputAvailabilityState"
@@ -57698,8 +57698,7 @@
           "contentId",
           "outputFormatId",
           "dynamicRendering",
-          "kind",
-          "renderingState"
+          "kind"
         ],
         "properties": {
           "contentId": {
@@ -57739,6 +57738,7 @@
             "description": "The rendering state of the output file.",
             "deprecated": true,
             "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
