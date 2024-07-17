@@ -447,25 +447,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest);
             Assert.NotNull(result.DownloadUrl);
 
-            using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(result.DownloadUrl))
-            {
-                response.EnsureSuccessStatusCode();
+            using var httpClient = new HttpClient();
+            using var response = await httpClient.GetAsync(result.DownloadUrl);
+            response.EnsureSuccessStatusCode();
 
-                var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
-                Assert.EndsWith(".jpg", fileName);
+            var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+            Assert.EndsWith(".jpg", fileName);
 
-                var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = File.Create(filePath))
-                {
-                    await stream.CopyToAsync(fileStream);
+            await using var stream = await response.Content.ReadAsStreamAsync();
+            await using var fileStream = File.Create(filePath);
+            await stream.CopyToAsync(fileStream);
 
-                    // Assert
-                    Assert.True(stream.Length > 10);
-                }
-            }
+            // Assert
+            Assert.True(stream.Length > 10);
         }
 
         [Fact]
@@ -489,25 +485,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest);
             Assert.NotNull(result.DownloadUrl);
 
-            using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(result.DownloadUrl))
-            {
-                response.EnsureSuccessStatusCode();
+            using var httpClient = new HttpClient();
+            using var response = await httpClient.GetAsync(result.DownloadUrl);
+            response.EnsureSuccessStatusCode();
 
-                var fileName = response.Content.Headers.ContentDisposition.FileName;
-                Assert.EndsWith(".zip", fileName);
+            var fileName = response.Content.Headers.ContentDisposition.FileName;
+            Assert.EndsWith(".zip", fileName);
 
-                var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = File.Create(filePath))
-                {
-                    await stream.CopyToAsync(fileStream);
+            await using var stream = await response.Content.ReadAsStreamAsync();
+            await using var fileStream = File.Create(filePath);
+            await stream.CopyToAsync(fileStream);
 
-                    // Assert
-                    Assert.True(stream.Length > 10);
-                }
-            }
+            // Assert
+            Assert.True(stream.Length > 10);
         }
 
         [Fact]
@@ -657,16 +649,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Content.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000"))
-            {
-                response.GetFileName().Should().Be(fileMetadata.FileName);
+            using var response = await _client.Content.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000");
+            response.GetFileName().Should().Be(fileMetadata.FileName);
 
-                var stream = response.Stream;
-                Assert.True(stream.CanRead);
+            var stream = response.Stream;
+            Assert.True(stream.CanRead);
 
-                await response.Stream.WriteToFileAsync(filePath);
-                Assert.True(File.Exists(filePath));
-            }
+            await response.Stream.WriteToFileAsync(filePath);
+            Assert.True(File.Exists(filePath));
         }
 
         [Theory,
@@ -680,11 +670,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
 
             // Act
-            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size))
-            {
-                // Assert
-                await AssertFileResponseOkAndNonEmpty(response, "image/jpeg");
-            }
+            using var response = await _client.Content.DownloadThumbnailAsync(contentId, size);
+
+            // Assert
+            await AssertFileResponseOkAndNonEmpty(response, "image/jpeg");
         }
 
         [Theory,
@@ -1956,25 +1945,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 // Versions are numbered in sequence from 1.
                 var downloadLink = await _client.Content.GetVersionDownloadLinkAsync(contentId, 1);
 
-                using (var httpClient = new HttpClient())
-                using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl))
-                {
-                    response.EnsureSuccessStatusCode();
+                using var httpClient = new HttpClient();
+                using var response = await httpClient.GetAsync(downloadLink.DownloadUrl);
+                response.EnsureSuccessStatusCode();
 
-                    var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
-                    Assert.EndsWith(".jpg", fileName);
+                var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+                Assert.EndsWith(".jpg", fileName);
 
-                    var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+                var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                    using (var stream = await response.Content.ReadAsStreamAsync())
-                    using (var fileStream = File.Create(filePath))
-                    {
-                        await stream.CopyToAsync(fileStream);
+                await using var stream = await response.Content.ReadAsStreamAsync();
+                await using var fileStream = File.Create(filePath);
+                await stream.CopyToAsync(fileStream);
 
-                        // Assert
-                        Assert.True(stream.Length > 10);
-                    }
-                }
+                // Assert
+                Assert.True(stream.Length > 10);
             }
             else
             {
@@ -2180,19 +2165,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response, string expectedContentType = null)
         {
-            using (var stream = new MemoryStream())
+            using var stream = new MemoryStream();
+            response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+
+            if (expectedContentType != null)
             {
-                response.StatusCode.Should().Be((int)HttpStatusCode.OK);
-
-                if (expectedContentType != null)
-                {
-                    var contentType = response.Headers["Content-Type"].Single();
-                    contentType.Should().Be(expectedContentType);
-                }
-
-                await response.Stream.CopyToAsync(stream);
-                stream.Length.Should().BeGreaterOrEqualTo(10);
+                var contentType = response.Headers["Content-Type"].Single();
+                contentType.Should().Be(expectedContentType);
             }
+
+            await response.Stream.CopyToAsync(stream);
+            stream.Length.Should().BeGreaterOrEqualTo(10);
         }
 
         private async Task<ContentDetail> CreateContentItem()

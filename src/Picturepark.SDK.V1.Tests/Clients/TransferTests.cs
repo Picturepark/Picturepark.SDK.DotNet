@@ -492,10 +492,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await Assert.ThrowsAnyAsync<ChunkSizeOutOfRangeException>(
                 async () =>
                 {
-                    using (var cts = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
-                    using (cts.Token.Register(() => weTriggeredCancellation = true))
+                    using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(1));
+                    await using (cts.Token.Register(() => weTriggeredCancellation = true))
                     {
-                        using (var fs = File.OpenRead(file))
+                        await using (var fs = File.OpenRead(file))
                         {
                             var buffer = new byte[1024];
                             await fs.ReadAsync(buffer, 0, 1024, cts.Token);

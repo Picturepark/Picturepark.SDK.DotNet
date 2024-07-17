@@ -310,17 +310,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 };
 
             // Act
-            var downloadLinkResponse = await _client.Content
-                .CreateAndAwaitDownloadLinkAsync(new ContentDownloadLinkCreateRequest { Contents = combinations.ToList() })
-                ;
+            var downloadLinkResponse = await _client.Content.CreateAndAwaitDownloadLinkAsync(new ContentDownloadLinkCreateRequest { Contents = combinations.ToList() });
 
             using (var httpClient = new HttpClient())
             using (var response = await httpClient.GetAsync(downloadLinkResponse.DownloadUrl))
             {
                 response.EnsureSuccessStatusCode();
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = File.Create(filePath))
+                await using (var stream = await response.Content.ReadAsStreamAsync())
+                await using (var fileStream = File.Create(filePath))
                     await stream.CopyToAsync(fileStream);
             }
 
