@@ -460,7 +460,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             outputForFormat.DynamicRendering.Should().BeTrue("it is a dynamic format");
             outputForFormat.FileSize.Should().Be(content.GetFileMetadata().FileSizeInBytes);
-            outputForFormat.RenderingStateV2.Should().Be(OutputRenderingStateV2.Renderable, "newly created dynamic format, rendered lazily");
+
+            var cpVersion = Version.Parse((await _client.Info.GetVersionAsync()).FileVersion);
+
+            if (cpVersion >= new Version(11, 12))
+                outputForFormat.RenderingStateV2.Should().Be(OutputRenderingStateV2.Renderable, "newly created dynamic format, rendered lazily");
+
+#pragma warning disable CS0618 // Type or member is obsolete
+            outputForFormat.RenderingState.Should().Be(OutputRenderingState.Skipped, "newly created dynamic format, rendered lazily");
+#pragma warning restore CS0618 // Type or member is obsolete
 
             var fileName = nameof(ShouldCreateCopyFormatAndCopySourceFile) + new Random().Next(0, 999999) + "-" + content.Id + ".pdf";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
