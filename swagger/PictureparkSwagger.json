@@ -8147,6 +8147,222 @@
         ]
       }
     },
+    "/v1/Contents/batches/ownership/filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Transfer multiple contents ownerships - by filter",
+        "description": "Transfers ownerships of multiple contents to specified users. The target users must have the ManageContent UserRight.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_TransferOwnershipByFilter",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content ownership transfer many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentOwnershipBatchTransferFilterRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/batches/permissions/filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update multiple contents permissions - by filter",
+        "description": "Updates the content permission sets of multiple contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_UpdatePermissionsByFilter",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content permissions update many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPermissionsBatchUpdateFilterRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Contents/search": {
       "post": {
         "tags": [
@@ -17762,6 +17978,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -45453,11 +45670,9 @@
         "required": [
           "outputFormatId",
           "contentId",
-          "renderingState",
           "dynamicRendering",
           "kind",
-          "attemptsLeft",
-          "fileVersion"
+          "attemptsLeft"
         ],
         "properties": {
           "id": {
@@ -45470,6 +45685,15 @@
             "description": "The ID of the output format this output represents.",
             "minLength": 1
           },
+          "outputFormatCategory": {
+            "description": "Category of OutputFormat which this output represents.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatCategory"
+              }
+            ]
+          },
           "contentId": {
             "type": "string",
             "description": "The ID of the content for which this output has been created.",
@@ -45477,9 +45701,30 @@
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
+          },
+          "renderingStateV2": {
+            "description": "The rendering state of the output file. Only null for static outputs which are not rendered (\"Skipped\" in old RenderingState), such outputs won't be returned in the future.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
+              }
+            ]
+          },
+          "availabilityState": {
+            "description": "Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAvailabilityState"
               }
             ]
           },
@@ -45496,6 +45741,8 @@
             "type": "string",
             "description": "Date and time of the backup of the output file.",
             "format": "date-time",
+            "deprecated": true,
+            "x-deprecatedMessage": "Backup of outputs is implemented differently now",
             "nullable": true
           },
           "attemptsLeft": {
@@ -45506,16 +45753,33 @@
           "fileVersion": {
             "type": "integer",
             "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true,
+            "x-deprecatedMessage": "Value was less accurate than it might have seemed",
+            "nullable": true
           },
           "dynamicRendering": {
             "type": "boolean",
-            "description": "Whether this Output belongs to a dynamic OutputFormat"
+            "description": "Whether this Output belongs to a dynamic OutputFormat."
           },
           "kind": {
             "type": "string"
           }
         }
+      },
+      "OutputFormatCategory": {
+        "type": "string",
+        "description": "Describes type of output format\nStatic: Static output format (rendering enqueued on content ingestion)\nDynamic: Dynamic output format (rendered upon download request)\nTransient: Output format implicitly created by output editing operations",
+        "x-enumNames": [
+          "Static",
+          "Dynamic",
+          "Transient"
+        ],
+        "enum": [
+          "Static",
+          "Dynamic",
+          "Transient"
+        ]
       },
       "OutputRenderingState": {
         "type": "string",
@@ -45535,6 +45799,38 @@
           "Skipped",
           "NoLicense",
           "RerenderRequested"
+        ]
+      },
+      "OutputRenderingStateV2": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
+        ],
+        "enum": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
+        ]
+      },
+      "OutputAvailabilityState": {
+        "type": "string",
+        "description": "Describes not directly rendering-outcome related state of an Output\nSourceReplaced: The output is derived from a non-current source (e.g. after Original file replacement)\nRerenderRequested: Rerendering has been explicitly requested or an OutputFormat used to produce this Output was edited\nToBeDeleted: The output is about to be or already has been deleted",
+        "x-enumNames": [
+          "Normal",
+          "SourceReplaced",
+          "RerenderRequested",
+          "ToBeDeleted"
+        ],
+        "enum": [
+          "Normal",
+          "SourceReplaced",
+          "RerenderRequested",
+          "ToBeDeleted"
         ]
       },
       "OutputDataBase": {
@@ -45565,6 +45861,8 @@
           "filePath": {
             "type": "string",
             "description": "The path where the file is stored.",
+            "deprecated": true,
+            "x-deprecatedMessage": "No use case, information is internal",
             "nullable": true
           },
           "fileSizeInBytes": {
@@ -46524,7 +46822,6 @@
         "required": [
           "outputFormatId",
           "contentId",
-          "renderingState",
           "dynamicRendering"
         ],
         "properties": {
@@ -46535,25 +46832,46 @@
           },
           "outputFormatId": {
             "type": "string",
-            "description": "ID of output format.",
+            "description": "The ID of the output format this output represents.",
             "minLength": 1
           },
           "contentId": {
             "type": "string",
-            "description": "ID of content.",
+            "description": "The ID of the content for which this output has been created.",
             "minLength": 1
           },
           "renderingState": {
-            "description": "Rendering state of output.",
+            "description": "The rendering state of the output file.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
               }
             ]
           },
+          "renderingStateV2": {
+            "description": "The rendering state of the output file. Only null for static outputs which are not rendered (\"Skipped\" in old RenderingState), such outputs won't be returned in the future.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
+              }
+            ]
+          },
+          "availabilityState": {
+            "description": "Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAvailabilityState"
+              }
+            ]
+          },
           "dynamicRendering": {
             "type": "boolean",
-            "description": "Whether this Output belongs to a dynamic OutputFormat"
+            "description": "Whether this Output belongs to a dynamic OutputFormat."
           },
           "fileSize": {
             "type": "integer",
@@ -47420,6 +47738,168 @@
                     "$ref": "#/components/schemas/ContentFilterRequest"
                   }
                 ]
+              }
+            }
+          }
+        ]
+      },
+      "ContentOwnershipBatchTransferFilterRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "notifyProgress"
+        ],
+        "properties": {
+          "filterRequest": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentFilterRequest"
+              }
+            ]
+          },
+          "transferUserId": {
+            "type": "string",
+            "description": "The id of user to whom the content documents have to be transferred to.",
+            "nullable": true
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create notification and notify on progress"
+          }
+        }
+      },
+      "ContentPermissionsBatchUpdateFilterRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentPermissionSetsUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "filterRequest": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentFilterRequest"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ContentPermissionSetsUpdateRequestBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "Kind",
+          "mapping": {
+            "ContentPermissionsBatchUpdateRequest": "#/components/schemas/ContentPermissionsBatchUpdateRequest",
+            "ContentPermissionsBatchUpdateFilterRequest": "#/components/schemas/ContentPermissionsBatchUpdateFilterRequest"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "Kind",
+          "notifyProgress"
+        ],
+        "properties": {
+          "changeCommands": {
+            "type": "array",
+            "description": "A container for all change commands.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionSetsCommandBase"
+            }
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create notification and notify on progress"
+          },
+          "Kind": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionSetsCommandBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "Kind",
+          "mapping": {
+            "PermissionSetsAddCommand": "#/components/schemas/PermissionSetsAddCommand",
+            "PermissionSetsRemoveCommand": "#/components/schemas/PermissionSetsRemoveCommand",
+            "PermissionSetsSetCommand": "#/components/schemas/PermissionSetsSetCommand"
+          }
+        },
+        "description": "The base class for metadata value change commands.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "Kind"
+        ],
+        "properties": {
+          "permissionSetIds": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "Kind": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionSetsAddCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetsCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetsRemoveCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetsCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetsSetCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetsCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ContentPermissionsBatchUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentPermissionSetsUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -53698,7 +54178,7 @@
               },
               "temporary": {
                 "type": "boolean",
-                "description": "Temporary outputs will not be backed up."
+                "description": "Temporary outputs are only used during rendering, they are not persisted or made available to users directly."
               }
             }
           }
@@ -53840,6 +54320,8 @@
           },
           {
             "type": "object",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use Content endpoints to resolve Outputs instead",
             "additionalProperties": false
           }
         ]
@@ -53880,6 +54362,8 @@
       },
       "OutputSearchRequest": {
         "type": "object",
+        "deprecated": true,
+        "x-deprecatedMessage": "Use Content endpoints to resolve Outputs instead",
         "additionalProperties": false,
         "required": [
           "limit"
@@ -57214,18 +57698,17 @@
           "contentId",
           "outputFormatId",
           "dynamicRendering",
-          "renderingState",
           "kind"
         ],
         "properties": {
           "contentId": {
             "type": "string",
-            "description": "Content ID.",
+            "description": "The ID of the content for which this output has been created.",
             "minLength": 1
           },
           "outputFormatId": {
             "type": "string",
-            "description": "Output format ID.",
+            "description": "The ID of the output format this output represents.",
             "minLength": 1
           },
           "viewUrl": {
@@ -57249,13 +57732,25 @@
           },
           "dynamicRendering": {
             "type": "boolean",
-            "description": "Whether this Output belongs to a dynamic OutputFormat"
+            "description": "Whether this Output belongs to a dynamic OutputFormat."
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
+          },
+          "renderingStateV2": {
+            "description": "The rendering state of the output file. Only null for static outputs which are not rendered (\"Skipped\" in old RenderingState), such outputs won't be returned in the future.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
               }
             ]
           },
@@ -61520,7 +62015,16 @@
                 "nullable": true
               },
               "renderingState": {
-                "$ref": "#/components/schemas/OutputRenderingState"
+                "deprecated": true,
+                "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputRenderingState"
+                  }
+                ]
+              },
+              "renderingStateV2": {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
               }
             }
           }
@@ -62546,11 +63050,11 @@
     },
     {
       "name": "OutputFormat",
-      "description": "Endpoints to access and manipulate with output formats.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputFormatTests.cs)\r\n"
+      "description": "Endpoints to access and manipulate output formats.\r\n\r\nOutput formats define if, when and how binary Content is converted. Based on the type of the originally uploaded file, a different\r\nrendering tree (defined by OutputFormat.SourceOutputFormats) is used for a given content.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputFormatTests.cs)\r\n"
     },
     {
       "name": "Output",
-      "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process. There are predefined outputs for each file-based content.\r\n\r\n- Original: The original file uploaded (exists always)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
+      "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process (static OutputFormats) or upon request (dynamic OutputFormats). There are predefined outputs for each file-based content.\r\nSee OutputFormat endpoints to retrieve or modify exact parameters of how Outputs are created and rendered.\r\n\r\n- Original: The original file uploaded (exists for all binary Content)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailMedium: A medium preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailLarge: A larger preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailExtraLarge: A large preview of the file (640*640px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
     },
     {
       "name": "Profile",

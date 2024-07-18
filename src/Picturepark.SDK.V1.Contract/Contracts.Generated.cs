@@ -1155,6 +1155,44 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
+        /// Transfer multiple contents ownerships - by filter
+        /// </summary>
+        /// <remarks>
+        /// Transfers ownerships of multiple contents to specified users. The target users must have the ManageContent UserRight.
+        /// <br/>The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+        /// </remarks>
+        /// <param name="request">Content ownership transfer many request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipByFilterAsync(ContentOwnershipBatchTransferFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update multiple contents permissions - by filter
+        /// </summary>
+        /// <remarks>
+        /// Updates the content permission sets of multiple contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)
+        /// <br/>The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+        /// </remarks>
+        /// <param name="request">Content permissions update many request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdatePermissionsByFilterAsync(ContentPermissionsBatchUpdateFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
         /// Search contents
         /// </summary>
         /// <remarks>
@@ -2490,6 +2528,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        [System.Obsolete]
         System.Threading.Tasks.Task<OutputSearchResult> SearchAsync(OutputSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -22910,6 +22949,13 @@ namespace Picturepark.SDK.V1.Contract
         public string OutputFormatId { get; set; }
 
         /// <summary>
+        /// Category of OutputFormat which this output represents.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatCategory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputFormatCategory? OutputFormatCategory { get; set; }
+
+        /// <summary>
         /// The ID of the content for which this output has been created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
@@ -22919,10 +22965,24 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputRenderingState RenderingState { get; set; }
+        [System.Obsolete("Replaced by RenderingStateV2")]
+        public OutputRenderingState? RenderingState { get; set; }
+
+        /// <summary>
+        /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2? RenderingStateV2 { get; set; }
+
+        /// <summary>
+        /// Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAvailabilityState? AvailabilityState { get; set; }
 
         /// <summary>
         /// Detail of the output that are format dependent.
@@ -22934,6 +22994,7 @@ namespace Picturepark.SDK.V1.Contract
         /// Date and time of the backup of the output file.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("backupTimestamp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Backup of outputs is implemented differently now")]
         public System.DateTime? BackupTimestamp { get; set; }
 
         /// <summary>
@@ -22945,11 +23006,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Always)]
-        public int FileVersion { get; set; }
+        [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Value was less accurate than it might have seemed")]
+        public int? FileVersion { get; set; }
 
         /// <summary>
-        /// Whether this Output belongs to a dynamic OutputFormat
+        /// Whether this Output belongs to a dynamic OutputFormat.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
@@ -22966,6 +23028,27 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Output>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
+
+    }
+
+    /// <summary>
+    /// Describes type of output format
+    /// <br/>Static: Static output format (rendering enqueued on content ingestion)
+    /// <br/>Dynamic: Dynamic output format (rendered upon download request)
+    /// <br/>Transient: Output format implicitly created by output editing operations
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputFormatCategory
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Static")]
+        Static = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Dynamic")]
+        Dynamic = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Transient")]
+        Transient = 2,
 
     }
 
@@ -22993,6 +23076,48 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputRenderingStateV2
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Renderable")]
+        Renderable = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
+        InProgress = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 3,
+
+    }
+
+    /// <summary>
+    /// Describes not directly rendering-outcome related state of an Output
+    /// <br/>SourceReplaced: The output is derived from a non-current source (e.g. after Original file replacement)
+    /// <br/>RerenderRequested: Rerendering has been explicitly requested or an OutputFormat used to produce this Output was edited
+    /// <br/>ToBeDeleted: The output is about to be or already has been deleted
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputAvailabilityState
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Normal")]
+        Normal = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"SourceReplaced")]
+        SourceReplaced = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"RerenderRequested")]
+        RerenderRequested = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ToBeDeleted")]
+        ToBeDeleted = 3,
+
+    }
+
     /// <summary>
     /// Base class for the output detail dependent on the file format.
     /// </summary>
@@ -23016,6 +23141,7 @@ namespace Picturepark.SDK.V1.Contract
         /// The path where the file is stored.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No use case, information is internal")]
         public string FilePath { get; set; }
 
         /// <summary>
@@ -24396,29 +24522,43 @@ namespace Picturepark.SDK.V1.Contract
         public string Id { get; set; }
 
         /// <summary>
-        /// ID of output format.
+        /// The ID of the output format this output represents.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string OutputFormatId { get; set; }
 
         /// <summary>
-        /// ID of content.
+        /// The ID of the content for which this output has been created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
 
         /// <summary>
-        /// Rendering state of output.
+        /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputRenderingState RenderingState { get; set; }
+        [System.Obsolete("Replaced by RenderingStateV2")]
+        public OutputRenderingState? RenderingState { get; set; }
 
         /// <summary>
-        /// Whether this Output belongs to a dynamic OutputFormat
+        /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2? RenderingStateV2 { get; set; }
+
+        /// <summary>
+        /// Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAvailabilityState? AvailabilityState { get; set; }
+
+        /// <summary>
+        /// Whether this Output belongs to a dynamic OutputFormat.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
@@ -25551,6 +25691,199 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFieldsBatchUpdateFilterRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ContentOwnershipBatchTransferFilterRequest
+    {
+        [Newtonsoft.Json.JsonProperty("filterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentFilterRequest FilterRequest { get; set; }
+
+        /// <summary>
+        /// The id of user to whom the content documents have to be transferred to.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+
+        /// <summary>
+        /// Create notification and notify on progress
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentOwnershipBatchTransferFilterRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentOwnershipBatchTransferFilterRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ContentPermissionsBatchUpdateFilterRequest : ContentPermissionSetsUpdateRequestBase
+    {
+        [Newtonsoft.Json.JsonProperty("filterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentFilterRequest FilterRequest { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentPermissionsBatchUpdateFilterRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsBatchUpdateFilterRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [JsonInheritanceAttribute("ContentPermissionsBatchUpdateFilterRequest", typeof(ContentPermissionsBatchUpdateFilterRequest))]
+    [JsonInheritanceAttribute("ContentPermissionsBatchUpdateRequest", typeof(ContentPermissionsBatchUpdateRequest))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class ContentPermissionSetsUpdateRequestBase
+    {
+        /// <summary>
+        /// A container for all change commands.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PermissionSetsCommandBase> ChangeCommands { get; set; }
+
+        /// <summary>
+        /// Create notification and notify on progress
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentPermissionSetsUpdateRequestBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetsUpdateRequestBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// The base class for metadata value change commands.
+    /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [JsonInheritanceAttribute("PermissionSetsAddCommand", typeof(PermissionSetsAddCommand))]
+    [JsonInheritanceAttribute("PermissionSetsRemoveCommand", typeof(PermissionSetsRemoveCommand))]
+    [JsonInheritanceAttribute("PermissionSetsSetCommand", typeof(PermissionSetsSetCommand))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class PermissionSetsCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsCommandBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsCommandBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PermissionSetsAddCommand : PermissionSetsCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsAddCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsAddCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PermissionSetsRemoveCommand : PermissionSetsCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsRemoveCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsRemoveCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PermissionSetsSetCommand : PermissionSetsCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsSetCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsSetCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ContentPermissionsBatchUpdateRequest : ContentPermissionSetsUpdateRequestBase
+    {
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentPermissionsBatchUpdateRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsBatchUpdateRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -33581,7 +33914,7 @@ namespace Picturepark.SDK.V1.Contract
         public bool DataExtraction { get; set; }
 
         /// <summary>
-        /// Temporary outputs will not be backed up.
+        /// Temporary outputs are only used during rendering, they are not persisted or made available to users directly.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("temporary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Temporary { get; set; }
@@ -33840,6 +34173,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [System.Obsolete("Use Content endpoints to resolve Outputs instead")]
     public partial class OutputSearchRequest
     {
         /// <summary>
@@ -37863,14 +38197,14 @@ namespace Picturepark.SDK.V1.Contract
     public abstract partial class ShareOutputBase
     {
         /// <summary>
-        /// Content ID.
+        /// The ID of the content for which this output has been created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
 
         /// <summary>
-        /// Output format ID.
+        /// The ID of the output format this output represents.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -37895,7 +38229,7 @@ namespace Picturepark.SDK.V1.Contract
         public OutputDataBase Detail { get; set; }
 
         /// <summary>
-        /// Whether this Output belongs to a dynamic OutputFormat
+        /// Whether this Output belongs to a dynamic OutputFormat.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
@@ -37903,10 +38237,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputRenderingState RenderingState { get; set; }
+        [System.Obsolete("Replaced by OutputRenderingStateV2")]
+        public OutputRenderingState? RenderingState { get; set; }
+
+        /// <summary>
+        /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2? RenderingStateV2 { get; set; }
 
         public string ToJson()
         {
@@ -43386,7 +43727,12 @@ namespace Picturepark.SDK.V1.Contract
 
         [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [System.Obsolete("Replaced by OutputRenderingStateV2")]
         public OutputRenderingState RenderingState { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2 RenderingStateV2 { get; set; }
 
         public string ToJson()
         {

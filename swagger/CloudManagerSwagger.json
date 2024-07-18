@@ -30632,7 +30632,16 @@
                 "nullable": true
               },
               "renderingState": {
-                "$ref": "#/components/schemas/OutputRenderingState"
+                "deprecated": true,
+                "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputRenderingState"
+                  }
+                ]
+              },
+              "renderingStateV2": {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
               }
             }
           }
@@ -30656,6 +30665,22 @@
           "Skipped",
           "NoLicense",
           "RerenderRequested"
+        ]
+      },
+      "OutputRenderingStateV2": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
+        ],
+        "enum": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
         ]
       },
       "ConfigurationChangeEvent": {
