@@ -7453,6 +7453,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContractMismatchException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("expectedType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedType { get; set; }
 
         public string ToJson()
         {
@@ -25770,9 +25772,6 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-    [JsonInheritanceAttribute("ContentPermissionsBatchUpdateFilterRequest", typeof(ContentPermissionsBatchUpdateFilterRequest))]
-    [JsonInheritanceAttribute("ContentPermissionsBatchUpdateRequest", typeof(ContentPermissionsBatchUpdateRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class ContentPermissionSetsUpdateRequestBase
     {
@@ -25806,7 +25805,7 @@ namespace Picturepark.SDK.V1.Contract
     /// <summary>
     /// The base class for metadata value change commands.
     /// </summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("PermissionSetsAddCommand", typeof(PermissionSetsAddCommand))]
     [JsonInheritanceAttribute("PermissionSetsRemoveCommand", typeof(PermissionSetsRemoveCommand))]
     [JsonInheritanceAttribute("PermissionSetsSetCommand", typeof(PermissionSetsSetCommand))]
@@ -25883,27 +25882,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsSetCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentPermissionsBatchUpdateRequest : ContentPermissionSetsUpdateRequestBase
-    {
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentPermissionsBatchUpdateRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsBatchUpdateRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

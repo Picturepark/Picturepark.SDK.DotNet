@@ -4177,6 +4177,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContractMismatchException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("expectedType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedType { get; set; }
 
         public string ToJson()
         {

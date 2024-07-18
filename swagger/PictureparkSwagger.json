@@ -33364,7 +33364,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedType": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -47804,17 +47810,9 @@
       },
       "ContentPermissionSetsUpdateRequestBase": {
         "type": "object",
-        "discriminator": {
-          "propertyName": "Kind",
-          "mapping": {
-            "ContentPermissionsBatchUpdateRequest": "#/components/schemas/ContentPermissionsBatchUpdateRequest",
-            "ContentPermissionsBatchUpdateFilterRequest": "#/components/schemas/ContentPermissionsBatchUpdateFilterRequest"
-          }
-        },
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "Kind",
           "notifyProgress"
         ],
         "properties": {
@@ -47829,16 +47827,13 @@
           "notifyProgress": {
             "type": "boolean",
             "description": "Create notification and notify on progress"
-          },
-          "Kind": {
-            "type": "string"
           }
         }
       },
       "PermissionSetsCommandBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "Kind",
+          "propertyName": "kind",
           "mapping": {
             "PermissionSetsAddCommand": "#/components/schemas/PermissionSetsAddCommand",
             "PermissionSetsRemoveCommand": "#/components/schemas/PermissionSetsRemoveCommand",
@@ -47849,7 +47844,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "Kind"
+          "kind"
         ],
         "properties": {
           "permissionSetIds": {
@@ -47859,7 +47854,7 @@
               "type": "string"
             }
           },
-          "Kind": {
+          "kind": {
             "type": "string"
           }
         }
@@ -47894,26 +47889,6 @@
           {
             "type": "object",
             "additionalProperties": false
-          }
-        ]
-      },
-      "ContentPermissionsBatchUpdateRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ContentPermissionSetsUpdateRequestBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
           }
         ]
       },
