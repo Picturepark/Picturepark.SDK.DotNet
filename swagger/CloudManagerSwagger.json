@@ -14107,6 +14107,24 @@
           }
         ]
       },
+      "PictureparkDatabaseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "debugInformation": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "UserEmailAlreadyExistsException": {
         "allOf": [
           {
@@ -16478,7 +16496,7 @@
       "ObjectStoreResponseException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
@@ -16499,7 +16517,7 @@
       "ObjectStoreException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
@@ -16520,17 +16538,11 @@
       "QueryException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "debugInformation": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
