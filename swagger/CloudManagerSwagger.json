@@ -15582,7 +15582,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedType": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
