@@ -57576,8 +57576,7 @@
         "description": "Reduced set of user information used for shares",
         "additionalProperties": false,
         "required": [
-          "displayName",
-          "emailHash"
+          "displayName"
         ],
         "properties": {
           "displayName": {
@@ -57588,7 +57587,7 @@
           "emailHash": {
             "type": "string",
             "description": "MD5 hash of email address. Can be used to display gravatar image",
-            "minLength": 1
+            "nullable": true
           }
         }
       },

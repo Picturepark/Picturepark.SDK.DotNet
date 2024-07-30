@@ -38075,8 +38075,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// MD5 hash of email address. Can be used to display gravatar image
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailHash { get; set; }
 
         public string ToJson()
