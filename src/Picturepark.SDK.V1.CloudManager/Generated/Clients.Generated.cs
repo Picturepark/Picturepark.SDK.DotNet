@@ -14720,6 +14720,17 @@ namespace Picturepark.SDK.V1.CloudManager
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Resets retry attempt counters.
+        /// </summary>
+        /// <remarks>
+        /// Resets retry attempt counters on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.
+        /// <br/>The number the counters are reset to is determined by a global configuration value.
+        /// </remarks>
+        /// <param name="id">CustomerId</param>
+        /// <param name="request">Request containing options to filter which outputs should be reset.</param>
+        /// <param name="timeout">Timeout to wait for completion, operation will continue regardless.</param>
+        /// <returns>Business process tracking the resetting</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>

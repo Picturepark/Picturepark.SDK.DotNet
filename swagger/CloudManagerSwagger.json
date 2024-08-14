@@ -9269,12 +9269,15 @@
         "tags": [
           "Maintenance"
         ],
+        "summary": "Resets retry attempt counters.",
+        "description": "Resets retry attempt counters on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.\nThe number the counters are reset to is determined by a global configuration value.",
         "operationId": "Maintenance_ResetRetryAttempts",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "CustomerId",
             "schema": {
               "type": "string"
             },
@@ -9283,6 +9286,7 @@
           {
             "name": "timeout",
             "in": "query",
+            "description": "Timeout to wait for completion, operation will continue regardless.",
             "schema": {
               "type": "string",
               "format": "duration",
@@ -9293,6 +9297,7 @@
         ],
         "requestBody": {
           "x-name": "request",
+          "description": "Request containing options to filter which outputs should be reset.",
           "content": {
             "application/json": {
               "schema": {
@@ -9305,7 +9310,7 @@
         },
         "responses": {
           "200": {
-            "description": "",
+            "description": "Business process tracking the resetting",
             "content": {
               "application/json": {
                 "schema": {
@@ -30052,25 +30057,9 @@
           "includeCompleted"
         ],
         "properties": {
-          "outputIds": {
-            "type": "array",
-            "description": "List of output IDs you want to filter on. If this field is not empty, the other will be ignored.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "contentIds": {
             "type": "array",
             "description": "List of Content IDs you want to filter on.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "fileExtensions": {
-            "type": "array",
-            "description": "The file extension of the outputs you want to filter on.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -30097,14 +30086,6 @@
           "skipHashCalculation"
         ],
         "properties": {
-          "outputIds": {
-            "type": "array",
-            "description": "List of output IDs you want to filter on. If this field is not empty, the other will be ignored.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "contentIds": {
             "type": "array",
             "description": "List of Content IDs you want to filter on.",
