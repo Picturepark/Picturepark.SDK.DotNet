@@ -40,23 +40,5 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.True(result.ContentId == contentId);
         }
-
-        [Fact]
-        [Obsolete("Use Content resolve endpoints instead")]
-        public async Task ShouldGetByContentIds()
-        {
-            // Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
-            var request = new OutputSearchRequest
-            {
-                ContentIds = new List<string> { contentId }
-            };
-
-            // Act
-            var result = await _client.Output.SearchAsync(request);
-
-            // Assert
-            Assert.True(result.Results.ToList()[0].ContentId == contentId);
-        }
     }
 }
