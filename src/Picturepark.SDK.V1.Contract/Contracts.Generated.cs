@@ -1155,6 +1155,44 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
+        /// Transfer multiple contents ownerships - by filter
+        /// </summary>
+        /// <remarks>
+        /// Transfers ownerships of multiple contents to specified users. The target users must have the ManageContent UserRight.
+        /// <br/>The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+        /// </remarks>
+        /// <param name="request">Content ownership transfer many request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipByFilterAsync(ContentOwnershipBatchTransferFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Update multiple contents permissions - by filter
+        /// </summary>
+        /// <remarks>
+        /// Updates the content permission sets of multiple contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)
+        /// <br/>The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+        /// </remarks>
+        /// <param name="request">Content permissions update many request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdatePermissionsByFilterAsync(ContentPermissionsBatchUpdateFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
         /// Search contents
         /// </summary>
         /// <remarks>
@@ -2490,6 +2528,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        [System.Obsolete]
         System.Threading.Tasks.Task<OutputSearchResult> SearchAsync(OutputSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -4981,7 +5020,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DuplicateEmbedConversionPresetException", typeof(DuplicateEmbedConversionPresetException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
-    [JsonInheritanceAttribute("UnmodifiedOriginalOutputNotFoundException", typeof(UnmodifiedOriginalOutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingForDynamicFormatException", typeof(NotSupportedFileMappingForDynamicFormatException))]
@@ -5168,10 +5206,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
-    [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
     [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
-    [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("ConcurrentFileReplacementDuringRepairException", typeof(ConcurrentFileReplacementDuringRepairException))]
     [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
@@ -5302,7 +5338,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("IngestContainerNotFoundException", typeof(IngestContainerNotFoundException))]
     [JsonInheritanceAttribute("IngestContainerEmptyException", typeof(IngestContainerEmptyException))]
     [JsonInheritanceAttribute("IngestFileNotFoundException", typeof(IngestFileNotFoundException))]
-    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgress", typeof(IngestContainerImportAlreadyInProgress))]
+    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgressException", typeof(IngestContainerImportAlreadyInProgressException))]
     [JsonInheritanceAttribute("IngestContainerImportRequestValidationFailedException", typeof(IngestContainerImportRequestValidationFailedException))]
     [JsonInheritanceAttribute("IngestFileInvalidFileNameOverrideExtensionException", typeof(IngestFileInvalidFileNameOverrideExtensionException))]
     [JsonInheritanceAttribute("IngestFileAlreadyImportedException", typeof(IngestFileAlreadyImportedException))]
@@ -5327,6 +5363,9 @@ namespace Picturepark.SDK.V1.Contract
 
         [Newtonsoft.Json.JsonProperty("exceptionMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExceptionMessage { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("cloudName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CloudName { get; set; }
 
         public string ToJson()
         {
@@ -5442,6 +5481,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkContradictoryArgumentsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public abstract partial class PictureparkDatabaseException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DebugInformation { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PictureparkDatabaseException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkDatabaseException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -6769,26 +6830,6 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnmodifiedOriginalOutputNotFoundException : OutputNotFoundException
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static UnmodifiedOriginalOutputNotFoundException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnmodifiedOriginalOutputNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UnableToCreateOrModifyStaticOutputFormatException : PictureparkValidationException
     {
 
@@ -7412,6 +7453,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContractMismatchException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("expectedType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedType { get; set; }
 
         public string ToJson()
         {
@@ -8611,7 +8654,7 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ObjectStoreResponseException : PictureparkBusinessException
+    public partial class ObjectStoreResponseException : PictureparkDatabaseException
     {
         [Newtonsoft.Json.JsonProperty("rowErrorMessages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowErrorMessages { get; set; }
@@ -8636,7 +8679,7 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ObjectStoreException : PictureparkBusinessException
+    public partial class ObjectStoreException : PictureparkDatabaseException
     {
         [Newtonsoft.Json.JsonProperty("rowErrorMessages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowErrorMessages { get; set; }
@@ -8661,10 +8704,8 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class QueryException : PictureparkBusinessException
+    public partial class QueryException : PictureparkDatabaseException
     {
-        [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DebugInformation { get; set; }
 
         public string ToJson()
         {
@@ -12245,34 +12286,6 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ContentBackupFailedException : PictureparkBusinessException
-    {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupFailedException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFailedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContentLayerSameRootException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12340,31 +12353,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentHistoricVersionNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Version { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -15503,7 +15491,7 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IngestContainerImportAlreadyInProgress : PictureparkValidationException
+    public partial class IngestContainerImportAlreadyInProgressException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Container { get; set; }
@@ -15514,10 +15502,10 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static IngestContainerImportAlreadyInProgress FromJson(string data)
+        public static IngestContainerImportAlreadyInProgressException FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgress>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgressException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -19895,7 +19883,14 @@ namespace Picturepark.SDK.V1.Contract
         /// Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration
         /// </summary>
         [Newtonsoft.Json.JsonProperty("namedCache", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Use LayerId property directly instead")]
         public string NamedCache { get; set; }
+
+        /// <summary>
+        /// ID of layer to assign items in.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
 
         /// <summary>
         /// List of refIds of the items that should be assigned.
@@ -20494,7 +20489,9 @@ namespace Picturepark.SDK.V1.Contract
         public string SchemaId { get; set; }
 
         /// <summary>
-        /// List of IDs of fields to use as a composite key
+        /// List of IDs of fields to lookup value in.
+        /// <br/>Fields need to be marked with SimpleSearch = true in schema configuration. Additionally, if case insensitive lookup should be used, the
+        /// <br/>simple analyzer must be added to the field as well.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("keyFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> KeyFields { get; set; }
@@ -20529,6 +20526,7 @@ namespace Picturepark.SDK.V1.Contract
     /// <summary>
     /// Creates a cache for all multi tag boxes in a schema
     /// <br/>Lookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter
+    /// <br/>Obsolete: Directly set SchemaId property on action AssignTagboxItemsInLayerAction instead
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class SchemaTagboxFilterLookupNamedCacheConfiguration : NamedCacheConfigurationBase
@@ -22017,8 +22015,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Email address of the user (doubles as username).
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
 
         /// <summary>
@@ -22974,6 +22971,13 @@ namespace Picturepark.SDK.V1.Contract
         public string OutputFormatId { get; set; }
 
         /// <summary>
+        /// Category of OutputFormat which this output represents.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatCategory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputFormatCategory? OutputFormatCategory { get; set; }
+
+        /// <summary>
         /// The ID of the content for which this output has been created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
@@ -22983,10 +22987,24 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputRenderingState RenderingState { get; set; }
+        [System.Obsolete("Replaced by RenderingStateV2")]
+        public OutputRenderingState? RenderingState { get; set; }
+
+        /// <summary>
+        /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2? RenderingStateV2 { get; set; }
+
+        /// <summary>
+        /// Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAvailabilityState? AvailabilityState { get; set; }
 
         /// <summary>
         /// Detail of the output that are format dependent.
@@ -22998,6 +23016,7 @@ namespace Picturepark.SDK.V1.Contract
         /// Date and time of the backup of the output file.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("backupTimestamp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Backup of outputs is implemented differently now")]
         public System.DateTime? BackupTimestamp { get; set; }
 
         /// <summary>
@@ -23009,11 +23028,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Always)]
-        public int FileVersion { get; set; }
+        [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Value was less accurate than it might have seemed")]
+        public int? FileVersion { get; set; }
 
         /// <summary>
-        /// Whether this Output belongs to a dynamic OutputFormat
+        /// Whether this Output belongs to a dynamic OutputFormat.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
@@ -23030,6 +23050,27 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Output>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
+
+    }
+
+    /// <summary>
+    /// Describes type of output format
+    /// <br/>Static: Static output format (rendering enqueued on content ingestion)
+    /// <br/>Dynamic: Dynamic output format (rendered upon download request)
+    /// <br/>Transient: Output format implicitly created by output editing operations
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputFormatCategory
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Static")]
+        Static = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Dynamic")]
+        Dynamic = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Transient")]
+        Transient = 2,
 
     }
 
@@ -23057,6 +23098,48 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputRenderingStateV2
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Renderable")]
+        Renderable = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
+        InProgress = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 3,
+
+    }
+
+    /// <summary>
+    /// Describes not directly rendering-outcome related state of an Output
+    /// <br/>SourceReplaced: The output is derived from a non-current source (e.g. after Original file replacement)
+    /// <br/>RerenderRequested: Rerendering has been explicitly requested or an OutputFormat used to produce this Output was edited
+    /// <br/>ToBeDeleted: The output is about to be or already has been deleted
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputAvailabilityState
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Normal")]
+        Normal = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"SourceReplaced")]
+        SourceReplaced = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"RerenderRequested")]
+        RerenderRequested = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ToBeDeleted")]
+        ToBeDeleted = 3,
+
+    }
+
     /// <summary>
     /// Base class for the output detail dependent on the file format.
     /// </summary>
@@ -23080,6 +23163,7 @@ namespace Picturepark.SDK.V1.Contract
         /// The path where the file is stored.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("No use case, information is internal")]
         public string FilePath { get; set; }
 
         /// <summary>
@@ -24460,29 +24544,43 @@ namespace Picturepark.SDK.V1.Contract
         public string Id { get; set; }
 
         /// <summary>
-        /// ID of output format.
+        /// The ID of the output format this output represents.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string OutputFormatId { get; set; }
 
         /// <summary>
-        /// ID of content.
+        /// The ID of the content for which this output has been created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
 
         /// <summary>
-        /// Rendering state of output.
+        /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputRenderingState RenderingState { get; set; }
+        [System.Obsolete("Replaced by RenderingStateV2")]
+        public OutputRenderingState? RenderingState { get; set; }
 
         /// <summary>
-        /// Whether this Output belongs to a dynamic OutputFormat
+        /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2? RenderingStateV2 { get; set; }
+
+        /// <summary>
+        /// Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("availabilityState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAvailabilityState? AvailabilityState { get; set; }
+
+        /// <summary>
+        /// Whether this Output belongs to a dynamic OutputFormat.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
@@ -25620,6 +25718,175 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ContentOwnershipBatchTransferFilterRequest
+    {
+        [Newtonsoft.Json.JsonProperty("filterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentFilterRequest FilterRequest { get; set; }
+
+        /// <summary>
+        /// The id of user to whom the content documents have to be transferred to.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+
+        /// <summary>
+        /// Create notification and notify on progress
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentOwnershipBatchTransferFilterRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentOwnershipBatchTransferFilterRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ContentPermissionsBatchUpdateFilterRequest : ContentPermissionSetsUpdateRequestBase
+    {
+        [Newtonsoft.Json.JsonProperty("filterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentFilterRequest FilterRequest { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentPermissionsBatchUpdateFilterRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsBatchUpdateFilterRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class ContentPermissionSetsUpdateRequestBase
+    {
+        /// <summary>
+        /// A container for all change commands.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PermissionSetsCommandBase> ChangeCommands { get; set; }
+
+        /// <summary>
+        /// Create notification and notify on progress
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentPermissionSetsUpdateRequestBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetsUpdateRequestBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// The base class for metadata value change commands.
+    /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("PermissionSetsAddCommand", typeof(PermissionSetsAddCommand))]
+    [JsonInheritanceAttribute("PermissionSetsRemoveCommand", typeof(PermissionSetsRemoveCommand))]
+    [JsonInheritanceAttribute("PermissionSetsSetCommand", typeof(PermissionSetsSetCommand))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class PermissionSetsCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsCommandBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsCommandBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PermissionSetsAddCommand : PermissionSetsCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsAddCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsAddCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PermissionSetsRemoveCommand : PermissionSetsCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsRemoveCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsRemoveCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PermissionSetsSetCommand : PermissionSetsCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PermissionSetsSetCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetsSetCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
     /// <summary>
     /// Result for content search operation
     /// </summary>
@@ -26290,6 +26557,7 @@ namespace Picturepark.SDK.V1.Contract
         /// Will exclude the historic versions that were created by XMP writeback
         /// </summary>
         [Newtonsoft.Json.JsonProperty("excludeXmpWritebackGenerated", Required = Newtonsoft.Json.Required.Always)]
+        [System.Obsolete("XmpWriteback for Original is not supported, so this has no effect")]
         public bool ExcludeXmpWritebackGenerated { get; set; }
 
         /// <summary>
@@ -28359,6 +28627,7 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>
         /// SAS token that allows uploading to the container.
+        /// <br/>Note: The token is valid for at most 24h after which all files uploaded, but not imported will be deleted.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sasToken", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -30019,209 +30288,191 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemBatchEditProgressCompletedWithErrors")]
         ListItemBatchEditProgressCompletedWithErrors = 39,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryDraft")]
-        ContentBackupRecoveryDraft = 40,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryInProgress")]
-        ContentBackupRecoveryInProgress = 41,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCompleted")]
-        ContentBackupRecoveryCompleted = 42,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryForcefullyCompleted")]
-        ContentBackupRecoveryForcefullyCompleted = 43,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCancelled")]
-        ContentBackupRecoveryCancelled = 44,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryFailed")]
-        ContentBackupRecoveryFailed = 45,
-
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditInProgress")]
-        ContentOwnershipBatchEditInProgress = 46,
+        ContentOwnershipBatchEditInProgress = 40,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditCompleted")]
-        ContentOwnershipBatchEditCompleted = 47,
+        ContentOwnershipBatchEditCompleted = 41,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressFailed")]
-        ContentOwnershipBatchEditProgressFailed = 48,
+        ContentOwnershipBatchEditProgressFailed = 42,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressCompletedWithErrors")]
-        ContentOwnershipBatchEditProgressCompletedWithErrors = 49,
+        ContentOwnershipBatchEditProgressCompletedWithErrors = 43,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditInProgress")]
-        ContentPermissionsBatchEditInProgress = 50,
+        ContentPermissionsBatchEditInProgress = 44,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditCompleted")]
-        ContentPermissionsBatchEditCompleted = 51,
+        ContentPermissionsBatchEditCompleted = 45,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressFailed")]
-        ContentPermissionsBatchEditProgressFailed = 52,
+        ContentPermissionsBatchEditProgressFailed = 46,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressCompletedWithErrors")]
-        ContentPermissionsBatchEditProgressCompletedWithErrors = 53,
+        ContentPermissionsBatchEditProgressCompletedWithErrors = 47,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyInProgress")]
-        ListItemDeactivateManyInProgress = 54,
+        ListItemDeactivateManyInProgress = 48,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyCompleted")]
-        ListItemDeactivateManyCompleted = 55,
+        ListItemDeactivateManyCompleted = 49,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressFailed")]
-        ListItemDeactivateManyProgressFailed = 56,
+        ListItemDeactivateManyProgressFailed = 50,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressCompletedWithErrors")]
-        ListItemDeactivateManyProgressCompletedWithErrors = 57,
+        ListItemDeactivateManyProgressCompletedWithErrors = 51,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyInProgress")]
-        ContentDeactivateManyInProgress = 58,
+        ContentDeactivateManyInProgress = 52,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyCompleted")]
-        ContentDeactivateManyCompleted = 59,
+        ContentDeactivateManyCompleted = 53,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressFailed")]
-        ContentDeactivateManyProgressFailed = 60,
+        ContentDeactivateManyProgressFailed = 54,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressCompletedWithErrors")]
-        ContentDeactivateManyProgressCompletedWithErrors = 61,
+        ContentDeactivateManyProgressCompletedWithErrors = 55,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ExternalBusinessProcessTitle")]
-        ExternalBusinessProcessTitle = 62,
+        ExternalBusinessProcessTitle = 56,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsInProgress")]
-        MetadataRelatedItemsInProgress = 63,
+        MetadataRelatedItemsInProgress = 57,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressFailed")]
-        MetadataRelatedItemsProgressFailed = 64,
+        MetadataRelatedItemsProgressFailed = 58,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressCompletedWithErrors")]
-        MetadataRelatedItemsProgressCompletedWithErrors = 65,
+        MetadataRelatedItemsProgressCompletedWithErrors = 59,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsCompleted")]
-        MetadataRelatedItemsCompleted = 66,
+        MetadataRelatedItemsCompleted = 60,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingInProgress")]
-        AutoTaggingInProgress = 67,
+        AutoTaggingInProgress = 61,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceeded")]
-        AutoTaggingSucceeded = 68,
+        AutoTaggingSucceeded = 62,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceededWithErrors")]
-        AutoTaggingSucceededWithErrors = 69,
+        AutoTaggingSucceededWithErrors = 63,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingFailed")]
-        AutoTaggingFailed = 70,
+        AutoTaggingFailed = 64,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingCancelled")]
-        AutoTaggingCancelled = 71,
+        AutoTaggingCancelled = 65,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyInProgress")]
-        ContentUpdateManyInProgress = 72,
+        ContentUpdateManyInProgress = 66,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompleted")]
-        ContentUpdateManyCompleted = 73,
+        ContentUpdateManyCompleted = 67,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompletedWithErrors")]
-        ContentUpdateManyCompletedWithErrors = 74,
+        ContentUpdateManyCompletedWithErrors = 68,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyFailed")]
-        ContentUpdateManyFailed = 75,
+        ContentUpdateManyFailed = 69,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaInProgress")]
-        MetadataRelatedItemsBySchemaInProgress = 76,
+        MetadataRelatedItemsBySchemaInProgress = 70,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaFailed")]
-        MetadataRelatedItemsBySchemaFailed = 77,
+        MetadataRelatedItemsBySchemaFailed = 71,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompletedWithErrors")]
-        MetadataRelatedItemsBySchemaCompletedWithErrors = 78,
+        MetadataRelatedItemsBySchemaCompletedWithErrors = 72,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompleted")]
-        MetadataRelatedItemsBySchemaCompleted = 79,
+        MetadataRelatedItemsBySchemaCompleted = 73,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateInProgress")]
-        MetadataOutdatedItemsUpdateInProgress = 80,
+        MetadataOutdatedItemsUpdateInProgress = 74,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompleted")]
-        MetadataOutdatedItemsUpdateCompleted = 81,
+        MetadataOutdatedItemsUpdateCompleted = 75,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompletedWithErrors")]
-        MetadataOutdatedItemsUpdateCompletedWithErrors = 82,
+        MetadataOutdatedItemsUpdateCompletedWithErrors = 76,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateFailed")]
-        MetadataOutdatedItemsUpdateFailed = 83,
+        MetadataOutdatedItemsUpdateFailed = 77,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingInProgress")]
-        BatchRenderingInProgress = 84,
+        BatchRenderingInProgress = 78,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompleted")]
-        BatchRenderingCompleted = 85,
+        BatchRenderingCompleted = 79,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompletedWithErrors")]
-        BatchRenderingCompletedWithErrors = 86,
+        BatchRenderingCompletedWithErrors = 80,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingFailed")]
-        BatchRenderingFailed = 87,
+        BatchRenderingFailed = 81,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleTitle")]
-        BusinessRuleTitle = 88,
+        BusinessRuleTitle = 82,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
-        StatisticsExportDraft = 89,
+        StatisticsExportDraft = 83,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
-        StatisticsExportInProgress = 90,
+        StatisticsExportInProgress = 84,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
-        StatisticsExportCompleted = 91,
+        StatisticsExportCompleted = 85,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
-        StatisticsExportFailed = 92,
+        StatisticsExportFailed = 86,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
-        StatisticsExportCancelled = 93,
+        StatisticsExportCancelled = 87,
 
         [System.Runtime.Serialization.EnumMember(Value = @"NewComment")]
-        NewComment = 94,
+        NewComment = 88,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestInProgress")]
-        IngestInProgress = 95,
+        IngestInProgress = 89,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompleted")]
-        IngestCompleted = 96,
+        IngestCompleted = 90,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestFailed")]
-        IngestFailed = 97,
+        IngestFailed = 91,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
-        IngestCompletedWithErrors = 98,
+        IngestCompletedWithErrors = 92,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
-        IngestCancelled = 99,
+        IngestCancelled = 93,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 100,
+        UserEmailConflictSolved = 94,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedSubject")]
-        UserEmailConflictSolvedSubject = 101,
+        UserEmailConflictSolvedSubject = 95,
 
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
-        SupportUserDeactivation = 102,
+        SupportUserDeactivation = 96,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileInProgress")]
-        IngestReplaceFileInProgress = 103,
+        IngestReplaceFileInProgress = 97,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCompleted")]
-        IngestReplaceFileCompleted = 104,
+        IngestReplaceFileCompleted = 98,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileFailed")]
-        IngestReplaceFileFailed = 105,
+        IngestReplaceFileFailed = 99,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCancelled")]
-        IngestReplaceFileCancelled = 106,
+        IngestReplaceFileCancelled = 100,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 107,
+        ImportFailedTitle = 101,
 
     }
 
@@ -30352,209 +30603,191 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemBatchEditProgressCompletedWithErrors")]
         ListItemBatchEditProgressCompletedWithErrors = 40,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryDraft")]
-        ContentBackupRecoveryDraft = 41,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryInProgress")]
-        ContentBackupRecoveryInProgress = 42,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCompleted")]
-        ContentBackupRecoveryCompleted = 43,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryForcefullyCompleted")]
-        ContentBackupRecoveryForcefullyCompleted = 44,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryCancelled")]
-        ContentBackupRecoveryCancelled = 45,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentBackupRecoveryFailed")]
-        ContentBackupRecoveryFailed = 46,
-
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditInProgress")]
-        ContentOwnershipBatchEditInProgress = 47,
+        ContentOwnershipBatchEditInProgress = 41,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditCompleted")]
-        ContentOwnershipBatchEditCompleted = 48,
+        ContentOwnershipBatchEditCompleted = 42,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressFailed")]
-        ContentOwnershipBatchEditProgressFailed = 49,
+        ContentOwnershipBatchEditProgressFailed = 43,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentOwnershipBatchEditProgressCompletedWithErrors")]
-        ContentOwnershipBatchEditProgressCompletedWithErrors = 50,
+        ContentOwnershipBatchEditProgressCompletedWithErrors = 44,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditInProgress")]
-        ContentPermissionsBatchEditInProgress = 51,
+        ContentPermissionsBatchEditInProgress = 45,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditCompleted")]
-        ContentPermissionsBatchEditCompleted = 52,
+        ContentPermissionsBatchEditCompleted = 46,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressFailed")]
-        ContentPermissionsBatchEditProgressFailed = 53,
+        ContentPermissionsBatchEditProgressFailed = 47,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionsBatchEditProgressCompletedWithErrors")]
-        ContentPermissionsBatchEditProgressCompletedWithErrors = 54,
+        ContentPermissionsBatchEditProgressCompletedWithErrors = 48,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserTriggeredDeactivationRequestMessage")]
-        UserTriggeredDeactivationRequestMessage = 55,
+        UserTriggeredDeactivationRequestMessage = 49,
 
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 56,
+        UserEmailConflictSolved = 50,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyInProgress")]
-        ListItemDeactivateManyInProgress = 57,
+        ListItemDeactivateManyInProgress = 51,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyCompleted")]
-        ListItemDeactivateManyCompleted = 58,
+        ListItemDeactivateManyCompleted = 52,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressFailed")]
-        ListItemDeactivateManyProgressFailed = 59,
+        ListItemDeactivateManyProgressFailed = 53,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ListItemDeactivateManyProgressCompletedWithErrors")]
-        ListItemDeactivateManyProgressCompletedWithErrors = 60,
+        ListItemDeactivateManyProgressCompletedWithErrors = 54,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyInProgress")]
-        ContentDeactivateManyInProgress = 61,
+        ContentDeactivateManyInProgress = 55,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyCompleted")]
-        ContentDeactivateManyCompleted = 62,
+        ContentDeactivateManyCompleted = 56,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressFailed")]
-        ContentDeactivateManyProgressFailed = 63,
+        ContentDeactivateManyProgressFailed = 57,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentDeactivateManyProgressCompletedWithErrors")]
-        ContentDeactivateManyProgressCompletedWithErrors = 64,
+        ContentDeactivateManyProgressCompletedWithErrors = 58,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ExternalBusinessProcessMessage")]
-        ExternalBusinessProcessMessage = 65,
+        ExternalBusinessProcessMessage = 59,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsInProgress")]
-        MetadataRelatedItemsInProgress = 66,
+        MetadataRelatedItemsInProgress = 60,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressFailed")]
-        MetadataRelatedItemsProgressFailed = 67,
+        MetadataRelatedItemsProgressFailed = 61,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsProgressCompletedWithErrors")]
-        MetadataRelatedItemsProgressCompletedWithErrors = 68,
+        MetadataRelatedItemsProgressCompletedWithErrors = 62,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsCompleted")]
-        MetadataRelatedItemsCompleted = 69,
+        MetadataRelatedItemsCompleted = 63,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingInProgress")]
-        AutoTaggingInProgress = 70,
+        AutoTaggingInProgress = 64,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceeded")]
-        AutoTaggingSucceeded = 71,
+        AutoTaggingSucceeded = 65,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingSucceededWithErrors")]
-        AutoTaggingSucceededWithErrors = 72,
+        AutoTaggingSucceededWithErrors = 66,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingFailed")]
-        AutoTaggingFailed = 73,
+        AutoTaggingFailed = 67,
 
         [System.Runtime.Serialization.EnumMember(Value = @"AutoTaggingCancelled")]
-        AutoTaggingCancelled = 74,
+        AutoTaggingCancelled = 68,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyInProgress")]
-        ContentUpdateManyInProgress = 75,
+        ContentUpdateManyInProgress = 69,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompleted")]
-        ContentUpdateManyCompleted = 76,
+        ContentUpdateManyCompleted = 70,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyCompletedWithErrors")]
-        ContentUpdateManyCompletedWithErrors = 77,
+        ContentUpdateManyCompletedWithErrors = 71,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ContentUpdateManyFailed")]
-        ContentUpdateManyFailed = 78,
+        ContentUpdateManyFailed = 72,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaInProgress")]
-        MetadataRelatedItemsBySchemaInProgress = 79,
+        MetadataRelatedItemsBySchemaInProgress = 73,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaFailed")]
-        MetadataRelatedItemsBySchemaFailed = 80,
+        MetadataRelatedItemsBySchemaFailed = 74,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompletedWithErrors")]
-        MetadataRelatedItemsBySchemaCompletedWithErrors = 81,
+        MetadataRelatedItemsBySchemaCompletedWithErrors = 75,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataRelatedItemsBySchemaCompleted")]
-        MetadataRelatedItemsBySchemaCompleted = 82,
+        MetadataRelatedItemsBySchemaCompleted = 76,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateInProgress")]
-        MetadataOutdatedItemsUpdateInProgress = 83,
+        MetadataOutdatedItemsUpdateInProgress = 77,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompleted")]
-        MetadataOutdatedItemsUpdateCompleted = 84,
+        MetadataOutdatedItemsUpdateCompleted = 78,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateCompletedWithErrors")]
-        MetadataOutdatedItemsUpdateCompletedWithErrors = 85,
+        MetadataOutdatedItemsUpdateCompletedWithErrors = 79,
 
         [System.Runtime.Serialization.EnumMember(Value = @"MetadataOutdatedItemsUpdateFailed")]
-        MetadataOutdatedItemsUpdateFailed = 86,
+        MetadataOutdatedItemsUpdateFailed = 80,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingInProgress")]
-        BatchRenderingInProgress = 87,
+        BatchRenderingInProgress = 81,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompleted")]
-        BatchRenderingCompleted = 88,
+        BatchRenderingCompleted = 82,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingCompletedWithErrors")]
-        BatchRenderingCompletedWithErrors = 89,
+        BatchRenderingCompletedWithErrors = 83,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BatchRenderingFailed")]
-        BatchRenderingFailed = 90,
+        BatchRenderingFailed = 84,
 
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleMessage")]
-        BusinessRuleMessage = 91,
+        BusinessRuleMessage = 85,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
-        StatisticsExportDraft = 92,
+        StatisticsExportDraft = 86,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
-        StatisticsExportInProgress = 93,
+        StatisticsExportInProgress = 87,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
-        StatisticsExportCompleted = 94,
+        StatisticsExportCompleted = 88,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
-        StatisticsExportFailed = 95,
+        StatisticsExportFailed = 89,
 
         [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
-        StatisticsExportCancelled = 96,
+        StatisticsExportCancelled = 90,
 
         [System.Runtime.Serialization.EnumMember(Value = @"NewComment")]
-        NewComment = 97,
+        NewComment = 91,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestDataExtractionInProgress")]
-        IngestDataExtractionInProgress = 98,
+        IngestDataExtractionInProgress = 92,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestContentCreationInProgress")]
-        IngestContentCreationInProgress = 99,
+        IngestContentCreationInProgress = 93,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompleted")]
-        IngestCompleted = 100,
+        IngestCompleted = 94,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestFailed")]
-        IngestFailed = 101,
+        IngestFailed = 95,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCompletedWithErrors")]
-        IngestCompletedWithErrors = 102,
+        IngestCompletedWithErrors = 96,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestCancelled")]
-        IngestCancelled = 103,
+        IngestCancelled = 97,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileDataExtractionInProgress")]
-        IngestReplaceFileDataExtractionInProgress = 104,
+        IngestReplaceFileDataExtractionInProgress = 98,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileInProgress")]
-        IngestReplaceFileInProgress = 105,
+        IngestReplaceFileInProgress = 99,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCompleted")]
-        IngestReplaceFileCompleted = 106,
+        IngestReplaceFileCompleted = 100,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileFailed")]
-        IngestReplaceFileFailed = 107,
+        IngestReplaceFileFailed = 101,
 
         [System.Runtime.Serialization.EnumMember(Value = @"IngestReplaceFileCancelled")]
-        IngestReplaceFileCancelled = 108,
+        IngestReplaceFileCancelled = 102,
 
     }
 
@@ -30565,7 +30798,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotificationDetailSchemaImport", typeof(NotificationDetailSchemaImport))]
     [JsonInheritanceAttribute("NotificationDetailIndexReindexProgress", typeof(NotificationDetailIndexReindexProgress))]
     [JsonInheritanceAttribute("NotificationDetailUserRegistered", typeof(NotificationDetailUserRegistered))]
-    [JsonInheritanceAttribute("NotificationDetailContentBackupRecovery", typeof(NotificationDetailContentBackupRecovery))]
     [JsonInheritanceAttribute("NotificationDetailExternalBusinessProcess", typeof(NotificationDetailExternalBusinessProcess))]
     [JsonInheritanceAttribute("NotificationDetailBusinessRule", typeof(NotificationDetailBusinessRule))]
     [JsonInheritanceAttribute("NotificationDetailTagging", typeof(NotificationDetailTagging))]
@@ -30837,30 +31069,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailUserRegistered>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NotificationDetailContentBackupRecovery : NotificationDetailBusinessProcessBase
-    {
-        [Newtonsoft.Json.JsonProperty("contentTotalCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long ContentTotalCount { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("contentProgressCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long ContentProgressCount { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NotificationDetailContentBackupRecovery FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailContentBackupRecovery>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -33704,7 +33912,7 @@ namespace Picturepark.SDK.V1.Contract
         public bool DataExtraction { get; set; }
 
         /// <summary>
-        /// Temporary outputs will not be backed up.
+        /// Temporary outputs are only used during rendering, they are not persisted or made available to users directly.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("temporary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Temporary { get; set; }
@@ -33963,6 +34171,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [System.Obsolete("Use Content endpoints to resolve Outputs instead")]
     public partial class OutputSearchRequest
     {
         /// <summary>
@@ -37866,8 +38075,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// MD5 hash of email address. Can be used to display gravatar image
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailHash { get; set; }
 
         public string ToJson()
@@ -37986,14 +38194,14 @@ namespace Picturepark.SDK.V1.Contract
     public abstract partial class ShareOutputBase
     {
         /// <summary>
-        /// Content ID.
+        /// The ID of the content for which this output has been created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
 
         /// <summary>
-        /// Output format ID.
+        /// The ID of the output format this output represents.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -38018,7 +38226,7 @@ namespace Picturepark.SDK.V1.Contract
         public OutputDataBase Detail { get; set; }
 
         /// <summary>
-        /// Whether this Output belongs to a dynamic OutputFormat
+        /// Whether this Output belongs to a dynamic OutputFormat.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
@@ -38026,10 +38234,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// The rendering state of the output file.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OutputRenderingState RenderingState { get; set; }
+        [System.Obsolete("Replaced by OutputRenderingStateV2")]
+        public OutputRenderingState? RenderingState { get; set; }
+
+        /// <summary>
+        /// The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2? RenderingStateV2 { get; set; }
 
         public string ToJson()
         {
@@ -43509,7 +43724,12 @@ namespace Picturepark.SDK.V1.Contract
 
         [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [System.Obsolete("Replaced by OutputRenderingStateV2")]
         public OutputRenderingState RenderingState { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2 RenderingStateV2 { get; set; }
 
         public string ToJson()
         {
@@ -43805,12 +44025,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class TupleOfStringAndString
     {
-        [Newtonsoft.Json.JsonProperty("item1", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("item1", Required = Newtonsoft.Json.Required.AllowNull)]
         public string Item1 { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("item2", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("item2", Required = Newtonsoft.Json.Required.AllowNull)]
         public string Item2 { get; set; }
 
         public string ToJson()

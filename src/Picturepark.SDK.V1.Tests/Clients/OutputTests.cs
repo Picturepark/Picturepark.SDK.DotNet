@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
 using Xunit;
@@ -7,6 +8,7 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
+    [Trait("Stack", "Outputs")]
     public class OutputTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
@@ -19,7 +21,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Outputs")]
         public async Task ShouldGet()
         {
             // Arrange
@@ -41,7 +42,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Outputs")]
+        [Obsolete("Use Content resolve endpoints instead")]
         public async Task ShouldGetByContentIds()
         {
             // Arrange

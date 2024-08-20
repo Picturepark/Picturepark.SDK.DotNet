@@ -18,6 +18,7 @@ using Picturepark.SDK.V1.AzureBlob;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Providers;
 using Picturepark.SDK.V1.Contract.SystemTypes;
+using SkiaSharp;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -129,6 +130,45 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             Assert.Equal(newOwner1.Id, newOwner2.Id);
             Assert.Equal(newUser.Id, newOwner1.Id);
+        }
+
+        [Fact]
+        public async Task ShouldSearchByPermissionSet()
+        {
+            // Arrange: Create new permissionSet and assign it to a random content
+            var newPermissionSetId = (await _fixture.ContentPermissions.Create(1)).Single().Id;
+            var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 100);
+
+            var updateBusinessProcess = await _client.Content.UpdatePermissionsByFilterAsync(new ContentPermissionsBatchUpdateFilterRequest
+            {
+                FilterRequest = new ContentFilterRequest
+                {
+                    Filter = new TermFilter
+                    {
+                        Field = nameof(Content.Id).ToLowerCamelCase(),
+                        Term = contentId
+                    }
+                },
+                ChangeCommands = new List<PermissionSetsCommandBase>
+                {
+                    new PermissionSetsAddCommand { PermissionSetIds = new List<string> { newPermissionSetId } }
+                }
+            });
+
+            await _client.BusinessProcess.WaitForCompletionAsync(updateBusinessProcess.Id);
+
+            // Act
+            var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
+            {
+                Filter = new TermFilter
+                {
+                    Field = "permissionSetIds",
+                    Term = newPermissionSetId
+                }
+            });
+
+            // Assert
+            searchResult.Results.Should().ContainSingle().Which.Id.Should().Be(contentId);
         }
 
         [Fact]
@@ -407,25 +447,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest);
             Assert.NotNull(result.DownloadUrl);
 
-            using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(result.DownloadUrl))
-            {
-                response.EnsureSuccessStatusCode();
+            using var httpClient = new HttpClient();
+            using var response = await httpClient.GetAsync(result.DownloadUrl);
+            response.EnsureSuccessStatusCode();
 
-                var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
-                Assert.EndsWith(".jpg", fileName);
+            var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+            Assert.EndsWith(".jpg", fileName);
 
-                var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = File.Create(filePath))
-                {
-                    await stream.CopyToAsync(fileStream);
+            await using var stream = await response.Content.ReadAsStreamAsync();
+            await using var fileStream = File.Create(filePath);
+            await stream.CopyToAsync(fileStream);
 
-                    // Assert
-                    Assert.True(stream.Length > 10);
-                }
-            }
+            // Assert
+            Assert.True(stream.Length > 10);
         }
 
         [Fact]
@@ -449,25 +485,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest);
             Assert.NotNull(result.DownloadUrl);
 
-            using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(result.DownloadUrl))
-            {
-                response.EnsureSuccessStatusCode();
+            using var httpClient = new HttpClient();
+            using var response = await httpClient.GetAsync(result.DownloadUrl);
+            response.EnsureSuccessStatusCode();
 
-                var fileName = response.Content.Headers.ContentDisposition.FileName;
-                Assert.EndsWith(".zip", fileName);
+            var fileName = response.Content.Headers.ContentDisposition.FileName;
+            Assert.EndsWith(".zip", fileName);
 
-                var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = File.Create(filePath))
-                {
-                    await stream.CopyToAsync(fileStream);
+            await using var stream = await response.Content.ReadAsStreamAsync();
+            await using var fileStream = File.Create(filePath);
+            await stream.CopyToAsync(fileStream);
 
-                    // Assert
-                    Assert.True(stream.Length > 10);
-                }
-            }
+            // Assert
+            Assert.True(stream.Length > 10);
         }
 
         [Fact]
@@ -617,16 +649,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Content.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000"))
-            {
-                response.GetFileName().Should().Be(fileMetadata.FileName);
+            using var response = await _client.Content.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000");
+            response.GetFileName().Should().Be(fileMetadata.FileName);
 
-                var stream = response.Stream;
-                Assert.True(stream.CanRead);
+            var stream = response.Stream;
+            Assert.True(stream.CanRead);
 
-                await response.Stream.WriteToFileAsync(filePath);
-                Assert.True(File.Exists(filePath));
-            }
+            await response.Stream.WriteToFileAsync(filePath);
+            Assert.True(File.Exists(filePath));
         }
 
         [Theory,
@@ -640,11 +670,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20);
 
             // Act
-            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size))
-            {
-                // Assert
-                await AssertFileResponseOkAndNonEmpty(response, "image/jpeg");
-            }
+            using var response = await _client.Content.DownloadThumbnailAsync(contentId, size);
+
+            // Assert
+            await AssertFileResponseOkAndNonEmpty(response, "image/jpeg");
         }
 
         [Theory,
@@ -1112,16 +1141,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             File.Exists(filePath).Should().BeTrue();
 
-            using (var bitmap = new Bitmap(filePath))
-            {
-                Math.Max(bitmap.Width, bitmap.Height).Should().Be(resizeTarget, "should resize to target");
+            var imageInfo = SKBitmap.DecodeBounds(filePath);
+            Math.Max(imageInfo.Width, imageInfo.Height).Should().Be(resizeTarget, "should resize to target");
 
-                var resizedAspectRatio = (float)bitmap.Width / bitmap.Height;
-                resizedAspectRatio.Should().BeInRange(
+            var resizedAspectRatio = (float)imageInfo.Width / imageInfo.Height;
+            resizedAspectRatio.Should().BeInRange(
                     0.98f * sourceAspectRatio,
                     1.02f * sourceAspectRatio,
                     "should keep aspect ratio");
-            }
         }
 
         [Fact]
@@ -1132,13 +1159,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             contentId.Should().NotBeNullOrEmpty();
 
             // Act
-            using (var response = await _client.Content.EditOutputAsync(contentId, "Preview", "resize-to:200x200"))
-            {
-                // Assert
-                var bitmap = new Bitmap(response.Stream);
-                bitmap.Width.Should().Be(200);
-                bitmap.Height.Should().Be(200);
-            }
+            using var response = await _client.Content.EditOutputAsync(contentId, "Preview", "resize-to:200x200");
+
+            // Assert
+            var imageInfo = SKBitmap.DecodeBounds(response.Stream);
+            imageInfo.Width.Should().Be(200);
+            imageInfo.Height.Should().Be(200);
         }
 
         [Fact]
@@ -1211,11 +1237,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var expectedHeight = (bottomRight.Y - topLeft.Y) * imageMetadata.Height;
             var expectedWidth = (bottomRight.X - topLeft.X) * imageMetadata.Width;
 
-            using (var bitmap = new Bitmap(filePath))
-            {
-                bitmap.Height.Should().BeInRange((int)(0.98f * expectedHeight), (int)(1.02f * expectedHeight));
-                bitmap.Width.Should().BeInRange((int)(0.98f * expectedWidth), (int)(1.02f * expectedWidth));
-            }
+            var imageInfo = SKBitmap.DecodeBounds(filePath);
+            imageInfo.Height.Should().BeInRange((int)(0.98f * expectedHeight), (int)(1.02f * expectedHeight));
+            imageInfo.Width.Should().BeInRange((int)(0.98f * expectedWidth), (int)(1.02f * expectedWidth));
         }
 
         [Fact]
@@ -1921,25 +1945,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 // Versions are numbered in sequence from 1.
                 var downloadLink = await _client.Content.GetVersionDownloadLinkAsync(contentId, 1);
 
-                using (var httpClient = new HttpClient())
-                using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl))
-                {
-                    response.EnsureSuccessStatusCode();
+                using var httpClient = new HttpClient();
+                using var response = await httpClient.GetAsync(downloadLink.DownloadUrl);
+                response.EnsureSuccessStatusCode();
 
-                    var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
-                    Assert.EndsWith(".jpg", fileName);
+                var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+                Assert.EndsWith(".jpg", fileName);
 
-                    var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+                var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                    using (var stream = await response.Content.ReadAsStreamAsync())
-                    using (var fileStream = File.Create(filePath))
-                    {
-                        await stream.CopyToAsync(fileStream);
+                await using var stream = await response.Content.ReadAsStreamAsync();
+                await using var fileStream = File.Create(filePath);
+                await stream.CopyToAsync(fileStream);
 
-                        // Assert
-                        Assert.True(stream.Length > 10);
-                    }
-                }
+                // Assert
+                Assert.True(stream.Length > 10);
             }
             else
             {
@@ -2145,19 +2165,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response, string expectedContentType = null)
         {
-            using (var stream = new MemoryStream())
+            using var stream = new MemoryStream();
+            response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+
+            if (expectedContentType != null)
             {
-                response.StatusCode.Should().Be((int)HttpStatusCode.OK);
-
-                if (expectedContentType != null)
-                {
-                    var contentType = response.Headers["Content-Type"].Single();
-                    contentType.Should().Be(expectedContentType);
-                }
-
-                await response.Stream.CopyToAsync(stream);
-                stream.Length.Should().BeGreaterOrEqualTo(10);
+                var contentType = response.Headers["Content-Type"].Single();
+                contentType.Should().Be(expectedContentType);
             }
+
+            await response.Stream.CopyToAsync(stream);
+            stream.Length.Should().BeGreaterOrEqualTo(10);
         }
 
         private async Task<ContentDetail> CreateContentItem()

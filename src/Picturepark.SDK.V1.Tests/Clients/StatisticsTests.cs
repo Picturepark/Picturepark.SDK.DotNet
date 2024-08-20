@@ -170,12 +170,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private static async Task<string> Download(DownloadLink downloadLink)
         {
-            using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl))
-            {
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync();
-            }
+            using var httpClient = new HttpClient();
+            using var response = await httpClient.GetAsync(downloadLink.DownloadUrl);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
         }
 
         private static IEnumerable<DateTime> Intervals(DateTime begin, TimeSpan intervalSize, DateTime endExclusive)

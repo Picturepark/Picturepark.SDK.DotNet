@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using FluentAssertions;
 using Picturepark.SDK.V1.AzureBlob;
+using SkiaSharp;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -416,11 +417,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
 
             // Act
-            using (var result = await _client.Share.DownloadAsync(shareOutput.Token))
-            {
-                // Assert
-                Assert.NotNull(result);
-            }
+            using var result = await _client.Share.DownloadAsync(shareOutput.Token);
+
+            // Assert
+            Assert.NotNull(result);
         }
 
         [Fact]
@@ -439,13 +439,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var embedDetail = await _client.Share.GetAsync(shareId);
 
             // Act
-            using (var result = await _client.Share
-                .DownloadWithOutputFormatIdAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original")
-                )
-            {
-                // Assert
-                Assert.NotNull(result);
-            }
+            using var result = await _client.Share.DownloadWithOutputFormatIdAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original");
+
+            // Assert
+            Assert.NotNull(result);
         }
 
         [Theory]
@@ -487,17 +484,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var token = embedDetail.ContentSelections.Single().Outputs.OfType<ShareOutputEmbed>().Single(o => !o.DynamicRendering).Token;
 
             // Act
-            using (var result = await _client.Share
-                .DownloadWithConversionPresetAsync(token, preset)
-                )
-            {
-                var tempFile = Path.GetTempFileName();
-                await result.Stream.WriteToFileAsync(tempFile);
+            using var result = await _client.Share
+                .DownloadWithConversionPresetAsync(token, preset);
+            var tempFile = Path.GetTempFileName();
+            await result.Stream.WriteToFileAsync(tempFile);
 
-                var bitmap = new Bitmap(tempFile);
-                bitmap.Width.Should().Be(expectedWidth);
-                bitmap.Height.Should().Be(expectedHeight);
-            }
+            var imageInfo = SKBitmap.DecodeBounds(tempFile);
+            imageInfo.Width.Should().Be(expectedWidth);
+            imageInfo.Height.Should().Be(expectedHeight);
         }
 
         [Fact]

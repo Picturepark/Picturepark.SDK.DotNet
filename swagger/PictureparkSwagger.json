@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -30,8 +30,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -245,8 +244,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -366,8 +364,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -480,8 +477,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -581,8 +577,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -715,8 +710,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -849,8 +843,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -978,8 +971,7 @@
             "required": true,
             "description": "The business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -1086,8 +1078,7 @@
             "required": true,
             "description": "Business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -1193,8 +1184,7 @@
             "required": true,
             "description": "Business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -1321,8 +1311,7 @@
             "required": true,
             "description": "Business process id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -2181,8 +2170,7 @@
             "required": true,
             "description": "The channel ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2287,8 +2275,7 @@
             "required": true,
             "description": "ID of channel to update",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2406,8 +2393,7 @@
             "required": true,
             "description": "ID of the channel that should be deleted.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2798,8 +2784,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -2904,8 +2889,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3023,8 +3007,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3345,8 +3328,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3459,8 +3441,7 @@
             "required": true,
             "description": "Content permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -4216,8 +4197,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4229,7 +4209,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -4361,8 +4340,7 @@
             "required": true,
             "description": "The ID of the content to delete.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4681,8 +4659,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4692,8 +4669,7 @@
             "required": true,
             "description": "The output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -4703,8 +4679,7 @@
             "required": true,
             "description": "The conversion preset.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 3
           }
@@ -4826,8 +4801,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4972,7 +4946,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5151,7 +5124,6 @@
             "description": "List of content IDs",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "type": "string"
               }
@@ -5166,7 +5138,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5327,8 +5298,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -5340,7 +5310,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5518,8 +5487,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -5531,7 +5499,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -5699,8 +5666,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -5831,8 +5797,7 @@
             "required": true,
             "description": "The content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -6072,8 +6037,7 @@
             "required": true,
             "description": "The ID of the content to replace.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6193,8 +6157,7 @@
             "required": true,
             "description": "The ID of the content to replace.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -6324,8 +6287,7 @@
             "required": true,
             "description": "The content ID whose references to retrieve.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6445,8 +6407,7 @@
             "required": true,
             "description": "ID of content.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6663,8 +6624,7 @@
             "required": true,
             "description": "Token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8187,6 +8147,222 @@
         ]
       }
     },
+    "/v1/Contents/batches/ownership/filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Transfer multiple contents ownerships - by filter",
+        "description": "Transfers ownerships of multiple contents to specified users. The target users must have the ManageContent UserRight.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_TransferOwnershipByFilter",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content ownership transfer many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentOwnershipBatchTransferFilterRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/batches/permissions/filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update multiple contents permissions - by filter",
+        "description": "Updates the content permission sets of multiple contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_UpdatePermissionsByFilter",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content permissions update many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPermissionsBatchUpdateFilterRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Contents/search": {
       "post": {
         "tags": [
@@ -8525,8 +8701,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8645,8 +8820,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8763,8 +8937,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8874,8 +9047,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8885,8 +9057,7 @@
             "required": true,
             "description": "Comment ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -9014,8 +9185,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9025,8 +9195,7 @@
             "required": true,
             "description": "Comment ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -9154,8 +9323,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9165,8 +9333,7 @@
             "required": true,
             "description": "Comment ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -9276,8 +9443,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9407,8 +9573,7 @@
             "required": true,
             "description": "Content ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -9527,8 +9692,7 @@
             "required": true,
             "description": "Id of the content",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9540,7 +9704,6 @@
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "schema": {
               "type": "array",
-              "nullable": true,
               "items": {
                 "$ref": "#/components/schemas/ContentResolveBehavior"
               }
@@ -10155,8 +10318,7 @@
             "required": true,
             "description": "Conversion preset template ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10285,8 +10447,7 @@
             "required": true,
             "description": "Conversion preset template ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10395,8 +10556,7 @@
             "required": true,
             "description": "Conversion preset template ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -11015,8 +11175,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11026,8 +11185,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -11134,8 +11292,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11145,8 +11302,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -11264,8 +11420,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11275,8 +11430,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -11393,8 +11547,7 @@
             "required": true,
             "description": "The type of the document (e.g. Content).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11404,8 +11557,7 @@
             "required": true,
             "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -11836,8 +11988,7 @@
             "required": true,
             "description": "Identity provider ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -11942,8 +12093,7 @@
             "required": true,
             "description": "Identity provider ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12320,8 +12470,7 @@
             "required": true,
             "description": "Container name",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12440,8 +12589,7 @@
             "required": true,
             "description": "Container name",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12668,8 +12816,7 @@
             "required": true,
             "description": "The ID of the schema whose json schema to retrieve.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12774,8 +12921,7 @@
             "required": true,
             "description": "The list item ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -12895,8 +13041,7 @@
             "required": true,
             "description": "The list item ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -13060,8 +13205,7 @@
             "required": true,
             "description": "The ID of the list item to delete.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -13216,8 +13360,7 @@
             "required": true,
             "description": "The list item ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -13348,8 +13491,7 @@
             "required": true,
             "description": "The ID of the list item.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15128,8 +15270,7 @@
             "required": true,
             "description": "ID of notification",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15235,8 +15376,7 @@
             "required": true,
             "description": "ID of notification",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15943,8 +16083,7 @@
             "required": true,
             "description": "ID of the output format.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -16172,8 +16311,7 @@
             "required": true,
             "description": "ID of the output format.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -16401,8 +16539,7 @@
             "required": true,
             "description": "ID of the output format.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -16998,8 +17135,7 @@
             "required": true,
             "description": "Output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17117,8 +17253,7 @@
             "required": true,
             "description": "Output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17223,8 +17358,7 @@
             "required": true,
             "description": "Output format ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17653,8 +17787,7 @@
             "required": true,
             "description": "Output ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -17845,6 +17978,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": [
@@ -18266,8 +18400,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18372,8 +18505,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18491,8 +18623,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18813,8 +18944,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -18927,8 +19057,7 @@
             "required": true,
             "description": "Schema permission set ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -19684,8 +19813,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -19814,8 +19942,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20003,8 +20130,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20181,8 +20307,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -20289,8 +20414,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20300,8 +20424,7 @@
             "required": true,
             "description": "The field ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -20408,8 +20531,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -20553,8 +20675,7 @@
             "required": true,
             "description": "The schema ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -21605,8 +21726,7 @@
             "required": true,
             "description": "The ID of the schema.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -21829,8 +21949,7 @@
             "required": true,
             "description": "The ID of the schema.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -22448,8 +22567,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -22584,8 +22702,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -22714,8 +22831,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -22814,8 +22930,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -22959,8 +23074,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -23073,8 +23187,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23084,8 +23197,7 @@
             "required": true,
             "description": "The content id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -23242,8 +23354,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23253,8 +23364,7 @@
             "required": true,
             "description": "Image editing specification",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -23378,8 +23488,7 @@
             "required": true,
             "description": "Share token",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23389,8 +23498,7 @@
             "required": true,
             "description": "The content id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -23400,8 +23508,7 @@
             "required": true,
             "description": "Id of the output format",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 3
           }
@@ -23516,8 +23623,7 @@
             "required": true,
             "description": "Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -23672,8 +23778,7 @@
             "required": true,
             "description": "The share id.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -23815,8 +23920,7 @@
             "required": true,
             "description": "Share Id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -24529,8 +24633,7 @@
             "required": true,
             "description": "Id of Content",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -24761,8 +24864,7 @@
             "required": true,
             "description": "Reference id",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -24976,8 +25078,7 @@
             "required": true,
             "description": "ID of template.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25081,8 +25182,7 @@
             "required": true,
             "description": "ID of template.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25199,8 +25299,7 @@
             "required": true,
             "description": "ID of template",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25741,8 +25840,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25848,8 +25946,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -25950,8 +26047,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26072,8 +26168,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26194,8 +26289,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26403,8 +26497,7 @@
             "required": true,
             "description": "ID of file transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -26861,8 +26954,7 @@
             "required": true,
             "description": "ID of transfer.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 5
           },
@@ -26872,8 +26964,7 @@
             "required": true,
             "description": "Identifier of file.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 6
           }
@@ -27660,8 +27751,7 @@
             "required": true,
             "description": "User role ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -27766,8 +27856,7 @@
             "required": true,
             "description": "User role ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -27885,8 +27974,7 @@
             "required": true,
             "description": "User role ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -27985,8 +28073,7 @@
             "required": true,
             "description": "User ID to search for.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28090,8 +28177,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28211,8 +28297,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28433,8 +28518,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28655,8 +28739,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -28864,8 +28947,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29179,8 +29261,7 @@
             "required": true,
             "description": "User ID",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29293,8 +29374,7 @@
             "required": true,
             "description": "User ID",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29394,8 +29474,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29494,8 +29573,7 @@
             "required": true,
             "description": "User ID to action on.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -29594,8 +29672,7 @@
             "required": true,
             "description": "ID of the owner token.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -30799,8 +30876,7 @@
             "required": true,
             "description": "Xmp mapping ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -30918,8 +30994,7 @@
             "required": true,
             "description": "Xmp mapping ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -31024,8 +31099,7 @@
             "required": true,
             "description": "Xmp mapping ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -31728,6 +31802,10 @@
                 "type": "string",
                 "nullable": true
               },
+              "cloudName": {
+                "type": "string",
+                "nullable": true
+              },
               "kind": {
                 "type": "string"
               }
@@ -31806,6 +31884,24 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "PictureparkDatabaseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "debugInformation": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -32813,17 +32909,6 @@
           }
         ]
       },
-      "UnmodifiedOriginalOutputNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/OutputNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "UnableToCreateOrModifyStaticOutputFormatException": {
         "allOf": [
           {
@@ -33279,7 +33364,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedType": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -34193,7 +34284,7 @@
       "ObjectStoreResponseException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
@@ -34214,7 +34305,7 @@
       "ObjectStoreException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
@@ -34235,17 +34326,11 @@
       "QueryException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "debugInformation": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -37237,31 +37322,6 @@
           "Virtual"
         ]
       },
-      "ContentBackupFailedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "outputFormatId": {
-                "type": "string",
-                "nullable": true
-              },
-              "outputId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "ContentLayerSameRootException": {
         "allOf": [
           {
@@ -37307,27 +37367,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "version": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
-      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -39686,7 +39725,7 @@
           }
         ]
       },
-      "IngestContainerImportAlreadyInProgress": {
+      "IngestContainerImportAlreadyInProgressException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -43202,6 +43241,13 @@
               "namedCache": {
                 "type": "string",
                 "description": "Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration",
+                "deprecated": true,
+                "x-deprecatedMessage": "Use LayerId property directly instead",
+                "nullable": true
+              },
+              "layerId": {
+                "type": "string",
+                "description": "ID of layer to assign items in.",
                 "nullable": true
               },
               "refIds": {
@@ -43675,7 +43721,7 @@
               },
               "keyFields": {
                 "type": "array",
-                "description": "List of IDs of fields to use as a composite key",
+                "description": "List of IDs of fields to lookup value in.\nFields need to be marked with SimpleSearch = true in schema configuration. Additionally, if case insensitive lookup should be used, the\nsimple analyzer must be added to the field as well.",
                 "nullable": true,
                 "items": {
                   "type": "string"
@@ -43705,7 +43751,9 @@
           },
           {
             "type": "object",
-            "description": "Creates a cache for all multi tag boxes in a schema\nLookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter",
+            "description": "Creates a cache for all multi tag boxes in a schema\nLookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter\nObsolete: Directly set SchemaId property on action AssignTagboxItemsInLayerAction instead",
+            "deprecated": true,
+            "x-deprecatedMessage": "Directly set SchemaId property on action AssignTagboxItemsInLayerAction instead",
             "additionalProperties": false,
             "properties": {
               "schemaId": {
@@ -44905,7 +44953,6 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "emailAddress",
           "isDeleted"
         ],
         "properties": {
@@ -44927,7 +44974,7 @@
           "emailAddress": {
             "type": "string",
             "description": "Email address of the user (doubles as username).",
-            "minLength": 1
+            "nullable": true
           },
           "isDeleted": {
             "type": "boolean",
@@ -45641,11 +45688,9 @@
         "required": [
           "outputFormatId",
           "contentId",
-          "renderingState",
           "dynamicRendering",
           "kind",
-          "attemptsLeft",
-          "fileVersion"
+          "attemptsLeft"
         ],
         "properties": {
           "id": {
@@ -45658,6 +45703,15 @@
             "description": "The ID of the output format this output represents.",
             "minLength": 1
           },
+          "outputFormatCategory": {
+            "description": "Category of OutputFormat which this output represents.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatCategory"
+              }
+            ]
+          },
           "contentId": {
             "type": "string",
             "description": "The ID of the content for which this output has been created.",
@@ -45665,9 +45719,30 @@
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
+          },
+          "renderingStateV2": {
+            "description": "The rendering state of the output file. Only null for static outputs which are not rendered (\"Skipped\" in old RenderingState), such outputs won't be returned in the future.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
+              }
+            ]
+          },
+          "availabilityState": {
+            "description": "Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAvailabilityState"
               }
             ]
           },
@@ -45684,6 +45759,8 @@
             "type": "string",
             "description": "Date and time of the backup of the output file.",
             "format": "date-time",
+            "deprecated": true,
+            "x-deprecatedMessage": "Backup of outputs is implemented differently now",
             "nullable": true
           },
           "attemptsLeft": {
@@ -45694,16 +45771,33 @@
           "fileVersion": {
             "type": "integer",
             "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
-            "format": "int32"
+            "format": "int32",
+            "deprecated": true,
+            "x-deprecatedMessage": "Value was less accurate than it might have seemed",
+            "nullable": true
           },
           "dynamicRendering": {
             "type": "boolean",
-            "description": "Whether this Output belongs to a dynamic OutputFormat"
+            "description": "Whether this Output belongs to a dynamic OutputFormat."
           },
           "kind": {
             "type": "string"
           }
         }
+      },
+      "OutputFormatCategory": {
+        "type": "string",
+        "description": "Describes type of output format\nStatic: Static output format (rendering enqueued on content ingestion)\nDynamic: Dynamic output format (rendered upon download request)\nTransient: Output format implicitly created by output editing operations",
+        "x-enumNames": [
+          "Static",
+          "Dynamic",
+          "Transient"
+        ],
+        "enum": [
+          "Static",
+          "Dynamic",
+          "Transient"
+        ]
       },
       "OutputRenderingState": {
         "type": "string",
@@ -45723,6 +45817,38 @@
           "Skipped",
           "NoLicense",
           "RerenderRequested"
+        ]
+      },
+      "OutputRenderingStateV2": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
+        ],
+        "enum": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
+        ]
+      },
+      "OutputAvailabilityState": {
+        "type": "string",
+        "description": "Describes not directly rendering-outcome related state of an Output\nSourceReplaced: The output is derived from a non-current source (e.g. after Original file replacement)\nRerenderRequested: Rerendering has been explicitly requested or an OutputFormat used to produce this Output was edited\nToBeDeleted: The output is about to be or already has been deleted",
+        "x-enumNames": [
+          "Normal",
+          "SourceReplaced",
+          "RerenderRequested",
+          "ToBeDeleted"
+        ],
+        "enum": [
+          "Normal",
+          "SourceReplaced",
+          "RerenderRequested",
+          "ToBeDeleted"
         ]
       },
       "OutputDataBase": {
@@ -45753,6 +45879,8 @@
           "filePath": {
             "type": "string",
             "description": "The path where the file is stored.",
+            "deprecated": true,
+            "x-deprecatedMessage": "No use case, information is internal",
             "nullable": true
           },
           "fileSizeInBytes": {
@@ -46712,7 +46840,6 @@
         "required": [
           "outputFormatId",
           "contentId",
-          "renderingState",
           "dynamicRendering"
         ],
         "properties": {
@@ -46723,25 +46850,46 @@
           },
           "outputFormatId": {
             "type": "string",
-            "description": "ID of output format.",
+            "description": "The ID of the output format this output represents.",
             "minLength": 1
           },
           "contentId": {
             "type": "string",
-            "description": "ID of content.",
+            "description": "The ID of the content for which this output has been created.",
             "minLength": 1
           },
           "renderingState": {
-            "description": "Rendering state of output.",
+            "description": "The rendering state of the output file.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
               }
             ]
           },
+          "renderingStateV2": {
+            "description": "The rendering state of the output file. Only null for static outputs which are not rendered (\"Skipped\" in old RenderingState), such outputs won't be returned in the future.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
+              }
+            ]
+          },
+          "availabilityState": {
+            "description": "Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAvailabilityState"
+              }
+            ]
+          },
           "dynamicRendering": {
             "type": "boolean",
-            "description": "Whether this Output belongs to a dynamic OutputFormat"
+            "description": "Whether this Output belongs to a dynamic OutputFormat."
           },
           "fileSize": {
             "type": "integer",
@@ -47613,6 +47761,137 @@
           }
         ]
       },
+      "ContentOwnershipBatchTransferFilterRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "notifyProgress"
+        ],
+        "properties": {
+          "filterRequest": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentFilterRequest"
+              }
+            ]
+          },
+          "transferUserId": {
+            "type": "string",
+            "description": "The id of user to whom the content documents have to be transferred to.",
+            "nullable": true
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create notification and notify on progress"
+          }
+        }
+      },
+      "ContentPermissionsBatchUpdateFilterRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentPermissionSetsUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "filterRequest": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentFilterRequest"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ContentPermissionSetsUpdateRequestBase": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "notifyProgress"
+        ],
+        "properties": {
+          "changeCommands": {
+            "type": "array",
+            "description": "A container for all change commands.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionSetsCommandBase"
+            }
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create notification and notify on progress"
+          }
+        }
+      },
+      "PermissionSetsCommandBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "PermissionSetsAddCommand": "#/components/schemas/PermissionSetsAddCommand",
+            "PermissionSetsRemoveCommand": "#/components/schemas/PermissionSetsRemoveCommand",
+            "PermissionSetsSetCommand": "#/components/schemas/PermissionSetsSetCommand"
+          }
+        },
+        "description": "The base class for metadata value change commands.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "permissionSetIds": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "PermissionSetsAddCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetsCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetsRemoveCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetsCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetsSetCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetsCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ContentSearchResult": {
         "allOf": [
           {
@@ -48202,7 +48481,9 @@
         "properties": {
           "excludeXmpWritebackGenerated": {
             "type": "boolean",
-            "description": "Will exclude the historic versions that were created by XMP writeback"
+            "description": "Will exclude the historic versions that were created by XMP writeback",
+            "deprecated": true,
+            "x-deprecatedMessage": "XmpWriteback for Original is not supported, so this has no effect"
           },
           "limit": {
             "type": "integer",
@@ -49788,7 +50069,7 @@
           },
           "sasToken": {
             "type": "string",
-            "description": "SAS token that allows uploading to the container.",
+            "description": "SAS token that allows uploading to the container.\nNote: The token is valid for at most 24h after which all files uploaded, but not imported will be deleted.",
             "minLength": 1
           }
         }
@@ -51047,12 +51328,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51157,12 +51432,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51272,12 +51541,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51383,12 +51646,6 @@
           "ListItemBatchEditCompleted",
           "ListItemBatchEditProgressFailed",
           "ListItemBatchEditProgressCompletedWithErrors",
-          "ContentBackupRecoveryDraft",
-          "ContentBackupRecoveryInProgress",
-          "ContentBackupRecoveryCompleted",
-          "ContentBackupRecoveryForcefullyCompleted",
-          "ContentBackupRecoveryCancelled",
-          "ContentBackupRecoveryFailed",
           "ContentOwnershipBatchEditInProgress",
           "ContentOwnershipBatchEditCompleted",
           "ContentOwnershipBatchEditProgressFailed",
@@ -51466,7 +51723,6 @@
             "NotificationDetailSchemaImport": "#/components/schemas/NotificationDetailSchemaImport",
             "NotificationDetailIndexReindexProgress": "#/components/schemas/NotificationDetailIndexReindexProgress",
             "NotificationDetailUserRegistered": "#/components/schemas/NotificationDetailUserRegistered",
-            "NotificationDetailContentBackupRecovery": "#/components/schemas/NotificationDetailContentBackupRecovery",
             "NotificationDetailExternalBusinessProcess": "#/components/schemas/NotificationDetailExternalBusinessProcess",
             "NotificationDetailBusinessRule": "#/components/schemas/NotificationDetailBusinessRule",
             "NotificationDetailProgressBase": "#/components/schemas/NotificationDetailProgressBase",
@@ -51731,27 +51987,6 @@
               "userId": {
                 "type": "string",
                 "minLength": 1
-              }
-            }
-          }
-        ]
-      },
-      "NotificationDetailContentBackupRecovery": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentTotalCount": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "contentProgressCount": {
-                "type": "integer",
-                "format": "int64"
               }
             }
           }
@@ -53930,7 +54165,7 @@
               },
               "temporary": {
                 "type": "boolean",
-                "description": "Temporary outputs will not be backed up."
+                "description": "Temporary outputs are only used during rendering, they are not persisted or made available to users directly."
               }
             }
           }
@@ -54072,6 +54307,8 @@
           },
           {
             "type": "object",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use Content endpoints to resolve Outputs instead",
             "additionalProperties": false
           }
         ]
@@ -54112,6 +54349,8 @@
       },
       "OutputSearchRequest": {
         "type": "object",
+        "deprecated": true,
+        "x-deprecatedMessage": "Use Content endpoints to resolve Outputs instead",
         "additionalProperties": false,
         "required": [
           "limit"
@@ -57337,8 +57576,7 @@
         "description": "Reduced set of user information used for shares",
         "additionalProperties": false,
         "required": [
-          "displayName",
-          "emailHash"
+          "displayName"
         ],
         "properties": {
           "displayName": {
@@ -57349,7 +57587,7 @@
           "emailHash": {
             "type": "string",
             "description": "MD5 hash of email address. Can be used to display gravatar image",
-            "minLength": 1
+            "nullable": true
           }
         }
       },
@@ -57446,18 +57684,17 @@
           "contentId",
           "outputFormatId",
           "dynamicRendering",
-          "renderingState",
           "kind"
         ],
         "properties": {
           "contentId": {
             "type": "string",
-            "description": "Content ID.",
+            "description": "The ID of the content for which this output has been created.",
             "minLength": 1
           },
           "outputFormatId": {
             "type": "string",
-            "description": "Output format ID.",
+            "description": "The ID of the output format this output represents.",
             "minLength": 1
           },
           "viewUrl": {
@@ -57481,13 +57718,25 @@
           },
           "dynamicRendering": {
             "type": "boolean",
-            "description": "Whether this Output belongs to a dynamic OutputFormat"
+            "description": "Whether this Output belongs to a dynamic OutputFormat."
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
+          },
+          "renderingStateV2": {
+            "description": "The rendering state of the output file. Only null for static outputs which are not rendered (\"Skipped\" in old RenderingState), such outputs won't be returned in the future.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
               }
             ]
           },
@@ -61752,7 +62001,16 @@
                 "nullable": true
               },
               "renderingState": {
-                "$ref": "#/components/schemas/OutputRenderingState"
+                "deprecated": true,
+                "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputRenderingState"
+                  }
+                ]
+              },
+              "renderingStateV2": {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
               }
             }
           }
@@ -62027,10 +62285,12 @@
         ],
         "properties": {
           "item1": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "item2": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -62752,7 +63012,7 @@
     },
     {
       "name": "Ingest",
-      "description": "Endpoints to ingest data.\r\n\r\nNote: These endpoints are in public preview and might be changed in a future release without backwards compatibility.\r\n\r\nTo ingest a set of files into Content Platform:\r\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to ingest data.\r\n\r\nTo ingest a set of files into Content Platform:\r\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "JsonSchema",
@@ -62776,11 +63036,11 @@
     },
     {
       "name": "OutputFormat",
-      "description": "Endpoints to access and manipulate with output formats.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputFormatTests.cs)\r\n"
+      "description": "Endpoints to access and manipulate output formats.\r\n\r\nOutput formats define if, when and how binary Content is converted. Based on the type of the originally uploaded file, a different\r\nrendering tree (defined by OutputFormat.SourceOutputFormats) is used for a given content.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputFormatTests.cs)\r\n"
     },
     {
       "name": "Output",
-      "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process. There are predefined outputs for each file-based content.\r\n\r\n- Original: The original file uploaded (exists always)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
+      "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process (static OutputFormats) or upon request (dynamic OutputFormats). There are predefined outputs for each file-based content.\r\nSee OutputFormat endpoints to retrieve or modify exact parameters of how Outputs are created and rendered.\r\n\r\n- Original: The original file uploaded (exists for all binary Content)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailMedium: A medium preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailLarge: A larger preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailExtraLarge: A large preview of the file (640*640px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
     },
     {
       "name": "Profile",

@@ -313,144 +313,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial interface IContentBackupClient
-    {
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<ContentBackupSearchResult> SearchMissingOriginalsAsync(ContentBackupSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task EnableAsync(ContentBackupEnableRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task DisableAsync(ContentBackupDisableRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task CancelRecoveryAsync(ContentBackupCancelRecoveryRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task ForceRecoveryAsync(ContentBackupForceCompleteRecoveryRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task ResetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task CancelResetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<bool> AnyBackupRequestedAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<ContentBackupAcknowledgementResult> AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentBackupAcknowledgementResult>> AckBackupManyAsync(string customerId, System.Collections.Generic.IEnumerable<string> filePaths, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentBackupAcknowledgementResult>> AckBackupManyWithHashesAsync(string customerId, System.Collections.Generic.IEnumerable<ContentBackupAcknowledgementRequest> requests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<long> NotAcknowledgedCountAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial interface ICustomerAssetClient
     {
 
@@ -1868,7 +1730,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("DuplicateEmbedConversionPresetException", typeof(DuplicateEmbedConversionPresetException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
-    [JsonInheritanceAttribute("UnmodifiedOriginalOutputNotFoundException", typeof(UnmodifiedOriginalOutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingForDynamicFormatException", typeof(NotSupportedFileMappingForDynamicFormatException))]
@@ -2066,10 +1927,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
-    [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
     [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
-    [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("ContentSchemaChangeException", typeof(ContentSchemaChangeException))]
     [JsonInheritanceAttribute("ConcurrentFileReplacementDuringRepairException", typeof(ConcurrentFileReplacementDuringRepairException))]
     [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
@@ -2203,7 +2062,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("IngestContainerNotFoundException", typeof(IngestContainerNotFoundException))]
     [JsonInheritanceAttribute("IngestContainerEmptyException", typeof(IngestContainerEmptyException))]
     [JsonInheritanceAttribute("IngestFileNotFoundException", typeof(IngestFileNotFoundException))]
-    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgress", typeof(IngestContainerImportAlreadyInProgress))]
+    [JsonInheritanceAttribute("IngestContainerImportAlreadyInProgressException", typeof(IngestContainerImportAlreadyInProgressException))]
     [JsonInheritanceAttribute("IngestContainerImportRequestValidationFailedException", typeof(IngestContainerImportRequestValidationFailedException))]
     [JsonInheritanceAttribute("IngestFileInvalidFileNameOverrideExtensionException", typeof(IngestFileInvalidFileNameOverrideExtensionException))]
     [JsonInheritanceAttribute("IngestFileAlreadyImportedException", typeof(IngestFileAlreadyImportedException))]
@@ -2228,6 +2087,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("exceptionMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExceptionMessage { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("cloudName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CloudName { get; set; }
 
         public string ToJson()
         {
@@ -2343,6 +2205,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkContradictoryArgumentsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public abstract partial class PictureparkDatabaseException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DebugInformation { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PictureparkDatabaseException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkDatabaseException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -3670,26 +3554,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnmodifiedOriginalOutputNotFoundException : OutputNotFoundException
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static UnmodifiedOriginalOutputNotFoundException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnmodifiedOriginalOutputNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UnableToCreateOrModifyStaticOutputFormatException : PictureparkValidationException
     {
 
@@ -4313,6 +4177,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContractMismatchException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("expectedType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedType { get; set; }
 
         public string ToJson()
         {
@@ -5512,7 +5378,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ObjectStoreResponseException : PictureparkBusinessException
+    public partial class ObjectStoreResponseException : PictureparkDatabaseException
     {
         [Newtonsoft.Json.JsonProperty("rowErrorMessages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowErrorMessages { get; set; }
@@ -5537,7 +5403,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ObjectStoreException : PictureparkBusinessException
+    public partial class ObjectStoreException : PictureparkDatabaseException
     {
         [Newtonsoft.Json.JsonProperty("rowErrorMessages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RowErrorMessages { get; set; }
@@ -5562,10 +5428,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class QueryException : PictureparkBusinessException
+    public partial class QueryException : PictureparkDatabaseException
     {
-        [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DebugInformation { get; set; }
 
         public string ToJson()
         {
@@ -9146,34 +9010,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ContentBackupFailedException : PictureparkBusinessException
-    {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupFailedException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFailedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContentLayerSameRootException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9241,31 +9077,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentHistoricVersionNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Version { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -12404,7 +12215,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IngestContainerImportAlreadyInProgress : PictureparkValidationException
+    public partial class IngestContainerImportAlreadyInProgressException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("container", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Container { get; set; }
@@ -12415,10 +12226,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static IngestContainerImportAlreadyInProgress FromJson(string data)
+        public static IngestContainerImportAlreadyInProgressException FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgress>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IngestContainerImportAlreadyInProgressException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -15019,8 +14830,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>
         /// Email address of the user (doubles as username).
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
 
         /// <summary>
@@ -16015,239 +15825,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupSearchResult
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Results { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupSearchResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Request to search for outputs that are not yet marked as backed up.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupSearchRequest
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        /// <summary>
-        /// Time span relative to now for which missing backup timestamp is not considered a missing backup
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("exclusionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan ExclusionTime { get; set; }
-
-        /// <summary>
-        /// Limits the document count of the result set. Defaults to 30.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-
-        /// <summary>
-        /// To get a large amount of data, page token returned from the response can be used to get all data.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupSearchRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Request to search aggregation values for Contents
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupEnableRequest
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupEnableRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupEnableRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Request to search aggregation values for Contents
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupDisableRequest
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupDisableRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupDisableRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Request to search aggregation values for Contents
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupCancelRecoveryRequest
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupCancelRecoveryRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupCancelRecoveryRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Request to search aggregation values for Contents
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupForceCompleteRecoveryRequest
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupForceCompleteRecoveryRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupForceCompleteRecoveryRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupAcknowledgementResult
-    {
-        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FilePath { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
-        public bool Succeeded { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ErrorResponse Error { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupAcknowledgementResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupAcknowledgementResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupAcknowledgementRequest
-    {
-        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string FilePath { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("sha1Hash", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Sha1Hash { get; set; }
-
-        /// <summary>
-        /// If false (default), only files which were previously copied to backup location
-        /// <br/>can be acknowledged. True allows acknowledging outputs which were backed up
-        /// <br/>using other mechanisms than ContentBackup.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("allowNotRequested", Required = Newtonsoft.Json.Required.Always)]
-        public bool AllowNotRequested { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupAcknowledgementRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupAcknowledgementRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
     /// <summary>
     /// Type of logo
     /// </summary>
@@ -16270,387 +15847,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class IHeaderDictionary
-    {
-        [Newtonsoft.Json.JsonProperty("Item", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Item { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? ContentLength { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("Accept", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Accept { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AcceptCharset", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AcceptCharset { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AcceptEncoding", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AcceptEncoding { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AcceptLanguage", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AcceptLanguage { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AcceptRanges", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AcceptRanges { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlAllowCredentials", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlAllowCredentials { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlAllowHeaders", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlAllowHeaders { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlAllowMethods", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlAllowMethods { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlAllowOrigin", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlAllowOrigin { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlExposeHeaders", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlExposeHeaders { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlMaxAge", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlMaxAge { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlRequestHeaders", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlRequestHeaders { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AccessControlRequestMethod", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AccessControlRequestMethod { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Age", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Age { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Allow", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Allow { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("AltSvc", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> AltSvc { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Authorization", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Authorization { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Baggage", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Baggage { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("CacheControl", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> CacheControl { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Connection", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Connection { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentDisposition", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentDisposition { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentEncoding", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentEncoding { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentLanguage", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentLanguage { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentLocation", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentLocation { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentMD5", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentMD5 { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentRange", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentRange { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentSecurityPolicy", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentSecurityPolicy { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentSecurityPolicyReportOnly", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentSecurityPolicyReportOnly { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ContentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ContentType { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("CorrelationContext", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> CorrelationContext { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Cookie", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Cookie { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Date", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Date { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ETag", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ETag { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Expires", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Expires { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Expect", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Expect { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("From", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> From { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("GrpcAcceptEncoding", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> GrpcAcceptEncoding { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("GrpcEncoding", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> GrpcEncoding { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("GrpcMessage", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> GrpcMessage { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("GrpcStatus", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> GrpcStatus { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("GrpcTimeout", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> GrpcTimeout { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Host", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Host { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("KeepAlive", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> KeepAlive { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("IfMatch", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> IfMatch { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("IfModifiedSince", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> IfModifiedSince { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("IfNoneMatch", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> IfNoneMatch { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("IfRange", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> IfRange { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("IfUnmodifiedSince", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> IfUnmodifiedSince { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("LastModified", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> LastModified { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Link", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Link { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Location", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Location { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("MaxForwards", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> MaxForwards { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Origin", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Origin { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Pragma", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Pragma { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ProxyAuthenticate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ProxyAuthenticate { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ProxyAuthorization", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ProxyAuthorization { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("ProxyConnection", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> ProxyConnection { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Range", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Range { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Referer", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Referer { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("RetryAfter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> RetryAfter { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("RequestId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> RequestId { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("SecWebSocketAccept", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> SecWebSocketAccept { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("SecWebSocketKey", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> SecWebSocketKey { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("SecWebSocketProtocol", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> SecWebSocketProtocol { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("SecWebSocketVersion", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> SecWebSocketVersion { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("SecWebSocketExtensions", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> SecWebSocketExtensions { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Server", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Server { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("SetCookie", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> SetCookie { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("StrictTransportSecurity", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> StrictTransportSecurity { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("TE", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> TE { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Trailer", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Trailer { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("TransferEncoding", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> TransferEncoding { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Translate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Translate { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("TraceParent", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> TraceParent { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("TraceState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> TraceState { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Upgrade", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Upgrade { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("UpgradeInsecureRequests", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> UpgradeInsecureRequests { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("UserAgent", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> UserAgent { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Vary", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Vary { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Via", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Via { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("Warning", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Warning { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("WebSocketSubProtocols", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> WebSocketSubProtocols { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("WWWAuthenticate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> WWWAuthenticate { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("XContentTypeOptions", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> XContentTypeOptions { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("XFrameOptions", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> XFrameOptions { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("XPoweredBy", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> XPoweredBy { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("XRequestedWith", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> XRequestedWith { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("XUACompatible", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> XUACompatible { get; set; } = new System.Collections.Generic.List<object>();
-
-        [Newtonsoft.Json.JsonProperty("XXSSProtection", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> XXSSProtection { get; set; } = new System.Collections.Generic.List<object>();
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static IHeaderDictionary FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IHeaderDictionary>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class CustomerCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -16665,16 +15861,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.Obsolete("Use HostConfiguration instead")]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
-
         [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomerHostConfigurationCreation HostConfiguration { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.Obsolete]
-        public bool? UseSsl { get; set; }
 
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
         public bool EnableQueryDetails { get; set; }
@@ -16787,6 +15975,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan NotificationEventCollectionRetentionTime { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
+        public bool? UseSsl { get; set; }
+
         [Newtonsoft.Json.JsonProperty("replacedOriginalsRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
@@ -16808,10 +16000,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("adminUserPassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AdminUserPassword { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("contentBackupState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("contentBackupState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentBackupState ContentBackupState { get; set; }
+        [System.Obsolete("ContentBackup functionality has been removed")]
+        public ContentBackupState? ContentBackupState { get; set; }
 
         [Newtonsoft.Json.JsonProperty("apiLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ReadWriteApiLimits ApiLimits { get; set; }
@@ -19619,8 +18811,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomerHostConfiguration HostConfiguration { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
-        public bool UseSsl { get; set; }
+        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
+        public bool? UseSsl { get; set; }
 
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
         public bool EnableQueryDetails { get; set; }
@@ -19759,13 +18952,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("serviceAdminUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceAdminUserId { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("contentBackupState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("contentBackupState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentBackupState ContentBackupState { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("contentBackupEnableDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? ContentBackupEnableDate { get; set; }
+        [System.Obsolete("ContentBackup functionality has been removed")]
+        public ContentBackupState? ContentBackupState { get; set; }
 
         [Newtonsoft.Json.JsonProperty("apiLimits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ReadWriteApiLimits ApiLimits { get; set; }
@@ -19808,9 +18998,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("storageSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StorageSiloName { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentBackupSiloName { get; set; }
 
         [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
         public bool DisableIdsRegisterLink { get; set; }
@@ -19984,10 +19171,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.Obsolete("Use HostConfiguration instead")]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
-
         [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public CustomerHostConfigurationEditable HostConfiguration { get; set; }
 
@@ -20042,9 +19225,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("replacedOriginalsRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
-        public bool UseSsl { get; set; }
 
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
         public bool EnableQueryDetails { get; set; }
@@ -20111,9 +19291,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
         public bool BffDevMode { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentBackupSiloName { get; set; }
 
         [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
         public bool DisableIdsRegisterLink { get; set; }
@@ -21258,6 +20435,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InheritFromCurrentProcessingMessage", typeof(InheritFromCurrentProcessingMessage))]
     [JsonInheritanceAttribute("LowMessageRateBonus", typeof(LowMessageRateBonus))]
     [JsonInheritanceAttribute("Constant", typeof(Constant))]
+    [JsonInheritanceAttribute("BackgroundOperation", typeof(BackgroundOperation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class QueuePriorityModelConfiguration
     {
@@ -21614,6 +20792,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Constant>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BackgroundOperation : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public double Priority { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BackgroundOperation FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BackgroundOperation>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -23182,7 +22382,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [System.Obsolete("Replaced by OutputRenderingStateV2")]
         public OutputRenderingState RenderingState { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("renderingStateV2", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingStateV2 RenderingStateV2 { get; set; }
 
         public string ToJson()
         {
@@ -23220,6 +22425,24 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"RerenderRequested")]
         RerenderRequested = 5,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputRenderingStateV2
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Renderable")]
+        Renderable = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
+        InProgress = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 3,
 
     }
 
@@ -23502,12 +22725,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class TupleOfStringAndString
     {
-        [Newtonsoft.Json.JsonProperty("item1", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("item1", Required = Newtonsoft.Json.Required.AllowNull)]
         public string Item1 { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("item2", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("item2", Required = Newtonsoft.Json.Required.AllowNull)]
         public string Item2 { get; set; }
 
         public string ToJson()
@@ -24149,30 +23370,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithErrorBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentBackupFileRemoveInfo
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FilePath { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentBackupFileRemoveInfo FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFileRemoveInfo>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
