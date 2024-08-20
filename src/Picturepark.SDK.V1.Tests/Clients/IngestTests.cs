@@ -310,6 +310,39 @@ public class IngestTests : IClassFixture<ClientFixture>
             });
     }
 
+    [Fact]
+    public async Task Should_import_all_from_container_twice_and_fail_first_then_succeed()
+    {
+        // Arrange
+        const string fileName = "0030_JabLtzJl8bc.jpg";
+
+        var files = (await _fixture.Client.Ingest.UploadFilesAsync(
+            new[] { fileName }.Select(f => Path.Combine(_fixture.ExampleFilesBasePath, f)))).ToDictionary(f => f.BlobName);
+
+        // Act
+        var firstResult = await _fixture.Client.Ingest.ImportFilesAsync(
+            new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
+            {
+                [files[fileName]] = new()
+                {
+                    ContentPermissionSetIds = new List<string> { $"{Guid.NewGuid():N}" }
+                }
+            });
+
+        var secondResult = await _fixture.Client.Ingest.ImportFilesAsync(
+            new Dictionary<IngestFile, FileImportWithFileNameOverrideRequest>
+            {
+                [files[fileName]] = new()
+            });
+
+        // Assert
+        var firstDetail = await firstResult.FetchDetail();
+        firstDetail.FailedItems.Should().ContainSingle();
+
+        var secondDetail = await secondResult.FetchDetail();
+        secondDetail.SucceededItems.Should().ContainSingle().Which.RequestId.Should().Be(fileName);
+    }
+
     private async Task<IngestFile> UploadContent(string searchPattern = "*.jpg")
     {
         var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, searchPattern).ToList();

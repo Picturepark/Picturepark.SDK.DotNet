@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark Cloud Manager API V1",
@@ -27,8 +27,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -37,8 +36,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           },
@@ -178,8 +176,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -188,8 +185,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -432,8 +428,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -920,8 +915,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -3080,1463 +3074,6 @@
         }
       }
     },
-    "/ContentBackup/outputs/searchMissingOriginals": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_SearchMissingOriginals",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupSearchRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentBackupSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/enable": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_Enable",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupEnableRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/disable": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_Disable",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupDisableRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/cancelRecovery": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_CancelRecovery",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupCancelRecoveryRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/forceCompleteRecovery": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_ForceRecovery",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupForceCompleteRecoveryRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/{customerId}/reset": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_Reset",
-        "parameters": [
-          {
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/{customerId}/cancelReset": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_CancelReset",
-        "parameters": [
-          {
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/{customerId}/anyBackupRequested": {
-      "get": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_AnyBackupRequested",
-        "parameters": [
-          {
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/{customerId}/ack/{filePath}": {
-      "put": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_AckBackup",
-        "parameters": [
-          {
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
-            "name": "filePath",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContentBackupAcknowledgementResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/{customerId}/ack": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_AckBackupMany",
-        "parameters": [
-          {
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "requestBody": {
-          "x-name": "filePaths",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ContentBackupAcknowledgementResult"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/{customerId}/ackWithHashes": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_AckBackupManyWithHashes",
-        "parameters": [
-          {
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "requestBody": {
-          "x-name": "requests",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ContentBackupAcknowledgementRequest"
-                }
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ContentBackupAcknowledgementResult"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/ContentBackup/notAcknowledgedCount": {
-      "get": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_NotAcknowledgedCount",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
     "/CustomerAssets/{customerId}/logo/{type}": {
       "put": {
         "tags": [
@@ -4549,8 +3086,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4681,8 +3217,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4805,8 +3340,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -4930,8 +3464,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -4940,8 +3473,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -5515,8 +4047,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -5635,8 +4166,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -5750,8 +4280,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -5999,8 +4528,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6124,8 +4652,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6239,8 +4766,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6354,8 +4880,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6488,8 +5013,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -6613,8 +5137,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -6757,8 +5280,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -6901,8 +5423,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -7035,8 +5556,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -7179,8 +5699,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -7313,8 +5832,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -7428,8 +5946,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -7548,8 +6065,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -7682,8 +6198,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -7813,8 +6328,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -7938,8 +6452,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8060,8 +6573,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8182,8 +6694,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8192,8 +6703,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -8314,8 +6824,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8324,8 +6833,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -8446,8 +6954,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8578,8 +7085,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -8693,8 +7199,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8703,8 +7208,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -8835,8 +7339,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -8845,8 +7348,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -9089,8 +7591,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -9099,8 +7600,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -9214,8 +7714,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -9334,8 +7833,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -9688,8 +8186,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -9803,8 +8300,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -9918,8 +8414,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -10040,8 +8535,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10639,8 +9133,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10783,8 +9276,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -10927,8 +9419,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11071,8 +9562,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11203,8 +9693,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -11318,8 +9807,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11462,8 +9950,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11709,8 +10196,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11719,8 +10205,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -11839,8 +10324,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11849,8 +10333,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -11981,8 +10464,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -11991,8 +10473,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -12113,8 +10594,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -12453,8 +10933,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -12577,8 +11056,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -14138,8 +12616,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -14373,8 +12850,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -14859,8 +13335,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           },
@@ -14869,8 +13344,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
@@ -14991,8 +13465,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15125,8 +13598,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
           }
@@ -15548,6 +14020,10 @@
                 "type": "string",
                 "nullable": true
               },
+              "cloudName": {
+                "type": "string",
+                "nullable": true
+              },
               "kind": {
                 "type": "string"
               }
@@ -15626,6 +14102,24 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "PictureparkDatabaseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "debugInformation": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -16633,17 +15127,6 @@
           }
         ]
       },
-      "UnmodifiedOriginalOutputNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/OutputNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "UnableToCreateOrModifyStaticOutputFormatException": {
         "allOf": [
           {
@@ -17099,7 +15582,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedType": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -18013,7 +16502,7 @@
       "ObjectStoreResponseException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
@@ -18034,7 +16523,7 @@
       "ObjectStoreException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
@@ -18055,17 +16544,11 @@
       "QueryException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkDatabaseException"
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "debugInformation": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -21057,31 +19540,6 @@
           "Virtual"
         ]
       },
-      "ContentBackupFailedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "outputFormatId": {
-                "type": "string",
-                "nullable": true
-              },
-              "outputId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "ContentLayerSameRootException": {
         "allOf": [
           {
@@ -21127,27 +19585,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "version": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
-      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -23506,7 +21943,7 @@
           }
         ]
       },
-      "IngestContainerImportAlreadyInProgress": {
+      "IngestContainerImportAlreadyInProgressException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -25649,7 +24086,6 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "emailAddress",
           "isDeleted"
         ],
         "properties": {
@@ -25671,7 +24107,7 @@
           "emailAddress": {
             "type": "string",
             "description": "Email address of the user (doubles as username).",
-            "minLength": 1
+            "nullable": true
           },
           "isDeleted": {
             "type": "boolean",
@@ -26467,160 +24903,6 @@
           }
         }
       },
-      "ContentBackupSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "pageToken": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ContentBackupSearchRequest": {
-        "type": "object",
-        "description": "Request to search for outputs that are not yet marked as backed up.",
-        "additionalProperties": false,
-        "required": [
-          "exclusionTime",
-          "limit"
-        ],
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          },
-          "exclusionTime": {
-            "type": "string",
-            "description": "Time span relative to now for which missing backup timestamp is not considered a missing backup",
-            "format": "duration"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "To get a large amount of data, page token returned from the response can be used to get all data.",
-            "nullable": true
-          }
-        }
-      },
-      "ContentBackupEnableRequest": {
-        "type": "object",
-        "description": "Request to search aggregation values for Contents",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ContentBackupDisableRequest": {
-        "type": "object",
-        "description": "Request to search aggregation values for Contents",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ContentBackupCancelRecoveryRequest": {
-        "type": "object",
-        "description": "Request to search aggregation values for Contents",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          },
-          "businessProcessId": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ContentBackupForceCompleteRecoveryRequest": {
-        "type": "object",
-        "description": "Request to search aggregation values for Contents",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          },
-          "businessProcessId": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ContentBackupAcknowledgementResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "succeeded"
-        ],
-        "properties": {
-          "filePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "succeeded": {
-            "type": "boolean"
-          },
-          "error": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ErrorResponse"
-              }
-            ]
-          }
-        }
-      },
-      "ContentBackupAcknowledgementRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "filePath",
-          "sha1Hash",
-          "allowNotRequested"
-        ],
-        "properties": {
-          "filePath": {
-            "type": "string",
-            "minLength": 1
-          },
-          "sha1Hash": {
-            "type": "string",
-            "minLength": 1
-          },
-          "allowNotRequested": {
-            "type": "boolean",
-            "description": "If false (default), only files which were previously copied to backup location\ncan be acknowledged. True allows acknowledging outputs which were backed up\nusing other mechanisms than ContentBackup."
-          }
-        }
-      },
       "LogoKind": {
         "type": "string",
         "description": "Type of logo",
@@ -26636,470 +24918,6 @@
           "Name",
           "Small"
         ]
-      },
-      "IHeaderDictionary": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "Item",
-          "Accept",
-          "AcceptCharset",
-          "AcceptEncoding",
-          "AcceptLanguage",
-          "AcceptRanges",
-          "AccessControlAllowCredentials",
-          "AccessControlAllowHeaders",
-          "AccessControlAllowMethods",
-          "AccessControlAllowOrigin",
-          "AccessControlExposeHeaders",
-          "AccessControlMaxAge",
-          "AccessControlRequestHeaders",
-          "AccessControlRequestMethod",
-          "Age",
-          "Allow",
-          "AltSvc",
-          "Authorization",
-          "Baggage",
-          "CacheControl",
-          "Connection",
-          "ContentDisposition",
-          "ContentEncoding",
-          "ContentLanguage",
-          "ContentLocation",
-          "ContentMD5",
-          "ContentRange",
-          "ContentSecurityPolicy",
-          "ContentSecurityPolicyReportOnly",
-          "ContentType",
-          "CorrelationContext",
-          "Cookie",
-          "Date",
-          "ETag",
-          "Expires",
-          "Expect",
-          "From",
-          "GrpcAcceptEncoding",
-          "GrpcEncoding",
-          "GrpcMessage",
-          "GrpcStatus",
-          "GrpcTimeout",
-          "Host",
-          "KeepAlive",
-          "IfMatch",
-          "IfModifiedSince",
-          "IfNoneMatch",
-          "IfRange",
-          "IfUnmodifiedSince",
-          "LastModified",
-          "Link",
-          "Location",
-          "MaxForwards",
-          "Origin",
-          "Pragma",
-          "ProxyAuthenticate",
-          "ProxyAuthorization",
-          "ProxyConnection",
-          "Range",
-          "Referer",
-          "RetryAfter",
-          "RequestId",
-          "SecWebSocketAccept",
-          "SecWebSocketKey",
-          "SecWebSocketProtocol",
-          "SecWebSocketVersion",
-          "SecWebSocketExtensions",
-          "Server",
-          "SetCookie",
-          "StrictTransportSecurity",
-          "TE",
-          "Trailer",
-          "TransferEncoding",
-          "Translate",
-          "TraceParent",
-          "TraceState",
-          "Upgrade",
-          "UpgradeInsecureRequests",
-          "UserAgent",
-          "Vary",
-          "Via",
-          "Warning",
-          "WebSocketSubProtocols",
-          "WWWAuthenticate",
-          "XContentTypeOptions",
-          "XFrameOptions",
-          "XPoweredBy",
-          "XRequestedWith",
-          "XUACompatible",
-          "XXSSProtection"
-        ],
-        "properties": {
-          "Item": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentLength": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true
-          },
-          "Accept": {
-            "type": "array",
-            "items": {}
-          },
-          "AcceptCharset": {
-            "type": "array",
-            "items": {}
-          },
-          "AcceptEncoding": {
-            "type": "array",
-            "items": {}
-          },
-          "AcceptLanguage": {
-            "type": "array",
-            "items": {}
-          },
-          "AcceptRanges": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlAllowCredentials": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlAllowHeaders": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlAllowMethods": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlAllowOrigin": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlExposeHeaders": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlMaxAge": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlRequestHeaders": {
-            "type": "array",
-            "items": {}
-          },
-          "AccessControlRequestMethod": {
-            "type": "array",
-            "items": {}
-          },
-          "Age": {
-            "type": "array",
-            "items": {}
-          },
-          "Allow": {
-            "type": "array",
-            "items": {}
-          },
-          "AltSvc": {
-            "type": "array",
-            "items": {}
-          },
-          "Authorization": {
-            "type": "array",
-            "items": {}
-          },
-          "Baggage": {
-            "type": "array",
-            "items": {}
-          },
-          "CacheControl": {
-            "type": "array",
-            "items": {}
-          },
-          "Connection": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentDisposition": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentEncoding": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentLanguage": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentLocation": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentMD5": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentRange": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentSecurityPolicy": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentSecurityPolicyReportOnly": {
-            "type": "array",
-            "items": {}
-          },
-          "ContentType": {
-            "type": "array",
-            "items": {}
-          },
-          "CorrelationContext": {
-            "type": "array",
-            "items": {}
-          },
-          "Cookie": {
-            "type": "array",
-            "items": {}
-          },
-          "Date": {
-            "type": "array",
-            "items": {}
-          },
-          "ETag": {
-            "type": "array",
-            "items": {}
-          },
-          "Expires": {
-            "type": "array",
-            "items": {}
-          },
-          "Expect": {
-            "type": "array",
-            "items": {}
-          },
-          "From": {
-            "type": "array",
-            "items": {}
-          },
-          "GrpcAcceptEncoding": {
-            "type": "array",
-            "items": {}
-          },
-          "GrpcEncoding": {
-            "type": "array",
-            "items": {}
-          },
-          "GrpcMessage": {
-            "type": "array",
-            "items": {}
-          },
-          "GrpcStatus": {
-            "type": "array",
-            "items": {}
-          },
-          "GrpcTimeout": {
-            "type": "array",
-            "items": {}
-          },
-          "Host": {
-            "type": "array",
-            "items": {}
-          },
-          "KeepAlive": {
-            "type": "array",
-            "items": {}
-          },
-          "IfMatch": {
-            "type": "array",
-            "items": {}
-          },
-          "IfModifiedSince": {
-            "type": "array",
-            "items": {}
-          },
-          "IfNoneMatch": {
-            "type": "array",
-            "items": {}
-          },
-          "IfRange": {
-            "type": "array",
-            "items": {}
-          },
-          "IfUnmodifiedSince": {
-            "type": "array",
-            "items": {}
-          },
-          "LastModified": {
-            "type": "array",
-            "items": {}
-          },
-          "Link": {
-            "type": "array",
-            "items": {}
-          },
-          "Location": {
-            "type": "array",
-            "items": {}
-          },
-          "MaxForwards": {
-            "type": "array",
-            "items": {}
-          },
-          "Origin": {
-            "type": "array",
-            "items": {}
-          },
-          "Pragma": {
-            "type": "array",
-            "items": {}
-          },
-          "ProxyAuthenticate": {
-            "type": "array",
-            "items": {}
-          },
-          "ProxyAuthorization": {
-            "type": "array",
-            "items": {}
-          },
-          "ProxyConnection": {
-            "type": "array",
-            "items": {}
-          },
-          "Range": {
-            "type": "array",
-            "items": {}
-          },
-          "Referer": {
-            "type": "array",
-            "items": {}
-          },
-          "RetryAfter": {
-            "type": "array",
-            "items": {}
-          },
-          "RequestId": {
-            "type": "array",
-            "items": {}
-          },
-          "SecWebSocketAccept": {
-            "type": "array",
-            "items": {}
-          },
-          "SecWebSocketKey": {
-            "type": "array",
-            "items": {}
-          },
-          "SecWebSocketProtocol": {
-            "type": "array",
-            "items": {}
-          },
-          "SecWebSocketVersion": {
-            "type": "array",
-            "items": {}
-          },
-          "SecWebSocketExtensions": {
-            "type": "array",
-            "items": {}
-          },
-          "Server": {
-            "type": "array",
-            "items": {}
-          },
-          "SetCookie": {
-            "type": "array",
-            "items": {}
-          },
-          "StrictTransportSecurity": {
-            "type": "array",
-            "items": {}
-          },
-          "TE": {
-            "type": "array",
-            "items": {}
-          },
-          "Trailer": {
-            "type": "array",
-            "items": {}
-          },
-          "TransferEncoding": {
-            "type": "array",
-            "items": {}
-          },
-          "Translate": {
-            "type": "array",
-            "items": {}
-          },
-          "TraceParent": {
-            "type": "array",
-            "items": {}
-          },
-          "TraceState": {
-            "type": "array",
-            "items": {}
-          },
-          "Upgrade": {
-            "type": "array",
-            "items": {}
-          },
-          "UpgradeInsecureRequests": {
-            "type": "array",
-            "items": {}
-          },
-          "UserAgent": {
-            "type": "array",
-            "items": {}
-          },
-          "Vary": {
-            "type": "array",
-            "items": {}
-          },
-          "Via": {
-            "type": "array",
-            "items": {}
-          },
-          "Warning": {
-            "type": "array",
-            "items": {}
-          },
-          "WebSocketSubProtocols": {
-            "type": "array",
-            "items": {}
-          },
-          "WWWAuthenticate": {
-            "type": "array",
-            "items": {}
-          },
-          "XContentTypeOptions": {
-            "type": "array",
-            "items": {}
-          },
-          "XFrameOptions": {
-            "type": "array",
-            "items": {}
-          },
-          "XPoweredBy": {
-            "type": "array",
-            "items": {}
-          },
-          "XRequestedWith": {
-            "type": "array",
-            "items": {}
-          },
-          "XUACompatible": {
-            "type": "array",
-            "items": {}
-          },
-          "XXSSProtection": {
-            "type": "array",
-            "items": {}
-          }
-        }
       },
       "CustomerCreateRequest": {
         "type": "object",
@@ -27130,7 +24948,6 @@
           "snapshotEnabled",
           "snapshotFullbackupScheduleTime",
           "snapshotRetentionTime",
-          "contentBackupState",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "skipSignUpCaptcha",
@@ -27154,15 +24971,6 @@
             "type": "string",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use HostConfiguration instead",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "hostConfiguration": {
             "nullable": true,
             "oneOf": [
@@ -27170,11 +24978,6 @@
                 "$ref": "#/components/schemas/CustomerHostConfigurationCreation"
               }
             ]
-          },
-          "useSsl": {
-            "type": "boolean",
-            "deprecated": true,
-            "nullable": true
           },
           "enableQueryDetails": {
             "type": "boolean"
@@ -27322,6 +25125,11 @@
             "type": "string",
             "format": "duration"
           },
+          "useSsl": {
+            "type": "boolean",
+            "deprecated": true,
+            "nullable": true
+          },
           "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "duration"
@@ -27350,7 +25158,14 @@
             "nullable": true
           },
           "contentBackupState": {
-            "$ref": "#/components/schemas/ContentBackupState"
+            "deprecated": true,
+            "x-deprecatedMessage": "ContentBackup functionality has been removed",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentBackupState"
+              }
+            ]
           },
           "apiLimits": {
             "nullable": true,
@@ -29548,7 +27363,6 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "useSsl",
           "enableQueryDetails",
           "elasticSearchNumberOfShards",
           "elasticSearchNumberOfReplicas",
@@ -29579,7 +27393,6 @@
           "importCollectionRetentionTime",
           "editCollectionRetentionTime",
           "notificationEventCollectionRetentionTime",
-          "contentBackupState",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "isClone",
@@ -29713,7 +27526,9 @@
             ]
           },
           "useSsl": {
-            "type": "boolean"
+            "type": "boolean",
+            "deprecated": true,
+            "nullable": true
           },
           "enableQueryDetails": {
             "type": "boolean"
@@ -29895,12 +27710,14 @@
             "nullable": true
           },
           "contentBackupState": {
-            "$ref": "#/components/schemas/ContentBackupState"
-          },
-          "contentBackupEnableDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "deprecated": true,
+            "x-deprecatedMessage": "ContentBackup functionality has been removed",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentBackupState"
+              }
+            ]
           },
           "apiLimits": {
             "nullable": true,
@@ -29972,10 +27789,6 @@
             "type": "boolean"
           },
           "storageSiloName": {
-            "type": "string",
-            "nullable": true
-          },
-          "contentBackupSiloName": {
             "type": "string",
             "nullable": true
           },
@@ -30116,7 +27929,6 @@
           "editCollectionRetentionTime",
           "notificationEventCollectionRetentionTime",
           "replacedOriginalsRetentionTime",
-          "useSsl",
           "enableQueryDetails",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
@@ -30143,15 +27955,6 @@
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "duration"
-          },
-          "customerHosts": {
-            "type": "array",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use HostConfiguration instead",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           },
           "hostConfiguration": {
             "nullable": true,
@@ -30212,9 +28015,6 @@
           "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "duration"
-          },
-          "useSsl": {
-            "type": "boolean"
           },
           "enableQueryDetails": {
             "type": "boolean"
@@ -30331,10 +28131,6 @@
           },
           "bffDevMode": {
             "type": "boolean"
-          },
-          "contentBackupSiloName": {
-            "type": "string",
-            "nullable": true
           },
           "disableIdsRegisterLink": {
             "type": "boolean"
@@ -31289,7 +29085,8 @@
             "LowItemCountRequestRateBonus": "#/components/schemas/LowItemCountRequestRateBonus",
             "InheritFromCurrentProcessingMessage": "#/components/schemas/InheritFromCurrentProcessingMessage",
             "LowMessageRateBonus": "#/components/schemas/LowMessageRateBonus",
-            "Constant": "#/components/schemas/Constant"
+            "Constant": "#/components/schemas/Constant",
+            "BackgroundOperation": "#/components/schemas/BackgroundOperation"
           }
         },
         "x-abstract": true,
@@ -31573,6 +29370,25 @@
               "interactive": {
                 "type": "boolean",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BackgroundOperation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "priority": {
+                "type": "number",
+                "format": "double",
+                "maximum": 1.0,
+                "minimum": 0.0
               }
             }
           }
@@ -32834,7 +30650,16 @@
                 "nullable": true
               },
               "renderingState": {
-                "$ref": "#/components/schemas/OutputRenderingState"
+                "deprecated": true,
+                "x-deprecatedMessage": "Replaced by OutputRenderingStateV2",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputRenderingState"
+                  }
+                ]
+              },
+              "renderingStateV2": {
+                "$ref": "#/components/schemas/OutputRenderingStateV2"
               }
             }
           }
@@ -32858,6 +30683,22 @@
           "Skipped",
           "NoLicense",
           "RerenderRequested"
+        ]
+      },
+      "OutputRenderingStateV2": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
+        ],
+        "enum": [
+          "Renderable",
+          "InProgress",
+          "Succeeded",
+          "Failed"
         ]
       },
       "ConfigurationChangeEvent": {
@@ -33129,10 +30970,12 @@
         ],
         "properties": {
           "item1": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "item2": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -33802,20 +31645,6 @@
             }
           }
         ]
-      },
-      "ContentBackupFileRemoveInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          },
-          "filePath": {
-            "type": "string",
-            "nullable": true
-          }
-        }
       }
     }
   }
