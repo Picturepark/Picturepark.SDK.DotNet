@@ -635,78 +635,6 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupEnableDate_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.ContentBackupEnableDate*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupEnableDate" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.ContentBackupEnableDate"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupEnableDate" class="expander" data-toggle="collapse">ContentBackupEnableDate</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupEnableDate" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? ContentBackupEnableDate { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupSiloName_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.ContentBackupSiloName*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupSiloName" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.ContentBackupSiloName"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupSiloName" class="expander" data-toggle="collapse">ContentBackupSiloName</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupSiloName" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ContentBackupSiloName { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.String</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupState_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.ContentBackupState*"></a>
   
   <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupState" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.ContentBackupState"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_ContentBackupState" class="expander" data-toggle="collapse">ContentBackupState</a></h4>
@@ -717,7 +645,8 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContentBackupState ContentBackupState { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;ContentBackup functionality has been removed&quot;)]
+public ContentBackupState? ContentBackupState { get; set; }</code></pre>
   </div>
   
   
@@ -728,7 +657,7 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.html">ContentBackupState</a>
+        <span class="xref">System.Nullable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.html">ContentBackupState</a>&gt;
         <p>
       </td>
     </tr>
@@ -3417,7 +3346,8 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool UseSsl { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete]
+public bool? UseSsl { get; set; }</code></pre>
   </div>
   
   
@@ -3428,7 +3358,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Boolean</span>
+        <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;
         <p>
       </td>
     </tr>

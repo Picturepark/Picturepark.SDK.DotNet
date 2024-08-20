@@ -4678,6 +4678,119 @@ By default the method waits for the search documents creation. Passing false, th
   </div>
   
   
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipByFilterAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipByFilterAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentOwnershipBatchTransferFilterRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipByFilterAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ContentOwnershipBatchTransferFilterRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentOwnershipBatchTransferFilterRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipByFilterAsync(ContentOwnershipBatchTransferFilterRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentOwnershipBatchTransferFilterRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Transfer multiple contents ownerships - by filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; TransferOwnershipByFilterAsync(ContentOwnershipBatchTransferFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ContentOwnershipBatchTransferFilterRequest.html">ContentOwnershipBatchTransferFilterRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Content ownership transfer many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentOwnershipBatchTransferFilterRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Transfers ownerships of multiple contents to specified users. The target users must have the ManageContent UserRight.
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipManyAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipManyAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentOwnershipTransferManyRequest_System_Nullable_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ContentOwnershipTransferManyRequest,System.Nullable{TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentOwnershipTransferManyRequest_System_Nullable_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
@@ -5404,6 +5517,119 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
         <p><p>The specified wait timeout exceeded</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsByFilterAsync_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissionsByFilterAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentPermissionsBatchUpdateFilterRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissionsByFilterAsync(Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ContentPermissionsBatchUpdateFilterRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentPermissionsBatchUpdateFilterRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdatePermissionsByFilterAsync(ContentPermissionsBatchUpdateFilterRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentPermissionsBatchUpdateFilterRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Update multiple contents permissions - by filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; UpdatePermissionsByFilterAsync(ContentPermissionsBatchUpdateFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ContentPermissionsBatchUpdateFilterRequest.html">ContentPermissionsBatchUpdateFilterRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Content permissions update many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  <h5 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsByFilterAsync_Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_ContentPermissionsBatchUpdateFilterRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Updates the content permission sets of multiple contents. To get a list of available content permission sets, see <a href="#operation/Permission_SearchContentPermissions">Permissions</a>
+<br>The operation is executed asynchronous and is not awaited. Call <a href="#operation/BusinessProcess_WaitForCompletion">WaitForCompletion</a> to wait for the process to finish.</p>
+</div>
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html">PictureparkTooManyRequestsException</a>
+        <p><p>Too many requests</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
