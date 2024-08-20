@@ -170,6 +170,43 @@
   </div>
   
   
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_AvailabilityState_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.AvailabilityState*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_AvailabilityState" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.AvailabilityState"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_AvailabilityState" class="expander" data-toggle="collapse">AvailabilityState</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_AvailabilityState" class="collapse in">
+  <div class="markdown level1 summary"><p>Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OutputAvailabilityState? AvailabilityState { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Nullable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.OutputAvailabilityState.html">OutputAvailabilityState</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_BackupTimestamp_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.BackupTimestamp*"></a>
   
   <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_BackupTimestamp" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.BackupTimestamp"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_BackupTimestamp" class="expander" data-toggle="collapse">BackupTimestamp</a></h4>
@@ -181,7 +218,8 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? BackupTimestamp { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Backup of outputs is implemented differently now&quot;)]
+public DateTime? BackupTimestamp { get; set; }</code></pre>
   </div>
   
   
@@ -286,7 +324,7 @@
   <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_DynamicRendering" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.DynamicRendering"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_DynamicRendering" class="expander" data-toggle="collapse">DynamicRendering</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_DynamicRendering" class="collapse in">
-  <div class="markdown level1 summary"><p>Whether this Output belongs to a dynamic OutputFormat</p>
+  <div class="markdown level1 summary"><p>Whether this Output belongs to a dynamic OutputFormat.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -329,7 +367,8 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int FileVersion { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Value was less accurate than it might have seemed&quot;)]
+public int? FileVersion { get; set; }</code></pre>
   </div>
   
   
@@ -340,7 +379,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Int32</span>
+        <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;
         <p>
       </td>
     </tr>
@@ -378,6 +417,43 @@
     <tr>
       <td>
         <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_OutputFormatCategory_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.OutputFormatCategory*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_OutputFormatCategory" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.OutputFormatCategory"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_OutputFormatCategory" class="expander" data-toggle="collapse">OutputFormatCategory</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_OutputFormatCategory" class="collapse in">
+  <div class="markdown level1 summary"><p>Category of OutputFormat which this output represents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OutputFormatCategory? OutputFormatCategory { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Nullable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.OutputFormatCategory.html">OutputFormatCategory</a>&gt;
         <p>
       </td>
     </tr>
@@ -440,7 +516,8 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OutputRenderingState RenderingState { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Replaced by RenderingStateV2&quot;)]
+public OutputRenderingState? RenderingState { get; set; }</code></pre>
   </div>
   
   
@@ -451,7 +528,44 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.OutputRenderingState.html">OutputRenderingState</a>
+        <span class="xref">System.Nullable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.OutputRenderingState.html">OutputRenderingState</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_RenderingStateV2_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.RenderingStateV2*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_RenderingStateV2" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.Output.RenderingStateV2"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_RenderingStateV2" class="expander" data-toggle="collapse">RenderingStateV2</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_Picturepark_SDK_V1_CloudManager_Contract_Picturepark_SDK_V1_Contract_Output_RenderingStateV2" class="collapse in">
+  <div class="markdown level1 summary"><p>The rendering state of the output file. Only null for static outputs which are not rendered (&quot;Skipped&quot; in old RenderingState), such outputs won&apos;t be returned in the future.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OutputRenderingStateV2? RenderingStateV2 { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Nullable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.Picturepark.SDK.V1.CloudManager.Contract.Picturepark.SDK.V1.Contract.OutputRenderingStateV2.html">OutputRenderingStateV2</a>&gt;
         <p>
       </td>
     </tr>
