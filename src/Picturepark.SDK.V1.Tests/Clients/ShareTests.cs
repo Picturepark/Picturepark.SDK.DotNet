@@ -555,7 +555,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LanguageCode = "en"
             });
 
-            await AssertSharesContainCorrectOutputs(fullId, previewId, formatIdOriginal, formatIdPreview);
+            shareContents.Single().OutputFormatIds = new[] { formatIdPreview };
+            var specificFormatShareId = await CreateShareAndReturnId(new ShareBasicCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.None,
+                Name = formatIdPreview + "-share",
+                LanguageCode = "en"
+            });
+
+            await AssertSharesContainCorrectOutputs(fullId, previewId, specificFormatShareId, formatIdOriginal, formatIdPreview);
         }
 
         [Fact]
@@ -578,7 +587,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = formatIdPreview + "-share"
             });
 
-            await AssertSharesContainCorrectOutputs(fullId, previewId, formatIdOriginal, formatIdPreview);
+            shareContents.Single().OutputFormatIds = new[] { formatIdPreview };
+            var specificFormatShareId = await CreateShareAndReturnId(new ShareBasicCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.None,
+                Name = formatIdPreview + "-share",
+                LanguageCode = "en"
+            });
+
+            await AssertSharesContainCorrectOutputs(fullId, previewId, specificFormatShareId, formatIdOriginal, formatIdPreview);
         }
 
         [Fact]
@@ -623,17 +641,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private async Task AssertSharesContainCorrectOutputs(
             string shareFullId,
             string sharePreviewId,
+            string shareNoneId,
             string formatIdOriginal,
             string formatIdPreview)
         {
             var shareFull = await _client.Share.GetAsync(shareFullId);
             var sharePreview = await _client.Share.GetAsync(sharePreviewId);
+            var shareNone = await _client.Share.GetAsync(shareNoneId);
 
             shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
             shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdOriginal);
 
             sharePreview.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
             sharePreview.ContentSelections.Single().Outputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
+
+            shareNone.ContentSelections.Single().Outputs.Should().NotBeEmpty().And.OnlyContain(o => o.OutputFormatId == formatIdPreview);
         }
 
         private async Task<(string outputFormatIdOriginal, string outputFormatIdPreview, ICollection<ShareContentBase> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
@@ -664,11 +686,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             await _client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = formats });
 
-            var contentToShare = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 10);
+            var uploadResult = await _client.Ingest.UploadAndImportFilesAsync(new[] { Path.Combine(_fixture.ExampleFilesBasePath, "0559_BYu8ITUWMfc.jpg") });
+            var uploadResultDetail = await uploadResult.FetchDetail();
+            var contentIdToShare = uploadResultDetail.SucceededItems.Should().ContainSingle().Which.Item.Id;
+
             return (
                 formats[0].Id,
                 formats[1].Id,
-                new[] { new ShareContent { ContentId = contentToShare } }
+                new[] { new ShareContent { ContentId = contentIdToShare } }
             );
         }
 
