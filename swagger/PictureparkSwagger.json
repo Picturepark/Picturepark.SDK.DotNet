@@ -33632,6 +33632,23 @@
           }
         ]
       },
+      "FeatureNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "featureName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "CustomerViolationException": {
         "allOf": [
           {
