@@ -5400,6 +5400,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
     [JsonInheritanceAttribute("ItemIdDuplicatedException", typeof(ItemIdDuplicatedException))]
     [JsonInheritanceAttribute("CronExpressionInvalidException", typeof(CronExpressionInvalidException))]
+    [JsonInheritanceAttribute("FeatureNotEnabledException", typeof(FeatureNotEnabledException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
@@ -5548,6 +5549,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
     [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException))]
     [JsonInheritanceAttribute("SchemaFieldDynamicViewFieldInvalidFilterTemplateException", typeof(SchemaFieldDynamicViewFieldInvalidFilterTemplateException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewAtLeastOneLevelRequiredException", typeof(SchemaFieldTreeViewAtLeastOneLevelRequiredException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewInvalidMaxRecursionsException", typeof(SchemaFieldTreeViewInvalidMaxRecursionsException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewTagboxFieldRequiredException", typeof(SchemaFieldTreeViewTagboxFieldRequiredException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewNotSupportedForSchemaTypeException", typeof(SchemaFieldTreeViewNotSupportedForSchemaTypeException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -8018,6 +8023,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CronExpressionInvalidException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FeatureNotEnabledException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("featureName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FeatureName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static FeatureNotEnabledException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FeatureNotEnabledException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -12426,6 +12453,119 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldDynamicViewFieldInvalidFilterTemplateException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewAtLeastOneLevelRequiredException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewAtLeastOneLevelRequiredException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewAtLeastOneLevelRequiredException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewInvalidMaxRecursionsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("maxRecursions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int MaxRecursions { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewInvalidMaxRecursionsException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewInvalidMaxRecursionsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewTagboxFieldRequiredException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewTagboxFieldRequiredException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewTagboxFieldRequiredException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewNotSupportedForSchemaTypeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("schemaType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SchemaType SchemaType { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewNotSupportedForSchemaTypeException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewNotSupportedForSchemaTypeException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -34951,6 +35091,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("FieldSingleRelation", typeof(FieldSingleRelation))]
     [JsonInheritanceAttribute("FieldMultiRelation", typeof(FieldMultiRelation))]
     [JsonInheritanceAttribute("FieldDynamicView", typeof(FieldDynamicView))]
+    [JsonInheritanceAttribute("FieldTreeView", typeof(FieldTreeView))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class FieldBase
     {
@@ -36502,6 +36643,78 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDynamicView>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Stores a tree structure based on tagbox fields in the same schema
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FieldTreeView : FieldBase
+    {
+        /// <summary>
+        /// Levels of the tree.
+        /// <br/>At least one level is required.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("levels", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<TreeLevelItem> Levels { get; set; } = new System.Collections.Generic.List<TreeLevelItem>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static FieldTreeView FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldTreeView>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Configures a level of a tree structure of a FieldTreeView
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TreeLevelItem
+    {
+        /// <summary>
+        /// ID of the field.
+        /// <br/>Must be a tagbox field.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string FieldId { get; set; }
+
+        /// <summary>
+        /// Maximum number of recursions allowed if the tagbox references the same schema it is defined in.
+        /// <br/>Set to -1 to recurse until no more items are found.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("maxRecursions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Range(-1, 2147483647)]
+        public int MaxRecursions { get; set; }
+
+        /// <summary>
+        /// Further levels of the tree based on the schema the tagbox field references.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("levels", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<TreeLevelItem> Levels { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeLevelItem FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeLevelItem>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

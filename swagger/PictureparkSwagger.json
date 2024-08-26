@@ -33632,6 +33632,23 @@
           }
         ]
       },
+      "FeatureNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "featureName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "CustomerViolationException": {
         "allOf": [
           {
@@ -37261,6 +37278,105 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewAtLeastOneLevelRequiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewInvalidMaxRecursionsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "nullable": true
+              },
+              "maxRecursions": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewTagboxFieldRequiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewNotSupportedForSchemaTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaType": {
+                "$ref": "#/components/schemas/SchemaType"
               }
             }
           }
@@ -54812,7 +54928,8 @@
             "FieldTranslatedString": "#/components/schemas/FieldTranslatedString",
             "FieldSingleRelation": "#/components/schemas/FieldSingleRelation",
             "FieldMultiRelation": "#/components/schemas/FieldMultiRelation",
-            "FieldDynamicView": "#/components/schemas/FieldDynamicView"
+            "FieldDynamicView": "#/components/schemas/FieldDynamicView",
+            "FieldTreeView": "#/components/schemas/FieldTreeView"
           }
         },
         "description": "The field base class",
@@ -56126,6 +56243,61 @@
             }
           }
         ]
+      },
+      "FieldTreeView": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldBase"
+          },
+          {
+            "type": "object",
+            "description": "Stores a tree structure based on tagbox fields in the same schema",
+            "additionalProperties": false,
+            "required": [
+              "levels"
+            ],
+            "properties": {
+              "levels": {
+                "type": "array",
+                "description": "Levels of the tree.\nAt least one level is required.",
+                "items": {
+                  "$ref": "#/components/schemas/TreeLevelItem"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TreeLevelItem": {
+        "type": "object",
+        "description": "Configures a level of a tree structure of a FieldTreeView",
+        "additionalProperties": false,
+        "required": [
+          "fieldId",
+          "maxRecursions"
+        ],
+        "properties": {
+          "fieldId": {
+            "type": "string",
+            "description": "ID of the field.\nMust be a tagbox field.",
+            "minLength": 1
+          },
+          "maxRecursions": {
+            "type": "integer",
+            "description": "Maximum number of recursions allowed if the tagbox references the same schema it is defined in.\nSet to -1 to recurse until no more items are found.",
+            "format": "int32",
+            "maximum": 2147483647.0,
+            "minimum": -1.0
+          },
+          "levels": {
+            "type": "array",
+            "description": "Further levels of the tree based on the schema the tagbox field references.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TreeLevelItem"
+            }
+          }
+        }
       },
       "FieldOverwriteBase": {
         "type": "object",
