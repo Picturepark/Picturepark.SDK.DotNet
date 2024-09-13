@@ -57780,12 +57780,10 @@
         "type": "object",
         "description": "Share mail recipient",
         "additionalProperties": false,
-        "required": [
-          "userEmail"
-        ],
         "properties": {
           "userEmail": {
             "description": "User information including email.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UserEmail"

@@ -38571,9 +38571,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// User information including email.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("userEmail", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public UserEmail UserEmail { get; set; } = new UserEmail();
+        [Newtonsoft.Json.JsonProperty("userEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserEmail UserEmail { get; set; }
 
         /// <summary>
         /// Recipient specific token.
