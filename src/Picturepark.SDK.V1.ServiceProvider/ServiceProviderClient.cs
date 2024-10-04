@@ -12,12 +12,15 @@ namespace Picturepark.SDK.V1.ServiceProvider
 {
     public class ServiceProviderClient : IDisposable
     {
-        private readonly Configuration _configuration;
+        private const string ExchangeName = "pp.livestream";
 
-        private readonly IConnection _connection;
-        private readonly IModel _liveStreamModel;
-        private readonly IModel _requestMessageModel;
+        private readonly Configuration _configuration;
+        private readonly ConnectionFactory _factory;
         private readonly LiveStreamBuffer _liveStreamBuffer;
+
+        private IConnection _connection;
+        private IModel _liveStreamModel;
+        private IModel _requestMessageModel;
 
         private LiveStreamConsumer _liveStreamConsumer;
 
@@ -25,28 +28,9 @@ namespace Picturepark.SDK.V1.ServiceProvider
         {
             _configuration = configuration;
 
-            ConnectionFactory factory = new ConnectionFactory();
+            _factory = CreateConnectionFactory(configuration);
 
-            factory.HostName = configuration.Host;
-            factory.Port = int.Parse(configuration.Port);
-            factory.UserName = configuration.User;
-            factory.Password = configuration.Password;
-            factory.AutomaticRecoveryEnabled = true;
-            factory.VirtualHost = configuration.ServiceProviderId;
-            factory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
-
-            if (_configuration.UseSsl)
-            {
-                factory.Ssl = new SslOption()
-                {
-                    Version = SslProtocols.Tls12,
-                    Enabled = true,
-                    ServerName = factory.HostName,
-                    AcceptablePolicyErrors = SslPolicyErrors.RemoteCertificateNameMismatch | SslPolicyErrors.RemoteCertificateChainErrors
-                };
-            }
-
-            _connection = factory.CreateConnection();
+            _connection = _factory.CreateConnection();
             _liveStreamModel = _connection.CreateModel();
             _requestMessageModel = _connection.CreateModel();
 
@@ -68,16 +52,15 @@ namespace Picturepark.SDK.V1.ServiceProvider
             // buffer
             _liveStreamBuffer.BufferHoldBackTimeMilliseconds = delayMilliseconds;
 
-            // exchange
-            var exchangeName = "pp.livestream";
-            _liveStreamModel.ExchangeDeclare(exchangeName, ExchangeType.Fanout);
+            var queueName = $"{ExchangeName}.{_configuration.NodeId}";
+            var isOldStyleProvider = TryDeclareExchangeQueue(queueName);
+            if (isOldStyleProvider)
+            {
+                _connection = _factory.CreateConnection();
+                _liveStreamModel = _connection.CreateModel();
+                _requestMessageModel = _connection.CreateModel();
+            }
 
-            var args = new Dictionary<string, object>();
-            args.Add("x-max-priority", _configuration.DefaultQueuePriorityMax);
-
-            // queue
-            var queueName = _liveStreamModel.QueueDeclare($"{exchangeName}.{_configuration.NodeId}", true, false, false, args);
-            _liveStreamModel.QueueBind(queueName, exchangeName, string.Empty, null);
             _liveStreamModel.BasicQos(0, (ushort)bufferSize, false);
 
             // create observable
@@ -96,6 +79,54 @@ namespace Picturepark.SDK.V1.ServiceProvider
             _liveStreamModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
 
             return result;
+        }
+
+        private bool TryDeclareExchangeQueue(string queueName)
+        {
+            try
+            {
+                _liveStreamModel.ExchangeDeclare(ExchangeName, ExchangeType.Fanout);
+
+                var args = new Dictionary<string, object>
+                    { { "x-max-priority", _configuration.DefaultQueuePriorityMax } };
+
+                // queue
+                var queueDeclareOk = _liveStreamModel.QueueDeclare(queueName, true, false, false, args);
+                _liveStreamModel.QueueBind(queueDeclareOk, ExchangeName, string.Empty, null);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        private ConnectionFactory CreateConnectionFactory(Configuration configuration)
+        {
+            var factory = new ConnectionFactory
+            {
+                HostName = configuration.Host,
+                Port = int.Parse(configuration.Port),
+                UserName = configuration.User,
+                Password = configuration.Password,
+                AutomaticRecoveryEnabled = true,
+                VirtualHost = configuration.ServiceProviderId,
+                NetworkRecoveryInterval = TimeSpan.FromSeconds(10)
+            };
+
+            if (_configuration.UseSsl)
+            {
+                factory.Ssl = new SslOption()
+                {
+                    Version = SslProtocols.Tls12,
+                    Enabled = true,
+                    ServerName = factory.HostName,
+                    AcceptablePolicyErrors = SslPolicyErrors.RemoteCertificateNameMismatch | SslPolicyErrors.RemoteCertificateChainErrors
+                };
+            }
+
+            return factory;
         }
     }
 }
