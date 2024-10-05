@@ -7,6 +7,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Net.Security;
 using System.Security.Authentication;
+using RabbitMQ.Client.Exceptions;
 
 namespace Picturepark.SDK.V1.ServiceProvider
 {
@@ -54,7 +55,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 
             var queueName = $"{ExchangeName}.{_configuration.NodeId}";
             var isOldStyleProvider = TryDeclareExchangeQueue(queueName);
-            if (isOldStyleProvider)
+            if (!isOldStyleProvider)
             {
                 _connection = _factory.CreateConnection();
                 _liveStreamModel = _connection.CreateModel();
@@ -87,17 +88,15 @@ namespace Picturepark.SDK.V1.ServiceProvider
             {
                 _liveStreamModel.ExchangeDeclare(ExchangeName, ExchangeType.Fanout);
 
-                var args = new Dictionary<string, object>
-                    { { "x-max-priority", _configuration.DefaultQueuePriorityMax } };
+                var args = new Dictionary<string, object> { { "x-max-priority", _configuration.DefaultQueuePriorityMax } };
 
                 // queue
                 var queueDeclareOk = _liveStreamModel.QueueDeclare(queueName, true, false, false, args);
                 _liveStreamModel.QueueBind(queueDeclareOk, ExchangeName, string.Empty, null);
                 return true;
             }
-            catch (Exception ex)
+            catch (OperationInterruptedException ex) when (ex.ShutdownReason.ReplyCode == 403)
             {
-                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -117,7 +116,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 
             if (_configuration.UseSsl)
             {
-                factory.Ssl = new SslOption()
+                factory.Ssl = new SslOption
                 {
                     Version = SslProtocols.Tls12,
                     Enabled = true,
