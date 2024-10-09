@@ -8,7 +8,8 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
-        /// <param name="customerAlias">The customaer alias.</param>
+        /// <param name="customerAlias">The customer alias.</param>
+        [Obsolete("Use the variant with integrationName parameter.")]
         public PictureparkServiceSettings(string baseUrl, string customerAlias)
         {
             BaseUrl = baseUrl;
@@ -17,9 +18,30 @@ namespace Picturepark.SDK.V1.Contract
         }
 
         /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
+        /// <param name="baseUrl">The base URL.</param>
+        /// <param name="customerAlias">The customer alias.</param>
+        /// <param name="integrationName">The integration name.</param>
+        public PictureparkServiceSettings(string baseUrl, string customerAlias, string integrationName)
+        {
+            BaseUrl = baseUrl;
+            HttpTimeout = TimeSpan.FromMinutes(1);
+            CustomerAlias = customerAlias;
+            IntegrationName = integrationName;
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
         /// <param name="authClient">The authentication client.</param>
-        public PictureparkServiceSettings(IAuthClient authClient)
-            : this(authClient.BaseUrl, authClient.CustomerAlias)
+        [Obsolete("Use the variant with integrationName parameter.")]
+        public PictureparkServiceSettings(IAuthClient authClient) : this(authClient.BaseUrl, authClient.CustomerAlias)
+        {
+            AuthClient = authClient;
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
+        /// <param name="authClient">The authentication client.</param>
+        /// <param name="integrationName">The integration name.</param>
+        public PictureparkServiceSettings(IAuthClient authClient, string integrationName)
+            : this(authClient.BaseUrl, authClient.CustomerAlias, integrationName)
         {
             AuthClient = authClient;
         }
@@ -28,8 +50,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="baseUrl">The base URL.</param>
         /// <param name="authClient">The authentication client.</param>
         /// <param name="customerAlias">The customer alias.</param>
+        [Obsolete("Use the variant with integrationName parameter.")]
         public PictureparkServiceSettings(string baseUrl, IAuthClient authClient, string customerAlias)
             : this(baseUrl, customerAlias)
+        {
+            AuthClient = authClient;
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings" /> class.</summary>
+        /// <param name="baseUrl">The base URL.</param>
+        /// <param name="authClient">The authentication client.</param>
+        /// <param name="customerAlias">The customer alias.</param>
+        /// <param name="integrationName">The integration name.</param>
+        public PictureparkServiceSettings(string baseUrl, IAuthClient authClient, string customerAlias, string integrationName)
+            : this(baseUrl, customerAlias, integrationName)
         {
             AuthClient = authClient;
         }
@@ -48,5 +82,8 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>Gets or sets the display language.</summary>
         public string DisplayLanguage { get; set; }
+
+        /// <summary>Get the integration name.</summary>
+        public string IntegrationName { get; set; }
     }
 }

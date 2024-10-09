@@ -1,6 +1,7 @@
 ﻿using System;
 using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using Picturepark.SDK.V1.Partial;
 
 namespace Picturepark.SDK.V1
@@ -13,7 +14,15 @@ namespace Picturepark.SDK.V1
         /// <param name="settings">The service settings.</param>
         public PictureparkService(IPictureparkServiceSettings settings)
         {
-            _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
+            var version = typeof(PictureparkService).Assembly.GetName().Version.ToString();
+            _httpClient = new HttpClient(new PictureparkRetryHandler())
+            {
+                Timeout = settings.HttpTimeout,
+                DefaultRequestHeaders = { UserAgent = { new ProductInfoHeaderValue("Picturepark.SDK.V1", version) } }
+            };
+
+            if (settings.IntegrationName != null)
+                _httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(settings.IntegrationName));
 
             Initialize(settings, _httpClient);
         }
@@ -23,6 +32,12 @@ namespace Picturepark.SDK.V1
         /// <param name="httpClient">The HTTP client.</param>
         public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient)
         {
+            var version = typeof(PictureparkService).Assembly.GetName().Version.ToString();
+            httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Picturepark.SDK.V1", version));
+
+            if (settings.IntegrationName != null)
+                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(settings.IntegrationName));
+
             Initialize(settings, httpClient);
         }
 
