@@ -23,6 +23,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="integrationName">The integration name.</param>
         public PictureparkServiceSettings(string baseUrl, string customerAlias, string integrationName)
         {
+            if (string.IsNullOrWhiteSpace(integrationName))
+                throw new ArgumentException($"Please specify name of your integration in {nameof(integrationName)} parameter");
+
             BaseUrl = baseUrl;
             HttpTimeout = TimeSpan.FromMinutes(1);
             CustomerAlias = customerAlias;
