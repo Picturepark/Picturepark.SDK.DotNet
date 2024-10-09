@@ -13,7 +13,8 @@ namespace Picturepark.SDK.V1.ServiceProvider
 {
     public class ServiceProviderClient : IDisposable
     {
-        private const string ExchangeName = "pp.livestream";
+        private const string DefaultExchangeName = "pp.livestream";
+        private const string DefaultQueueName = "pp.livestream";
 
         private readonly Configuration _configuration;
         private readonly ConnectionFactory _factory;
@@ -53,13 +54,16 @@ namespace Picturepark.SDK.V1.ServiceProvider
             // buffer
             _liveStreamBuffer.BufferHoldBackTimeMilliseconds = delayMilliseconds;
 
-            var queueName = $"{ExchangeName}.{_configuration.NodeId}";
-            var isOldStyleProvider = TryDeclareExchangeQueue(queueName);
-            if (!isOldStyleProvider)
+#pragma warning disable CS0618 // Type or member is obsolete
+            var queueName = $"{DefaultExchangeName}.{_configuration.NodeId}";
+#pragma warning restore CS0618 // Type or member is obsolete
+            var isUnprotectedProvider = TryDeclareExchangeAndBindQueue(queueName);
+            if (!isUnprotectedProvider)
             {
                 _connection = _factory.CreateConnection();
                 _liveStreamModel = _connection.CreateModel();
                 _requestMessageModel = _connection.CreateModel();
+                queueName = DefaultQueueName;
             }
 
             _liveStreamModel.BasicQos(0, (ushort)bufferSize, false);
@@ -72,7 +76,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 
             // create consumer for RabbitMQ events
             _liveStreamConsumer = new LiveStreamConsumer(_configuration, _liveStreamModel);
-            _liveStreamConsumer.Received += (o, e) => { _liveStreamBuffer.Enqueue(e); };
+            _liveStreamConsumer.Received += (_, e) => { _liveStreamBuffer.Enqueue(e); };
 
             // consumer
             var consumer = new EventingBasicConsumer(_requestMessageModel);
@@ -82,17 +86,17 @@ namespace Picturepark.SDK.V1.ServiceProvider
             return result;
         }
 
-        private bool TryDeclareExchangeQueue(string queueName)
+        private bool TryDeclareExchangeAndBindQueue(string queueName)
         {
             try
             {
-                _liveStreamModel.ExchangeDeclare(ExchangeName, ExchangeType.Fanout);
+                _liveStreamModel.ExchangeDeclare(DefaultExchangeName, ExchangeType.Fanout);
 
                 var args = new Dictionary<string, object> { { "x-max-priority", _configuration.DefaultQueuePriorityMax } };
 
                 // queue
                 var queueDeclareOk = _liveStreamModel.QueueDeclare(queueName, true, false, false, args);
-                _liveStreamModel.QueueBind(queueDeclareOk, ExchangeName, string.Empty, null);
+                _liveStreamModel.QueueBind(queueDeclareOk, DefaultExchangeName, string.Empty, null);
                 return true;
             }
             catch (OperationInterruptedException ex) when (ex.ShutdownReason.ReplyCode == 403)
