@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1
             };
 
             if (settings.IntegrationName != null)
-                _httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(settings.IntegrationName));
+                _httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue($"({settings.IntegrationName})"));
 
             Initialize(settings, _httpClient);
         }
@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1
             httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Picturepark.SDK.V1", version));
 
             if (settings.IntegrationName != null)
-                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(settings.IntegrationName));
+                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue($"({settings.IntegrationName})"));
 
             Initialize(settings, httpClient);
         }
