@@ -12,28 +12,15 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
         /// <param name="settings">The service settings.</param>
-        public PictureparkService(IPictureparkServiceSettings settings)
+        /// <param name="httpClient">The HTTP client.</param>
+        public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient = null)
         {
             var version = typeof(PictureparkService).Assembly.GetName().Version.ToString();
-            _httpClient = new HttpClient(new PictureparkRetryHandler())
+            httpClient ??= _httpClient = new HttpClient(new PictureparkRetryHandler())
             {
                 Timeout = settings.HttpTimeout,
                 DefaultRequestHeaders = { UserAgent = { new ProductInfoHeaderValue("Picturepark.SDK.V1", version) } }
             };
-
-            if (settings.IntegrationName != null)
-                _httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue($"({settings.IntegrationName})"));
-
-            Initialize(settings, _httpClient);
-        }
-
-        /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
-        /// <param name="settings">The service settings.</param>
-        /// <param name="httpClient">The HTTP client.</param>
-        public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient)
-        {
-            var version = typeof(PictureparkService).Assembly.GetName().Version.ToString();
-            httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Picturepark.SDK.V1", version));
 
             if (settings.IntegrationName != null)
                 httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue($"({settings.IntegrationName})"));
