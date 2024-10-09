@@ -16,9 +16,12 @@ namespace Picturepark.SDK.V1
         /// <param name="httpClient">The HTTP client.</param>
         public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient = null)
         {
-            var version = typeof(PictureparkService).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion; ////typeof(PictureparkService).Assembly.GetName().Version.ToString();
+            var assembly = typeof(PictureparkService).Assembly;
+            var version = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
+                          ?? assembly.GetName().Version.ToString();
+            var product = assembly.GetCustomAttribute<AssemblyProductAttribute>()?.Product ?? "Picturepark.SDK.V1";
             httpClient ??= _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
-            httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Picturepark.SDK.V1", version));
+            httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(product, version));
             if (settings.IntegrationName != null)
                 httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue($"({settings.IntegrationName})"));
 
