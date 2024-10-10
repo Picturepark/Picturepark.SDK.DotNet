@@ -14,7 +14,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
     public class ServiceProviderClient : IDisposable
     {
         private const string DefaultExchangeName = "pp.livestream";
-        private const string DefaultQueueName = "pp.livestream";
+        private const string DefaultQueueName = "pp.livestream.messages";
 
         private readonly Configuration _configuration;
         private readonly ConnectionFactory _factory;
