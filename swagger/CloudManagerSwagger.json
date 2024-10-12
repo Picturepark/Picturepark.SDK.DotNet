@@ -25540,6 +25540,10 @@
             "type": "string",
             "nullable": true
           },
+          "contentDeliveryBaseUrl": {
+            "type": "string",
+            "nullable": true
+          },
           "hostConfiguration": {
             "nullable": true,
             "oneOf": [
@@ -25826,10 +25830,6 @@
           "kind"
         ],
         "properties": {
-          "url": {
-            "type": "string",
-            "nullable": true
-          },
           "kind": {
             "type": "string"
           }
@@ -28121,6 +28121,10 @@
             "type": "string",
             "nullable": true
           },
+          "contentDeliveryBaseUrl": {
+            "type": "string",
+            "nullable": true
+          },
           "cdnConfiguration": {
             "nullable": true,
             "oneOf": [
@@ -28613,6 +28617,10 @@
             ]
           },
           "baseUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentDeliveryBaseUrl": {
             "type": "string",
             "nullable": true
           },
