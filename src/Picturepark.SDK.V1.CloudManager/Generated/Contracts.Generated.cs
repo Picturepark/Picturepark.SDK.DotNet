@@ -15106,6 +15106,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("api", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, HostConfiguration> Api { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("delivery", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, HostConfiguration> Delivery { get; set; }
+
         [Newtonsoft.Json.JsonProperty("integrationSubDomain", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IntegrationSubDomain { get; set; }
 
