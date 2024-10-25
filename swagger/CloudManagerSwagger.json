@@ -24461,6 +24461,13 @@
               "$ref": "#/components/schemas/HostConfiguration"
             }
           },
+          "delivery": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/HostConfiguration"
+            }
+          },
           "integrationSubDomain": {
             "type": "string",
             "nullable": true
