@@ -24400,6 +24400,10 @@
             "type": "string",
             "nullable": true
           },
+          "contentDeliveryBaseUrl": {
+            "type": "string",
+            "nullable": true
+          },
           "redirectUri": {
             "type": "string",
             "nullable": true
