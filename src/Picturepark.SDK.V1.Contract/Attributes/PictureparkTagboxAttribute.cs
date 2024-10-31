@@ -7,7 +7,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
     public class PictureparkTagboxAttribute : Attribute, IPictureparkAttribute
     {
-        public PictureparkTagboxAttribute(string filter)
+        public PictureparkTagboxAttribute(string filter = null)
         {
             if (!string.IsNullOrEmpty(filter))
             {
