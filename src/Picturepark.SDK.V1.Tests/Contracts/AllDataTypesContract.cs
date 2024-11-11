@@ -115,7 +115,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
                 Levels = Array.Empty<TreeLevelItem>(),
                 MaxRecursions = 0
             }
-
         ];
     }
 }
