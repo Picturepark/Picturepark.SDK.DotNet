@@ -412,10 +412,14 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             // Assert
             var viewField = schema.Fields.OfType<FieldTreeView>().Should().ContainSingle().Which;
 
-            var level = viewField.Levels.Should().ContainSingle().Which;
-            level.FieldId.Should().Be("tagboxField");
-            level.Levels.Should().BeEmpty();
-            level.MaxRecursions.Should().Be(0);
+            viewField.Levels.Should().HaveCount(2);
+            var singleTagboxLevel = viewField.Levels.Should().ContainSingle(x => x.FieldId == "singleTagboxField").Which;
+            singleTagboxLevel.Levels.Should().BeEmpty();
+            singleTagboxLevel.MaxRecursions.Should().Be(0);
+
+            var multiTagboxLevel = viewField.Levels.Should().ContainSingle(x => x.FieldId == "multiTagboxField").Which;
+            multiTagboxLevel.Levels.Should().BeEmpty();
+            multiTagboxLevel.MaxRecursions.Should().Be(-1);
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -423,7 +427,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public class ListWithTreeView
         {
             [PictureparkTagbox]
-            public ListWithTreeView TagboxField { get; set; }
+            public ListWithTreeView SingleTagboxField { get; set; }
+
+            [PictureparkTagbox]
+            public List<ListWithTreeView> MultiTagboxField { get; set; }
 
             [PictureparkTreeView(typeof(TreeViewLevelProvider))]
             public TreeViewObject TreeView { get; set; }
@@ -434,8 +441,13 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 [
                     new()
                     {
-                        FieldId = nameof(TagboxField).ToLowerCamelCase(), Levels = [],
+                        FieldId = nameof(SingleTagboxField).ToLowerCamelCase(), Levels = [],
                         MaxRecursions = 0
+                    },
+                    new()
+                    {
+                        FieldId = nameof(MultiTagboxField).ToLowerCamelCase(), Levels = [],
+                        MaxRecursions = -1
                     }
                 ];
             }
