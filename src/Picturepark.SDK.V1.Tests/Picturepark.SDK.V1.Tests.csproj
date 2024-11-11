@@ -15,7 +15,7 @@
     <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
     <ApplicationIcon />
     <StartupObject />
-    <LangVersion>10</LangVersion>
+    <LangVersion>12</LangVersion>
 
     <NoWarn>$(NoWarn);CA1063;CA2213</NoWarn>
   </PropertyGroup>

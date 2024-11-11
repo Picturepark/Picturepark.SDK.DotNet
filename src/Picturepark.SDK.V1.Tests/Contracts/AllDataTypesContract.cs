@@ -4,6 +4,7 @@ using Picturepark.SDK.V1.Contract.SystemTypes;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract.Providers;
 using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
@@ -66,6 +67,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         [PictureparkDynamicView("{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
         [PictureparkDynamicViewUiSettings(ItemFieldViewMode.ThumbMedium, maxListRows: 5, maxThumbRows: 3, showRelatedContentOnDownload: true)]
         public DynamicViewObject DynamicViewField { get; set; }
+
+        [PictureparkTreeView(levelProvider: typeof(TreeViewLevelProvider))]
+        public TreeViewObject TreeViewObject { get; set; }
     }
 
     [PictureparkReference]
@@ -99,5 +103,19 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     public class SimpleRelation : Relation
     {
         public string RelationInfo { get; set; }
+    }
+
+    public class TreeViewLevelProvider : ITreeViewLevelProvider
+    {
+        public IReadOnlyList<TreeLevelItem> GetTreeLevels() =>
+        [
+            new()
+            {
+                FieldId = nameof(AllDataTypesContract.SingleTagboxField).ToLowerCamelCase(),
+                Levels = Array.Empty<TreeLevelItem>(),
+                MaxRecursions = 0
+            }
+
+        ];
     }
 }

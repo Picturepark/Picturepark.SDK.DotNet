@@ -1,6 +1,7 @@
 ﻿#pragma warning disable SA1201 // Elements must appear in the correct order
 
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -398,6 +399,46 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var lastSort = sort.Last();
             lastSort.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field + "Desc");
             lastSort.Direction.Should().Be(SortDirection.Desc);
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldGenerateTreeViewField()
+        {
+            // Arrange & Act
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithTreeView));
+            var schema = schemas.Should().ContainSingle().Which;
+
+            // Assert
+            var viewField = schema.Fields.OfType<FieldTreeView>().Should().ContainSingle().Which;
+
+            var level = viewField.Levels.Should().ContainSingle().Which;
+            level.FieldId.Should().Be("tagboxField");
+            level.Levels.Should().BeEmpty();
+            level.MaxRecursions.Should().Be(0);
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class ListWithTreeView
+        {
+            [PictureparkTagbox]
+            public ListWithTreeView TagboxField { get; set; }
+
+            [PictureparkTreeView(typeof(TreeViewLevelProvider))]
+            public TreeViewObject TreeView { get; set; }
+
+            private class TreeViewLevelProvider : ITreeViewLevelProvider
+            {
+                public IReadOnlyList<TreeLevelItem> GetTreeLevels() =>
+                [
+                    new()
+                    {
+                        FieldId = nameof(TagboxField).ToLowerCamelCase(), Levels = [],
+                        MaxRecursions = 0
+                    }
+                ];
+            }
         }
 
         [PictureparkSchema(SchemaType.List)]

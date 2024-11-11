@@ -18247,6 +18247,61 @@
           }
         ]
       },
+      "TreeAggregatorOnlyAllowedInTopLevelAggregationsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregatorInvalidFieldTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregatorInnerAggregationsNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -19948,6 +20003,35 @@
               },
               "schemaType": {
                 "$ref": "#/components/schemas/SchemaType"
+              }
+            }
+          }
+        ]
+      },
+      "TagboxInUseInTreeViewFieldException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "tagboxFieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "treeViewFieldSchemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "treeViewFieldId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -22728,6 +22812,15 @@
             "items": {
               "$ref": "#/components/schemas/AggregationResult"
             }
+          },
+          "detail": {
+            "description": "Detailed information about the aggregation result item.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AggregationResultItemDetailBase"
+              }
+            ]
           }
         }
       },
@@ -22783,6 +22876,7 @@
             "TermsFilter": "#/components/schemas/TermsFilter",
             "ChildFilter": "#/components/schemas/ChildFilter",
             "ParentFilter": "#/components/schemas/ParentFilter",
+            "TreeFilter": "#/components/schemas/TreeFilter",
             "AggregationFilter": "#/components/schemas/AggregationFilter"
           }
         },
@@ -23284,6 +23378,98 @@
           }
         ]
       },
+      "TreeFilter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          },
+          {
+            "type": "object",
+            "description": "Filters results based on a tree structure and a path.",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "Field to filter on.",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to filter on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationResultItemDetailBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TreeAggregationResultItemDetail": "#/components/schemas/TreeAggregationResultItemDetail"
+          }
+        },
+        "description": "Detail for an AggregationResultItem.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TreeAggregationResultItemDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AggregationResultItemDetailBase"
+          },
+          {
+            "type": "object",
+            "description": "Detail for a tree aggregation result item.",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Path of the item. Use together with TreeFilter.",
+                "nullable": true
+              },
+              "resolvedPathComponents": {
+                "type": "array",
+                "description": "Resolved path components of the path.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/TreeAggregationResultPathComponent"
+                }
+              },
+              "hasChildren": {
+                "type": "boolean",
+                "description": "Indicates if the node contains children."
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregationResultPathComponent": {
+        "type": "object",
+        "description": "Component of a tree path.",
+        "additionalProperties": false,
+        "properties": {
+          "pathComponent": {
+            "type": "string",
+            "description": "Raw path component.",
+            "nullable": true
+          },
+          "displayValue": {
+            "type": "string",
+            "description": "Display value of the path component.",
+            "nullable": true
+          }
+        }
+      },
       "SearchBehaviorBaseResultOfBusinessProcess": {
         "allOf": [
           {
@@ -23471,7 +23657,8 @@
             "NumericRangeAggregator": "#/components/schemas/NumericRangeAggregator",
             "TermsAggregator": "#/components/schemas/TermsAggregator",
             "TermsRelationAggregator": "#/components/schemas/TermsRelationAggregator",
-            "TermsEnumAggregator": "#/components/schemas/TermsEnumAggregator"
+            "TermsEnumAggregator": "#/components/schemas/TermsEnumAggregator",
+            "TreeAggregator": "#/components/schemas/TreeAggregator"
           }
         },
         "description": "It is the base class for all aggregators.",
@@ -23918,6 +24105,44 @@
                 "type": "string",
                 "description": "Type of the enum target of the relation. It is used to resolve the enum translation.",
                 "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregator": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AggregatorBase"
+          },
+          {
+            "type": "object",
+            "description": "Aggregator for a FieldTreeView.",
+            "additionalProperties": false,
+            "required": [
+              "field"
+            ],
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "The fields ID to execute the aggregation on.",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to get buckets for.",
+                "nullable": true
+              },
+              "searchString": {
+                "type": "string",
+                "description": "Search string to filter the buckets.",
+                "nullable": true
+              },
+              "size": {
+                "type": "integer",
+                "description": "The size parameter can be set to define how many buckets should be returned out of the overall list.",
+                "format": "int32",
+                "nullable": true
               }
             }
           }
@@ -24776,7 +25001,8 @@
         "required": [
           "backupOption",
           "subscription",
-          "historicVersioningState"
+          "historicVersioningState",
+          "enableTreeView"
         ],
         "properties": {
           "backupOption": {
@@ -24820,6 +25046,10 @@
                 "$ref": "#/components/schemas/ImageOptimizationLicenseState"
               }
             ]
+          },
+          "enableTreeView": {
+            "type": "boolean",
+            "description": "License flag to enable tree view"
           }
         }
       },
