@@ -25820,6 +25820,13 @@
             "type": "string",
             "nullable": true
           },
+          "readWriteUserExcludedEmailAddressRegexes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "serviceProviders": {
             "type": "array",
             "nullable": true,
@@ -28441,6 +28448,13 @@
             "type": "string",
             "nullable": true
           },
+          "readWriteUserExcludedEmailAddressRegexes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "languageConfiguration": {
             "nullable": true,
             "oneOf": [
@@ -28872,6 +28886,13 @@
           "ownerEmailAddress": {
             "type": "string",
             "nullable": true
+          },
+          "readWriteUserExcludedEmailAddressRegexes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
           "corsAllowedHosts": {
             "type": "array",
