@@ -16729,6 +16729,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("readWriteUserExcludedEmailAddressRegexes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ReadWriteUserExcludedEmailAddressRegexes { get; set; }
+
         [Newtonsoft.Json.JsonProperty("serviceProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<CustomerServiceProvider> ServiceProviders { get; set; }
 
@@ -19729,6 +19732,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("readWriteUserExcludedEmailAddressRegexes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ReadWriteUserExcludedEmailAddressRegexes { get; set; }
+
         [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LanguageConfiguration LanguageConfiguration { get; set; }
 
@@ -20103,6 +20109,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("readWriteUserExcludedEmailAddressRegexes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ReadWriteUserExcludedEmailAddressRegexes { get; set; }
 
         [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
