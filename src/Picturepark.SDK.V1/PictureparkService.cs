@@ -1,6 +1,8 @@
 ﻿using System;
 using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Reflection;
 using Picturepark.SDK.V1.Partial;
 
 namespace Picturepark.SDK.V1
@@ -11,18 +13,18 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
         /// <param name="settings">The service settings.</param>
-        public PictureparkService(IPictureparkServiceSettings settings)
-        {
-            _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
-
-            Initialize(settings, _httpClient);
-        }
-
-        /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
-        /// <param name="settings">The service settings.</param>
         /// <param name="httpClient">The HTTP client.</param>
-        public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient)
+        public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient = null)
         {
+            var assembly = typeof(PictureparkService).Assembly;
+            var version = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
+                          ?? assembly.GetName().Version.ToString();
+            var product = assembly.GetCustomAttribute<AssemblyProductAttribute>()?.Product ?? "Picturepark.SDK.V1";
+            httpClient ??= _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
+            httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(product, version));
+            if (settings.IntegrationName != null)
+                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue($"({settings.IntegrationName})"));
+
             Initialize(settings, httpClient);
         }
 

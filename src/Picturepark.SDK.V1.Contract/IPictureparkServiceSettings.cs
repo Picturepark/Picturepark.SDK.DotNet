@@ -20,5 +20,8 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>Gets the display language.</summary>
         string DisplayLanguage { get; }
+
+        /// <summary>Get the integration name.</summary>
+        string IntegrationName { get; }
     }
 }

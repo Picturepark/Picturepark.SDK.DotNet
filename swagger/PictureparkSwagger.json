@@ -17879,223 +17879,6 @@
         ]
       }
     },
-    "/v1/Outputs/search": {
-      "post": {
-        "tags": [
-          "Output"
-        ],
-        "summary": "Search output documents",
-        "description": "ContentIds must be mandatory filled.",
-        "operationId": "Output_Search",
-        "requestBody": {
-          "x-name": "request",
-          "description": "The output search request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OutputSearchRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "Output result set",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutputSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true,
-        "security": [
-          {
-            "Bearer": [
-              "output_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/Outputs/resetRetryAttempts": {
-      "post": {
-        "tags": [
-          "Output"
-        ],
-        "summary": "Resets retry attempt counters.",
-        "description": "Resets retry attempt counters on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.\nThe number the counters are reset to is determined by a global configuration value. If OutputIds are specified, the rest of the fields are ignored.\nCan reset 100 outputs at most. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "Output_ResetRetryAttempts",
-        "requestBody": {
-          "x-name": "request",
-          "description": "Request containing options to filter which outputs should be reset.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OutputResetRetryAttemptsRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "Business process tracking the resetting",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BusinessProcess"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "output_write"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/Profile": {
       "get": {
         "tags": [
@@ -31707,6 +31490,323 @@
           }
         }
       },
+      "BusinessProcessDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcess"
+          },
+          {
+            "type": "object",
+            "description": "Detailed representation of a business process",
+            "additionalProperties": false,
+            "properties": {
+              "details": {
+                "description": "Details for the business process.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessDetailsDataBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "BusinessProcessDetailsDataBatchResponse": "#/components/schemas/BusinessProcessDetailsDataBatchResponse",
+            "BusinessProcessDetailsDataSchemaImport": "#/components/schemas/BusinessProcessDetailsDataSchemaImport",
+            "BusinessProcessDetailsDataContentImport": "#/components/schemas/BusinessProcessDetailsDataContentImport"
+          }
+        },
+        "description": "Base class for the details of a business process",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessProcessDetailsDataBatchResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
+          },
+          {
+            "type": "object",
+            "description": "Business process detailed information regarding a batch operation",
+            "additionalProperties": false,
+            "required": [
+              "docType",
+              "response"
+            ],
+            "properties": {
+              "docType": {
+                "type": "string",
+                "description": "The DocType on which the operation was performed.",
+                "minLength": 1
+              },
+              "response": {
+                "description": "The response of the batch operation.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BatchResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "BatchResponse": {
+        "type": "object",
+        "description": "Response from a batch operation",
+        "additionalProperties": false,
+        "required": [
+          "rows"
+        ],
+        "properties": {
+          "rows": {
+            "type": "array",
+            "description": "Rows in the response.",
+            "items": {
+              "$ref": "#/components/schemas/BatchResponseRow"
+            }
+          }
+        }
+      },
+      "BatchResponseRow": {
+        "type": "object",
+        "description": "Row in a batch operation response",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "succeeded",
+          "status",
+          "version"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the item.",
+            "minLength": 1
+          },
+          "succeeded": {
+            "type": "boolean",
+            "description": "Indicates if the operation succeeded."
+          },
+          "status": {
+            "type": "integer",
+            "description": "Status code of the operation.",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "description": "New version of the item.",
+            "format": "int64"
+          },
+          "error": {
+            "description": "If the operation did not succeed, this contains error information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
+          },
+          "requestId": {
+            "type": "string",
+            "description": "The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.",
+            "nullable": true
+          }
+        }
+      },
+      "BusinessProcessDetailsDataSchemaImport": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
+          },
+          {
+            "type": "object",
+            "description": "Business process detailed information regarding Schema / ListItems import operation",
+            "additionalProperties": false,
+            "properties": {
+              "schemaImportResult": {
+                "description": "Result information of a schema import operation",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SchemaImportResult"
+                  }
+                ]
+              },
+              "listItemImportResult": {
+                "description": "Result information of a list item import operation",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ListItemImportResult"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "SchemaImportResult": {
+        "type": "object",
+        "description": "Result information of a schema import operation",
+        "additionalProperties": false,
+        "required": [
+          "importedSchemaCount",
+          "skippedSchemaCount",
+          "totalSchemaCount"
+        ],
+        "properties": {
+          "importedSchemaCount": {
+            "type": "integer",
+            "description": "Number of schemas imported",
+            "format": "int32"
+          },
+          "skippedSchemaCount": {
+            "type": "integer",
+            "description": "Number of schema skipped during import phase because they were already found in the system",
+            "format": "int32"
+          },
+          "totalSchemaCount": {
+            "type": "integer",
+            "description": "Total number of schemas requested to be imported",
+            "format": "int32"
+          },
+          "skippedSchemaIds": {
+            "type": "array",
+            "description": "Ids of the schemas that were not imported because already found in the system",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "importedSchemaIds": {
+            "type": "array",
+            "description": "Ids of the schemas that were successfully imported",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ListItemImportResult": {
+        "type": "object",
+        "description": "Result information of a list item import operation",
+        "additionalProperties": false,
+        "required": [
+          "importedListItemCount",
+          "skippedListItemCount",
+          "totalListItemCount"
+        ],
+        "properties": {
+          "importedListItemCount": {
+            "type": "integer",
+            "description": "Number of list items imported",
+            "format": "int32"
+          },
+          "skippedListItemCount": {
+            "type": "integer",
+            "description": "Number of list items skipped during import phase because they were already found in the system",
+            "format": "int32"
+          },
+          "totalListItemCount": {
+            "type": "integer",
+            "description": "Total number of list items requested to be imported",
+            "format": "int32"
+          },
+          "skippedListItemIds": {
+            "type": "array",
+            "description": "Ids of the list items that were not imported because already found in the system or due to errors",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "importedListItemIds": {
+            "type": "array",
+            "description": "Ids of the list items that were successfully imported",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BusinessProcessDetailsDataContentImport": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "description": "Items that were imported.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentImportResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContentImportResult": {
+        "type": "object",
+        "description": "Represents an item imported during a content import",
+        "additionalProperties": false,
+        "required": [
+          "fileTransferId",
+          "succeeded"
+        ],
+        "properties": {
+          "fileTransferId": {
+            "type": "string",
+            "description": "ID of the file transfer.",
+            "minLength": 1
+          },
+          "contentId": {
+            "type": "string",
+            "description": "ID of the resulting content.",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "description": "State of the item.",
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean",
+            "description": "Indicates if the operation succeeded."
+          },
+          "error": {
+            "description": "If the operation did not succeeded, this contains error related information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
+          }
+        }
+      },
       "PictureparkValidationException": {
         "allOf": [
           {
@@ -33525,6 +33625,23 @@
             "additionalProperties": false,
             "properties": {
               "cronExpression": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FeatureNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "featureName": {
                 "type": "string",
                 "nullable": true
               }
@@ -37166,6 +37283,105 @@
           }
         ]
       },
+      "SchemaFieldTreeViewAtLeastOneLevelRequiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewInvalidMaxRecursionsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "nullable": true
+              },
+              "maxRecursions": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewTagboxFieldRequiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldTreeViewNotSupportedForSchemaTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaType": {
+                "$ref": "#/components/schemas/SchemaType"
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -40025,323 +40241,6 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/BusinessProcess"
-              }
-            ]
-          }
-        }
-      },
-      "BusinessProcessDetails": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcess"
-          },
-          {
-            "type": "object",
-            "description": "Detailed representation of a business process",
-            "additionalProperties": false,
-            "properties": {
-              "details": {
-                "description": "Details for the business process.",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "BusinessProcessDetailsDataBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "BusinessProcessDetailsDataBatchResponse": "#/components/schemas/BusinessProcessDetailsDataBatchResponse",
-            "BusinessProcessDetailsDataSchemaImport": "#/components/schemas/BusinessProcessDetailsDataSchemaImport",
-            "BusinessProcessDetailsDataContentImport": "#/components/schemas/BusinessProcessDetailsDataContentImport"
-          }
-        },
-        "description": "Base class for the details of a business process",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "BusinessProcessDetailsDataBatchResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
-          },
-          {
-            "type": "object",
-            "description": "Business process detailed information regarding a batch operation",
-            "additionalProperties": false,
-            "required": [
-              "docType",
-              "response"
-            ],
-            "properties": {
-              "docType": {
-                "type": "string",
-                "description": "The DocType on which the operation was performed.",
-                "minLength": 1
-              },
-              "response": {
-                "description": "The response of the batch operation.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/BatchResponse"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "BatchResponse": {
-        "type": "object",
-        "description": "Response from a batch operation",
-        "additionalProperties": false,
-        "required": [
-          "rows"
-        ],
-        "properties": {
-          "rows": {
-            "type": "array",
-            "description": "Rows in the response.",
-            "items": {
-              "$ref": "#/components/schemas/BatchResponseRow"
-            }
-          }
-        }
-      },
-      "BatchResponseRow": {
-        "type": "object",
-        "description": "Row in a batch operation response",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "succeeded",
-          "status",
-          "version"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Id of the item.",
-            "minLength": 1
-          },
-          "succeeded": {
-            "type": "boolean",
-            "description": "Indicates if the operation succeeded."
-          },
-          "status": {
-            "type": "integer",
-            "description": "Status code of the operation.",
-            "format": "int32"
-          },
-          "version": {
-            "type": "integer",
-            "description": "New version of the item.",
-            "format": "int64"
-          },
-          "error": {
-            "description": "If the operation did not succeed, this contains error information.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ErrorResponse"
-              }
-            ]
-          },
-          "requestId": {
-            "type": "string",
-            "description": "The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.",
-            "nullable": true
-          }
-        }
-      },
-      "BusinessProcessDetailsDataSchemaImport": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
-          },
-          {
-            "type": "object",
-            "description": "Business process detailed information regarding Schema / ListItems import operation",
-            "additionalProperties": false,
-            "properties": {
-              "schemaImportResult": {
-                "description": "Result information of a schema import operation",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/SchemaImportResult"
-                  }
-                ]
-              },
-              "listItemImportResult": {
-                "description": "Result information of a list item import operation",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/ListItemImportResult"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "SchemaImportResult": {
-        "type": "object",
-        "description": "Result information of a schema import operation",
-        "additionalProperties": false,
-        "required": [
-          "importedSchemaCount",
-          "skippedSchemaCount",
-          "totalSchemaCount"
-        ],
-        "properties": {
-          "importedSchemaCount": {
-            "type": "integer",
-            "description": "Number of schemas imported",
-            "format": "int32"
-          },
-          "skippedSchemaCount": {
-            "type": "integer",
-            "description": "Number of schema skipped during import phase because they were already found in the system",
-            "format": "int32"
-          },
-          "totalSchemaCount": {
-            "type": "integer",
-            "description": "Total number of schemas requested to be imported",
-            "format": "int32"
-          },
-          "skippedSchemaIds": {
-            "type": "array",
-            "description": "Ids of the schemas that were not imported because already found in the system",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "importedSchemaIds": {
-            "type": "array",
-            "description": "Ids of the schemas that were successfully imported",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "ListItemImportResult": {
-        "type": "object",
-        "description": "Result information of a list item import operation",
-        "additionalProperties": false,
-        "required": [
-          "importedListItemCount",
-          "skippedListItemCount",
-          "totalListItemCount"
-        ],
-        "properties": {
-          "importedListItemCount": {
-            "type": "integer",
-            "description": "Number of list items imported",
-            "format": "int32"
-          },
-          "skippedListItemCount": {
-            "type": "integer",
-            "description": "Number of list items skipped during import phase because they were already found in the system",
-            "format": "int32"
-          },
-          "totalListItemCount": {
-            "type": "integer",
-            "description": "Total number of list items requested to be imported",
-            "format": "int32"
-          },
-          "skippedListItemIds": {
-            "type": "array",
-            "description": "Ids of the list items that were not imported because already found in the system or due to errors",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "importedListItemIds": {
-            "type": "array",
-            "description": "Ids of the list items that were successfully imported",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "BusinessProcessDetailsDataContentImport": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "items": {
-                "type": "array",
-                "description": "Items that were imported.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/ContentImportResult"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "ContentImportResult": {
-        "type": "object",
-        "description": "Represents an item imported during a content import",
-        "additionalProperties": false,
-        "required": [
-          "fileTransferId",
-          "succeeded"
-        ],
-        "properties": {
-          "fileTransferId": {
-            "type": "string",
-            "description": "ID of the file transfer.",
-            "minLength": 1
-          },
-          "contentId": {
-            "type": "string",
-            "description": "ID of the resulting content.",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "description": "State of the item.",
-            "nullable": true
-          },
-          "succeeded": {
-            "type": "boolean",
-            "description": "Indicates if the operation succeeded."
-          },
-          "error": {
-            "description": "If the operation did not succeeded, this contains error related information.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ErrorResponse"
               }
             ]
           }
@@ -54300,152 +54199,6 @@
           }
         }
       },
-      "OutputSearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfOutput"
-          },
-          {
-            "type": "object",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use Content endpoints to resolve Outputs instead",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BaseResultOfOutput": {
-        "type": "object",
-        "description": "Base class for search results",
-        "additionalProperties": false,
-        "required": [
-          "results",
-          "totalResults",
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "description": "The total number of matching documents.",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "description": "The matched documents.",
-            "items": {
-              "$ref": "#/components/schemas/Output"
-            }
-          },
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "The search execution time in milliseconds.",
-            "format": "int64"
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
-            "nullable": true
-          }
-        }
-      },
-      "OutputSearchRequest": {
-        "type": "object",
-        "deprecated": true,
-        "x-deprecatedMessage": "Use Content endpoints to resolve Outputs instead",
-        "additionalProperties": false,
-        "required": [
-          "limit"
-        ],
-        "properties": {
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
-            "nullable": true
-          },
-          "contentIds": {
-            "type": "array",
-            "description": "List of Content ids you want to use to fetch the outputs.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "renderingStates": {
-            "type": "array",
-            "description": "The allowed rendering states of the outputs you want to fetch.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/OutputRenderingState"
-            }
-          },
-          "fileExtensions": {
-            "type": "array",
-            "description": "The file extension of the outputs you want to fetch.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "outputFormatIds": {
-            "type": "array",
-            "description": "The output format id of the outputs you want to fetch.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "OutputResetRetryAttemptsRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "includeCompleted"
-        ],
-        "properties": {
-          "outputIds": {
-            "type": "array",
-            "description": "List of output IDs you want to filter on. If this field is not empty, the other will be ignored.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "contentIds": {
-            "type": "array",
-            "description": "List of Content IDs you want to filter on.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "fileExtensions": {
-            "type": "array",
-            "description": "The file extension of the outputs you want to filter on.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "outputFormatIds": {
-            "type": "array",
-            "description": "The IDs of the output formats you want to filter on.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "includeCompleted": {
-            "type": "boolean",
-            "description": "Should the successful filter results also be reset (and subsequently re-rendered)?"
-          }
-        }
-      },
       "UserProfile": {
         "type": "object",
         "description": "User profile.",
@@ -55175,7 +54928,8 @@
             "FieldTranslatedString": "#/components/schemas/FieldTranslatedString",
             "FieldSingleRelation": "#/components/schemas/FieldSingleRelation",
             "FieldMultiRelation": "#/components/schemas/FieldMultiRelation",
-            "FieldDynamicView": "#/components/schemas/FieldDynamicView"
+            "FieldDynamicView": "#/components/schemas/FieldDynamicView",
+            "FieldTreeView": "#/components/schemas/FieldTreeView"
           }
         },
         "description": "The field base class",
@@ -56489,6 +56243,61 @@
             }
           }
         ]
+      },
+      "FieldTreeView": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldBase"
+          },
+          {
+            "type": "object",
+            "description": "Stores a tree structure based on tagbox fields in the same schema",
+            "additionalProperties": false,
+            "required": [
+              "levels"
+            ],
+            "properties": {
+              "levels": {
+                "type": "array",
+                "description": "Levels of the tree.\nAt least one level is required.",
+                "items": {
+                  "$ref": "#/components/schemas/TreeLevelItem"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TreeLevelItem": {
+        "type": "object",
+        "description": "Configures a level of a tree structure of a FieldTreeView",
+        "additionalProperties": false,
+        "required": [
+          "fieldId",
+          "maxRecursions"
+        ],
+        "properties": {
+          "fieldId": {
+            "type": "string",
+            "description": "ID of the field.\nMust be a tagbox field.",
+            "minLength": 1
+          },
+          "maxRecursions": {
+            "type": "integer",
+            "description": "Maximum number of recursions allowed if the tagbox references the same schema it is defined in.\nSet to -1 to recurse until no more items are found.",
+            "format": "int32",
+            "maximum": 2147483647.0,
+            "minimum": -1.0
+          },
+          "levels": {
+            "type": "array",
+            "description": "Further levels of the tree based on the schema the tagbox field references.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TreeLevelItem"
+            }
+          }
+        }
       },
       "FieldOverwriteBase": {
         "type": "object",
@@ -57971,12 +57780,10 @@
         "type": "object",
         "description": "Share mail recipient",
         "additionalProperties": false,
-        "required": [
-          "userEmail"
-        ],
         "properties": {
           "userEmail": {
             "description": "User information including email.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UserEmail"
@@ -62946,7 +62753,6 @@
               "outputformat_read": "Read output formats",
               "outputformat_write": "Write output formats",
               "output_read": "Read outputs",
-              "output_write": "Write outputs",
               "profile_read": "Read profile",
               "profile_write": "Write profile",
               "share_read": "Read shares",

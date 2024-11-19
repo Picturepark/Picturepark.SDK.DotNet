@@ -2512,45 +2512,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<OutputDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>
-        /// Search output documents
-        /// </summary>
-        /// <remarks>
-        /// ContentIds must be mandatory filled.
-        /// </remarks>
-        /// <param name="request">The output search request.</param>
-        /// <returns>Output result set</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        [System.Obsolete]
-        System.Threading.Tasks.Task<OutputSearchResult> SearchAsync(OutputSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>
-        /// Resets retry attempt counters.
-        /// </summary>
-        /// <remarks>
-        /// Resets retry attempt counters on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.
-        /// <br/>The number the counters are reset to is determined by a global configuration value. If OutputIds are specified, the rest of the fields are ignored.
-        /// <br/>Can reset 100 outputs at most. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
-        /// </remarks>
-        /// <param name="request">Request containing options to filter which outputs should be reset.</param>
-        /// <returns>Business process tracking the resetting</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -4881,6 +4842,391 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
+    /// <summary>
+    /// Detailed representation of a business process
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BusinessProcessDetails : BusinessProcess
+    {
+        /// <summary>
+        /// Details for the business process.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessProcessDetailsDataBase Details { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessDetails FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetails>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Base class for the details of a business process
+    /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataContentImport", typeof(BusinessProcessDetailsDataContentImport))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class BusinessProcessDetailsDataBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessDetailsDataBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Business process detailed information regarding a batch operation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BusinessProcessDetailsDataBatchResponse : BusinessProcessDetailsDataBase
+    {
+        /// <summary>
+        /// The DocType on which the operation was performed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string DocType { get; set; }
+
+        /// <summary>
+        /// The response of the batch operation.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public BatchResponse Response { get; set; } = new BatchResponse();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessDetailsDataBatchResponse FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBatchResponse>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Response from a batch operation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BatchResponse
+    {
+        /// <summary>
+        /// Rows in the response.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BatchResponseRow> Rows { get; set; } = new System.Collections.Generic.List<BatchResponseRow>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BatchResponse FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BatchResponse>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Row in a batch operation response
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BatchResponseRow
+    {
+        /// <summary>
+        /// Id of the item.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Indicates if the operation succeeded.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+
+        /// <summary>
+        /// Status code of the operation.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        public int Status { get; set; }
+
+        /// <summary>
+        /// New version of the item.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
+        public long Version { get; set; }
+
+        /// <summary>
+        /// If the operation did not succeed, this contains error information.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+
+        /// <summary>
+        /// The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BatchResponseRow FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BatchResponseRow>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Business process detailed information regarding Schema / ListItems import operation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BusinessProcessDetailsDataSchemaImport : BusinessProcessDetailsDataBase
+    {
+        /// <summary>
+        /// Result information of a schema import operation
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("schemaImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SchemaImportResult SchemaImportResult { get; set; }
+
+        /// <summary>
+        /// Result information of a list item import operation
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("listItemImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ListItemImportResult ListItemImportResult { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessDetailsDataSchemaImport FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataSchemaImport>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Result information of a schema import operation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SchemaImportResult
+    {
+        /// <summary>
+        /// Number of schemas imported
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("importedSchemaCount", Required = Newtonsoft.Json.Required.Always)]
+        public int ImportedSchemaCount { get; set; }
+
+        /// <summary>
+        /// Number of schema skipped during import phase because they were already found in the system
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("skippedSchemaCount", Required = Newtonsoft.Json.Required.Always)]
+        public int SkippedSchemaCount { get; set; }
+
+        /// <summary>
+        /// Total number of schemas requested to be imported
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("totalSchemaCount", Required = Newtonsoft.Json.Required.Always)]
+        public int TotalSchemaCount { get; set; }
+
+        /// <summary>
+        /// Ids of the schemas that were not imported because already found in the system
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("skippedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SkippedSchemaIds { get; set; }
+
+        /// <summary>
+        /// Ids of the schemas that were successfully imported
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("importedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ImportedSchemaIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaImportResult FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Result information of a list item import operation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ListItemImportResult
+    {
+        /// <summary>
+        /// Number of list items imported
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("importedListItemCount", Required = Newtonsoft.Json.Required.Always)]
+        public int ImportedListItemCount { get; set; }
+
+        /// <summary>
+        /// Number of list items skipped during import phase because they were already found in the system
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("skippedListItemCount", Required = Newtonsoft.Json.Required.Always)]
+        public int SkippedListItemCount { get; set; }
+
+        /// <summary>
+        /// Total number of list items requested to be imported
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("totalListItemCount", Required = Newtonsoft.Json.Required.Always)]
+        public int TotalListItemCount { get; set; }
+
+        /// <summary>
+        /// Ids of the list items that were not imported because already found in the system or due to errors
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("skippedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SkippedListItemIds { get; set; }
+
+        /// <summary>
+        /// Ids of the list items that were successfully imported
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("importedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ImportedListItemIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ListItemImportResult FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemImportResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BusinessProcessDetailsDataContentImport : BusinessProcessDetailsDataBase
+    {
+        /// <summary>
+        /// Items that were imported.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentImportResult> Items { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessDetailsDataContentImport FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataContentImport>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Represents an item imported during a content import
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ContentImportResult
+    {
+        /// <summary>
+        /// ID of the file transfer.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string FileTransferId { get; set; }
+
+        /// <summary>
+        /// ID of the resulting content.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+
+        /// <summary>
+        /// State of the item.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string State { get; set; }
+
+        /// <summary>
+        /// Indicates if the operation succeeded.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+
+        /// <summary>
+        /// If the operation did not succeeded, this contains error related information.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ContentImportResult FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentImportResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkValidationException : PictureparkBusinessException
@@ -5054,6 +5400,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
     [JsonInheritanceAttribute("ItemIdDuplicatedException", typeof(ItemIdDuplicatedException))]
     [JsonInheritanceAttribute("CronExpressionInvalidException", typeof(CronExpressionInvalidException))]
+    [JsonInheritanceAttribute("FeatureNotEnabledException", typeof(FeatureNotEnabledException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
@@ -5202,6 +5549,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
     [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException))]
     [JsonInheritanceAttribute("SchemaFieldDynamicViewFieldInvalidFilterTemplateException", typeof(SchemaFieldDynamicViewFieldInvalidFilterTemplateException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewAtLeastOneLevelRequiredException", typeof(SchemaFieldTreeViewAtLeastOneLevelRequiredException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewInvalidMaxRecursionsException", typeof(SchemaFieldTreeViewInvalidMaxRecursionsException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewTagboxFieldRequiredException", typeof(SchemaFieldTreeViewTagboxFieldRequiredException))]
+    [JsonInheritanceAttribute("SchemaFieldTreeViewNotSupportedForSchemaTypeException", typeof(SchemaFieldTreeViewNotSupportedForSchemaTypeException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -7672,6 +8023,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CronExpressionInvalidException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FeatureNotEnabledException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("featureName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FeatureName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static FeatureNotEnabledException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FeatureNotEnabledException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -12087,6 +12460,119 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewAtLeastOneLevelRequiredException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewAtLeastOneLevelRequiredException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewAtLeastOneLevelRequiredException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewInvalidMaxRecursionsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("maxRecursions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int MaxRecursions { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewInvalidMaxRecursionsException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewInvalidMaxRecursionsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewTagboxFieldRequiredException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewTagboxFieldRequiredException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewTagboxFieldRequiredException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldTreeViewNotSupportedForSchemaTypeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("schemaType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SchemaType SchemaType { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SchemaFieldTreeViewNotSupportedForSchemaTypeException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewNotSupportedForSchemaTypeException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteContentsWithReferencesException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -15892,391 +16378,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitForLifeCycleResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Detailed representation of a business process
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BusinessProcessDetails : BusinessProcess
-    {
-        /// <summary>
-        /// Details for the business process.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BusinessProcessDetailsDataBase Details { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BusinessProcessDetails FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetails>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Base class for the details of a business process
-    /// </summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
-    [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
-    [JsonInheritanceAttribute("BusinessProcessDetailsDataContentImport", typeof(BusinessProcessDetailsDataContentImport))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class BusinessProcessDetailsDataBase
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BusinessProcessDetailsDataBase FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Business process detailed information regarding a batch operation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BusinessProcessDetailsDataBatchResponse : BusinessProcessDetailsDataBase
-    {
-        /// <summary>
-        /// The DocType on which the operation was performed.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string DocType { get; set; }
-
-        /// <summary>
-        /// The response of the batch operation.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public BatchResponse Response { get; set; } = new BatchResponse();
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BusinessProcessDetailsDataBatchResponse FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBatchResponse>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Response from a batch operation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BatchResponse
-    {
-        /// <summary>
-        /// Rows in the response.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<BatchResponseRow> Rows { get; set; } = new System.Collections.Generic.List<BatchResponseRow>();
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BatchResponse FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BatchResponse>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Row in a batch operation response
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BatchResponseRow
-    {
-        /// <summary>
-        /// Id of the item.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Indicates if the operation succeeded.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
-        public bool Succeeded { get; set; }
-
-        /// <summary>
-        /// Status code of the operation.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
-        public int Status { get; set; }
-
-        /// <summary>
-        /// New version of the item.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
-        public long Version { get; set; }
-
-        /// <summary>
-        /// If the operation did not succeed, this contains error information.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ErrorResponse Error { get; set; }
-
-        /// <summary>
-        /// The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RequestId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BatchResponseRow FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BatchResponseRow>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Business process detailed information regarding Schema / ListItems import operation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BusinessProcessDetailsDataSchemaImport : BusinessProcessDetailsDataBase
-    {
-        /// <summary>
-        /// Result information of a schema import operation
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("schemaImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SchemaImportResult SchemaImportResult { get; set; }
-
-        /// <summary>
-        /// Result information of a list item import operation
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("listItemImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ListItemImportResult ListItemImportResult { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BusinessProcessDetailsDataSchemaImport FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataSchemaImport>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Result information of a schema import operation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SchemaImportResult
-    {
-        /// <summary>
-        /// Number of schemas imported
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("importedSchemaCount", Required = Newtonsoft.Json.Required.Always)]
-        public int ImportedSchemaCount { get; set; }
-
-        /// <summary>
-        /// Number of schema skipped during import phase because they were already found in the system
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("skippedSchemaCount", Required = Newtonsoft.Json.Required.Always)]
-        public int SkippedSchemaCount { get; set; }
-
-        /// <summary>
-        /// Total number of schemas requested to be imported
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalSchemaCount", Required = Newtonsoft.Json.Required.Always)]
-        public int TotalSchemaCount { get; set; }
-
-        /// <summary>
-        /// Ids of the schemas that were not imported because already found in the system
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("skippedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SkippedSchemaIds { get; set; }
-
-        /// <summary>
-        /// Ids of the schemas that were successfully imported
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("importedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ImportedSchemaIds { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static SchemaImportResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Result information of a list item import operation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ListItemImportResult
-    {
-        /// <summary>
-        /// Number of list items imported
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("importedListItemCount", Required = Newtonsoft.Json.Required.Always)]
-        public int ImportedListItemCount { get; set; }
-
-        /// <summary>
-        /// Number of list items skipped during import phase because they were already found in the system
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("skippedListItemCount", Required = Newtonsoft.Json.Required.Always)]
-        public int SkippedListItemCount { get; set; }
-
-        /// <summary>
-        /// Total number of list items requested to be imported
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalListItemCount", Required = Newtonsoft.Json.Required.Always)]
-        public int TotalListItemCount { get; set; }
-
-        /// <summary>
-        /// Ids of the list items that were not imported because already found in the system or due to errors
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("skippedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SkippedListItemIds { get; set; }
-
-        /// <summary>
-        /// Ids of the list items that were successfully imported
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("importedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ImportedListItemIds { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ListItemImportResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemImportResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BusinessProcessDetailsDataContentImport : BusinessProcessDetailsDataBase
-    {
-        /// <summary>
-        /// Items that were imported.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ContentImportResult> Items { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BusinessProcessDetailsDataContentImport FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataContentImport>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Represents an item imported during a content import
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ContentImportResult
-    {
-        /// <summary>
-        /// ID of the file transfer.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string FileTransferId { get; set; }
-
-        /// <summary>
-        /// ID of the resulting content.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        /// <summary>
-        /// State of the item.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string State { get; set; }
-
-        /// <summary>
-        /// Indicates if the operation succeeded.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
-        public bool Succeeded { get; set; }
-
-        /// <summary>
-        /// If the operation did not succeeded, this contains error related information.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ErrorResponse Error { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ContentImportResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentImportResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -34105,174 +34206,6 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class OutputSearchResult : BaseResultOfOutput
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static OutputSearchResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputSearchResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Base class for search results
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BaseResultOfOutput
-    {
-        /// <summary>
-        /// The total number of matching documents.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-
-        /// <summary>
-        /// The matched documents.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<Output> Results { get; set; } = new System.Collections.Generic.List<Output>();
-
-        /// <summary>
-        /// The search execution time in milliseconds.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-
-        /// <summary>
-        /// An optional token to access the next page of results for those endpoints that support backend scrolling logic.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static BaseResultOfOutput FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfOutput>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [System.Obsolete("Use Content endpoints to resolve Outputs instead")]
-    public partial class OutputSearchRequest
-    {
-        /// <summary>
-        /// Limits the document count of the result set. Defaults to 30.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-
-        /// <summary>
-        /// The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-
-        /// <summary>
-        /// List of Content ids you want to use to fetch the outputs.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-
-        /// <summary>
-        /// The allowed rendering states of the outputs you want to fetch.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("renderingStates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<OutputRenderingState> RenderingStates { get; set; }
-
-        /// <summary>
-        /// The file extension of the outputs you want to fetch.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("fileExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> FileExtensions { get; set; }
-
-        /// <summary>
-        /// The output format id of the outputs you want to fetch.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static OutputSearchRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputSearchRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class OutputResetRetryAttemptsRequest
-    {
-        /// <summary>
-        /// List of output IDs you want to filter on. If this field is not empty, the other will be ignored.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("outputIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> OutputIds { get; set; }
-
-        /// <summary>
-        /// List of Content IDs you want to filter on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-
-        /// <summary>
-        /// The file extension of the outputs you want to filter on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("fileExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> FileExtensions { get; set; }
-
-        /// <summary>
-        /// The IDs of the output formats you want to filter on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
-
-        /// <summary>
-        /// Should the successful filter results also be reset (and subsequently re-rendered)?
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("includeCompleted", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeCompleted { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static OutputResetRetryAttemptsRequest FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputResetRetryAttemptsRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
     /// <summary>
     /// User profile.
     /// </summary>
@@ -35158,6 +35091,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("FieldSingleRelation", typeof(FieldSingleRelation))]
     [JsonInheritanceAttribute("FieldMultiRelation", typeof(FieldMultiRelation))]
     [JsonInheritanceAttribute("FieldDynamicView", typeof(FieldDynamicView))]
+    [JsonInheritanceAttribute("FieldTreeView", typeof(FieldTreeView))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class FieldBase
     {
@@ -36709,6 +36643,78 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDynamicView>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Stores a tree structure based on tagbox fields in the same schema
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FieldTreeView : FieldBase
+    {
+        /// <summary>
+        /// Levels of the tree.
+        /// <br/>At least one level is required.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("levels", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<TreeLevelItem> Levels { get; set; } = new System.Collections.Generic.List<TreeLevelItem>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static FieldTreeView FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldTreeView>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Configures a level of a tree structure of a FieldTreeView
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TreeLevelItem
+    {
+        /// <summary>
+        /// ID of the field.
+        /// <br/>Must be a tagbox field.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string FieldId { get; set; }
+
+        /// <summary>
+        /// Maximum number of recursions allowed if the tagbox references the same schema it is defined in.
+        /// <br/>Set to -1 to recurse until no more items are found.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("maxRecursions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Range(-1, 2147483647)]
+        public int MaxRecursions { get; set; }
+
+        /// <summary>
+        /// Further levels of the tree based on the schema the tagbox field references.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("levels", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<TreeLevelItem> Levels { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeLevelItem FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeLevelItem>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -38565,9 +38571,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// User information including email.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("userEmail", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public UserEmail UserEmail { get; set; } = new UserEmail();
+        [Newtonsoft.Json.JsonProperty("userEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserEmail UserEmail { get; set; }
 
         /// <summary>
         /// Recipient specific token.
