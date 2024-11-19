@@ -637,7 +637,8 @@
   <h4 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_MaintenanceClient_ResetRetryAttemptsAsync_System_String_OutputResetRetryAttemptsRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Partial.Picturepark.SDK.V1.CloudManager.MaintenanceClient.ResetRetryAttemptsAsync(System.String,OutputResetRetryAttemptsRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_MaintenanceClient_ResetRetryAttemptsAsync_System_String_OutputResetRetryAttemptsRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ResetRetryAttemptsAsync(String, OutputResetRetryAttemptsRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_MaintenanceClient_ResetRetryAttemptsAsync_System_String_OutputResetRetryAttemptsRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Resets retry attempt counters.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
@@ -651,21 +652,24 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p>
+        <p><p>CustomerId</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">OutputResetRetryAttemptsRequest</span></span>
         <span class="parametername">request</span>
-        <p>
+        <p><p>Request containing options to filter which outputs should be reset.</p>
+</p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
-        <p>
+        <p><p>Timeout to wait for completion, operation will continue regardless.</p>
+</p>
       </td>
     </tr>
     <tr>
@@ -683,7 +687,8 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
-        <p>
+        <p><p>Business process tracking the resetting</p>
+</p>
       </td>
     </tr>
   </table>
@@ -694,6 +699,10 @@
   
   
   
+  <h5 id="Picturepark_SDK_V1_Partial_Picturepark_SDK_V1_CloudManager_MaintenanceClient_ResetRetryAttemptsAsync_System_String_OutputResetRetryAttemptsRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Resets retry attempt counters on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.
+<br>The number the counters are reset to is determined by a global configuration value.</p>
+</div>
   
   
   
