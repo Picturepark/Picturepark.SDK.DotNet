@@ -18405,6 +18405,7 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>
         /// Path to get buckets for.
+        /// <br/>Remark: If this is not null, missing items will only be returned if they're a direct child of this path.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Path { get; set; }
@@ -18420,6 +18421,13 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Size { get; set; }
+
+        /// <summary>
+        /// Sorting for results. If null, sorts by item count.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sortDirection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection? SortDirection { get; set; }
 
         public string ToJson()
         {
