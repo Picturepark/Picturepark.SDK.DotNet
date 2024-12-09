@@ -25136,8 +25136,7 @@
         "required": [
           "backupOption",
           "subscription",
-          "historicVersioningState",
-          "enableTreeView"
+          "historicVersioningState"
         ],
         "properties": {
           "backupOption": {
@@ -25184,7 +25183,8 @@
           },
           "enableTreeView": {
             "type": "boolean",
-            "description": "License flag to enable tree view"
+            "description": "License flag to enable tree view",
+            "nullable": true
           }
         }
       },

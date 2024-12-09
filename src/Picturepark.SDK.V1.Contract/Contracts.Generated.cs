@@ -28728,8 +28728,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// License flag for enabling tree view
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("enableTreeView", Required = Newtonsoft.Json.Required.Always)]
-        public bool EnableTreeView { get; set; }
+        [Newtonsoft.Json.JsonProperty("enableTreeView", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? EnableTreeView { get; set; }
 
         public string ToJson()
         {

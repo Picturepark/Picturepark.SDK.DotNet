@@ -49970,8 +49970,7 @@
         "required": [
           "historicVersioningState",
           "contentStatistics",
-          "imageOptimization",
-          "enableTreeView"
+          "imageOptimization"
         ],
         "properties": {
           "historicVersioningState": {
@@ -50000,7 +49999,8 @@
           },
           "enableTreeView": {
             "type": "boolean",
-            "description": "License flag for enabling tree view"
+            "description": "License flag for enabling tree view",
+            "nullable": true
           }
         }
       },
