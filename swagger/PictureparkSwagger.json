@@ -37359,35 +37359,6 @@
           }
         ]
       },
-      "SchemaFieldTreeViewInvalidMaxRecursionsException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "path": {
-                "type": "string",
-                "nullable": true
-              },
-              "maxRecursions": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
       "SchemaFieldTreeViewTagboxFieldRequiredException": {
         "allOf": [
           {
@@ -41904,7 +41875,7 @@
               },
               "path": {
                 "type": "string",
-                "description": "Path to get buckets for.",
+                "description": "Path to get buckets for.\nRemark: If this is not null, missing items will only be returned if they're a direct child of this path.",
                 "nullable": true
               },
               "searchString": {
@@ -41917,6 +41888,15 @@
                 "description": "The size parameter can be set to define how many buckets should be returned out of the overall list.",
                 "format": "int32",
                 "nullable": true
+              },
+              "sortDirection": {
+                "description": "Sorting for results. If null, sorts by item count.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SortDirection"
+                  }
+                ]
               }
             }
           }
@@ -56549,7 +56529,7 @@
         "additionalProperties": false,
         "required": [
           "fieldId",
-          "maxRecursions"
+          "recurse"
         ],
         "properties": {
           "fieldId": {
@@ -56557,12 +56537,9 @@
             "description": "ID of the field.\nMust be a tagbox field.",
             "minLength": 1
           },
-          "maxRecursions": {
-            "type": "integer",
-            "description": "Maximum number of recursions allowed if the tagbox references the same schema it is defined in.\nSet to -1 to recurse until no more items are found.",
-            "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": -1.0
+          "recurse": {
+            "type": "boolean",
+            "description": "Allow recursion if the tagbox references the same schema it is defined in."
           },
           "levels": {
             "type": "array",
