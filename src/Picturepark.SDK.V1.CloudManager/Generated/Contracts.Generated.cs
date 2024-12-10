@@ -14764,6 +14764,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         /// <summary>
         /// Path to get buckets for.
+        /// <br/>Remark: If this is not null, missing items will only be returned if they're a direct child of this path.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Path { get; set; }
@@ -14779,6 +14780,13 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Size { get; set; }
+
+        /// <summary>
+        /// Sorting for results. If null, sorts by item count.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sortDirection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection? SortDirection { get; set; }
 
         public string ToJson()
         {
@@ -16004,10 +16012,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool ResetServiceProviders { get; set; }
 
         /// <summary>
-        /// Base url for for shares
+        /// Base url for customer
         /// </summary>
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
+
+        /// <summary>
+        /// ContentDelivery Base url for shares
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("contentDeliveryBaseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentDeliveryBaseUrl { get; set; }
 
         /// <summary>
         /// Host configuration
