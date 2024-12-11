@@ -56529,7 +56529,7 @@
         "additionalProperties": false,
         "required": [
           "fieldId",
-          "recurse"
+          "allowRecursion"
         ],
         "properties": {
           "fieldId": {
@@ -56537,7 +56537,7 @@
             "description": "ID of the field.\nMust be a tagbox field.",
             "minLength": 1
           },
-          "recurse": {
+          "allowRecursion": {
             "type": "boolean",
             "description": "Allow recursion if the tagbox references the same schema it is defined in."
           },

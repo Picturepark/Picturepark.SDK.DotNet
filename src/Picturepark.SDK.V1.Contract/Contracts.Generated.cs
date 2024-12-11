@@ -37010,8 +37010,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Allow recursion if the tagbox references the same schema it is defined in.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("recurse", Required = Newtonsoft.Json.Required.Always)]
-        public bool Recurse { get; set; }
+        [Newtonsoft.Json.JsonProperty("allowRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowRecursion { get; set; }
 
         /// <summary>
         /// Further levels of the tree based on the schema the tagbox field references.
