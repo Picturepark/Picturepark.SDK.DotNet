@@ -415,11 +415,11 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             viewField.Levels.Should().HaveCount(2);
             var singleTagboxLevel = viewField.Levels.Should().ContainSingle(x => x.FieldId == "singleTagboxField").Which;
             singleTagboxLevel.Levels.Should().BeEmpty();
-            singleTagboxLevel.MaxRecursions.Should().Be(0);
+            singleTagboxLevel.AllowRecursion.Should().BeFalse();
 
             var multiTagboxLevel = viewField.Levels.Should().ContainSingle(x => x.FieldId == "multiTagboxField").Which;
             multiTagboxLevel.Levels.Should().BeEmpty();
-            multiTagboxLevel.MaxRecursions.Should().Be(-1);
+            multiTagboxLevel.AllowRecursion.Should().BeTrue();
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -442,12 +442,12 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                     new()
                     {
                         FieldId = nameof(SingleTagboxField).ToLowerCamelCase(), Levels = [],
-                        MaxRecursions = 0
+                        AllowRecursion = false
                     },
                     new()
                     {
                         FieldId = nameof(MultiTagboxField).ToLowerCamelCase(), Levels = [],
-                        MaxRecursions = -1
+                        AllowRecursion = true
                     }
                 ];
             }

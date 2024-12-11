@@ -113,7 +113,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
             {
                 FieldId = nameof(AllDataTypesContract.SingleTagboxField).ToLowerCamelCase(),
                 Levels = Array.Empty<TreeLevelItem>(),
-                MaxRecursions = 0
+                AllowRecursion = false
             }
         ];
     }
