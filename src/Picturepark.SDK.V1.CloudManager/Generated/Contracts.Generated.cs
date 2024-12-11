@@ -15980,10 +15980,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool ResetServiceProviders { get; set; }
 
         /// <summary>
-        /// Base url for for shares
+        /// Base url for customer
         /// </summary>
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
+
+        /// <summary>
+        /// ContentDelivery Base url for shares
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("contentDeliveryBaseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentDeliveryBaseUrl { get; set; }
 
         /// <summary>
         /// Host configuration

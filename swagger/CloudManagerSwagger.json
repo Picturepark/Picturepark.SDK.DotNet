@@ -25171,7 +25171,12 @@
           },
           "baseUrl": {
             "type": "string",
-            "description": "Base url for for shares",
+            "description": "Base url for customer",
+            "nullable": true
+          },
+          "contentDeliveryBaseUrl": {
+            "type": "string",
+            "description": "ContentDelivery Base url for shares",
             "nullable": true
           },
           "hostConfiguration": {
