@@ -24284,6 +24284,7 @@
         "additionalProperties": false,
         "required": [
           "entityType",
+          "startTime",
           "expires",
           "isArchived"
         ],
@@ -24305,8 +24306,7 @@
           },
           "startTime": {
             "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "expires": {
             "type": "string",
