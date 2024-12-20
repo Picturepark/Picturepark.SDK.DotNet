@@ -54,9 +54,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
             // buffer
             _liveStreamBuffer.BufferHoldBackTimeMilliseconds = delayMilliseconds;
 
-#pragma warning disable CS0618 // Type or member is obsolete
             var queueName = $"{DefaultExchangeName}.{_configuration.NodeId}";
-#pragma warning restore CS0618 // Type or member is obsolete
             var isUnprotectedProvider = TryDeclareExchangeAndBindQueue(queueName);
             if (!isUnprotectedProvider)
             {
