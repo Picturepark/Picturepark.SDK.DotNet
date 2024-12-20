@@ -24284,7 +24284,6 @@
         "additionalProperties": false,
         "required": [
           "entityType",
-          "startTime",
           "expires",
           "isArchived"
         ],
@@ -24306,7 +24305,8 @@
           },
           "startTime": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "expires": {
             "type": "string",
@@ -25495,7 +25495,6 @@
           "endTime",
           "endTimeInMilliseconds",
           "repositoryIsArchived",
-          "startTime",
           "startTimeInMilliseconds",
           "entityType",
           "restoreDate"
@@ -25561,7 +25560,8 @@
           "startTime": {
             "type": "string",
             "description": "The snapshot StartTime.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "startTimeInMilliseconds": {
             "type": "integer",
