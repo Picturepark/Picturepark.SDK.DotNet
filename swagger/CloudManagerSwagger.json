@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark Cloud Manager API V1",
@@ -2732,6 +2732,128 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SnapshotRepositoryArchiveRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotRepository"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/backup/repository/externalMetadata": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_SetExternalMetadata",
+        "requestBody": {
+          "x-name": "updateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotRepositoryMetadataUpdateRequest"
               }
             }
           },
@@ -24163,6 +24285,10 @@
           },
           "isArchived": {
             "type": "boolean"
+          },
+          "externalMetadata": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -24981,8 +25107,7 @@
         "required": [
           "backupOption",
           "subscription",
-          "historicVersioningState",
-          "enableTreeView"
+          "historicVersioningState"
         ],
         "properties": {
           "backupOption": {
@@ -25029,7 +25154,8 @@
           },
           "enableTreeView": {
             "type": "boolean",
-            "description": "License flag to enable tree view"
+            "description": "License flag to enable tree view",
+            "nullable": true
           }
         }
       },
@@ -25345,7 +25471,6 @@
           "endTime",
           "endTimeInMilliseconds",
           "repositoryIsArchived",
-          "startTime",
           "startTimeInMilliseconds",
           "entityType",
           "restoreDate"
@@ -25411,7 +25536,8 @@
           "startTime": {
             "type": "string",
             "description": "The snapshot StartTime.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "startTimeInMilliseconds": {
             "type": "integer",
@@ -25663,6 +25789,20 @@
         "properties": {
           "isArchived": {
             "type": "boolean"
+          },
+          "repositoryName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SnapshotRepositoryMetadataUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
           },
           "repositoryName": {
             "type": "string",
