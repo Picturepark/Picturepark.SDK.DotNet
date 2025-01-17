@@ -29,7 +29,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request = new LiveStreamSearchRequest
             {
-                Limit = 10,
+                Limit = 100,
                 From = time - TimeSpan.FromSeconds(10), // handle potential clock skew
                 ScopeType = "DocumentChange"
             };
