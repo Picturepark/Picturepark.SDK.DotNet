@@ -62970,6 +62970,7 @@
           "mapping": {
             "DynamicViewFieldMetaWithErrorBase": "#/components/schemas/DynamicViewFieldMetaWithErrorBase",
             "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
+            "DynamicViewFieldMetaWithQueryError": "#/components/schemas/DynamicViewFieldMetaWithQueryError",
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
         },
@@ -63031,6 +63032,18 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithQueryError": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaWithErrorBase"
+          },
+          {
+            "type": "object",
+            "description": "Meta information for a dynamic view field when elastic query exception occured",
+            "additionalProperties": false
           }
         ]
       }
