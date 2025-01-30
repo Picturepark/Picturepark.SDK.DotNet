@@ -61758,7 +61758,8 @@
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
             "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
-            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent",
+            "CdnStatisticsEvent": "#/components/schemas/CdnStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -62262,6 +62263,72 @@
             }
           }
         ]
+      },
+      "CdnStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "traffic": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CdnTrafficValues"
+                }
+              },
+              "reportedTimeStart": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reportedTimeEnd": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      },
+      "CdnTrafficValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "originBytesFetched",
+          "originBytesReceived",
+          "cdnBytesReceived",
+          "cdnBytesSent",
+          "bytesTotal",
+          "requests"
+        ],
+        "properties": {
+          "originBytesFetched": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "originBytesReceived": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cdnBytesReceived": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cdnBytesSent": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bytesTotal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "requests": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
       },
       "Message": {
         "type": "object",
