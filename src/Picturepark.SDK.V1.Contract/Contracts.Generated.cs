@@ -43713,6 +43713,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
     [JsonInheritanceAttribute("DataExtractionRepairEvent", typeof(DataExtractionRepairEvent))]
     [JsonInheritanceAttribute("TaggerStatisticsEvent", typeof(TaggerStatisticsEvent))]
+    [JsonInheritanceAttribute("CdnStatisticsEvent", typeof(CdnStatisticsEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ApplicationEvent
     {
@@ -44272,6 +44273,69 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TaggerStatisticsEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CdnStatisticsEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("traffic", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, CdnTrafficValues> Traffic { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("reportedTimeStart", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime ReportedTimeStart { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("reportedTimeEnd", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime ReportedTimeEnd { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CdnStatisticsEvent FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnStatisticsEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CdnTrafficValues
+    {
+        [Newtonsoft.Json.JsonProperty("originBytesFetched", Required = Newtonsoft.Json.Required.Always)]
+        public long OriginBytesFetched { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("originBytesReceived", Required = Newtonsoft.Json.Required.Always)]
+        public long OriginBytesReceived { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("cdnBytesReceived", Required = Newtonsoft.Json.Required.Always)]
+        public long CdnBytesReceived { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("cdnBytesSent", Required = Newtonsoft.Json.Required.Always)]
+        public long CdnBytesSent { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("bytesTotal", Required = Newtonsoft.Json.Required.Always)]
+        public long BytesTotal { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Always)]
+        public long Requests { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CdnTrafficValues FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnTrafficValues>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
