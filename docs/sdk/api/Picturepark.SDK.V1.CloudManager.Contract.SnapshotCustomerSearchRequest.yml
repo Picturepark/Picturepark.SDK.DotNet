@@ -1,0 +1,980 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  id: SnapshotCustomerSearchRequest
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start
+  - Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson
+  langs:
+  - csharp
+  - vb
+  name: SnapshotCustomerSearchRequest
+  nameWithType: SnapshotCustomerSearchRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SnapshotCustomerSearchRequest
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16430
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class SnapshotCustomerSearchRequest
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class SnapshotCustomerSearchRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString
+  id: SearchString
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: SearchString
+  nameWithType: SnapshotCustomerSearchRequest.SearchString
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchString
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16433
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("searchString", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string SearchString { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("searchString", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property SearchString As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchString
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start
+  id: Start
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: SnapshotCustomerSearchRequest.Start
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Start
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16436
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("start", Required = Required.Always)]
+
+      public int Start { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("start", Required:=Required.Always)>
+
+      Public Property Start As Integer
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: start
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit
+  id: Limit
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: Limit
+  nameWithType: SnapshotCustomerSearchRequest.Limit
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Limit
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16439
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("limit", Required = Required.Always)]
+
+      public int Limit { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("limit", Required:=Required.Always)>
+
+      Public Property Limit As Integer
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: limit
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames
+  id: RepositoryNames
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: RepositoryNames
+  nameWithType: SnapshotCustomerSearchRequest.RepositoryNames
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RepositoryNames
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16442
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("repositoryNames", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> RepositoryNames { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("repositoryNames", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property RepositoryNames As ICollection(Of String)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: repositoryNames
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias
+  id: CustomerAlias
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: CustomerAlias
+  nameWithType: SnapshotCustomerSearchRequest.CustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerAlias
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16445
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("customerAlias", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string CustomerAlias { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("customerAlias", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property CustomerAlias As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: customerAlias
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId
+  id: CustomerId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: CustomerId
+  nameWithType: SnapshotCustomerSearchRequest.CustomerId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerId
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16448
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("customerId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string CustomerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("customerId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property CustomerId As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: customerId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType
+  id: SnapshotDataType
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: SnapshotDataType
+  nameWithType: SnapshotCustomerSearchRequest.SnapshotDataType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SnapshotDataType
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16455
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: >-
+    Limits the returned snapshots to the ones containing data of the specified type (customer, export or history). This search criteria is applied only if no repository name
+
+    <br />is specified.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("snapshotDataType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public SnapshotDataType? SnapshotDataType { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType}
+    content.vb: >-
+      <JsonProperty("snapshotDataType", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property SnapshotDataType As SnapshotDataType?
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: snapshotDataType
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: SnapshotCustomerSearchRequest.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16459
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: SnapshotCustomerSearchRequest.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16465
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static SnapshotCustomerSearchRequest FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+    content.vb: Public Shared Function FromJson(data As String) As SnapshotCustomerSearchRequest
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson*
+  nameWithType.vb: SnapshotCustomerSearchRequest.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_SearchString
+  name: SearchString
+  nameWithType: SnapshotCustomerSearchRequest.SearchString
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SearchString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_Start
+  name: Start
+  nameWithType: SnapshotCustomerSearchRequest.Start
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Start
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_Limit
+  name: Limit
+  nameWithType: SnapshotCustomerSearchRequest.Limit
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.Limit
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_RepositoryNames
+  name: RepositoryNames
+  nameWithType: SnapshotCustomerSearchRequest.RepositoryNames
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.RepositoryNames
+- uid: System.Collections.Generic.ICollection{System.String}
+  commentId: T:System.Collections.Generic.ICollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<string>
+  nameWithType: ICollection<string>
+  fullName: System.Collections.Generic.ICollection<string>
+  nameWithType.vb: ICollection(Of String)
+  fullName.vb: System.Collections.Generic.ICollection(Of String)
+  name.vb: ICollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_CustomerAlias
+  name: CustomerAlias
+  nameWithType: SnapshotCustomerSearchRequest.CustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerAlias
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_CustomerId
+  name: CustomerId
+  nameWithType: SnapshotCustomerSearchRequest.CustomerId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.CustomerId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_SnapshotDataType
+  name: SnapshotDataType
+  nameWithType: SnapshotCustomerSearchRequest.SnapshotDataType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.SnapshotDataType
+- uid: System.Nullable{Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType}
+  commentId: T:System.Nullable{Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType}
+  parent: System
+  definition: System.Nullable`1
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType.html
+  name: SnapshotDataType?
+  nameWithType: SnapshotDataType?
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType?
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType
+    name: SnapshotDataType
+    href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType.html
+  - name: '?'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType
+    name: SnapshotDataType
+    href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotDataType.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_ToJson
+  name: ToJson
+  nameWithType: SnapshotCustomerSearchRequest.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_FromJson_System_String_
+  name: FromJson
+  nameWithType: SnapshotCustomerSearchRequest.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html
+  name: SnapshotCustomerSearchRequest
+  nameWithType: SnapshotCustomerSearchRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest

@@ -1,0 +1,646 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  id: SearchReindexCompletedEvent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration
+  - Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items
+  - Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex
+  - Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson
+  langs:
+  - csharp
+  - vb
+  name: SearchReindexCompletedEvent
+  nameWithType: SearchReindexCompletedEvent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchReindexCompletedEvent
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23365
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class SearchReindexCompletedEvent : ApplicationEvent
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class SearchReindexCompletedEvent Inherits ApplicationEvent
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex
+  id: SearchIndex
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  langs:
+  - csharp
+  - vb
+  name: SearchIndex
+  nameWithType: SearchReindexCompletedEvent.SearchIndex
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchIndex
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23368
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("searchIndex", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public SearchIndexType SearchIndex { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType
+    content.vb: >-
+      <JsonProperty("searchIndex", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property SearchIndex As SearchIndexType
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchIndex
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items
+  id: Items
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  langs:
+  - csharp
+  - vb
+  name: Items
+  nameWithType: SearchReindexCompletedEvent.Items
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Items
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23372
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("items", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long Items { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("items", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Items As Long
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: items
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration
+  id: Duration
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: SearchReindexCompletedEvent.Duration
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Duration
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23375
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("duration", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public TimeSpan Duration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: >-
+      <JsonProperty("duration", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Duration As TimeSpan
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: duration
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: SearchReindexCompletedEvent.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23378
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: SearchReindexCompletedEvent.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23384
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static SearchReindexCompletedEvent FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+    content.vb: Public Shared Function FromJson(data As String) As SearchReindexCompletedEvent
+  overload: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson*
+  nameWithType.vb: SearchReindexCompletedEvent.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.html
+  name: ApplicationEvent
+  nameWithType: ApplicationEvent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.html#Picturepark_SDK_V1_CloudManager_Contract_ApplicationEvent_Timestamp
+  name: Timestamp
+  nameWithType: ApplicationEvent.Timestamp
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html#Picturepark_SDK_V1_CloudManager_Contract_SearchReindexCompletedEvent_SearchIndex
+  name: SearchIndex
+  nameWithType: SearchReindexCompletedEvent.SearchIndex
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.SearchIndex
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType.html
+  name: SearchIndexType
+  nameWithType: SearchIndexType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html#Picturepark_SDK_V1_CloudManager_Contract_SearchReindexCompletedEvent_Items
+  name: Items
+  nameWithType: SearchReindexCompletedEvent.Items
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Items
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html#Picturepark_SDK_V1_CloudManager_Contract_SearchReindexCompletedEvent_Duration
+  name: Duration
+  nameWithType: SearchReindexCompletedEvent.Duration
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.Duration
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html#Picturepark_SDK_V1_CloudManager_Contract_SearchReindexCompletedEvent_ToJson
+  name: ToJson
+  nameWithType: SearchReindexCompletedEvent.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html#Picturepark_SDK_V1_CloudManager_Contract_SearchReindexCompletedEvent_FromJson_System_String_
+  name: FromJson
+  nameWithType: SearchReindexCompletedEvent.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html
+  name: SearchReindexCompletedEvent
+  nameWithType: SearchReindexCompletedEvent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent

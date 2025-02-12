@@ -1,0 +1,1229 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  id: ContentMetadataUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``1)
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson
+  langs:
+  - csharp
+  - vb
+  name: ContentMetadataUpdateRequest
+  nameWithType: ContentMetadataUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentMetadataUpdateRequest
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
+    startLine: 5
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Request to update content metadata
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class ContentMetadataUpdateRequest
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class ContentMetadataUpdateRequest
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Picturepark.SDK.V1.Contract.ContentMetadataUpdateItem
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds
+  id: LayerSchemaIds
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: LayerSchemaIds
+  nameWithType: ContentMetadataUpdateRequest.LayerSchemaIds
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerSchemaIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24030
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    An optional list of IDs of the schemas that should be updated/replaced based on the options below and Metadata provided.
+
+    <br />The SchemaType of the specified schemas must be Layer.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("layerSchemaIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> LayerSchemaIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("layerSchemaIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property LayerSchemaIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: layerSchemaIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content
+  commentId: P:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content
+  id: Content
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ContentMetadataUpdateRequest.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Content
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24039
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by
+
+    <br />the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
+
+    <br />whose ContentType is Virtual).
+
+    <br />Update of content data will be done only if this attribute has any data, i.e. if it's not null or empty.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("content", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public object Content { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: >-
+      <JsonProperty("content", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Content As Object
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: content
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata
+  commentId: P:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata
+  id: Metadata
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: ContentMetadataUpdateRequest.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Metadata
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24048
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).
+
+    <br />The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+
+    <br />by the LayerSchemaIds property.
+
+    <br />If there are no data for a specified LayerSchemaId, it is treated as empty.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("metadata", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public IDictionary<string, object> Metadata { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IDictionary{System.String,System.Object}
+    content.vb: >-
+      <JsonProperty("metadata", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Metadata As IDictionary(Of String, Object)
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: metadata
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  commentId: P:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  id: LayerSchemasUpdateOptions
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: LayerSchemasUpdateOptions
+  nameWithType: ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerSchemasUpdateOptions
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24059
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Options to modify the behavior for updating the layers.
+
+    <br />Merge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property
+
+    <br />and the ones already existing; existing assigned layers not specified in the property are kept and missing layers are assigned.
+
+    <br />Replace: the content is updated so that only the layers specified in the LayerSchemaIds property are assigned to the content;
+
+    <br />existing assigned layers not specified in the property are removed and missing layers are assigned.
+
+    <br />Defaults to Merge.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("layerSchemasUpdateOptions", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public UpdateOption LayerSchemasUpdateOptions { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UpdateOption
+    content.vb: >-
+      <JsonProperty("layerSchemasUpdateOptions", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property LayerSchemasUpdateOptions As UpdateOption
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: layerSchemasUpdateOptions
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  commentId: P:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  id: LayerFieldsUpdateOptions
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: LayerFieldsUpdateOptions
+  nameWithType: ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerFieldsUpdateOptions
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24070
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Options to modify the behavior for updating the values of schemas.
+
+    <br />Merge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.
+
+    <br />Replace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.
+
+    <br />Defaults to Merge.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("layerFieldsUpdateOptions", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public UpdateOption LayerFieldsUpdateOptions { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UpdateOption
+    content.vb: >-
+      <JsonProperty("layerFieldsUpdateOptions", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property LayerFieldsUpdateOptions As UpdateOption
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: layerFieldsUpdateOptions
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  commentId: P:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  id: ContentFieldsUpdateOptions
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: ContentFieldsUpdateOptions
+  nameWithType: ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentFieldsUpdateOptions
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24081
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Options to modify the behavior for updating the content.
+
+    <br />Merge: the values specified in the Content object are merged to the existing content.
+
+    <br />Replace: the values specified in the Content object entirely replace the content.
+
+    <br />Defaults to Merge.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentFieldsUpdateOptions", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public UpdateOption ContentFieldsUpdateOptions { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UpdateOption
+    content.vb: >-
+      <JsonProperty("contentFieldsUpdateOptions", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property ContentFieldsUpdateOptions As UpdateOption
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentFieldsUpdateOptions
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: ContentMetadataUpdateRequest.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24086
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson*
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: ContentMetadataUpdateRequest.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 24092
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static ContentMetadataUpdateRequest FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+    content.vb: Public Shared Function FromJson(data As String) As ContentMetadataUpdateRequest
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson*
+  nameWithType.vb: ContentMetadataUpdateRequest.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson(String)
+  name.vb: FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``1)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``1)
+  id: LayerMergeUpdate``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``1)
+  parent: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  langs:
+  - csharp
+  - vb
+  name: LayerMergeUpdate<T, TProperty>(Expression<Func<T, TProperty>>, TProperty)
+  nameWithType: ContentMetadataUpdateRequest.LayerMergeUpdate<T, TProperty>(Expression<Func<T, TProperty>>, TProperty)
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate<T, TProperty>(System.Linq.Expressions.Expression<System.Func<T, TProperty>>, TProperty)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerMergeUpdate
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
+    startLine: 17
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates a new <xref href="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest" data-throw-if-not-resolved="false"></xref> to update one property (field) in one layer on a content.
+  remarks: >-
+    Layer name (schema ID) will be determined by schema ID defined in PictureparkSchemaAttribute on the layer class (if applied) or the name of the type.
+        Anonymous classes are naturally not supported.
+  example: []
+  syntax:
+    content: public static ContentMetadataUpdateRequest LayerMergeUpdate<T, TProperty>(Expression<Func<T, TProperty>> property, TProperty newValue)
+    parameters:
+    - id: property
+      type: System.Linq.Expressions.Expression{System.Func{{T},{TProperty}}}
+      description: The property on the object (schema field) you want to update
+    - id: newValue
+      type: '{TProperty}'
+      description: New value you want to update the schema field to
+    typeParameters:
+    - id: T
+      description: Layer type
+    - id: TProperty
+      description: Property type
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+      description: Update request to update the field
+    content.vb: Public Shared Function LayerMergeUpdate(Of T, TProperty)([property] As Expression(Of Func(Of T, TProperty)), newValue As TProperty) As ContentMetadataUpdateRequest
+  overload: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate*
+  nameWithType.vb: ContentMetadataUpdateRequest.LayerMergeUpdate(Of T, TProperty)(Expression(Of Func(Of T, TProperty)), TProperty)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate(Of T, TProperty)(System.Linq.Expressions.Expression(Of System.Func(Of T, TProperty)), TProperty)
+  name.vb: LayerMergeUpdate(Of T, TProperty)(Expression(Of Func(Of T, TProperty)), TProperty)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemaIds
+  name: LayerSchemaIds
+  nameWithType: ContentMetadataUpdateRequest.LayerSchemaIds
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds
+- uid: System.Collections.Generic.ICollection{System.String}
+  commentId: T:System.Collections.Generic.ICollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<string>
+  nameWithType: ICollection<string>
+  fullName: System.Collections.Generic.ICollection<string>
+  nameWithType.vb: ICollection(Of String)
+  fullName.vb: System.Collections.Generic.ICollection(Of String)
+  name.vb: ICollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_Content
+  name: Content
+  nameWithType: ContentMetadataUpdateRequest.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Content
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_Metadata
+  name: Metadata
+  nameWithType: ContentMetadataUpdateRequest.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.Metadata
+- uid: System.Collections.Generic.IDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, object>
+  nameWithType: IDictionary<string, object>
+  fullName: System.Collections.Generic.IDictionary<string, object>
+  nameWithType.vb: IDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, Object)
+  name.vb: IDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemasUpdateOptions
+  name: LayerSchemasUpdateOptions
+  nameWithType: ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemasUpdateOptions
+- uid: Picturepark.SDK.V1.Contract.UpdateOption
+  commentId: T:Picturepark.SDK.V1.Contract.UpdateOption
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UpdateOption.html
+  name: UpdateOption
+  nameWithType: UpdateOption
+  fullName: Picturepark.SDK.V1.Contract.UpdateOption
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerFieldsUpdateOptions
+  name: LayerFieldsUpdateOptions
+  nameWithType: ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ContentFieldsUpdateOptions
+  name: ContentFieldsUpdateOptions
+  nameWithType: ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ToJson
+  name: ToJson
+  nameWithType: ContentMetadataUpdateRequest.ToJson
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_FromJson_System_String_
+  name: FromJson
+  nameWithType: ContentMetadataUpdateRequest.FromJson
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.FromJson
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html
+  name: ContentMetadataUpdateRequest
+  nameWithType: ContentMetadataUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate
+  href: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html#Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerMergeUpdate__2_System_Linq_Expressions_Expression_System_Func___0___1_____1_
+  name: LayerMergeUpdate
+  nameWithType: ContentMetadataUpdateRequest.LayerMergeUpdate
+  fullName: Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerMergeUpdate
+- uid: System.Linq.Expressions.Expression{System.Func{{T},{TProperty}}}
+  commentId: T:System.Linq.Expressions.Expression{System.Func{``0,``1}}
+  parent: System.Linq.Expressions
+  definition: System.Linq.Expressions.Expression`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<Func<T, TProperty>>
+  nameWithType: Expression<Func<T, TProperty>>
+  fullName: System.Linq.Expressions.Expression<System.Func<T, TProperty>>
+  nameWithType.vb: Expression(Of Func(Of T, TProperty))
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of T, TProperty))
+  name.vb: Expression(Of Func(Of T, TProperty))
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TProperty
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TProperty
+  - name: )
+  - name: )
+- uid: '{TProperty}'
+  commentId: '!:TProperty'
+  definition: TProperty
+  name: TProperty
+  nameWithType: TProperty
+  fullName: TProperty
+- uid: System.Linq.Expressions.Expression`1
+  commentId: T:System.Linq.Expressions.Expression`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<TDelegate>
+  nameWithType: Expression<TDelegate>
+  fullName: System.Linq.Expressions.Expression<TDelegate>
+  nameWithType.vb: Expression(Of TDelegate)
+  fullName.vb: System.Linq.Expressions.Expression(Of TDelegate)
+  name.vb: Expression(Of TDelegate)
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - name: TDelegate
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDelegate
+  - name: )
+- uid: System.Linq.Expressions
+  commentId: N:System.Linq.Expressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq.Expressions
+  nameWithType: System.Linq.Expressions
+  fullName: System.Linq.Expressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+- uid: TProperty
+  name: TProperty
+  nameWithType: TProperty
+  fullName: TProperty

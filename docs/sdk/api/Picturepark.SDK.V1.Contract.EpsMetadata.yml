@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata
+  commentId: T:Picturepark.SDK.V1.Contract.EpsMetadata
+  id: EpsMetadata
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.EpsMetadata.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints
+  - Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized
+  - Picturepark.SDK.V1.Contract.EpsMetadata.ToJson
+  - Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints
+  langs:
+  - csharp
+  - vb
+  name: EpsMetadata
+  nameWithType: EpsMetadata
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EpsMetadata
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 44614
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class EpsMetadata
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class EpsMetadata
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized
+  commentId: P:Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized
+  id: IsRasterized
+  parent: Picturepark.SDK.V1.Contract.EpsMetadata
+  langs:
+  - csharp
+  - vb
+  name: IsRasterized
+  nameWithType: EpsMetadata.IsRasterized
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IsRasterized
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 44617
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("isRasterized", Required = Required.Always)]
+
+      public bool IsRasterized { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("isRasterized", Required:=Required.Always)>
+
+      Public Property IsRasterized As Boolean
+  overload: Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: isRasterized
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints
+  commentId: P:Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints
+  id: WidthInPoints
+  parent: Picturepark.SDK.V1.Contract.EpsMetadata
+  langs:
+  - csharp
+  - vb
+  name: WidthInPoints
+  nameWithType: EpsMetadata.WidthInPoints
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WidthInPoints
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 44620
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("widthInPoints", Required = Required.Always)]
+
+      public double WidthInPoints { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("widthInPoints", Required:=Required.Always)>
+
+      Public Property WidthInPoints As Double
+  overload: Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: widthInPoints
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints
+  commentId: P:Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints
+  id: HeightInPoints
+  parent: Picturepark.SDK.V1.Contract.EpsMetadata
+  langs:
+  - csharp
+  - vb
+  name: HeightInPoints
+  nameWithType: EpsMetadata.HeightInPoints
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HeightInPoints
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 44623
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("heightInPoints", Required = Required.Always)]
+
+      public double HeightInPoints { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("heightInPoints", Required:=Required.Always)>
+
+      Public Property HeightInPoints As Double
+  overload: Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: heightInPoints
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.EpsMetadata.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.EpsMetadata
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: EpsMetadata.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 44626
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.EpsMetadata.ToJson*
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.EpsMetadata.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.EpsMetadata
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: EpsMetadata.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 44632
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static EpsMetadata FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.EpsMetadata
+    content.vb: Public Shared Function FromJson(data As String) As EpsMetadata
+  overload: Picturepark.SDK.V1.Contract.EpsMetadata.FromJson*
+  nameWithType.vb: EpsMetadata.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.EpsMetadata.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized*
+  commentId: Overload:Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized
+  href: Picturepark.SDK.V1.Contract.EpsMetadata.html#Picturepark_SDK_V1_Contract_EpsMetadata_IsRasterized
+  name: IsRasterized
+  nameWithType: EpsMetadata.IsRasterized
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.IsRasterized
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints*
+  commentId: Overload:Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints
+  href: Picturepark.SDK.V1.Contract.EpsMetadata.html#Picturepark_SDK_V1_Contract_EpsMetadata_WidthInPoints
+  name: WidthInPoints
+  nameWithType: EpsMetadata.WidthInPoints
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.WidthInPoints
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints*
+  commentId: Overload:Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints
+  href: Picturepark.SDK.V1.Contract.EpsMetadata.html#Picturepark_SDK_V1_Contract_EpsMetadata_HeightInPoints
+  name: HeightInPoints
+  nameWithType: EpsMetadata.HeightInPoints
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.HeightInPoints
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.EpsMetadata.ToJson
+  href: Picturepark.SDK.V1.Contract.EpsMetadata.html#Picturepark_SDK_V1_Contract_EpsMetadata_ToJson
+  name: ToJson
+  nameWithType: EpsMetadata.ToJson
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.EpsMetadata.FromJson
+  href: Picturepark.SDK.V1.Contract.EpsMetadata.html#Picturepark_SDK_V1_Contract_EpsMetadata_FromJson_System_String_
+  name: FromJson
+  nameWithType: EpsMetadata.FromJson
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata.FromJson
+- uid: Picturepark.SDK.V1.Contract.EpsMetadata
+  commentId: T:Picturepark.SDK.V1.Contract.EpsMetadata
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.EpsMetadata.html
+  name: EpsMetadata
+  nameWithType: EpsMetadata
+  fullName: Picturepark.SDK.V1.Contract.EpsMetadata

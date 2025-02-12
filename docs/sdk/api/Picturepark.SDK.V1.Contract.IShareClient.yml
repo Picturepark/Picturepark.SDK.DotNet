@@ -1,0 +1,2083 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IShareClient
+  commentId: T:Picturepark.SDK.V1.Contract.IShareClient
+  id: IShareClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync(System.String,Picturepark.SDK.V1.Contract.ShareDownloadRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ShareDeleteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync(System.String,System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync(System.String,System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync(Picturepark.SDK.V1.Contract.ShareRevokeManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IShareClient
+  nameWithType: IShareClient
+  fullName: Picturepark.SDK.V1.Contract.IShareClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IShareClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IShareClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IShareClient.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IShareClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IShareClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync(System.String,System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync(System.String,System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: GetShareJsonAsync(System.String,System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: GetShareJsonAsync(string, string, IEnumerable<ShareResolveBehavior>, int?, CancellationToken)
+  nameWithType: IShareClient.GetShareJsonAsync(string, string, IEnumerable<ShareResolveBehavior>, int?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync(string, string, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ShareResolveBehavior>, int?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetShareJsonAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3187
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get share json
+  example: []
+  syntax:
+    content: Task<ShareDetail> GetShareJsonAsync(string token, string lang = null, IEnumerable<ShareResolveBehavior> resolveBehaviors = null, int? contentResolveLimit = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: lang
+      type: System.String
+      description: Language code
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior}
+      description: List of enums that control which parts of the share are resolved and returned.
+    - id: contentResolveLimit
+      type: System.Nullable{System.Int32}
+      description: Optional limit the number of contents to resolve. Use a lower value for higher performance. If nothing is specified, everything is resolved.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareDetail}
+      description: ShareDetail
+    content.vb: Function GetShareJsonAsync(token As String, lang As String = Nothing, resolveBehaviors As IEnumerable(Of ShareResolveBehavior) = Nothing, contentResolveLimit As Integer? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ShareDetail)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.GetShareJsonAsync(String, String, IEnumerable(Of ShareResolveBehavior), Integer?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync(String, String, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ShareResolveBehavior), Integer?, System.Threading.CancellationToken)
+  name.vb: GetShareJsonAsync(String, String, IEnumerable(Of ShareResolveBehavior), Integer?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync(System.String,System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync(System.String,System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: GetShareContentsAsync(System.String,System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: GetShareContentsAsync(string, string, int?, string, CancellationToken)
+  nameWithType: IShareClient.GetShareContentsAsync(string, string, int?, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync(string, string, int?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetShareContentsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3205
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get share contents
+  example: []
+  syntax:
+    content: Task<ShareContentDetailResult> GetShareContentsAsync(string token, string lang = null, int? limit = null, string pageToken = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: lang
+      type: System.String
+      description: Language code
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Number of contents to return
+    - id: pageToken
+      type: System.String
+      description: PageToken to page over contents
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareContentDetailResult}
+      description: ShareContentDetailResult
+    content.vb: Function GetShareContentsAsync(token As String, lang As String = Nothing, limit As Integer? = Nothing, pageToken As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ShareContentDetailResult)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.GetShareContentsAsync(String, String, Integer?, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync(String, String, Integer?, String, System.Threading.CancellationToken)
+  name.vb: GetShareContentsAsync(String, String, Integer?, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync(System.String,System.Threading.CancellationToken)
+  id: GetOutputsInShareAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: GetOutputsInShareAsync(string, CancellationToken)
+  nameWithType: IShareClient.GetOutputsInShareAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetOutputsInShareAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3220
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get shared outputs
+  example: []
+  syntax:
+    content: Task<ShareOutputsResult> GetOutputsInShareAsync(string token, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareOutputsResult}
+      description: List of OutputResolveResult
+    content.vb: Function GetOutputsInShareAsync(token As String, cancellationToken As CancellationToken = Nothing) As Task(Of ShareOutputsResult)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.GetOutputsInShareAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync(String, System.Threading.CancellationToken)
+  name.vb: GetOutputsInShareAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: DownloadAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DownloadAsync(string, int?, int?, string, CancellationToken)
+  nameWithType: IShareClient.DownloadAsync(string, int?, int?, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync(string, int?, int?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3237
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download shared outputs
+  example: []
+  syntax:
+    content: Task<FileResponse> DownloadAsync(string token, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: width
+      type: System.Nullable{System.Int32}
+      description: Optional width in pixels to resize image
+    - id: height
+      type: System.Nullable{System.Int32}
+      description: Optional height in pixels to resize image
+    - id: range
+      type: System.String
+      description: 'The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+    content.vb: Function DownloadAsync(token As String, width As Integer? = Nothing, height As Integer? = Nothing, range As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.DownloadAsync(String, Integer?, Integer?, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync(String, Integer?, Integer?, String, System.Threading.CancellationToken)
+  name.vb: DownloadAsync(String, Integer?, Integer?, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync(System.String,Picturepark.SDK.V1.Contract.ShareDownloadRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync(System.String,Picturepark.SDK.V1.Contract.ShareDownloadRequest,System.Threading.CancellationToken)
+  id: CreateShareSelectionDownloadLinkAsync(System.String,Picturepark.SDK.V1.Contract.ShareDownloadRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: CreateShareSelectionDownloadLinkAsync(string, ShareDownloadRequest, CancellationToken)
+  nameWithType: IShareClient.CreateShareSelectionDownloadLinkAsync(string, ShareDownloadRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync(string, Picturepark.SDK.V1.Contract.ShareDownloadRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateShareSelectionDownloadLinkAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3253
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download selection of a share
+  example: []
+  syntax:
+    content: Task<DownloadLink> CreateShareSelectionDownloadLinkAsync(string token, ShareDownloadRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareDownloadRequest
+      description: Share download request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DownloadLink}
+      description: DownloadLink
+    content.vb: Function CreateShareSelectionDownloadLinkAsync(token As String, request As ShareDownloadRequest, cancellationToken As CancellationToken = Nothing) As Task(Of DownloadLink)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.CreateShareSelectionDownloadLinkAsync(String, ShareDownloadRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync(String, Picturepark.SDK.V1.Contract.ShareDownloadRequest, System.Threading.CancellationToken)
+  name.vb: CreateShareSelectionDownloadLinkAsync(String, ShareDownloadRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: DownloadSingleContentAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DownloadSingleContentAsync(string, string, string, int?, int?, string, CancellationToken)
+  nameWithType: IShareClient.DownloadSingleContentAsync(string, string, string, int?, int?, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync(string, string, string, int?, int?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadSingleContentAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3275
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download shared output
+  remarks: Download single content in a specific output format (or automatically determined format if none is specified). To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.
+  example: []
+  syntax:
+    content: Task<FileResponse> DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: contentId
+      type: System.String
+      description: The content id
+    - id: outputFormatId
+      type: System.String
+      description: The output format id
+    - id: width
+      type: System.Nullable{System.Int32}
+      description: Optional width in pixels to resize image
+    - id: height
+      type: System.Nullable{System.Int32}
+      description: Optional height in pixels to resize image
+    - id: range
+      type: System.String
+      description: 'The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+    content.vb: Function DownloadSingleContentAsync(token As String, contentId As String, outputFormatId As String, width As Integer? = Nothing, height As Integer? = Nothing, range As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.DownloadSingleContentAsync(String, String, String, Integer?, Integer?, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync(String, String, String, Integer?, Integer?, String, System.Threading.CancellationToken)
+  name.vb: DownloadSingleContentAsync(String, String, String, Integer?, Integer?, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: DownloadWithConversionPresetAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DownloadWithConversionPresetAsync(string, string, string, CancellationToken)
+  nameWithType: IShareClient.DownloadWithConversionPresetAsync(string, string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync(string, string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadWithConversionPresetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3291
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download shared outputs
+  example: []
+  syntax:
+    content: Task<FileResponse> DownloadWithConversionPresetAsync(string token, string conversionPreset, string range = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: conversionPreset
+      type: System.String
+      description: Image editing specification
+    - id: range
+      type: System.String
+      description: 'The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+    content.vb: Function DownloadWithConversionPresetAsync(token As String, conversionPreset As String, range As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.DownloadWithConversionPresetAsync(String, String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync(String, String, String, System.Threading.CancellationToken)
+  name.vb: DownloadWithConversionPresetAsync(String, String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: DownloadDisplayContentOutputsAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DownloadDisplayContentOutputsAsync(string, string, string, CancellationToken)
+  nameWithType: IShareClient.DownloadDisplayContentOutputsAsync(string, string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync(string, string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadDisplayContentOutputsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3307
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download shared display content outputs
+  example: []
+  syntax:
+    content: Task<FileResponse> DownloadDisplayContentOutputsAsync(string token, string contentId, string outputFormatId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: contentId
+      type: System.String
+      description: The content id
+    - id: outputFormatId
+      type: System.String
+      description: Id of the output format
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+    content.vb: Function DownloadDisplayContentOutputsAsync(token As String, contentId As String, outputFormatId As String, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.DownloadDisplayContentOutputsAsync(String, String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync(String, String, String, System.Threading.CancellationToken)
+  name.vb: DownloadDisplayContentOutputsAsync(String, String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior},System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, IEnumerable<ShareResolveBehavior>, int?, CancellationToken)
+  nameWithType: IShareClient.GetAsync(string, IEnumerable<ShareResolveBehavior>, int?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetAsync(string, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ShareResolveBehavior>, int?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3328
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get
+  remarks: Get share by id (basic or embed).
+  example: []
+  syntax:
+    content: Task<ShareDetail> GetAsync(string id, IEnumerable<ShareResolveBehavior> resolveBehaviors = null, int? contentResolveLimit = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior}
+      description: List of enums that control which parts of the share are resolved and returned.
+    - id: contentResolveLimit
+      type: System.Nullable{System.Int32}
+      description: Optional limit the number of contents to resolve. Use a lower value for higher performance. If nothing is specified, everything is resolved.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareDetail}
+      description: Share detail
+    content.vb: Function GetAsync(id As String, resolveBehaviors As IEnumerable(Of ShareResolveBehavior) = Nothing, contentResolveLimit As Integer? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ShareDetail)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.ShareNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.ShareNotFoundException
+    description: Share could not be found
+  nameWithType.vb: IShareClient.GetAsync(String, IEnumerable(Of ShareResolveBehavior), Integer?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.GetAsync(String, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ShareResolveBehavior), Integer?, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, IEnumerable(Of ShareResolveBehavior), Integer?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, ShareBaseUpdateRequest, CancellationToken)
+  nameWithType: IShareClient.UpdateAsync(string, ShareBaseUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3348
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update
+  remarks: Updates a single share. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> UpdateAsync(string id, ShareBaseUpdateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The share id.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest
+      description: The share update request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function UpdateAsync(id As String, request As ShareBaseUpdateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException
+    commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException
+    description: A server side error occurred.
+  nameWithType.vb: IShareClient.UpdateAsync(String, ShareBaseUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, ShareBaseUpdateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: GetContentsInShareAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: GetContentsInShareAsync(string, int?, string, CancellationToken)
+  nameWithType: IShareClient.GetContentsInShareAsync(string, int?, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync(string, int?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetContentsInShareAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3365
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get contents in share
+  example: []
+  syntax:
+    content: Task<ShareContentDetailResult> GetContentsInShareAsync(string id, int? limit = null, string pageToken = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Share Id
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Number of contents to return
+    - id: pageToken
+      type: System.String
+      description: PageToken to page over contents
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareContentDetailResult}
+      description: ShareContentDetailResult
+    content.vb: Function GetContentsInShareAsync(id As String, limit As Integer? = Nothing, pageToken As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ShareContentDetailResult)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.GetContentsInShareAsync(String, Integer?, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync(String, Integer?, String, System.Threading.CancellationToken)
+  name.vb: GetContentsInShareAsync(String, Integer?, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ShareBaseCreateRequest, CancellationToken)
+  nameWithType: IShareClient.CreateAsync(ShareBaseCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3385
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create
+  remarks: Create a new share (basic or embed). The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> CreateAsync(ShareBaseCreateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareBaseCreateRequest
+      description: Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function CreateAsync(request As ShareBaseCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PermissionValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PermissionValidationException
+    description: No permission to share
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.ContentNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.ContentNotFoundException
+    description: Content could not be found
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ShareDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ShareDeleteManyRequest,System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.ShareDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(ShareDeleteManyRequest, CancellationToken)
+  nameWithType: IShareClient.DeleteManyAsync(ShareDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ShareDeleteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3403
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple shares
+  remarks: Deletes multiple shares. Returns a business process which will hold a batch response detail containing information about successful and failed rows. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> DeleteManyAsync(ShareDeleteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareDeleteManyRequest
+      description: A delete many request containing the ids of the shares to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function DeleteManyAsync(request As ShareDeleteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync(Picturepark.SDK.V1.Contract.ShareRevokeManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync(Picturepark.SDK.V1.Contract.ShareRevokeManyRequest,System.Threading.CancellationToken)
+  id: RevokeAsync(Picturepark.SDK.V1.Contract.ShareRevokeManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: RevokeAsync(ShareRevokeManyRequest, CancellationToken)
+  nameWithType: IShareClient.RevokeAsync(ShareRevokeManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync(Picturepark.SDK.V1.Contract.ShareRevokeManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RevokeAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3418
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Revokes multiple shares
+  example: []
+  syntax:
+    content: Task<BusinessProcess> RevokeAsync(ShareRevokeManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareRevokeManyRequest
+      description: A revoke many request containing the ids of the shares to revoke.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function RevokeAsync(request As ShareRevokeManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)
+  id: AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: AggregateAsync(ShareAggregationRequest, CancellationToken)
+  nameWithType: IShareClient.AggregateAsync(ShareAggregationRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AggregateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3436
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Aggregate
+  remarks: Aggregates shares either created by or sent to current user.
+  example: []
+  syntax:
+    content: Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareAggregationRequest
+      description: Aggregation request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+      description: Share aggregation result
+    content.vb: Function AggregateAsync(request As ShareAggregationRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ObjectAggregationResult)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(ShareSearchRequest, CancellationToken)
+  nameWithType: IShareClient.SearchAsync(ShareSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3454
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search
+  remarks: Search shares either created by or sent to current user.
+  example: []
+  syntax:
+    content: Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ShareSearchRequest
+      description: Search request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareSearchResult}
+      description: Share search result
+    content.vb: Function SearchAsync(request As ShareSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ShareSearchResult)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: DownloadWithContentIdAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DownloadWithContentIdAsync(string, string, int?, int?, string, CancellationToken)
+  nameWithType: IShareClient.DownloadWithContentIdAsync(string, string, int?, int?, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync(string, string, int?, int?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IShareClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadWithContentIdAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IShareClient.cs
+    startLine: 18
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download shared outputs
+  example: []
+  syntax:
+    content: Task<FileResponse> DownloadWithContentIdAsync(string token, string contentId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: contentId
+      type: System.String
+      description: The content id
+    - id: width
+      type: System.Nullable{System.Int32}
+      description: Optional width in pixels to resize image
+    - id: height
+      type: System.Nullable{System.Int32}
+      description: Optional height in pixels to resize image
+    - id: range
+      type: System.String
+      description: 'The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+    content.vb: Function DownloadWithContentIdAsync(token As String, contentId As String, width As Integer? = Nothing, height As Integer? = Nothing, range As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.DownloadWithContentIdAsync(String, String, Integer?, Integer?, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync(String, String, Integer?, Integer?, String, System.Threading.CancellationToken)
+  name.vb: DownloadWithContentIdAsync(String, String, Integer?, Integer?, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: DownloadWithOutputFormatIdAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IShareClient
+  langs:
+  - csharp
+  - vb
+  name: DownloadWithOutputFormatIdAsync(string, string, string, int?, int?, string, CancellationToken)
+  nameWithType: IShareClient.DownloadWithOutputFormatIdAsync(string, string, string, int?, int?, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync(string, string, string, int?, int?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IShareClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadWithOutputFormatIdAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IShareClient.cs
+    startLine: 33
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Download shared outputs
+  example: []
+  syntax:
+    content: Task<FileResponse> DownloadWithOutputFormatIdAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: token
+      type: System.String
+      description: Share token
+    - id: contentId
+      type: System.String
+      description: The content id
+    - id: outputFormatId
+      type: System.String
+      description: The output format id
+    - id: width
+      type: System.Nullable{System.Int32}
+      description: Optional width in pixels to resize image
+    - id: height
+      type: System.Nullable{System.Int32}
+      description: Optional height in pixels to resize image
+    - id: range
+      type: System.String
+      description: 'The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+    content.vb: Function DownloadWithOutputFormatIdAsync(token As String, contentId As String, outputFormatId As String, width As Integer? = Nothing, height As Integer? = Nothing, range As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IShareClient.DownloadWithOutputFormatIdAsync(String, String, String, Integer?, Integer?, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync(String, String, String, Integer?, Integer?, String, System.Threading.CancellationToken)
+  name.vb: DownloadWithOutputFormatIdAsync(String, String, String, Integer?, Integer?, String, CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_GetShareJsonAsync_System_String_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ShareResolveBehavior__System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: GetShareJsonAsync
+  nameWithType: IShareClient.GetShareJsonAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ShareResolveBehavior}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ShareResolveBehavior>
+  nameWithType: IEnumerable<ShareResolveBehavior>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ShareResolveBehavior>
+  nameWithType.vb: IEnumerable(Of ShareResolveBehavior)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ShareResolveBehavior)
+  name.vb: IEnumerable(Of ShareResolveBehavior)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ShareResolveBehavior
+    name: ShareResolveBehavior
+    href: Picturepark.SDK.V1.Contract.ShareResolveBehavior.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ShareResolveBehavior
+    name: ShareResolveBehavior
+    href: Picturepark.SDK.V1.Contract.ShareResolveBehavior.html
+  - name: )
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ShareDetail>
+  nameWithType: Task<ShareDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ShareDetail>
+  nameWithType.vb: Task(Of ShareDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ShareDetail)
+  name.vb: Task(Of ShareDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ShareDetail
+    name: ShareDetail
+    href: Picturepark.SDK.V1.Contract.ShareDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ShareDetail
+    name: ShareDetail
+    href: Picturepark.SDK.V1.Contract.ShareDetail.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_GetShareContentsAsync_System_String_System_String_System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: GetShareContentsAsync
+  nameWithType: IShareClient.GetShareContentsAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetShareContentsAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareContentDetailResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareContentDetailResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ShareContentDetailResult>
+  nameWithType: Task<ShareContentDetailResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ShareContentDetailResult>
+  nameWithType.vb: Task(Of ShareContentDetailResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ShareContentDetailResult)
+  name.vb: Task(Of ShareContentDetailResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ShareContentDetailResult
+    name: ShareContentDetailResult
+    href: Picturepark.SDK.V1.Contract.ShareContentDetailResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ShareContentDetailResult
+    name: ShareContentDetailResult
+    href: Picturepark.SDK.V1.Contract.ShareContentDetailResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_GetOutputsInShareAsync_System_String_System_Threading_CancellationToken_
+  name: GetOutputsInShareAsync
+  nameWithType: IShareClient.GetOutputsInShareAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetOutputsInShareAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareOutputsResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareOutputsResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ShareOutputsResult>
+  nameWithType: Task<ShareOutputsResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ShareOutputsResult>
+  nameWithType.vb: Task(Of ShareOutputsResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ShareOutputsResult)
+  name.vb: Task(Of ShareOutputsResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ShareOutputsResult
+    name: ShareOutputsResult
+    href: Picturepark.SDK.V1.Contract.ShareOutputsResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ShareOutputsResult
+    name: ShareOutputsResult
+    href: Picturepark.SDK.V1.Contract.ShareOutputsResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DownloadAsync_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: DownloadAsync
+  nameWithType: IShareClient.DownloadAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FileResponse>
+  nameWithType: Task<FileResponse>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.FileResponse>
+  nameWithType.vb: Task(Of FileResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.FileResponse)
+  name.vb: Task(Of FileResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FileResponse
+    name: FileResponse
+    href: Picturepark.SDK.V1.Contract.FileResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileResponse
+    name: FileResponse
+    href: Picturepark.SDK.V1.Contract.FileResponse.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_CreateShareSelectionDownloadLinkAsync_System_String_Picturepark_SDK_V1_Contract_ShareDownloadRequest_System_Threading_CancellationToken_
+  name: CreateShareSelectionDownloadLinkAsync
+  nameWithType: IShareClient.CreateShareSelectionDownloadLinkAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.CreateShareSelectionDownloadLinkAsync
+- uid: Picturepark.SDK.V1.Contract.ShareDownloadRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareDownloadRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareDownloadRequest.html
+  name: ShareDownloadRequest
+  nameWithType: ShareDownloadRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareDownloadRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DownloadLink}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DownloadLink}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DownloadLink>
+  nameWithType: Task<DownloadLink>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.DownloadLink>
+  nameWithType.vb: Task(Of DownloadLink)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.DownloadLink)
+  name.vb: Task(Of DownloadLink)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.DownloadLink
+    name: DownloadLink
+    href: Picturepark.SDK.V1.Contract.DownloadLink.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.DownloadLink
+    name: DownloadLink
+    href: Picturepark.SDK.V1.Contract.DownloadLink.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DownloadSingleContentAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: DownloadSingleContentAsync
+  nameWithType: IShareClient.DownloadSingleContentAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadSingleContentAsync
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DownloadWithConversionPresetAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: DownloadWithConversionPresetAsync
+  nameWithType: IShareClient.DownloadWithConversionPresetAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithConversionPresetAsync
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DownloadDisplayContentOutputsAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: DownloadDisplayContentOutputsAsync
+  nameWithType: IShareClient.DownloadDisplayContentOutputsAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadDisplayContentOutputsAsync
+- uid: Picturepark.SDK.V1.Contract.ShareNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.ShareNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareNotFoundException.html
+  name: ShareNotFoundException
+  nameWithType: ShareNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.ShareNotFoundException
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ShareResolveBehavior__System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IShareClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetAsync
+- uid: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html
+  name: BusinessProcessLifeCycleNotHitException
+  nameWithType: BusinessProcessLifeCycleNotHitException
+  fullName: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException
+- uid: Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IShareClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html
+  name: ShareBaseUpdateRequest
+  nameWithType: ShareBaseUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_GetContentsInShareAsync_System_String_System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: GetContentsInShareAsync
+  nameWithType: IShareClient.GetContentsInShareAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.GetContentsInShareAsync
+- uid: Picturepark.SDK.V1.Contract.PermissionValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PermissionValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PermissionValidationException.html
+  name: PermissionValidationException
+  nameWithType: PermissionValidationException
+  fullName: Picturepark.SDK.V1.Contract.PermissionValidationException
+- uid: Picturepark.SDK.V1.Contract.ContentNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.ContentNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentNotFoundException.html
+  name: ContentNotFoundException
+  nameWithType: ContentNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.ContentNotFoundException
+- uid: Picturepark.SDK.V1.Contract.IShareClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IShareClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.ShareBaseCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareBaseCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareBaseCreateRequest.html
+  name: ShareBaseCreateRequest
+  nameWithType: ShareBaseCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareBaseCreateRequest
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ShareDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: IShareClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.ShareDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareDeleteManyRequest.html
+  name: ShareDeleteManyRequest
+  nameWithType: ShareDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareDeleteManyRequest
+- uid: Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_RevokeAsync_Picturepark_SDK_V1_Contract_ShareRevokeManyRequest_System_Threading_CancellationToken_
+  name: RevokeAsync
+  nameWithType: IShareClient.RevokeAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.RevokeAsync
+- uid: Picturepark.SDK.V1.Contract.ShareRevokeManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareRevokeManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareRevokeManyRequest.html
+  name: ShareRevokeManyRequest
+  nameWithType: ShareRevokeManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareRevokeManyRequest
+- uid: Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_
+  name: AggregateAsync
+  nameWithType: IShareClient.AggregateAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync
+- uid: Picturepark.SDK.V1.Contract.ShareAggregationRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareAggregationRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareAggregationRequest.html
+  name: ShareAggregationRequest
+  nameWithType: ShareAggregationRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareAggregationRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ObjectAggregationResult>
+  nameWithType: Task<ObjectAggregationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ObjectAggregationResult>
+  nameWithType.vb: Task(Of ObjectAggregationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ObjectAggregationResult)
+  name.vb: Task(Of ObjectAggregationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IShareClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.ShareSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ShareSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ShareSearchRequest.html
+  name: ShareSearchRequest
+  nameWithType: ShareSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.ShareSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ShareSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ShareSearchResult>
+  nameWithType: Task<ShareSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ShareSearchResult>
+  nameWithType.vb: Task(Of ShareSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ShareSearchResult)
+  name.vb: Task(Of ShareSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ShareSearchResult
+    name: ShareSearchResult
+    href: Picturepark.SDK.V1.Contract.ShareSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ShareSearchResult
+    name: ShareSearchResult
+    href: Picturepark.SDK.V1.Contract.ShareSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: DownloadWithContentIdAsync
+  nameWithType: IShareClient.DownloadWithContentIdAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync
+- uid: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync
+  href: Picturepark.SDK.V1.Contract.IShareClient.html#Picturepark_SDK_V1_Contract_IShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: DownloadWithOutputFormatIdAsync
+  nameWithType: IShareClient.DownloadWithOutputFormatIdAsync
+  fullName: Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync

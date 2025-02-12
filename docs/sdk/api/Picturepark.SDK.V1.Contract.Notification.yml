@@ -1,0 +1,1086 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Notification
+  commentId: T:Picturepark.SDK.V1.Contract.Notification
+  id: Notification
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.Notification.Audit
+  - Picturepark.SDK.V1.Contract.Notification.Detail
+  - Picturepark.SDK.V1.Contract.Notification.EventType
+  - Picturepark.SDK.V1.Contract.Notification.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.Notification.Id
+  - Picturepark.SDK.V1.Contract.Notification.MessageCode
+  - Picturepark.SDK.V1.Contract.Notification.RecipientUserId
+  - Picturepark.SDK.V1.Contract.Notification.ReferenceDocType
+  - Picturepark.SDK.V1.Contract.Notification.ReferenceId
+  - Picturepark.SDK.V1.Contract.Notification.State
+  - Picturepark.SDK.V1.Contract.Notification.TitleCode
+  - Picturepark.SDK.V1.Contract.Notification.ToJson
+  langs:
+  - csharp
+  - vb
+  name: Notification
+  nameWithType: Notification
+  fullName: Picturepark.SDK.V1.Contract.Notification
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Notification
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30526
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class Notification
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class Notification
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.Notification.Id
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.Id
+  id: Id
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Notification.Id
+  fullName: Picturepark.SDK.V1.Contract.Notification.Id
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Id
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30529
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("id", Required = Required.Always)]
+
+      [Required]
+
+      public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("id", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Id As String
+  overload: Picturepark.SDK.V1.Contract.Notification.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.Notification.RecipientUserId
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.RecipientUserId
+  id: RecipientUserId
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: RecipientUserId
+  nameWithType: Notification.RecipientUserId
+  fullName: Picturepark.SDK.V1.Contract.Notification.RecipientUserId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RecipientUserId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30533
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("recipientUserId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string RecipientUserId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("recipientUserId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property RecipientUserId As String
+  overload: Picturepark.SDK.V1.Contract.Notification.RecipientUserId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: recipientUserId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Notification.ReferenceDocType
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.ReferenceDocType
+  id: ReferenceDocType
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: ReferenceDocType
+  nameWithType: Notification.ReferenceDocType
+  fullName: Picturepark.SDK.V1.Contract.Notification.ReferenceDocType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReferenceDocType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30536
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("referenceDocType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ReferenceDocType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("referenceDocType", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ReferenceDocType As String
+  overload: Picturepark.SDK.V1.Contract.Notification.ReferenceDocType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: referenceDocType
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Notification.ReferenceId
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.ReferenceId
+  id: ReferenceId
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: ReferenceId
+  nameWithType: Notification.ReferenceId
+  fullName: Picturepark.SDK.V1.Contract.Notification.ReferenceId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReferenceId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30539
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("referenceId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ReferenceId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("referenceId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ReferenceId As String
+  overload: Picturepark.SDK.V1.Contract.Notification.ReferenceId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: referenceId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Notification.Audit
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.Audit
+  id: Audit
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: Audit
+  nameWithType: Notification.Audit
+  fullName: Picturepark.SDK.V1.Contract.Notification.Audit
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Audit
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30542
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("audit", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public UserAudit Audit { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UserAudit
+    content.vb: >-
+      <JsonProperty("audit", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Audit As UserAudit
+  overload: Picturepark.SDK.V1.Contract.Notification.Audit*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: audit
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Notification.TitleCode
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.TitleCode
+  id: TitleCode
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: TitleCode
+  nameWithType: Notification.TitleCode
+  fullName: Picturepark.SDK.V1.Contract.Notification.TitleCode
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TitleCode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30545
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("titleCode", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public TitleCode TitleCode { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.TitleCode
+    content.vb: >-
+      <JsonProperty("titleCode", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property TitleCode As TitleCode
+  overload: Picturepark.SDK.V1.Contract.Notification.TitleCode*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: titleCode
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Notification.MessageCode
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.MessageCode
+  id: MessageCode
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: MessageCode
+  nameWithType: Notification.MessageCode
+  fullName: Picturepark.SDK.V1.Contract.Notification.MessageCode
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MessageCode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30550
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("messageCode", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public MessageCode MessageCode { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <JsonProperty("messageCode", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property MessageCode As MessageCode
+  overload: Picturepark.SDK.V1.Contract.Notification.MessageCode*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: messageCode
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Notification.Detail
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.Detail
+  id: Detail
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: Detail
+  nameWithType: Notification.Detail
+  fullName: Picturepark.SDK.V1.Contract.Notification.Detail
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Detail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30555
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("detail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public NotificationDetailBase Detail { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationDetailBase
+    content.vb: >-
+      <JsonProperty("detail", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Detail As NotificationDetailBase
+  overload: Picturepark.SDK.V1.Contract.Notification.Detail*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: detail
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Notification.State
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.State
+  id: State
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: Notification.State
+  fullName: Picturepark.SDK.V1.Contract.Notification.State
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: State
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30558
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("state", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public NotificationState State { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationState
+    content.vb: >-
+      <JsonProperty("state", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property State As NotificationState
+  overload: Picturepark.SDK.V1.Contract.Notification.State*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: state
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Notification.EventType
+  commentId: P:Picturepark.SDK.V1.Contract.Notification.EventType
+  id: EventType
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: EventType
+  nameWithType: Notification.EventType
+  fullName: Picturepark.SDK.V1.Contract.Notification.EventType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EventType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30563
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("eventType", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public NotificationEventType EventType { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <JsonProperty("eventType", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property EventType As NotificationEventType
+  overload: Picturepark.SDK.V1.Contract.Notification.EventType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: eventType
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Notification.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.Notification.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: Notification.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.Notification.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30568
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.Notification.ToJson*
+- uid: Picturepark.SDK.V1.Contract.Notification.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.Notification.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.Notification
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: Notification.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.Notification.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30574
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static Notification FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.Notification
+    content.vb: Public Shared Function FromJson(data As String) As Notification
+  overload: Picturepark.SDK.V1.Contract.Notification.FromJson*
+  nameWithType.vb: Notification.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.Notification.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.Notification.Id*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.Id
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_Id
+  name: Id
+  nameWithType: Notification.Id
+  fullName: Picturepark.SDK.V1.Contract.Notification.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.Notification.RecipientUserId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.RecipientUserId
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_RecipientUserId
+  name: RecipientUserId
+  nameWithType: Notification.RecipientUserId
+  fullName: Picturepark.SDK.V1.Contract.Notification.RecipientUserId
+- uid: Picturepark.SDK.V1.Contract.Notification.ReferenceDocType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.ReferenceDocType
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_ReferenceDocType
+  name: ReferenceDocType
+  nameWithType: Notification.ReferenceDocType
+  fullName: Picturepark.SDK.V1.Contract.Notification.ReferenceDocType
+- uid: Picturepark.SDK.V1.Contract.Notification.ReferenceId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.ReferenceId
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_ReferenceId
+  name: ReferenceId
+  nameWithType: Notification.ReferenceId
+  fullName: Picturepark.SDK.V1.Contract.Notification.ReferenceId
+- uid: Picturepark.SDK.V1.Contract.Notification.Audit*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.Audit
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_Audit
+  name: Audit
+  nameWithType: Notification.Audit
+  fullName: Picturepark.SDK.V1.Contract.Notification.Audit
+- uid: Picturepark.SDK.V1.Contract.UserAudit
+  commentId: T:Picturepark.SDK.V1.Contract.UserAudit
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserAudit.html
+  name: UserAudit
+  nameWithType: UserAudit
+  fullName: Picturepark.SDK.V1.Contract.UserAudit
+- uid: Picturepark.SDK.V1.Contract.Notification.TitleCode*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.TitleCode
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_TitleCode
+  name: TitleCode
+  nameWithType: Notification.TitleCode
+  fullName: Picturepark.SDK.V1.Contract.Notification.TitleCode
+- uid: Picturepark.SDK.V1.Contract.TitleCode
+  commentId: T:Picturepark.SDK.V1.Contract.TitleCode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TitleCode.html
+  name: TitleCode
+  nameWithType: TitleCode
+  fullName: Picturepark.SDK.V1.Contract.TitleCode
+- uid: Picturepark.SDK.V1.Contract.Notification.MessageCode*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.MessageCode
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_MessageCode
+  name: MessageCode
+  nameWithType: Notification.MessageCode
+  fullName: Picturepark.SDK.V1.Contract.Notification.MessageCode
+- uid: Picturepark.SDK.V1.Contract.MessageCode
+  commentId: T:Picturepark.SDK.V1.Contract.MessageCode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MessageCode.html
+  name: MessageCode
+  nameWithType: MessageCode
+  fullName: Picturepark.SDK.V1.Contract.MessageCode
+- uid: Picturepark.SDK.V1.Contract.Notification.Detail*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.Detail
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_Detail
+  name: Detail
+  nameWithType: Notification.Detail
+  fullName: Picturepark.SDK.V1.Contract.Notification.Detail
+- uid: Picturepark.SDK.V1.Contract.NotificationDetailBase
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationDetailBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationDetailBase.html
+  name: NotificationDetailBase
+  nameWithType: NotificationDetailBase
+  fullName: Picturepark.SDK.V1.Contract.NotificationDetailBase
+- uid: Picturepark.SDK.V1.Contract.Notification.State*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.State
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_State
+  name: State
+  nameWithType: Notification.State
+  fullName: Picturepark.SDK.V1.Contract.Notification.State
+- uid: Picturepark.SDK.V1.Contract.NotificationState
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationState.html
+  name: NotificationState
+  nameWithType: NotificationState
+  fullName: Picturepark.SDK.V1.Contract.NotificationState
+- uid: Picturepark.SDK.V1.Contract.Notification.EventType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.EventType
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_EventType
+  name: EventType
+  nameWithType: Notification.EventType
+  fullName: Picturepark.SDK.V1.Contract.Notification.EventType
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationEventType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationEventType.html
+  name: NotificationEventType
+  nameWithType: NotificationEventType
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType
+- uid: Picturepark.SDK.V1.Contract.Notification.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.ToJson
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_ToJson
+  name: ToJson
+  nameWithType: Notification.ToJson
+  fullName: Picturepark.SDK.V1.Contract.Notification.ToJson
+- uid: Picturepark.SDK.V1.Contract.Notification.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Notification.FromJson
+  href: Picturepark.SDK.V1.Contract.Notification.html#Picturepark_SDK_V1_Contract_Notification_FromJson_System_String_
+  name: FromJson
+  nameWithType: Notification.FromJson
+  fullName: Picturepark.SDK.V1.Contract.Notification.FromJson
+- uid: Picturepark.SDK.V1.Contract.Notification
+  commentId: T:Picturepark.SDK.V1.Contract.Notification
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Notification.html
+  name: Notification
+  nameWithType: Notification
+  fullName: Picturepark.SDK.V1.Contract.Notification

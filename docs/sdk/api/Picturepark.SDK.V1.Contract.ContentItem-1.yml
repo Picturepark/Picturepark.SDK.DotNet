@@ -1,0 +1,1212 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1
+  commentId: T:Picturepark.SDK.V1.Contract.ContentItem`1
+  id: ContentItem`1
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ContentItem`1.Audit
+  - Picturepark.SDK.V1.Contract.ContentItem`1.Content
+  - Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds
+  - Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights
+  - Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId
+  - Picturepark.SDK.V1.Contract.ContentItem`1.ContentType
+  - Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues
+  - Picturepark.SDK.V1.Contract.ContentItem`1.Id
+  - Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds
+  - Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle
+  - Picturepark.SDK.V1.Contract.ContentItem`1.Metadata
+  - Picturepark.SDK.V1.Contract.ContentItem`1.Outputs
+  - Picturepark.SDK.V1.Contract.ContentItem`1.Owner
+  - Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId
+  langs:
+  - csharp
+  - vb
+  name: ContentItem<T>
+  nameWithType: ContentItem<T>
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentItem
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public class ContentItem<T>
+    typeParameters:
+    - id: T
+    content.vb: Public Class ContentItem(Of T)
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: ContentItem(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T)
+  name.vb: ContentItem(Of T)
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Id
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.Id
+  id: Id
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ContentItem<T>.Id
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Id
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Id
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The content id.
+  example: []
+  syntax:
+    content: public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Id As String
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.Id*
+  nameWithType.vb: ContentItem(Of T).Id
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Id
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Content
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.Content
+  id: Content
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ContentItem<T>.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Content
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Content
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The content data
+  example: []
+  syntax:
+    content: public T Content { get; set; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public Property Content As T
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.Content*
+  nameWithType.vb: ContentItem(Of T).Content
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Content
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Audit
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.Audit
+  id: Audit
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: Audit
+  nameWithType: ContentItem<T>.Audit
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Audit
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Audit
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 13
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Audit data with information regarding document creation and modification.
+  example: []
+  syntax:
+    content: public UserAuditDetail Audit { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UserAuditDetail
+    content.vb: Public Property Audit As UserAuditDetail
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.Audit*
+  nameWithType.vb: ContentItem(Of T).Audit
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Audit
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds
+  id: ContentPermissionSetIds
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionSetIds
+  nameWithType: ContentItem<T>.ContentPermissionSetIds
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentPermissionSetIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionSetIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 16
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: An optional id list of content permission sets. Controls content accessibility outside of content ownership.
+  example: []
+  syntax:
+    content: public ICollection<string> ContentPermissionSetIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: Public Property ContentPermissionSetIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds*
+  nameWithType.vb: ContentItem(Of T).ContentPermissionSetIds
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentPermissionSetIds
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId
+  id: ContentSchemaId
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: ContentSchemaId
+  nameWithType: ContentItem<T>.ContentSchemaId
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentSchemaId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentSchemaId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 19
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The id of the content schema
+  example: []
+  syntax:
+    content: public string ContentSchemaId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContentSchemaId As String
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId*
+  nameWithType.vb: ContentItem(Of T).ContentSchemaId
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentSchemaId
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentType
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.ContentType
+  id: ContentType
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: ContentType
+  nameWithType: ContentItem<T>.ContentType
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 22
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The type of content
+  example: []
+  syntax:
+    content: public ContentType ContentType { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentType
+    content.vb: Public Property ContentType As ContentType
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.ContentType*
+  nameWithType.vb: ContentItem(Of T).ContentType
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentType
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues
+  id: DisplayValues
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: DisplayValues
+  nameWithType: ContentItem<T>.DisplayValues
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.DisplayValues
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayValues
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 26
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Contains language specific display values, rendered according to the content schema's
+                     display pattern configuration.
+  example: []
+  syntax:
+    content: public DisplayValueDictionary DisplayValues { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+    content.vb: Public Property DisplayValues As DisplayValueDictionary
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues*
+  nameWithType.vb: ContentItem(Of T).DisplayValues
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).DisplayValues
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds
+  id: LayerSchemaIds
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: LayerSchemaIds
+  nameWithType: ContentItem<T>.LayerSchemaIds
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.LayerSchemaIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerSchemaIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 29
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: An optional list of layer schemas ids
+  example: []
+  syntax:
+    content: public ICollection<string> LayerSchemaIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: Public Property LayerSchemaIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds*
+  nameWithType.vb: ContentItem(Of T).LayerSchemaIds
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).LayerSchemaIds
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Metadata
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.Metadata
+  id: Metadata
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: ContentItem<T>.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Metadata
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Metadata
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 32
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The metadata dictionary
+  example: []
+  syntax:
+    content: public IDictionary<string, object> Metadata { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IDictionary{System.String,System.Object}
+    content.vb: Public Property Metadata As IDictionary(Of String, Object)
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.Metadata*
+  nameWithType.vb: ContentItem(Of T).Metadata
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Metadata
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Outputs
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.Outputs
+  id: Outputs
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: Outputs
+  nameWithType: ContentItem<T>.Outputs
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Outputs
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Outputs
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 35
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: A list of rendering outputs for underlying digital file.
+  example: []
+  syntax:
+    content: public ICollection<Output> Outputs { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+    content.vb: Public Property Outputs As ICollection(Of Output)
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.Outputs*
+  nameWithType.vb: ContentItem(Of T).Outputs
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Outputs
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId
+  id: OwnerTokenId
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: OwnerTokenId
+  nameWithType: ContentItem<T>.OwnerTokenId
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.OwnerTokenId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OwnerTokenId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 38
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The owner token ID. Defines the content owner.
+  example: []
+  syntax:
+    content: public string OwnerTokenId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerTokenId As String
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId*
+  nameWithType.vb: ContentItem(Of T).OwnerTokenId
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).OwnerTokenId
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Owner
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.Owner
+  id: Owner
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: ContentItem<T>.Owner
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Owner
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Owner
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 41
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The resolved owner.
+  example: []
+  syntax:
+    content: public User Owner { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.User
+    content.vb: Public Property Owner As User
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.Owner*
+  nameWithType.vb: ContentItem(Of T).Owner
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Owner
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle
+  id: LifeCycle
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: LifeCycle
+  nameWithType: ContentItem<T>.LifeCycle
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.LifeCycle
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LifeCycle
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 44
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The lifecycle of the content.
+  example: []
+  syntax:
+    content: public LifeCycle LifeCycle { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.LifeCycle
+    content.vb: Public Property LifeCycle As LifeCycle
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle*
+  nameWithType.vb: ContentItem(Of T).LifeCycle
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).LifeCycle
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights
+  commentId: P:Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights
+  id: ContentRights
+  parent: Picturepark.SDK.V1.Contract.ContentItem`1
+  langs:
+  - csharp
+  - vb
+  name: ContentRights
+  nameWithType: ContentItem<T>.ContentRights
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentRights
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentRights
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
+    startLine: 47
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: List of content rights the user has on this content
+  example: []
+  syntax:
+    content: public ICollection<ContentRight> ContentRights { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentRight}
+    content.vb: Public Property ContentRights As ICollection(Of ContentRight)
+  overload: Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights*
+  nameWithType.vb: ContentItem(Of T).ContentRights
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentRights
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Id*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.Id
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_Id
+  name: Id
+  nameWithType: ContentItem<T>.Id
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Id
+  nameWithType.vb: ContentItem(Of T).Id
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Content*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.Content
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_Content
+  name: Content
+  nameWithType: ContentItem<T>.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Content
+  nameWithType.vb: ContentItem(Of T).Content
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Content
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Audit*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.Audit
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_Audit
+  name: Audit
+  nameWithType: ContentItem<T>.Audit
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Audit
+  nameWithType.vb: ContentItem(Of T).Audit
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Audit
+- uid: Picturepark.SDK.V1.Contract.UserAuditDetail
+  commentId: T:Picturepark.SDK.V1.Contract.UserAuditDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserAuditDetail.html
+  name: UserAuditDetail
+  nameWithType: UserAuditDetail
+  fullName: Picturepark.SDK.V1.Contract.UserAuditDetail
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_ContentPermissionSetIds
+  name: ContentPermissionSetIds
+  nameWithType: ContentItem<T>.ContentPermissionSetIds
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentPermissionSetIds
+  nameWithType.vb: ContentItem(Of T).ContentPermissionSetIds
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentPermissionSetIds
+- uid: System.Collections.Generic.ICollection{System.String}
+  commentId: T:System.Collections.Generic.ICollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<string>
+  nameWithType: ICollection<string>
+  fullName: System.Collections.Generic.ICollection<string>
+  nameWithType.vb: ICollection(Of String)
+  fullName.vb: System.Collections.Generic.ICollection(Of String)
+  name.vb: ICollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_ContentSchemaId
+  name: ContentSchemaId
+  nameWithType: ContentItem<T>.ContentSchemaId
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentSchemaId
+  nameWithType.vb: ContentItem(Of T).ContentSchemaId
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentSchemaId
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.ContentType
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_ContentType
+  name: ContentType
+  nameWithType: ContentItem<T>.ContentType
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentType
+  nameWithType.vb: ContentItem(Of T).ContentType
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentType
+- uid: Picturepark.SDK.V1.Contract.ContentType
+  commentId: T:Picturepark.SDK.V1.Contract.ContentType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentType.html
+  name: ContentType
+  nameWithType: ContentType
+  fullName: Picturepark.SDK.V1.Contract.ContentType
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_DisplayValues
+  name: DisplayValues
+  nameWithType: ContentItem<T>.DisplayValues
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.DisplayValues
+  nameWithType.vb: ContentItem(Of T).DisplayValues
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).DisplayValues
+- uid: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+  commentId: T:Picturepark.SDK.V1.Contract.DisplayValueDictionary
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DisplayValueDictionary.html
+  name: DisplayValueDictionary
+  nameWithType: DisplayValueDictionary
+  fullName: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_LayerSchemaIds
+  name: LayerSchemaIds
+  nameWithType: ContentItem<T>.LayerSchemaIds
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.LayerSchemaIds
+  nameWithType.vb: ContentItem(Of T).LayerSchemaIds
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).LayerSchemaIds
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Metadata*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.Metadata
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_Metadata
+  name: Metadata
+  nameWithType: ContentItem<T>.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Metadata
+  nameWithType.vb: ContentItem(Of T).Metadata
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Metadata
+- uid: System.Collections.Generic.IDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, object>
+  nameWithType: IDictionary<string, object>
+  fullName: System.Collections.Generic.IDictionary<string, object>
+  nameWithType.vb: IDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, Object)
+  name.vb: IDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Outputs*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.Outputs
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_Outputs
+  name: Outputs
+  nameWithType: ContentItem<T>.Outputs
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Outputs
+  nameWithType.vb: ContentItem(Of T).Outputs
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Outputs
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<Output>
+  nameWithType: ICollection<Output>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.Output>
+  nameWithType.vb: ICollection(Of Output)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.Output)
+  name.vb: ICollection(Of Output)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Output
+    name: Output
+    href: Picturepark.SDK.V1.Contract.Output.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Output
+    name: Output
+    href: Picturepark.SDK.V1.Contract.Output.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_OwnerTokenId
+  name: OwnerTokenId
+  nameWithType: ContentItem<T>.OwnerTokenId
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.OwnerTokenId
+  nameWithType.vb: ContentItem(Of T).OwnerTokenId
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).OwnerTokenId
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.Owner*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.Owner
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_Owner
+  name: Owner
+  nameWithType: ContentItem<T>.Owner
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.Owner
+  nameWithType.vb: ContentItem(Of T).Owner
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).Owner
+- uid: Picturepark.SDK.V1.Contract.User
+  commentId: T:Picturepark.SDK.V1.Contract.User
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.User.html
+  name: User
+  nameWithType: User
+  fullName: Picturepark.SDK.V1.Contract.User
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_LifeCycle
+  name: LifeCycle
+  nameWithType: ContentItem<T>.LifeCycle
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.LifeCycle
+  nameWithType.vb: ContentItem(Of T).LifeCycle
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).LifeCycle
+- uid: Picturepark.SDK.V1.Contract.LifeCycle
+  commentId: T:Picturepark.SDK.V1.Contract.LifeCycle
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.LifeCycle.html
+  name: LifeCycle
+  nameWithType: LifeCycle
+  fullName: Picturepark.SDK.V1.Contract.LifeCycle
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html#Picturepark_SDK_V1_Contract_ContentItem_1_ContentRights
+  name: ContentRights
+  nameWithType: ContentItem<T>.ContentRights
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>.ContentRights
+  nameWithType.vb: ContentItem(Of T).ContentRights
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T).ContentRights
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentRight}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentRight}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<ContentRight>
+  nameWithType: ICollection<ContentRight>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.ContentRight>
+  nameWithType.vb: ICollection(Of ContentRight)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.ContentRight)
+  name.vb: ICollection(Of ContentRight)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ContentRight
+    name: ContentRight
+    href: Picturepark.SDK.V1.Contract.ContentRight.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ContentRight
+    name: ContentRight
+    href: Picturepark.SDK.V1.Contract.ContentRight.html
+  - name: )

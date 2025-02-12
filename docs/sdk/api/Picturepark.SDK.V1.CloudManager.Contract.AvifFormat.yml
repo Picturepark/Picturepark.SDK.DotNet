@@ -1,0 +1,588 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  id: AvifFormat
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality
+  - Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson
+  langs:
+  - csharp
+  - vb
+  name: AvifFormat
+  nameWithType: AvifFormat
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AvifFormat
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18846
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Renders an AVIF image.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class AvifFormat : ImageFormatBase
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class AvifFormat Inherits ImageFormatBase
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+  - Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorProfile
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorTransformationIntent
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.HorizontalResolution
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.VerticalResolution
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.KeepClippingPath
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ResizeAction
+  - Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.Actions
+  - Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality
+  id: Quality
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  langs:
+  - csharp
+  - vb
+  name: Quality
+  nameWithType: AvifFormat.Quality
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Quality
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18852
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Compression quality. Must be in range [0,100] and defaults to 90.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("quality", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public int Quality { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("quality", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Quality As Integer
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: quality
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: AvifFormat.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18855
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: AvifFormat.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18861
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static AvifFormat FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+    content.vb: Public Shared Function FromJson(data As String) As AvifFormat
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson*
+  nameWithType.vb: AvifFormat.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html
+  name: FormatBase
+  nameWithType: FormatBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.html
+  name: FormatWithFixedExtensionBase
+  nameWithType: FormatWithFixedExtensionBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html
+  name: ImageFormatBase
+  nameWithType: ImageFormatBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorProfile
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorProfile
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_ColorProfile
+  name: ColorProfile
+  nameWithType: ImageFormatBase.ColorProfile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorProfile
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorTransformationIntent
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorTransformationIntent
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_ColorTransformationIntent
+  name: ColorTransformationIntent
+  nameWithType: ImageFormatBase.ColorTransformationIntent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ColorTransformationIntent
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.HorizontalResolution
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.HorizontalResolution
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_HorizontalResolution
+  name: HorizontalResolution
+  nameWithType: ImageFormatBase.HorizontalResolution
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.HorizontalResolution
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.VerticalResolution
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.VerticalResolution
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_VerticalResolution
+  name: VerticalResolution
+  nameWithType: ImageFormatBase.VerticalResolution
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.VerticalResolution
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.KeepClippingPath
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.KeepClippingPath
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_KeepClippingPath
+  name: KeepClippingPath
+  nameWithType: ImageFormatBase.KeepClippingPath
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.KeepClippingPath
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ResizeAction
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ResizeAction
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_ResizeAction
+  name: ResizeAction
+  nameWithType: ImageFormatBase.ResizeAction
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.ResizeAction
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.Actions
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.Actions
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_ImageFormatBase_Actions
+  name: Actions
+  nameWithType: ImageFormatBase.Actions
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.Actions
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+  parent: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatWithFixedExtensionBase_Extension
+  name: Extension
+  nameWithType: FormatWithFixedExtensionBase.Extension
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality
+  href: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AvifFormat_Quality
+  name: Quality
+  nameWithType: AvifFormat.Quality
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.Quality
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AvifFormat_ToJson
+  name: ToJson
+  nameWithType: AvifFormat.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AvifFormat_FromJson_System_String_
+  name: FromJson
+  nameWithType: AvifFormat.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AvifFormat
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.html
+  name: AvifFormat
+  nameWithType: AvifFormat
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AvifFormat

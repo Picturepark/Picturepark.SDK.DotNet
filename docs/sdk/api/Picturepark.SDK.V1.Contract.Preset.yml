@@ -1,0 +1,426 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Preset
+  commentId: T:Picturepark.SDK.V1.Contract.Preset
+  id: Preset
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.Preset.Fast
+  - Picturepark.SDK.V1.Contract.Preset.Faster
+  - Picturepark.SDK.V1.Contract.Preset.Medium
+  - Picturepark.SDK.V1.Contract.Preset.Slow
+  - Picturepark.SDK.V1.Contract.Preset.Slower
+  - Picturepark.SDK.V1.Contract.Preset.Superfast
+  - Picturepark.SDK.V1.Contract.Preset.Ultrafast
+  - Picturepark.SDK.V1.Contract.Preset.Veryfast
+  langs:
+  - csharp
+  - vb
+  name: Preset
+  nameWithType: Preset
+  fullName: Picturepark.SDK.V1.Contract.Preset
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Preset
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33877
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Video rendering preset, see http://dev.beandog.org/x264_preset_reference.html for more information.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum Preset
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum Preset
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.Preset.Ultrafast
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Ultrafast
+  id: Ultrafast
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Ultrafast
+  nameWithType: Preset.Ultrafast
+  fullName: Picturepark.SDK.V1.Contract.Preset.Ultrafast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Ultrafast
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33881
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ultrafast")]
+
+      Ultrafast = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="ultrafast")>
+
+      Ultrafast = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ultrafast
+- uid: Picturepark.SDK.V1.Contract.Preset.Superfast
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Superfast
+  id: Superfast
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Superfast
+  nameWithType: Preset.Superfast
+  fullName: Picturepark.SDK.V1.Contract.Preset.Superfast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Superfast
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33884
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "superfast")]
+
+      Superfast = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="superfast")>
+
+      Superfast = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: superfast
+- uid: Picturepark.SDK.V1.Contract.Preset.Veryfast
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Veryfast
+  id: Veryfast
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Veryfast
+  nameWithType: Preset.Veryfast
+  fullName: Picturepark.SDK.V1.Contract.Preset.Veryfast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Veryfast
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33887
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "veryfast")]
+
+      Veryfast = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="veryfast")>
+
+      Veryfast = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: veryfast
+- uid: Picturepark.SDK.V1.Contract.Preset.Faster
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Faster
+  id: Faster
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Faster
+  nameWithType: Preset.Faster
+  fullName: Picturepark.SDK.V1.Contract.Preset.Faster
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Faster
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33890
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "faster")]
+
+      Faster = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="faster")>
+
+      Faster = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: faster
+- uid: Picturepark.SDK.V1.Contract.Preset.Fast
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Fast
+  id: Fast
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Fast
+  nameWithType: Preset.Fast
+  fullName: Picturepark.SDK.V1.Contract.Preset.Fast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Fast
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33893
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "fast")]
+
+      Fast = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="fast")>
+
+      Fast = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: fast
+- uid: Picturepark.SDK.V1.Contract.Preset.Medium
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Medium
+  id: Medium
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: Preset.Medium
+  fullName: Picturepark.SDK.V1.Contract.Preset.Medium
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Medium
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33896
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "medium")]
+
+      Medium = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="medium")>
+
+      Medium = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: medium
+- uid: Picturepark.SDK.V1.Contract.Preset.Slow
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Slow
+  id: Slow
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Slow
+  nameWithType: Preset.Slow
+  fullName: Picturepark.SDK.V1.Contract.Preset.Slow
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Slow
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33899
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "slow")]
+
+      Slow = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="slow")>
+
+      Slow = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: slow
+- uid: Picturepark.SDK.V1.Contract.Preset.Slower
+  commentId: F:Picturepark.SDK.V1.Contract.Preset.Slower
+  id: Slower
+  parent: Picturepark.SDK.V1.Contract.Preset
+  langs:
+  - csharp
+  - vb
+  name: Slower
+  nameWithType: Preset.Slower
+  fullName: Picturepark.SDK.V1.Contract.Preset.Slower
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Slower
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33902
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "slower")]
+
+      Slower = 7
+    return:
+      type: Picturepark.SDK.V1.Contract.Preset
+    content.vb: >-
+      <EnumMember(Value:="slower")>
+
+      Slower = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: slower
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.Preset
+  commentId: T:Picturepark.SDK.V1.Contract.Preset
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Preset.html
+  name: Preset
+  nameWithType: Preset
+  fullName: Picturepark.SDK.V1.Contract.Preset

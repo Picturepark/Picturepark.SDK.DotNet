@@ -1,0 +1,300 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  commentId: T:Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  id: ColorTransformationIntent
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  - Picturepark.SDK.V1.Contract.ColorTransformationIntent.Perceptual
+  - Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetric
+  - Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  - Picturepark.SDK.V1.Contract.ColorTransformationIntent.Saturation
+  langs:
+  - csharp
+  - vb
+  name: ColorTransformationIntent
+  nameWithType: ColorTransformationIntent
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ColorTransformationIntent
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32937
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: http://www.colourphil.co.uk/rendering_intents.shtml
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ColorTransformationIntent
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ColorTransformationIntent
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  commentId: F:Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  id: RelativeColorimetricBpc
+  parent: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: RelativeColorimetricBpc
+  nameWithType: ColorTransformationIntent.RelativeColorimetricBpc
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RelativeColorimetricBpc
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32941
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "RelativeColorimetricBpc")]
+
+      RelativeColorimetricBpc = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="RelativeColorimetricBpc")>
+
+      RelativeColorimetricBpc = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: RelativeColorimetricBpc
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  commentId: F:Picturepark.SDK.V1.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  id: AbsoluteColorimetric
+  parent: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteColorimetric
+  nameWithType: ColorTransformationIntent.AbsoluteColorimetric
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AbsoluteColorimetric
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32944
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AbsoluteColorimetric")]
+
+      AbsoluteColorimetric = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="AbsoluteColorimetric")>
+
+      AbsoluteColorimetric = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AbsoluteColorimetric
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent.Perceptual
+  commentId: F:Picturepark.SDK.V1.Contract.ColorTransformationIntent.Perceptual
+  id: Perceptual
+  parent: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: Perceptual
+  nameWithType: ColorTransformationIntent.Perceptual
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent.Perceptual
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Perceptual
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32947
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Perceptual")]
+
+      Perceptual = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="Perceptual")>
+
+      Perceptual = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Perceptual
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetric
+  commentId: F:Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetric
+  id: RelativeColorimetric
+  parent: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: RelativeColorimetric
+  nameWithType: ColorTransformationIntent.RelativeColorimetric
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent.RelativeColorimetric
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RelativeColorimetric
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32950
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "RelativeColorimetric")]
+
+      RelativeColorimetric = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="RelativeColorimetric")>
+
+      RelativeColorimetric = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: RelativeColorimetric
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent.Saturation
+  commentId: F:Picturepark.SDK.V1.Contract.ColorTransformationIntent.Saturation
+  id: Saturation
+  parent: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: Saturation
+  nameWithType: ColorTransformationIntent.Saturation
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent.Saturation
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Saturation
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32953
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Saturation")]
+
+      Saturation = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="Saturation")>
+
+      Saturation = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Saturation
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  commentId: T:Picturepark.SDK.V1.Contract.ColorTransformationIntent
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ColorTransformationIntent.html
+  name: ColorTransformationIntent
+  nameWithType: ColorTransformationIntent
+  fullName: Picturepark.SDK.V1.Contract.ColorTransformationIntent

@@ -1,0 +1,2783 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IListItemClient
+  commentId: T:Picturepark.SDK.V1.Contract.IListItemClient
+  id: IListItemClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync(Picturepark.SDK.V1.Contract.ListItemAggregationRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync(System.Object,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync``1(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync``1(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync(Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync(Picturepark.SDK.V1.Contract.ListItemSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ListItemUpdateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,System.Object,Picturepark.SDK.V1.Contract.UpdateOption,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IListItemClient
+  nameWithType: IListItemClient
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IListItemClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IListItemClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IListItemClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, IEnumerable<ListItemResolveBehavior>, CancellationToken)
+  nameWithType: IListItemClient.GetAsync(string, IEnumerable<ListItemResolveBehavior>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetAsync(string, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ListItemResolveBehavior>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1902
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get list item
+  remarks: Gets the list item detail by ID.
+  example: []
+  syntax:
+    content: Task<ListItemDetail> GetAsync(string id, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The list item ID.
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+      description: List of enums that control which parts of the list item are resolved and returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemDetail}
+      description: List item detail
+    content.vb: Function GetAsync(id As String, resolveBehaviors As IEnumerable(Of ListItemResolveBehavior) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemDetail)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IListItemClient.GetAsync(String, IEnumerable(Of ListItemResolveBehavior), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.GetAsync(String, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ListItemResolveBehavior), System.Threading.CancellationToken)
+  name.vb: GetAsync(String, IEnumerable(Of ListItemResolveBehavior), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, bool?, TimeSpan?, bool?, CancellationToken)
+  nameWithType: IListItemClient.DeleteAsync(string, bool?, TimeSpan?, bool?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync(string, bool?, System.TimeSpan?, bool?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1926
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete list item
+  remarks: Deletes a list item. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all related files will be deleted.
+  example: []
+  syntax:
+    content: Task DeleteAsync(string id, bool? forceReferenceRemoval = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The ID of the list item to delete.
+    - id: forceReferenceRemoval
+      type: System.Nullable{System.Boolean}
+      description: A value indicating whether references to the list item should be removed.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: waitSearchDocCreation
+      type: System.Nullable{System.Boolean}
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            <br />            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: Ok
+    content.vb: Function DeleteAsync(id As String, forceReferenceRemoval As Boolean? = Nothing, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.ReferencesUpdateException
+    commentId: T:Picturepark.SDK.V1.Contract.ReferencesUpdateException
+    description: Validation prevents deletion of item
+  nameWithType.vb: IListItemClient.DeleteAsync(String, Boolean?, TimeSpan?, Boolean?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync(String, Boolean?, System.TimeSpan?, Boolean?, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, Boolean?, TimeSpan?, Boolean?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: RestoreAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: RestoreAsync(string, bool?, TimeSpan?, bool?, CancellationToken)
+  nameWithType: IListItemClient.RestoreAsync(string, bool?, TimeSpan?, bool?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync(string, bool?, System.TimeSpan?, bool?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RestoreAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1949
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Restore list item
+  remarks: Restores a previously deleted list item.
+  example: []
+  syntax:
+    content: Task RestoreAsync(string id, bool? allowMissingDependencies = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The list item ID.
+    - id: allowMissingDependencies
+      type: System.Nullable{System.Boolean}
+      description: Allows restoring list items that refer to list items or contents that don't exist in the system.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: waitSearchDocCreation
+      type: System.Nullable{System.Boolean}
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            <br />            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: Ok
+    content.vb: Function RestoreAsync(id As String, allowMissingDependencies As Boolean? = Nothing, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IListItemClient.RestoreAsync(String, Boolean?, TimeSpan?, Boolean?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync(String, Boolean?, System.TimeSpan?, Boolean?, System.Threading.CancellationToken)
+  name.vb: RestoreAsync(String, Boolean?, TimeSpan?, Boolean?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  id: GetReferencesAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetReferencesAsync(string, ListItemReferencesRequest, CancellationToken)
+  nameWithType: IListItemClient.GetReferencesAsync(string, ListItemReferencesRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync(string, Picturepark.SDK.V1.Contract.ListItemReferencesRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetReferencesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1968
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get list item references
+  remarks: Gets the references (list items, contents) to a single list item.
+  example: []
+  syntax:
+    content: Task<ListItemReferencesResult> GetReferencesAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The ID of the list item.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemReferencesRequest
+      description: Request options to specify how many references to fetch.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemReferencesResult}
+      description: List item references
+    content.vb: Function GetReferencesAsync(id As String, request As ListItemReferencesRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemReferencesResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IListItemClient.GetReferencesAsync(String, ListItemReferencesRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync(String, Picturepark.SDK.V1.Contract.ListItemReferencesRequest, System.Threading.CancellationToken)
+  name.vb: GetReferencesAsync(String, ListItemReferencesRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ListItemCreateRequest, IEnumerable<ListItemResolveBehavior>, bool?, TimeSpan?, bool?, CancellationToken)
+  nameWithType: IListItemClient.CreateAsync(ListItemCreateRequest, IEnumerable<ListItemResolveBehavior>, bool?, TimeSpan?, bool?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ListItemResolveBehavior>, bool?, System.TimeSpan?, bool?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1992
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create list item
+  remarks: Create a new list item.
+  example: []
+  syntax:
+    content: Task<ListItemDetail> CreateAsync(ListItemCreateRequest request, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemCreateRequest
+      description: List item create request.
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+      description: List of enums that control which parts of the list item are resolved and returned.
+    - id: allowMissingDependencies
+      type: System.Nullable{System.Boolean}
+      description: Allows creating list items that refer to list items or contents that don't exist in the system.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: waitSearchDocCreation
+      type: System.Nullable{System.Boolean}
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            <br />            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemDetail}
+      description: List item detail
+    content.vb: Function CreateAsync(request As ListItemCreateRequest, resolveBehaviors As IEnumerable(Of ListItemResolveBehavior) = Nothing, allowMissingDependencies As Boolean? = Nothing, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemDetail)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IListItemClient.CreateAsync(ListItemCreateRequest, IEnumerable(Of ListItemResolveBehavior), Boolean?, TimeSpan?, Boolean?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ListItemResolveBehavior), Boolean?, System.TimeSpan?, Boolean?, System.Threading.CancellationToken)
+  name.vb: CreateAsync(ListItemCreateRequest, IEnumerable(Of ListItemResolveBehavior), Boolean?, TimeSpan?, Boolean?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, IEnumerable<ListItemResolveBehavior>, CancellationToken)
+  nameWithType: IListItemClient.GetManyAsync(IEnumerable<string>, IEnumerable<ListItemResolveBehavior>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ListItemResolveBehavior>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2012
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple list items
+  remarks: >-
+    Gets multiple list item details by IDs.
+
+    <br />Can fetch 100 list items at most.
+  example: []
+  syntax:
+    content: Task<ICollection<ListItemDetail>> GetManyAsync(IEnumerable<string> ids = null, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: List of list item IDs.
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+      description: List of enums that control which parts of the list items are resolved and returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ListItemDetail}}
+      description: List of list item details
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, resolveBehaviors As IEnumerable(Of ListItemResolveBehavior) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of ListItemDetail))
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IListItemClient.GetManyAsync(IEnumerable(Of String), IEnumerable(Of ListItemResolveBehavior), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ListItemResolveBehavior), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), IEnumerable(Of ListItemResolveBehavior), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest,System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(ListItemDeleteManyRequest, CancellationToken)
+  nameWithType: IListItemClient.DeleteManyAsync(ListItemDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2031
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple list items
+  remarks: >-
+    The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be deleted.
+
+    <br />The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> DeleteManyAsync(ListItemDeleteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest
+      description: List item delete many request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function DeleteManyAsync(request As ListItemDeleteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest,System.Threading.CancellationToken)
+  id: DeleteManyByFilterAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest, CancellationToken)
+  nameWithType: IListItemClient.DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyByFilterAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2051
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple list items - by filter
+  remarks: >-
+    Deletes multiple list items. A filter must be provided to limit the deletion to specific list items.
+
+    <br />The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be hard deleted.
+
+    <br />The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest
+      description: Delete many by filter request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function DeleteManyByFilterAsync(request As ListItemDeleteManyFilterRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync(Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync(Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest,System.Threading.CancellationToken)
+  id: RestoreManyAsync(Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: RestoreManyAsync(ListItemRestoreManyRequest, CancellationToken)
+  nameWithType: IListItemClient.RestoreManyAsync(ListItemRestoreManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync(Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RestoreManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2070
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Restore multiple list items
+  remarks: >-
+    Restores previously deleted list items.
+
+    <br />The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> RestoreManyAsync(ListItemRestoreManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest
+      description: List item restore many request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function RestoreManyAsync(request As ListItemRestoreManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  id: GetReferencesManyAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetReferencesManyAsync(ListItemManyReferencesRequest, CancellationToken)
+  nameWithType: IListItemClient.GetReferencesManyAsync(ListItemManyReferencesRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetReferencesManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2088
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple list items references
+  remarks: Gets the references (list items, contents) to multiple list items.
+  example: []
+  syntax:
+    content: Task<ListItemReferencesResult> GetReferencesManyAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest
+      description: ListItemManyReferencesRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemReferencesResult}
+      description: A list of references per list item.
+    content.vb: Function GetReferencesManyAsync(request As ListItemManyReferencesRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemReferencesResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync(Picturepark.SDK.V1.Contract.ListItemSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync(Picturepark.SDK.V1.Contract.ListItemSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.ListItemSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(ListItemSearchRequest, CancellationToken)
+  nameWithType: IListItemClient.SearchAsync(ListItemSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync(Picturepark.SDK.V1.Contract.ListItemSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2106
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search list items
+  remarks: Searches list items as specified in the search request.
+  example: []
+  syntax:
+    content: Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemSearchRequest
+      description: The list item search request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemSearchResult}
+      description: List item search result
+    content.vb: Function SearchAsync(request As ListItemSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemSearchResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync(Picturepark.SDK.V1.Contract.ListItemAggregationRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync(Picturepark.SDK.V1.Contract.ListItemAggregationRequest,System.Threading.CancellationToken)
+  id: AggregateAsync(Picturepark.SDK.V1.Contract.ListItemAggregationRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: AggregateAsync(ListItemAggregationRequest, CancellationToken)
+  nameWithType: IListItemClient.AggregateAsync(ListItemAggregationRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync(Picturepark.SDK.V1.Contract.ListItemAggregationRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AggregateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2124
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Aggregate list items
+  remarks: Aggregates list items as specified in the aggregation request.
+  example: []
+  syntax:
+    content: Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemAggregationRequest
+      description: The list item aggregation request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+      description: Object aggregation result
+    content.vb: Function AggregateAsync(request As ListItemAggregationRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ObjectAggregationResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync(System.Object,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync(System.Object,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: CreateFromObjectAsync(System.Object,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: CreateFromObjectAsync(object, bool, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.CreateFromObjectAsync(object, bool, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync(object, bool, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateFromObjectAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 19
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates a <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s based on an object and its references.
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationWithRequestIdResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: content
+      type: System.Object
+      description: The object to create <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s from.
+    - id: allowMissingDependencies
+      type: System.Boolean
+      description: Allow creating <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s that refer to list items or contents that don't exist in the system.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout to wait for business process to complete.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search document creation. Passing false, the method will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult}
+      description: The created <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s.
+    content.vb: Function CreateFromObjectAsync(content As Object, allowMissingDependencies As Boolean = False, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationWithRequestIdResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  nameWithType.vb: IListItemClient.CreateFromObjectAsync(Object, Boolean, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync(Object, Boolean, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: CreateFromObjectAsync(Object, Boolean, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(ListItemCreateManyRequest, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.CreateManyAsync(ListItemCreateManyRequest, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 30
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates multiple <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s.
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationWithRequestIdResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: createManyRequest
+      type: Picturepark.SDK.V1.Contract.ListItemCreateManyRequest
+      description: The create many request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout to wait for business process to complete.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been created and the creation of the search documents has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.BatchOperationResult%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function CreateManyAsync(createManyRequest As ListItemCreateManyRequest, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationWithRequestIdResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: The business process has not been completed.
+  nameWithType.vb: IListItemClient.CreateManyAsync(ListItemCreateManyRequest, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: CreateManyAsync(ListItemCreateManyRequest, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(ListItemUpdateManyRequest, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.UpdateManyAsync(ListItemUpdateManyRequest, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 44
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update - many
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationResult> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: listItemUpdateManyRequest
+      type: Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest
+      description: List item update many request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout to wait for business process to complete.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.BatchOperationResult%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function UpdateManyAsync(listItemUpdateManyRequest As ListItemUpdateManyRequest, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  nameWithType.vb: IListItemClient.UpdateManyAsync(ListItemUpdateManyRequest, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UpdateManyAsync(ListItemUpdateManyRequest, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchUpdateFieldsByFilterAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 58
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Batch update fields - by filter
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationResult> BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: updateRequest
+      type: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest
+      description: The metadata update request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout to wait for business process to complete.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.BatchOperationResult%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function BatchUpdateFieldsByFilterAsync(updateRequest As ListItemFieldsBatchUpdateFilterRequest, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  nameWithType.vb: IListItemClient.BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchUpdateFieldsByIdsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 72
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Batch update fields - by ids
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationResult> BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: updateRequest
+      type: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest
+      description: The metadata update request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout to wait for business process to complete.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult}
+      description: BusinessProcess
+    content.vb: Function BatchUpdateFieldsByIdsAsync(updateRequest As ListItemFieldsBatchUpdateRequest, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  nameWithType.vb: IListItemClient.BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync``1(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync``1(System.String,System.String,System.Threading.CancellationToken)
+  id: GetAndConvertToAsync``1(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetAndConvertToAsync<T>(string, string, CancellationToken)
+  nameWithType: IListItemClient.GetAndConvertToAsync<T>(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync<T>(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAndConvertToAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 81
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets an existing list item and converts its content to the requested type.
+  example: []
+  syntax:
+    content: Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: listItemId
+      type: System.String
+      description: The list item ID.
+    - id: schemaId
+      type: System.String
+      description: The schema ID of the requested type.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: T
+      description: The requested content type.
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: The converted object.
+    content.vb: Function GetAndConvertToAsync(Of T)(listItemId As String, schemaId As String, cancellationToken As CancellationToken = Nothing) As Task(Of T)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  nameWithType.vb: IListItemClient.GetAndConvertToAsync(Of T)(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync(Of T)(String, String, System.Threading.CancellationToken)
+  name.vb: GetAndConvertToAsync(Of T)(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync``1(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync``1(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  id: GetManyAndConvertToAsync``1(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAndConvertToAsync<T>(IEnumerable<string>, string, CancellationToken)
+  nameWithType: IListItemClient.GetManyAndConvertToAsync<T>(IEnumerable<string>, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync<T>(System.Collections.Generic.IEnumerable<string>, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAndConvertToAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 90
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets a list of existing list items and converts their content to the requested type
+  example: []
+  syntax:
+    content: Task<ICollection<T>> GetManyAndConvertToAsync<T>(IEnumerable<string> listItemIds, string schemaId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: listItemIds
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The list of list item IDs.
+    - id: schemaId
+      type: System.String
+      description: The schema ID of the requested type.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: T
+      description: The requested content type.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{{T}}}
+      description: The list of converted objects.
+    content.vb: Function GetManyAndConvertToAsync(Of T)(listItemIds As IEnumerable(Of String), schemaId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of T))
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  nameWithType.vb: IListItemClient.GetManyAndConvertToAsync(Of T)(IEnumerable(Of String), String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync(Of T)(System.Collections.Generic.IEnumerable(Of String), String, System.Threading.CancellationToken)
+  name.vb: GetManyAndConvertToAsync(Of T)(IEnumerable(Of String), String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,System.Object,Picturepark.SDK.V1.Contract.UpdateOption,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,System.Object,Picturepark.SDK.V1.Contract.UpdateOption,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,System.Object,Picturepark.SDK.V1.Contract.UpdateOption,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, object, UpdateOption, IEnumerable<ListItemResolveBehavior>, bool, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.UpdateAsync(string, object, UpdateOption, IEnumerable<ListItemResolveBehavior>, bool, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(string, object, Picturepark.SDK.V1.Contract.UpdateOption, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ListItemResolveBehavior>, bool, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 103
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Updates a list item by providing its content
+  example: []
+  syntax:
+    content: Task<ListItemDetail> UpdateAsync(string listItemId, object content, UpdateOption updateOption = UpdateOption.Merge, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: listItemId
+      type: System.String
+      description: The list item ID.
+    - id: content
+      type: System.Object
+      description: The content which must match the item's schema ID.
+    - id: updateOption
+      type: Picturepark.SDK.V1.Contract.UpdateOption
+      description: Fields update option, Merge will merge the values specified in the Content object with the existing content, while Replace will replace the existing content with the values from the request
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+      description: List of enum that control which parts of the list item are resolved and returned.
+    - id: allowMissingDependencies
+      type: System.Boolean
+      description: Allow creating <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s that refer to list items or contents that don't exist in the system.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout in milliseconds to wait for completion.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search document creation. Passing false, the method will return when the main entity has been updated and the creation of the search document has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemDetail}
+      description: The updated <xref href="Picturepark.SDK.V1.Contract.ListItemDetail" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function UpdateAsync(listItemId As String, content As Object, updateOption As UpdateOption = UpdateOption.Merge, resolveBehaviors As IEnumerable(Of ListItemResolveBehavior) = Nothing, allowMissingDependencies As Boolean = False, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemDetail)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*
+  nameWithType.vb: IListItemClient.UpdateAsync(String, Object, UpdateOption, IEnumerable(Of ListItemResolveBehavior), Boolean, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(String, Object, Picturepark.SDK.V1.Contract.UpdateOption, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ListItemResolveBehavior), Boolean, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, Object, UpdateOption, IEnumerable(Of ListItemResolveBehavior), Boolean, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ListItemUpdateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ListItemUpdateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ListItemUpdateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, ListItemUpdateRequest, IEnumerable<ListItemResolveBehavior>, bool, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.UpdateAsync(string, ListItemUpdateRequest, IEnumerable<ListItemResolveBehavior>, bool, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.ListItemUpdateRequest, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ListItemResolveBehavior>, bool, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 115
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Updates a list item
+  example: []
+  syntax:
+    content: Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: listItemId
+      type: System.String
+      description: The list item ID.
+    - id: updateRequest
+      type: Picturepark.SDK.V1.Contract.ListItemUpdateRequest
+      description: The update request.
+    - id: resolveBehaviors
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+      description: List of enum that control which parts of the list item are resolved and returned.
+    - id: allowMissingDependencies
+      type: System.Boolean
+      description: Allow creating <xref href="Picturepark.SDK.V1.Contract.ListItem" data-throw-if-not-resolved="false"></xref>s that refer to list items or contents that don't exist in the system.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout in milliseconds to wait for completion.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: >-
+        Wait for the creation of the search document and the rendered display values.
+            By default the method waits for the search document creation. Passing false, the method will return when the main entity has been updated and the creation of the search document has been enqueued but not yet performed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemDetail}
+      description: The updated <xref href="Picturepark.SDK.V1.Contract.ListItemDetail" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function UpdateAsync(listItemId As String, updateRequest As ListItemUpdateRequest, resolveBehaviors As IEnumerable(Of ListItemResolveBehavior) = Nothing, allowMissingDependencies As Boolean = False, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemDetail)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*
+  nameWithType.vb: IListItemClient.UpdateAsync(String, ListItemUpdateRequest, IEnumerable(Of ListItemResolveBehavior), Boolean, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.ListItemUpdateRequest, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ListItemResolveBehavior), Boolean, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, ListItemUpdateRequest, IEnumerable(Of ListItemResolveBehavior), Boolean, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: WaitForBusinessProcessAndReturnResult(string, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.WaitForBusinessProcessAndReturnResult(string, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult(string, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WaitForBusinessProcessAndReturnResult
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 125
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Waits for a business process and returns a <xref href="Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: businessProcessId
+      type: System.String
+      description: The business process id.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait on the business process.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: Wait for the creation of the search documents and the rendered display values
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function WaitForBusinessProcessAndReturnResult(businessProcessId As String, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult*
+  nameWithType.vb: IListItemClient.WaitForBusinessProcessAndReturnResult(String, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult(String, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: WaitForBusinessProcessAndReturnResult(String, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: WaitForBusinessProcessAndReturnResultWithRequestId(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: WaitForBusinessProcessAndReturnResultWithRequestId(string, TimeSpan?, bool, CancellationToken)
+  nameWithType: IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(string, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(string, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WaitForBusinessProcessAndReturnResultWithRequestId
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 135
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Waits for a business process and returns a <xref href="Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<ListItemBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: businessProcessId
+      type: System.String
+      description: The business process id.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait on the business process.
+    - id: waitSearchDocCreation
+      type: System.Boolean
+      description: Wait for the creation of the search documents and the rendered display values
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function WaitForBusinessProcessAndReturnResultWithRequestId(businessProcessId As String, timeout As TimeSpan? = Nothing, waitSearchDocCreation As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemBatchOperationWithRequestIdResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId*
+  nameWithType.vb: IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(String, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(String, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: WaitForBusinessProcessAndReturnResultWithRequestId(String, TimeSpan?, Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  id: GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetReferencesToListItemAsync(string, ListItemReferencesRequest, CancellationToken)
+  nameWithType: IListItemClient.GetReferencesToListItemAsync(string, ListItemReferencesRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(string, Picturepark.SDK.V1.Contract.ListItemReferencesRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetReferencesToListItemAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 147
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get list item references
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This method will be removed in future versions. Please use GetReferencesAsync method instead.")]
+
+      Task<ListItemReferencesResult> GetReferencesToListItemAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The ID of the list item.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemReferencesRequest
+      description: Request options to specify how many references to fetch.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemReferencesResult}
+      description: List item references
+    content.vb: >-
+      <Obsolete("This method will be removed in future versions. Please use GetReferencesAsync method instead.")>
+
+      Function GetReferencesToListItemAsync(id As String, request As ListItemReferencesRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemReferencesResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method will be removed in future versions. Please use GetReferencesAsync method instead.
+  nameWithType.vb: IListItemClient.GetReferencesToListItemAsync(String, ListItemReferencesRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(String, Picturepark.SDK.V1.Contract.ListItemReferencesRequest, System.Threading.CancellationToken)
+  name.vb: GetReferencesToListItemAsync(String, ListItemReferencesRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  id: GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IListItemClient
+  langs:
+  - csharp
+  - vb
+  name: GetReferencesToListItemsAsync(ListItemManyReferencesRequest, CancellationToken)
+  nameWithType: IListItemClient.GetReferencesToListItemsAsync(ListItemManyReferencesRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetReferencesToListItemsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IListItemClient.cs
+    startLine: 159
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple list items references
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This method will be removed in future versions. Please use GetReferencesManyAsync method instead.")]
+
+      Task<ListItemReferencesResult> GetReferencesToListItemsAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest
+      description: ListItemManyReferencesRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemReferencesResult}
+      description: A list of references per list item.
+    content.vb: >-
+      <Obsolete("This method will be removed in future versions. Please use GetReferencesManyAsync method instead.")>
+
+      Function GetReferencesToListItemsAsync(request As ListItemManyReferencesRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ListItemReferencesResult)
+  overload: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method will be removed in future versions. Please use GetReferencesManyAsync method instead.
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IListItemClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ListItemResolveBehavior>
+  nameWithType: IEnumerable<ListItemResolveBehavior>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.ListItemResolveBehavior>
+  nameWithType.vb: IEnumerable(Of ListItemResolveBehavior)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.ListItemResolveBehavior)
+  name.vb: IEnumerable(Of ListItemResolveBehavior)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ListItemResolveBehavior
+    name: ListItemResolveBehavior
+    href: Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ListItemResolveBehavior
+    name: ListItemResolveBehavior
+    href: Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ListItemDetail>
+  nameWithType: Task<ListItemDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ListItemDetail>
+  nameWithType.vb: Task(Of ListItemDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ListItemDetail)
+  name.vb: Task(Of ListItemDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ListItemDetail
+    name: ListItemDetail
+    href: Picturepark.SDK.V1.Contract.ListItemDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ListItemDetail
+    name: ListItemDetail
+    href: Picturepark.SDK.V1.Contract.ListItemDetail.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.ReferencesUpdateException
+  commentId: T:Picturepark.SDK.V1.Contract.ReferencesUpdateException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ReferencesUpdateException.html
+  name: ReferencesUpdateException
+  nameWithType: ReferencesUpdateException
+  fullName: Picturepark.SDK.V1.Contract.ReferencesUpdateException
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IListItemClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_RestoreAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  name: RestoreAsync
+  nameWithType: IListItemClient.RestoreAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_
+  name: GetReferencesAsync
+  nameWithType: IListItemClient.GetReferencesAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemReferencesRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemReferencesRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemReferencesRequest.html
+  name: ListItemReferencesRequest
+  nameWithType: ListItemReferencesRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemReferencesRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemReferencesResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemReferencesResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ListItemReferencesResult>
+  nameWithType: Task<ListItemReferencesResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ListItemReferencesResult>
+  nameWithType.vb: Task(Of ListItemReferencesResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ListItemReferencesResult)
+  name.vb: Task(Of ListItemReferencesResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ListItemReferencesResult
+    name: ListItemReferencesResult
+    href: Picturepark.SDK.V1.Contract.ListItemReferencesResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ListItemReferencesResult
+    name: ListItemReferencesResult
+    href: Picturepark.SDK.V1.Contract.ListItemReferencesResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_Picturepark_SDK_V1_Contract_ListItemCreateRequest_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IListItemClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemCreateRequest.html
+  name: ListItemCreateRequest
+  nameWithType: ListItemCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemCreateRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: IListItemClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ListItemDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ListItemDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<ListItemDetail>>
+  nameWithType: Task<ICollection<ListItemDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.ListItemDetail>>
+  nameWithType.vb: Task(Of ICollection(Of ListItemDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.ListItemDetail))
+  name.vb: Task(Of ICollection(Of ListItemDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ListItemDetail
+    name: ListItemDetail
+    href: Picturepark.SDK.V1.Contract.ListItemDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ListItemDetail
+    name: ListItemDetail
+    href: Picturepark.SDK.V1.Contract.ListItemDetail.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: IListItemClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest.html
+  name: ListItemDeleteManyRequest
+  nameWithType: ListItemDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyByFilterAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyFilterRequest_System_Threading_CancellationToken_
+  name: DeleteManyByFilterAsync
+  nameWithType: IListItemClient.DeleteManyByFilterAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest.html
+  name: ListItemDeleteManyFilterRequest
+  nameWithType: ListItemDeleteManyFilterRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_RestoreManyAsync_Picturepark_SDK_V1_Contract_ListItemRestoreManyRequest_System_Threading_CancellationToken_
+  name: RestoreManyAsync
+  nameWithType: IListItemClient.RestoreManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest.html
+  name: ListItemRestoreManyRequest
+  nameWithType: ListItemRestoreManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesManyAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_
+  name: GetReferencesManyAsync
+  nameWithType: IListItemClient.GetReferencesManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest.html
+  name: ListItemManyReferencesRequest
+  nameWithType: ListItemManyReferencesRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_SearchAsync_Picturepark_SDK_V1_Contract_ListItemSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IListItemClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemSearchRequest.html
+  name: ListItemSearchRequest
+  nameWithType: ListItemSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ListItemSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ListItemSearchResult>
+  nameWithType: Task<ListItemSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ListItemSearchResult>
+  nameWithType.vb: Task(Of ListItemSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ListItemSearchResult)
+  name.vb: Task(Of ListItemSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ListItemSearchResult
+    name: ListItemSearchResult
+    href: Picturepark.SDK.V1.Contract.ListItemSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ListItemSearchResult
+    name: ListItemSearchResult
+    href: Picturepark.SDK.V1.Contract.ListItemSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_AggregateAsync_Picturepark_SDK_V1_Contract_ListItemAggregationRequest_System_Threading_CancellationToken_
+  name: AggregateAsync
+  nameWithType: IListItemClient.AggregateAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemAggregationRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemAggregationRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemAggregationRequest.html
+  name: ListItemAggregationRequest
+  nameWithType: ListItemAggregationRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemAggregationRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ObjectAggregationResult>
+  nameWithType: Task<ObjectAggregationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ObjectAggregationResult>
+  nameWithType.vb: Task(Of ObjectAggregationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ObjectAggregationResult)
+  name.vb: Task(Of ObjectAggregationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ListItem
+  commentId: T:Picturepark.SDK.V1.Contract.ListItem
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItem.html
+  name: ListItem
+  nameWithType: ListItem
+  fullName: Picturepark.SDK.V1.Contract.ListItem
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_CreateFromObjectAsync_System_Object_System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: CreateFromObjectAsync
+  nameWithType: IListItemClient.CreateFromObjectAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ListItemBatchOperationWithRequestIdResult>
+  nameWithType: Task<ListItemBatchOperationWithRequestIdResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult>
+  nameWithType.vb: Task(Of ListItemBatchOperationWithRequestIdResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult)
+  name.vb: Task(Of ListItemBatchOperationWithRequestIdResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+    name: ListItemBatchOperationWithRequestIdResult
+    href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+    name: ListItemBatchOperationWithRequestIdResult
+    href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html
+  name: BatchOperationResult<T>
+  nameWithType: BatchOperationResult<T>
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResult<T>
+  nameWithType.vb: BatchOperationResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationResult(Of T)
+  name.vb: BatchOperationResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+    name: BatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+    name: BatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ListItemCreateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: IListItemClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemCreateManyRequest.html
+  name: ListItemCreateManyRequest
+  nameWithType: ListItemCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemCreateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ListItemUpdateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: IListItemClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest.html
+  name: ListItemUpdateManyRequest
+  nameWithType: ListItemUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ListItemBatchOperationResult>
+  nameWithType: Task<ListItemBatchOperationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult>
+  nameWithType.vb: Task(Of ListItemBatchOperationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult)
+  name.vb: Task(Of ListItemBatchOperationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+    name: ListItemBatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+    name: ListItemBatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByFilterAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateFilterRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: BatchUpdateFieldsByFilterAsync
+  nameWithType: IListItemClient.BatchUpdateFieldsByFilterAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest.html
+  name: ListItemFieldsBatchUpdateFilterRequest
+  nameWithType: ListItemFieldsBatchUpdateFilterRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByIdsAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: BatchUpdateFieldsByIdsAsync
+  nameWithType: IListItemClient.BatchUpdateFieldsByIdsAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync
+- uid: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest.html
+  name: ListItemFieldsBatchUpdateRequest
+  nameWithType: ListItemFieldsBatchUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetAndConvertToAsync__1_System_String_System_String_System_Threading_CancellationToken_
+  name: GetAndConvertToAsync
+  nameWithType: IListItemClient.GetAndConvertToAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetManyAndConvertToAsync__1_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_
+  name: GetManyAndConvertToAsync
+  nameWithType: IListItemClient.GetManyAndConvertToAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{{T}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<T>>
+  nameWithType: Task<ICollection<T>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<T>>
+  nameWithType.vb: Task(Of ICollection(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of T))
+  name.vb: Task(Of ICollection(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ListItemDetail
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemDetail.html
+  name: ListItemDetail
+  nameWithType: ListItemDetail
+  fullName: Picturepark.SDK.V1.Contract.ListItemDetail
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_Picturepark_SDK_V1_Contract_UpdateOption_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IListItemClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.UpdateOption
+  commentId: T:Picturepark.SDK.V1.Contract.UpdateOption
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UpdateOption.html
+  name: UpdateOption
+  nameWithType: UpdateOption
+  fullName: Picturepark.SDK.V1.Contract.UpdateOption
+- uid: Picturepark.SDK.V1.Contract.ListItemUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemUpdateRequest.html
+  name: ListItemUpdateRequest
+  nameWithType: ListItemUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ListItemUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult.html
+  name: ListItemBatchOperationResult
+  nameWithType: ListItemBatchOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: WaitForBusinessProcessAndReturnResult
+  nameWithType: IListItemClient.WaitForBusinessProcessAndReturnResult
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult
+- uid: Picturepark.SDK.V1.Contract.Results
+  commentId: N:Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Results
+  nameWithType: Picturepark.SDK.V1.Contract.Results
+  fullName: Picturepark.SDK.V1.Contract.Results
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+- uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult.html
+  name: ListItemBatchOperationWithRequestIdResult
+  nameWithType: ListItemBatchOperationWithRequestIdResult
+  fullName: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResultWithRequestId_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: WaitForBusinessProcessAndReturnResultWithRequestId
+  nameWithType: IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_
+  name: GetReferencesToListItemAsync
+  nameWithType: IListItemClient.GetReferencesToListItemAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync
+- uid: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html#Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_
+  name: GetReferencesToListItemsAsync
+  nameWithType: IListItemClient.GetReferencesToListItemsAsync
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync

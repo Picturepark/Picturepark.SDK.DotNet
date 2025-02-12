@@ -1,0 +1,300 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  commentId: T:Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  id: EmailNotificationsInterval
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Daily
+  - Picturepark.SDK.V1.Contract.EmailNotificationsInterval.EveryFiveMinutes
+  - Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Hourly
+  - Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Off
+  - Picturepark.SDK.V1.Contract.EmailNotificationsInterval.QuarterHourly
+  langs:
+  - csharp
+  - vb
+  name: EmailNotificationsInterval
+  nameWithType: EmailNotificationsInterval
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EmailNotificationsInterval
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32226
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Interval for email notifications
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum EmailNotificationsInterval
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum EmailNotificationsInterval
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Daily
+  commentId: F:Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Daily
+  id: Daily
+  parent: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  langs:
+  - csharp
+  - vb
+  name: Daily
+  nameWithType: EmailNotificationsInterval.Daily
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Daily
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Daily
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32230
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Daily")]
+
+      Daily = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+    content.vb: >-
+      <EnumMember(Value:="Daily")>
+
+      Daily = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Daily
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Hourly
+  commentId: F:Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Hourly
+  id: Hourly
+  parent: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  langs:
+  - csharp
+  - vb
+  name: Hourly
+  nameWithType: EmailNotificationsInterval.Hourly
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Hourly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Hourly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32233
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Hourly")]
+
+      Hourly = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+    content.vb: >-
+      <EnumMember(Value:="Hourly")>
+
+      Hourly = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Hourly
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.QuarterHourly
+  commentId: F:Picturepark.SDK.V1.Contract.EmailNotificationsInterval.QuarterHourly
+  id: QuarterHourly
+  parent: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  langs:
+  - csharp
+  - vb
+  name: QuarterHourly
+  nameWithType: EmailNotificationsInterval.QuarterHourly
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.QuarterHourly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: QuarterHourly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32236
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "QuarterHourly")]
+
+      QuarterHourly = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+    content.vb: >-
+      <EnumMember(Value:="QuarterHourly")>
+
+      QuarterHourly = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: QuarterHourly
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.EveryFiveMinutes
+  commentId: F:Picturepark.SDK.V1.Contract.EmailNotificationsInterval.EveryFiveMinutes
+  id: EveryFiveMinutes
+  parent: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  langs:
+  - csharp
+  - vb
+  name: EveryFiveMinutes
+  nameWithType: EmailNotificationsInterval.EveryFiveMinutes
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.EveryFiveMinutes
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EveryFiveMinutes
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32239
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EveryFiveMinutes")]
+
+      EveryFiveMinutes = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+    content.vb: >-
+      <EnumMember(Value:="EveryFiveMinutes")>
+
+      EveryFiveMinutes = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EveryFiveMinutes
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Off
+  commentId: F:Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Off
+  id: Off
+  parent: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: EmailNotificationsInterval.Off
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.Off
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Off
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 32242
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Off")]
+
+      Off = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+    content.vb: >-
+      <EnumMember(Value:="Off")>
+
+      Off = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Off
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  commentId: T:Picturepark.SDK.V1.Contract.EmailNotificationsInterval
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.EmailNotificationsInterval.html
+  name: EmailNotificationsInterval
+  nameWithType: EmailNotificationsInterval
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsInterval

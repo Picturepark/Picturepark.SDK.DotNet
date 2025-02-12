@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  id: ColorTransformationIntent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Perceptual
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetric
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Saturation
+  langs:
+  - csharp
+  - vb
+  name: ColorTransformationIntent
+  nameWithType: ColorTransformationIntent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ColorTransformationIntent
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18017
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: http://www.colourphil.co.uk/rendering_intents.shtml
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ColorTransformationIntent
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ColorTransformationIntent
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  id: RelativeColorimetricBpc
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: RelativeColorimetricBpc
+  nameWithType: ColorTransformationIntent.RelativeColorimetricBpc
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetricBpc
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RelativeColorimetricBpc
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18021
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "RelativeColorimetricBpc")]
+
+      RelativeColorimetricBpc = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="RelativeColorimetricBpc")>
+
+      RelativeColorimetricBpc = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: RelativeColorimetricBpc
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  id: AbsoluteColorimetric
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteColorimetric
+  nameWithType: ColorTransformationIntent.AbsoluteColorimetric
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.AbsoluteColorimetric
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AbsoluteColorimetric
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18024
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AbsoluteColorimetric")]
+
+      AbsoluteColorimetric = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="AbsoluteColorimetric")>
+
+      AbsoluteColorimetric = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AbsoluteColorimetric
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Perceptual
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Perceptual
+  id: Perceptual
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: Perceptual
+  nameWithType: ColorTransformationIntent.Perceptual
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Perceptual
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Perceptual
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18027
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Perceptual")]
+
+      Perceptual = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="Perceptual")>
+
+      Perceptual = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Perceptual
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetric
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetric
+  id: RelativeColorimetric
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: RelativeColorimetric
+  nameWithType: ColorTransformationIntent.RelativeColorimetric
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.RelativeColorimetric
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RelativeColorimetric
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18030
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "RelativeColorimetric")]
+
+      RelativeColorimetric = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="RelativeColorimetric")>
+
+      RelativeColorimetric = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: RelativeColorimetric
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Saturation
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Saturation
+  id: Saturation
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  langs:
+  - csharp
+  - vb
+  name: Saturation
+  nameWithType: ColorTransformationIntent.Saturation
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.Saturation
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Saturation
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18033
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Saturation")]
+
+      Saturation = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+    content.vb: >-
+      <EnumMember(Value:="Saturation")>
+
+      Saturation = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Saturation
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.html
+  name: ColorTransformationIntent
+  nameWithType: ColorTransformationIntent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent

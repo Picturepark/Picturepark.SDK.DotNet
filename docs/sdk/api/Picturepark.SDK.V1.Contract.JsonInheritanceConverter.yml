@@ -1,0 +1,900 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  commentId: T:Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  id: JsonInheritanceConverter
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor(System.String)
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert(System.Type)
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  - Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  langs:
+  - csharp
+  - vb
+  name: JsonInheritanceConverter
+  nameWithType: JsonInheritanceConverter
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonInheritanceConverter
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45027
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class JsonInheritanceConverter : JsonConverter
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class JsonInheritanceConverter Inherits JsonConverter
+  inheritance:
+  - System.Object
+  - Newtonsoft.Json.JsonConverter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor
+  commentId: M:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor
+  id: '#ctor'
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: JsonInheritanceConverter()
+  nameWithType: JsonInheritanceConverter.JsonInheritanceConverter()
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.JsonInheritanceConverter()
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45040
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public JsonInheritanceConverter()
+    content.vb: Public Sub New()
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor*
+  nameWithType.vb: JsonInheritanceConverter.New()
+  fullName.vb: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.New()
+  name.vb: New()
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: JsonInheritanceConverter(string)
+  nameWithType: JsonInheritanceConverter.JsonInheritanceConverter(string)
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.JsonInheritanceConverter(string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45045
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public JsonInheritanceConverter(string discriminatorName)
+    parameters:
+    - id: discriminatorName
+      type: System.String
+    content.vb: Public Sub New(discriminatorName As String)
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor*
+  nameWithType.vb: JsonInheritanceConverter.New(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.New(String)
+  name.vb: New(String)
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName
+  commentId: P:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName
+  id: DiscriminatorName
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: DiscriminatorName
+  nameWithType: JsonInheritanceConverter.DiscriminatorName
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DiscriminatorName
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45050
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string DiscriminatorName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DiscriminatorName As String
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName*
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  id: WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: WriteJson(JsonWriter, object, JsonSerializer)
+  nameWithType: JsonInheritanceConverter.WriteJson(JsonWriter, object, JsonSerializer)
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WriteJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45052
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Writes the JSON representation of the object.
+  example: []
+  syntax:
+    content: public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+      description: The <xref href="Newtonsoft.Json.JsonWriter" data-throw-if-not-resolved="false"></xref> to write to.
+    - id: value
+      type: System.Object
+      description: The value.
+    - id: serializer
+      type: Newtonsoft.Json.JsonSerializer
+      description: The calling serializer.
+    content.vb: Public Overrides Sub WriteJson(writer As JsonWriter, value As Object, serializer As JsonSerializer)
+  overridden: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson*
+  nameWithType.vb: JsonInheritanceConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+  fullName.vb: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite
+  commentId: P:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite
+  id: CanWrite
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: CanWrite
+  nameWithType: JsonInheritanceConverter.CanWrite
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CanWrite
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45068
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets a value indicating whether this <xref href="Newtonsoft.Json.JsonConverter" data-throw-if-not-resolved="false"></xref> can write JSON.
+  example: []
+  syntax:
+    content: public override bool CanWrite { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: <code>true</code> if this <xref href="Newtonsoft.Json.JsonConverter" data-throw-if-not-resolved="false"></xref> can write JSON; otherwise, <code>false</code>.
+    content.vb: Public Overrides ReadOnly Property CanWrite As Boolean
+  overridden: Newtonsoft.Json.JsonConverter.CanWrite
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite*
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead
+  commentId: P:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead
+  id: CanRead
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: CanRead
+  nameWithType: JsonInheritanceConverter.CanRead
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CanRead
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45081
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets a value indicating whether this <xref href="Newtonsoft.Json.JsonConverter" data-throw-if-not-resolved="false"></xref> can read JSON.
+  example: []
+  syntax:
+    content: public override bool CanRead { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: <code>true</code> if this <xref href="Newtonsoft.Json.JsonConverter" data-throw-if-not-resolved="false"></xref> can read JSON; otherwise, <code>false</code>.
+    content.vb: Public Overrides ReadOnly Property CanRead As Boolean
+  overridden: Newtonsoft.Json.JsonConverter.CanRead
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead*
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert(System.Type)
+  commentId: M:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert(System.Type)
+  id: CanConvert(System.Type)
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: CanConvert(Type)
+  nameWithType: JsonInheritanceConverter.CanConvert(Type)
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert(System.Type)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CanConvert
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45094
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Determines whether this instance can convert the specified object type.
+  example: []
+  syntax:
+    content: public override bool CanConvert(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: Type of the object.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if this instance can convert the specified object type; otherwise, <code>false</code>.
+    content.vb: Public Overrides Function CanConvert(objectType As Type) As Boolean
+  overridden: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert*
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  id: ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
+  langs:
+  - csharp
+  - vb
+  name: ReadJson(JsonReader, Type, object, JsonSerializer)
+  nameWithType: JsonInheritanceConverter.ReadJson(JsonReader, Type, object, JsonSerializer)
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 45099
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Reads the JSON representation of the object.
+  example: []
+  syntax:
+    content: public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+    parameters:
+    - id: reader
+      type: Newtonsoft.Json.JsonReader
+      description: The <xref href="Newtonsoft.Json.JsonReader" data-throw-if-not-resolved="false"></xref> to read from.
+    - id: objectType
+      type: System.Type
+      description: Type of the object.
+    - id: existingValue
+      type: System.Object
+      description: The existing value of object being read.
+    - id: serializer
+      type: Newtonsoft.Json.JsonSerializer
+      description: The calling serializer.
+    return:
+      type: System.Object
+      description: The object value.
+    content.vb: Public Overrides Function ReadJson(reader As JsonReader, objectType As Type, existingValue As Object, serializer As JsonSerializer) As Object
+  overridden: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  overload: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson*
+  nameWithType.vb: JsonInheritanceConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+  fullName.vb: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, Object, JsonSerializer)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Newtonsoft.Json.JsonConverter
+  commentId: T:Newtonsoft.Json.JsonConverter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonConverter
+  nameWithType: JsonConverter
+  fullName: Newtonsoft.Json.JsonConverter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.#ctor
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter__ctor
+  name: JsonInheritanceConverter
+  nameWithType: JsonInheritanceConverter.JsonInheritanceConverter
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.JsonInheritanceConverter
+  nameWithType.vb: JsonInheritanceConverter.New
+  fullName.vb: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter_DiscriminatorName
+  name: DiscriminatorName
+  nameWithType: JsonInheritanceConverter.DiscriminatorName
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.DiscriminatorName
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: WriteJson(JsonWriter, object, JsonSerializer)
+  nameWithType: JsonConverter.WriteJson(JsonWriter, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_
+  name: WriteJson
+  nameWithType: JsonInheritanceConverter.WriteJson
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.WriteJson
+- uid: Newtonsoft.Json.JsonSerializer
+  commentId: T:Newtonsoft.Json.JsonSerializer
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializer
+  nameWithType: JsonSerializer
+  fullName: Newtonsoft.Json.JsonSerializer
+- uid: Newtonsoft.Json.JsonConverter.CanWrite
+  commentId: P:Newtonsoft.Json.JsonConverter.CanWrite
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanWrite
+  nameWithType: JsonConverter.CanWrite
+  fullName: Newtonsoft.Json.JsonConverter.CanWrite
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter_CanWrite
+  name: CanWrite
+  nameWithType: JsonInheritanceConverter.CanWrite
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanWrite
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Newtonsoft.Json.JsonConverter.CanRead
+  commentId: P:Newtonsoft.Json.JsonConverter.CanRead
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanRead
+  nameWithType: JsonConverter.CanRead
+  fullName: Newtonsoft.Json.JsonConverter.CanRead
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter_CanRead
+  name: CanRead
+  nameWithType: JsonInheritanceConverter.CanRead
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanRead
+- uid: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  commentId: M:Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: CanConvert(Type)
+  nameWithType: JsonConverter.CanConvert(Type)
+  fullName: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter_CanConvert_System_Type_
+  name: CanConvert
+  nameWithType: JsonInheritanceConverter.CanConvert
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.CanConvert
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Newtonsoft.Json.JsonReader
+  commentId: T:Newtonsoft.Json.JsonReader
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonReader
+  nameWithType: JsonReader
+  fullName: Newtonsoft.Json.JsonReader
+- uid: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, object, JsonSerializer)
+  nameWithType: JsonConverter.ReadJson(JsonReader, Type, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson
+  href: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.html#Picturepark_SDK_V1_Contract_JsonInheritanceConverter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_
+  name: ReadJson
+  nameWithType: JsonInheritanceConverter.ReadJson
+  fullName: Picturepark.SDK.V1.Contract.JsonInheritanceConverter.ReadJson

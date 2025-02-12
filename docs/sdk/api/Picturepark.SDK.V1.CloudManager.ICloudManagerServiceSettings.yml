@@ -1,0 +1,262 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  commentId: T:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  id: ICloudManagerServiceSettings
+  parent: Picturepark.SDK.V1.CloudManager
+  children:
+  - Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient
+  - Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl
+  - Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout
+  langs:
+  - csharp
+  - vb
+  name: ICloudManagerServiceSettings
+  nameWithType: ICloudManagerServiceSettings
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ICloudManagerServiceSettings
+    path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  summary: The Picturepark service settings interface.
+  example: []
+  syntax:
+    content: public interface ICloudManagerServiceSettings
+    content.vb: Public Interface ICloudManagerServiceSettings
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl
+  commentId: P:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl
+  id: BaseUrl
+  parent: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: BaseUrl
+  nameWithType: ICloudManagerServiceSettings.BaseUrl
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BaseUrl
+    path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+    startLine: 9
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  summary: Gets the server URL of the Picturepark authentication server.
+  example: []
+  syntax:
+    content: string BaseUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property BaseUrl As String
+  overload: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl*
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout
+  commentId: P:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout
+  id: HttpTimeout
+  parent: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: HttpTimeout
+  nameWithType: ICloudManagerServiceSettings.HttpTimeout
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HttpTimeout
+    path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  summary: Gets the HTTP timeout.
+  example: []
+  syntax:
+    content: TimeSpan HttpTimeout { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property HttpTimeout As TimeSpan
+  overload: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout*
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient
+  commentId: P:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient
+  id: AuthClient
+  parent: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: AuthClient
+  nameWithType: ICloudManagerServiceSettings.AuthClient
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AuthClient
+    path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
+    startLine: 15
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  summary: Gets the <xref href="Picturepark.SDK.V1.Contract.Authentication.IAuthClient" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: IAuthClient AuthClient { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+    content.vb: ReadOnly Property AuthClient As IAuthClient
+  overload: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient*
+references:
+- uid: Picturepark.SDK.V1.CloudManager
+  commentId: N:Picturepark.SDK.V1.CloudManager
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager
+  nameWithType: Picturepark.SDK.V1.CloudManager
+  fullName: Picturepark.SDK.V1.CloudManager
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html#Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_BaseUrl
+  name: BaseUrl
+  nameWithType: ICloudManagerServiceSettings.BaseUrl
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.BaseUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html#Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_HttpTimeout
+  name: HttpTimeout
+  nameWithType: ICloudManagerServiceSettings.HttpTimeout
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.HttpTimeout
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  commentId: T:Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  parent: Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html
+  name: IAuthClient
+  nameWithType: IAuthClient
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html#Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_AuthClient
+  name: AuthClient
+  nameWithType: ICloudManagerServiceSettings.AuthClient
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.AuthClient
+- uid: Picturepark.SDK.V1.Contract.Authentication
+  commentId: N:Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Authentication
+  nameWithType: Picturepark.SDK.V1.Contract.Authentication
+  fullName: Picturepark.SDK.V1.Contract.Authentication
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html

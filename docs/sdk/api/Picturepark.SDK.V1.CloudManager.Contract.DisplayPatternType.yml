@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  id: DisplayPatternType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Detail
+  - Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.DownloadFileName
+  - Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.List
+  - Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Name
+  - Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Thumbnail
+  langs:
+  - csharp
+  - vb
+  name: DisplayPatternType
+  nameWithType: DisplayPatternType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayPatternType
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 8766
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: The display pattern type
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum DisplayPatternType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum DisplayPatternType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Thumbnail
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Thumbnail
+  id: Thumbnail
+  parent: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: Thumbnail
+  nameWithType: DisplayPatternType.Thumbnail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Thumbnail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Thumbnail
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 8770
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Thumbnail")]
+
+      Thumbnail = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="Thumbnail")>
+
+      Thumbnail = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Thumbnail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.List
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.List
+  id: List
+  parent: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: List
+  nameWithType: DisplayPatternType.List
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.List
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: List
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 8773
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "List")]
+
+      List = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="List")>
+
+      List = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: List
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Detail
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Detail
+  id: Detail
+  parent: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: Detail
+  nameWithType: DisplayPatternType.Detail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Detail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Detail
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 8776
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Detail")]
+
+      Detail = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="Detail")>
+
+      Detail = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Detail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Name
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Name
+  id: Name
+  parent: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: DisplayPatternType.Name
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.Name
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Name
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 8779
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Name")]
+
+      Name = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="Name")>
+
+      Name = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Name
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.DownloadFileName
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.DownloadFileName
+  id: DownloadFileName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: DownloadFileName
+  nameWithType: DisplayPatternType.DownloadFileName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.DownloadFileName
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadFileName
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 8782
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DownloadFileName")]
+
+      DownloadFileName = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="DownloadFileName")>
+
+      DownloadFileName = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DownloadFileName
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.html
+  name: DisplayPatternType
+  nameWithType: DisplayPatternType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType

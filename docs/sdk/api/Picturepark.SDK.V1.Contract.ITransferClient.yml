@@ -1,0 +1,2526 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ITransferClient
+  commentId: T:Picturepark.SDK.V1.Contract.ITransferClient
+  id: ITransferClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},System.Nullable{System.TimeSpan},System.Threading.CancellationToken,Picturepark.SDK.V1.Contract.UploadOptions)
+  - Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferPartialRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync(Picturepark.SDK.V1.Contract.TransferSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync(Picturepark.SDK.V1.Contract.FileTransferSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync(System.String,System.Nullable{System.Int32})
+  - Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Picturepark.SDK.V1.Contract.FileParameter,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,Picturepark.SDK.V1.Contract.FileParameter,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ITransferClient
+  nameWithType: ITransferClient
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ITransferClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface ITransferClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface ITransferClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(CreateTransferRequest, CancellationToken)
+  nameWithType: ITransferClient.CreateAsync(CreateTransferRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3652
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create transfer
+  remarks: For transfers of type FileUpload or FileUploadAutoImport, after creating the transfer, wait for the returned BusinessProcess to hit the "Created" state before attempting to upload files.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<Transfer> CreateAsync(CreateTransferRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.CreateTransferRequest
+      description: The create transfer request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Transfer}
+      description: Transfer
+    content.vb: >-
+      <Obsolete>
+
+      Function CreateAsync(request As CreateTransferRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Transfer)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.MaximumTransferSizeException
+    commentId: T:Picturepark.SDK.V1.Contract.MaximumTransferSizeException
+    description: A server side error occurred.
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: ITransferClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3668
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get transfer details
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<TransferDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.TransferDetail}
+      description: TransferDetail
+    content.vb: >-
+      <Obsolete>
+
+      Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of TransferDetail)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, CancellationToken)
+  nameWithType: ITransferClient.DeleteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3687
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete transfer
+  remarks: A transfer cannot be deleted if it's currently in the UploadInProgress or ImportInProgress state.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task DeleteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: >-
+      <Obsolete>
+
+      Function DeleteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.DeleteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync(String, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  id: ImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: ImportAsync(string, ImportTransferRequest, CancellationToken)
+  nameWithType: ITransferClient.ImportAsync(string, ImportTransferRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync(string, Picturepark.SDK.V1.Contract.ImportTransferRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3710
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Import transfer
+  remarks: >-
+    This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.
+
+    <br /><br />Wait for completion on the Business process ID that is returned to wait for import completion.
+
+    <br />Note: Before attempting to import a Transfer, the transfer has to be in the TransferReady state.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<Transfer> ImportAsync(string id, ImportTransferRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ImportTransferRequest
+      description: The ImportTransfer request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Transfer}
+      description: Transfer
+    content.vb: >-
+      <Obsolete>
+
+      Function ImportAsync(id As String, request As ImportTransferRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Transfer)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.ImportAsync(String, ImportTransferRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync(String, Picturepark.SDK.V1.Contract.ImportTransferRequest, System.Threading.CancellationToken)
+  name.vb: ImportAsync(String, ImportTransferRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferPartialRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferPartialRequest,System.Threading.CancellationToken)
+  id: PartialImportAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferPartialRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: PartialImportAsync(string, ImportTransferPartialRequest, CancellationToken)
+  nameWithType: ITransferClient.PartialImportAsync(string, ImportTransferPartialRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync(string, Picturepark.SDK.V1.Contract.ImportTransferPartialRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PartialImportAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3735
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Import transfer partially
+  remarks: >-
+    This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.
+
+    <br /><br />Wait for completion on the Business process ID that is returned to wait for import completion.
+
+    <br /><br />Transfer will transition to state ImportDone if no files of the transfer remain for import.
+
+    <br />Transfer will transition to state TransferReady if any files of the transfer remain for import.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<Transfer> PartialImportAsync(string id, ImportTransferPartialRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ImportTransferPartialRequest
+      description: The ImportTransferPartial request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Transfer}
+      description: Transfer
+    content.vb: >-
+      <Obsolete>
+
+      Function PartialImportAsync(id As String, request As ImportTransferPartialRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Transfer)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.PartialImportAsync(String, ImportTransferPartialRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync(String, Picturepark.SDK.V1.Contract.ImportTransferPartialRequest, System.Threading.CancellationToken)
+  name.vb: PartialImportAsync(String, ImportTransferPartialRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync(System.String,System.Threading.CancellationToken)
+  id: CancelAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: CancelAsync(string, CancellationToken)
+  nameWithType: ITransferClient.CancelAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CancelAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3755
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Cancel transfer
+  remarks: >-
+    Requests cancellation of transfer.
+
+    <br />Note: Transfers can only be cancelled when state is UploadInProgress.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task CancelAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: >-
+      <Obsolete>
+
+      Function CancelAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.CancelAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync(String, System.Threading.CancellationToken)
+  name.vb: CancelAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync(Picturepark.SDK.V1.Contract.TransferSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync(Picturepark.SDK.V1.Contract.TransferSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.TransferSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(TransferSearchRequest, CancellationToken)
+  nameWithType: ITransferClient.SearchAsync(TransferSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync(Picturepark.SDK.V1.Contract.TransferSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3771
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.TransferSearchRequest
+      description: The transfer search request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.TransferSearchResult}
+      description: TransferSearchResult
+    content.vb: >-
+      <Obsolete>
+
+      Function SearchAsync(request As TransferSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of TransferSearchResult)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync(System.String,System.Threading.CancellationToken)
+  id: GetFileAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: GetFileAsync(string, CancellationToken)
+  nameWithType: ITransferClient.GetFileAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetFileAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3787
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get file
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<FileTransferDetail> GetFileAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of file transfer.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileTransferDetail}
+      description: FileTransferDetail
+    content.vb: >-
+      <Obsolete>
+
+      Function GetFileAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of FileTransferDetail)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.GetFileAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync(String, System.Threading.CancellationToken)
+  name.vb: GetFileAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync(Picturepark.SDK.V1.Contract.FileTransferSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync(Picturepark.SDK.V1.Contract.FileTransferSearchRequest,System.Threading.CancellationToken)
+  id: SearchFilesAsync(Picturepark.SDK.V1.Contract.FileTransferSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: SearchFilesAsync(FileTransferSearchRequest, CancellationToken)
+  nameWithType: ITransferClient.SearchFilesAsync(FileTransferSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync(Picturepark.SDK.V1.Contract.FileTransferSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchFilesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3803
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search for files
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.FileTransferSearchRequest
+      description: The file transfer search request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileTransferSearchResult}
+      description: FileTransferSearchResult
+    content.vb: >-
+      <Obsolete>
+
+      Function SearchFilesAsync(request As FileTransferSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of FileTransferSearchResult)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest,System.Threading.CancellationToken)
+  id: DeleteFilesAsync(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteFilesAsync(FileTransferDeleteRequest, CancellationToken)
+  nameWithType: ITransferClient.DeleteFilesAsync(FileTransferDeleteRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteFilesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3818
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete files
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task DeleteFilesAsync(FileTransferDeleteRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.FileTransferDeleteRequest
+      description: The file transfer delete request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Obsolete>
+
+      Function DeleteFilesAsync(request As FileTransferDeleteRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync(System.Threading.CancellationToken)
+  id: GetBlacklistAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: GetBlacklistAsync(CancellationToken)
+  nameWithType: ITransferClient.GetBlacklistAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetBlacklistAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3841
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get blacklist
+  remarks: >-
+    The blacklist is a list of patterns that a filename must not match.
+
+    <br />A filename matching an item on the blacklist will be skipped during uploading.
+
+    <br /><br />The client is responsibly for matching uploaded files against the blacklist
+
+    <br />when creating the transfer. Otherwise, during transfer creation some items might get skipped
+
+    <br />causing issues when uploading later on.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<Blacklist> GetBlacklistAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Blacklist}
+      description: Blacklist
+    content.vb: >-
+      <Obsolete>
+
+      Function GetBlacklistAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Blacklist)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  id: UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: UploadFileAsync(long, long, long, long, string, string, Stream, CancellationToken)
+  nameWithType: ITransferClient.UploadFileAsync(long, long, long, long, string, string, Stream, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(long, long, long, long, string, string, System.IO.Stream, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadFileAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3873
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Upload file
+  remarks: >-
+    Uploads the specified chunk data.
+
+    <br /><br />Use `Content-Type: application/octet-stream` for uploading chunked data.
+
+    <br />The chunk data should be contained in the body of your request.
+
+    <br /><br />To upload a file, it is recommended to use a single chunk that has the same size as the file. This is only possible if you're using
+
+    <br />the octet-stream upload method. If you choose to use formdata upload or multiple chunks per file, the file must be chunked into
+
+    <br />1MB-100MB chunks. The last chunk may be smaller than 1MB.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, Stream body = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: chunkNumber
+      type: System.Int64
+      description: Information about chunk.
+    - id: currentChunkSize
+      type: System.Int64
+      description: Information about chunk.
+    - id: totalSize
+      type: System.Int64
+      description: Information about chunk.
+    - id: totalChunks
+      type: System.Int64
+      description: Information about chunk.
+    - id: transferId
+      type: System.String
+      description: ID of transfer.
+    - id: requestId
+      type: System.String
+      description: Identifier of file.
+    - id: body
+      type: System.IO.Stream
+      description: Body
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: >-
+      <Obsolete>
+
+      Function UploadFileAsync(chunkNumber As Long, currentChunkSize As Long, totalSize As Long, totalChunks As Long, transferId As String, requestId As String, body As Stream = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.UploadFileAsync(Long, Long, Long, Long, String, String, Stream, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Long, Long, Long, Long, String, String, System.IO.Stream, System.Threading.CancellationToken)
+  name.vb: UploadFileAsync(Long, Long, Long, Long, String, String, Stream, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync(System.String,System.Nullable{System.Int32})
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync(System.String,System.Nullable{System.Int32})
+  id: SearchFilesByTransferIdAsync(System.String,System.Nullable{System.Int32})
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: SearchFilesByTransferIdAsync(string, int?)
+  nameWithType: ITransferClient.SearchFilesByTransferIdAsync(string, int?)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync(string, int?)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchFilesByTransferIdAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 13
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Searches files of a given transfer ID.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<IReadOnlyCollection<FileTransfer>> SearchFilesByTransferIdAsync(string transferId, int? limit = null)
+    parameters:
+    - id: transferId
+      type: System.String
+      description: The transfer ID.
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: The maximum number of search results.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.FileTransfer}}
+      description: The result.
+    content.vb: >-
+      <Obsolete>
+
+      Function SearchFilesByTransferIdAsync(transferId As String, limit As Integer? = Nothing) As Task(Of IReadOnlyCollection(Of FileTransfer))
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.SearchFilesByTransferIdAsync(String, Integer?)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync(String, Integer?)
+  name.vb: SearchFilesByTransferIdAsync(String, Integer?)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UploadFilesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: UploadFilesAsync(string, IEnumerable<FileLocations>, UploadOptions, TimeSpan?, CancellationToken)
+  nameWithType: ITransferClient.UploadFilesAsync(string, IEnumerable<FileLocations>, UploadOptions, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(string, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.FileLocations>, Picturepark.SDK.V1.Contract.UploadOptions, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadFilesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 23
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Uploads multiple files from the filesystem.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<FileLocations> files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: transferName
+      type: System.String
+      description: The name of the created transfer.
+    - id: files
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations}
+      description: The file paths on the filesystem with optional overrides.
+    - id: uploadOptions
+      type: Picturepark.SDK.V1.Contract.UploadOptions
+      description: The file upload options.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CreateTransferResult}
+      description: The created transfer object.
+    content.vb: >-
+      <Obsolete>
+
+      Function UploadFilesAsync(transferName As String, files As IEnumerable(Of FileLocations), uploadOptions As UploadOptions, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of CreateTransferResult)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.UploadFilesAsync(String, IEnumerable(Of FileLocations), UploadOptions, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(String, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.FileLocations), Picturepark.SDK.V1.Contract.UploadOptions, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UploadFilesAsync(String, IEnumerable(Of FileLocations), UploadOptions, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},Picturepark.SDK.V1.Contract.UploadOptions,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: UploadFilesAsync(Transfer, IEnumerable<FileLocations>, UploadOptions, TimeSpan?, CancellationToken)
+  nameWithType: ITransferClient.UploadFilesAsync(Transfer, IEnumerable<FileLocations>, UploadOptions, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.FileLocations>, Picturepark.SDK.V1.Contract.UploadOptions, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadFilesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 33
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Uploads multiple files from the filesystem.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task UploadFilesAsync(Transfer transfer, IEnumerable<FileLocations> files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: transfer
+      type: Picturepark.SDK.V1.Contract.Transfer
+      description: The existing transfer object.
+    - id: files
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations}
+      description: The file paths on the filesystem with optional overrides.
+    - id: uploadOptions
+      type: Picturepark.SDK.V1.Contract.UploadOptions
+      description: The file upload options.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: The created transfer object.
+    content.vb: >-
+      <Obsolete>
+
+      Function UploadFilesAsync(transfer As Transfer, files As IEnumerable(Of FileLocations), uploadOptions As UploadOptions, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.UploadFilesAsync(Transfer, IEnumerable(Of FileLocations), UploadOptions, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.FileLocations), Picturepark.SDK.V1.Contract.UploadOptions, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UploadFilesAsync(Transfer, IEnumerable(Of FileLocations), UploadOptions, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: ImportAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: ImportAndWaitForCompletionAsync(Transfer, ImportTransferRequest, TimeSpan?, CancellationToken)
+  nameWithType: ITransferClient.ImportAndWaitForCompletionAsync(Transfer, ImportTransferRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.Transfer, Picturepark.SDK.V1.Contract.ImportTransferRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportAndWaitForCompletionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 42
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Transfers the uploaded files and waits for its completions.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: transfer
+      type: Picturepark.SDK.V1.Contract.Transfer
+      description: The transfer.
+    - id: createRequest
+      type: Picturepark.SDK.V1.Contract.ImportTransferRequest
+      description: The create request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellcation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: The task.
+    content.vb: >-
+      <Obsolete>
+
+      Function ImportAndWaitForCompletionAsync(transfer As Transfer, createRequest As ImportTransferRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAndWaitForCompletionAsync(CreateTransferRequest, TimeSpan?, CancellationToken)
+  nameWithType: ITransferClient.CreateAndWaitForCompletionAsync(CreateTransferRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAndWaitForCompletionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 50
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates a transfer and waits for its completion.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<CreateTransferResult> CreateAndWaitForCompletionAsync(CreateTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.CreateTransferRequest
+      description: The create request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CreateTransferResult}
+      description: The transfer.
+    content.vb: >-
+      <Obsolete>
+
+      Function CreateAndWaitForCompletionAsync(request As CreateTransferRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of CreateTransferResult)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},System.Nullable{System.TimeSpan},System.Threading.CancellationToken,Picturepark.SDK.V1.Contract.UploadOptions)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},System.Nullable{System.TimeSpan},System.Threading.CancellationToken,Picturepark.SDK.V1.Contract.UploadOptions)
+  id: CreateAndWaitForCompletionAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations},System.Nullable{System.TimeSpan},System.Threading.CancellationToken,Picturepark.SDK.V1.Contract.UploadOptions)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAndWaitForCompletionAsync(string, IEnumerable<FileLocations>, TimeSpan?, CancellationToken, UploadOptions)
+  nameWithType: ITransferClient.CreateAndWaitForCompletionAsync(string, IEnumerable<FileLocations>, TimeSpan?, CancellationToken, UploadOptions)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(string, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.FileLocations>, System.TimeSpan?, System.Threading.CancellationToken, Picturepark.SDK.V1.Contract.UploadOptions)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAndWaitForCompletionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 60
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates a transfer and waits for its completion.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default, UploadOptions uploadOptions = null)
+    parameters:
+    - id: transferName
+      type: System.String
+      description: The name of the transfer.
+    - id: files
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations}
+      description: The file names of the transfer.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    - id: uploadOptions
+      type: Picturepark.SDK.V1.Contract.UploadOptions
+      description: The upload options.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CreateTransferResult}
+      description: The transfer.
+    content.vb: >-
+      <Obsolete>
+
+      Function CreateAndWaitForCompletionAsync(transferName As String, files As IEnumerable(Of FileLocations), timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing, uploadOptions As UploadOptions = Nothing) As Task(Of CreateTransferResult)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ITransferClient.CreateAndWaitForCompletionAsync(String, IEnumerable(Of FileLocations), TimeSpan?, CancellationToken, UploadOptions)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync(String, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.FileLocations), System.TimeSpan?, System.Threading.CancellationToken, Picturepark.SDK.V1.Contract.UploadOptions)
+  name.vb: CreateAndWaitForCompletionAsync(String, IEnumerable(Of FileLocations), TimeSpan?, CancellationToken, UploadOptions)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync(System.String,System.Threading.CancellationToken)
+  id: CancelTransferAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: CancelTransferAsync(string, CancellationToken)
+  nameWithType: ITransferClient.CancelTransferAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CancelTransferAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 77
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Cancel transfer
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This method will be removed in future versions. Please use CancelAsync method instead.")]
+
+      Task CancelTransferAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: >-
+      <Obsolete("This method will be removed in future versions. Please use CancelAsync method instead.")>
+
+      Function CancelTransferAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method will be removed in future versions. Please use CancelAsync method instead.
+  nameWithType.vb: ITransferClient.CancelTransferAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync(String, System.Threading.CancellationToken)
+  name.vb: CancelTransferAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  id: ImportTransferAsync(System.String,Picturepark.SDK.V1.Contract.ImportTransferRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: ImportTransferAsync(string, ImportTransferRequest, CancellationToken)
+  nameWithType: ITransferClient.ImportTransferAsync(string, ImportTransferRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync(string, Picturepark.SDK.V1.Contract.ImportTransferRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportTransferAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 90
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Import transfer
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This method will be removed in future versions. Please use ImportAsync method instead.")]
+
+      Task<Transfer> ImportTransferAsync(string id, ImportTransferRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of transfer.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ImportTransferRequest
+      description: The ImportTransfer request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Transfer}
+      description: Transfer
+    content.vb: >-
+      <Obsolete("This method will be removed in future versions. Please use ImportAsync method instead.")>
+
+      Function ImportTransferAsync(id As String, request As ImportTransferRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Transfer)
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method will be removed in future versions. Please use ImportAsync method instead.
+  nameWithType.vb: ITransferClient.ImportTransferAsync(String, ImportTransferRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync(String, Picturepark.SDK.V1.Contract.ImportTransferRequest, System.Threading.CancellationToken)
+  name.vb: ImportTransferAsync(String, ImportTransferRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,Picturepark.SDK.V1.Contract.FileParameter,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,Picturepark.SDK.V1.Contract.FileParameter,System.Threading.CancellationToken)
+  id: UploadFileAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,Picturepark.SDK.V1.Contract.FileParameter,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: UploadFileAsync(long, long, long, long, string, string, FileParameter, CancellationToken)
+  nameWithType: ITransferClient.UploadFileAsync(long, long, long, long, string, string, FileParameter, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(long, long, long, long, string, string, Picturepark.SDK.V1.Contract.FileParameter, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadFileAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 108
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Upload file
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one")]
+
+      Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: chunkNumber
+      type: System.Int64
+      description: Information about chunk.
+    - id: currentChunkSize
+      type: System.Int64
+      description: Information about chunk.
+    - id: totalSize
+      type: System.Int64
+      description: Information about chunk.
+    - id: totalChunks
+      type: System.Int64
+      description: Information about chunk.
+    - id: transferId
+      type: System.String
+      description: ID of transfer.
+    - id: requestId
+      type: System.String
+      description: Identifier of file.
+    - id: formFile
+      type: Picturepark.SDK.V1.Contract.FileParameter
+      description: Information about chunk.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: >-
+      <Obsolete("This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one")>
+
+      Function UploadFileAsync(chunkNumber As Long, currentChunkSize As Long, totalSize As Long, totalChunks As Long, transferId As String, requestId As String, formFile As FileParameter = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one
+  nameWithType.vb: ITransferClient.UploadFileAsync(Long, Long, Long, Long, String, String, FileParameter, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Long, Long, Long, Long, String, String, Picturepark.SDK.V1.Contract.FileParameter, System.Threading.CancellationToken)
+  name.vb: UploadFileAsync(Long, Long, Long, Long, String, String, FileParameter, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Picturepark.SDK.V1.Contract.FileParameter,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Picturepark.SDK.V1.Contract.FileParameter,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.Threading.CancellationToken)
+  id: UploadFileAsync(Picturepark.SDK.V1.Contract.FileParameter,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ITransferClient
+  langs:
+  - csharp
+  - vb
+  name: UploadFileAsync(FileParameter, long, long, long, long, string, string, CancellationToken)
+  nameWithType: ITransferClient.UploadFileAsync(FileParameter, long, long, long, long, string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Picturepark.SDK.V1.Contract.FileParameter, long, long, long, long, string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadFileAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
+    startLine: 134
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Upload file
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one")]
+
+      Task UploadFileAsync(FileParameter formFile, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: formFile
+      type: Picturepark.SDK.V1.Contract.FileParameter
+      description: Information about chunk.
+    - id: chunkNumber
+      type: System.Int64
+      description: Information about chunk.
+    - id: currentChunkSize
+      type: System.Int64
+      description: Information about chunk.
+    - id: totalSize
+      type: System.Int64
+      description: Information about chunk.
+    - id: totalChunks
+      type: System.Int64
+      description: Information about chunk.
+    - id: transferId
+      type: System.String
+      description: ID of transfer.
+    - id: requestId
+      type: System.String
+      description: Identifier of file.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: >-
+      <Obsolete("This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one")>
+
+      Function UploadFileAsync(formFile As FileParameter, chunkNumber As Long, currentChunkSize As Long, totalSize As Long, totalChunks As Long, transferId As String, requestId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one
+  nameWithType.vb: ITransferClient.UploadFileAsync(FileParameter, Long, Long, Long, Long, String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync(Picturepark.SDK.V1.Contract.FileParameter, Long, Long, Long, Long, String, String, System.Threading.CancellationToken)
+  name.vb: UploadFileAsync(FileParameter, Long, Long, Long, Long, String, String, CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.MaximumTransferSizeException
+  commentId: T:Picturepark.SDK.V1.Contract.MaximumTransferSizeException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MaximumTransferSizeException.html
+  name: MaximumTransferSizeException
+  nameWithType: MaximumTransferSizeException
+  fullName: Picturepark.SDK.V1.Contract.MaximumTransferSizeException
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: ITransferClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.CreateTransferRequest
+  commentId: T:Picturepark.SDK.V1.Contract.CreateTransferRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.CreateTransferRequest.html
+  name: CreateTransferRequest
+  nameWithType: CreateTransferRequest
+  fullName: Picturepark.SDK.V1.Contract.CreateTransferRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Transfer}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Transfer}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Transfer>
+  nameWithType: Task<Transfer>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Transfer>
+  nameWithType.vb: Task(Of Transfer)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Transfer)
+  name.vb: Task(Of Transfer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Transfer
+    name: Transfer
+    href: Picturepark.SDK.V1.Contract.Transfer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Transfer
+    name: Transfer
+    href: Picturepark.SDK.V1.Contract.Transfer.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: ITransferClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.TransferDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.TransferDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TransferDetail>
+  nameWithType: Task<TransferDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.TransferDetail>
+  nameWithType.vb: Task(Of TransferDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.TransferDetail)
+  name.vb: Task(Of TransferDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.TransferDetail
+    name: TransferDetail
+    href: Picturepark.SDK.V1.Contract.TransferDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.TransferDetail
+    name: TransferDetail
+    href: Picturepark.SDK.V1.Contract.TransferDetail.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: ITransferClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.DeleteAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportAsync_System_String_Picturepark_SDK_V1_Contract_ImportTransferRequest_System_Threading_CancellationToken_
+  name: ImportAsync
+  nameWithType: ITransferClient.ImportAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.ImportAsync
+- uid: Picturepark.SDK.V1.Contract.ImportTransferRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ImportTransferRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ImportTransferRequest.html
+  name: ImportTransferRequest
+  nameWithType: ImportTransferRequest
+  fullName: Picturepark.SDK.V1.Contract.ImportTransferRequest
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_PartialImportAsync_System_String_Picturepark_SDK_V1_Contract_ImportTransferPartialRequest_System_Threading_CancellationToken_
+  name: PartialImportAsync
+  nameWithType: ITransferClient.PartialImportAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.PartialImportAsync
+- uid: Picturepark.SDK.V1.Contract.ImportTransferPartialRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ImportTransferPartialRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ImportTransferPartialRequest.html
+  name: ImportTransferPartialRequest
+  nameWithType: ImportTransferPartialRequest
+  fullName: Picturepark.SDK.V1.Contract.ImportTransferPartialRequest
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CancelAsync_System_String_System_Threading_CancellationToken_
+  name: CancelAsync
+  nameWithType: ITransferClient.CancelAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CancelAsync
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_SearchAsync_Picturepark_SDK_V1_Contract_TransferSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: ITransferClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.TransferSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.TransferSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TransferSearchRequest.html
+  name: TransferSearchRequest
+  nameWithType: TransferSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.TransferSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.TransferSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.TransferSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TransferSearchResult>
+  nameWithType: Task<TransferSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.TransferSearchResult>
+  nameWithType.vb: Task(Of TransferSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.TransferSearchResult)
+  name.vb: Task(Of TransferSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.TransferSearchResult
+    name: TransferSearchResult
+    href: Picturepark.SDK.V1.Contract.TransferSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.TransferSearchResult
+    name: TransferSearchResult
+    href: Picturepark.SDK.V1.Contract.TransferSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_GetFileAsync_System_String_System_Threading_CancellationToken_
+  name: GetFileAsync
+  nameWithType: ITransferClient.GetFileAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.GetFileAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileTransferDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileTransferDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FileTransferDetail>
+  nameWithType: Task<FileTransferDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.FileTransferDetail>
+  nameWithType.vb: Task(Of FileTransferDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.FileTransferDetail)
+  name.vb: Task(Of FileTransferDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FileTransferDetail
+    name: FileTransferDetail
+    href: Picturepark.SDK.V1.Contract.FileTransferDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileTransferDetail
+    name: FileTransferDetail
+    href: Picturepark.SDK.V1.Contract.FileTransferDetail.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_SearchFilesAsync_Picturepark_SDK_V1_Contract_FileTransferSearchRequest_System_Threading_CancellationToken_
+  name: SearchFilesAsync
+  nameWithType: ITransferClient.SearchFilesAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesAsync
+- uid: Picturepark.SDK.V1.Contract.FileTransferSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.FileTransferSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FileTransferSearchRequest.html
+  name: FileTransferSearchRequest
+  nameWithType: FileTransferSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.FileTransferSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileTransferSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileTransferSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FileTransferSearchResult>
+  nameWithType: Task<FileTransferSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.FileTransferSearchResult>
+  nameWithType.vb: Task(Of FileTransferSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.FileTransferSearchResult)
+  name.vb: Task(Of FileTransferSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FileTransferSearchResult
+    name: FileTransferSearchResult
+    href: Picturepark.SDK.V1.Contract.FileTransferSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileTransferSearchResult
+    name: FileTransferSearchResult
+    href: Picturepark.SDK.V1.Contract.FileTransferSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_DeleteFilesAsync_Picturepark_SDK_V1_Contract_FileTransferDeleteRequest_System_Threading_CancellationToken_
+  name: DeleteFilesAsync
+  nameWithType: ITransferClient.DeleteFilesAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.DeleteFilesAsync
+- uid: Picturepark.SDK.V1.Contract.FileTransferDeleteRequest
+  commentId: T:Picturepark.SDK.V1.Contract.FileTransferDeleteRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FileTransferDeleteRequest.html
+  name: FileTransferDeleteRequest
+  nameWithType: FileTransferDeleteRequest
+  fullName: Picturepark.SDK.V1.Contract.FileTransferDeleteRequest
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_GetBlacklistAsync_System_Threading_CancellationToken_
+  name: GetBlacklistAsync
+  nameWithType: ITransferClient.GetBlacklistAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.GetBlacklistAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Blacklist}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Blacklist}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Blacklist>
+  nameWithType: Task<Blacklist>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Blacklist>
+  nameWithType.vb: Task(Of Blacklist)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Blacklist)
+  name.vb: Task(Of Blacklist)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Blacklist
+    name: Blacklist
+    href: Picturepark.SDK.V1.Contract.Blacklist.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Blacklist
+    name: Blacklist
+    href: Picturepark.SDK.V1.Contract.Blacklist.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFileAsync_System_Int64_System_Int64_System_Int64_System_Int64_System_String_System_String_System_IO_Stream_System_Threading_CancellationToken_
+  name: UploadFileAsync
+  nameWithType: ITransferClient.UploadFileAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFileAsync
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_SearchFilesByTransferIdAsync_System_String_System_Nullable_System_Int32__
+  name: SearchFilesByTransferIdAsync
+  nameWithType: ITransferClient.SearchFilesByTransferIdAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.SearchFilesByTransferIdAsync
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.FileTransfer}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.FileTransfer}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyCollection<FileTransfer>>
+  nameWithType: Task<IReadOnlyCollection<FileTransfer>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyCollection<Picturepark.SDK.V1.Contract.FileTransfer>>
+  nameWithType.vb: Task(Of IReadOnlyCollection(Of FileTransfer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyCollection(Of Picturepark.SDK.V1.Contract.FileTransfer))
+  name.vb: Task(Of IReadOnlyCollection(Of FileTransfer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FileTransfer
+    name: FileTransfer
+    href: Picturepark.SDK.V1.Contract.FileTransfer.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileTransfer
+    name: FileTransfer
+    href: Picturepark.SDK.V1.Contract.FileTransfer.html
+  - name: )
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_FileLocations__Picturepark_SDK_V1_Contract_UploadOptions_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: UploadFilesAsync
+  nameWithType: ITransferClient.UploadFilesAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.UploadFilesAsync
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.FileLocations}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<FileLocations>
+  nameWithType: IEnumerable<FileLocations>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.FileLocations>
+  nameWithType.vb: IEnumerable(Of FileLocations)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.FileLocations)
+  name.vb: IEnumerable(Of FileLocations)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FileLocations
+    name: FileLocations
+    href: Picturepark.SDK.V1.Contract.FileLocations.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileLocations
+    name: FileLocations
+    href: Picturepark.SDK.V1.Contract.FileLocations.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UploadOptions
+  commentId: T:Picturepark.SDK.V1.Contract.UploadOptions
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UploadOptions.html
+  name: UploadOptions
+  nameWithType: UploadOptions
+  fullName: Picturepark.SDK.V1.Contract.UploadOptions
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CreateTransferResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CreateTransferResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CreateTransferResult>
+  nameWithType: Task<CreateTransferResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.CreateTransferResult>
+  nameWithType.vb: Task(Of CreateTransferResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.CreateTransferResult)
+  name.vb: Task(Of CreateTransferResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.CreateTransferResult
+    name: CreateTransferResult
+    href: Picturepark.SDK.V1.Contract.CreateTransferResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.CreateTransferResult
+    name: CreateTransferResult
+    href: Picturepark.SDK.V1.Contract.CreateTransferResult.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.Transfer
+  commentId: T:Picturepark.SDK.V1.Contract.Transfer
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Transfer.html
+  name: Transfer
+  nameWithType: Transfer
+  fullName: Picturepark.SDK.V1.Contract.Transfer
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_ImportTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: ImportAndWaitForCompletionAsync
+  nameWithType: ITransferClient.ImportAndWaitForCompletionAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.ImportAndWaitForCompletionAsync
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateAndWaitForCompletionAsync
+  nameWithType: ITransferClient.CreateAndWaitForCompletionAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CreateAndWaitForCompletionAsync
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CancelTransferAsync_System_String_System_Threading_CancellationToken_
+  name: CancelTransferAsync
+  nameWithType: ITransferClient.CancelTransferAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.CancelTransferAsync
+- uid: Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportTransferAsync_System_String_Picturepark_SDK_V1_Contract_ImportTransferRequest_System_Threading_CancellationToken_
+  name: ImportTransferAsync
+  nameWithType: ITransferClient.ImportTransferAsync
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient.ImportTransferAsync
+- uid: Picturepark.SDK.V1.Contract.FileParameter
+  commentId: T:Picturepark.SDK.V1.Contract.FileParameter
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FileParameter.html
+  name: FileParameter
+  nameWithType: FileParameter
+  fullName: Picturepark.SDK.V1.Contract.FileParameter

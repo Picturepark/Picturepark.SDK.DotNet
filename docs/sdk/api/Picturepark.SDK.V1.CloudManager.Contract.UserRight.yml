@@ -1,0 +1,1356 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  id: UserRight
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.EditImages
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ExportStatistics
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ListUsers
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllComments
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllShares
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageBusinessProcesses
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageChannels
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageComments
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageContent
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageConversionPresetTemplates
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageDocumentHistory
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageEmbeds
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIdentityProviders
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIngest
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageListItems
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageLiveStream
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageOutputFormats
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManagePermissions
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSchemas
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSearchIndexes
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageServiceProviders
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSharings
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTemplates
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTermsOfService
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTransfer
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUserRoles
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUsers
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageXmpMappings
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.ReadStatistics
+  - Picturepark.SDK.V1.CloudManager.Contract.UserRight.WriteStatistics
+  langs:
+  - csharp
+  - vb
+  name: UserRight
+  nameWithType: UserRight
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserRight
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5923
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum UserRight
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum UserRight
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageContent
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageContent
+  id: ManageContent
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageContent
+  nameWithType: UserRight.ManageContent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageContent
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageContent
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5927
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageContent")]
+
+      ManageContent = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageContent")>
+
+      ManageContent = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageContent
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSharings
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSharings
+  id: ManageSharings
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageSharings
+  nameWithType: UserRight.ManageSharings
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSharings
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageSharings
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5930
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageSharings")]
+
+      ManageSharings = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageSharings")>
+
+      ManageSharings = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageSharings
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTransfer
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTransfer
+  id: ManageTransfer
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageTransfer
+  nameWithType: UserRight.ManageTransfer
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTransfer
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageTransfer
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5933
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageTransfer")]
+
+      ManageTransfer = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageTransfer")>
+
+      ManageTransfer = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageTransfer
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageChannels
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageChannels
+  id: ManageChannels
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageChannels
+  nameWithType: UserRight.ManageChannels
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageChannels
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageChannels
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5936
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageChannels")]
+
+      ManageChannels = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageChannels")>
+
+      ManageChannels = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageChannels
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSchemas
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSchemas
+  id: ManageSchemas
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageSchemas
+  nameWithType: UserRight.ManageSchemas
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSchemas
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageSchemas
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5939
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageSchemas")]
+
+      ManageSchemas = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageSchemas")>
+
+      ManageSchemas = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageSchemas
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUsers
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUsers
+  id: ManageUsers
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageUsers
+  nameWithType: UserRight.ManageUsers
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUsers
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageUsers
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5942
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageUsers")]
+
+      ManageUsers = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageUsers")>
+
+      ManageUsers = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageUsers
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUserRoles
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUserRoles
+  id: ManageUserRoles
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageUserRoles
+  nameWithType: UserRight.ManageUserRoles
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageUserRoles
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageUserRoles
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5945
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageUserRoles")]
+
+      ManageUserRoles = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageUserRoles")>
+
+      ManageUserRoles = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageUserRoles
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManagePermissions
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManagePermissions
+  id: ManagePermissions
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManagePermissions
+  nameWithType: UserRight.ManagePermissions
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManagePermissions
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManagePermissions
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5948
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManagePermissions")]
+
+      ManagePermissions = 7
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManagePermissions")>
+
+      ManagePermissions = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManagePermissions
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSearchIndexes
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSearchIndexes
+  id: ManageSearchIndexes
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageSearchIndexes
+  nameWithType: UserRight.ManageSearchIndexes
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageSearchIndexes
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageSearchIndexes
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5951
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageSearchIndexes")]
+
+      ManageSearchIndexes = 8
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageSearchIndexes")>
+
+      ManageSearchIndexes = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageSearchIndexes
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageListItems
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageListItems
+  id: ManageListItems
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageListItems
+  nameWithType: UserRight.ManageListItems
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageListItems
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageListItems
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5954
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageListItems")]
+
+      ManageListItems = 9
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageListItems")>
+
+      ManageListItems = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageListItems
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageServiceProviders
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageServiceProviders
+  id: ManageServiceProviders
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageServiceProviders
+  nameWithType: UserRight.ManageServiceProviders
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageServiceProviders
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageServiceProviders
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5957
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageServiceProviders")]
+
+      ManageServiceProviders = 10
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageServiceProviders")>
+
+      ManageServiceProviders = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageServiceProviders
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageEmbeds
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageEmbeds
+  id: ManageEmbeds
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageEmbeds
+  nameWithType: UserRight.ManageEmbeds
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageEmbeds
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageEmbeds
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5960
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageEmbeds")]
+
+      ManageEmbeds = 11
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageEmbeds")>
+
+      ManageEmbeds = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageEmbeds
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTemplates
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTemplates
+  id: ManageTemplates
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageTemplates
+  nameWithType: UserRight.ManageTemplates
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTemplates
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageTemplates
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5963
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageTemplates")]
+
+      ManageTemplates = 12
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageTemplates")>
+
+      ManageTemplates = 12
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageTemplates
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTermsOfService
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTermsOfService
+  id: ManageTermsOfService
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageTermsOfService
+  nameWithType: UserRight.ManageTermsOfService
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageTermsOfService
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageTermsOfService
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5966
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageTermsOfService")]
+
+      ManageTermsOfService = 13
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageTermsOfService")>
+
+      ManageTermsOfService = 13
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageTermsOfService
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageLiveStream
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageLiveStream
+  id: ManageLiveStream
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageLiveStream
+  nameWithType: UserRight.ManageLiveStream
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageLiveStream
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageLiveStream
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5969
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageLiveStream")]
+
+      ManageLiveStream = 14
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageLiveStream")>
+
+      ManageLiveStream = 14
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageLiveStream
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageDocumentHistory
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageDocumentHistory
+  id: ManageDocumentHistory
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageDocumentHistory
+  nameWithType: UserRight.ManageDocumentHistory
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageDocumentHistory
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageDocumentHistory
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5972
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageDocumentHistory")]
+
+      ManageDocumentHistory = 15
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageDocumentHistory")>
+
+      ManageDocumentHistory = 15
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageDocumentHistory
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllShares
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllShares
+  id: ManageAllShares
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageAllShares
+  nameWithType: UserRight.ManageAllShares
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllShares
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageAllShares
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5975
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageAllShares")]
+
+      ManageAllShares = 16
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageAllShares")>
+
+      ManageAllShares = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageAllShares
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageOutputFormats
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageOutputFormats
+  id: ManageOutputFormats
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageOutputFormats
+  nameWithType: UserRight.ManageOutputFormats
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageOutputFormats
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageOutputFormats
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5978
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageOutputFormats")]
+
+      ManageOutputFormats = 17
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageOutputFormats")>
+
+      ManageOutputFormats = 17
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageOutputFormats
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageBusinessProcesses
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageBusinessProcesses
+  id: ManageBusinessProcesses
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageBusinessProcesses
+  nameWithType: UserRight.ManageBusinessProcesses
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageBusinessProcesses
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageBusinessProcesses
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5981
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageBusinessProcesses")]
+
+      ManageBusinessProcesses = 18
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageBusinessProcesses")>
+
+      ManageBusinessProcesses = 18
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageBusinessProcesses
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIdentityProviders
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIdentityProviders
+  id: ManageIdentityProviders
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageIdentityProviders
+  nameWithType: UserRight.ManageIdentityProviders
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIdentityProviders
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageIdentityProviders
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5984
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageIdentityProviders")]
+
+      ManageIdentityProviders = 19
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageIdentityProviders")>
+
+      ManageIdentityProviders = 19
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageIdentityProviders
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageXmpMappings
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageXmpMappings
+  id: ManageXmpMappings
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageXmpMappings
+  nameWithType: UserRight.ManageXmpMappings
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageXmpMappings
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageXmpMappings
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5987
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageXmpMappings")]
+
+      ManageXmpMappings = 20
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageXmpMappings")>
+
+      ManageXmpMappings = 20
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageXmpMappings
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ReadStatistics
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ReadStatistics
+  id: ReadStatistics
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ReadStatistics
+  nameWithType: UserRight.ReadStatistics
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ReadStatistics
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadStatistics
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5990
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReadStatistics")]
+
+      ReadStatistics = 21
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ReadStatistics")>
+
+      ReadStatistics = 21
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReadStatistics
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.WriteStatistics
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.WriteStatistics
+  id: WriteStatistics
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: WriteStatistics
+  nameWithType: UserRight.WriteStatistics
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.WriteStatistics
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WriteStatistics
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5993
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WriteStatistics")]
+
+      WriteStatistics = 22
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="WriteStatistics")>
+
+      WriteStatistics = 22
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WriteStatistics
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ExportStatistics
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ExportStatistics
+  id: ExportStatistics
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ExportStatistics
+  nameWithType: UserRight.ExportStatistics
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ExportStatistics
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExportStatistics
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5996
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ExportStatistics")]
+
+      ExportStatistics = 23
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ExportStatistics")>
+
+      ExportStatistics = 23
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ExportStatistics
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.EditImages
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.EditImages
+  id: EditImages
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: EditImages
+  nameWithType: UserRight.EditImages
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.EditImages
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EditImages
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 5999
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EditImages")]
+
+      EditImages = 24
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="EditImages")>
+
+      EditImages = 24
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EditImages
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageConversionPresetTemplates
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageConversionPresetTemplates
+  id: ManageConversionPresetTemplates
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageConversionPresetTemplates
+  nameWithType: UserRight.ManageConversionPresetTemplates
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageConversionPresetTemplates
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageConversionPresetTemplates
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6002
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageConversionPresetTemplates")]
+
+      ManageConversionPresetTemplates = 25
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageConversionPresetTemplates")>
+
+      ManageConversionPresetTemplates = 25
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageConversionPresetTemplates
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageComments
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageComments
+  id: ManageComments
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageComments
+  nameWithType: UserRight.ManageComments
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageComments
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageComments
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6005
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageComments")]
+
+      ManageComments = 26
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageComments")>
+
+      ManageComments = 26
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageComments
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllComments
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllComments
+  id: ManageAllComments
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageAllComments
+  nameWithType: UserRight.ManageAllComments
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageAllComments
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageAllComments
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6008
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageAllComments")]
+
+      ManageAllComments = 27
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageAllComments")>
+
+      ManageAllComments = 27
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageAllComments
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ListUsers
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ListUsers
+  id: ListUsers
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ListUsers
+  nameWithType: UserRight.ListUsers
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ListUsers
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListUsers
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6011
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListUsers")]
+
+      ListUsers = 28
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ListUsers")>
+
+      ListUsers = 28
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListUsers
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIngest
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIngest
+  id: ManageIngest
+  parent: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  langs:
+  - csharp
+  - vb
+  name: ManageIngest
+  nameWithType: UserRight.ManageIngest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight.ManageIngest
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageIngest
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6014
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageIngest")]
+
+      ManageIngest = 29
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+    content.vb: >-
+      <EnumMember(Value:="ManageIngest")>
+
+      ManageIngest = 29
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageIngest
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.UserRight
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.UserRight.html
+  name: UserRight
+  nameWithType: UserRight
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserRight

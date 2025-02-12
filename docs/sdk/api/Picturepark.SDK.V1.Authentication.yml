@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Authentication
+  commentId: N:Picturepark.SDK.V1.Authentication
+  id: Picturepark.SDK.V1.Authentication
+  children:
+  - Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Authentication
+  nameWithType: Picturepark.SDK.V1.Authentication
+  fullName: Picturepark.SDK.V1.Authentication
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1
+references:
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  commentId: T:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  href: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.html
+  name: AccessTokenAuthClient
+  nameWithType: AccessTokenAuthClient
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient

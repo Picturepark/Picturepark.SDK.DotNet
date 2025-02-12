@@ -1,0 +1,2089 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.NotificationClient
+  commentId: T:Picturepark.SDK.V1.NotificationClient
+  id: NotificationClient
+  parent: Picturepark.SDK.V1
+  children:
+  - Picturepark.SDK.V1.NotificationClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  - Picturepark.SDK.V1.NotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings
+  - Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.NotificationClient.ReadResponseAsString
+  - Picturepark.SDK.V1.NotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: NotificationClient
+  nameWithType: NotificationClient
+  fullName: Picturepark.SDK.V1.NotificationClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotificationClient
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26217
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class NotificationClient : ClientBase, INotificationClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class NotificationClient Inherits ClientBase Implements INotificationClient
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.ClientBase
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient
+  inheritedMembers:
+  - Picturepark.SDK.V1.ClientBase.BaseUrl
+  - Picturepark.SDK.V1.ClientBase.CustomerAlias
+  - Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.NotificationClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  id: '#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)'
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: NotificationClient(IPictureparkServiceSettings, HttpClient)
+  nameWithType: NotificationClient.NotificationClient(IPictureparkServiceSettings, HttpClient)
+  fullName: Picturepark.SDK.V1.NotificationClient.NotificationClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings, System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26223
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public NotificationClient(IPictureparkServiceSettings configuration, HttpClient httpClient)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+    content.vb: Public Sub New(configuration As IPictureparkServiceSettings, httpClient As HttpClient)
+  overload: Picturepark.SDK.V1.NotificationClient.#ctor*
+  nameWithType.vb: NotificationClient.New(IPictureparkServiceSettings, HttpClient)
+  fullName.vb: Picturepark.SDK.V1.NotificationClient.New(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings, System.Net.Http.HttpClient)
+  name.vb: New(IPictureparkServiceSettings, HttpClient)
+- uid: Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings
+  commentId: P:Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings
+  id: JsonSerializerSettings
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerSettings
+  nameWithType: NotificationClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonSerializerSettings
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26236
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected JsonSerializerSettings JsonSerializerSettings { get; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.JsonSerializerSettings
+    content.vb: Protected ReadOnly Property JsonSerializerSettings As JsonSerializerSettings
+  overload: Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings*
+- uid: Picturepark.SDK.V1.NotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: NotificationClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26257
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Get notification
+  example: []
+  syntax:
+    content: public virtual Task<Notification> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of notification
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Notification}
+      description: Notification
+    content.vb: Public Overridable Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of Notification)
+  overload: Picturepark.SDK.V1.NotificationClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: NotificationClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.NotificationClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  id: MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: MarkAsReadAsync(string, CancellationToken)
+  nameWithType: NotificationClient.MarkAsReadAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MarkAsReadAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26434
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Mark notification as read
+  example: []
+  syntax:
+    content: public virtual Task<Notification> MarkAsReadAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of notification
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Notification}
+      description: Notification
+    content.vb: Public Overridable Function MarkAsReadAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of Notification)
+  overload: Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: NotificationClient.MarkAsReadAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync(String, System.Threading.CancellationToken)
+  name.vb: MarkAsReadAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(NotificationSearchRequest, CancellationToken)
+  nameWithType: NotificationClient.SearchAsync(NotificationSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26612
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Search notifications
+  example: []
+  syntax:
+    content: public virtual Task<NotificationCompactResult> SearchAsync(NotificationSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.NotificationSearchRequest
+      description: Notification search request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.NotificationCompactResult}
+      description: Notification search result
+    content.vb: Public Overridable Function SearchAsync(request As NotificationSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of NotificationCompactResult)
+  overload: Picturepark.SDK.V1.NotificationClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+  id: AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: AggregateAsync(NotificationAggregationRequest, CancellationToken)
+  nameWithType: NotificationClient.AggregateAsync(NotificationAggregationRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AggregateAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26792
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Aggregate on notifications
+  example: []
+  syntax:
+    content: public virtual Task<ObjectAggregationResult> AggregateAsync(NotificationAggregationRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.NotificationAggregationRequest
+      description: Notification aggregation request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+      description: Aggregation result
+    content.vb: Public Overridable Function AggregateAsync(request As NotificationAggregationRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ObjectAggregationResult)
+  overload: Picturepark.SDK.V1.NotificationClient.AggregateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  id: MarkAllAsReadAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: MarkAllAsReadAsync(CancellationToken)
+  nameWithType: NotificationClient.MarkAllAsReadAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MarkAllAsReadAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26970
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Mark all notifications as read
+  example: []
+  syntax:
+    content: public virtual Task MarkAllAsReadAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overridable Function MarkAllAsReadAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  id: GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: GetEmailNotificationSettingsAsync(CancellationToken)
+  nameWithType: NotificationClient.GetEmailNotificationSettingsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetEmailNotificationSettingsAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 27137
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Get email notification settings
+  example: []
+  syntax:
+    content: public virtual Task<EmailNotificationsSettings> GetEmailNotificationSettingsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.EmailNotificationsSettings}
+      description: Email notification settings
+    content.vb: Public Overridable Function GetEmailNotificationSettingsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of EmailNotificationsSettings)
+  overload: Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+  id: PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: PutEmailNotificationSettingsAsync(EmailNotificationsSettings, CancellationToken)
+  nameWithType: NotificationClient.PutEmailNotificationSettingsAsync(EmailNotificationsSettings, CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PutEmailNotificationSettingsAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 27310
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Update email notification settings
+  example: []
+  syntax:
+    content: public virtual Task<EmailNotificationsSettings> PutEmailNotificationSettingsAsync(EmailNotificationsSettings configuration, CancellationToken cancellationToken = default)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+      description: Email notification settings
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.EmailNotificationsSettings}
+      description: Email notification settings
+    content.vb: Public Overridable Function PutEmailNotificationSettingsAsync(configuration As EmailNotificationsSettings, cancellationToken As CancellationToken = Nothing) As Task(Of EmailNotificationsSettings)
+  overload: Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  id: GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableNotificationTypesAsync(CancellationToken)
+  nameWithType: NotificationClient.GetAvailableNotificationTypesAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAvailableNotificationTypesAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 27488
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Get notification types available for email settings.
+  example: []
+  syntax:
+    content: public virtual Task<IDictionary<string, ICollection<NotificationType>>> GetAvailableNotificationTypesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.NotificationType}}}
+    content.vb: Public Overridable Function GetAvailableNotificationTypesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IDictionary(Of String, ICollection(Of NotificationType)))
+  overload: Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.INotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.NotificationClient.ReadResponseAsString
+  commentId: P:Picturepark.SDK.V1.NotificationClient.ReadResponseAsString
+  id: ReadResponseAsString
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: ReadResponseAsString
+  nameWithType: NotificationClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.NotificationClient.ReadResponseAsString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadResponseAsString
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 27661
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public bool ReadResponseAsString { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ReadResponseAsString As Boolean
+  overload: Picturepark.SDK.V1.NotificationClient.ReadResponseAsString*
+- uid: Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  id: ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.NotificationClient
+  langs:
+  - csharp
+  - vb
+  name: ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  nameWithType: NotificationClient.ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  fullName: Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadObjectResponseAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 27663
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected virtual Task<NotificationClient.ObjectResponseResult<T>> ReadObjectResponseAsync<T>(HttpResponseMessage response, IReadOnlyDictionary<string, IEnumerable<string>> headers, CancellationToken cancellationToken)
+    parameters:
+    - id: response
+      type: System.Net.Http.HttpResponseMessage
+    - id: headers
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.NotificationClient.ObjectResponseResult{{T}}}
+    content.vb: Protected Overridable Function ReadObjectResponseAsync(Of T)(response As HttpResponseMessage, headers As IReadOnlyDictionary(Of String, IEnumerable(Of String)), cancellationToken As CancellationToken) As Task(Of NotificationClient.ObjectResponseResult(Of T))
+  overload: Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync*
+  nameWithType.vb: NotificationClient.ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync(Of T)(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String)), System.Threading.CancellationToken)
+  name.vb: ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+references:
+- uid: Picturepark.SDK.V1
+  commentId: N:Picturepark.SDK.V1
+  href: Picturepark.html
+  name: Picturepark.SDK.V1
+  nameWithType: Picturepark.SDK.V1
+  fullName: Picturepark.SDK.V1
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.ClientBase
+  commentId: T:Picturepark.SDK.V1.ClientBase
+  parent: Picturepark.SDK.V1
+  href: Picturepark.SDK.V1.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.ClientBase
+- uid: Picturepark.SDK.V1.Contract.INotificationClient
+  commentId: T:Picturepark.SDK.V1.Contract.INotificationClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html
+  name: INotificationClient
+  nameWithType: INotificationClient
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient
+- uid: Picturepark.SDK.V1.ClientBase.BaseUrl
+  commentId: P:Picturepark.SDK.V1.ClientBase.BaseUrl
+  parent: Picturepark.SDK.V1.ClientBase
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl
+  name: BaseUrl
+  nameWithType: ClientBase.BaseUrl
+  fullName: Picturepark.SDK.V1.ClientBase.BaseUrl
+- uid: Picturepark.SDK.V1.ClientBase.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.ClientBase.CustomerAlias
+  parent: Picturepark.SDK.V1.ClientBase
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CustomerAlias
+  name: CustomerAlias
+  nameWithType: ClientBase.CustomerAlias
+  fullName: Picturepark.SDK.V1.ClientBase.CustomerAlias
+- uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.ClientBase
+  isExternal: true
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  name: CreateHttpRequestMessageAsync(CancellationToken)
+  nameWithType: ClientBase.CreateHttpRequestMessageAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.NotificationClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.#ctor
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_
+  name: NotificationClient
+  nameWithType: NotificationClient.NotificationClient
+  fullName: Picturepark.SDK.V1.NotificationClient.NotificationClient
+  nameWithType.vb: NotificationClient.New
+  fullName.vb: Picturepark.SDK.V1.NotificationClient.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  commentId: T:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html
+  name: IPictureparkServiceSettings
+  nameWithType: IPictureparkServiceSettings
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_JsonSerializerSettings
+  name: JsonSerializerSettings
+  nameWithType: NotificationClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.NotificationClient.JsonSerializerSettings
+- uid: Newtonsoft.Json.JsonSerializerSettings
+  commentId: T:Newtonsoft.Json.JsonSerializerSettings
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializerSettings
+  nameWithType: JsonSerializerSettings
+  fullName: Newtonsoft.Json.JsonSerializerSettings
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.NotificationClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.GetAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: NotificationClient.GetAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.GetAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync(string, CancellationToken)
+  nameWithType: INotificationClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: INotificationClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+    name: GetAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.GetAsync(System.String,System.Threading.CancellationToken)
+    name: GetAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Notification}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Notification}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Notification>
+  nameWithType: Task<Notification>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Notification>
+  nameWithType.vb: Task(Of Notification)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Notification)
+  name.vb: Task(Of Notification)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Notification
+    name: Notification
+    href: Picturepark.SDK.V1.Contract.Notification.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Notification
+    name: Notification
+    href: Picturepark.SDK.V1.Contract.Notification.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_MarkAsReadAsync_System_String_System_Threading_CancellationToken_
+  name: MarkAsReadAsync
+  nameWithType: NotificationClient.MarkAsReadAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.MarkAsReadAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_MarkAsReadAsync_System_String_System_Threading_CancellationToken_
+  name: MarkAsReadAsync(string, CancellationToken)
+  nameWithType: INotificationClient.MarkAsReadAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: INotificationClient.MarkAsReadAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(String, System.Threading.CancellationToken)
+  name.vb: MarkAsReadAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+    name: MarkAsReadAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_MarkAsReadAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.MarkAsReadAsync(System.String,System.Threading.CancellationToken)
+    name: MarkAsReadAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_MarkAsReadAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.NotificationClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.SearchAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_SearchAsync_Picturepark_SDK_V1_Contract_NotificationSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: NotificationClient.SearchAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_SearchAsync_Picturepark_SDK_V1_Contract_NotificationSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync(NotificationSearchRequest, CancellationToken)
+  nameWithType: INotificationClient.SearchAsync(NotificationSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+    name: SearchAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_SearchAsync_Picturepark_SDK_V1_Contract_NotificationSearchRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.NotificationSearchRequest
+    name: NotificationSearchRequest
+    href: Picturepark.SDK.V1.Contract.NotificationSearchRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.SearchAsync(Picturepark.SDK.V1.Contract.NotificationSearchRequest,System.Threading.CancellationToken)
+    name: SearchAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_SearchAsync_Picturepark_SDK_V1_Contract_NotificationSearchRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.NotificationSearchRequest
+    name: NotificationSearchRequest
+    href: Picturepark.SDK.V1.Contract.NotificationSearchRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.NotificationSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationSearchRequest.html
+  name: NotificationSearchRequest
+  nameWithType: NotificationSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.NotificationSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.NotificationCompactResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.NotificationCompactResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<NotificationCompactResult>
+  nameWithType: Task<NotificationCompactResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.NotificationCompactResult>
+  nameWithType.vb: Task(Of NotificationCompactResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.NotificationCompactResult)
+  name.vb: Task(Of NotificationCompactResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.NotificationCompactResult
+    name: NotificationCompactResult
+    href: Picturepark.SDK.V1.Contract.NotificationCompactResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.NotificationCompactResult
+    name: NotificationCompactResult
+    href: Picturepark.SDK.V1.Contract.NotificationCompactResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.NotificationClient.AggregateAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.AggregateAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_AggregateAsync_Picturepark_SDK_V1_Contract_NotificationAggregationRequest_System_Threading_CancellationToken_
+  name: AggregateAsync
+  nameWithType: NotificationClient.AggregateAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.AggregateAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_AggregateAsync_Picturepark_SDK_V1_Contract_NotificationAggregationRequest_System_Threading_CancellationToken_
+  name: AggregateAsync(NotificationAggregationRequest, CancellationToken)
+  nameWithType: INotificationClient.AggregateAsync(NotificationAggregationRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+    name: AggregateAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_AggregateAsync_Picturepark_SDK_V1_Contract_NotificationAggregationRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.NotificationAggregationRequest
+    name: NotificationAggregationRequest
+    href: Picturepark.SDK.V1.Contract.NotificationAggregationRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.AggregateAsync(Picturepark.SDK.V1.Contract.NotificationAggregationRequest,System.Threading.CancellationToken)
+    name: AggregateAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_AggregateAsync_Picturepark_SDK_V1_Contract_NotificationAggregationRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.NotificationAggregationRequest
+    name: NotificationAggregationRequest
+    href: Picturepark.SDK.V1.Contract.NotificationAggregationRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.NotificationAggregationRequest
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationAggregationRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationAggregationRequest.html
+  name: NotificationAggregationRequest
+  nameWithType: NotificationAggregationRequest
+  fullName: Picturepark.SDK.V1.Contract.NotificationAggregationRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ObjectAggregationResult>
+  nameWithType: Task<ObjectAggregationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ObjectAggregationResult>
+  nameWithType.vb: Task(Of ObjectAggregationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ObjectAggregationResult)
+  name.vb: Task(Of ObjectAggregationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_MarkAllAsReadAsync_System_Threading_CancellationToken_
+  name: MarkAllAsReadAsync
+  nameWithType: NotificationClient.MarkAllAsReadAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.MarkAllAsReadAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_MarkAllAsReadAsync_System_Threading_CancellationToken_
+  name: MarkAllAsReadAsync(CancellationToken)
+  nameWithType: INotificationClient.MarkAllAsReadAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+    name: MarkAllAsReadAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_MarkAllAsReadAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.MarkAllAsReadAsync(System.Threading.CancellationToken)
+    name: MarkAllAsReadAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_MarkAllAsReadAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_GetEmailNotificationSettingsAsync_System_Threading_CancellationToken_
+  name: GetEmailNotificationSettingsAsync
+  nameWithType: NotificationClient.GetEmailNotificationSettingsAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.GetEmailNotificationSettingsAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetEmailNotificationSettingsAsync_System_Threading_CancellationToken_
+  name: GetEmailNotificationSettingsAsync(CancellationToken)
+  nameWithType: INotificationClient.GetEmailNotificationSettingsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+    name: GetEmailNotificationSettingsAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetEmailNotificationSettingsAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.GetEmailNotificationSettingsAsync(System.Threading.CancellationToken)
+    name: GetEmailNotificationSettingsAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetEmailNotificationSettingsAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.EmailNotificationsSettings}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.EmailNotificationsSettings}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<EmailNotificationsSettings>
+  nameWithType: Task<EmailNotificationsSettings>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.EmailNotificationsSettings>
+  nameWithType.vb: Task(Of EmailNotificationsSettings)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.EmailNotificationsSettings)
+  name.vb: Task(Of EmailNotificationsSettings)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+    name: EmailNotificationsSettings
+    href: Picturepark.SDK.V1.Contract.EmailNotificationsSettings.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+    name: EmailNotificationsSettings
+    href: Picturepark.SDK.V1.Contract.EmailNotificationsSettings.html
+  - name: )
+- uid: Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_PutEmailNotificationSettingsAsync_Picturepark_SDK_V1_Contract_EmailNotificationsSettings_System_Threading_CancellationToken_
+  name: PutEmailNotificationSettingsAsync
+  nameWithType: NotificationClient.PutEmailNotificationSettingsAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.PutEmailNotificationSettingsAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_PutEmailNotificationSettingsAsync_Picturepark_SDK_V1_Contract_EmailNotificationsSettings_System_Threading_CancellationToken_
+  name: PutEmailNotificationSettingsAsync(EmailNotificationsSettings, CancellationToken)
+  nameWithType: INotificationClient.PutEmailNotificationSettingsAsync(EmailNotificationsSettings, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+    name: PutEmailNotificationSettingsAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_PutEmailNotificationSettingsAsync_Picturepark_SDK_V1_Contract_EmailNotificationsSettings_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+    name: EmailNotificationsSettings
+    href: Picturepark.SDK.V1.Contract.EmailNotificationsSettings.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.PutEmailNotificationSettingsAsync(Picturepark.SDK.V1.Contract.EmailNotificationsSettings,System.Threading.CancellationToken)
+    name: PutEmailNotificationSettingsAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_PutEmailNotificationSettingsAsync_Picturepark_SDK_V1_Contract_EmailNotificationsSettings_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+    name: EmailNotificationsSettings
+    href: Picturepark.SDK.V1.Contract.EmailNotificationsSettings.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+  commentId: T:Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.EmailNotificationsSettings.html
+  name: EmailNotificationsSettings
+  nameWithType: EmailNotificationsSettings
+  fullName: Picturepark.SDK.V1.Contract.EmailNotificationsSettings
+- uid: Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_GetAvailableNotificationTypesAsync_System_Threading_CancellationToken_
+  name: GetAvailableNotificationTypesAsync
+  nameWithType: NotificationClient.GetAvailableNotificationTypesAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.GetAvailableNotificationTypesAsync
+- uid: Picturepark.SDK.V1.Contract.INotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.INotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.INotificationClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetAvailableNotificationTypesAsync_System_Threading_CancellationToken_
+  name: GetAvailableNotificationTypesAsync(CancellationToken)
+  nameWithType: INotificationClient.GetAvailableNotificationTypesAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+    name: GetAvailableNotificationTypesAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetAvailableNotificationTypesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.INotificationClient.GetAvailableNotificationTypesAsync(System.Threading.CancellationToken)
+    name: GetAvailableNotificationTypesAsync
+    href: Picturepark.SDK.V1.Contract.INotificationClient.html#Picturepark_SDK_V1_Contract_INotificationClient_GetAvailableNotificationTypesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.NotificationType}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.NotificationType}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IDictionary<string, ICollection<NotificationType>>>
+  nameWithType: Task<IDictionary<string, ICollection<NotificationType>>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.NotificationType>>>
+  nameWithType.vb: Task(Of IDictionary(Of String, ICollection(Of NotificationType)))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IDictionary(Of String, System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.NotificationType)))
+  name.vb: Task(Of IDictionary(Of String, ICollection(Of NotificationType)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.NotificationType
+    name: NotificationType
+    href: Picturepark.SDK.V1.Contract.NotificationType.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.NotificationType
+    name: NotificationType
+    href: Picturepark.SDK.V1.Contract.NotificationType.html
+  - name: )
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.NotificationClient.ReadResponseAsString*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.ReadResponseAsString
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_ReadResponseAsString
+  name: ReadResponseAsString
+  nameWithType: NotificationClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.NotificationClient.ReadResponseAsString
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync*
+  commentId: Overload:Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync
+  href: Picturepark.SDK.V1.NotificationClient.html#Picturepark_SDK_V1_NotificationClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_
+  name: ReadObjectResponseAsync
+  nameWithType: NotificationClient.ReadObjectResponseAsync
+  fullName: Picturepark.SDK.V1.NotificationClient.ReadObjectResponseAsync
+- uid: System.Net.Http.HttpResponseMessage
+  commentId: T:System.Net.Http.HttpResponseMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  name: HttpResponseMessage
+  nameWithType: HttpResponseMessage
+  fullName: System.Net.Http.HttpResponseMessage
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, IEnumerable<string>>
+  nameWithType: IReadOnlyDictionary<string, IEnumerable<string>>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>
+  nameWithType.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.NotificationClient.ObjectResponseResult{{T}}}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.NotificationClient.ObjectResponseResult{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<NotificationClient.ObjectResponseResult<T>>
+  nameWithType: Task<NotificationClient.ObjectResponseResult<T>>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.NotificationClient.ObjectResponseResult<T>>
+  nameWithType.vb: Task(Of NotificationClient.ObjectResponseResult(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.NotificationClient.ObjectResponseResult(Of T))
+  name.vb: Task(Of NotificationClient.ObjectResponseResult(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.NotificationClient
+    name: NotificationClient
+    href: Picturepark.SDK.V1.NotificationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.NotificationClient
+    name: NotificationClient
+    href: Picturepark.SDK.V1.NotificationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

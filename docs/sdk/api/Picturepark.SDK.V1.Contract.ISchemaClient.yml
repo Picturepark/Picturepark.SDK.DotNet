@@ -1,0 +1,2892 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient
+  commentId: T:Picturepark.SDK.V1.Contract.ISchemaClient
+  id: ISchemaClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(Picturepark.SDK.V1.Contract.SchemaCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync(System.Type,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync(Picturepark.SDK.V1.Contract.SchemaSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISchemaClient
+  nameWithType: ISchemaClient
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ISchemaClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface ISchemaClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface ISchemaClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: ISchemaClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2834
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get schema
+  remarks: Gets the schema detail by schema ID.
+  example: []
+  syntax:
+    content: Task<SchemaDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The schema ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaDetail}
+      description: Schema detail
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaDetail)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.SchemaNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.SchemaNotFoundException
+    description: Requested schema could not be found
+  nameWithType.vb: ISchemaClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, SchemaUpdateRequest, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.UpdateAsync(string, SchemaUpdateRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.SchemaUpdateRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2859
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update schema
+  remarks: >-
+    Updates an existing schema.
+
+    <br />Depending on how much the schema is referenced by existing data, the operation can take a lot of time.
+  example: []
+  syntax:
+    content: Task<SchemaUpdateResult> UpdateAsync(string id, SchemaUpdateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The schema ID.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaUpdateRequest
+      description: The schema update request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaUpdateResult}
+      description: Schema update result, containing the updated schema
+    content.vb: Function UpdateAsync(id As String, request As SchemaUpdateRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaUpdateResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+    description: Argument must not be null
+  - type: Picturepark.SDK.V1.Contract.SchemaValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.SchemaValidationException
+    description: The validation exception of schema update
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.SchemaNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.SchemaNotFoundException
+    description: Schema with this ID could not be found
+  nameWithType.vb: ISchemaClient.UpdateAsync(String, SchemaUpdateRequest, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.SchemaUpdateRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, SchemaUpdateRequest, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.DeleteAsync(string, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync(string, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2883
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete schema
+  remarks: >-
+    Deletes an existing schema.
+
+    <br />Depending on how much the schema is referenced, the operation can take a lot of time.
+  example: []
+  syntax:
+    content: Task<SchemaDeleteResult> DeleteAsync(string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The schema ID.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaDeleteResult}
+      description: Schema delete result
+    content.vb: Function DeleteAsync(id As String, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaDeleteResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+    description: Argument must not be null
+  - type: Picturepark.SDK.V1.Contract.SchemaInUseException
+    commentId: T:Picturepark.SDK.V1.Contract.SchemaInUseException
+    description: Schema is used in other entities and cannot be deleted
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.SchemaNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.SchemaNotFoundException
+    description: Schema with this ID could not be found
+  nameWithType.vb: ISchemaClient.DeleteAsync(String, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync(String, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: FieldExistsAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: FieldExistsAsync(string, string, CancellationToken)
+  nameWithType: ISchemaClient.FieldExistsAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FieldExistsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2903
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Exists field in schema
+  remarks: >-
+    Checks if the field in the specified schema already exists.
+
+    <br />Also returns a flag indicating if the field was previously deleted and the ID can therefore not be reused.
+  example: []
+  syntax:
+    content: Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaId
+      type: System.String
+      description: The schema ID.
+    - id: fieldId
+      type: System.String
+      description: The field ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FieldExistsResponse}
+      description: Field Exists response
+    content.vb: Function FieldExistsAsync(schemaId As String, fieldId As String, cancellationToken As CancellationToken = Nothing) As Task(Of FieldExistsResponse)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.FieldExistsAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync(String, String, System.Threading.CancellationToken)
+  name.vb: FieldExistsAsync(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: GetReferencedAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetReferencedAsync(string, bool?, CancellationToken)
+  nameWithType: ISchemaClient.GetReferencedAsync(string, bool?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync(string, bool?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetReferencedAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2923
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets all schemas referenced by the schema specified in id
+  remarks: Can fetch referencing schemas for 100 schemas at most.
+  example: []
+  syntax:
+    content: Task<ICollection<SchemaDetail>> GetReferencedAsync(string id, bool? sourceSchema = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The schema ID.
+    - id: sourceSchema
+      type: System.Nullable{System.Boolean}
+      description: If true, the returned schemas contain also the source schema for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SchemaDetail}}
+      description: Referenced schema details
+    content.vb: Function GetReferencedAsync(id As String, sourceSchema As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of SchemaDetail))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    description: List of IDs exceeded maximum size
+  nameWithType.vb: ISchemaClient.GetReferencedAsync(String, Boolean?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync(String, Boolean?, System.Threading.CancellationToken)
+  name.vb: GetReferencedAsync(String, Boolean?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: TransferOwnershipAsync(string, SchemaOwnershipTransferRequest, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.TransferOwnershipAsync(string, SchemaOwnershipTransferRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(string, Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferOwnershipAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2944
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Transfer ownership
+  remarks: Transfer ownership of the schema specified in id
+  example: []
+  syntax:
+    content: Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The schema ID.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest
+      description: Request detailing which user to transfer to.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function TransferOwnershipAsync(id As String, request As SchemaOwnershipTransferRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.TransferOwnershipAsync(String, SchemaOwnershipTransferRequest, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(String, Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: TransferOwnershipAsync(String, SchemaOwnershipTransferRequest, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.SchemaCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(SchemaCreateRequest, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.CreateAsync(SchemaCreateRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaCreateRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2967
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create schema
+  remarks: Create a new schema.
+  example: []
+  syntax:
+    content: Task<SchemaCreateResult> CreateAsync(SchemaCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaCreateRequest
+      description: The schema create request.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: >-
+        Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            <br />            Only the waiting is aborted, and the calls returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaCreateResult}
+      description: Schema create result, containing the created schema
+    content.vb: Function CreateAsync(request As SchemaCreateRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaCreateResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.DuplicateSchemaException
+    commentId: T:Picturepark.SDK.V1.Contract.DuplicateSchemaException
+    description: Schema with this name already exists
+  - type: Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+    description: Argument must not be null
+  - type: Picturepark.SDK.V1.Contract.SchemaValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.SchemaValidationException
+    description: The validation exception of schema creation
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: ISchemaClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2987
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple schemas
+  remarks: >-
+    Gets multiple schema details by given schema IDs.
+
+    <br />Can fetch 100 schema details at most.
+  example: []
+  syntax:
+    content: Task<ICollection<SchemaDetail>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Comma separated list of schema IDs.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SchemaDetail}}
+      description: List of schema details
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of SchemaDetail))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    description: List of IDs exceeded maximum size
+  nameWithType.vb: ISchemaClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: GetManyReferencedAsync(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyReferencedAsync(IEnumerable<string>, bool?, CancellationToken)
+  nameWithType: ISchemaClient.GetManyReferencedAsync(IEnumerable<string>, bool?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string>, bool?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyReferencedAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3003
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets all schemas referenced by the schemas specified in ids
+  example: []
+  syntax:
+    content: Task<ICollection<SchemaDetail>> GetManyReferencedAsync(IEnumerable<string> ids = null, bool? sourceSchema = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The schema IDs.
+    - id: sourceSchema
+      type: System.Nullable{System.Boolean}
+      description: If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schemas are not returned (default behavior).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SchemaDetail}}
+      description: Referenced schema details
+    content.vb: Function GetManyReferencedAsync(ids As IEnumerable(Of String) = Nothing, sourceSchema As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of SchemaDetail))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.GetManyReferencedAsync(IEnumerable(Of String), Boolean?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync(System.Collections.Generic.IEnumerable(Of String), Boolean?, System.Threading.CancellationToken)
+  name.vb: GetManyReferencedAsync(IEnumerable(Of String), Boolean?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  id: TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest, CancellationToken)
+  nameWithType: ISchemaClient.TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferOwnershipManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3022
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Transfer ownership of multiple schemas
+  remarks: >-
+    Transfers ownership of multiple schemas to specified user. The target user must have the ManageSchemas user right.
+
+    <br />The operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest
+      description: Schema ownership transfer many request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function TransferOwnershipManyAsync(request As SchemaOwnershipTransferManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync(Picturepark.SDK.V1.Contract.SchemaSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync(Picturepark.SDK.V1.Contract.SchemaSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.SchemaSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(SchemaSearchRequest, CancellationToken)
+  nameWithType: ISchemaClient.SearchAsync(SchemaSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync(Picturepark.SDK.V1.Contract.SchemaSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3040
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search schemas
+  remarks: Searches schemas as specified in the search request.
+  example: []
+  syntax:
+    content: Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaSearchRequest
+      description: The schema search request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaSearchResult}
+      description: Schema search result
+    content.vb: Function SearchAsync(request As SchemaSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaSearchResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync(System.String,System.Threading.CancellationToken)
+  id: GetAggregationFieldsAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetAggregationFieldsAsync(string, CancellationToken)
+  nameWithType: ISchemaClient.GetAggregationFieldsAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAggregationFieldsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3055
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used in an aggregator on a schema.
+  example: []
+  syntax:
+    content: Task<ICollection<FieldInfo>> GetAggregationFieldsAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The ID of the schema.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+      description: The list of fields
+    content.vb: Function GetAggregationFieldsAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of FieldInfo))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.GetAggregationFieldsAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAggregationFieldsAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetAggregationFieldsManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: ISchemaClient.GetAggregationFieldsManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAggregationFieldsManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3070
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used in an aggregator on multiple schemas.
+  example: []
+  syntax:
+    content: Task<ICollection<FieldInfo>> GetAggregationFieldsManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The IDs of the schemas.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+      description: The list of fields
+    content.vb: Function GetAggregationFieldsManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of FieldInfo))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.GetAggregationFieldsManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetAggregationFieldsManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync(System.String,System.Threading.CancellationToken)
+  id: GetFilterFieldsAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetFilterFieldsAsync(string, CancellationToken)
+  nameWithType: ISchemaClient.GetFilterFieldsAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetFilterFieldsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3085
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used in a filter on a schema.
+  example: []
+  syntax:
+    content: Task<ICollection<FieldInfo>> GetFilterFieldsAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The ID of the schema.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+      description: The list of fields
+    content.vb: Function GetFilterFieldsAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of FieldInfo))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.GetFilterFieldsAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync(String, System.Threading.CancellationToken)
+  name.vb: GetFilterFieldsAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetFilterFieldsManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: ISchemaClient.GetFilterFieldsManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetFilterFieldsManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3100
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used in a filter on multiple schemas.
+  example: []
+  syntax:
+    content: Task<ICollection<FieldInfo>> GetFilterFieldsManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The IDs of the schemas.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+      description: The list of fields
+    content.vb: Function GetFilterFieldsManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of FieldInfo))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.GetFilterFieldsManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetFilterFieldsManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType},System.Threading.CancellationToken)
+  id: GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GetSortFieldsBySchemaTypesAsync(IEnumerable<SchemaType>, CancellationToken)
+  nameWithType: ISchemaClient.GetSortFieldsBySchemaTypesAsync(IEnumerable<SchemaType>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SchemaType>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSortFieldsBySchemaTypesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 3115
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used for sorting.
+  example: []
+  syntax:
+    content: Task<ICollection<SortFieldInfo>> GetSortFieldsBySchemaTypesAsync(IEnumerable<SchemaType> schemaTypes = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaTypes
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType}
+      description: Schema types to include in search
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortFieldInfo}}
+      description: The list of fields
+    content.vb: Function GetSortFieldsBySchemaTypesAsync(schemaTypes As IEnumerable(Of SchemaType) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of SortFieldInfo))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: ISchemaClient.GetSortFieldsBySchemaTypesAsync(IEnumerable(Of SchemaType), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SchemaType), System.Threading.CancellationToken)
+  name.vb: GetSortFieldsBySchemaTypesAsync(IEnumerable(Of SchemaType), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync(System.Type,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync(System.Type,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Threading.CancellationToken)
+  id: GenerateSchemasAsync(System.Type,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: GenerateSchemasAsync(Type, IEnumerable<SchemaDetail>, bool, CancellationToken)
+  nameWithType: ISchemaClient.GenerateSchemasAsync(Type, IEnumerable<SchemaDetail>, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync(System.Type, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SchemaDetail>, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GenerateSchemasAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 16
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Generates the <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>s for the given type and the referenced types.
+  example: []
+  syntax:
+    content: Task<ICollection<SchemaDetail>> GenerateSchemasAsync(Type type, IEnumerable<SchemaDetail> schemaDetails = null, bool generateDependencySchema = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type.
+    - id: schemaDetails
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail}
+      description: The existing schema details.
+    - id: generateDependencySchema
+      type: System.Boolean
+      description: Specifies whether to generate dependent schemas.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SchemaDetail}}
+      description: The collection of schema details.
+    content.vb: Function GenerateSchemasAsync(type As Type, schemaDetails As IEnumerable(Of SchemaDetail) = Nothing, generateDependencySchema As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of SchemaDetail))
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync*
+  nameWithType.vb: ISchemaClient.GenerateSchemasAsync(Type, IEnumerable(Of SchemaDetail), Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync(System.Type, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SchemaDetail), Boolean, System.Threading.CancellationToken)
+  name.vb: GenerateSchemasAsync(Type, IEnumerable(Of SchemaDetail), Boolean, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateOrUpdateAsync(SchemaDetail, bool, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.CreateOrUpdateAsync(SchemaDetail, bool, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, bool, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateOrUpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 24
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates or updates the given <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<ISchemaResult> CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaDetail
+      type: Picturepark.SDK.V1.Contract.SchemaDetail
+      description: The schema detail.
+    - id: enableForBinaryFiles
+      type: System.Boolean
+      description: Specifies whether to enable the schema for binary files.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the operation to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ISchemaResult}
+      description: The task.
+    content.vb: Function CreateOrUpdateAsync(schemaDetail As SchemaDetail, enableForBinaryFiles As Boolean, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ISchemaResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync*
+  nameWithType.vb: ISchemaClient.CreateOrUpdateAsync(SchemaDetail, Boolean, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, Boolean, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: CreateOrUpdateAsync(SchemaDetail, Boolean, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(SchemaDetail, bool, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.CreateAsync(SchemaDetail, bool, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, bool, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 32
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates the given <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaDetail
+      type: Picturepark.SDK.V1.Contract.SchemaDetail
+      description: The schema detail.
+    - id: enableForBinaryFiles
+      type: System.Boolean
+      description: Specifies whether to enable the schema for binary files.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the operation to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaCreateResult}
+      description: The task.
+    content.vb: Function CreateAsync(schemaDetail As SchemaDetail, enableForBinaryFiles As Boolean, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaCreateResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync*
+  nameWithType.vb: ISchemaClient.CreateAsync(SchemaDetail, Boolean, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, Boolean, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: CreateAsync(SchemaDetail, Boolean, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(IEnumerable<SchemaDetail>, bool, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.CreateManyAsync(IEnumerable<SchemaDetail>, bool, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SchemaDetail>, bool, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 42
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create the given enumerable of <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<SchemaBatchOperationResult> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaDetails
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail}
+      description: The schema details.
+    - id: enableForBinaryFiles
+      type: System.Boolean
+      description: Specifies whether to enable the schemas for binary files.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the underlying business process to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function CreateManyAsync(schemaDetails As IEnumerable(Of SchemaDetail), enableForBinaryFiles As Boolean, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync*
+  nameWithType.vb: ISchemaClient.CreateManyAsync(IEnumerable(Of SchemaDetail), Boolean, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SchemaDetail), Boolean, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: CreateManyAsync(IEnumerable(Of SchemaDetail), Boolean, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(Picturepark.SDK.V1.Contract.SchemaCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(Picturepark.SDK.V1.Contract.SchemaCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.SchemaCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(SchemaCreateManyRequest, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.CreateManyAsync(SchemaCreateManyRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync(Picturepark.SDK.V1.Contract.SchemaCreateManyRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 51
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates schemas using the given request.
+  example: []
+  syntax:
+    content: Task<SchemaBatchOperationResult> CreateManyAsync(SchemaCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaCreateManyRequest
+      description: The <xref href="Picturepark.SDK.V1.Contract.SchemaCreateManyRequest" data-throw-if-not-resolved="false"></xref>.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the underlying business process to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function CreateManyAsync(request As SchemaCreateManyRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync*
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(SchemaDetail, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.CreateAsync(SchemaDetail, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 59
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates the given <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaDetail
+      type: Picturepark.SDK.V1.Contract.SchemaDetail
+      description: The schema detail.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the operation to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaCreateResult}
+      description: The task.
+    content.vb: Function CreateAsync(schemaDetail As SchemaDetail, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaCreateResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(SchemaDetail, bool, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.UpdateAsync(SchemaDetail, bool, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, bool, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 68
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Updates the given <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<SchemaUpdateResult> UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaDetail
+      type: Picturepark.SDK.V1.Contract.SchemaDetail
+      description: The schema detail.
+    - id: enableForBinaryFiles
+      type: System.Boolean
+      description: Specifies whether to enable the schema for binary files.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the operation to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaUpdateResult}
+      description: The task.
+    content.vb: Function UpdateAsync(schemaDetail As SchemaDetail, enableForBinaryFiles As Boolean, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaUpdateResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  nameWithType.vb: ISchemaClient.UpdateAsync(SchemaDetail, Boolean, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail, Boolean, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(SchemaDetail, Boolean, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(SchemaUpdateManyRequest, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.UpdateManyAsync(SchemaUpdateManyRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 75
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Updates schemas using the given request.
+  example: []
+  syntax:
+    content: Task<SchemaBatchOperationResult> UpdateManyAsync(SchemaUpdateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest
+      description: The <xref href="Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest" data-throw-if-not-resolved="false"></xref>.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the underlying business process to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function UpdateManyAsync(request As SchemaUpdateManyRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync*
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateManyAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(IEnumerable<SchemaDetail>, bool, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.UpdateManyAsync(IEnumerable<SchemaDetail>, bool, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SchemaDetail>, bool, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 88
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update the given enumerable of <xref href="Picturepark.SDK.V1.Contract.SchemaDetail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<SchemaBatchOperationResult> UpdateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaDetails
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail}
+      description: The schema details.
+    - id: enableForBinaryFiles
+      type: System.Boolean
+      description: Specifies whether to enable the schemas for binary files.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Maximum time to wait for the underlying business process to complete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function UpdateManyAsync(schemaDetails As IEnumerable(Of SchemaDetail), enableForBinaryFiles As Boolean, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync*
+  nameWithType.vb: ISchemaClient.UpdateManyAsync(IEnumerable(Of SchemaDetail), Boolean, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SchemaDetail), Boolean, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UpdateManyAsync(IEnumerable(Of SchemaDetail), Boolean, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync(System.String,System.Threading.CancellationToken)
+  id: ExistsAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: ExistsAsync(string, CancellationToken)
+  nameWithType: ISchemaClient.ExistsAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExistsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 99
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Checks whether a schema ID already exists.
+  example: []
+  syntax:
+    content: Task<bool> ExistsAsync(string schemaId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: schemaId
+      type: System.String
+      description: The schema ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: The task.
+    content.vb: Function ExistsAsync(schemaId As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  nameWithType.vb: ISchemaClient.ExistsAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync(String, System.Threading.CancellationToken)
+  name.vb: ExistsAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.ISchemaClient
+  langs:
+  - csharp
+  - vb
+  name: WaitForBusinessProcessAndReturnResult(string, TimeSpan?, CancellationToken)
+  nameWithType: ISchemaClient.WaitForBusinessProcessAndReturnResult(string, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult(string, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WaitForBusinessProcessAndReturnResult
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ISchemaClient.cs
+    startLine: 108
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Waits for a business process and returns a <xref href="Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<SchemaBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: businessProcessId
+      type: System.String
+      description: The business process id.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout to wait on the business process.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+      description: The <xref href="Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function WaitForBusinessProcessAndReturnResult(businessProcessId As String, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of SchemaBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult*
+  nameWithType.vb: ISchemaClient.WaitForBusinessProcessAndReturnResult(String, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult(String, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: WaitForBusinessProcessAndReturnResult(String, TimeSpan?, CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.SchemaNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaNotFoundException.html
+  name: SchemaNotFoundException
+  nameWithType: SchemaNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.SchemaNotFoundException
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: ISchemaClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaDetail>
+  nameWithType: Task<SchemaDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.SchemaDetail>
+  nameWithType.vb: Task(Of SchemaDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.SchemaDetail)
+  name.vb: Task(Of SchemaDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaDetail
+    name: SchemaDetail
+    href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaDetail
+    name: SchemaDetail
+    href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkArgumentNullException.html
+  name: PictureparkArgumentNullException
+  nameWithType: PictureparkArgumentNullException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+- uid: Picturepark.SDK.V1.Contract.SchemaValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaValidationException.html
+  name: SchemaValidationException
+  nameWithType: SchemaValidationException
+  fullName: Picturepark.SDK.V1.Contract.SchemaValidationException
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: ISchemaClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.SchemaUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html
+  name: SchemaUpdateRequest
+  nameWithType: SchemaUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaUpdateRequest
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaUpdateResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaUpdateResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaUpdateResult>
+  nameWithType: Task<SchemaUpdateResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.SchemaUpdateResult>
+  nameWithType.vb: Task(Of SchemaUpdateResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.SchemaUpdateResult)
+  name.vb: Task(Of SchemaUpdateResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaUpdateResult
+    name: SchemaUpdateResult
+    href: Picturepark.SDK.V1.Contract.SchemaUpdateResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaUpdateResult
+    name: SchemaUpdateResult
+    href: Picturepark.SDK.V1.Contract.SchemaUpdateResult.html
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.SchemaInUseException
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaInUseException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaInUseException.html
+  name: SchemaInUseException
+  nameWithType: SchemaInUseException
+  fullName: Picturepark.SDK.V1.Contract.SchemaInUseException
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_DeleteAsync_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: ISchemaClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.DeleteAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaDeleteResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaDeleteResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaDeleteResult>
+  nameWithType: Task<SchemaDeleteResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.SchemaDeleteResult>
+  nameWithType.vb: Task(Of SchemaDeleteResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.SchemaDeleteResult)
+  name.vb: Task(Of SchemaDeleteResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaDeleteResult
+    name: SchemaDeleteResult
+    href: Picturepark.SDK.V1.Contract.SchemaDeleteResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaDeleteResult
+    name: SchemaDeleteResult
+    href: Picturepark.SDK.V1.Contract.SchemaDeleteResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_FieldExistsAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: FieldExistsAsync
+  nameWithType: ISchemaClient.FieldExistsAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.FieldExistsAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FieldExistsResponse}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FieldExistsResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FieldExistsResponse>
+  nameWithType: Task<FieldExistsResponse>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.FieldExistsResponse>
+  nameWithType.vb: Task(Of FieldExistsResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.FieldExistsResponse)
+  name.vb: Task(Of FieldExistsResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FieldExistsResponse
+    name: FieldExistsResponse
+    href: Picturepark.SDK.V1.Contract.FieldExistsResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FieldExistsResponse
+    name: FieldExistsResponse
+    href: Picturepark.SDK.V1.Contract.FieldExistsResponse.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html
+  name: RequestSizeLimitExceededException
+  nameWithType: RequestSizeLimitExceededException
+  fullName: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetReferencedAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  name: GetReferencedAsync
+  nameWithType: ISchemaClient.GetReferencedAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetReferencedAsync
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SchemaDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SchemaDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<SchemaDetail>>
+  nameWithType: Task<ICollection<SchemaDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.SchemaDetail>>
+  nameWithType.vb: Task(Of ICollection(Of SchemaDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.SchemaDetail))
+  name.vb: Task(Of ICollection(Of SchemaDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaDetail
+    name: SchemaDetail
+    href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaDetail
+    name: SchemaDetail
+    href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: TransferOwnershipAsync
+  nameWithType: ISchemaClient.TransferOwnershipAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync
+- uid: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest.html
+  name: SchemaOwnershipTransferRequest
+  nameWithType: SchemaOwnershipTransferRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.DuplicateSchemaException
+  commentId: T:Picturepark.SDK.V1.Contract.DuplicateSchemaException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DuplicateSchemaException.html
+  name: DuplicateSchemaException
+  nameWithType: DuplicateSchemaException
+  fullName: Picturepark.SDK.V1.Contract.DuplicateSchemaException
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAsync_Picturepark_SDK_V1_Contract_SchemaCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: ISchemaClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.SchemaCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaCreateRequest.html
+  name: SchemaCreateRequest
+  nameWithType: SchemaCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaCreateRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaCreateResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaCreateResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaCreateResult>
+  nameWithType: Task<SchemaCreateResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.SchemaCreateResult>
+  nameWithType.vb: Task(Of SchemaCreateResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.SchemaCreateResult)
+  name.vb: Task(Of SchemaCreateResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaCreateResult
+    name: SchemaCreateResult
+    href: Picturepark.SDK.V1.Contract.SchemaCreateResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaCreateResult
+    name: SchemaCreateResult
+    href: Picturepark.SDK.V1.Contract.SchemaCreateResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: ISchemaClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetManyReferencedAsync_System_Collections_Generic_IEnumerable_System_String__System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  name: GetManyReferencedAsync
+  nameWithType: ISchemaClient.GetManyReferencedAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetManyReferencedAsync
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferManyRequest_System_Threading_CancellationToken_
+  name: TransferOwnershipManyAsync
+  nameWithType: ISchemaClient.TransferOwnershipManyAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipManyAsync
+- uid: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest.html
+  name: SchemaOwnershipTransferManyRequest
+  nameWithType: SchemaOwnershipTransferManyRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaOwnershipTransferManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_SearchAsync_Picturepark_SDK_V1_Contract_SchemaSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: ISchemaClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.SchemaSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaSearchRequest.html
+  name: SchemaSearchRequest
+  nameWithType: SchemaSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SchemaSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaSearchResult>
+  nameWithType: Task<SchemaSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.SchemaSearchResult>
+  nameWithType.vb: Task(Of SchemaSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.SchemaSearchResult)
+  name.vb: Task(Of SchemaSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaSearchResult
+    name: SchemaSearchResult
+    href: Picturepark.SDK.V1.Contract.SchemaSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaSearchResult
+    name: SchemaSearchResult
+    href: Picturepark.SDK.V1.Contract.SchemaSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAggregationFieldsAsync_System_String_System_Threading_CancellationToken_
+  name: GetAggregationFieldsAsync
+  nameWithType: ISchemaClient.GetAggregationFieldsAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<FieldInfo>>
+  nameWithType: Task<ICollection<FieldInfo>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.FieldInfo>>
+  nameWithType.vb: Task(Of ICollection(Of FieldInfo))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.FieldInfo))
+  name.vb: Task(Of ICollection(Of FieldInfo))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FieldInfo
+    name: FieldInfo
+    href: Picturepark.SDK.V1.Contract.FieldInfo.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FieldInfo
+    name: FieldInfo
+    href: Picturepark.SDK.V1.Contract.FieldInfo.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAggregationFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetAggregationFieldsManyAsync
+  nameWithType: ISchemaClient.GetAggregationFieldsManyAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetAggregationFieldsManyAsync
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetFilterFieldsAsync_System_String_System_Threading_CancellationToken_
+  name: GetFilterFieldsAsync
+  nameWithType: ISchemaClient.GetFilterFieldsAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsAsync
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetFilterFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetFilterFieldsManyAsync
+  nameWithType: ISchemaClient.GetFilterFieldsManyAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetFilterFieldsManyAsync
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetSortFieldsBySchemaTypesAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_SchemaType__System_Threading_CancellationToken_
+  name: GetSortFieldsBySchemaTypesAsync
+  nameWithType: ISchemaClient.GetSortFieldsBySchemaTypesAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GetSortFieldsBySchemaTypesAsync
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaType}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<SchemaType>
+  nameWithType: IEnumerable<SchemaType>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SchemaType>
+  nameWithType.vb: IEnumerable(Of SchemaType)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SchemaType)
+  name.vb: IEnumerable(Of SchemaType)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaType
+    name: SchemaType
+    href: Picturepark.SDK.V1.Contract.SchemaType.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaType
+    name: SchemaType
+    href: Picturepark.SDK.V1.Contract.SchemaType.html
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortFieldInfo}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortFieldInfo}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<SortFieldInfo>>
+  nameWithType: Task<ICollection<SortFieldInfo>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.SortFieldInfo>>
+  nameWithType.vb: Task(Of ICollection(Of SortFieldInfo))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.SortFieldInfo))
+  name.vb: Task(Of ICollection(Of SortFieldInfo))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SortFieldInfo
+    name: SortFieldInfo
+    href: Picturepark.SDK.V1.Contract.SortFieldInfo.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SortFieldInfo
+    name: SortFieldInfo
+    href: Picturepark.SDK.V1.Contract.SortFieldInfo.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.SchemaDetail
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  name: SchemaDetail
+  nameWithType: SchemaDetail
+  fullName: Picturepark.SDK.V1.Contract.SchemaDetail
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GenerateSchemasAsync_System_Type_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_System_Threading_CancellationToken_
+  name: GenerateSchemasAsync
+  nameWithType: ISchemaClient.GenerateSchemasAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.GenerateSchemasAsync
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<SchemaDetail>
+  nameWithType: IEnumerable<SchemaDetail>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SchemaDetail>
+  nameWithType.vb: IEnumerable(Of SchemaDetail)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SchemaDetail)
+  name.vb: IEnumerable(Of SchemaDetail)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SchemaDetail
+    name: SchemaDetail
+    href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SchemaDetail
+    name: SchemaDetail
+    href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateOrUpdateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateOrUpdateAsync
+  nameWithType: ISchemaClient.CreateOrUpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateOrUpdateAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ISchemaResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ISchemaResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ISchemaResult>
+  nameWithType: Task<ISchemaResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ISchemaResult>
+  nameWithType.vb: Task(Of ISchemaResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ISchemaResult)
+  name.vb: Task(Of ISchemaResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ISchemaResult
+    name: ISchemaResult
+    href: Picturepark.SDK.V1.Contract.ISchemaResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ISchemaResult
+    name: ISchemaResult
+    href: Picturepark.SDK.V1.Contract.ISchemaResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult.html
+  name: SchemaBatchOperationResult
+  nameWithType: SchemaBatchOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateManyAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: ISchemaClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.CreateManyAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SchemaBatchOperationResult>
+  nameWithType: Task<SchemaBatchOperationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult>
+  nameWithType.vb: Task(Of SchemaBatchOperationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult)
+  name.vb: Task(Of SchemaBatchOperationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+    name: SchemaBatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+    name: SchemaBatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results
+  commentId: N:Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Results
+  nameWithType: Picturepark.SDK.V1.Contract.Results
+  fullName: Picturepark.SDK.V1.Contract.Results
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+- uid: Picturepark.SDK.V1.Contract.SchemaCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaCreateManyRequest.html
+  name: SchemaCreateManyRequest
+  nameWithType: SchemaCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaCreateManyRequest
+- uid: Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest.html
+  name: SchemaUpdateManyRequest
+  nameWithType: SchemaUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_SchemaUpdateManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: ISchemaClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_ExistsAsync_System_String_System_Threading_CancellationToken_
+  name: ExistsAsync
+  nameWithType: ISchemaClient.ExistsAsync
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.ExistsAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: WaitForBusinessProcessAndReturnResult
+  nameWithType: ISchemaClient.WaitForBusinessProcessAndReturnResult
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient.WaitForBusinessProcessAndReturnResult

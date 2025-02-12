@@ -100,7 +100,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         {
             var authClient = new AccessTokenAuthClient(Configuration.Server, Configuration.AccessToken, Configuration.CustomerAlias);
 
-            var settings = new PictureparkServiceSettings(authClient)
+            var settings = new PictureparkServiceSettings(authClient, integrationName: "Tests")
             {
                 DisplayLanguage = language,
                 HttpTimeout = TimeSpan.FromMinutes(5)

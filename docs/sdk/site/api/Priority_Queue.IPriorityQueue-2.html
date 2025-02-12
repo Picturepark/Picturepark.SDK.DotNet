@@ -1,23 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IPriorityQueue&lt;TItem, TPriority&gt;
-   | Picturepark.SDK.V1 API </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IPriorityQueue&lt;TItem, TPriority&gt;
-   | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IPriorityQueue&lt;TItem, TPriority&gt; | Picturepark.SDK.V1 API </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IPriorityQueue&lt;TItem, TPriority&gt; | Picturepark.SDK.V1 API ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta name="description" content="The IPriorityQueue interface.  This is mainly here for purists, and in case I decide to add more implementations later. For speed purposes, it is actually recommended that you don&#39;t access the priority queue through this interface, since the JIT can (theoretically?) optimize method calls from concrete-types slightly better.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -25,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,17 +57,17 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -79,370 +77,434 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="Priority_Queue.IPriorityQueue`2">
-  <h1 id="Priority_Queue_IPriorityQueue_2" data-uid="Priority_Queue.IPriorityQueue`2">Interface IPriorityQueue&lt;TItem, TPriority&gt;
-  </h1>
+
+  <h1 id="Priority_Queue_IPriorityQueue_2" data-uid="Priority_Queue.IPriorityQueue`2">Interface IPriorityQueue&lt;TItem, TPriority&gt;</h1>
   <div class="markdown level0 summary"><p>The IPriorityQueue interface.  This is mainly here for purists, and in case I decide to add more implementations later.
-For speed purposes, it is actually recommended that you <em>don&apos;t</em> access the priority queue through this interface, since the JIT can
+For speed purposes, it is actually recommended that you <em>don't</em> access the priority queue through this interface, since the JIT can
 (theoretically?) optimize method calls from concrete-types slightly better.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  
-  
-  
-  
+
+
+
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">IEnumerable&lt;TItem&gt;.GetEnumerator()</a>
+    </div>
+  </div>
+
   <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
-  
+
   <h5 id="Priority_Queue_IPriorityQueue_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IPriorityQueue&lt;TItem, in TPriority&gt;
-    where TPriority : IComparable&lt;TPriority&gt;</code></pre>
+    <pre><code class="lang- hljs">public interface IPriorityQueue&lt;TItem, in TPriority&gt; : IEnumerable&lt;TItem&gt;, IEnumerable where TPriority : IComparable&lt;in TPriority&gt;</code></pre>
   </div>
-  
-  
-  
+
+
+
   <h5 class="typeParameters">Type Parameters</h5>
   <table>
     <tr>
       <td>
         <span class="parametername">TItem</span>
-        <p>
+        <p></p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="parametername">TPriority</span>
-        <p>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
+
+
   <h3 id="properties">Properties
-  </h3>
-  
-  
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_Count.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L55" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_Count_" data-uid="Priority_Queue.IPriorityQueue`2.Count*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_Count" data-uid="Priority_Queue.IPriorityQueue`2.Count"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_Count" class="expander" data-toggle="collapse">Count</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_Count" class="collapse in">
   <div class="markdown level1 summary"><p>Returns the number of nodes in the queue.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Count { get; }</code></pre>
+    <pre><code class="lang- hljs">int Count { get; }</code></pre>
   </div>
-  
-  
-  
-  
-  
+
+
+
+
+
   <h5 class="propertyValue">Property Value</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Int32</span>
-        <p>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   </div>
-  
-  
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_First.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.First%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L50" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_First_" data-uid="Priority_Queue.IPriorityQueue`2.First*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_First" data-uid="Priority_Queue.IPriorityQueue`2.First"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_First" class="expander" data-toggle="collapse">First</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_First" class="collapse in">
   <div class="markdown level1 summary"><p>Returns the head of the queue, without removing it (use Dequeue() for that).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TItem First { get; }</code></pre>
+    <pre><code class="lang- hljs">TItem First { get; }</code></pre>
   </div>
-  
-  
-  
-  
-  
+
+
+
+
+
   <h5 class="propertyValue">Property Value</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">TItem</span>
-        <p>
+      <span class="xref">TItem</span>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   </div>
   <h3 id="methods">Methods
-  </h3>
-  
-  
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_Clear.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.Clear%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L30" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_Clear_" data-uid="Priority_Queue.IPriorityQueue`2.Clear*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_Clear" data-uid="Priority_Queue.IPriorityQueue`2.Clear"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_Clear" class="expander" data-toggle="collapse">Clear()</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_Clear" class="collapse in">
   <div class="markdown level1 summary"><p>Removes every node from the queue.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Clear()</code></pre>
+    <pre><code class="lang- hljs">void Clear()</code></pre>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
-  
-  
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_Contains__0_.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.Contains(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L35" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_Contains_" data-uid="Priority_Queue.IPriorityQueue`2.Contains*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_Contains__0_" data-uid="Priority_Queue.IPriorityQueue`2.Contains(`0)"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_Contains__0_" class="expander" data-toggle="collapse">Contains(TItem)</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_Contains__0_" class="collapse in">
   <div class="markdown level1 summary"><p>Returns whether the given node is in the queue.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool Contains(TItem node)</code></pre>
+    <pre><code class="lang- hljs">bool Contains(TItem node)</code></pre>
   </div>
-  
+
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">TItem</span></span>
         <span class="parametername">node</span>
-        <p>
+        <p></p>
       </td>
     </tr>
   </table>
-  
+
   <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Boolean</span>
-        <p>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
   </div>
-  
-  
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_Dequeue.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.Dequeue%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L25" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_Dequeue_" data-uid="Priority_Queue.IPriorityQueue`2.Dequeue*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_Dequeue" data-uid="Priority_Queue.IPriorityQueue`2.Dequeue"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_Dequeue" class="expander" data-toggle="collapse">Dequeue()</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_Dequeue" class="collapse in">
   <div class="markdown level1 summary"><p>Removes the head of the queue (node with minimum priority; ties are broken by order of insertion), and returns it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TItem Dequeue()</code></pre>
+    <pre><code class="lang- hljs">TItem Dequeue()</code></pre>
   </div>
-  
-  
+
+
   <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">TItem</span>
-        <p>
+      <span class="xref">TItem</span>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
   </div>
-  
-  
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_Enqueue__0__1_.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.Enqueue(%600%2C%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L20" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_Enqueue_" data-uid="Priority_Queue.IPriorityQueue`2.Enqueue*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_Enqueue__0__1_" data-uid="Priority_Queue.IPriorityQueue`2.Enqueue(`0,`1)"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_Enqueue__0__1_" class="expander" data-toggle="collapse">Enqueue(TItem, TPriority)</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_Enqueue__0__1_" class="collapse in">
   <div class="markdown level1 summary"><p>Enqueue a node to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
 See implementation for how duplicates are handled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Enqueue(TItem node, TPriority priority)</code></pre>
+    <pre><code class="lang- hljs">void Enqueue(TItem node, TPriority priority)</code></pre>
   </div>
-  
+
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">TItem</span></span>
         <span class="parametername">node</span>
-        <p>
+        <p></p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">TPriority</span></span>
         <span class="parametername">priority</span>
-        <p>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   </div>
-  
-  
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_Remove__0_.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.Remove(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L40" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_Remove_" data-uid="Priority_Queue.IPriorityQueue`2.Remove*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_Remove__0_" data-uid="Priority_Queue.IPriorityQueue`2.Remove(`0)"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_Remove__0_" class="expander" data-toggle="collapse">Remove(TItem)</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_Remove__0_" class="collapse in">
-  <div class="markdown level1 summary"><p>Removes a node from the queue.  The node does not need to be the head of the queue.  </p>
+  <div class="markdown level1 summary"><p>Removes a node from the queue.  The node does not need to be the head of the queue.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Remove(TItem node)</code></pre>
+    <pre><code class="lang- hljs">void Remove(TItem node)</code></pre>
   </div>
-  
+
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">TItem</span></span>
         <span class="parametername">node</span>
-        <p>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   </div>
-  
-  
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2_UpdatePriority__0__1_.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602.UpdatePriority(%600%2C%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L45" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Priority_Queue_IPriorityQueue_2_UpdatePriority_" data-uid="Priority_Queue.IPriorityQueue`2.UpdatePriority*"></a>
-  
+
   <h4 id="Priority_Queue_IPriorityQueue_2_UpdatePriority__0__1_" data-uid="Priority_Queue.IPriorityQueue`2.UpdatePriority(`0,`1)"><a href="#collapsible-Priority_Queue_IPriorityQueue_2_UpdatePriority__0__1_" class="expander" data-toggle="collapse">UpdatePriority(TItem, TPriority)</a></h4>
-  
+
   <div id="collapsible-Priority_Queue_IPriorityQueue_2_UpdatePriority__0__1_" class="collapse in">
-  <div class="markdown level1 summary"><p>Call this method to change the priority of a node.  </p>
+  <div class="markdown level1 summary"><p>Call this method to change the priority of a node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void UpdatePriority(TItem node, TPriority priority)</code></pre>
+    <pre><code class="lang- hljs">void UpdatePriority(TItem node, TPriority priority)</code></pre>
   </div>
-  
+
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">TItem</span></span>
         <span class="parametername">node</span>
-        <p>
+        <p></p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">TPriority</span></span>
         <span class="parametername">priority</span>
-        <p>
+        <p></p>
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   </div>
-  
-  
+
+
+
 </article>
           </div>
           <div class="contribution-panel mobile-hide">
+              <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Priority_Queue_IPriorityQueue_2.md&amp;value=---%0Auid%3A%20Priority_Queue.IPriorityQueue%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page" class="fab btn-warning pull-right"><i class="glyphicon glyphicon-pencil"></i></a>
+              <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs/#L13" title="View Source" class="fab btn-info pull-right"><i class="fa fa-code"></i></a>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -451,7 +513,7 @@ See implementation for how duplicates are handled.</p>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -459,14 +521,14 @@ See implementation for how duplicates are handled.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

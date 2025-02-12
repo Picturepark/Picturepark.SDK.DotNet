@@ -30,13 +30,13 @@
     <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DotLiquid" Version="2.2.692" />
+    <PackageReference Include="DotLiquid" Version="2.3.0" />
     <PackageReference Include="NGettext" Version="0.6.7" />
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.141">
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.146">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>

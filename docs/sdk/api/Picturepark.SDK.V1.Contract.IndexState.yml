@@ -1,0 +1,382 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IndexState
+  commentId: T:Picturepark.SDK.V1.Contract.IndexState
+  id: IndexState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IndexState.Active
+  - Picturepark.SDK.V1.Contract.IndexState.Cancelled
+  - Picturepark.SDK.V1.Contract.IndexState.Closed
+  - Picturepark.SDK.V1.Contract.IndexState.Create
+  - Picturepark.SDK.V1.Contract.IndexState.Draft
+  - Picturepark.SDK.V1.Contract.IndexState.Inactive
+  - Picturepark.SDK.V1.Contract.IndexState.ReindexInProgress
+  langs:
+  - csharp
+  - vb
+  name: IndexState
+  nameWithType: IndexState
+  fullName: Picturepark.SDK.V1.Contract.IndexState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43788
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum IndexState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum IndexState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IndexState.Draft
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: IndexState.Draft
+  fullName: Picturepark.SDK.V1.Contract.IndexState.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43792
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.Contract.IndexState.Create
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.Create
+  id: Create
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: Create
+  nameWithType: IndexState.Create
+  fullName: Picturepark.SDK.V1.Contract.IndexState.Create
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Create
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43795
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Create")]
+
+      Create = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="Create")>
+
+      Create = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Create
+- uid: Picturepark.SDK.V1.Contract.IndexState.Inactive
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.Inactive
+  id: Inactive
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: Inactive
+  nameWithType: IndexState.Inactive
+  fullName: Picturepark.SDK.V1.Contract.IndexState.Inactive
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Inactive
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43798
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Inactive")]
+
+      Inactive = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="Inactive")>
+
+      Inactive = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Inactive
+- uid: Picturepark.SDK.V1.Contract.IndexState.Active
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.Active
+  id: Active
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: IndexState.Active
+  fullName: Picturepark.SDK.V1.Contract.IndexState.Active
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Active
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43801
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Active")]
+
+      Active = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="Active")>
+
+      Active = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Active
+- uid: Picturepark.SDK.V1.Contract.IndexState.Closed
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.Closed
+  id: Closed
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: Closed
+  nameWithType: IndexState.Closed
+  fullName: Picturepark.SDK.V1.Contract.IndexState.Closed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Closed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43804
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Closed")]
+
+      Closed = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="Closed")>
+
+      Closed = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Closed
+- uid: Picturepark.SDK.V1.Contract.IndexState.ReindexInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.ReindexInProgress
+  id: ReindexInProgress
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: ReindexInProgress
+  nameWithType: IndexState.ReindexInProgress
+  fullName: Picturepark.SDK.V1.Contract.IndexState.ReindexInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43807
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexInProgress")]
+
+      ReindexInProgress = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="ReindexInProgress")>
+
+      ReindexInProgress = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexInProgress
+- uid: Picturepark.SDK.V1.Contract.IndexState.Cancelled
+  commentId: F:Picturepark.SDK.V1.Contract.IndexState.Cancelled
+  id: Cancelled
+  parent: Picturepark.SDK.V1.Contract.IndexState
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: IndexState.Cancelled
+  fullName: Picturepark.SDK.V1.Contract.IndexState.Cancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43810
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cancelled")]
+
+      Cancelled = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.IndexState
+    content.vb: >-
+      <EnumMember(Value:="Cancelled")>
+
+      Cancelled = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cancelled
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.IndexState
+  commentId: T:Picturepark.SDK.V1.Contract.IndexState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IndexState.html
+  name: IndexState
+  nameWithType: IndexState
+  fullName: Picturepark.SDK.V1.Contract.IndexState

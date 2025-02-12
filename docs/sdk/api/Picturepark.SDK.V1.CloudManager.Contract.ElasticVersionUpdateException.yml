@@ -1,0 +1,802 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  id: ElasticVersionUpdateException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion
+  - Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion
+  - Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson
+  langs:
+  - csharp
+  - vb
+  name: ElasticVersionUpdateException
+  nameWithType: ElasticVersionUpdateException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ElasticVersionUpdateException
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 3614
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      [JsonObject]
+
+      public class ElasticVersionUpdateException : PictureparkException, ISerializable
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      <JsonObject>
+
+      Public Class ElasticVersionUpdateException Inherits PictureparkException Implements ISerializable
+  inheritance:
+  - System.Object
+  - System.Exception
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceLevel
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceId
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceJobId
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.HttpStatusCode
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.ExceptionMessage
+  - Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.CloudName
+  - System.Exception.GetBaseException
+  - System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - System.Exception.GetType
+  - System.Exception.ToString
+  - System.Exception.Data
+  - System.Exception.HelpLink
+  - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Message
+  - System.Exception.Source
+  - System.Exception.StackTrace
+  - System.Exception.TargetSite
+  - System.Exception.SerializeObjectState
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion
+  id: ExpectedVersion
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  langs:
+  - csharp
+  - vb
+  name: ExpectedVersion
+  nameWithType: ElasticVersionUpdateException.ExpectedVersion
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExpectedVersion
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 3618
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("expectedVersion", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ExpectedVersion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("expectedVersion", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ExpectedVersion As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: expectedVersion
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion
+  id: ActualVersion
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  langs:
+  - csharp
+  - vb
+  name: ActualVersion
+  nameWithType: ElasticVersionUpdateException.ActualVersion
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ActualVersion
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 3621
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("actualVersion", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ActualVersion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("actualVersion", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ActualVersion As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: actualVersion
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: ElasticVersionUpdateException.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 3624
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: ElasticVersionUpdateException.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 3630
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static ElasticVersionUpdateException FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+    content.vb: Public Shared Function FromJson(data As String) As ElasticVersionUpdateException
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson*
+  nameWithType.vb: ElasticVersionUpdateException.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceLevel
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceLevel
+  parent: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html#Picturepark_SDK_V1_CloudManager_Contract_PictureparkException_TraceLevel
+  name: TraceLevel
+  nameWithType: PictureparkException.TraceLevel
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceLevel
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html#Picturepark_SDK_V1_CloudManager_Contract_PictureparkException_TraceId
+  name: TraceId
+  nameWithType: PictureparkException.TraceId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceJobId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceJobId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html#Picturepark_SDK_V1_CloudManager_Contract_PictureparkException_TraceJobId
+  name: TraceJobId
+  nameWithType: PictureparkException.TraceJobId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.TraceJobId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.HttpStatusCode
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.HttpStatusCode
+  parent: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html#Picturepark_SDK_V1_CloudManager_Contract_PictureparkException_HttpStatusCode
+  name: HttpStatusCode
+  nameWithType: PictureparkException.HttpStatusCode
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.HttpStatusCode
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.ExceptionMessage
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.ExceptionMessage
+  parent: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html#Picturepark_SDK_V1_CloudManager_Contract_PictureparkException_ExceptionMessage
+  name: ExceptionMessage
+  nameWithType: PictureparkException.ExceptionMessage
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.ExceptionMessage
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.CloudName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.CloudName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html#Picturepark_SDK_V1_CloudManager_Contract_PictureparkException_CloudName
+  name: CloudName
+  nameWithType: PictureparkException.CloudName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.CloudName
+- uid: System.Exception.GetBaseException
+  commentId: M:System.Exception.GetBaseException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  name: GetBaseException()
+  nameWithType: Exception.GetBaseException()
+  fullName: System.Exception.GetBaseException()
+  spec.csharp:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+- uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: Exception.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+- uid: System.Exception.GetType
+  commentId: M:System.Exception.GetType
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  name: GetType()
+  nameWithType: Exception.GetType()
+  fullName: System.Exception.GetType()
+  spec.csharp:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+- uid: System.Exception.Data
+  commentId: P:System.Exception.Data
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.data
+  name: Data
+  nameWithType: Exception.Data
+  fullName: System.Exception.Data
+- uid: System.Exception.HelpLink
+  commentId: P:System.Exception.HelpLink
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.helplink
+  name: HelpLink
+  nameWithType: Exception.HelpLink
+  fullName: System.Exception.HelpLink
+- uid: System.Exception.HResult
+  commentId: P:System.Exception.HResult
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.hresult
+  name: HResult
+  nameWithType: Exception.HResult
+  fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.message
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.source
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
+- uid: System.Exception.StackTrace
+  commentId: P:System.Exception.StackTrace
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.stacktrace
+  name: StackTrace
+  nameWithType: Exception.StackTrace
+  fullName: System.Exception.StackTrace
+- uid: System.Exception.TargetSite
+  commentId: P:System.Exception.TargetSite
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.targetsite
+  name: TargetSite
+  nameWithType: Exception.TargetSite
+  fullName: System.Exception.TargetSite
+- uid: System.Exception.SerializeObjectState
+  commentId: E:System.Exception.SerializeObjectState
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.serializeobjectstate
+  name: SerializeObjectState
+  nameWithType: Exception.SerializeObjectState
+  fullName: System.Exception.SerializeObjectState
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion
+  href: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.html#Picturepark_SDK_V1_CloudManager_Contract_ElasticVersionUpdateException_ExpectedVersion
+  name: ExpectedVersion
+  nameWithType: ElasticVersionUpdateException.ExpectedVersion
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ExpectedVersion
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion
+  href: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.html#Picturepark_SDK_V1_CloudManager_Contract_ElasticVersionUpdateException_ActualVersion
+  name: ActualVersion
+  nameWithType: ElasticVersionUpdateException.ActualVersion
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ActualVersion
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.html#Picturepark_SDK_V1_CloudManager_Contract_ElasticVersionUpdateException_ToJson
+  name: ToJson
+  nameWithType: ElasticVersionUpdateException.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.html#Picturepark_SDK_V1_CloudManager_Contract_ElasticVersionUpdateException_FromJson_System_String_
+  name: FromJson
+  nameWithType: ElasticVersionUpdateException.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException.html
+  name: ElasticVersionUpdateException
+  nameWithType: ElasticVersionUpdateException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException

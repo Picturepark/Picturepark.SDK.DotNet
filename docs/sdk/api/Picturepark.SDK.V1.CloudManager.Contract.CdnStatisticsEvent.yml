@@ -1,0 +1,738 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  id: CdnStatisticsEvent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd
+  - Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart
+  - Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson
+  - Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic
+  langs:
+  - csharp
+  - vb
+  name: CdnStatisticsEvent
+  nameWithType: CdnStatisticsEvent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CdnStatisticsEvent
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23534
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class CdnStatisticsEvent : ApplicationEvent
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class CdnStatisticsEvent Inherits ApplicationEvent
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic
+  id: Traffic
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  langs:
+  - csharp
+  - vb
+  name: Traffic
+  nameWithType: CdnStatisticsEvent.Traffic
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Traffic
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23537
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("traffic", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public IDictionary<string, CdnTrafficValues> Traffic { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues}
+    content.vb: >-
+      <JsonProperty("traffic", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Traffic As IDictionary(Of String, CdnTrafficValues)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: traffic
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart
+  id: ReportedTimeStart
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  langs:
+  - csharp
+  - vb
+  name: ReportedTimeStart
+  nameWithType: CdnStatisticsEvent.ReportedTimeStart
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReportedTimeStart
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23540
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("reportedTimeStart", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public DateTime ReportedTimeStart { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <JsonProperty("reportedTimeStart", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ReportedTimeStart As Date
+  overload: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: reportedTimeStart
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd
+  id: ReportedTimeEnd
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  langs:
+  - csharp
+  - vb
+  name: ReportedTimeEnd
+  nameWithType: CdnStatisticsEvent.ReportedTimeEnd
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReportedTimeEnd
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23543
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("reportedTimeEnd", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public DateTime ReportedTimeEnd { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <JsonProperty("reportedTimeEnd", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ReportedTimeEnd As Date
+  overload: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: reportedTimeEnd
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: CdnStatisticsEvent.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23546
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: CdnStatisticsEvent.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23552
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static CdnStatisticsEvent FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+    content.vb: Public Shared Function FromJson(data As String) As CdnStatisticsEvent
+  overload: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson*
+  nameWithType.vb: CdnStatisticsEvent.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.html
+  name: ApplicationEvent
+  nameWithType: ApplicationEvent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.html#Picturepark_SDK_V1_CloudManager_Contract_ApplicationEvent_Timestamp
+  name: Timestamp
+  nameWithType: ApplicationEvent.Timestamp
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.Timestamp
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic
+  href: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.html#Picturepark_SDK_V1_CloudManager_Contract_CdnStatisticsEvent_Traffic
+  name: Traffic
+  nameWithType: CdnStatisticsEvent.Traffic
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.Traffic
+- uid: System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, CdnTrafficValues>
+  nameWithType: IDictionary<string, CdnTrafficValues>
+  fullName: System.Collections.Generic.IDictionary<string, Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues>
+  nameWithType.vb: IDictionary(Of String, CdnTrafficValues)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues)
+  name.vb: IDictionary(Of String, CdnTrafficValues)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues
+    name: CdnTrafficValues
+    href: Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues
+    name: CdnTrafficValues
+    href: Picturepark.SDK.V1.CloudManager.Contract.CdnTrafficValues.html
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart
+  href: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.html#Picturepark_SDK_V1_CloudManager_Contract_CdnStatisticsEvent_ReportedTimeStart
+  name: ReportedTimeStart
+  nameWithType: CdnStatisticsEvent.ReportedTimeStart
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeStart
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd
+  href: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.html#Picturepark_SDK_V1_CloudManager_Contract_CdnStatisticsEvent_ReportedTimeEnd
+  name: ReportedTimeEnd
+  nameWithType: CdnStatisticsEvent.ReportedTimeEnd
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ReportedTimeEnd
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.html#Picturepark_SDK_V1_CloudManager_Contract_CdnStatisticsEvent_ToJson
+  name: ToJson
+  nameWithType: CdnStatisticsEvent.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.html#Picturepark_SDK_V1_CloudManager_Contract_CdnStatisticsEvent_FromJson_System_String_
+  name: FromJson
+  nameWithType: CdnStatisticsEvent.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent.html
+  name: CdnStatisticsEvent
+  nameWithType: CdnStatisticsEvent
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CdnStatisticsEvent

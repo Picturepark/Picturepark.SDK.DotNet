@@ -1,0 +1,222 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  id: AzureStorageAccessTier
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cold
+  - Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cool
+  - Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Hot
+  langs:
+  - csharp
+  - vb
+  name: AzureStorageAccessTier
+  nameWithType: AzureStorageAccessTier
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AzureStorageAccessTier
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17409
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum AzureStorageAccessTier
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum AzureStorageAccessTier
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Hot
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Hot
+  id: Hot
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  langs:
+  - csharp
+  - vb
+  name: Hot
+  nameWithType: AzureStorageAccessTier.Hot
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Hot
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Hot
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17413
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Hot")]
+
+      Hot = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+    content.vb: >-
+      <EnumMember(Value:="Hot")>
+
+      Hot = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Hot
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cool
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cool
+  id: Cool
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  langs:
+  - csharp
+  - vb
+  name: Cool
+  nameWithType: AzureStorageAccessTier.Cool
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cool
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cool
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17416
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cool")]
+
+      Cool = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+    content.vb: >-
+      <EnumMember(Value:="Cool")>
+
+      Cool = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cool
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cold
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cold
+  id: Cold
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  langs:
+  - csharp
+  - vb
+  name: Cold
+  nameWithType: AzureStorageAccessTier.Cold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.Cold
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cold
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17419
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cold")]
+
+      Cold = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+    content.vb: >-
+      <EnumMember(Value:="Cold")>
+
+      Cold = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cold
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier.html
+  name: AzureStorageAccessTier
+  nameWithType: AzureStorageAccessTier
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AzureStorageAccessTier

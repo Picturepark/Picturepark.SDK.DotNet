@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  id: ResizeMode
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Fit
+  - Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Resize
+  - Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Shrink
+  langs:
+  - csharp
+  - vb
+  name: ResizeMode
+  nameWithType: ResizeMode
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ResizeMode
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18082
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Specifies how the dimensions of a ResizeAction are applied to the content
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ResizeMode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ResizeMode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Fit
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Fit
+  id: Fit
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  langs:
+  - csharp
+  - vb
+  name: Fit
+  nameWithType: ResizeMode.Fit
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Fit
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Fit
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18086
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Fit")]
+
+      Fit = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+    content.vb: >-
+      <EnumMember(Value:="Fit")>
+
+      Fit = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Fit
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Shrink
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Shrink
+  id: Shrink
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  langs:
+  - csharp
+  - vb
+  name: Shrink
+  nameWithType: ResizeMode.Shrink
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Shrink
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Shrink
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18089
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Shrink")]
+
+      Shrink = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+    content.vb: >-
+      <EnumMember(Value:="Shrink")>
+
+      Shrink = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Shrink
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Resize
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Resize
+  id: Resize
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  langs:
+  - csharp
+  - vb
+  name: Resize
+  nameWithType: ResizeMode.Resize
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.Resize
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Resize
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18092
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Resize")]
+
+      Resize = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+    content.vb: >-
+      <EnumMember(Value:="Resize")>
+
+      Resize = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Resize
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ResizeMode
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.html
+  name: ResizeMode
+  nameWithType: ResizeMode
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ResizeMode

@@ -1,0 +1,340 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory
+  commentId: T:Picturepark.SDK.V1.Contract.RenderingCategory
+  id: RenderingCategory
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.RenderingCategory.Audio
+  - Picturepark.SDK.V1.Contract.RenderingCategory.Document
+  - Picturepark.SDK.V1.Contract.RenderingCategory.Image
+  - Picturepark.SDK.V1.Contract.RenderingCategory.Unknown
+  - Picturepark.SDK.V1.Contract.RenderingCategory.Vector
+  - Picturepark.SDK.V1.Contract.RenderingCategory.Video
+  langs:
+  - csharp
+  - vb
+  name: RenderingCategory
+  nameWithType: RenderingCategory
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RenderingCategory
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6608
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum RenderingCategory
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum RenderingCategory
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory.Unknown
+  commentId: F:Picturepark.SDK.V1.Contract.RenderingCategory.Unknown
+  id: Unknown
+  parent: Picturepark.SDK.V1.Contract.RenderingCategory
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: RenderingCategory.Unknown
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory.Unknown
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Unknown
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6612
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Unknown")]
+
+      Unknown = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.RenderingCategory
+    content.vb: >-
+      <EnumMember(Value:="Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Unknown
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory.Image
+  commentId: F:Picturepark.SDK.V1.Contract.RenderingCategory.Image
+  id: Image
+  parent: Picturepark.SDK.V1.Contract.RenderingCategory
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: RenderingCategory.Image
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory.Image
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Image
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6615
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Image")]
+
+      Image = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.RenderingCategory
+    content.vb: >-
+      <EnumMember(Value:="Image")>
+
+      Image = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Image
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory.Document
+  commentId: F:Picturepark.SDK.V1.Contract.RenderingCategory.Document
+  id: Document
+  parent: Picturepark.SDK.V1.Contract.RenderingCategory
+  langs:
+  - csharp
+  - vb
+  name: Document
+  nameWithType: RenderingCategory.Document
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory.Document
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Document
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6618
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Document")]
+
+      Document = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.RenderingCategory
+    content.vb: >-
+      <EnumMember(Value:="Document")>
+
+      Document = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Document
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory.Video
+  commentId: F:Picturepark.SDK.V1.Contract.RenderingCategory.Video
+  id: Video
+  parent: Picturepark.SDK.V1.Contract.RenderingCategory
+  langs:
+  - csharp
+  - vb
+  name: Video
+  nameWithType: RenderingCategory.Video
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory.Video
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Video
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6621
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Video")]
+
+      Video = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.RenderingCategory
+    content.vb: >-
+      <EnumMember(Value:="Video")>
+
+      Video = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Video
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory.Audio
+  commentId: F:Picturepark.SDK.V1.Contract.RenderingCategory.Audio
+  id: Audio
+  parent: Picturepark.SDK.V1.Contract.RenderingCategory
+  langs:
+  - csharp
+  - vb
+  name: Audio
+  nameWithType: RenderingCategory.Audio
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory.Audio
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Audio
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6624
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Audio")]
+
+      Audio = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.RenderingCategory
+    content.vb: >-
+      <EnumMember(Value:="Audio")>
+
+      Audio = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Audio
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory.Vector
+  commentId: F:Picturepark.SDK.V1.Contract.RenderingCategory.Vector
+  id: Vector
+  parent: Picturepark.SDK.V1.Contract.RenderingCategory
+  langs:
+  - csharp
+  - vb
+  name: Vector
+  nameWithType: RenderingCategory.Vector
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory.Vector
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Vector
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6627
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Vector")]
+
+      Vector = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.RenderingCategory
+    content.vb: >-
+      <EnumMember(Value:="Vector")>
+
+      Vector = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Vector
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.RenderingCategory
+  commentId: T:Picturepark.SDK.V1.Contract.RenderingCategory
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.RenderingCategory.html
+  name: RenderingCategory
+  nameWithType: RenderingCategory
+  fullName: Picturepark.SDK.V1.Contract.RenderingCategory

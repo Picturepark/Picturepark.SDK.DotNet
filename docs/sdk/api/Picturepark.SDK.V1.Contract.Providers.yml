@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Providers
+  commentId: N:Picturepark.SDK.V1.Contract.Providers
+  id: Picturepark.SDK.V1.Contract.Providers
+  children:
+  - Picturepark.SDK.V1.Contract.Providers.IFilterProvider
+  - Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  - Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  - Picturepark.SDK.V1.Contract.Providers.ITreeViewLevelProvider
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.Providers
+  nameWithType: Picturepark.SDK.V1.Contract.Providers
+  fullName: Picturepark.SDK.V1.Contract.Providers
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.Providers.IFilterProvider
+  commentId: T:Picturepark.SDK.V1.Contract.Providers.IFilterProvider
+  href: Picturepark.SDK.V1.Contract.Providers.IFilterProvider.html
+  name: IFilterProvider
+  nameWithType: IFilterProvider
+  fullName: Picturepark.SDK.V1.Contract.Providers.IFilterProvider
+- uid: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  commentId: T:Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  parent: Picturepark.SDK.V1.Contract.Providers
+  href: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.html
+  name: ISchemaIndexingInfoProvider
+  nameWithType: ISchemaIndexingInfoProvider
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+- uid: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  commentId: T:Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  href: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.html
+  name: ISearchSortProvider
+  nameWithType: ISearchSortProvider
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+- uid: Picturepark.SDK.V1.Contract.Providers.ITreeViewLevelProvider
+  commentId: T:Picturepark.SDK.V1.Contract.Providers.ITreeViewLevelProvider
+  href: Picturepark.SDK.V1.Contract.Providers.ITreeViewLevelProvider.html
+  name: ITreeViewLevelProvider
+  nameWithType: ITreeViewLevelProvider
+  fullName: Picturepark.SDK.V1.Contract.Providers.ITreeViewLevelProvider
+- uid: Picturepark.SDK.V1.Contract.Providers
+  commentId: N:Picturepark.SDK.V1.Contract.Providers
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Providers
+  nameWithType: Picturepark.SDK.V1.Contract.Providers
+  fullName: Picturepark.SDK.V1.Contract.Providers
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Providers
+    name: Providers
+    href: Picturepark.SDK.V1.Contract.Providers.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Providers
+    name: Providers
+    href: Picturepark.SDK.V1.Contract.Providers.html

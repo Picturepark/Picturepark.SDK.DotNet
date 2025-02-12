@@ -1,0 +1,512 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchResult
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemSearchResult
+  id: ListItemSearchResult
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson
+  langs:
+  - csharp
+  - vb
+  name: ListItemSearchResult
+  nameWithType: ListItemSearchResult
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchResult
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemSearchResult
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 29861
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Result for list item search operation
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class ListItemSearchResult : SearchBehaviorWithAggregationBaseResultOfListItem
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class ListItemSearchResult Inherits SearchBehaviorWithAggregationBaseResultOfListItem
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  - Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+  - Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.AggregationResults
+  - Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.SearchString
+  - Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.IsSearchStringRewritten
+  - Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.QueryDebugInformation
+  - Picturepark.SDK.V1.Contract.BaseResultOfListItem.TotalResults
+  - Picturepark.SDK.V1.Contract.BaseResultOfListItem.Results
+  - Picturepark.SDK.V1.Contract.BaseResultOfListItem.ElapsedMilliseconds
+  - Picturepark.SDK.V1.Contract.BaseResultOfListItem.PageToken
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.ListItemSearchResult
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: ListItemSearchResult.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 29865
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson*
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.ListItemSearchResult
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: ListItemSearchResult.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 29871
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static ListItemSearchResult FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.ListItemSearchResult
+    content.vb: Public Shared Function FromJson(data As String) As ListItemSearchResult
+  overload: Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson*
+  nameWithType.vb: ListItemSearchResult.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  commentId: T:Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BaseResultOfListItem.html
+  name: BaseResultOfListItem
+  nameWithType: BaseResultOfListItem
+  fullName: Picturepark.SDK.V1.Contract.BaseResultOfListItem
+- uid: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+  commentId: T:Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.html
+  name: SearchBehaviorBaseResultOfListItem
+  nameWithType: SearchBehaviorBaseResultOfListItem
+  fullName: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+- uid: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem
+  commentId: T:Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.html
+  name: SearchBehaviorWithAggregationBaseResultOfListItem
+  nameWithType: SearchBehaviorWithAggregationBaseResultOfListItem
+  fullName: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem
+- uid: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.AggregationResults
+  commentId: P:Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.AggregationResults
+  parent: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.html#Picturepark_SDK_V1_Contract_SearchBehaviorWithAggregationBaseResultOfListItem_AggregationResults
+  name: AggregationResults
+  nameWithType: SearchBehaviorWithAggregationBaseResultOfListItem.AggregationResults
+  fullName: Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.AggregationResults
+- uid: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.SearchString
+  commentId: P:Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.SearchString
+  parent: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.html#Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfListItem_SearchString
+  name: SearchString
+  nameWithType: SearchBehaviorBaseResultOfListItem.SearchString
+  fullName: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.SearchString
+- uid: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.IsSearchStringRewritten
+  commentId: P:Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.IsSearchStringRewritten
+  parent: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.html#Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfListItem_IsSearchStringRewritten
+  name: IsSearchStringRewritten
+  nameWithType: SearchBehaviorBaseResultOfListItem.IsSearchStringRewritten
+  fullName: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.IsSearchStringRewritten
+- uid: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.QueryDebugInformation
+  commentId: P:Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.QueryDebugInformation
+  parent: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.html#Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfListItem_QueryDebugInformation
+  name: QueryDebugInformation
+  nameWithType: SearchBehaviorBaseResultOfListItem.QueryDebugInformation
+  fullName: Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.QueryDebugInformation
+- uid: Picturepark.SDK.V1.Contract.BaseResultOfListItem.TotalResults
+  commentId: P:Picturepark.SDK.V1.Contract.BaseResultOfListItem.TotalResults
+  parent: Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.BaseResultOfListItem.html#Picturepark_SDK_V1_Contract_BaseResultOfListItem_TotalResults
+  name: TotalResults
+  nameWithType: BaseResultOfListItem.TotalResults
+  fullName: Picturepark.SDK.V1.Contract.BaseResultOfListItem.TotalResults
+- uid: Picturepark.SDK.V1.Contract.BaseResultOfListItem.Results
+  commentId: P:Picturepark.SDK.V1.Contract.BaseResultOfListItem.Results
+  parent: Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.BaseResultOfListItem.html#Picturepark_SDK_V1_Contract_BaseResultOfListItem_Results
+  name: Results
+  nameWithType: BaseResultOfListItem.Results
+  fullName: Picturepark.SDK.V1.Contract.BaseResultOfListItem.Results
+- uid: Picturepark.SDK.V1.Contract.BaseResultOfListItem.ElapsedMilliseconds
+  commentId: P:Picturepark.SDK.V1.Contract.BaseResultOfListItem.ElapsedMilliseconds
+  parent: Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.BaseResultOfListItem.html#Picturepark_SDK_V1_Contract_BaseResultOfListItem_ElapsedMilliseconds
+  name: ElapsedMilliseconds
+  nameWithType: BaseResultOfListItem.ElapsedMilliseconds
+  fullName: Picturepark.SDK.V1.Contract.BaseResultOfListItem.ElapsedMilliseconds
+- uid: Picturepark.SDK.V1.Contract.BaseResultOfListItem.PageToken
+  commentId: P:Picturepark.SDK.V1.Contract.BaseResultOfListItem.PageToken
+  parent: Picturepark.SDK.V1.Contract.BaseResultOfListItem
+  href: Picturepark.SDK.V1.Contract.BaseResultOfListItem.html#Picturepark_SDK_V1_Contract_BaseResultOfListItem_PageToken
+  name: PageToken
+  nameWithType: BaseResultOfListItem.PageToken
+  fullName: Picturepark.SDK.V1.Contract.BaseResultOfListItem.PageToken
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson
+  href: Picturepark.SDK.V1.Contract.ListItemSearchResult.html#Picturepark_SDK_V1_Contract_ListItemSearchResult_ToJson
+  name: ToJson
+  nameWithType: ListItemSearchResult.ToJson
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchResult.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson
+  href: Picturepark.SDK.V1.Contract.ListItemSearchResult.html#Picturepark_SDK_V1_Contract_ListItemSearchResult_FromJson_System_String_
+  name: FromJson
+  nameWithType: ListItemSearchResult.FromJson
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchResult.FromJson
+- uid: Picturepark.SDK.V1.Contract.ListItemSearchResult
+  commentId: T:Picturepark.SDK.V1.Contract.ListItemSearchResult
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ListItemSearchResult.html
+  name: ListItemSearchResult
+  nameWithType: ListItemSearchResult
+  fullName: Picturepark.SDK.V1.Contract.ListItemSearchResult

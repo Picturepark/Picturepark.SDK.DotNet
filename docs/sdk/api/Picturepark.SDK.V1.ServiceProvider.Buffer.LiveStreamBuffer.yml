@@ -1,0 +1,735 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  id: LiveStreamBuffer
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer
+  children:
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.#ctor(Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue)
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferedReceive
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue(Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage)
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop
+  langs:
+  - csharp
+  - vb
+  name: LiveStreamBuffer
+  nameWithType: LiveStreamBuffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LiveStreamBuffer
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public class LiveStreamBuffer
+    content.vb: Public Class LiveStreamBuffer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.#ctor(Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue)
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.#ctor(Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue)
+  id: '#ctor(Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue)'
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: LiveStreamBuffer(LiveStreamBufferPriorityQueue)
+  nameWithType: LiveStreamBuffer.LiveStreamBuffer(LiveStreamBufferPriorityQueue)
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.LiveStreamBuffer(Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public LiveStreamBuffer(LiveStreamBufferPriorityQueue queue)
+    parameters:
+    - id: queue
+      type: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+    content.vb: Public Sub New(queue As LiveStreamBufferPriorityQueue)
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.#ctor*
+  nameWithType.vb: LiveStreamBuffer.New(LiveStreamBufferPriorityQueue)
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.New(Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue)
+  name.vb: New(LiveStreamBufferPriorityQueue)
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferedReceive
+  commentId: E:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferedReceive
+  id: BufferedReceive
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: BufferedReceive
+  nameWithType: LiveStreamBuffer.BufferedReceive
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferedReceive
+  type: Event
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BufferedReceive
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 17
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public event EventHandler<EventArgsLiveStreamMessage> BufferedReceive
+    return:
+      type: System.EventHandler{Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage}
+    content.vb: Public Event BufferedReceive As EventHandler(Of EventArgsLiveStreamMessage)
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue
+  id: Queue
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: Queue
+  nameWithType: LiveStreamBuffer.Queue
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Queue
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 19
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public LiveStreamBufferPriorityQueue Queue { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+    content.vb: Public Property Queue As LiveStreamBufferPriorityQueue
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  id: BufferHoldBackTimeMilliseconds
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: BufferHoldBackTimeMilliseconds
+  nameWithType: LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BufferHoldBackTimeMilliseconds
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 21
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public int BufferHoldBackTimeMilliseconds { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BufferHoldBackTimeMilliseconds As Integer
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue(Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage)
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue(Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage)
+  id: Enqueue(Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage)
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: Enqueue(EventArgsLiveStreamMessage)
+  nameWithType: LiveStreamBuffer.Enqueue(EventArgsLiveStreamMessage)
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue(Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Enqueue
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 23
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public bool Enqueue(EventArgsLiveStreamMessage message)
+    parameters:
+    - id: message
+      type: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+    return:
+      type: System.Boolean
+    content.vb: Public Function Enqueue(message As EventArgsLiveStreamMessage) As Boolean
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start
+  id: Start
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: LiveStreamBuffer.Start()
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Start
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 32
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public Thread Start()
+    return:
+      type: System.Threading.Thread
+    content.vb: Public Function Start() As Thread
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries
+  id: ConsumeEntries
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: ConsumeEntries()
+  nameWithType: LiveStreamBuffer.ConsumeEntries()
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ConsumeEntries
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 41
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public void ConsumeEntries()
+    content.vb: Public Sub ConsumeEntries()
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop
+  id: Stop
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: LiveStreamBuffer.Stop()
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Stop
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamBuffer.cs
+    startLine: 63
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop*
+references:
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+  commentId: N:Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.ServiceProvider.Buffer
+  nameWithType: Picturepark.SDK.V1.ServiceProvider.Buffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+    name: Buffer
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+    name: Buffer
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.#ctor
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer__ctor_Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBufferPriorityQueue_
+  name: LiveStreamBuffer
+  nameWithType: LiveStreamBuffer.LiveStreamBuffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.LiveStreamBuffer
+  nameWithType.vb: LiveStreamBuffer.New
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue.html
+  name: LiveStreamBufferPriorityQueue
+  nameWithType: LiveStreamBufferPriorityQueue
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+- uid: System.EventHandler{Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage}
+  commentId: T:System.EventHandler{Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<EventArgsLiveStreamMessage>
+  nameWithType: EventHandler<EventArgsLiveStreamMessage>
+  fullName: System.EventHandler<Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage>
+  nameWithType.vb: EventHandler(Of EventArgsLiveStreamMessage)
+  fullName.vb: System.EventHandler(Of Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage)
+  name.vb: EventHandler(Of EventArgsLiveStreamMessage)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+    name: EventArgsLiveStreamMessage
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+    name: EventArgsLiveStreamMessage
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer_Queue
+  name: Queue
+  nameWithType: LiveStreamBuffer.Queue
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Queue
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer_BufferHoldBackTimeMilliseconds
+  name: BufferHoldBackTimeMilliseconds
+  nameWithType: LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.BufferHoldBackTimeMilliseconds
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer_Enqueue_Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_
+  name: Enqueue
+  nameWithType: LiveStreamBuffer.Enqueue
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Enqueue
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html
+  name: EventArgsLiveStreamMessage
+  nameWithType: EventArgsLiveStreamMessage
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer_Start
+  name: Start
+  nameWithType: LiveStreamBuffer.Start
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Start
+- uid: System.Threading.Thread
+  commentId: T:System.Threading.Thread
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.thread
+  name: Thread
+  nameWithType: Thread
+  fullName: System.Threading.Thread
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer_ConsumeEntries
+  name: ConsumeEntries
+  nameWithType: LiveStreamBuffer.ConsumeEntries
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.ConsumeEntries
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamBuffer_Stop
+  name: Stop
+  nameWithType: LiveStreamBuffer.Stop
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.Stop

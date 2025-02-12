@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  id: XmpWritebackMergeMode
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MappingOnly
+  - Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MergeWithOriginal
+  langs:
+  - csharp
+  - vb
+  name: XmpWritebackMergeMode
+  nameWithType: XmpWritebackMergeMode
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: XmpWritebackMergeMode
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17521
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Defines how data from XmpMappings interacts with unaltered Xmp data
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum XmpWritebackMergeMode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum XmpWritebackMergeMode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MappingOnly
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MappingOnly
+  id: MappingOnly
+  parent: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  langs:
+  - csharp
+  - vb
+  name: MappingOnly
+  nameWithType: XmpWritebackMergeMode.MappingOnly
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MappingOnly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MappingOnly
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17525
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MappingOnly")]
+
+      MappingOnly = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+    content.vb: >-
+      <EnumMember(Value:="MappingOnly")>
+
+      MappingOnly = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MappingOnly
+- uid: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MergeWithOriginal
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MergeWithOriginal
+  id: MergeWithOriginal
+  parent: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  langs:
+  - csharp
+  - vb
+  name: MergeWithOriginal
+  nameWithType: XmpWritebackMergeMode.MergeWithOriginal
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.MergeWithOriginal
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MergeWithOriginal
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17528
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MergeWithOriginal")]
+
+      MergeWithOriginal = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+    content.vb: >-
+      <EnumMember(Value:="MergeWithOriginal")>
+
+      MergeWithOriginal = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MergeWithOriginal
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode.html
+  name: XmpWritebackMergeMode
+  nameWithType: XmpWritebackMergeMode
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.XmpWritebackMergeMode
