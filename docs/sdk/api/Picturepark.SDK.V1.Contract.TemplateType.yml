@@ -1,0 +1,676 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.TemplateType
+  commentId: T:Picturepark.SDK.V1.Contract.TemplateType
+  id: TemplateType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.TemplateType.CommentNotificationMailItem
+  - Picturepark.SDK.V1.Contract.TemplateType.DashboardPage
+  - Picturepark.SDK.V1.Contract.TemplateType.NewUserRegisteredMail
+  - Picturepark.SDK.V1.Contract.TemplateType.NotificationMail
+  - Picturepark.SDK.V1.Contract.TemplateType.NotificationMailItem
+  - Picturepark.SDK.V1.Contract.TemplateType.ShareMail
+  - Picturepark.SDK.V1.Contract.TemplateType.ShareNotFoundPage
+  - Picturepark.SDK.V1.Contract.TemplateType.SharePage
+  - Picturepark.SDK.V1.Contract.TemplateType.UserEmailConflictSolvedMail
+  - Picturepark.SDK.V1.Contract.TemplateType.UserInvitationMail
+  - Picturepark.SDK.V1.Contract.TemplateType.UserLockedMail
+  - Picturepark.SDK.V1.Contract.TemplateType.UserReviewedMail
+  - Picturepark.SDK.V1.Contract.TemplateType.UserTriggeredDeactivationRequestMail
+  - Picturepark.SDK.V1.Contract.TemplateType.UserUnlockedMail
+  langs:
+  - csharp
+  - vb
+  name: TemplateType
+  nameWithType: TemplateType
+  fullName: Picturepark.SDK.V1.Contract.TemplateType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TemplateType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40222
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum TemplateType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum TemplateType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.TemplateType.ShareMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.ShareMail
+  id: ShareMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: ShareMail
+  nameWithType: TemplateType.ShareMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.ShareMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ShareMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40226
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ShareMail")]
+
+      ShareMail = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="ShareMail")>
+
+      ShareMail = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ShareMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.SharePage
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.SharePage
+  id: SharePage
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: SharePage
+  nameWithType: TemplateType.SharePage
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.SharePage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SharePage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40229
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SharePage")]
+
+      SharePage = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="SharePage")>
+
+      SharePage = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SharePage
+- uid: Picturepark.SDK.V1.Contract.TemplateType.NewUserRegisteredMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.NewUserRegisteredMail
+  id: NewUserRegisteredMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: NewUserRegisteredMail
+  nameWithType: TemplateType.NewUserRegisteredMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.NewUserRegisteredMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NewUserRegisteredMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40232
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NewUserRegisteredMail")]
+
+      NewUserRegisteredMail = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="NewUserRegisteredMail")>
+
+      NewUserRegisteredMail = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NewUserRegisteredMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.UserLockedMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.UserLockedMail
+  id: UserLockedMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: UserLockedMail
+  nameWithType: TemplateType.UserLockedMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.UserLockedMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserLockedMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40235
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserLockedMail")]
+
+      UserLockedMail = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="UserLockedMail")>
+
+      UserLockedMail = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserLockedMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.UserUnlockedMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.UserUnlockedMail
+  id: UserUnlockedMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: UserUnlockedMail
+  nameWithType: TemplateType.UserUnlockedMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.UserUnlockedMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserUnlockedMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40238
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserUnlockedMail")]
+
+      UserUnlockedMail = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="UserUnlockedMail")>
+
+      UserUnlockedMail = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserUnlockedMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.UserReviewedMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.UserReviewedMail
+  id: UserReviewedMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: UserReviewedMail
+  nameWithType: TemplateType.UserReviewedMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.UserReviewedMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserReviewedMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40241
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserReviewedMail")]
+
+      UserReviewedMail = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="UserReviewedMail")>
+
+      UserReviewedMail = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserReviewedMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.UserInvitationMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.UserInvitationMail
+  id: UserInvitationMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: UserInvitationMail
+  nameWithType: TemplateType.UserInvitationMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.UserInvitationMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserInvitationMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40244
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserInvitationMail")]
+
+      UserInvitationMail = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="UserInvitationMail")>
+
+      UserInvitationMail = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserInvitationMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.ShareNotFoundPage
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.ShareNotFoundPage
+  id: ShareNotFoundPage
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: ShareNotFoundPage
+  nameWithType: TemplateType.ShareNotFoundPage
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.ShareNotFoundPage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ShareNotFoundPage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40247
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ShareNotFoundPage")]
+
+      ShareNotFoundPage = 7
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="ShareNotFoundPage")>
+
+      ShareNotFoundPage = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ShareNotFoundPage
+- uid: Picturepark.SDK.V1.Contract.TemplateType.UserTriggeredDeactivationRequestMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.UserTriggeredDeactivationRequestMail
+  id: UserTriggeredDeactivationRequestMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: UserTriggeredDeactivationRequestMail
+  nameWithType: TemplateType.UserTriggeredDeactivationRequestMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.UserTriggeredDeactivationRequestMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserTriggeredDeactivationRequestMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40250
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserTriggeredDeactivationRequestMail")]
+
+      UserTriggeredDeactivationRequestMail = 8
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="UserTriggeredDeactivationRequestMail")>
+
+      UserTriggeredDeactivationRequestMail = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserTriggeredDeactivationRequestMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.UserEmailConflictSolvedMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.UserEmailConflictSolvedMail
+  id: UserEmailConflictSolvedMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: UserEmailConflictSolvedMail
+  nameWithType: TemplateType.UserEmailConflictSolvedMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.UserEmailConflictSolvedMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserEmailConflictSolvedMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40253
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserEmailConflictSolvedMail")]
+
+      UserEmailConflictSolvedMail = 9
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="UserEmailConflictSolvedMail")>
+
+      UserEmailConflictSolvedMail = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserEmailConflictSolvedMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.NotificationMail
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.NotificationMail
+  id: NotificationMail
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: NotificationMail
+  nameWithType: TemplateType.NotificationMail
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.NotificationMail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotificationMail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40256
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NotificationMail")]
+
+      NotificationMail = 10
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="NotificationMail")>
+
+      NotificationMail = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NotificationMail
+- uid: Picturepark.SDK.V1.Contract.TemplateType.NotificationMailItem
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.NotificationMailItem
+  id: NotificationMailItem
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: NotificationMailItem
+  nameWithType: TemplateType.NotificationMailItem
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.NotificationMailItem
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotificationMailItem
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40259
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NotificationMailItem")]
+
+      NotificationMailItem = 11
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="NotificationMailItem")>
+
+      NotificationMailItem = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NotificationMailItem
+- uid: Picturepark.SDK.V1.Contract.TemplateType.DashboardPage
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.DashboardPage
+  id: DashboardPage
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: DashboardPage
+  nameWithType: TemplateType.DashboardPage
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.DashboardPage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DashboardPage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40262
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DashboardPage")]
+
+      DashboardPage = 12
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="DashboardPage")>
+
+      DashboardPage = 12
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DashboardPage
+- uid: Picturepark.SDK.V1.Contract.TemplateType.CommentNotificationMailItem
+  commentId: F:Picturepark.SDK.V1.Contract.TemplateType.CommentNotificationMailItem
+  id: CommentNotificationMailItem
+  parent: Picturepark.SDK.V1.Contract.TemplateType
+  langs:
+  - csharp
+  - vb
+  name: CommentNotificationMailItem
+  nameWithType: TemplateType.CommentNotificationMailItem
+  fullName: Picturepark.SDK.V1.Contract.TemplateType.CommentNotificationMailItem
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CommentNotificationMailItem
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40265
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CommentNotificationMailItem")]
+
+      CommentNotificationMailItem = 13
+    return:
+      type: Picturepark.SDK.V1.Contract.TemplateType
+    content.vb: >-
+      <EnumMember(Value:="CommentNotificationMailItem")>
+
+      CommentNotificationMailItem = 13
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CommentNotificationMailItem
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.TemplateType
+  commentId: T:Picturepark.SDK.V1.Contract.TemplateType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TemplateType.html
+  name: TemplateType
+  nameWithType: TemplateType
+  fullName: Picturepark.SDK.V1.Contract.TemplateType

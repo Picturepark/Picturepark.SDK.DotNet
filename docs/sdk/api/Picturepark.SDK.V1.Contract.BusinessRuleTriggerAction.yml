@@ -1,0 +1,256 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  id: BusinessRuleTriggerAction
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Create
+  - Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.FileReplacement
+  - Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Schedule
+  - Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Update
+  langs:
+  - csharp
+  - vb
+  name: BusinessRuleTriggerAction
+  nameWithType: BusinessRuleTriggerAction
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessRuleTriggerAction
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 14064
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum BusinessRuleTriggerAction
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum BusinessRuleTriggerAction
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Create
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Create
+  id: Create
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  langs:
+  - csharp
+  - vb
+  name: Create
+  nameWithType: BusinessRuleTriggerAction.Create
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Create
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Create
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 14068
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Create")]
+
+      Create = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+    content.vb: >-
+      <EnumMember(Value:="Create")>
+
+      Create = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Create
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Update
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Update
+  id: Update
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  langs:
+  - csharp
+  - vb
+  name: Update
+  nameWithType: BusinessRuleTriggerAction.Update
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Update
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Update
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 14071
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Update")]
+
+      Update = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+    content.vb: >-
+      <EnumMember(Value:="Update")>
+
+      Update = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Update
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.FileReplacement
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.FileReplacement
+  id: FileReplacement
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  langs:
+  - csharp
+  - vb
+  name: FileReplacement
+  nameWithType: BusinessRuleTriggerAction.FileReplacement
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.FileReplacement
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FileReplacement
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 14074
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "FileReplacement")]
+
+      FileReplacement = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+    content.vb: >-
+      <EnumMember(Value:="FileReplacement")>
+
+      FileReplacement = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: FileReplacement
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Schedule
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Schedule
+  id: Schedule
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  langs:
+  - csharp
+  - vb
+  name: Schedule
+  nameWithType: BusinessRuleTriggerAction.Schedule
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.Schedule
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Schedule
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 14077
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Schedule")]
+
+      Schedule = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+    content.vb: >-
+      <EnumMember(Value:="Schedule")>
+
+      Schedule = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Schedule
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction.html
+  name: BusinessRuleTriggerAction
+  nameWithType: BusinessRuleTriggerAction
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerAction

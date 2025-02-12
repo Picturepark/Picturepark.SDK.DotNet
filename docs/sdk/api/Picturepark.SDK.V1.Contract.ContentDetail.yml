@@ -1,0 +1,2552 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ContentDetail
+  commentId: T:Picturepark.SDK.V1.Contract.ContentDetail
+  id: ContentDetail
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ContentDetail.Activity
+  - Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem``1
+  - Picturepark.SDK.V1.Contract.ContentDetail.Audit
+  - Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds
+  - Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds
+  - Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds
+  - Picturepark.SDK.V1.Contract.ContentDetail.Content
+  - Picturepark.SDK.V1.Contract.ContentDetail.ContentAs``1
+  - Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds
+  - Picturepark.SDK.V1.Contract.ContentDetail.ContentRights
+  - Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId
+  - Picturepark.SDK.V1.Contract.ContentDetail.ContentType
+  - Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId
+  - Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs
+  - Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues
+  - Picturepark.SDK.V1.Contract.ContentDetail.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata
+  - Picturepark.SDK.V1.Contract.ContentDetail.HasLayer(System.String)
+  - Picturepark.SDK.V1.Contract.ContentDetail.HasLayer``1
+  - Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount
+  - Picturepark.SDK.V1.Contract.ContentDetail.Id
+  - Picturepark.SDK.V1.Contract.ContentDetail.Layer(System.String)
+  - Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues(System.String)
+  - Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues``1
+  - Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds
+  - Picturepark.SDK.V1.Contract.ContentDetail.Layer``1(System.String)
+  - Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle
+  - Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  - Picturepark.SDK.V1.Contract.ContentDetail.Outputs
+  - Picturepark.SDK.V1.Contract.ContentDetail.Owner
+  - Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId
+  - Picturepark.SDK.V1.Contract.ContentDetail.ToJson
+  langs:
+  - csharp
+  - vb
+  name: ContentDetail
+  nameWithType: ContentDetail
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentDetail
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Content detail
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class ContentDetail
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class ContentDetail
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId
+  id: ContentSchemaId
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: ContentSchemaId
+  nameWithType: ContentDetail.ContentSchemaId
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentSchemaId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23159
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The ID of the content schema. The SchemaType of the specified schema must be Content.
+
+    <br />The schema specifies the structure of the Content dictionary.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentSchemaId", Required = Required.Always)]
+
+      [Required]
+
+      public string ContentSchemaId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("contentSchemaId", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property ContentSchemaId As String
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentSchemaId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds
+  id: LayerSchemaIds
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: LayerSchemaIds
+  nameWithType: ContentDetail.LayerSchemaIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerSchemaIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23167
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    An optional list of IDs of the schemas that form the layers of the content.
+
+    <br />The SchemaType of the specified schemas must be Layer.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("layerSchemaIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> LayerSchemaIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("layerSchemaIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property LayerSchemaIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: layerSchemaIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds
+  id: BrokenReferenceIds
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: BrokenReferenceIds
+  nameWithType: ContentDetail.BrokenReferenceIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BrokenReferenceIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23173
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: All the IDs of the referenced list items (tagboxes) that do not exist in the system.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("brokenReferenceIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> BrokenReferenceIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("brokenReferenceIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property BrokenReferenceIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: brokenReferenceIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds
+  id: BrokenIndirectReferenceIds
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: BrokenIndirectReferenceIds
+  nameWithType: ContentDetail.BrokenIndirectReferenceIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BrokenIndirectReferenceIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23180
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.
+
+    <br />They are referenced list items that reference at least a list item that do not exist in the system.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("brokenIndirectReferenceIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [Obsolete("No longer set by the system, will be removed in the future.")]
+
+      public ICollection<string> BrokenIndirectReferenceIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("brokenIndirectReferenceIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <Obsolete("No longer set by the system, will be removed in the future.")>
+
+      Public Property BrokenIndirectReferenceIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: brokenIndirectReferenceIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: No longer set by the system, will be removed in the future.
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds
+  id: BrokenRelationTargetIds
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: BrokenRelationTargetIds
+  nameWithType: ContentDetail.BrokenRelationTargetIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BrokenRelationTargetIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23187
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: All the IDs of the contents or list items target of a relation that do not exist in the system.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("brokenRelationTargetIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> BrokenRelationTargetIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("brokenRelationTargetIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property BrokenRelationTargetIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: brokenRelationTargetIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Content
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Content
+  id: Content
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ContentDetail.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Content
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Content
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23194
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified.
+
+    <br />by the ContentSchemaId property.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("content", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public object Content { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: >-
+      <JsonProperty("content", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Content As Object
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Content*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: content
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  id: Metadata
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: ContentDetail.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Metadata
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23201
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+
+    <br />by the LayerSchemaIds property.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("metadata", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public IDictionary<string, object> Metadata { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IDictionary{System.String,System.Object}
+    content.vb: >-
+      <JsonProperty("metadata", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Metadata As IDictionary(Of String, Object)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Metadata*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: metadata
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Id
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Id
+  id: Id
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ContentDetail.Id
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Id
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Id
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23207
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The content ID.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("id", Required = Required.Always)]
+
+      [Required]
+
+      public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("id", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Id As String
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds
+  id: ContentPermissionSetIds
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionSetIds
+  nameWithType: ContentDetail.ContentPermissionSetIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionSetIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23214
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentPermissionSetIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> ContentPermissionSetIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("contentPermissionSetIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ContentPermissionSetIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentPermissionSetIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Outputs
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Outputs
+  id: Outputs
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Outputs
+  nameWithType: ContentDetail.Outputs
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Outputs
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Outputs
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23221
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The Outputs generated from the content. They identifies the rendered files generated by the system.
+
+    <br />They are available only for file base contents, and they depends on the output formats configured in the system.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("outputs", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<Output> Outputs { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+    content.vb: >-
+      <JsonProperty("outputs", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Outputs As ICollection(Of Output)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Outputs*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: outputs
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId
+  id: DisplayContentId
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: DisplayContentId
+  nameWithType: ContentDetail.DisplayContentId
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayContentId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23227
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The id of related DisplayContent
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("displayContentId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DisplayContentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("displayContentId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DisplayContentId As String
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: displayContentId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs
+  id: DisplayContentOutputs
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: DisplayContentOutputs
+  nameWithType: ContentDetail.DisplayContentOutputs
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayContentOutputs
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23233
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The Outputs generated from the display content.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("displayContentOutputs", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<Output> DisplayContentOutputs { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+    content.vb: >-
+      <JsonProperty("displayContentOutputs", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DisplayContentOutputs As ICollection(Of Output)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: displayContentOutputs
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Audit
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Audit
+  id: Audit
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Audit
+  nameWithType: ContentDetail.Audit
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Audit
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Audit
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23239
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Audit information.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("audit", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public UserAuditDetail Audit { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UserAuditDetail
+    content.vb: >-
+      <JsonProperty("audit", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Audit As UserAuditDetail
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Audit*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: audit
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId
+  id: OwnerTokenId
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: OwnerTokenId
+  nameWithType: ContentDetail.OwnerTokenId
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OwnerTokenId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23245
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The owner token ID. Defines the content owner.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("ownerTokenId", Required = Required.Always)]
+
+      [Required]
+
+      public string OwnerTokenId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("ownerTokenId", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property OwnerTokenId As String
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ownerTokenId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Owner
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Owner
+  id: Owner
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: ContentDetail.Owner
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Owner
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Owner
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23252
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The resolved owner.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("owner", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public User Owner { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.User
+    content.vb: >-
+      <JsonProperty("owner", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Owner As User
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Owner*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: owner
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentType
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.ContentType
+  id: ContentType
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: ContentType
+  nameWithType: ContentDetail.ContentType
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23258
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Content type.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentType", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public ContentType ContentType { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentType
+    content.vb: >-
+      <JsonProperty("contentType", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property ContentType As ContentType
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.ContentType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentType
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues
+  id: DisplayValues
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: DisplayValues
+  nameWithType: ContentDetail.DisplayValues
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayValues
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23266
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("displayValues", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public DisplayValueDictionary DisplayValues { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+    content.vb: >-
+      <JsonProperty("displayValues", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DisplayValues As DisplayValueDictionary
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: displayValues
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle
+  id: LifeCycle
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: LifeCycle
+  nameWithType: ContentDetail.LifeCycle
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LifeCycle
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23272
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The actual lifecycle value of the content. Becomes Inactive when the content is deleted.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("lifeCycle", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public LifeCycle LifeCycle { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.LifeCycle
+    content.vb: >-
+      <JsonProperty("lifeCycle", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property LifeCycle As LifeCycle
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lifeCycle
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentRights
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.ContentRights
+  id: ContentRights
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: ContentRights
+  nameWithType: ContentDetail.ContentRights
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentRights
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentRights
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23280
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: List of content rights the user has on this content
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentRights", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
+
+      public ICollection<ContentRight> ContentRights { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentRight}
+    content.vb: >-
+      <JsonProperty("contentRights", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore, ItemConverterType:=GetType(StringEnumConverter))>
+
+      Public Property ContentRights As ICollection(Of ContentRight)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.ContentRights*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentRights
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+    - name: ItemConverterType
+      type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Activity
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Activity
+  id: Activity
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Activity
+  nameWithType: ContentDetail.Activity
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Activity
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Activity
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23286
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: 'Activity information: dynamically mapped from configured metadata fields or from audit information if no mapping is configured.'
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("activity", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public Activity Activity { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.Activity
+    content.vb: >-
+      <JsonProperty("activity", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Activity As Activity
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Activity*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: activity
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount
+  id: HistoricVersionCount
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: HistoricVersionCount
+  nameWithType: ContentDetail.HistoricVersionCount
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HistoricVersionCount
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23297
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    The number of historized versions of the content. Contains null if
+
+    <br />(i) not requested by using HistoricVersionCount resolve behavior,
+
+    <br />(ii) user lacks ManageHistoricVersions right on the content,
+
+    <br />(iii) user lacks ManageContent user right,
+
+    <br />(iv) historic versioning is disabled or
+
+    <br />(v) content is a virtual item (ContentType is Virtual).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("historicVersionCount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public int? HistoricVersionCount { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: >-
+      <JsonProperty("historicVersionCount", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property HistoricVersionCount As Integer?
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: historicVersionCount
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: ContentDetail.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23300
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.ToJson*
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: ContentDetail.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23306
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static ContentDetail FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentDetail
+    content.vb: Public Shared Function FromJson(data As String) As ContentDetail
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.FromJson*
+  nameWithType.vb: ContentDetail.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.FromJson(String)
+  name.vb: FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata
+  id: GetFileMetadata
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: GetFileMetadata()
+  nameWithType: ContentDetail.GetFileMetadata()
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetFileMetadata
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets the content detail's file metadata.
+  example: []
+  syntax:
+    content: public FileMetadata GetFileMetadata()
+    return:
+      type: Picturepark.SDK.V1.Contract.FileMetadata
+      description: The file metadata.
+    content.vb: Public Function GetFileMetadata() As FileMetadata
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata*
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem``1
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem``1
+  id: AsContentItem``1
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: AsContentItem<T>()
+  nameWithType: ContentDetail.AsContentItem<T>()
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AsContentItem
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 18
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Creates a typed content item wrapped in a ContentItem container.
+  example: []
+  syntax:
+    content: public ContentItem<T> AsContentItem<T>()
+    typeParameters:
+    - id: T
+      description: The content item type.
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentItem{{T}}
+      description: The content item.
+    content.vb: Public Function AsContentItem(Of T)() As ContentItem(Of T)
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem*
+  nameWithType.vb: ContentDetail.AsContentItem(Of T)()
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem(Of T)()
+  name.vb: AsContentItem(Of T)()
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentAs``1
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.ContentAs``1
+  id: ContentAs``1
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: ContentAs<T>()
+  nameWithType: ContentDetail.ContentAs<T>()
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentAs<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentAs
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 44
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Returns content deserialized into the requested class
+  example: []
+  syntax:
+    content: public T ContentAs<T>()
+    typeParameters:
+    - id: T
+      description: Content type
+    return:
+      type: '{T}'
+      description: Deserialized content
+    content.vb: Public Function ContentAs(Of T)() As T
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.ContentAs*
+  nameWithType.vb: ContentDetail.ContentAs(Of T)()
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.ContentAs(Of T)()
+  name.vb: ContentAs(Of T)()
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Layer``1(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.Layer``1(System.String)
+  id: Layer``1(System.String)
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Layer<T>(string)
+  nameWithType: ContentDetail.Layer<T>(string)
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Layer<T>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Layer
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 53
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Returns layer from <xref href="Picturepark.SDK.V1.Contract.ContentDetail.Metadata" data-throw-if-not-resolved="false"></xref> deserialized into a custom type.
+  example: []
+  syntax:
+    content: public T Layer<T>(string schemaId = null)
+    parameters:
+    - id: schemaId
+      type: System.String
+      description: >-
+        Optional ID of the layer within the metadata dictionary. If not provided, it will be determined by schema ID defined in PictureparkSchemaAttribute on the layer class (if applied)
+            or the name of the type. Anonymous classes are naturally not supported.
+    typeParameters:
+    - id: T
+      description: Type representing the layer
+    return:
+      type: '{T}'
+      description: Layer metadata
+    content.vb: Public Function Layer(Of T)(schemaId As String = Nothing) As T
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Layer*
+  nameWithType.vb: ContentDetail.Layer(Of T)(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.Layer(Of T)(String)
+  name.vb: Layer(Of T)(String)
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Layer(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.Layer(System.String)
+  id: Layer(System.String)
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: Layer(string)
+  nameWithType: ContentDetail.Layer(string)
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Layer(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Layer
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 64
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Returns layer from <xref href="Picturepark.SDK.V1.Contract.ContentDetail.Metadata" data-throw-if-not-resolved="false"></xref> based on a schema ID.
+  example: []
+  syntax:
+    content: public JObject Layer(string schemaId)
+    parameters:
+    - id: schemaId
+      type: System.String
+      description: Schema ID of the layer within the metadata dictionary.
+    return:
+      type: Newtonsoft.Json.Linq.JObject
+      description: Layer metadata
+    content.vb: Public Function Layer(schemaId As String) As JObject
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.Layer*
+  nameWithType.vb: ContentDetail.Layer(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.Layer(String)
+  name.vb: Layer(String)
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer``1
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.HasLayer``1
+  id: HasLayer``1
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: HasLayer<T>()
+  nameWithType: ContentDetail.HasLayer<T>()
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HasLayer
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 72
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Tests if a layer is present in <xref href="Picturepark.SDK.V1.Contract.ContentDetail.Metadata" data-throw-if-not-resolved="false"></xref> dictionary.
+  example: []
+  syntax:
+    content: public bool HasLayer<T>()
+    typeParameters:
+    - id: T
+      description: Type representing the layer
+    return:
+      type: System.Boolean
+      description: True if the layer representing the type T is present in metadata dictionary, false otherwise.
+    content.vb: Public Function HasLayer(Of T)() As Boolean
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer*
+  nameWithType.vb: ContentDetail.HasLayer(Of T)()
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer(Of T)()
+  name.vb: HasLayer(Of T)()
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.HasLayer(System.String)
+  id: HasLayer(System.String)
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: HasLayer(string)
+  nameWithType: ContentDetail.HasLayer(string)
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HasLayer
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 79
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Tests if a layer is present in <xref href="Picturepark.SDK.V1.Contract.ContentDetail.Metadata" data-throw-if-not-resolved="false"></xref> dictionary.
+  example: []
+  syntax:
+    content: public bool HasLayer(string schemaId)
+    parameters:
+    - id: schemaId
+      type: System.String
+      description: OSchema ID of the layer within the metadata dictionary.
+    return:
+      type: System.Boolean
+      description: True if the layer with the provided schema ID is present in metadata dictionary, false otherwise.
+    content.vb: Public Function HasLayer(schemaId As String) As Boolean
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer*
+  nameWithType.vb: ContentDetail.HasLayer(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer(String)
+  name.vb: HasLayer(String)
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues``1
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues``1
+  id: LayerDisplayValues``1
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: LayerDisplayValues<T>()
+  nameWithType: ContentDetail.LayerDisplayValues<T>()
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerDisplayValues
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 86
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Deserializes the values for the specified layer and gets the display values.
+  example: []
+  syntax:
+    content: public DisplayValueDictionary LayerDisplayValues<T>()
+    typeParameters:
+    - id: T
+      description: Type representing the layer
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+      description: Deserialized display values for the layer
+    content.vb: Public Function LayerDisplayValues(Of T)() As DisplayValueDictionary
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues*
+  nameWithType.vb: ContentDetail.LayerDisplayValues(Of T)()
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues(Of T)()
+  name.vb: LayerDisplayValues(Of T)()
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues(System.String)
+  id: LayerDisplayValues(System.String)
+  parent: Picturepark.SDK.V1.Contract.ContentDetail
+  langs:
+  - csharp
+  - vb
+  name: LayerDisplayValues(string)
+  nameWithType: ContentDetail.LayerDisplayValues(string)
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerDisplayValues
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentDetail.cs
+    startLine: 94
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Deserializes the values for the specified layer and gets the display values.
+  example: []
+  syntax:
+    content: public DisplayValueDictionary LayerDisplayValues(string schemaId)
+    parameters:
+    - id: schemaId
+      type: System.String
+      description: Layer schema ID
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+      description: Deserialized display values for the layer
+    content.vb: Public Function LayerDisplayValues(schemaId As String) As DisplayValueDictionary
+  overload: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues*
+  nameWithType.vb: ContentDetail.LayerDisplayValues(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues(String)
+  name.vb: LayerDisplayValues(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_ContentSchemaId
+  name: ContentSchemaId
+  nameWithType: ContentDetail.ContentSchemaId
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentSchemaId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_LayerSchemaIds
+  name: LayerSchemaIds
+  nameWithType: ContentDetail.LayerSchemaIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LayerSchemaIds
+- uid: System.Collections.Generic.ICollection{System.String}
+  commentId: T:System.Collections.Generic.ICollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<string>
+  nameWithType: ICollection<string>
+  fullName: System.Collections.Generic.ICollection<string>
+  nameWithType.vb: ICollection(Of String)
+  fullName.vb: System.Collections.Generic.ICollection(Of String)
+  name.vb: ICollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_BrokenReferenceIds
+  name: BrokenReferenceIds
+  nameWithType: ContentDetail.BrokenReferenceIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.BrokenReferenceIds
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_BrokenIndirectReferenceIds
+  name: BrokenIndirectReferenceIds
+  nameWithType: ContentDetail.BrokenIndirectReferenceIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.BrokenIndirectReferenceIds
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_BrokenRelationTargetIds
+  name: BrokenRelationTargetIds
+  nameWithType: ContentDetail.BrokenRelationTargetIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.BrokenRelationTargetIds
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Content*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Content
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Content
+  name: Content
+  nameWithType: ContentDetail.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Content
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Metadata*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Metadata
+  name: Metadata
+  nameWithType: ContentDetail.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+- uid: System.Collections.Generic.IDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, object>
+  nameWithType: IDictionary<string, object>
+  fullName: System.Collections.Generic.IDictionary<string, object>
+  nameWithType.vb: IDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, Object)
+  name.vb: IDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Id*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Id
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Id
+  name: Id
+  nameWithType: ContentDetail.Id
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Id
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_ContentPermissionSetIds
+  name: ContentPermissionSetIds
+  nameWithType: ContentDetail.ContentPermissionSetIds
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentPermissionSetIds
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Outputs*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Outputs
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Outputs
+  name: Outputs
+  nameWithType: ContentDetail.Outputs
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Outputs
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Output}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<Output>
+  nameWithType: ICollection<Output>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.Output>
+  nameWithType.vb: ICollection(Of Output)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.Output)
+  name.vb: ICollection(Of Output)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Output
+    name: Output
+    href: Picturepark.SDK.V1.Contract.Output.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Output
+    name: Output
+    href: Picturepark.SDK.V1.Contract.Output.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_DisplayContentId
+  name: DisplayContentId
+  nameWithType: ContentDetail.DisplayContentId
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentId
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_DisplayContentOutputs
+  name: DisplayContentOutputs
+  nameWithType: ContentDetail.DisplayContentOutputs
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.DisplayContentOutputs
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Audit*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Audit
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Audit
+  name: Audit
+  nameWithType: ContentDetail.Audit
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Audit
+- uid: Picturepark.SDK.V1.Contract.UserAuditDetail
+  commentId: T:Picturepark.SDK.V1.Contract.UserAuditDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserAuditDetail.html
+  name: UserAuditDetail
+  nameWithType: UserAuditDetail
+  fullName: Picturepark.SDK.V1.Contract.UserAuditDetail
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_OwnerTokenId
+  name: OwnerTokenId
+  nameWithType: ContentDetail.OwnerTokenId
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.OwnerTokenId
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Owner*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Owner
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Owner
+  name: Owner
+  nameWithType: ContentDetail.Owner
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Owner
+- uid: Picturepark.SDK.V1.Contract.User
+  commentId: T:Picturepark.SDK.V1.Contract.User
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.User.html
+  name: User
+  nameWithType: User
+  fullName: Picturepark.SDK.V1.Contract.User
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.ContentType
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_ContentType
+  name: ContentType
+  nameWithType: ContentDetail.ContentType
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentType
+- uid: Picturepark.SDK.V1.Contract.ContentType
+  commentId: T:Picturepark.SDK.V1.Contract.ContentType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentType.html
+  name: ContentType
+  nameWithType: ContentType
+  fullName: Picturepark.SDK.V1.Contract.ContentType
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_DisplayValues
+  name: DisplayValues
+  nameWithType: ContentDetail.DisplayValues
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.DisplayValues
+- uid: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+  commentId: T:Picturepark.SDK.V1.Contract.DisplayValueDictionary
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DisplayValueDictionary.html
+  name: DisplayValueDictionary
+  nameWithType: DisplayValueDictionary
+  fullName: Picturepark.SDK.V1.Contract.DisplayValueDictionary
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_LifeCycle
+  name: LifeCycle
+  nameWithType: ContentDetail.LifeCycle
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LifeCycle
+- uid: Picturepark.SDK.V1.Contract.LifeCycle
+  commentId: T:Picturepark.SDK.V1.Contract.LifeCycle
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.LifeCycle.html
+  name: LifeCycle
+  nameWithType: LifeCycle
+  fullName: Picturepark.SDK.V1.Contract.LifeCycle
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentRights*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.ContentRights
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_ContentRights
+  name: ContentRights
+  nameWithType: ContentDetail.ContentRights
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentRights
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentRight}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentRight}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<ContentRight>
+  nameWithType: ICollection<ContentRight>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.ContentRight>
+  nameWithType.vb: ICollection(Of ContentRight)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.ContentRight)
+  name.vb: ICollection(Of ContentRight)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ContentRight
+    name: ContentRight
+    href: Picturepark.SDK.V1.Contract.ContentRight.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ContentRight
+    name: ContentRight
+    href: Picturepark.SDK.V1.Contract.ContentRight.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Activity*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Activity
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Activity
+  name: Activity
+  nameWithType: ContentDetail.Activity
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Activity
+- uid: Picturepark.SDK.V1.Contract.Activity
+  commentId: T:Picturepark.SDK.V1.Contract.Activity
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Activity.html
+  name: Activity
+  nameWithType: Activity
+  fullName: Picturepark.SDK.V1.Contract.Activity
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_HistoricVersionCount
+  name: HistoricVersionCount
+  nameWithType: ContentDetail.HistoricVersionCount
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.HistoricVersionCount
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.ToJson
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_ToJson
+  name: ToJson
+  nameWithType: ContentDetail.ToJson
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ToJson
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.FromJson
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_FromJson_System_String_
+  name: FromJson
+  nameWithType: ContentDetail.FromJson
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.FromJson
+- uid: Picturepark.SDK.V1.Contract.ContentDetail
+  commentId: T:Picturepark.SDK.V1.Contract.ContentDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html
+  name: ContentDetail
+  nameWithType: ContentDetail
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_GetFileMetadata
+  name: GetFileMetadata
+  nameWithType: ContentDetail.GetFileMetadata
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.GetFileMetadata
+- uid: Picturepark.SDK.V1.Contract.FileMetadata
+  commentId: T:Picturepark.SDK.V1.Contract.FileMetadata
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FileMetadata.html
+  name: FileMetadata
+  nameWithType: FileMetadata
+  fullName: Picturepark.SDK.V1.Contract.FileMetadata
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_AsContentItem__1
+  name: AsContentItem
+  nameWithType: ContentDetail.AsContentItem
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.AsContentItem
+- uid: Picturepark.SDK.V1.Contract.ContentItem{{T}}
+  commentId: T:Picturepark.SDK.V1.Contract.ContentItem{``0}
+  parent: Picturepark.SDK.V1.Contract
+  definition: Picturepark.SDK.V1.Contract.ContentItem`1
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html
+  name: ContentItem<T>
+  nameWithType: ContentItem<T>
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>
+  nameWithType.vb: ContentItem(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T)
+  name.vb: ContentItem(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.ContentItem`1
+    name: ContentItem
+    href: Picturepark.SDK.V1.Contract.ContentItem-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.ContentItem`1
+    name: ContentItem
+    href: Picturepark.SDK.V1.Contract.ContentItem-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentItem`1
+  commentId: T:Picturepark.SDK.V1.Contract.ContentItem`1
+  href: Picturepark.SDK.V1.Contract.ContentItem-1.html
+  name: ContentItem<T>
+  nameWithType: ContentItem<T>
+  fullName: Picturepark.SDK.V1.Contract.ContentItem<T>
+  nameWithType.vb: ContentItem(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.ContentItem(Of T)
+  name.vb: ContentItem(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.ContentItem`1
+    name: ContentItem
+    href: Picturepark.SDK.V1.Contract.ContentItem-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.ContentItem`1
+    name: ContentItem
+    href: Picturepark.SDK.V1.Contract.ContentItem-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.ContentAs*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.ContentAs
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_ContentAs__1
+  name: ContentAs
+  nameWithType: ContentDetail.ContentAs
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.ContentAs
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  commentId: P:Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Metadata
+  name: Metadata
+  nameWithType: ContentDetail.Metadata
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Metadata
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.Layer*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.Layer
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_Layer__1_System_String_
+  name: Layer
+  nameWithType: ContentDetail.Layer
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.Layer
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.HasLayer
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_HasLayer__1
+  name: HasLayer
+  nameWithType: ContentDetail.HasLayer
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.HasLayer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues
+  href: Picturepark.SDK.V1.Contract.ContentDetail.html#Picturepark_SDK_V1_Contract_ContentDetail_LayerDisplayValues__1
+  name: LayerDisplayValues
+  nameWithType: ContentDetail.LayerDisplayValues
+  fullName: Picturepark.SDK.V1.Contract.ContentDetail.LayerDisplayValues

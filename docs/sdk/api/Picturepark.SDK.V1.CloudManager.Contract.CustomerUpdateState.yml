@@ -1,0 +1,306 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  id: CustomerUpdateState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Cancelled
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Draft
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Failed
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.InProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Succeeded
+  langs:
+  - csharp
+  - vb
+  name: CustomerUpdateState
+  nameWithType: CustomerUpdateState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerUpdateState
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20870
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum CustomerUpdateState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum CustomerUpdateState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Draft
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: CustomerUpdateState.Draft
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20874
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.InProgress
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.InProgress
+  id: InProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: CustomerUpdateState.InProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.InProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InProgress
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20877
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InProgress")]
+
+      InProgress = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+    content.vb: >-
+      <EnumMember(Value:="InProgress")>
+
+      InProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Succeeded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Succeeded
+  id: Succeeded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Succeeded
+  nameWithType: CustomerUpdateState.Succeeded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Succeeded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Succeeded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20880
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Succeeded")]
+
+      Succeeded = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Succeeded")>
+
+      Succeeded = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Succeeded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Cancelled
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Cancelled
+  id: Cancelled
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: CustomerUpdateState.Cancelled
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Cancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cancelled
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20883
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cancelled")]
+
+      Cancelled = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Cancelled")>
+
+      Cancelled = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cancelled
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Failed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Failed
+  id: Failed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: CustomerUpdateState.Failed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.Failed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Failed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20886
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Failed")]
+
+      Failed = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Failed")>
+
+      Failed = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Failed
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState.html
+  name: CustomerUpdateState
+  nameWithType: CustomerUpdateState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateState

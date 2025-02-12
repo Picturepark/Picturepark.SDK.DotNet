@@ -1,0 +1,130 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.LeaseResourceType
+  commentId: T:Picturepark.SDK.V1.Contract.LeaseResourceType
+  id: LeaseResourceType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.LeaseResourceType.SchemaEditing
+  langs:
+  - csharp
+  - vb
+  name: LeaseResourceType
+  nameWithType: LeaseResourceType
+  fullName: Picturepark.SDK.V1.Contract.LeaseResourceType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LeaseResourceType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 7579
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum LeaseResourceType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum LeaseResourceType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.LeaseResourceType.SchemaEditing
+  commentId: F:Picturepark.SDK.V1.Contract.LeaseResourceType.SchemaEditing
+  id: SchemaEditing
+  parent: Picturepark.SDK.V1.Contract.LeaseResourceType
+  langs:
+  - csharp
+  - vb
+  name: SchemaEditing
+  nameWithType: LeaseResourceType.SchemaEditing
+  fullName: Picturepark.SDK.V1.Contract.LeaseResourceType.SchemaEditing
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaEditing
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 7583
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SchemaEditing")]
+
+      SchemaEditing = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.LeaseResourceType
+    content.vb: >-
+      <EnumMember(Value:="SchemaEditing")>
+
+      SchemaEditing = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SchemaEditing
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.LeaseResourceType
+  commentId: T:Picturepark.SDK.V1.Contract.LeaseResourceType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.LeaseResourceType.html
+  name: LeaseResourceType
+  nameWithType: LeaseResourceType
+  fullName: Picturepark.SDK.V1.Contract.LeaseResourceType

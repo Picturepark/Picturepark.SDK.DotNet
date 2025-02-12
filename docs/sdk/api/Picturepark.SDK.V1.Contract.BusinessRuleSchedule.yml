@@ -1,0 +1,1034 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  id: BusinessRuleSchedule
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson
+  langs:
+  - csharp
+  - vb
+  name: BusinessRuleSchedule
+  nameWithType: BusinessRuleSchedule
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessRuleSchedule
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21059
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Schedules business rules to run on a regular time frame.
+
+    <br />Note: If schedules do not complete within 15 minutes, next execution will be skipped
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class BusinessRuleSchedule
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class BusinessRuleSchedule
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names
+  id: Names
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: Names
+  nameWithType: BusinessRuleSchedule.Names
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Names
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21065
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Language specific names.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("names", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public TranslatedStringDictionary Names { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+    content.vb: >-
+      <JsonProperty("names", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Names As TranslatedStringDictionary
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: names
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description
+  id: Description
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: BusinessRuleSchedule.Description
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Description
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21071
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Language specific description.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("description", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public TranslatedStringDictionary Description { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+    content.vb: >-
+      <JsonProperty("description", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Description As TranslatedStringDictionary
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: description
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression
+  id: CronExpression
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: CronExpression
+  nameWithType: BusinessRuleSchedule.CronExpression
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CronExpression
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21079
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Cron expression to specify run time.
+
+    <br />Refer to https://github.com/HangfireIO/Cronos#cron-format for reference.
+
+    <br />Minimum interval supported is 15 minutes.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("cronExpression", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string CronExpression { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("cronExpression", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property CronExpression As String
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: cronExpression
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds
+  id: RuleIds
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: RuleIds
+  nameWithType: BusinessRuleSchedule.RuleIds
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RuleIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21085
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: IDs of business rules to run during schedule, regardless of trigger point
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("ruleIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<string> RuleIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{System.String}
+    content.vb: >-
+      <JsonProperty("ruleIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property RuleIds As ICollection(Of String)
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ruleIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType
+  id: DocType
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: DocType
+  nameWithType: BusinessRuleSchedule.DocType
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DocType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21091
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Doc type of items that should be loaded.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("docType", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public BusinessRuleTriggerDocType DocType { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleTriggerDocType
+    content.vb: >-
+      <JsonProperty("docType", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property DocType As BusinessRuleTriggerDocType
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: docType
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString
+  id: SearchString
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: SearchString
+  nameWithType: BusinessRuleSchedule.SearchString
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchString
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21099
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search string to apply when searching for items to load.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("searchString", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string SearchString { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("searchString", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property SearchString As String
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchString
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter
+  id: Filter
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: Filter
+  nameWithType: BusinessRuleSchedule.Filter
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Filter
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21105
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Filter to apply when searching for items to load.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("filter", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public FilterBase Filter { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.FilterBase
+    content.vb: >-
+      <JsonProperty("filter", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Filter As FilterBase
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: filter
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled
+  id: IsEnabled
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: BusinessRuleSchedule.IsEnabled
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IsEnabled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21111
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Indicates if schedule is enabled.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("isEnabled", Required = Required.Always)]
+
+      public bool IsEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("isEnabled", Required:=Required.Always)>
+
+      Public Property IsEnabled As Boolean
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: isEnabled
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: BusinessRuleSchedule.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21114
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson*
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: BusinessRuleSchedule.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 21120
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static BusinessRuleSchedule FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+    content.vb: Public Shared Function FromJson(data As String) As BusinessRuleSchedule
+  overload: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson*
+  nameWithType.vb: BusinessRuleSchedule.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_Names
+  name: Names
+  nameWithType: BusinessRuleSchedule.Names
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Names
+- uid: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+  commentId: T:Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TranslatedStringDictionary.html
+  name: TranslatedStringDictionary
+  nameWithType: TranslatedStringDictionary
+  fullName: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_Description
+  name: Description
+  nameWithType: BusinessRuleSchedule.Description
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Description
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_CronExpression
+  name: CronExpression
+  nameWithType: BusinessRuleSchedule.CronExpression
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.CronExpression
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_RuleIds
+  name: RuleIds
+  nameWithType: BusinessRuleSchedule.RuleIds
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.RuleIds
+- uid: System.Collections.Generic.ICollection{System.String}
+  commentId: T:System.Collections.Generic.ICollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<string>
+  nameWithType: ICollection<string>
+  fullName: System.Collections.Generic.ICollection<string>
+  nameWithType.vb: ICollection(Of String)
+  fullName.vb: System.Collections.Generic.ICollection(Of String)
+  name.vb: ICollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_DocType
+  name: DocType
+  nameWithType: BusinessRuleSchedule.DocType
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.DocType
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleTriggerDocType
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleTriggerDocType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessRuleTriggerDocType.html
+  name: BusinessRuleTriggerDocType
+  nameWithType: BusinessRuleTriggerDocType
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleTriggerDocType
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_SearchString
+  name: SearchString
+  nameWithType: BusinessRuleSchedule.SearchString
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.SearchString
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_Filter
+  name: Filter
+  nameWithType: BusinessRuleSchedule.Filter
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.Filter
+- uid: Picturepark.SDK.V1.Contract.FilterBase
+  commentId: T:Picturepark.SDK.V1.Contract.FilterBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FilterBase.html
+  name: FilterBase
+  nameWithType: FilterBase
+  fullName: Picturepark.SDK.V1.Contract.FilterBase
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_IsEnabled
+  name: IsEnabled
+  nameWithType: BusinessRuleSchedule.IsEnabled
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.IsEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_ToJson
+  name: ToJson
+  nameWithType: BusinessRuleSchedule.ToJson
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.ToJson
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html#Picturepark_SDK_V1_Contract_BusinessRuleSchedule_FromJson_System_String_
+  name: FromJson
+  nameWithType: BusinessRuleSchedule.FromJson
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.FromJson
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleSchedule
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html
+  name: BusinessRuleSchedule
+  nameWithType: BusinessRuleSchedule
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleSchedule

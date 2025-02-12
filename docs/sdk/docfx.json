@@ -3,21 +3,14 @@
     {
       "src": [
         {
-          "files": [
-            "Picturepark.SDK.V1/**/*.cs",
-            "Picturepark.SDK.V1.Contract/**/*.cs",
-            "Picturepark.SDK.V1.Localization/**/*.cs",
-            "Picturepark.SDK.V1.ServiceProvider/**/*.cs",
-            "Picturepark.SDK.V1.CloudManager/**/*.cs"
-          ],
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
-          ],
-          "cwd": "../../src"
+          "src": "../../src",
+          "exclude": [ "**/*.Tests.csproj" ],
+          "files": [ "**/*.csproj" ]
         }
       ],
-      "dest": "obj/api"
+      "dest": "api",
+      "disableDefaultFilter": true,
+      "disableGitFeatures": false
     }
   ],
   "build": {
@@ -28,10 +21,11 @@
     "content": [
       {
         "files": [
-          "**/*.yml"
+          "**/*.{md,yml}"
         ],
-        "cwd": "obj/api",
-        "dest": "api"
+        "exclude": [
+          "site/**"
+        ]
       },
       {
         "files": [
@@ -44,6 +38,6 @@
       "_appTitle": "Picturepark.SDK.V1 API",
       "_enableSearch": true
     },
-    "dest": "site"
+    "output": "site"
   }
 }

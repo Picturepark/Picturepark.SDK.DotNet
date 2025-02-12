@@ -1,0 +1,1886 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  commentId: T:Picturepark.SDK.V1.Contract.IOutputFormatClient
+  id: IOutputFormatClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync(Picturepark.SDK.V1.Contract.OutputFormat,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync(Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatEditable,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IOutputFormatClient
+  nameWithType: IOutputFormatClient
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IOutputFormatClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IOutputFormatClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IOutputFormatClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)
+  id: SetDownloadFileNamePatternsAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: SetDownloadFileNamePatternsAsync(string, IDictionary<string, string>, CancellationToken)
+  nameWithType: IOutputFormatClient.SetDownloadFileNamePatternsAsync(string, IDictionary<string, string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync(string, System.Collections.Generic.IDictionary<string, string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SetDownloadFileNamePatternsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2339
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Sets the download file name patterns for an output format
+  remarks: This is allowed for both static and dynamic formats. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> SetDownloadFileNamePatternsAsync(string id, IDictionary<string, string> patterns, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of the output format.
+    - id: patterns
+      type: System.Collections.Generic.IDictionary{System.String,System.String}
+      description: >-
+        Dictionary containing patterns per metadata language.
+            <br />If this is set, at least the customer's default language is required.
+            <br />Set any other language to an empty string and a fallback to the default language will occur.
+            <br />Set parameter to null to clear any already set patterns.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function SetDownloadFileNamePatternsAsync(id As String, patterns As IDictionary(Of String, String), cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IOutputFormatClient.SetDownloadFileNamePatternsAsync(String, IDictionary(Of String, String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync(String, System.Collections.Generic.IDictionary(Of String, String), System.Threading.CancellationToken)
+  name.vb: SetDownloadFileNamePatternsAsync(String, IDictionary(Of String, String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest,System.Threading.CancellationToken)
+  id: SetDownloadFileNamePatternsManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest, CancellationToken)
+  nameWithType: IOutputFormatClient.SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SetDownloadFileNamePatternsManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2357
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Sets the download file name patterns for multiple output formats
+  remarks: This is allowed for both static and dynamic formats. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest
+      description: The request containing the patterns for each output format.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function SetDownloadFileNamePatternsManyAsync(request As OutputFormatDownloadFileNamePatternUpdateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest,System.Threading.CancellationToken)
+  id: SetXmpWritebackStateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: SetXmpWritebackStateAsync(string, OutputFormatSetXmpWritebackStateRequest, CancellationToken)
+  nameWithType: IOutputFormatClient.SetXmpWritebackStateAsync(string, OutputFormatSetXmpWritebackStateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync(string, Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SetXmpWritebackStateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2377
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Enables or disables XMP writeback for an output format
+  remarks: >-
+    This is allowed for both static and dynamic formats.
+
+    <br />However, enabling XMP writeback for Thumbnail formats or temporary formats is not allowed. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> SetXmpWritebackStateAsync(string id, OutputFormatSetXmpWritebackStateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of the output format.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest
+      description: The request containing the state to be set for the output format.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function SetXmpWritebackStateAsync(id As String, request As OutputFormatSetXmpWritebackStateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IOutputFormatClient.SetXmpWritebackStateAsync(String, OutputFormatSetXmpWritebackStateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync(String, Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest, System.Threading.CancellationToken)
+  name.vb: SetXmpWritebackStateAsync(String, OutputFormatSetXmpWritebackStateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest,System.Threading.CancellationToken)
+  id: SetXmpWritebackStateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest, CancellationToken)
+  nameWithType: IOutputFormatClient.SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SetXmpWritebackStateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2396
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Enables or disables XMP writeback for multiple output formats
+  remarks: >-
+    This is allowed for both static and dynamic formats.
+
+    <br />However, enabling XMP writeback for Thumbnail formats or temporary formats is not allowed. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest
+      description: The request containing the state changes for each output format.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function SetXmpWritebackStateManyAsync(request As OutputFormatSetXmpWritebackStateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest,System.Threading.CancellationToken)
+  id: SetPermissionAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: SetPermissionAsync(string, OutputFormatSetPermissionRequest, CancellationToken)
+  nameWithType: IOutputFormatClient.SetPermissionAsync(string, OutputFormatSetPermissionRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync(string, Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SetPermissionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2415
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Updates permission-related settings for an output format
+  remarks: This is allowed for both static and dynamic formats. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> SetPermissionAsync(string id, OutputFormatSetPermissionRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of the output format.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest
+      description: The request containing the settings for the output format.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function SetPermissionAsync(id As String, request As OutputFormatSetPermissionRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IOutputFormatClient.SetPermissionAsync(String, OutputFormatSetPermissionRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync(String, Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest, System.Threading.CancellationToken)
+  name.vb: SetPermissionAsync(String, OutputFormatSetPermissionRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest,System.Threading.CancellationToken)
+  id: SetPermissionManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: SetPermissionManyAsync(OutputFormatSetPermissionManyRequest, CancellationToken)
+  nameWithType: IOutputFormatClient.SetPermissionManyAsync(OutputFormatSetPermissionManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SetPermissionManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2433
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Updates permission-related settings for multiple output formats
+  remarks: This is allowed for both static and dynamic formats. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> SetPermissionManyAsync(OutputFormatSetPermissionManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest
+      description: The request containing the state changes for each output format.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function SetPermissionManyAsync(request As OutputFormatSetPermissionManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync(Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync(Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest,System.Threading.CancellationToken)
+  id: RenderFormatPreviewAsync(Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest, CancellationToken)
+  nameWithType: IOutputFormatClient.RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync(Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RenderFormatPreviewAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2451
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Render output format preview
+  remarks: Request rendering of the given OutputFormat for a given content.
+  example: []
+  syntax:
+    content: Task<FileResponse> RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest
+      description: Information about the OutputFormat as well as which Content to use for the preview.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+      description: Rendered file
+    content.vb: Function RenderFormatPreviewAsync(request As OutputFormatRenderPreviewRequest, cancellationToken As CancellationToken = Nothing) As Task(Of FileResponse)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IOutputFormatClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2470
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple output formats
+  remarks: Gets multiple output format details by the output format IDs. Can fetch maximum of 100 output formats at once.
+  example: []
+  syntax:
+    content: Task<ICollection<OutputFormatDetail>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.OutputFormatDetail}}
+      description: Array of Represents an output format.
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of OutputFormatDetail))
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    description: List of IDs exceeded maximum size
+  nameWithType.vb: IOutputFormatClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IOutputFormatClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2488
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get output format
+  remarks: Gets the output format by the output format ID.
+  example: []
+  syntax:
+    content: Task<OutputFormatDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Output format ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.OutputFormatDetail}
+      description: Represents an output format.
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatDetail)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IOutputFormatClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync(System.Threading.CancellationToken)
+  id: GetAllAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: GetAllAsync(CancellationToken)
+  nameWithType: IOutputFormatClient.GetAllAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAllAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: Task<ICollection<OutputFormatDetail>> GetAllAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.OutputFormatDetail}}
+    content.vb: Function GetAllAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of OutputFormatDetail))
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync*
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync(Picturepark.SDK.V1.Contract.OutputFormat,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync(Picturepark.SDK.V1.Contract.OutputFormat,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.OutputFormat,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(OutputFormat, TimeSpan?, CancellationToken)
+  nameWithType: IOutputFormatClient.CreateAsync(OutputFormat, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync(Picturepark.SDK.V1.Contract.OutputFormat, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 22
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create output format
+  example: []
+  syntax:
+    content: Task<OutputFormatOperationResult> CreateAsync(OutputFormat request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormat
+      description: The request containing information needed to create new output format.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout for business process completion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult}
+      description: Output format
+    content.vb: Function CreateAsync(request As OutputFormat, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatEditable,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatEditable,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatEditable,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, OutputFormatEditable, TimeSpan?, CancellationToken)
+  nameWithType: IOutputFormatClient.UpdateAsync(string, OutputFormatEditable, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.OutputFormatEditable, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 35
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update output format
+  example: []
+  syntax:
+    content: Task<OutputFormatOperationResult> UpdateAsync(string id, OutputFormatEditable request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of output format to update
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatEditable
+      description: The request containing information needed to update the output format.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout for business process completion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult}
+      description: Business process
+    content.vb: Function UpdateAsync(id As String, request As OutputFormatEditable, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  nameWithType.vb: IOutputFormatClient.UpdateAsync(String, OutputFormatEditable, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.OutputFormatEditable, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, OutputFormatEditable, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, TimeSpan?, CancellationToken)
+  nameWithType: IOutputFormatClient.DeleteAsync(string, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync(string, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 47
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete output format
+  example: []
+  syntax:
+    content: Task<OutputFormatDeleteResult> DeleteAsync(string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of the output format that should be deleted.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout for business process completion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult}
+      description: Business process
+    content.vb: Function DeleteAsync(id As String, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatDeleteResult)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  nameWithType.vb: IOutputFormatClient.DeleteAsync(String, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync(String, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(OutputFormatCreateManyRequest, TimeSpan?, CancellationToken)
+  nameWithType: IOutputFormatClient.CreateManyAsync(OutputFormatCreateManyRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 59
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create multiple output formats
+  example: []
+  syntax:
+    content: Task<OutputFormatBatchOperationResult> CreateManyAsync(OutputFormatCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest
+      description: The request containing information needed to create new output formats.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout for business process completion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult}
+      description: Business process
+    content.vb: Function CreateManyAsync(request As OutputFormatCreateManyRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(OutputFormatUpdateManyRequest, TimeSpan?, CancellationToken)
+  nameWithType: IOutputFormatClient.UpdateManyAsync(OutputFormatUpdateManyRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 71
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update multiple output formats
+  example: []
+  syntax:
+    content: Task<OutputFormatBatchOperationResult> UpdateManyAsync(OutputFormatUpdateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest
+      description: The request containing information needed to update the output format.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout for business process completion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult}
+      description: Business process
+    content.vb: Function UpdateManyAsync(request As OutputFormatUpdateManyRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(OutputFormatDeleteManyRequest, TimeSpan?, CancellationToken)
+  nameWithType: IOutputFormatClient.DeleteManyAsync(OutputFormatDeleteManyRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IOutputFormatClient.cs
+    startLine: 83
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple output formats
+  example: []
+  syntax:
+    content: Task<OutputFormatBatchOperationResult> DeleteManyAsync(OutputFormatDeleteManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest
+      description: The request with output formats IDs to delete.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout for business process completion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult}
+      description: Business process
+    content.vb: Function DeleteManyAsync(request As OutputFormatDeleteManyRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of OutputFormatBatchOperationResult)
+  overload: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetDownloadFileNamePatternsAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__System_Threading_CancellationToken_
+  name: SetDownloadFileNamePatternsAsync
+  nameWithType: IOutputFormatClient.SetDownloadFileNamePatternsAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IDictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, string>
+  nameWithType: IDictionary<string, string>
+  fullName: System.Collections.Generic.IDictionary<string, string>
+  nameWithType.vb: IDictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, String)
+  name.vb: IDictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetDownloadFileNamePatternsManyAsync_Picturepark_SDK_V1_Contract_OutputFormatDownloadFileNamePatternUpdateManyRequest_System_Threading_CancellationToken_
+  name: SetDownloadFileNamePatternsManyAsync
+  nameWithType: IOutputFormatClient.SetDownloadFileNamePatternsManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetDownloadFileNamePatternsManyAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest.html
+  name: OutputFormatDownloadFileNamePatternUpdateManyRequest
+  nameWithType: OutputFormatDownloadFileNamePatternUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetXmpWritebackStateAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateRequest_System_Threading_CancellationToken_
+  name: SetXmpWritebackStateAsync
+  nameWithType: IOutputFormatClient.SetXmpWritebackStateAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest.html
+  name: OutputFormatSetXmpWritebackStateRequest
+  nameWithType: OutputFormatSetXmpWritebackStateRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateRequest
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetXmpWritebackStateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_
+  name: SetXmpWritebackStateManyAsync
+  nameWithType: IOutputFormatClient.SetXmpWritebackStateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetXmpWritebackStateManyAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest.html
+  name: OutputFormatSetXmpWritebackStateManyRequest
+  nameWithType: OutputFormatSetXmpWritebackStateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetPermissionAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionRequest_System_Threading_CancellationToken_
+  name: SetPermissionAsync
+  nameWithType: IOutputFormatClient.SetPermissionAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest.html
+  name: OutputFormatSetPermissionRequest
+  nameWithType: OutputFormatSetPermissionRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetPermissionManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionManyRequest_System_Threading_CancellationToken_
+  name: SetPermissionManyAsync
+  nameWithType: IOutputFormatClient.SetPermissionManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.SetPermissionManyAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest.html
+  name: OutputFormatSetPermissionManyRequest
+  nameWithType: OutputFormatSetPermissionManyRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_RenderFormatPreviewAsync_Picturepark_SDK_V1_Contract_OutputFormatRenderPreviewRequest_System_Threading_CancellationToken_
+  name: RenderFormatPreviewAsync
+  nameWithType: IOutputFormatClient.RenderFormatPreviewAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.RenderFormatPreviewAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest.html
+  name: OutputFormatRenderPreviewRequest
+  nameWithType: OutputFormatRenderPreviewRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.FileResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FileResponse>
+  nameWithType: Task<FileResponse>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.FileResponse>
+  nameWithType.vb: Task(Of FileResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.FileResponse)
+  name.vb: Task(Of FileResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FileResponse
+    name: FileResponse
+    href: Picturepark.SDK.V1.Contract.FileResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileResponse
+    name: FileResponse
+    href: Picturepark.SDK.V1.Contract.FileResponse.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html
+  name: RequestSizeLimitExceededException
+  nameWithType: RequestSizeLimitExceededException
+  fullName: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: IOutputFormatClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.OutputFormatDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.OutputFormatDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<OutputFormatDetail>>
+  nameWithType: Task<ICollection<OutputFormatDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.OutputFormatDetail>>
+  nameWithType.vb: Task(Of ICollection(Of OutputFormatDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.OutputFormatDetail))
+  name.vb: Task(Of ICollection(Of OutputFormatDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.OutputFormatDetail
+    name: OutputFormatDetail
+    href: Picturepark.SDK.V1.Contract.OutputFormatDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.OutputFormatDetail
+    name: OutputFormatDetail
+    href: Picturepark.SDK.V1.Contract.OutputFormatDetail.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IOutputFormatClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.OutputFormatDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.OutputFormatDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OutputFormatDetail>
+  nameWithType: Task<OutputFormatDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.OutputFormatDetail>
+  nameWithType.vb: Task(Of OutputFormatDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.OutputFormatDetail)
+  name.vb: Task(Of OutputFormatDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.OutputFormatDetail
+    name: OutputFormatDetail
+    href: Picturepark.SDK.V1.Contract.OutputFormatDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.OutputFormatDetail
+    name: OutputFormatDetail
+    href: Picturepark.SDK.V1.Contract.OutputFormatDetail.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_GetAllAsync_System_Threading_CancellationToken_
+  name: GetAllAsync
+  nameWithType: IOutputFormatClient.GetAllAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.GetAllAsync
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_CreateAsync_Picturepark_SDK_V1_Contract_OutputFormat_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IOutputFormatClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormat
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormat
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormat.html
+  name: OutputFormat
+  nameWithType: OutputFormat
+  fullName: Picturepark.SDK.V1.Contract.OutputFormat
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OutputFormatOperationResult>
+  nameWithType: Task<OutputFormatOperationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult>
+  nameWithType.vb: Task(Of OutputFormatOperationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult)
+  name.vb: Task(Of OutputFormatOperationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult
+    name: OutputFormatOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult
+    name: OutputFormatOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult.html
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatEditable_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IOutputFormatClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatEditable
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatEditable
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatEditable.html
+  name: OutputFormatEditable
+  nameWithType: OutputFormatEditable
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatEditable
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_DeleteAsync_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IOutputFormatClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OutputFormatDeleteResult>
+  nameWithType: Task<OutputFormatDeleteResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult>
+  nameWithType.vb: Task(Of OutputFormatDeleteResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult)
+  name.vb: Task(Of OutputFormatDeleteResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult
+    name: OutputFormatDeleteResult
+    href: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult
+    name: OutputFormatDeleteResult
+    href: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_CreateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatCreateManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: IOutputFormatClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.CreateManyAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest.html
+  name: OutputFormatCreateManyRequest
+  nameWithType: OutputFormatCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCreateManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OutputFormatBatchOperationResult>
+  nameWithType: Task<OutputFormatBatchOperationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult>
+  nameWithType.vb: Task(Of OutputFormatBatchOperationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult)
+  name.vb: Task(Of OutputFormatBatchOperationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult
+    name: OutputFormatBatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult
+    name: OutputFormatBatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatUpdateManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: IOutputFormatClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest.html
+  name: OutputFormatUpdateManyRequest
+  nameWithType: OutputFormatUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_OutputFormatDeleteManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: IOutputFormatClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest.html
+  name: OutputFormatDeleteManyRequest
+  nameWithType: OutputFormatDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatDeleteManyRequest

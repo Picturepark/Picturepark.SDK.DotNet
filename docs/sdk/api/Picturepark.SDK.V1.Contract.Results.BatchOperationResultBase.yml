@@ -1,0 +1,674 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  id: BatchOperationResultBase
+  parent: Picturepark.SDK.V1.Contract.Results
+  children:
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.#ctor(Picturepark.SDK.V1.Contract.IBusinessProcessClient,System.String)
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: BatchOperationResultBase
+  nameWithType: BatchOperationResultBase
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchOperationResultBase
+    path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Results
+  syntax:
+    content: public abstract class BatchOperationResultBase
+    content.vb: Public MustInherit Class BatchOperationResultBase
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult`1
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.#ctor(Picturepark.SDK.V1.Contract.IBusinessProcessClient,System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.#ctor(Picturepark.SDK.V1.Contract.IBusinessProcessClient,System.String)
+  id: '#ctor(Picturepark.SDK.V1.Contract.IBusinessProcessClient,System.String)'
+  parent: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  langs:
+  - csharp
+  - vb
+  name: BatchOperationResultBase(IBusinessProcessClient, string)
+  nameWithType: BatchOperationResultBase.BatchOperationResultBase(IBusinessProcessClient, string)
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BatchOperationResultBase(Picturepark.SDK.V1.Contract.IBusinessProcessClient, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+    startLine: 11
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Results
+  syntax:
+    content: protected BatchOperationResultBase(IBusinessProcessClient businessProcessClient, string businessProcessId)
+    parameters:
+    - id: businessProcessClient
+      type: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+    - id: businessProcessId
+      type: System.String
+    content.vb: Protected Sub New(businessProcessClient As IBusinessProcessClient, businessProcessId As String)
+  overload: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.#ctor*
+  nameWithType.vb: BatchOperationResultBase.New(IBusinessProcessClient, String)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.New(Picturepark.SDK.V1.Contract.IBusinessProcessClient, String)
+  name.vb: New(IBusinessProcessClient, String)
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId
+  commentId: P:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId
+  id: BusinessProcessId
+  parent: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  langs:
+  - csharp
+  - vb
+  name: BusinessProcessId
+  nameWithType: BatchOperationResultBase.BusinessProcessId
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessProcessId
+    path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+    startLine: 17
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Results
+  syntax:
+    content: public string BusinessProcessId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property BusinessProcessId As String
+  overload: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId*
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems(System.Threading.CancellationToken)
+  id: FetchItems(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  langs:
+  - csharp
+  - vb
+  name: FetchItems(CancellationToken)
+  nameWithType: BatchOperationResultBase.FetchItems(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FetchItems
+    path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
+    startLine: 19
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Results
+  syntax:
+    content: protected Task<(BatchResponseRow[] successfulItems, BatchResponseRow[] failedItems)> FetchItems(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}}
+    content.vb: Protected Function FetchItems(ct As CancellationToken) As Task(Of (successfulItems As BatchResponseRow(), failedItems As BatchResponseRow()))
+  overload: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems*
+references:
+- uid: Picturepark.SDK.V1.Contract.Results
+  commentId: N:Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Results
+  nameWithType: Picturepark.SDK.V1.Contract.Results
+  fullName: Picturepark.SDK.V1.Contract.Results
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.#ctor
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.html#Picturepark_SDK_V1_Contract_Results_BatchOperationResultBase__ctor_Picturepark_SDK_V1_Contract_IBusinessProcessClient_System_String_
+  name: BatchOperationResultBase
+  nameWithType: BatchOperationResultBase.BatchOperationResultBase
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BatchOperationResultBase
+  nameWithType.vb: BatchOperationResultBase.New
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  commentId: T:Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html
+  name: IBusinessProcessClient
+  nameWithType: IBusinessProcessClient
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.html#Picturepark_SDK_V1_Contract_Results_BatchOperationResultBase_BusinessProcessId
+  name: BusinessProcessId
+  nameWithType: BatchOperationResultBase.BusinessProcessId
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.BusinessProcessId
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.html#Picturepark_SDK_V1_Contract_Results_BatchOperationResultBase_FetchItems_System_Threading_CancellationToken_
+  name: FetchItems
+  nameWithType: BatchOperationResultBase.FetchItems
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.FetchItems
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}}
+  commentId: T:System.Threading.Tasks.Task{System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<(BatchResponseRow[] successfulItems, BatchResponseRow[] failedItems)>
+  nameWithType: Task<(BatchResponseRow[] successfulItems, BatchResponseRow[] failedItems)>
+  fullName: System.Threading.Tasks.Task<(Picturepark.SDK.V1.Contract.BatchResponseRow[] successfulItems, Picturepark.SDK.V1.Contract.BatchResponseRow[] failedItems)>
+  nameWithType.vb: Task(Of (successfulItems As BatchResponseRow(), failedItems As BatchResponseRow()))
+  fullName.vb: System.Threading.Tasks.Task(Of (successfulItems As Picturepark.SDK.V1.Contract.BatchResponseRow(), failedItems As Picturepark.SDK.V1.Contract.BatchResponseRow()))
+  name.vb: Task(Of (successfulItems As BatchResponseRow(), failedItems As BatchResponseRow()))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.BatchResponseRow
+    name: BatchResponseRow
+    href: Picturepark.SDK.V1.Contract.BatchResponseRow.html
+  - name: '['
+  - name: ']'
+  - name: " "
+  - uid: System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}.successfulItems
+    name: successfulItems
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-picturepark.sdk.v1.contract.batchresponserow[],picturepark.sdk.v1.contract.batchresponserow[]-.successfulitems
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BatchResponseRow
+    name: BatchResponseRow
+    href: Picturepark.SDK.V1.Contract.BatchResponseRow.html
+  - name: '['
+  - name: ']'
+  - name: " "
+  - uid: System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}.failedItems
+    name: failedItems
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-picturepark.sdk.v1.contract.batchresponserow[],picturepark.sdk.v1.contract.batchresponserow[]-.faileditems
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}.successfulItems
+    name: successfulItems
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-picturepark.sdk.v1.contract.batchresponserow[],picturepark.sdk.v1.contract.batchresponserow[]-.successfulitems
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BatchResponseRow
+    name: BatchResponseRow
+    href: Picturepark.SDK.V1.Contract.BatchResponseRow.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{Picturepark.SDK.V1.Contract.BatchResponseRow[],Picturepark.SDK.V1.Contract.BatchResponseRow[]}.failedItems
+    name: failedItems
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-picturepark.sdk.v1.contract.batchresponserow[],picturepark.sdk.v1.contract.batchresponserow[]-.faileditems
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BatchResponseRow
+    name: BatchResponseRow
+    href: Picturepark.SDK.V1.Contract.BatchResponseRow.html
+  - name: (
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

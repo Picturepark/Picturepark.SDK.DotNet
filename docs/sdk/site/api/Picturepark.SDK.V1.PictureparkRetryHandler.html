@@ -1,23 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PictureparkRetryHandler
-   | Picturepark.SDK.V1 API </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PictureparkRetryHandler
-   | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class PictureparkRetryHandler | Picturepark.SDK.V1 API </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class PictureparkRetryHandler | Picturepark.SDK.V1 API ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta name="description" content="Decorating  which retries calls when HTTP 429 (Too many requests) is returned">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -25,7 +23,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -49,7 +47,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,17 +57,17 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -79,198 +77,259 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler">
-  <h1 id="Picturepark_SDK_V1_PictureparkRetryHandler" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler">Class PictureparkRetryHandler
-  </h1>
-  <div class="markdown level0 summary"><p>Decorating <see cref="!:HttpClientHandler"></see> which retries calls when HTTP 429 (Too many requests) is returned</p>
+
+  <h1 id="Picturepark_SDK_V1_PictureparkRetryHandler" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler">Class PictureparkRetryHandler</h1>
+  <div class="markdown level0 summary"><p>Decorating <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclienthandler">HttpClientHandler</a> which retries calls when HTTP 429 (Too many requests) is returned</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  
+
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">PictureparkRetryHandler</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler">HttpMessageHandler</a></div>
+    <div class="level2"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler">DelegatingHandler</a></div>
+    <div class="level3"><span class="xref">PictureparkRetryHandler</span></div>
   </div>
-  
-  
-  
+
+
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler.dispose">DelegatingHandler.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler.innerhandler">DelegatingHandler.InnerHandler</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler.dispose#system-net-http-httpmessagehandler-dispose">HttpMessageHandler.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+
   <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
-  
+
   <h5 id="Picturepark_SDK_V1_PictureparkRetryHandler_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PictureparkRetryHandler : DelegatingHandler</code></pre>
+    <pre><code class="lang- hljs">public class PictureparkRetryHandler : DelegatingHandler, IDisposable</code></pre>
   </div>
-  
-  
-  
-  
-  
+
+
+
+
+
   <h3 id="constructors">Constructors
-  </h3>
-  
-  
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_.md&amp;value=---%0Auid%3A%20Picturepark.SDK.V1.PictureparkRetryHandler.%23ctor(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1/PictureparkRetryHandler.cs/#L21" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_HttpMessageHandler_System_Int32_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor(HttpMessageHandler,System.Int32)"><a href="#collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_HttpMessageHandler_System_Int32_" class="expander" data-toggle="collapse">PictureparkRetryHandler(HttpMessageHandler, Int32)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_HttpMessageHandler_System_Int32_" class="collapse in">
+
+  <h4 id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor(System.Int32)"><a href="#collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_" class="expander" data-toggle="collapse">PictureparkRetryHandler(int)</a></h4>
+
+  <div id="collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.PictureparkRetryHandler.html">PictureparkRetryHandler</a> class to handle throttled requests (HTTP 429 Too many requests).
+Uses the default <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclienthandler">HttpClientHandler</a> inner handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">public PictureparkRetryHandler(int maxRetries = 3)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
+        <span class="parametername">maxRetries</span>
+        <p><p>Maximum number of retries before a request is failing.</p>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Net_Http_HttpMessageHandler_System_Int32_.md&amp;value=---%0Auid%3A%20Picturepark.SDK.V1.PictureparkRetryHandler.%23ctor(System.Net.Http.HttpMessageHandler%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1/PictureparkRetryHandler.cs/#L31" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
+  <a id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor*"></a>
+
+  <h4 id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Net_Http_HttpMessageHandler_System_Int32_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor(System.Net.Http.HttpMessageHandler,System.Int32)"><a href="#collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Net_Http_HttpMessageHandler_System_Int32_" class="expander" data-toggle="collapse">PictureparkRetryHandler(HttpMessageHandler, int)</a></h4>
+
+  <div id="collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Net_Http_HttpMessageHandler_System_Int32_" class="collapse in">
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.PictureparkRetryHandler.html">PictureparkRetryHandler</a> class to handle throttled requests (HTTP 429 Too many requests).
 Adds an inner handler for further processing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PictureparkRetryHandler(HttpMessageHandler innerHandler, int maxRetries = 3)</code></pre>
+    <pre><code class="lang- hljs">public PictureparkRetryHandler(HttpMessageHandler innerHandler, int maxRetries = 3)</code></pre>
   </div>
-  
+
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">HttpMessageHandler</span></span>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler">HttpMessageHandler</a></span>
         <span class="parametername">innerHandler</span>
         <p><p>The inner handler.</p>
-</p>
+
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">maxRetries</span>
         <p><p>Maximum number of retries before a request is failing.</p>
-</p>
+
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.#ctor(System.Int32)"><a href="#collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_" class="expander" data-toggle="collapse">PictureparkRetryHandler(Int32)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_PictureparkRetryHandler__ctor_System_Int32_" class="collapse in">
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.PictureparkRetryHandler.html">PictureparkRetryHandler</a> class to handle throttled requests (HTTP 429 Too many requests).
-Uses the default <see cref="!:HttpClientHandler"></see> inner handler.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PictureparkRetryHandler(int maxRetries = 3)</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Int32</span></span>
-        <span class="parametername">maxRetries</span>
-        <p><p>Maximum number of retries before a request is failing.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   </div>
   <h3 id="methods">Methods
-  </h3>
-  
-  
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider"> </span>
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Picturepark.SDK.V1.PictureparkRetryHandler.SendAsync(System.Net.Http.HttpRequestMessage%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page"><i class="fa fa-pencil"></i></a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1/PictureparkRetryHandler.cs/#L48" title="View Source"><i class="fa fa-code"></i></a>
+  </span>
+
   <a id="Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.SendAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_HttpRequestMessage_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.SendAsync(HttpRequestMessage,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_HttpRequestMessage_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SendAsync(HttpRequestMessage, CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_HttpRequestMessage_System_Threading_CancellationToken_" class="collapse in">
+
+  <h4 id="Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.PictureparkRetryHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SendAsync(HttpRequestMessage, CancellationToken)</a></h4>
+
+  <div id="collapsible-Picturepark_SDK_V1_PictureparkRetryHandler_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
 Retries the request up to the specified maximum retries when encountering a response with the status code 429.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
-  
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task&lt;HttpResponseMessage&gt; SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang- hljs">protected override Task&lt;HttpResponseMessage&gt; SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)</code></pre>
   </div>
-  
+
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">HttpRequestMessage</span></span>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></span>
         <span class="parametername">request</span>
         <p><p>The HTTP request message to send to the server.</p>
-</p>
+
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></span>
         <span class="parametername">cancellationToken</span>
         <p><p>A cancellation token to cancel operation.</p>
-</p>
+
       </td>
     </tr>
   </table>
-  
+
   <h5 class="returns">Returns</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;
-        <p><p>Returns <span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>. The task object representing the asynchronous operation.</p>
-</p>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;
+        <p><p>Returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a>. The task object representing the asynchronous operation.</p>
+
       </td>
     </tr>
   </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.delegatinghandler.sendasync">DelegatingHandler.SendAsync(HttpRequestMessage, CancellationToken)</a></div>
+
+
+
+
   <h5 class="exceptions">Exceptions</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">System.ArgumentNullException</span>
-        <p><p>The <code data-dev-comment-type="paramref" class="paramref">request</code> was null.</p>
-</p>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a>
+        <p><p>The <code class="paramref">request</code> was null.</p>
+
       </td>
     </tr>
   </table>
-  
+
   </div>
-  
-  
+
+
+
 </article>
           </div>
           <div class="contribution-panel mobile-hide">
+              <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/new/11.14.x/apiSpec/new?filename=Picturepark_SDK_V1_PictureparkRetryHandler.md&amp;value=---%0Auid%3A%20Picturepark.SDK.V1.PictureparkRetryHandler%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" title="Edit this page" class="fab btn-warning pull-right"><i class="glyphicon glyphicon-pencil"></i></a>
+              <a href="https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/11.14.x/src/Picturepark.SDK.V1/PictureparkRetryHandler.cs/#L12" title="View Source" class="fab btn-info pull-right"><i class="fa fa-code"></i></a>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -279,7 +338,7 @@ Retries the request up to the specified maximum retries when encountering a resp
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -287,14 +346,14 @@ Retries the request up to the specified maximum retries when encountering a resp
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

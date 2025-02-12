@@ -1,0 +1,1274 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.MetadataClient
+  commentId: T:Picturepark.SDK.V1.MetadataClient
+  id: MetadataClient
+  parent: Picturepark.SDK.V1
+  children:
+  - Picturepark.SDK.V1.MetadataClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  - Picturepark.SDK.V1.MetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings
+  - Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.MetadataClient.ReadResponseAsString
+  - Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: MetadataClient
+  nameWithType: MetadataClient
+  fullName: Picturepark.SDK.V1.MetadataClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataClient
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 25734
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class MetadataClient : ClientBase, IMetadataClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class MetadataClient Inherits ClientBase Implements IMetadataClient
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.ClientBase
+  implements:
+  - Picturepark.SDK.V1.Contract.IMetadataClient
+  inheritedMembers:
+  - Picturepark.SDK.V1.ClientBase.BaseUrl
+  - Picturepark.SDK.V1.ClientBase.CustomerAlias
+  - Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.MetadataClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  commentId: M:Picturepark.SDK.V1.MetadataClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  id: '#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)'
+  parent: Picturepark.SDK.V1.MetadataClient
+  langs:
+  - csharp
+  - vb
+  name: MetadataClient(IPictureparkServiceSettings, HttpClient)
+  nameWithType: MetadataClient.MetadataClient(IPictureparkServiceSettings, HttpClient)
+  fullName: Picturepark.SDK.V1.MetadataClient.MetadataClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings, System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 25740
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public MetadataClient(IPictureparkServiceSettings configuration, HttpClient httpClient)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+    content.vb: Public Sub New(configuration As IPictureparkServiceSettings, httpClient As HttpClient)
+  overload: Picturepark.SDK.V1.MetadataClient.#ctor*
+  nameWithType.vb: MetadataClient.New(IPictureparkServiceSettings, HttpClient)
+  fullName.vb: Picturepark.SDK.V1.MetadataClient.New(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings, System.Net.Http.HttpClient)
+  name.vb: New(IPictureparkServiceSettings, HttpClient)
+- uid: Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings
+  commentId: P:Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings
+  id: JsonSerializerSettings
+  parent: Picturepark.SDK.V1.MetadataClient
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerSettings
+  nameWithType: MetadataClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonSerializerSettings
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 25753
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected JsonSerializerSettings JsonSerializerSettings { get; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.JsonSerializerSettings
+    content.vb: Protected ReadOnly Property JsonSerializerSettings As JsonSerializerSettings
+  overload: Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings*
+- uid: Picturepark.SDK.V1.MetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.MetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  id: GetStatusAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.MetadataClient
+  langs:
+  - csharp
+  - vb
+  name: GetStatusAsync(CancellationToken)
+  nameWithType: MetadataClient.GetStatusAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.MetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetStatusAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 25776
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Get status
+  remarks: Get the status of the metadata items (contents and list items) compared to the schema model.
+  example: []
+  syntax:
+    content: public virtual Task<MetadataStatus> GetStatusAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.MetadataStatus}
+      description: The overall status of the contents and list items in comparison to the actual schemas' structure
+    content.vb: Public Overridable Function GetStatusAsync(cancellationToken As CancellationToken = Nothing) As Task(Of MetadataStatus)
+  overload: Picturepark.SDK.V1.MetadataClient.GetStatusAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  id: UpdateOutdatedAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.MetadataClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateOutdatedAsync(CancellationToken)
+  nameWithType: MetadataClient.UpdateOutdatedAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateOutdatedAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 25953
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Update outdated
+  remarks: >-
+    Update outdated metadata items (contents and list items). The changes to the schemas are enforced: data related to removed fields are deleted; eventual references to removed fields are dropped; calculated values are recalculated;
+
+    <br />the ids of the schemas' fields the could not be reused become available again.
+
+    <br />The operation can take a long time and it is therefore executed asynchronously and not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: public virtual Task<BusinessProcess> UpdateOutdatedAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Public Overridable Function UpdateOutdatedAsync(cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.MetadataClient.ReadResponseAsString
+  commentId: P:Picturepark.SDK.V1.MetadataClient.ReadResponseAsString
+  id: ReadResponseAsString
+  parent: Picturepark.SDK.V1.MetadataClient
+  langs:
+  - csharp
+  - vb
+  name: ReadResponseAsString
+  nameWithType: MetadataClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.MetadataClient.ReadResponseAsString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadResponseAsString
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26127
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public bool ReadResponseAsString { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ReadResponseAsString As Boolean
+  overload: Picturepark.SDK.V1.MetadataClient.ReadResponseAsString*
+- uid: Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  id: ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.MetadataClient
+  langs:
+  - csharp
+  - vb
+  name: ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  nameWithType: MetadataClient.ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  fullName: Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadObjectResponseAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 26129
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected virtual Task<MetadataClient.ObjectResponseResult<T>> ReadObjectResponseAsync<T>(HttpResponseMessage response, IReadOnlyDictionary<string, IEnumerable<string>> headers, CancellationToken cancellationToken)
+    parameters:
+    - id: response
+      type: System.Net.Http.HttpResponseMessage
+    - id: headers
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.MetadataClient.ObjectResponseResult{{T}}}
+    content.vb: Protected Overridable Function ReadObjectResponseAsync(Of T)(response As HttpResponseMessage, headers As IReadOnlyDictionary(Of String, IEnumerable(Of String)), cancellationToken As CancellationToken) As Task(Of MetadataClient.ObjectResponseResult(Of T))
+  overload: Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync*
+  nameWithType.vb: MetadataClient.ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync(Of T)(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String)), System.Threading.CancellationToken)
+  name.vb: ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+references:
+- uid: Picturepark.SDK.V1
+  commentId: N:Picturepark.SDK.V1
+  href: Picturepark.html
+  name: Picturepark.SDK.V1
+  nameWithType: Picturepark.SDK.V1
+  fullName: Picturepark.SDK.V1
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.ClientBase
+  commentId: T:Picturepark.SDK.V1.ClientBase
+  parent: Picturepark.SDK.V1
+  href: Picturepark.SDK.V1.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.ClientBase
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient
+  commentId: T:Picturepark.SDK.V1.Contract.IMetadataClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IMetadataClient.html
+  name: IMetadataClient
+  nameWithType: IMetadataClient
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient
+- uid: Picturepark.SDK.V1.ClientBase.BaseUrl
+  commentId: P:Picturepark.SDK.V1.ClientBase.BaseUrl
+  parent: Picturepark.SDK.V1.ClientBase
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl
+  name: BaseUrl
+  nameWithType: ClientBase.BaseUrl
+  fullName: Picturepark.SDK.V1.ClientBase.BaseUrl
+- uid: Picturepark.SDK.V1.ClientBase.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.ClientBase.CustomerAlias
+  parent: Picturepark.SDK.V1.ClientBase
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CustomerAlias
+  name: CustomerAlias
+  nameWithType: ClientBase.CustomerAlias
+  fullName: Picturepark.SDK.V1.ClientBase.CustomerAlias
+- uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.ClientBase
+  isExternal: true
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  name: CreateHttpRequestMessageAsync(CancellationToken)
+  nameWithType: ClientBase.CreateHttpRequestMessageAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.MetadataClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.MetadataClient.#ctor
+  href: Picturepark.SDK.V1.MetadataClient.html#Picturepark_SDK_V1_MetadataClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_
+  name: MetadataClient
+  nameWithType: MetadataClient.MetadataClient
+  fullName: Picturepark.SDK.V1.MetadataClient.MetadataClient
+  nameWithType.vb: MetadataClient.New
+  fullName.vb: Picturepark.SDK.V1.MetadataClient.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  commentId: T:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html
+  name: IPictureparkServiceSettings
+  nameWithType: IPictureparkServiceSettings
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings*
+  commentId: Overload:Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings
+  href: Picturepark.SDK.V1.MetadataClient.html#Picturepark_SDK_V1_MetadataClient_JsonSerializerSettings
+  name: JsonSerializerSettings
+  nameWithType: MetadataClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.MetadataClient.JsonSerializerSettings
+- uid: Newtonsoft.Json.JsonSerializerSettings
+  commentId: T:Newtonsoft.Json.JsonSerializerSettings
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializerSettings
+  nameWithType: JsonSerializerSettings
+  fullName: Newtonsoft.Json.JsonSerializerSettings
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.MetadataClient.GetStatusAsync*
+  commentId: Overload:Picturepark.SDK.V1.MetadataClient.GetStatusAsync
+  href: Picturepark.SDK.V1.MetadataClient.html#Picturepark_SDK_V1_MetadataClient_GetStatusAsync_System_Threading_CancellationToken_
+  name: GetStatusAsync
+  nameWithType: MetadataClient.GetStatusAsync
+  fullName: Picturepark.SDK.V1.MetadataClient.GetStatusAsync
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IMetadataClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_GetStatusAsync_System_Threading_CancellationToken_
+  name: GetStatusAsync(CancellationToken)
+  nameWithType: IMetadataClient.GetStatusAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+    name: GetStatusAsync
+    href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_GetStatusAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+    name: GetStatusAsync
+    href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_GetStatusAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.MetadataStatus}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.MetadataStatus}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<MetadataStatus>
+  nameWithType: Task<MetadataStatus>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.MetadataStatus>
+  nameWithType.vb: Task(Of MetadataStatus)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.MetadataStatus)
+  name.vb: Task(Of MetadataStatus)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.MetadataStatus
+    name: MetadataStatus
+    href: Picturepark.SDK.V1.Contract.MetadataStatus.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.MetadataStatus
+    name: MetadataStatus
+    href: Picturepark.SDK.V1.Contract.MetadataStatus.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync*
+  commentId: Overload:Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync
+  href: Picturepark.SDK.V1.MetadataClient.html#Picturepark_SDK_V1_MetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken_
+  name: UpdateOutdatedAsync
+  nameWithType: MetadataClient.UpdateOutdatedAsync
+  fullName: Picturepark.SDK.V1.MetadataClient.UpdateOutdatedAsync
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IMetadataClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken_
+  name: UpdateOutdatedAsync(CancellationToken)
+  nameWithType: IMetadataClient.UpdateOutdatedAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+    name: UpdateOutdatedAsync
+    href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+    name: UpdateOutdatedAsync
+    href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.MetadataClient.ReadResponseAsString*
+  commentId: Overload:Picturepark.SDK.V1.MetadataClient.ReadResponseAsString
+  href: Picturepark.SDK.V1.MetadataClient.html#Picturepark_SDK_V1_MetadataClient_ReadResponseAsString
+  name: ReadResponseAsString
+  nameWithType: MetadataClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.MetadataClient.ReadResponseAsString
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync*
+  commentId: Overload:Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync
+  href: Picturepark.SDK.V1.MetadataClient.html#Picturepark_SDK_V1_MetadataClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_
+  name: ReadObjectResponseAsync
+  nameWithType: MetadataClient.ReadObjectResponseAsync
+  fullName: Picturepark.SDK.V1.MetadataClient.ReadObjectResponseAsync
+- uid: System.Net.Http.HttpResponseMessage
+  commentId: T:System.Net.Http.HttpResponseMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  name: HttpResponseMessage
+  nameWithType: HttpResponseMessage
+  fullName: System.Net.Http.HttpResponseMessage
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, IEnumerable<string>>
+  nameWithType: IReadOnlyDictionary<string, IEnumerable<string>>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>
+  nameWithType.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.MetadataClient.ObjectResponseResult{{T}}}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.MetadataClient.ObjectResponseResult{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<MetadataClient.ObjectResponseResult<T>>
+  nameWithType: Task<MetadataClient.ObjectResponseResult<T>>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.MetadataClient.ObjectResponseResult<T>>
+  nameWithType.vb: Task(Of MetadataClient.ObjectResponseResult(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.MetadataClient.ObjectResponseResult(Of T))
+  name.vb: Task(Of MetadataClient.ObjectResponseResult(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.MetadataClient
+    name: MetadataClient
+    href: Picturepark.SDK.V1.MetadataClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.MetadataClient
+    name: MetadataClient
+    href: Picturepark.SDK.V1.MetadataClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

@@ -1,0 +1,699 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  id: EventArgsLiveStreamMessage
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer
+  children:
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
+  langs:
+  - csharp
+  - vb
+  name: EventArgsLiveStreamMessage
+  nameWithType: EventArgsLiveStreamMessage
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EventArgsLiveStreamMessage
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: 'public class EventArgsLiveStreamMessage : EventArgs'
+    content.vb: Public Class EventArgsLiveStreamMessage Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
+  id: Created
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: EventArgsLiveStreamMessage.Created
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Created
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public DateTime Created { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Created As Date
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
+  id: Received
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Received
+  nameWithType: EventArgsLiveStreamMessage.Received
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Received
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public DateTime Received { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Received As Date
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
+  id: Message
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: EventArgsLiveStreamMessage.Message
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Message
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public LiveStreamMessage Message { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.LiveStreamMessage
+    content.vb: Public Property Message As LiveStreamMessage
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+  id: Model
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: EventArgsLiveStreamMessage.Model
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Model
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 14
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public IModel Model { get; set; }
+    parameters: []
+    return:
+      type: RabbitMQ.Client.IModel
+    content.vb: Public Property Model As IModel
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
+  id: Tag
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Tag
+  nameWithType: EventArgsLiveStreamMessage.Tag
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Tag
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 16
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public ulong Tag { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property Tag As ULong
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+  id: Ack
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Ack()
+  nameWithType: EventArgsLiveStreamMessage.Ack()
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Ack
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 18
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public void Ack()
+    content.vb: Public Sub Ack()
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack*
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)
+  id: Nack(System.Boolean)
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  langs:
+  - csharp
+  - vb
+  name: Nack(bool)
+  nameWithType: EventArgsLiveStreamMessage.Nack(bool)
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(bool)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Nack
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
+    startLine: 23
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
+  syntax:
+    content: public void Nack(bool requeue = false)
+    parameters:
+    - id: requeue
+      type: System.Boolean
+    content.vb: Public Sub Nack(requeue As Boolean = False)
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack*
+  nameWithType.vb: EventArgsLiveStreamMessage.Nack(Boolean)
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(Boolean)
+  name.vb: Nack(Boolean)
+references:
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+  commentId: N:Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.ServiceProvider.Buffer
+  nameWithType: Picturepark.SDK.V1.ServiceProvider.Buffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+    name: Buffer
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+    name: Buffer
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: System.EventArgs.Empty
+  commentId: F:System.EventArgs.Empty
+  parent: System.EventArgs
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs.empty
+  name: Empty
+  nameWithType: EventArgs.Empty
+  fullName: System.EventArgs.Empty
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Created
+  name: Created
+  nameWithType: EventArgsLiveStreamMessage.Created
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Received
+  name: Received
+  nameWithType: EventArgsLiveStreamMessage.Received
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Message
+  name: Message
+  nameWithType: EventArgsLiveStreamMessage.Message
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
+- uid: Picturepark.SDK.V1.Contract.LiveStreamMessage
+  commentId: T:Picturepark.SDK.V1.Contract.LiveStreamMessage
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.LiveStreamMessage.html
+  name: LiveStreamMessage
+  nameWithType: LiveStreamMessage
+  fullName: Picturepark.SDK.V1.Contract.LiveStreamMessage
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Model
+  name: Model
+  nameWithType: EventArgsLiveStreamMessage.Model
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+- uid: RabbitMQ.Client.IModel
+  commentId: T:RabbitMQ.Client.IModel
+  parent: RabbitMQ.Client
+  isExternal: true
+  name: IModel
+  nameWithType: IModel
+  fullName: RabbitMQ.Client.IModel
+- uid: RabbitMQ.Client
+  commentId: N:RabbitMQ.Client
+  isExternal: true
+  name: RabbitMQ.Client
+  nameWithType: RabbitMQ.Client
+  fullName: RabbitMQ.Client
+  spec.csharp:
+  - uid: RabbitMQ
+    name: RabbitMQ
+    isExternal: true
+  - name: .
+  - uid: RabbitMQ.Client
+    name: Client
+    isExternal: true
+  spec.vb:
+  - uid: RabbitMQ
+    name: RabbitMQ
+    isExternal: true
+  - name: .
+  - uid: RabbitMQ.Client
+    name: Client
+    isExternal: true
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Tag
+  name: Tag
+  nameWithType: EventArgsLiveStreamMessage.Tag
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Ack
+  name: Ack
+  nameWithType: EventArgsLiveStreamMessage.Ack
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Nack_System_Boolean_
+  name: Nack
+  nameWithType: EventArgsLiveStreamMessage.Nack
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

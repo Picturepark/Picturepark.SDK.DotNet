@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  id: UserRoleAssignmentOperationType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Add
+  - Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Remove
+  - Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Update
+  langs:
+  - csharp
+  - vb
+  name: UserRoleAssignmentOperationType
+  nameWithType: UserRoleAssignmentOperationType
+  fullName: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserRoleAssignmentOperationType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 42262
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: User role assignment operation type
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum UserRoleAssignmentOperationType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum UserRoleAssignmentOperationType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Add
+  commentId: F:Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Add
+  id: Add
+  parent: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  langs:
+  - csharp
+  - vb
+  name: Add
+  nameWithType: UserRoleAssignmentOperationType.Add
+  fullName: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Add
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Add
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 42266
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Add")]
+
+      Add = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+    content.vb: >-
+      <EnumMember(Value:="Add")>
+
+      Add = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Add
+- uid: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Remove
+  commentId: F:Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Remove
+  id: Remove
+  parent: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  langs:
+  - csharp
+  - vb
+  name: Remove
+  nameWithType: UserRoleAssignmentOperationType.Remove
+  fullName: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Remove
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Remove
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 42269
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Remove")]
+
+      Remove = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+    content.vb: >-
+      <EnumMember(Value:="Remove")>
+
+      Remove = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Remove
+- uid: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Update
+  commentId: F:Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Update
+  id: Update
+  parent: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  langs:
+  - csharp
+  - vb
+  name: Update
+  nameWithType: UserRoleAssignmentOperationType.Update
+  fullName: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.Update
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Update
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 42272
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Update")]
+
+      Update = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+    content.vb: >-
+      <EnumMember(Value:="Update")>
+
+      Update = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Update
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.html
+  name: UserRoleAssignmentOperationType
+  nameWithType: UserRoleAssignmentOperationType
+  fullName: Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType

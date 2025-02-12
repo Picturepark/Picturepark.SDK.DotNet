@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.StringRenderingType
+  commentId: T:Picturepark.SDK.V1.Contract.StringRenderingType
+  id: StringRenderingType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.StringRenderingType.Default
+  - Picturepark.SDK.V1.Contract.StringRenderingType.Markdown
+  langs:
+  - csharp
+  - vb
+  name: StringRenderingType
+  nameWithType: StringRenderingType
+  fullName: Picturepark.SDK.V1.Contract.StringRenderingType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: StringRenderingType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36524
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Describes how a string value should be rendered
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum StringRenderingType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum StringRenderingType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.StringRenderingType.Default
+  commentId: F:Picturepark.SDK.V1.Contract.StringRenderingType.Default
+  id: Default
+  parent: Picturepark.SDK.V1.Contract.StringRenderingType
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: StringRenderingType.Default
+  fullName: Picturepark.SDK.V1.Contract.StringRenderingType.Default
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Default
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36528
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Default")]
+
+      Default = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.StringRenderingType
+    content.vb: >-
+      <EnumMember(Value:="Default")>
+
+      Default = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Default
+- uid: Picturepark.SDK.V1.Contract.StringRenderingType.Markdown
+  commentId: F:Picturepark.SDK.V1.Contract.StringRenderingType.Markdown
+  id: Markdown
+  parent: Picturepark.SDK.V1.Contract.StringRenderingType
+  langs:
+  - csharp
+  - vb
+  name: Markdown
+  nameWithType: StringRenderingType.Markdown
+  fullName: Picturepark.SDK.V1.Contract.StringRenderingType.Markdown
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Markdown
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36531
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Markdown")]
+
+      Markdown = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.StringRenderingType
+    content.vb: >-
+      <EnumMember(Value:="Markdown")>
+
+      Markdown = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Markdown
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.StringRenderingType
+  commentId: T:Picturepark.SDK.V1.Contract.StringRenderingType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.StringRenderingType.html
+  name: StringRenderingType
+  nameWithType: StringRenderingType
+  fullName: Picturepark.SDK.V1.Contract.StringRenderingType

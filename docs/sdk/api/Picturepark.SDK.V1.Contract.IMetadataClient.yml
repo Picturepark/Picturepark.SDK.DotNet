@@ -1,0 +1,431 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient
+  commentId: T:Picturepark.SDK.V1.Contract.IMetadataClient
+  id: IMetadataClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IMetadataClient
+  nameWithType: IMetadataClient
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IMetadataClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2152
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IMetadataClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IMetadataClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  id: GetStatusAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IMetadataClient
+  langs:
+  - csharp
+  - vb
+  name: GetStatusAsync(CancellationToken)
+  nameWithType: IMetadataClient.GetStatusAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetStatusAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2171
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get status
+  remarks: Get the status of the metadata items (contents and list items) compared to the schema model.
+  example: []
+  syntax:
+    content: Task<MetadataStatus> GetStatusAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.MetadataStatus}
+      description: The overall status of the contents and list items in comparison to the actual schemas' structure
+    content.vb: Function GetStatusAsync(cancellationToken As CancellationToken = Nothing) As Task(Of MetadataStatus)
+  overload: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  id: UpdateOutdatedAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IMetadataClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateOutdatedAsync(CancellationToken)
+  nameWithType: IMetadataClient.UpdateOutdatedAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateOutdatedAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 2190
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update outdated
+  remarks: >-
+    Update outdated metadata items (contents and list items). The changes to the schemas are enforced: data related to removed fields are deleted; eventual references to removed fields are dropped; calculated values are recalculated;
+
+    <br />the ids of the schemas' fields the could not be reused become available again.
+
+    <br />The operation can take a long time and it is therefore executed asynchronously and not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> UpdateOutdatedAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function UpdateOutdatedAsync(cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync
+  href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_GetStatusAsync_System_Threading_CancellationToken_
+  name: GetStatusAsync
+  nameWithType: IMetadataClient.GetStatusAsync
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient.GetStatusAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.MetadataStatus}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.MetadataStatus}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<MetadataStatus>
+  nameWithType: Task<MetadataStatus>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.MetadataStatus>
+  nameWithType.vb: Task(Of MetadataStatus)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.MetadataStatus)
+  name.vb: Task(Of MetadataStatus)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.MetadataStatus
+    name: MetadataStatus
+    href: Picturepark.SDK.V1.Contract.MetadataStatus.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.MetadataStatus
+    name: MetadataStatus
+    href: Picturepark.SDK.V1.Contract.MetadataStatus.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync
+  href: Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken_
+  name: UpdateOutdatedAsync
+  nameWithType: IMetadataClient.UpdateOutdatedAsync
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient.UpdateOutdatedAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )

@@ -1,0 +1,1171 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  id: XmpMappingEntrySearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort
+  - Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson
+  langs:
+  - csharp
+  - vb
+  name: XmpMappingEntrySearchRequest
+  nameWithType: XmpMappingEntrySearchRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: XmpMappingEntrySearchRequest
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43421
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search request for getting configured XMP mappings
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class XmpMappingEntrySearchRequest
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class XmpMappingEntrySearchRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode
+  id: DebugMode
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: DebugMode
+  nameWithType: XmpMappingEntrySearchRequest.DebugMode
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DebugMode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43427
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("debugMode", Required = Required.Always)]
+
+      public bool DebugMode { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("debugMode", Required:=Required.Always)>
+
+      Public Property DebugMode As Boolean
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: debugMode
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters
+  id: AggregationFilters
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: AggregationFilters
+  nameWithType: XmpMappingEntrySearchRequest.AggregationFilters
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AggregationFilters
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43438
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Special filters used to filter down independently the aggregations' values and the search results on specific conditions.
+
+    <br />For the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated
+
+    <br />by the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.
+
+    <br />For the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the
+
+    <br />aggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).
+
+    <br />Moreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("aggregationFilters", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<AggregationFilter> AggregationFilters { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.AggregationFilter}
+    content.vb: >-
+      <JsonProperty("aggregationFilters", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property AggregationFilters As ICollection(Of AggregationFilter)
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: aggregationFilters
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators
+  id: Aggregators
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: Aggregators
+  nameWithType: XmpMappingEntrySearchRequest.Aggregators
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Aggregators
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43444
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: List of aggregators that defines how the items should be aggregated.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("aggregators", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<AggregatorBase> Aggregators { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.AggregatorBase}
+    content.vb: >-
+      <JsonProperty("aggregators", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Aggregators As ICollection(Of AggregatorBase)
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: aggregators
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter
+  id: Filter
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: Filter
+  nameWithType: XmpMappingEntrySearchRequest.Filter
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Filter
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43450
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: An optional search filter. Limits the document result set.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("filter", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public FilterBase Filter { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.FilterBase
+    content.vb: >-
+      <JsonProperty("filter", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Filter As FilterBase
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: filter
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit
+  id: Limit
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: Limit
+  nameWithType: XmpMappingEntrySearchRequest.Limit
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Limit
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43456
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Limits the document count of the result set.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("limit", Required = Required.Always)]
+
+      public int Limit { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("limit", Required:=Required.Always)>
+
+      Public Property Limit As Integer
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: limit
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken
+  id: PageToken
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: PageToken
+  nameWithType: XmpMappingEntrySearchRequest.PageToken
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PageToken
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43462
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("pageToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string PageToken { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("pageToken", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property PageToken As String
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: pageToken
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString
+  id: SearchString
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: SearchString
+  nameWithType: XmpMappingEntrySearchRequest.SearchString
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchString
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43468
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Limits the search by using a query string filter. The Lucene query string syntax is supported.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("searchString", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string SearchString { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("searchString", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property SearchString As String
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchString
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors
+  id: SearchBehaviors
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: SearchBehaviors
+  nameWithType: XmpMappingEntrySearchRequest.SearchBehaviors
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchBehaviors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43474
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: An optional list of search behaviors. All the passed behaviors will be applied.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("searchBehaviors", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
+
+      public ICollection<SearchBehavior> SearchBehaviors { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SearchBehavior}
+    content.vb: >-
+      <JsonProperty("searchBehaviors", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore, ItemConverterType:=GetType(StringEnumConverter))>
+
+      Public Property SearchBehaviors As ICollection(Of SearchBehavior)
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchBehaviors
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+    - name: ItemConverterType
+      type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort
+  commentId: P:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort
+  id: Sort
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: Sort
+  nameWithType: XmpMappingEntrySearchRequest.Sort
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Sort
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43480
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("sort", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<SortInfo> Sort { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortInfo}
+    content.vb: >-
+      <JsonProperty("sort", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Sort As ICollection(Of SortInfo)
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: sort
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: XmpMappingEntrySearchRequest.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43483
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson*
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: XmpMappingEntrySearchRequest.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43489
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static XmpMappingEntrySearchRequest FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+    content.vb: Public Shared Function FromJson(data As String) As XmpMappingEntrySearchRequest
+  overload: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson*
+  nameWithType.vb: XmpMappingEntrySearchRequest.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_DebugMode
+  name: DebugMode
+  nameWithType: XmpMappingEntrySearchRequest.DebugMode
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.DebugMode
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_AggregationFilters
+  name: AggregationFilters
+  nameWithType: XmpMappingEntrySearchRequest.AggregationFilters
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.AggregationFilters
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.AggregationFilter}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.AggregationFilter}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<AggregationFilter>
+  nameWithType: ICollection<AggregationFilter>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.AggregationFilter>
+  nameWithType.vb: ICollection(Of AggregationFilter)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.AggregationFilter)
+  name.vb: ICollection(Of AggregationFilter)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.AggregationFilter
+    name: AggregationFilter
+    href: Picturepark.SDK.V1.Contract.AggregationFilter.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.AggregationFilter
+    name: AggregationFilter
+    href: Picturepark.SDK.V1.Contract.AggregationFilter.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_Aggregators
+  name: Aggregators
+  nameWithType: XmpMappingEntrySearchRequest.Aggregators
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Aggregators
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.AggregatorBase}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.AggregatorBase}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<AggregatorBase>
+  nameWithType: ICollection<AggregatorBase>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.AggregatorBase>
+  nameWithType.vb: ICollection(Of AggregatorBase)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.AggregatorBase)
+  name.vb: ICollection(Of AggregatorBase)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.AggregatorBase
+    name: AggregatorBase
+    href: Picturepark.SDK.V1.Contract.AggregatorBase.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.AggregatorBase
+    name: AggregatorBase
+    href: Picturepark.SDK.V1.Contract.AggregatorBase.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_Filter
+  name: Filter
+  nameWithType: XmpMappingEntrySearchRequest.Filter
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Filter
+- uid: Picturepark.SDK.V1.Contract.FilterBase
+  commentId: T:Picturepark.SDK.V1.Contract.FilterBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FilterBase.html
+  name: FilterBase
+  nameWithType: FilterBase
+  fullName: Picturepark.SDK.V1.Contract.FilterBase
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_Limit
+  name: Limit
+  nameWithType: XmpMappingEntrySearchRequest.Limit
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Limit
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_PageToken
+  name: PageToken
+  nameWithType: XmpMappingEntrySearchRequest.PageToken
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.PageToken
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_SearchString
+  name: SearchString
+  nameWithType: XmpMappingEntrySearchRequest.SearchString
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchString
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_SearchBehaviors
+  name: SearchBehaviors
+  nameWithType: XmpMappingEntrySearchRequest.SearchBehaviors
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.SearchBehaviors
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SearchBehavior}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SearchBehavior}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<SearchBehavior>
+  nameWithType: ICollection<SearchBehavior>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.SearchBehavior>
+  nameWithType.vb: ICollection(Of SearchBehavior)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.SearchBehavior)
+  name.vb: ICollection(Of SearchBehavior)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SearchBehavior
+    name: SearchBehavior
+    href: Picturepark.SDK.V1.Contract.SearchBehavior.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SearchBehavior
+    name: SearchBehavior
+    href: Picturepark.SDK.V1.Contract.SearchBehavior.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_Sort
+  name: Sort
+  nameWithType: XmpMappingEntrySearchRequest.Sort
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.Sort
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortInfo}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<SortInfo>
+  nameWithType: ICollection<SortInfo>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.SortInfo>
+  nameWithType.vb: ICollection(Of SortInfo)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.SortInfo)
+  name.vb: ICollection(Of SortInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SortInfo
+    name: SortInfo
+    href: Picturepark.SDK.V1.Contract.SortInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SortInfo
+    name: SortInfo
+    href: Picturepark.SDK.V1.Contract.SortInfo.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_ToJson
+  name: ToJson
+  nameWithType: XmpMappingEntrySearchRequest.ToJson
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.ToJson
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html#Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_FromJson_System_String_
+  name: FromJson
+  nameWithType: XmpMappingEntrySearchRequest.FromJson
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.FromJson
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html
+  name: XmpMappingEntrySearchRequest
+  nameWithType: XmpMappingEntrySearchRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest

@@ -1,0 +1,390 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  id: EnvironmentProcessLifeCycle
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Acknowledged
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.CancellationInProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Cancelled
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Draft
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Failed
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.InProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Succeeded
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentProcessLifeCycle
+  nameWithType: EnvironmentProcessLifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EnvironmentProcessLifeCycle
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20692
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum EnvironmentProcessLifeCycle
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum EnvironmentProcessLifeCycle
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Draft
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: EnvironmentProcessLifeCycle.Draft
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20696
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.InProgress
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.InProgress
+  id: InProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: EnvironmentProcessLifeCycle.InProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.InProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InProgress
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20699
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InProgress")]
+
+      InProgress = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="InProgress")>
+
+      InProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Succeeded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Succeeded
+  id: Succeeded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Succeeded
+  nameWithType: EnvironmentProcessLifeCycle.Succeeded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Succeeded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Succeeded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20702
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Succeeded")]
+
+      Succeeded = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Succeeded")>
+
+      Succeeded = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Succeeded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Cancelled
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Cancelled
+  id: Cancelled
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: EnvironmentProcessLifeCycle.Cancelled
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Cancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cancelled
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20705
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cancelled")]
+
+      Cancelled = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Cancelled")>
+
+      Cancelled = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cancelled
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.CancellationInProgress
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.CancellationInProgress
+  id: CancellationInProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: CancellationInProgress
+  nameWithType: EnvironmentProcessLifeCycle.CancellationInProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.CancellationInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CancellationInProgress
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20708
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CancellationInProgress")]
+
+      CancellationInProgress = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="CancellationInProgress")>
+
+      CancellationInProgress = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CancellationInProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Failed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Failed
+  id: Failed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: EnvironmentProcessLifeCycle.Failed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Failed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Failed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20711
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Failed")]
+
+      Failed = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Failed")>
+
+      Failed = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Failed
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Acknowledged
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Acknowledged
+  id: Acknowledged
+  parent: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Acknowledged
+  nameWithType: EnvironmentProcessLifeCycle.Acknowledged
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.Acknowledged
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Acknowledged
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20714
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Acknowledged")]
+
+      Acknowledged = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Acknowledged")>
+
+      Acknowledged = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Acknowledged
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle.html
+  name: EnvironmentProcessLifeCycle
+  nameWithType: EnvironmentProcessLifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcessLifeCycle

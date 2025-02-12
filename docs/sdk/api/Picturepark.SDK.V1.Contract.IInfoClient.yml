@@ -1,0 +1,428 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IInfoClient
+  commentId: T:Picturepark.SDK.V1.Contract.IInfoClient
+  id: IInfoClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IInfoClient
+  nameWithType: IInfoClient
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IInfoClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1770
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IInfoClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IInfoClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync(System.Threading.CancellationToken)
+  id: GetVersionAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IInfoClient
+  langs:
+  - csharp
+  - vb
+  name: GetVersionAsync(CancellationToken)
+  nameWithType: IInfoClient.GetVersionAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetVersionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1783
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get version
+  remarks: Get the version information of the deployed application.
+  example: []
+  syntax:
+    content: Task<VersionInfo> GetVersionAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.VersionInfo}
+      description: VersionInfo
+    content.vb: Function GetVersionAsync(cancellationToken As CancellationToken = Nothing) As Task(Of VersionInfo)
+  overload: Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+- uid: Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync(System.Threading.CancellationToken)
+  id: GetInfoAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IInfoClient
+  langs:
+  - csharp
+  - vb
+  name: GetInfoAsync(CancellationToken)
+  nameWithType: IInfoClient.GetInfoAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetInfoAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1794
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get info
+  remarks: Get the customer specific configuration infos.
+  example: []
+  syntax:
+    content: Task<CustomerInfo> GetInfoAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CustomerInfo}
+      description: CustomerInfo
+    content.vb: Function GetInfoAsync(cancellationToken As CancellationToken = Nothing) As Task(Of CustomerInfo)
+  overload: Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+- uid: Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync(System.Threading.CancellationToken)
+  id: GetStatusAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IInfoClient
+  langs:
+  - csharp
+  - vb
+  name: GetStatusAsync(CancellationToken)
+  nameWithType: IInfoClient.GetStatusAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetStatusAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1805
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get status
+  remarks: Get the status of the system data compared to the schema model.
+  example: []
+  syntax:
+    content: Task<SystemStatus> GetStatusAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SystemStatus}
+      description: SystemStatus
+    content.vb: Function GetStatusAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SystemStatus)
+  overload: Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync
+  href: Picturepark.SDK.V1.Contract.IInfoClient.html#Picturepark_SDK_V1_Contract_IInfoClient_GetVersionAsync_System_Threading_CancellationToken_
+  name: GetVersionAsync
+  nameWithType: IInfoClient.GetVersionAsync
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient.GetVersionAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.VersionInfo}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.VersionInfo}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<VersionInfo>
+  nameWithType: Task<VersionInfo>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.VersionInfo>
+  nameWithType.vb: Task(Of VersionInfo)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.VersionInfo)
+  name.vb: Task(Of VersionInfo)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.VersionInfo
+    name: VersionInfo
+    href: Picturepark.SDK.V1.Contract.VersionInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.VersionInfo
+    name: VersionInfo
+    href: Picturepark.SDK.V1.Contract.VersionInfo.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync
+  href: Picturepark.SDK.V1.Contract.IInfoClient.html#Picturepark_SDK_V1_Contract_IInfoClient_GetInfoAsync_System_Threading_CancellationToken_
+  name: GetInfoAsync
+  nameWithType: IInfoClient.GetInfoAsync
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient.GetInfoAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CustomerInfo}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.CustomerInfo}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CustomerInfo>
+  nameWithType: Task<CustomerInfo>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.CustomerInfo>
+  nameWithType.vb: Task(Of CustomerInfo)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.CustomerInfo)
+  name.vb: Task(Of CustomerInfo)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.CustomerInfo
+    name: CustomerInfo
+    href: Picturepark.SDK.V1.Contract.CustomerInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.CustomerInfo
+    name: CustomerInfo
+    href: Picturepark.SDK.V1.Contract.CustomerInfo.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync
+  href: Picturepark.SDK.V1.Contract.IInfoClient.html#Picturepark_SDK_V1_Contract_IInfoClient_GetStatusAsync_System_Threading_CancellationToken_
+  name: GetStatusAsync
+  nameWithType: IInfoClient.GetStatusAsync
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient.GetStatusAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SystemStatus}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.SystemStatus}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SystemStatus>
+  nameWithType: Task<SystemStatus>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.SystemStatus>
+  nameWithType.vb: Task(Of SystemStatus)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.SystemStatus)
+  name.vb: Task(Of SystemStatus)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SystemStatus
+    name: SystemStatus
+    href: Picturepark.SDK.V1.Contract.SystemStatus.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SystemStatus
+    name: SystemStatus
+    href: Picturepark.SDK.V1.Contract.SystemStatus.html
+  - name: )

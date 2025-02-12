@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.SortDirection
+  commentId: T:Picturepark.SDK.V1.Contract.SortDirection
+  id: SortDirection
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.SortDirection.Asc
+  - Picturepark.SDK.V1.Contract.SortDirection.Desc
+  langs:
+  - csharp
+  - vb
+  name: SortDirection
+  nameWithType: SortDirection
+  fullName: Picturepark.SDK.V1.Contract.SortDirection
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SortDirection
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 18256
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The sort direction
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum SortDirection
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum SortDirection
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.SortDirection.Asc
+  commentId: F:Picturepark.SDK.V1.Contract.SortDirection.Asc
+  id: Asc
+  parent: Picturepark.SDK.V1.Contract.SortDirection
+  langs:
+  - csharp
+  - vb
+  name: Asc
+  nameWithType: SortDirection.Asc
+  fullName: Picturepark.SDK.V1.Contract.SortDirection.Asc
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Asc
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 18260
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Asc")]
+
+      Asc = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.SortDirection
+    content.vb: >-
+      <EnumMember(Value:="Asc")>
+
+      Asc = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Asc
+- uid: Picturepark.SDK.V1.Contract.SortDirection.Desc
+  commentId: F:Picturepark.SDK.V1.Contract.SortDirection.Desc
+  id: Desc
+  parent: Picturepark.SDK.V1.Contract.SortDirection
+  langs:
+  - csharp
+  - vb
+  name: Desc
+  nameWithType: SortDirection.Desc
+  fullName: Picturepark.SDK.V1.Contract.SortDirection.Desc
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Desc
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 18263
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Desc")]
+
+      Desc = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.SortDirection
+    content.vb: >-
+      <EnumMember(Value:="Desc")>
+
+      Desc = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Desc
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.SortDirection
+  commentId: T:Picturepark.SDK.V1.Contract.SortDirection
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SortDirection.html
+  name: SortDirection
+  nameWithType: SortDirection
+  fullName: Picturepark.SDK.V1.Contract.SortDirection

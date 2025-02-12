@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  id: AlphaHandling
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.DiscardAlpha
+  - Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceAlpha
+  - Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceInvertedAlpha
+  langs:
+  - csharp
+  - vb
+  name: AlphaHandling
+  nameWithType: AlphaHandling
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AlphaHandling
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18162
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Specifies the kind of AlphaHandling to be applied to an image
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum AlphaHandling
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum AlphaHandling
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.DiscardAlpha
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.DiscardAlpha
+  id: DiscardAlpha
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  langs:
+  - csharp
+  - vb
+  name: DiscardAlpha
+  nameWithType: AlphaHandling.DiscardAlpha
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.DiscardAlpha
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DiscardAlpha
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18166
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DiscardAlpha")]
+
+      DiscardAlpha = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+    content.vb: >-
+      <EnumMember(Value:="DiscardAlpha")>
+
+      DiscardAlpha = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DiscardAlpha
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceAlpha
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceAlpha
+  id: ReplaceAlpha
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  langs:
+  - csharp
+  - vb
+  name: ReplaceAlpha
+  nameWithType: AlphaHandling.ReplaceAlpha
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceAlpha
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReplaceAlpha
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18169
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReplaceAlpha")]
+
+      ReplaceAlpha = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+    content.vb: >-
+      <EnumMember(Value:="ReplaceAlpha")>
+
+      ReplaceAlpha = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReplaceAlpha
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceInvertedAlpha
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceInvertedAlpha
+  id: ReplaceInvertedAlpha
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  langs:
+  - csharp
+  - vb
+  name: ReplaceInvertedAlpha
+  nameWithType: AlphaHandling.ReplaceInvertedAlpha
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.ReplaceInvertedAlpha
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReplaceInvertedAlpha
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18172
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReplaceInvertedAlpha")]
+
+      ReplaceInvertedAlpha = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+    content.vb: >-
+      <EnumMember(Value:="ReplaceInvertedAlpha")>
+
+      ReplaceInvertedAlpha = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReplaceInvertedAlpha
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.html
+  name: AlphaHandling
+  nameWithType: AlphaHandling
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling

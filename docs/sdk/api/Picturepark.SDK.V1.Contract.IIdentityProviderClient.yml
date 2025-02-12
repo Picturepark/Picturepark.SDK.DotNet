@@ -1,0 +1,770 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  commentId: T:Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  id: IIdentityProviderClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.IdentityProviderEditable,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IIdentityProviderClient
+  nameWithType: IIdentityProviderClient
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IIdentityProviderClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1679
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IIdentityProviderClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IIdentityProviderClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync(System.Threading.CancellationToken)
+  id: GetAllAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  langs:
+  - csharp
+  - vb
+  name: GetAllAsync(CancellationToken)
+  nameWithType: IIdentityProviderClient.GetAllAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAllAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1698
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get all identity providers
+  remarks: Gets all identity providers configured
+  example: []
+  syntax:
+    content: Task<ICollection<IdentityProvider>> GetAllAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdentityProvider}}
+      description: Array of identity providers
+    content.vb: Function GetAllAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of IdentityProvider))
+  overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync(System.Threading.CancellationToken)
+  id: GetAllBasicInfosAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  langs:
+  - csharp
+  - vb
+  name: GetAllBasicInfosAsync(CancellationToken)
+  nameWithType: IIdentityProviderClient.GetAllBasicInfosAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAllBasicInfosAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1715
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get basic info for all providers
+  remarks: Gets basic information for all identity providers configured
+  example: []
+  syntax:
+    content: Task<ICollection<IdentityProviderBasicInfo>> GetAllBasicInfosAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo}}
+      description: Array of identity provider basic information
+    content.vb: Function GetAllBasicInfosAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of IdentityProviderBasicInfo))
+  overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IIdentityProviderClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1730
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get identity provider
+  example: []
+  syntax:
+    content: Task<IdentityProvider> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Identity provider ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
+      description: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of IdentityProvider)
+  overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IIdentityProviderClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.IdentityProviderEditable,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.IdentityProviderEditable,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.IdentityProviderEditable,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, IdentityProviderEditable, CancellationToken)
+  nameWithType: IIdentityProviderClient.UpdateAsync(string, IdentityProviderEditable, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.IdentityProviderEditable, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1749
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update identity provider
+  remarks: Identity provider has to be already created via UI
+  example: []
+  syntax:
+    content: Task<IdentityProvider> UpdateAsync(string id, IdentityProviderEditable provider, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Identity provider ID.
+    - id: provider
+      type: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+      description: Update request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
+      description: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+    content.vb: Function UpdateAsync(id As String, provider As IdentityProviderEditable, cancellationToken As CancellationToken = Nothing) As Task(Of IdentityProvider)
+  overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IIdentityProviderClient.UpdateAsync(String, IdentityProviderEditable, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.IdentityProviderEditable, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, IdentityProviderEditable, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync(System.Threading.CancellationToken)
+  id: GetSynchronizableAttributesAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  langs:
+  - csharp
+  - vb
+  name: GetSynchronizableAttributesAsync(CancellationToken)
+  nameWithType: IIdentityProviderClient.GetSynchronizableAttributesAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSynchronizableAttributesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1766
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get synchronizable attributes
+  remarks: Returns names of user attributes that can be synchronized from identity provider claims and therefore can be used in ClaimMapping.
+  example: []
+  syntax:
+    content: Task<ICollection<string>> GetSynchronizableAttributesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{System.String}}
+      description: Names of user attributes
+    content.vb: Function GetSynchronizableAttributesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of String))
+  overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync
+  href: Picturepark.SDK.V1.Contract.IIdentityProviderClient.html#Picturepark_SDK_V1_Contract_IIdentityProviderClient_GetAllAsync_System_Threading_CancellationToken_
+  name: GetAllAsync
+  nameWithType: IIdentityProviderClient.GetAllAsync
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdentityProvider}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdentityProvider}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<IdentityProvider>>
+  nameWithType: Task<ICollection<IdentityProvider>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.IdentityProvider>>
+  nameWithType.vb: Task(Of ICollection(Of IdentityProvider))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.IdentityProvider))
+  name.vb: Task(Of ICollection(Of IdentityProvider))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IdentityProvider
+    name: IdentityProvider
+    href: Picturepark.SDK.V1.Contract.IdentityProvider.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IdentityProvider
+    name: IdentityProvider
+    href: Picturepark.SDK.V1.Contract.IdentityProvider.html
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync
+  href: Picturepark.SDK.V1.Contract.IIdentityProviderClient.html#Picturepark_SDK_V1_Contract_IIdentityProviderClient_GetAllBasicInfosAsync_System_Threading_CancellationToken_
+  name: GetAllBasicInfosAsync
+  nameWithType: IIdentityProviderClient.GetAllBasicInfosAsync
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAllBasicInfosAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<IdentityProviderBasicInfo>>
+  nameWithType: Task<ICollection<IdentityProviderBasicInfo>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo>>
+  nameWithType.vb: Task(Of ICollection(Of IdentityProviderBasicInfo))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo))
+  name.vb: Task(Of ICollection(Of IdentityProviderBasicInfo))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo
+    name: IdentityProviderBasicInfo
+    href: Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo
+    name: IdentityProviderBasicInfo
+    href: Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IIdentityProviderClient.html#Picturepark_SDK_V1_Contract_IIdentityProviderClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IIdentityProviderClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IdentityProvider>
+  nameWithType: Task<IdentityProvider>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.IdentityProvider>
+  nameWithType.vb: Task(Of IdentityProvider)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.IdentityProvider)
+  name.vb: Task(Of IdentityProvider)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IdentityProvider
+    name: IdentityProvider
+    href: Picturepark.SDK.V1.Contract.IdentityProvider.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IdentityProvider
+    name: IdentityProvider
+    href: Picturepark.SDK.V1.Contract.IdentityProvider.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IIdentityProviderClient.html#Picturepark_SDK_V1_Contract_IIdentityProviderClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_IdentityProviderEditable_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IIdentityProviderClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  commentId: T:Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html
+  name: IdentityProviderEditable
+  nameWithType: IdentityProviderEditable
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync
+  href: Picturepark.SDK.V1.Contract.IIdentityProviderClient.html#Picturepark_SDK_V1_Contract_IIdentityProviderClient_GetSynchronizableAttributesAsync_System_Threading_CancellationToken_
+  name: GetSynchronizableAttributesAsync
+  nameWithType: IIdentityProviderClient.GetSynchronizableAttributesAsync
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetSynchronizableAttributesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{System.String}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{System.String}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<string>>
+  nameWithType: Task<ICollection<string>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>>
+  nameWithType.vb: Task(Of ICollection(Of String))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of String))
+  name.vb: Task(Of ICollection(Of String))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )

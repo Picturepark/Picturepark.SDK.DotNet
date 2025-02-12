@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.MetadataRight
+  commentId: T:Picturepark.SDK.V1.Contract.MetadataRight
+  id: MetadataRight
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.MetadataRight.ManageItems
+  - Picturepark.SDK.V1.Contract.MetadataRight.ManageSchema
+  - Picturepark.SDK.V1.Contract.MetadataRight.View
+  langs:
+  - csharp
+  - vb
+  name: MetadataRight
+  nameWithType: MetadataRight
+  fullName: Picturepark.SDK.V1.Contract.MetadataRight
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRight
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9422
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Metadata rights
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum MetadataRight
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum MetadataRight
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.MetadataRight.View
+  commentId: F:Picturepark.SDK.V1.Contract.MetadataRight.View
+  id: View
+  parent: Picturepark.SDK.V1.Contract.MetadataRight
+  langs:
+  - csharp
+  - vb
+  name: View
+  nameWithType: MetadataRight.View
+  fullName: Picturepark.SDK.V1.Contract.MetadataRight.View
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: View
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9426
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "View")]
+
+      View = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.MetadataRight
+    content.vb: >-
+      <EnumMember(Value:="View")>
+
+      View = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: View
+- uid: Picturepark.SDK.V1.Contract.MetadataRight.ManageItems
+  commentId: F:Picturepark.SDK.V1.Contract.MetadataRight.ManageItems
+  id: ManageItems
+  parent: Picturepark.SDK.V1.Contract.MetadataRight
+  langs:
+  - csharp
+  - vb
+  name: ManageItems
+  nameWithType: MetadataRight.ManageItems
+  fullName: Picturepark.SDK.V1.Contract.MetadataRight.ManageItems
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageItems
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9429
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageItems")]
+
+      ManageItems = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.MetadataRight
+    content.vb: >-
+      <EnumMember(Value:="ManageItems")>
+
+      ManageItems = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageItems
+- uid: Picturepark.SDK.V1.Contract.MetadataRight.ManageSchema
+  commentId: F:Picturepark.SDK.V1.Contract.MetadataRight.ManageSchema
+  id: ManageSchema
+  parent: Picturepark.SDK.V1.Contract.MetadataRight
+  langs:
+  - csharp
+  - vb
+  name: ManageSchema
+  nameWithType: MetadataRight.ManageSchema
+  fullName: Picturepark.SDK.V1.Contract.MetadataRight.ManageSchema
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ManageSchema
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9432
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ManageSchema")]
+
+      ManageSchema = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.MetadataRight
+    content.vb: >-
+      <EnumMember(Value:="ManageSchema")>
+
+      ManageSchema = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ManageSchema
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.MetadataRight
+  commentId: T:Picturepark.SDK.V1.Contract.MetadataRight
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MetadataRight.html
+  name: MetadataRight
+  nameWithType: MetadataRight
+  fullName: Picturepark.SDK.V1.Contract.MetadataRight

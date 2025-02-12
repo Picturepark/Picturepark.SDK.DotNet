@@ -1,0 +1,916 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  id: ICustomerQueuePriorityClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync(System.String,System.String,Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ICustomerQueuePriorityClient
+  nameWithType: ICustomerQueuePriorityClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ICustomerQueuePriorityClient
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 618
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface ICustomerQueuePriorityClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface ICustomerQueuePriorityClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync(System.String,System.Threading.CancellationToken)
+  id: GetEffectiveAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: GetEffectiveAsync(string, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.GetEffectiveAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetEffectiveAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 631
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<CustomerQueuePriorityConfiguration> GetEffectiveAsync(string customerId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+    content.vb: Function GetEffectiveAsync(customerId As String, cancellationToken As CancellationToken = Nothing) As Task(Of CustomerQueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.GetEffectiveAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync(String, System.Threading.CancellationToken)
+  name.vb: GetEffectiveAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync(System.String,System.Threading.CancellationToken)
+  id: GetCustomAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: GetCustomAsync(string, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.GetCustomAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetCustomAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 642
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<CustomerQueuePriorityConfiguration> GetCustomAsync(string customerId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+    content.vb: Function GetCustomAsync(customerId As String, cancellationToken As CancellationToken = Nothing) As Task(Of CustomerQueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.GetCustomAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync(String, System.Threading.CancellationToken)
+  name.vb: GetCustomAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEffectiveForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: GetEffectiveForQueueAsync(string, string, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetEffectiveForQueueAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 653
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<QueuePriorityConfiguration> GetEffectiveForQueueAsync(string customerId, string queueFamily, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: queueFamily
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration}
+    content.vb: Function GetEffectiveForQueueAsync(customerId As String, queueFamily As String, cancellationToken As CancellationToken = Nothing) As Task(Of QueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetEffectiveForQueueAsync(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetCustomForQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: GetCustomForQueueAsync(string, string, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.GetCustomForQueueAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetCustomForQueueAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 664
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<QueuePriorityConfiguration> GetCustomForQueueAsync(string customerId, string queueFamily, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: queueFamily
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration}
+    content.vb: Function GetCustomForQueueAsync(customerId As String, queueFamily As String, cancellationToken As CancellationToken = Nothing) As Task(Of QueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.GetCustomForQueueAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetCustomForQueueAsync(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, CustomerQueuePriorityConfiguration, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.UpdateAsync(string, CustomerQueuePriorityConfiguration, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync(string, Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 675
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<CustomerQueuePriorityConfiguration> UpdateAsync(string customerId, CustomerQueuePriorityConfiguration updateRequest, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: updateRequest
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+    content.vb: Function UpdateAsync(customerId As String, updateRequest As CustomerQueuePriorityConfiguration, cancellationToken As CancellationToken = Nothing) As Task(Of CustomerQueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.UpdateAsync(String, CustomerQueuePriorityConfiguration, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync(String, Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, CustomerQueuePriorityConfiguration, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(System.String,System.Threading.CancellationToken)
+  id: ResetAllQueueConfigurationsAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: ResetAllQueueConfigurationsAsync(string, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ResetAllQueueConfigurationsAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 686
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task ResetAllQueueConfigurationsAsync(string customerId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function ResetAllQueueConfigurationsAsync(customerId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync(String, System.Threading.CancellationToken)
+  name.vb: ResetAllQueueConfigurationsAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync(System.String,System.String,Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync(System.String,System.String,Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration,System.Threading.CancellationToken)
+  id: UpdateForQueueAsync(System.String,System.String,Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateForQueueAsync(string, string, QueuePriorityConfiguration, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.UpdateForQueueAsync(string, string, QueuePriorityConfiguration, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync(string, string, Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateForQueueAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 697
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<CustomerQueuePriorityConfiguration> UpdateForQueueAsync(string customerId, string queueFamily, QueuePriorityConfiguration updateRequest, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: queueFamily
+      type: System.String
+    - id: updateRequest
+      type: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+    content.vb: Function UpdateForQueueAsync(customerId As String, queueFamily As String, updateRequest As QueuePriorityConfiguration, cancellationToken As CancellationToken = Nothing) As Task(Of CustomerQueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.UpdateForQueueAsync(String, String, QueuePriorityConfiguration, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync(String, String, Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration, System.Threading.CancellationToken)
+  name.vb: UpdateForQueueAsync(String, String, QueuePriorityConfiguration, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: ResetQueueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient
+  langs:
+  - csharp
+  - vb
+  name: ResetQueueAsync(string, string, CancellationToken)
+  nameWithType: ICustomerQueuePriorityClient.ResetQueueAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ResetQueueAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 708
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task<CustomerQueuePriorityConfiguration> ResetQueueAsync(string customerId, string queueFamily, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: queueFamily
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+    content.vb: Function ResetQueueAsync(customerId As String, queueFamily As String, cancellationToken As CancellationToken = Nothing) As Task(Of CustomerQueuePriorityConfiguration)
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerQueuePriorityClient.ResetQueueAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: ResetQueueAsync(String, String, CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_GetEffectiveAsync_System_String_System_Threading_CancellationToken_
+  name: GetEffectiveAsync
+  nameWithType: ICustomerQueuePriorityClient.GetEffectiveAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CustomerQueuePriorityConfiguration>
+  nameWithType: Task<CustomerQueuePriorityConfiguration>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration>
+  nameWithType.vb: Task(Of CustomerQueuePriorityConfiguration)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration)
+  name.vb: Task(Of CustomerQueuePriorityConfiguration)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration
+    name: CustomerQueuePriorityConfiguration
+    href: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration
+    name: CustomerQueuePriorityConfiguration
+    href: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_GetCustomAsync_System_String_System_Threading_CancellationToken_
+  name: GetCustomAsync
+  nameWithType: ICustomerQueuePriorityClient.GetCustomAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_GetEffectiveForQueueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetEffectiveForQueueAsync
+  nameWithType: ICustomerQueuePriorityClient.GetEffectiveForQueueAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetEffectiveForQueueAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<QueuePriorityConfiguration>
+  nameWithType: Task<QueuePriorityConfiguration>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration>
+  nameWithType.vb: Task(Of QueuePriorityConfiguration)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration)
+  name.vb: Task(Of QueuePriorityConfiguration)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration
+    name: QueuePriorityConfiguration
+    href: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration
+    name: QueuePriorityConfiguration
+    href: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration.html
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_GetCustomForQueueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetCustomForQueueAsync
+  nameWithType: ICustomerQueuePriorityClient.GetCustomForQueueAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.GetCustomForQueueAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_UpdateAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_CustomerQueuePriorityConfiguration_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: ICustomerQueuePriorityClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration.html
+  name: CustomerQueuePriorityConfiguration
+  nameWithType: CustomerQueuePriorityConfiguration
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerQueuePriorityConfiguration
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_ResetAllQueueConfigurationsAsync_System_String_System_Threading_CancellationToken_
+  name: ResetAllQueueConfigurationsAsync
+  nameWithType: ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetAllQueueConfigurationsAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_UpdateForQueueAsync_System_String_System_String_Picturepark_SDK_V1_CloudManager_Contract_QueuePriorityConfiguration_System_Threading_CancellationToken_
+  name: UpdateForQueueAsync
+  nameWithType: ICustomerQueuePriorityClient.UpdateForQueueAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.UpdateForQueueAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration.html
+  name: QueuePriorityConfiguration
+  nameWithType: QueuePriorityConfiguration
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.QueuePriorityConfiguration
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerQueuePriorityClient_ResetQueueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: ResetQueueAsync
+  nameWithType: ICustomerQueuePriorityClient.ResetQueueAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerQueuePriorityClient.ResetQueueAsync

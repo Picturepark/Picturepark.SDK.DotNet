@@ -1,0 +1,1076 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  commentId: T:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  id: SchemaIndexingInfoBuilder`1
+  parent: Picturepark.SDK.V1.Builders
+  children:
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor(Newtonsoft.Json.Serialization.IContractResolver)
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor(Newtonsoft.Json.Serialization.IContractResolver,Picturepark.SDK.V1.Contract.SchemaIndexingInfo)
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndex(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexWithSimpleSearch(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Double)
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.Build
+  langs:
+  - csharp
+  - vb
+  name: SchemaIndexingInfoBuilder<T>
+  nameWithType: SchemaIndexingInfoBuilder<T>
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaIndexingInfoBuilder
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 11
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: 'public class SchemaIndexingInfoBuilder<T> : BuilderBase'
+    typeParameters:
+    - id: T
+    content.vb: Public Class SchemaIndexingInfoBuilder(Of T) Inherits BuilderBase
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Builders.BuilderBase
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T)
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T)
+  name.vb: SchemaIndexingInfoBuilder(Of T)
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor
+  id: '#ctor'
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: SchemaIndexingInfoBuilder()
+  nameWithType: SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder()
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder()
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 16
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder()
+    content.vb: Public Sub New()
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).New()
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).New()
+  name.vb: New()
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor(Newtonsoft.Json.Serialization.IContractResolver)
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor(Newtonsoft.Json.Serialization.IContractResolver)
+  id: '#ctor(Newtonsoft.Json.Serialization.IContractResolver)'
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: SchemaIndexingInfoBuilder(IContractResolver)
+  nameWithType: SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder(IContractResolver)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder(Newtonsoft.Json.Serialization.IContractResolver)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 21
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder(IContractResolver contractResolver)
+    parameters:
+    - id: contractResolver
+      type: Newtonsoft.Json.Serialization.IContractResolver
+    content.vb: Public Sub New(contractResolver As IContractResolver)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).New(IContractResolver)
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).New(Newtonsoft.Json.Serialization.IContractResolver)
+  name.vb: New(IContractResolver)
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor(Newtonsoft.Json.Serialization.IContractResolver,Picturepark.SDK.V1.Contract.SchemaIndexingInfo)
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor(Newtonsoft.Json.Serialization.IContractResolver,Picturepark.SDK.V1.Contract.SchemaIndexingInfo)
+  id: '#ctor(Newtonsoft.Json.Serialization.IContractResolver,Picturepark.SDK.V1.Contract.SchemaIndexingInfo)'
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: SchemaIndexingInfoBuilder(IContractResolver, SchemaIndexingInfo)
+  nameWithType: SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder(IContractResolver, SchemaIndexingInfo)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder(Newtonsoft.Json.Serialization.IContractResolver, Picturepark.SDK.V1.Contract.SchemaIndexingInfo)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 26
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder(IContractResolver contractResolver, SchemaIndexingInfo schemaIndexingInfo)
+    parameters:
+    - id: contractResolver
+      type: Newtonsoft.Json.Serialization.IContractResolver
+    - id: schemaIndexingInfo
+      type: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+    content.vb: Public Sub New(contractResolver As IContractResolver, schemaIndexingInfo As SchemaIndexingInfo)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).New(IContractResolver, SchemaIndexingInfo)
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).New(Newtonsoft.Json.Serialization.IContractResolver, Picturepark.SDK.V1.Contract.SchemaIndexingInfo)
+  name.vb: New(IContractResolver, SchemaIndexingInfo)
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.Build
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.Build
+  id: Build
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: Build()
+  nameWithType: SchemaIndexingInfoBuilder<T>.Build()
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.Build()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Build
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 32
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfo Build()
+    return:
+      type: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+    content.vb: Public Function Build() As SchemaIndexingInfo
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.Build*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).Build()
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).Build()
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndex(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndex(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})
+  id: AddIndex(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: AddIndex(Expression<Func<T, object>>)
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndex(Expression<Func<T, object>>)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndex(System.Linq.Expressions.Expression<System.Func<T, object>>)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddIndex
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 37
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder<T> AddIndex(Expression<Func<T, object>> expression)
+    parameters:
+    - id: expression
+      type: System.Linq.Expressions.Expression{System.Func{{T},System.Object}}
+    return:
+      type: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    content.vb: Public Function AddIndex(expression As Expression(Of Func(Of T, Object))) As SchemaIndexingInfoBuilder(Of T)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndex*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndex(Expression(Of Func(Of T, Object)))
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndex(System.Linq.Expressions.Expression(Of System.Func(Of T, Object)))
+  name.vb: AddIndex(Expression(Of Func(Of T, Object)))
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexWithSimpleSearch(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Double)
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexWithSimpleSearch(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Double)
+  id: AddIndexWithSimpleSearch(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Double)
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: AddIndexWithSimpleSearch(Expression<Func<T, object>>, double)
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndexWithSimpleSearch(Expression<Func<T, object>>, double)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndexWithSimpleSearch(System.Linq.Expressions.Expression<System.Func<T, object>>, double)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddIndexWithSimpleSearch
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 43
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder<T> AddIndexWithSimpleSearch(Expression<Func<T, object>> expression, double boost = 1)
+    parameters:
+    - id: expression
+      type: System.Linq.Expressions.Expression{System.Func{{T},System.Object}}
+    - id: boost
+      type: System.Double
+    return:
+      type: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    content.vb: Public Function AddIndexWithSimpleSearch(expression As Expression(Of Func(Of T, Object)), boost As Double = 1) As SchemaIndexingInfoBuilder(Of T)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexWithSimpleSearch*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndexWithSimpleSearch(Expression(Of Func(Of T, Object)), Double)
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndexWithSimpleSearch(System.Linq.Expressions.Expression(Of System.Func(Of T, Object)), Double)
+  name.vb: AddIndexWithSimpleSearch(Expression(Of Func(Of T, Object)), Double)
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  id: AddIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: AddIndexes(int, Func<Type, JsonProperty, bool>)
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndexes(int, Func<Type, JsonProperty, bool>)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndexes(int, System.Func<System.Type, Newtonsoft.Json.Serialization.JsonProperty, bool>)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddIndexes
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 55
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder<T> AddIndexes(int levels, Func<Type, JsonProperty, bool> propertySelector = null)
+    parameters:
+    - id: levels
+      type: System.Int32
+    - id: propertySelector
+      type: System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean}
+    return:
+      type: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    content.vb: Public Function AddIndexes(levels As Integer, propertySelector As Func(Of Type, JsonProperty, Boolean) = Nothing) As SchemaIndexingInfoBuilder(Of T)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndexes(Integer, Func(Of Type, JsonProperty, Boolean))
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndexes(Integer, System.Func(Of System.Type, Newtonsoft.Json.Serialization.JsonProperty, Boolean))
+  name.vb: AddIndexes(Integer, Func(Of Type, JsonProperty, Boolean))
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  id: AddDefaultIndexes(System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: AddDefaultIndexes(int, Func<Type, JsonProperty, bool>)
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddDefaultIndexes(int, Func<Type, JsonProperty, bool>)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddDefaultIndexes(int, System.Func<System.Type, Newtonsoft.Json.Serialization.JsonProperty, bool>)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddDefaultIndexes
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 63
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder<T> AddDefaultIndexes(int levels, Func<Type, JsonProperty, bool> propertySelector = null)
+    parameters:
+    - id: levels
+      type: System.Int32
+    - id: propertySelector
+      type: System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean}
+    return:
+      type: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    content.vb: Public Function AddDefaultIndexes(levels As Integer, propertySelector As Func(Of Type, JsonProperty, Boolean) = Nothing) As SchemaIndexingInfoBuilder(Of T)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddDefaultIndexes(Integer, Func(Of Type, JsonProperty, Boolean))
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddDefaultIndexes(Integer, System.Func(Of System.Type, Newtonsoft.Json.Serialization.JsonProperty, Boolean))
+  name.vb: AddDefaultIndexes(Integer, Func(Of Type, JsonProperty, Boolean))
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  id: AddIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: AddIndexes(Expression<Func<T, object>>, int, Func<Type, JsonProperty, bool>)
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndexes(Expression<Func<T, object>>, int, Func<Type, JsonProperty, bool>)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndexes(System.Linq.Expressions.Expression<System.Func<T, object>>, int, System.Func<System.Type, Newtonsoft.Json.Serialization.JsonProperty, bool>)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddIndexes
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 81
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder<T> AddIndexes(Expression<Func<T, object>> expression, int levels, Func<Type, JsonProperty, bool> propertySelector = null)
+    parameters:
+    - id: expression
+      type: System.Linq.Expressions.Expression{System.Func{{T},System.Object}}
+    - id: levels
+      type: System.Int32
+    - id: propertySelector
+      type: System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean}
+    return:
+      type: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    content.vb: Public Function AddIndexes(expression As Expression(Of Func(Of T, Object)), levels As Integer, propertySelector As Func(Of Type, JsonProperty, Boolean) = Nothing) As SchemaIndexingInfoBuilder(Of T)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndexes(Expression(Of Func(Of T, Object)), Integer, Func(Of Type, JsonProperty, Boolean))
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndexes(System.Linq.Expressions.Expression(Of System.Func(Of T, Object)), Integer, System.Func(Of System.Type, Newtonsoft.Json.Serialization.JsonProperty, Boolean))
+  name.vb: AddIndexes(Expression(Of Func(Of T, Object)), Integer, Func(Of Type, JsonProperty, Boolean))
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  commentId: M:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  id: AddDefaultIndexes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Int32,System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean})
+  parent: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: AddDefaultIndexes(Expression<Func<T, object>>, int, Func<Type, JsonProperty, bool>)
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddDefaultIndexes(Expression<Func<T, object>>, int, Func<Type, JsonProperty, bool>)
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddDefaultIndexes(System.Linq.Expressions.Expression<System.Func<T, object>>, int, System.Func<System.Type, Newtonsoft.Json.Serialization.JsonProperty, bool>)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddDefaultIndexes
+    path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
+    startLine: 99
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Builders
+  syntax:
+    content: public SchemaIndexingInfoBuilder<T> AddDefaultIndexes(Expression<Func<T, object>> expression, int levels, Func<Type, JsonProperty, bool> propertySelector = null)
+    parameters:
+    - id: expression
+      type: System.Linq.Expressions.Expression{System.Func{{T},System.Object}}
+    - id: levels
+      type: System.Int32
+    - id: propertySelector
+      type: System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean}
+    return:
+      type: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    content.vb: Public Function AddDefaultIndexes(expression As Expression(Of Func(Of T, Object)), levels As Integer, propertySelector As Func(Of Type, JsonProperty, Boolean) = Nothing) As SchemaIndexingInfoBuilder(Of T)
+  overload: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes*
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddDefaultIndexes(Expression(Of Func(Of T, Object)), Integer, Func(Of Type, JsonProperty, Boolean))
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddDefaultIndexes(System.Linq.Expressions.Expression(Of System.Func(Of T, Object)), Integer, System.Func(Of System.Type, Newtonsoft.Json.Serialization.JsonProperty, Boolean))
+  name.vb: AddDefaultIndexes(Expression(Of Func(Of T, Object)), Integer, Func(Of Type, JsonProperty, Boolean))
+references:
+- uid: Picturepark.SDK.V1.Builders
+  commentId: N:Picturepark.SDK.V1.Builders
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Builders
+  nameWithType: Picturepark.SDK.V1.Builders
+  fullName: Picturepark.SDK.V1.Builders
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Builders
+    name: Builders
+    href: Picturepark.SDK.V1.Builders.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Builders
+    name: Builders
+    href: Picturepark.SDK.V1.Builders.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Builders.BuilderBase
+  commentId: T:Picturepark.SDK.V1.Builders.BuilderBase
+  parent: Picturepark.SDK.V1.Builders
+  href: Picturepark.SDK.V1.Builders.BuilderBase.html
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: Picturepark.SDK.V1.Builders.BuilderBase
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.#ctor
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html#Picturepark_SDK_V1_Builders_SchemaIndexingInfoBuilder_1__ctor
+  name: SchemaIndexingInfoBuilder
+  nameWithType: SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.SchemaIndexingInfoBuilder
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).New
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).New
+  name.vb: New
+- uid: Newtonsoft.Json.Serialization.IContractResolver
+  commentId: T:Newtonsoft.Json.Serialization.IContractResolver
+  parent: Newtonsoft.Json.Serialization
+  isExternal: true
+  name: IContractResolver
+  nameWithType: IContractResolver
+  fullName: Newtonsoft.Json.Serialization.IContractResolver
+- uid: Newtonsoft.Json.Serialization
+  commentId: N:Newtonsoft.Json.Serialization
+  isExternal: true
+  name: Newtonsoft.Json.Serialization
+  nameWithType: Newtonsoft.Json.Serialization
+  fullName: Newtonsoft.Json.Serialization
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Serialization
+    name: Serialization
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Serialization
+    name: Serialization
+    isExternal: true
+- uid: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaIndexingInfo.html
+  name: SchemaIndexingInfo
+  nameWithType: SchemaIndexingInfo
+  fullName: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.Build*
+  commentId: Overload:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.Build
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html#Picturepark_SDK_V1_Builders_SchemaIndexingInfoBuilder_1_Build
+  name: Build
+  nameWithType: SchemaIndexingInfoBuilder<T>.Build
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.Build
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).Build
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).Build
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndex*
+  commentId: Overload:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndex
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html#Picturepark_SDK_V1_Builders_SchemaIndexingInfoBuilder_1_AddIndex_System_Linq_Expressions_Expression_System_Func__0_System_Object___
+  name: AddIndex
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndex
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndex
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndex
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndex
+- uid: System.Linq.Expressions.Expression{System.Func{{T},System.Object}}
+  commentId: T:System.Linq.Expressions.Expression{System.Func{`0,System.Object}}
+  parent: System.Linq.Expressions
+  definition: System.Linq.Expressions.Expression`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<Func<T, object>>
+  nameWithType: Expression<Func<T, object>>
+  fullName: System.Linq.Expressions.Expression<System.Func<T, object>>
+  nameWithType.vb: Expression(Of Func(Of T, Object))
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of T, Object))
+  name.vb: Expression(Of Func(Of T, Object))
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  commentId: T:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  parent: Picturepark.SDK.V1.Builders
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html
+  name: SchemaIndexingInfoBuilder<T>
+  nameWithType: SchemaIndexingInfoBuilder<T>
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T)
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T)
+  name.vb: SchemaIndexingInfoBuilder(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    name: SchemaIndexingInfoBuilder
+    href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    name: SchemaIndexingInfoBuilder
+    href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq.Expressions.Expression`1
+  commentId: T:System.Linq.Expressions.Expression`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<TDelegate>
+  nameWithType: Expression<TDelegate>
+  fullName: System.Linq.Expressions.Expression<TDelegate>
+  nameWithType.vb: Expression(Of TDelegate)
+  fullName.vb: System.Linq.Expressions.Expression(Of TDelegate)
+  name.vb: Expression(Of TDelegate)
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - name: TDelegate
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDelegate
+  - name: )
+- uid: System.Linq.Expressions
+  commentId: N:System.Linq.Expressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq.Expressions
+  nameWithType: System.Linq.Expressions
+  fullName: System.Linq.Expressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexWithSimpleSearch*
+  commentId: Overload:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexWithSimpleSearch
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html#Picturepark_SDK_V1_Builders_SchemaIndexingInfoBuilder_1_AddIndexWithSimpleSearch_System_Linq_Expressions_Expression_System_Func__0_System_Object___System_Double_
+  name: AddIndexWithSimpleSearch
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndexWithSimpleSearch
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndexWithSimpleSearch
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndexWithSimpleSearch
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndexWithSimpleSearch
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes*
+  commentId: Overload:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddIndexes
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html#Picturepark_SDK_V1_Builders_SchemaIndexingInfoBuilder_1_AddIndexes_System_Int32_System_Func_System_Type_Newtonsoft_Json_Serialization_JsonProperty_System_Boolean__
+  name: AddIndexes
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddIndexes
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddIndexes
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddIndexes
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddIndexes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean}
+  commentId: T:System.Func{System.Type,Newtonsoft.Json.Serialization.JsonProperty,System.Boolean}
+  parent: System
+  definition: System.Func`3
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<Type, JsonProperty, bool>
+  nameWithType: Func<Type, JsonProperty, bool>
+  fullName: System.Func<System.Type, Newtonsoft.Json.Serialization.JsonProperty, bool>
+  nameWithType.vb: Func(Of Type, JsonProperty, Boolean)
+  fullName.vb: System.Func(Of System.Type, Newtonsoft.Json.Serialization.JsonProperty, Boolean)
+  name.vb: Func(Of Type, JsonProperty, Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.Serialization.JsonProperty
+    name: JsonProperty
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.Serialization.JsonProperty
+    name: JsonProperty
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes*
+  commentId: Overload:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1.AddDefaultIndexes
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html#Picturepark_SDK_V1_Builders_SchemaIndexingInfoBuilder_1_AddDefaultIndexes_System_Int32_System_Func_System_Type_Newtonsoft_Json_Serialization_JsonProperty_System_Boolean__
+  name: AddDefaultIndexes
+  nameWithType: SchemaIndexingInfoBuilder<T>.AddDefaultIndexes
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>.AddDefaultIndexes
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T).AddDefaultIndexes
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T).AddDefaultIndexes

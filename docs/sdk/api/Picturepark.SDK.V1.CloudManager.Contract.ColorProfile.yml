@@ -1,0 +1,1358 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  id: ColorProfile
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AdobeRgb1998
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AppleRgb
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra27
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra39
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.ColorMatchRgb
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV1
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV2
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuropeIsoCoatedFogra27
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleCoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleUncoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated300EciV2
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedEciV2
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedV2Grey1cBas
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4Grey
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Coated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Uncoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2002Newspaper
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanWebCoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Srgb
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.SrgbColorSpaceProfile
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UncoatedFogra29
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedCoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedUncoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebCoatedSwop
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebUncoated
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedFogra28
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade3
+  - Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade5
+  langs:
+  - csharp
+  - vb
+  name: ColorProfile
+  nameWithType: ColorProfile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ColorProfile
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17918
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Available color profiles
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ColorProfile
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ColorProfile
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AdobeRgb1998
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AdobeRgb1998
+  id: AdobeRgb1998
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: AdobeRgb1998
+  nameWithType: ColorProfile.AdobeRgb1998
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AdobeRgb1998
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AdobeRgb1998
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17922
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AdobeRgb1998")]
+
+      AdobeRgb1998 = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="AdobeRgb1998")>
+
+      AdobeRgb1998 = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AdobeRgb1998
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AppleRgb
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AppleRgb
+  id: AppleRgb
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: AppleRgb
+  nameWithType: ColorProfile.AppleRgb
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.AppleRgb
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AppleRgb
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17925
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AppleRgb")]
+
+      AppleRgb = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="AppleRgb")>
+
+      AppleRgb = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AppleRgb
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.ColorMatchRgb
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.ColorMatchRgb
+  id: ColorMatchRgb
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: ColorMatchRgb
+  nameWithType: ColorProfile.ColorMatchRgb
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.ColorMatchRgb
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ColorMatchRgb
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17928
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ColorMatchRgb")]
+
+      ColorMatchRgb = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="ColorMatchRgb")>
+
+      ColorMatchRgb = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ColorMatchRgb
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV1
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV1
+  id: EciRgbV1
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: EciRgbV1
+  nameWithType: ColorProfile.EciRgbV1
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV1
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EciRgbV1
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17931
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EciRgbV1")]
+
+      EciRgbV1 = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="EciRgbV1")>
+
+      EciRgbV1 = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EciRgbV1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV2
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV2
+  id: EciRgbV2
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: EciRgbV2
+  nameWithType: ColorProfile.EciRgbV2
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EciRgbV2
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EciRgbV2
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17934
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EciRgbV2")]
+
+      EciRgbV2 = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="EciRgbV2")>
+
+      EciRgbV2 = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EciRgbV2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Srgb
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Srgb
+  id: Srgb
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: Srgb
+  nameWithType: ColorProfile.Srgb
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Srgb
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Srgb
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17937
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Srgb")]
+
+      Srgb = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="Srgb")>
+
+      Srgb = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Srgb
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.SrgbColorSpaceProfile
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.SrgbColorSpaceProfile
+  id: SrgbColorSpaceProfile
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: SrgbColorSpaceProfile
+  nameWithType: ColorProfile.SrgbColorSpaceProfile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.SrgbColorSpaceProfile
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SrgbColorSpaceProfile
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17940
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SrgbColorSpaceProfile")]
+
+      SrgbColorSpaceProfile = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="SrgbColorSpaceProfile")>
+
+      SrgbColorSpaceProfile = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SrgbColorSpaceProfile
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuropeIsoCoatedFogra27
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuropeIsoCoatedFogra27
+  id: EuropeIsoCoatedFogra27
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: EuropeIsoCoatedFogra27
+  nameWithType: ColorProfile.EuropeIsoCoatedFogra27
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuropeIsoCoatedFogra27
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EuropeIsoCoatedFogra27
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17943
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EuropeIsoCoatedFogra27")]
+
+      EuropeIsoCoatedFogra27 = 7
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="EuropeIsoCoatedFogra27")>
+
+      EuropeIsoCoatedFogra27 = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EuropeIsoCoatedFogra27
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleCoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleCoated
+  id: EuroscaleCoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: EuroscaleCoated
+  nameWithType: ColorProfile.EuroscaleCoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleCoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EuroscaleCoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17946
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EuroscaleCoated")]
+
+      EuroscaleCoated = 8
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="EuroscaleCoated")>
+
+      EuroscaleCoated = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EuroscaleCoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleUncoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleUncoated
+  id: EuroscaleUncoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: EuroscaleUncoated
+  nameWithType: ColorProfile.EuroscaleUncoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.EuroscaleUncoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EuroscaleUncoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17949
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EuroscaleUncoated")]
+
+      EuroscaleUncoated = 9
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="EuroscaleUncoated")>
+
+      EuroscaleUncoated = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EuroscaleUncoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated
+  id: IsoCoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: IsoCoated
+  nameWithType: ColorProfile.IsoCoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IsoCoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17952
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IsoCoated")]
+
+      IsoCoated = 10
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="IsoCoated")>
+
+      IsoCoated = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IsoCoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedEciV2
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedEciV2
+  id: IsoCoatedEciV2
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: IsoCoatedEciV2
+  nameWithType: ColorProfile.IsoCoatedEciV2
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedEciV2
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IsoCoatedEciV2
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17955
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IsoCoatedEciV2")]
+
+      IsoCoatedEciV2 = 11
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="IsoCoatedEciV2")>
+
+      IsoCoatedEciV2 = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IsoCoatedEciV2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Coated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Coated
+  id: JapanColor2001Coated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: JapanColor2001Coated
+  nameWithType: ColorProfile.JapanColor2001Coated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Coated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JapanColor2001Coated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17958
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "JapanColor2001Coated")]
+
+      JapanColor2001Coated = 12
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="JapanColor2001Coated")>
+
+      JapanColor2001Coated = 12
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: JapanColor2001Coated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Uncoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Uncoated
+  id: JapanColor2001Uncoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: JapanColor2001Uncoated
+  nameWithType: ColorProfile.JapanColor2001Uncoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2001Uncoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JapanColor2001Uncoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17961
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "JapanColor2001Uncoated")]
+
+      JapanColor2001Uncoated = 13
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="JapanColor2001Uncoated")>
+
+      JapanColor2001Uncoated = 13
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: JapanColor2001Uncoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2002Newspaper
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2002Newspaper
+  id: JapanColor2002Newspaper
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: JapanColor2002Newspaper
+  nameWithType: ColorProfile.JapanColor2002Newspaper
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanColor2002Newspaper
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JapanColor2002Newspaper
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17964
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "JapanColor2002Newspaper")]
+
+      JapanColor2002Newspaper = 14
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="JapanColor2002Newspaper")>
+
+      JapanColor2002Newspaper = 14
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: JapanColor2002Newspaper
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanWebCoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanWebCoated
+  id: JapanWebCoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: JapanWebCoated
+  nameWithType: ColorProfile.JapanWebCoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.JapanWebCoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JapanWebCoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17967
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "JapanWebCoated")]
+
+      JapanWebCoated = 15
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="JapanWebCoated")>
+
+      JapanWebCoated = 15
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: JapanWebCoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedCoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedCoated
+  id: UsSheetfedCoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: UsSheetfedCoated
+  nameWithType: ColorProfile.UsSheetfedCoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedCoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UsSheetfedCoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17970
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UsSheetfedCoated")]
+
+      UsSheetfedCoated = 16
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="UsSheetfedCoated")>
+
+      UsSheetfedCoated = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UsSheetfedCoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedUncoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedUncoated
+  id: UsSheetfedUncoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: UsSheetfedUncoated
+  nameWithType: ColorProfile.UsSheetfedUncoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsSheetfedUncoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UsSheetfedUncoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17973
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UsSheetfedUncoated")]
+
+      UsSheetfedUncoated = 17
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="UsSheetfedUncoated")>
+
+      UsSheetfedUncoated = 17
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UsSheetfedUncoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebCoatedSwop
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebCoatedSwop
+  id: UsWebCoatedSwop
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: UsWebCoatedSwop
+  nameWithType: ColorProfile.UsWebCoatedSwop
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebCoatedSwop
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UsWebCoatedSwop
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17976
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UsWebCoatedSwop")]
+
+      UsWebCoatedSwop = 18
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="UsWebCoatedSwop")>
+
+      UsWebCoatedSwop = 18
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UsWebCoatedSwop
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebUncoated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebUncoated
+  id: UsWebUncoated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: UsWebUncoated
+  nameWithType: ColorProfile.UsWebUncoated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UsWebUncoated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UsWebUncoated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17979
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UsWebUncoated")]
+
+      UsWebUncoated = 19
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="UsWebUncoated")>
+
+      UsWebUncoated = 19
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UsWebUncoated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedV2Grey1cBas
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedV2Grey1cBas
+  id: IsoCoatedV2Grey1cBas
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: IsoCoatedV2Grey1cBas
+  nameWithType: ColorProfile.IsoCoatedV2Grey1cBas
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoatedV2Grey1cBas
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IsoCoatedV2Grey1cBas
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17982
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IsoCoatedV2Grey1cBas")]
+
+      IsoCoatedV2Grey1cBas = 20
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="IsoCoatedV2Grey1cBas")>
+
+      IsoCoatedV2Grey1cBas = 20
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IsoCoatedV2Grey1cBas
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated300EciV2
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated300EciV2
+  id: IsoCoated300EciV2
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: IsoCoated300EciV2
+  nameWithType: ColorProfile.IsoCoated300EciV2
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.IsoCoated300EciV2
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IsoCoated300EciV2
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17985
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IsoCoated300EciV2")]
+
+      IsoCoated300EciV2 = 21
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="IsoCoated300EciV2")>
+
+      IsoCoated300EciV2 = 21
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IsoCoated300EciV2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra27
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra27
+  id: CoatedFogra27
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: CoatedFogra27
+  nameWithType: ColorProfile.CoatedFogra27
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra27
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CoatedFogra27
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17988
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CoatedFogra27")]
+
+      CoatedFogra27 = 22
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="CoatedFogra27")>
+
+      CoatedFogra27 = 22
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CoatedFogra27
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra39
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra39
+  id: CoatedFogra39
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: CoatedFogra39
+  nameWithType: ColorProfile.CoatedFogra39
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.CoatedFogra39
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CoatedFogra39
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17991
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CoatedFogra39")]
+
+      CoatedFogra39 = 23
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="CoatedFogra39")>
+
+      CoatedFogra39 = 23
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CoatedFogra39
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UncoatedFogra29
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UncoatedFogra29
+  id: UncoatedFogra29
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: UncoatedFogra29
+  nameWithType: ColorProfile.UncoatedFogra29
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.UncoatedFogra29
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UncoatedFogra29
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17994
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UncoatedFogra29")]
+
+      UncoatedFogra29 = 24
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="UncoatedFogra29")>
+
+      UncoatedFogra29 = 24
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UncoatedFogra29
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedFogra28
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedFogra28
+  id: WebCoatedFogra28
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: WebCoatedFogra28
+  nameWithType: ColorProfile.WebCoatedFogra28
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedFogra28
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WebCoatedFogra28
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17997
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WebCoatedFogra28")]
+
+      WebCoatedFogra28 = 25
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="WebCoatedFogra28")>
+
+      WebCoatedFogra28 = 25
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WebCoatedFogra28
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade3
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade3
+  id: WebCoatedSwop2006Grade3
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: WebCoatedSwop2006Grade3
+  nameWithType: ColorProfile.WebCoatedSwop2006Grade3
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade3
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WebCoatedSwop2006Grade3
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18000
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WebCoatedSwop2006Grade3")]
+
+      WebCoatedSwop2006Grade3 = 26
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="WebCoatedSwop2006Grade3")>
+
+      WebCoatedSwop2006Grade3 = 26
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WebCoatedSwop2006Grade3
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade5
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade5
+  id: WebCoatedSwop2006Grade5
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: WebCoatedSwop2006Grade5
+  nameWithType: ColorProfile.WebCoatedSwop2006Grade5
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.WebCoatedSwop2006Grade5
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WebCoatedSwop2006Grade5
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18003
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WebCoatedSwop2006Grade5")]
+
+      WebCoatedSwop2006Grade5 = 27
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="WebCoatedSwop2006Grade5")>
+
+      WebCoatedSwop2006Grade5 = 27
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WebCoatedSwop2006Grade5
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4
+  id: Isonewspaper26v4
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: Isonewspaper26v4
+  nameWithType: ColorProfile.Isonewspaper26v4
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Isonewspaper26v4
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18006
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Isonewspaper26v4")]
+
+      Isonewspaper26v4 = 28
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="Isonewspaper26v4")>
+
+      Isonewspaper26v4 = 28
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Isonewspaper26v4
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4Grey
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4Grey
+  id: Isonewspaper26v4Grey
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  langs:
+  - csharp
+  - vb
+  name: Isonewspaper26v4Grey
+  nameWithType: ColorProfile.Isonewspaper26v4Grey
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.Isonewspaper26v4Grey
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Isonewspaper26v4Grey
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18009
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Isonewspaper26v4Grey")]
+
+      Isonewspaper26v4Grey = 29
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+    content.vb: >-
+      <EnumMember(Value:="Isonewspaper26v4Grey")>
+
+      Isonewspaper26v4Grey = 29
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Isonewspaper26v4Grey
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ColorProfile
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.html
+  name: ColorProfile
+  nameWithType: ColorProfile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ColorProfile

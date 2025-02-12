@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+  id: IPictureparkAttribute
+  parent: Picturepark.SDK.V1.Contract.Attributes
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IPictureparkAttribute
+  nameWithType: IPictureparkAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Attributes/IPictureparkAttribute.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IPictureparkAttribute
+    path: ../../src/Picturepark.SDK.V1.Contract/Attributes/IPictureparkAttribute.cs
+    startLine: 3
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Attributes
+  summary: Marker interface for Picturepark specific .NET attributes.
+  example: []
+  syntax:
+    content: public interface IPictureparkAttribute
+    content.vb: Public Interface IPictureparkAttribute
+references:
+- uid: Picturepark.SDK.V1.Contract.Attributes
+  commentId: N:Picturepark.SDK.V1.Contract.Attributes
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Attributes
+  nameWithType: Picturepark.SDK.V1.Contract.Attributes
+  fullName: Picturepark.SDK.V1.Contract.Attributes
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes
+    name: Attributes
+    href: Picturepark.SDK.V1.Contract.Attributes.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes
+    name: Attributes
+    href: Picturepark.SDK.V1.Contract.Attributes.html

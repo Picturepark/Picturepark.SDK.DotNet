@@ -1,0 +1,1023 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IChannelClient
+  commentId: T:Picturepark.SDK.V1.Contract.IChannelClient
+  id: IChannelClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync(Picturepark.SDK.V1.Contract.ChannelCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ChannelUpdateRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IChannelClient
+  nameWithType: IChannelClient
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IChannelClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
+    startLine: 5
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IChannelClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IChannelClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync(System.Threading.CancellationToken)
+  id: GetAllAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: GetAllAsync(CancellationToken)
+  nameWithType: IChannelClient.GetAllAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAllAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 286
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get all channels
+  remarks: Get all channels available for the current user.
+  example: []
+  syntax:
+    content: Task<ICollection<Channel>> GetAllAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Channel}}
+      description: List of channel
+    content.vb: Function GetAllAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of Channel))
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync(Picturepark.SDK.V1.Contract.ChannelCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync(Picturepark.SDK.V1.Contract.ChannelCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.ChannelCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ChannelCreateRequest, CancellationToken)
+  nameWithType: IChannelClient.CreateAsync(ChannelCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync(Picturepark.SDK.V1.Contract.ChannelCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 304
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create channel
+  remarks: Creates new channel based on supplied request.
+  example: []
+  syntax:
+    content: Task<Channel> CreateAsync(ChannelCreateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ChannelCreateRequest
+      description: The request containing information needed to create new channel.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Channel}
+      description: Created channel
+    content.vb: Function CreateAsync(request As ChannelCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Channel)
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IChannelClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 322
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get channel
+  remarks: Gets the channel information by the channel ID.
+  example: []
+  syntax:
+    content: Task<Channel> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The channel ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Channel}
+      description: Requested channel
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of Channel)
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IChannelClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IChannelClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ChannelUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ChannelUpdateRequest,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ChannelUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, ChannelUpdateRequest, CancellationToken)
+  nameWithType: IChannelClient.UpdateAsync(string, ChannelUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.ChannelUpdateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 341
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update channel
+  remarks: Updates the channel specified by the ID and based on supplied request.
+  example: []
+  syntax:
+    content: Task<Channel> UpdateAsync(string id, ChannelUpdateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of channel to update
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ChannelUpdateRequest
+      description: The request containing information needed to update the channel.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Channel}
+      description: Updated channel
+    content.vb: Function UpdateAsync(id As String, request As ChannelUpdateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Channel)
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IChannelClient.UpdateAsync(String, ChannelUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.ChannelUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, ChannelUpdateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, CancellationToken)
+  nameWithType: IChannelClient.DeleteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 359
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete channel
+  remarks: Deletes the channel specified by the ID.
+  example: []
+  syntax:
+    content: Task DeleteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: ID of the channel that should be deleted.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function DeleteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IChannelClient.DeleteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync(String, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync(System.Threading.CancellationToken)
+  id: GetAggregationFieldsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: GetAggregationFieldsAsync(CancellationToken)
+  nameWithType: IChannelClient.GetAggregationFieldsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAggregationFieldsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 373
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used in an aggregator on any channel.
+  example: []
+  syntax:
+    content: Task<ICollection<FieldInfo>> GetAggregationFieldsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+      description: The list of fields
+    content.vb: Function GetAggregationFieldsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of FieldInfo))
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync(System.Threading.CancellationToken)
+  id: GetSortFieldsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: GetSortFieldsAsync(CancellationToken)
+  nameWithType: IChannelClient.GetSortFieldsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSortFieldsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 387
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used as sort fields on any channel.
+  example: []
+  syntax:
+    content: Task<ICollection<SortFieldInfo>> GetSortFieldsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortFieldInfo}}
+      description: The list of fields
+    content.vb: Function GetSortFieldsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of SortFieldInfo))
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync(System.Threading.CancellationToken)
+  id: GetFilterFieldsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: GetFilterFieldsAsync(CancellationToken)
+  nameWithType: IChannelClient.GetFilterFieldsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetFilterFieldsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 401
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Retrieve the fields that can be used as filter fields on any channel.
+  example: []
+  syntax:
+    content: Task<ICollection<FieldInfo>> GetFilterFieldsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+      description: The list of fields
+    content.vb: Function GetFilterFieldsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of FieldInfo))
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync(System.Threading.CancellationToken)
+  id: GetChannelsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IChannelClient
+  langs:
+  - csharp
+  - vb
+  name: GetChannelsAsync(CancellationToken)
+  nameWithType: IChannelClient.GetChannelsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetChannelsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: Task<ICollection<Channel>> GetChannelsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Channel}}
+    content.vb: Function GetChannelsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of Channel))
+  overload: Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync*
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_GetAllAsync_System_Threading_CancellationToken_
+  name: GetAllAsync
+  nameWithType: IChannelClient.GetAllAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetAllAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Channel}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.Channel}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<Channel>>
+  nameWithType: Task<ICollection<Channel>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.Channel>>
+  nameWithType.vb: Task(Of ICollection(Of Channel))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.Channel))
+  name.vb: Task(Of ICollection(Of Channel))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Channel
+    name: Channel
+    href: Picturepark.SDK.V1.Contract.Channel.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Channel
+    name: Channel
+    href: Picturepark.SDK.V1.Contract.Channel.html
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_CreateAsync_Picturepark_SDK_V1_Contract_ChannelCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IChannelClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.ChannelCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ChannelCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ChannelCreateRequest.html
+  name: ChannelCreateRequest
+  nameWithType: ChannelCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.ChannelCreateRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Channel}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.Channel}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Channel>
+  nameWithType: Task<Channel>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.Channel>
+  nameWithType.vb: Task(Of Channel)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.Channel)
+  name.vb: Task(Of Channel)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.Channel
+    name: Channel
+    href: Picturepark.SDK.V1.Contract.Channel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.Channel
+    name: Channel
+    href: Picturepark.SDK.V1.Contract.Channel.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IChannelClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ChannelUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IChannelClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.ChannelUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ChannelUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ChannelUpdateRequest.html
+  name: ChannelUpdateRequest
+  nameWithType: ChannelUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ChannelUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IChannelClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.DeleteAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_GetAggregationFieldsAsync_System_Threading_CancellationToken_
+  name: GetAggregationFieldsAsync
+  nameWithType: IChannelClient.GetAggregationFieldsAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetAggregationFieldsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.FieldInfo}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<FieldInfo>>
+  nameWithType: Task<ICollection<FieldInfo>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.FieldInfo>>
+  nameWithType.vb: Task(Of ICollection(Of FieldInfo))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.FieldInfo))
+  name.vb: Task(Of ICollection(Of FieldInfo))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.FieldInfo
+    name: FieldInfo
+    href: Picturepark.SDK.V1.Contract.FieldInfo.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FieldInfo
+    name: FieldInfo
+    href: Picturepark.SDK.V1.Contract.FieldInfo.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_GetSortFieldsAsync_System_Threading_CancellationToken_
+  name: GetSortFieldsAsync
+  nameWithType: IChannelClient.GetSortFieldsAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetSortFieldsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortFieldInfo}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.SortFieldInfo}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<SortFieldInfo>>
+  nameWithType: Task<ICollection<SortFieldInfo>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.SortFieldInfo>>
+  nameWithType.vb: Task(Of ICollection(Of SortFieldInfo))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.SortFieldInfo))
+  name.vb: Task(Of ICollection(Of SortFieldInfo))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SortFieldInfo
+    name: SortFieldInfo
+    href: Picturepark.SDK.V1.Contract.SortFieldInfo.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SortFieldInfo
+    name: SortFieldInfo
+    href: Picturepark.SDK.V1.Contract.SortFieldInfo.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_GetFilterFieldsAsync_System_Threading_CancellationToken_
+  name: GetFilterFieldsAsync
+  nameWithType: IChannelClient.GetFilterFieldsAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetFilterFieldsAsync
+- uid: Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html#Picturepark_SDK_V1_Contract_IChannelClient_GetChannelsAsync_System_Threading_CancellationToken_
+  name: GetChannelsAsync
+  nameWithType: IChannelClient.GetChannelsAsync
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient.GetChannelsAsync

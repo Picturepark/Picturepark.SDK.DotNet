@@ -1,0 +1,424 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Analyzer
+  commentId: T:Picturepark.SDK.V1.Contract.Analyzer
+  id: Analyzer
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.Analyzer.EdgeNGram
+  - Picturepark.SDK.V1.Contract.Analyzer.KeywordLowercase
+  - Picturepark.SDK.V1.Contract.Analyzer.Language
+  - Picturepark.SDK.V1.Contract.Analyzer.NGram
+  - Picturepark.SDK.V1.Contract.Analyzer.NoDiacritics
+  - Picturepark.SDK.V1.Contract.Analyzer.None
+  - Picturepark.SDK.V1.Contract.Analyzer.PathHierarchy
+  - Picturepark.SDK.V1.Contract.Analyzer.Simple
+  langs:
+  - csharp
+  - vb
+  name: Analyzer
+  nameWithType: Analyzer
+  fullName: Picturepark.SDK.V1.Contract.Analyzer
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Analyzer
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12065
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum Analyzer
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum Analyzer
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.Analyzer.None
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.None
+  id: None
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Analyzer.None
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.None
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: None
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12069
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "None")]
+
+      None = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="None")>
+
+      None = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: None
+- uid: Picturepark.SDK.V1.Contract.Analyzer.Simple
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.Simple
+  id: Simple
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: Simple
+  nameWithType: Analyzer.Simple
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.Simple
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Simple
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12072
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Simple")]
+
+      Simple = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="Simple")>
+
+      Simple = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Simple
+- uid: Picturepark.SDK.V1.Contract.Analyzer.Language
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.Language
+  id: Language
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: Analyzer.Language
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.Language
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Language
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12075
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Language")]
+
+      Language = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="Language")>
+
+      Language = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Language
+- uid: Picturepark.SDK.V1.Contract.Analyzer.PathHierarchy
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.PathHierarchy
+  id: PathHierarchy
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: PathHierarchy
+  nameWithType: Analyzer.PathHierarchy
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.PathHierarchy
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PathHierarchy
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12078
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "PathHierarchy")]
+
+      PathHierarchy = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="PathHierarchy")>
+
+      PathHierarchy = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: PathHierarchy
+- uid: Picturepark.SDK.V1.Contract.Analyzer.EdgeNGram
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.EdgeNGram
+  id: EdgeNGram
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: EdgeNGram
+  nameWithType: Analyzer.EdgeNGram
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.EdgeNGram
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EdgeNGram
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12081
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EdgeNGram")]
+
+      EdgeNGram = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="EdgeNGram")>
+
+      EdgeNGram = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EdgeNGram
+- uid: Picturepark.SDK.V1.Contract.Analyzer.NGram
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.NGram
+  id: NGram
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: NGram
+  nameWithType: Analyzer.NGram
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.NGram
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NGram
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12084
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NGram")]
+
+      NGram = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="NGram")>
+
+      NGram = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NGram
+- uid: Picturepark.SDK.V1.Contract.Analyzer.NoDiacritics
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.NoDiacritics
+  id: NoDiacritics
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: NoDiacritics
+  nameWithType: Analyzer.NoDiacritics
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.NoDiacritics
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NoDiacritics
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12087
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NoDiacritics")]
+
+      NoDiacritics = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="NoDiacritics")>
+
+      NoDiacritics = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NoDiacritics
+- uid: Picturepark.SDK.V1.Contract.Analyzer.KeywordLowercase
+  commentId: F:Picturepark.SDK.V1.Contract.Analyzer.KeywordLowercase
+  id: KeywordLowercase
+  parent: Picturepark.SDK.V1.Contract.Analyzer
+  langs:
+  - csharp
+  - vb
+  name: KeywordLowercase
+  nameWithType: Analyzer.KeywordLowercase
+  fullName: Picturepark.SDK.V1.Contract.Analyzer.KeywordLowercase
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: KeywordLowercase
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 12090
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "KeywordLowercase")]
+
+      KeywordLowercase = 7
+    return:
+      type: Picturepark.SDK.V1.Contract.Analyzer
+    content.vb: >-
+      <EnumMember(Value:="KeywordLowercase")>
+
+      KeywordLowercase = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: KeywordLowercase
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.Analyzer
+  commentId: T:Picturepark.SDK.V1.Contract.Analyzer
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Analyzer.html
+  name: Analyzer
+  nameWithType: Analyzer
+  fullName: Picturepark.SDK.V1.Contract.Analyzer

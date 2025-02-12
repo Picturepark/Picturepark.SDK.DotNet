@@ -1,0 +1,581 @@
+### YamlMime:ManagedReference
+items:
+- uid: Priority_Queue.IPriorityQueue`2
+  commentId: T:Priority_Queue.IPriorityQueue`2
+  id: IPriorityQueue`2
+  parent: Priority_Queue
+  children:
+  - Priority_Queue.IPriorityQueue`2.Clear
+  - Priority_Queue.IPriorityQueue`2.Contains(`0)
+  - Priority_Queue.IPriorityQueue`2.Count
+  - Priority_Queue.IPriorityQueue`2.Dequeue
+  - Priority_Queue.IPriorityQueue`2.Enqueue(`0,`1)
+  - Priority_Queue.IPriorityQueue`2.First
+  - Priority_Queue.IPriorityQueue`2.Remove(`0)
+  - Priority_Queue.IPriorityQueue`2.UpdatePriority(`0,`1)
+  langs:
+  - csharp
+  - vb
+  name: IPriorityQueue<TItem, TPriority>
+  nameWithType: IPriorityQueue<TItem, TPriority>
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IPriorityQueue
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: >-
+    The IPriorityQueue interface.  This is mainly here for purists, and in case I decide to add more implementations later.
+
+    For speed purposes, it is actually recommended that you *don't* access the priority queue through this interface, since the JIT can
+
+    (theoretically?) optimize method calls from concrete-types slightly better.
+  example: []
+  syntax:
+    content: 'public interface IPriorityQueue<TItem, in TPriority> : IEnumerable<TItem>, IEnumerable where TPriority : IComparable<in TPriority>'
+    typeParameters:
+    - id: TItem
+    - id: TPriority
+    content.vb: Public Interface IPriorityQueue(Of TItem, In TPriority As IComparable(Of In TPriority)) Inherits IEnumerable(Of TItem), IEnumerable
+  inheritedMembers:
+  - System.Collections.Generic.IEnumerable{{TItem}}.GetEnumerator
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority)
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority)
+  name.vb: IPriorityQueue(Of TItem, TPriority)
+- uid: Priority_Queue.IPriorityQueue`2.Enqueue(`0,`1)
+  commentId: M:Priority_Queue.IPriorityQueue`2.Enqueue(`0,`1)
+  id: Enqueue(`0,`1)
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: Enqueue(TItem, TPriority)
+  nameWithType: IPriorityQueue<TItem, TPriority>.Enqueue(TItem, TPriority)
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Enqueue(TItem, TPriority)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Enqueue
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 19
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: >-
+    Enqueue a node to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
+
+    See implementation for how duplicates are handled.
+  example: []
+  syntax:
+    content: void Enqueue(TItem node, TPriority priority)
+    parameters:
+    - id: node
+      type: '{TItem}'
+    - id: priority
+      type: '{TPriority}'
+    content.vb: Sub Enqueue(node As TItem, priority As TPriority)
+  overload: Priority_Queue.IPriorityQueue`2.Enqueue*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Enqueue(TItem, TPriority)
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Enqueue(TItem, TPriority)
+- uid: Priority_Queue.IPriorityQueue`2.Dequeue
+  commentId: M:Priority_Queue.IPriorityQueue`2.Dequeue
+  id: Dequeue
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: Dequeue()
+  nameWithType: IPriorityQueue<TItem, TPriority>.Dequeue()
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Dequeue()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Dequeue
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 24
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Removes the head of the queue (node with minimum priority; ties are broken by order of insertion), and returns it.
+  example: []
+  syntax:
+    content: TItem Dequeue()
+    return:
+      type: '{TItem}'
+    content.vb: Function Dequeue() As TItem
+  overload: Priority_Queue.IPriorityQueue`2.Dequeue*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Dequeue()
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Dequeue()
+- uid: Priority_Queue.IPriorityQueue`2.Clear
+  commentId: M:Priority_Queue.IPriorityQueue`2.Clear
+  id: Clear
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: IPriorityQueue<TItem, TPriority>.Clear()
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Clear()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Clear
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 29
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Removes every node from the queue.
+  example: []
+  syntax:
+    content: void Clear()
+    content.vb: Sub Clear()
+  overload: Priority_Queue.IPriorityQueue`2.Clear*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Clear()
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Clear()
+- uid: Priority_Queue.IPriorityQueue`2.Contains(`0)
+  commentId: M:Priority_Queue.IPriorityQueue`2.Contains(`0)
+  id: Contains(`0)
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: Contains(TItem)
+  nameWithType: IPriorityQueue<TItem, TPriority>.Contains(TItem)
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Contains(TItem)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Contains
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 34
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Returns whether the given node is in the queue.
+  example: []
+  syntax:
+    content: bool Contains(TItem node)
+    parameters:
+    - id: node
+      type: '{TItem}'
+    return:
+      type: System.Boolean
+    content.vb: Function Contains(node As TItem) As Boolean
+  overload: Priority_Queue.IPriorityQueue`2.Contains*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Contains(TItem)
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Contains(TItem)
+- uid: Priority_Queue.IPriorityQueue`2.Remove(`0)
+  commentId: M:Priority_Queue.IPriorityQueue`2.Remove(`0)
+  id: Remove(`0)
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: Remove(TItem)
+  nameWithType: IPriorityQueue<TItem, TPriority>.Remove(TItem)
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Remove(TItem)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Remove
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 39
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Removes a node from the queue.  The node does not need to be the head of the queue.
+  example: []
+  syntax:
+    content: void Remove(TItem node)
+    parameters:
+    - id: node
+      type: '{TItem}'
+    content.vb: Sub Remove(node As TItem)
+  overload: Priority_Queue.IPriorityQueue`2.Remove*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Remove(TItem)
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Remove(TItem)
+- uid: Priority_Queue.IPriorityQueue`2.UpdatePriority(`0,`1)
+  commentId: M:Priority_Queue.IPriorityQueue`2.UpdatePriority(`0,`1)
+  id: UpdatePriority(`0,`1)
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: UpdatePriority(TItem, TPriority)
+  nameWithType: IPriorityQueue<TItem, TPriority>.UpdatePriority(TItem, TPriority)
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.UpdatePriority(TItem, TPriority)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdatePriority
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 44
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Call this method to change the priority of a node.
+  example: []
+  syntax:
+    content: void UpdatePriority(TItem node, TPriority priority)
+    parameters:
+    - id: node
+      type: '{TItem}'
+    - id: priority
+      type: '{TPriority}'
+    content.vb: Sub UpdatePriority(node As TItem, priority As TPriority)
+  overload: Priority_Queue.IPriorityQueue`2.UpdatePriority*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).UpdatePriority(TItem, TPriority)
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).UpdatePriority(TItem, TPriority)
+- uid: Priority_Queue.IPriorityQueue`2.First
+  commentId: P:Priority_Queue.IPriorityQueue`2.First
+  id: First
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: IPriorityQueue<TItem, TPriority>.First
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.First
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: First
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 49
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Returns the head of the queue, without removing it (use Dequeue() for that).
+  example: []
+  syntax:
+    content: TItem First { get; }
+    parameters: []
+    return:
+      type: '{TItem}'
+    content.vb: ReadOnly Property First As TItem
+  overload: Priority_Queue.IPriorityQueue`2.First*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).First
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).First
+- uid: Priority_Queue.IPriorityQueue`2.Count
+  commentId: P:Priority_Queue.IPriorityQueue`2.Count
+  id: Count
+  parent: Priority_Queue.IPriorityQueue`2
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: IPriorityQueue<TItem, TPriority>.Count
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Count
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Count
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
+    startLine: 54
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Priority_Queue
+  summary: Returns the number of nodes in the queue.
+  example: []
+  syntax:
+    content: int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Count As Integer
+  overload: Priority_Queue.IPriorityQueue`2.Count*
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Count
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Count
+references:
+- uid: Priority_Queue
+  commentId: N:Priority_Queue
+  href: Priority_Queue.html
+  name: Priority_Queue
+  nameWithType: Priority_Queue
+  fullName: Priority_Queue
+- uid: System.Collections.Generic.IEnumerable{{TItem}}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{`0}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{{TItem}}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<TItem>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<TItem>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of TItem).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TItem).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{`0}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{`0}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{{TItem}}
+  commentId: T:System.Collections.Generic.IEnumerable{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TItem>
+  nameWithType: IEnumerable<TItem>
+  fullName: System.Collections.Generic.IEnumerable<TItem>
+  nameWithType.vb: IEnumerable(Of TItem)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TItem)
+  name.vb: IEnumerable(Of TItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TItem
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Priority_Queue.IPriorityQueue`2.Enqueue*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.Enqueue
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Enqueue__0__1_
+  name: Enqueue
+  nameWithType: IPriorityQueue<TItem, TPriority>.Enqueue
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Enqueue
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Enqueue
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Enqueue
+- uid: '{TItem}'
+  commentId: '!:TItem'
+  definition: TItem
+  name: TItem
+  nameWithType: TItem
+  fullName: TItem
+- uid: '{TPriority}'
+  commentId: '!:TPriority'
+  definition: TPriority
+  name: TPriority
+  nameWithType: TPriority
+  fullName: TPriority
+- uid: TItem
+  name: TItem
+  nameWithType: TItem
+  fullName: TItem
+- uid: TPriority
+  name: TPriority
+  nameWithType: TPriority
+  fullName: TPriority
+- uid: Priority_Queue.IPriorityQueue`2.Dequeue*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.Dequeue
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Dequeue
+  name: Dequeue
+  nameWithType: IPriorityQueue<TItem, TPriority>.Dequeue
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Dequeue
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Dequeue
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Dequeue
+- uid: Priority_Queue.IPriorityQueue`2.Clear*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.Clear
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Clear
+  name: Clear
+  nameWithType: IPriorityQueue<TItem, TPriority>.Clear
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Clear
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Clear
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Clear
+- uid: Priority_Queue.IPriorityQueue`2.Contains*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.Contains
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Contains__0_
+  name: Contains
+  nameWithType: IPriorityQueue<TItem, TPriority>.Contains
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Contains
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Contains
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Priority_Queue.IPriorityQueue`2.Remove*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.Remove
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Remove__0_
+  name: Remove
+  nameWithType: IPriorityQueue<TItem, TPriority>.Remove
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Remove
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Remove
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Remove
+- uid: Priority_Queue.IPriorityQueue`2.UpdatePriority*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.UpdatePriority
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_UpdatePriority__0__1_
+  name: UpdatePriority
+  nameWithType: IPriorityQueue<TItem, TPriority>.UpdatePriority
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.UpdatePriority
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).UpdatePriority
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).UpdatePriority
+- uid: Priority_Queue.IPriorityQueue`2.First*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.First
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_First
+  name: First
+  nameWithType: IPriorityQueue<TItem, TPriority>.First
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.First
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).First
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).First
+- uid: Priority_Queue.IPriorityQueue`2.Count*
+  commentId: Overload:Priority_Queue.IPriorityQueue`2.Count
+  href: Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Count
+  name: Count
+  nameWithType: IPriorityQueue<TItem, TPriority>.Count
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>.Count
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority).Count
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority).Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

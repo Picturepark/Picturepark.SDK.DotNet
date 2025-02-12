@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  commentId: T:Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  id: ISchemaIndexingInfoProvider
+  parent: Picturepark.SDK.V1.Contract.Providers
+  children:
+  - Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo
+  langs:
+  - csharp
+  - vb
+  name: ISchemaIndexingInfoProvider
+  nameWithType: ISchemaIndexingInfoProvider
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Providers/ISchemaIndexingInfoProvider.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ISchemaIndexingInfoProvider
+    path: ../../src/Picturepark.SDK.V1.Contract/Providers/ISchemaIndexingInfoProvider.cs
+    startLine: 2
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Providers
+  syntax:
+    content: public interface ISchemaIndexingInfoProvider
+    content.vb: Public Interface ISchemaIndexingInfoProvider
+- uid: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo
+  commentId: M:Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo
+  id: GetSchemaIndexingInfo
+  parent: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSchemaIndexingInfo()
+  nameWithType: ISchemaIndexingInfoProvider.GetSchemaIndexingInfo()
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Providers/ISchemaIndexingInfoProvider.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSchemaIndexingInfo
+    path: ../../src/Picturepark.SDK.V1.Contract/Providers/ISchemaIndexingInfoProvider.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Providers
+  syntax:
+    content: SchemaIndexingInfo GetSchemaIndexingInfo()
+    return:
+      type: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+    content.vb: Function GetSchemaIndexingInfo() As SchemaIndexingInfo
+  overload: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo*
+references:
+- uid: Picturepark.SDK.V1.Contract.Providers
+  commentId: N:Picturepark.SDK.V1.Contract.Providers
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Providers
+  nameWithType: Picturepark.SDK.V1.Contract.Providers
+  fullName: Picturepark.SDK.V1.Contract.Providers
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Providers
+    name: Providers
+    href: Picturepark.SDK.V1.Contract.Providers.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Providers
+    name: Providers
+    href: Picturepark.SDK.V1.Contract.Providers.html
+- uid: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo
+  href: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.html#Picturepark_SDK_V1_Contract_Providers_ISchemaIndexingInfoProvider_GetSchemaIndexingInfo
+  name: GetSchemaIndexingInfo
+  nameWithType: ISchemaIndexingInfoProvider.GetSchemaIndexingInfo
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISchemaIndexingInfoProvider.GetSchemaIndexingInfo
+- uid: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaIndexingInfo.html
+  name: SchemaIndexingInfo
+  nameWithType: SchemaIndexingInfo
+  fullName: Picturepark.SDK.V1.Contract.SchemaIndexingInfo
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html

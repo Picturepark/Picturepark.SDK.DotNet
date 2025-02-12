@@ -1,0 +1,792 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  commentId: T:Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  id: IDocumentHistoryClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync(System.String,System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync(System.String,System.String,System.Int64,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync(System.String,System.String,System.Int64,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync(Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IDocumentHistoryClient
+  nameWithType: IDocumentHistoryClient
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IDocumentHistoryClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1575
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IDocumentHistoryClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IDocumentHistoryClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetCurrentAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentAsync(string, string, CancellationToken)
+  nameWithType: IDocumentHistoryClient.GetCurrentAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetCurrentAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1596
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get current
+  remarks: Gets the current version of a document.
+  example: []
+  syntax:
+    content: Task<DocumentHistory> GetCurrentAsync(string documentType, string documentId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: documentType
+      type: System.String
+      description: The type of the document (e.g. Content).
+    - id: documentId
+      type: System.String
+      description: The ID of the document (e.g. contentId).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistory}
+      description: Document history item
+    content.vb: Function GetCurrentAsync(documentType As String, documentId As String, cancellationToken As CancellationToken = Nothing) As Task(Of DocumentHistory)
+  overload: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IDocumentHistoryClient.GetCurrentAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetCurrentAsync(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync(System.String,System.String,System.Int64,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync(System.String,System.String,System.Int64,System.Threading.CancellationToken)
+  id: GetVersionAsync(System.String,System.String,System.Int64,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  langs:
+  - csharp
+  - vb
+  name: GetVersionAsync(string, string, long, CancellationToken)
+  nameWithType: IDocumentHistoryClient.GetVersionAsync(string, string, long, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync(string, string, long, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetVersionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1616
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get version
+  remarks: Gets a specific version of a document.
+  example: []
+  syntax:
+    content: Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, long documentVersion, CancellationToken cancellationToken = default)
+    parameters:
+    - id: documentType
+      type: System.String
+      description: The type of the document (e.g. Content).
+    - id: documentId
+      type: System.String
+      description: The ID of the document (e.g. contentId).
+    - id: documentVersion
+      type: System.Int64
+      description: The version of the document.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistory}
+      description: Document history item
+    content.vb: Function GetVersionAsync(documentType As String, documentId As String, documentVersion As Long, cancellationToken As CancellationToken = Nothing) As Task(Of DocumentHistory)
+  overload: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IDocumentHistoryClient.GetVersionAsync(String, String, Long, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync(String, String, Long, System.Threading.CancellationToken)
+  name.vb: GetVersionAsync(String, String, Long, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync(System.String,System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync(System.String,System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  id: CompareWithCurrentAsync(System.String,System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  langs:
+  - csharp
+  - vb
+  name: CompareWithCurrentAsync(string, string, long?, CancellationToken)
+  nameWithType: IDocumentHistoryClient.CompareWithCurrentAsync(string, string, long?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync(string, string, long?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CompareWithCurrentAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1636
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Compare with current
+  remarks: Compare the current version of a document with the requested version and get the differences.
+  example: []
+  syntax:
+    content: Task<DocumentHistoryDifference> CompareWithCurrentAsync(string documentType, string documentId, long? version = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: documentType
+      type: System.String
+      description: The type of the document (e.g. Content).
+    - id: documentId
+      type: System.String
+      description: The ID of the document (e.g. contentId).
+    - id: version
+      type: System.Nullable{System.Int64}
+      description: The version of the document to compare with.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistoryDifference}
+      description: Document history difference.
+    content.vb: Function CompareWithCurrentAsync(documentType As String, documentId As String, version As Long? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of DocumentHistoryDifference)
+  overload: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IDocumentHistoryClient.CompareWithCurrentAsync(String, String, Long?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync(String, String, Long?, System.Threading.CancellationToken)
+  name.vb: CompareWithCurrentAsync(String, String, Long?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync(System.String,System.String,System.Int64,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync(System.String,System.String,System.Int64,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  id: CompareWithVersionAsync(System.String,System.String,System.Int64,System.Nullable{System.Int64},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  langs:
+  - csharp
+  - vb
+  name: CompareWithVersionAsync(string, string, long, long?, CancellationToken)
+  nameWithType: IDocumentHistoryClient.CompareWithVersionAsync(string, string, long, long?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync(string, string, long, long?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CompareWithVersionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1657
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Compare with version
+  remarks: Compare a specific version of a document with another version and get the differences.
+  example: []
+  syntax:
+    content: Task<DocumentHistoryDifference> CompareWithVersionAsync(string documentType, string documentId, long documentVersion, long? version = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: documentType
+      type: System.String
+      description: The type of the document (e.g. Content).
+    - id: documentId
+      type: System.String
+      description: The ID of the document (e.g. contentId).
+    - id: documentVersion
+      type: System.Int64
+      description: The version of the document to use for the comparison.
+    - id: version
+      type: System.Nullable{System.Int64}
+      description: The version of the document to compare with.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistoryDifference}
+      description: Document history difference
+    content.vb: Function CompareWithVersionAsync(documentType As String, documentId As String, documentVersion As Long, version As Long? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of DocumentHistoryDifference)
+  overload: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IDocumentHistoryClient.CompareWithVersionAsync(String, String, Long, Long?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync(String, String, Long, Long?, System.Threading.CancellationToken)
+  name.vb: CompareWithVersionAsync(String, String, Long, Long?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync(Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync(Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(DocumentHistorySearchRequest, CancellationToken)
+  nameWithType: IDocumentHistoryClient.SearchAsync(DocumentHistorySearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync(Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1675
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search
+  remarks: Search the document history as specified in the search request.
+  example: []
+  syntax:
+    content: Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest
+      description: The document history search request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistorySearchResult}
+      description: Document history search result.
+    content.vb: Function SearchAsync(request As DocumentHistorySearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of DocumentHistorySearchResult)
+  overload: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync
+  href: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html#Picturepark_SDK_V1_Contract_IDocumentHistoryClient_GetCurrentAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetCurrentAsync
+  nameWithType: IDocumentHistoryClient.GetCurrentAsync
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetCurrentAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistory}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistory}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DocumentHistory>
+  nameWithType: Task<DocumentHistory>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.DocumentHistory>
+  nameWithType.vb: Task(Of DocumentHistory)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.DocumentHistory)
+  name.vb: Task(Of DocumentHistory)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.DocumentHistory
+    name: DocumentHistory
+    href: Picturepark.SDK.V1.Contract.DocumentHistory.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.DocumentHistory
+    name: DocumentHistory
+    href: Picturepark.SDK.V1.Contract.DocumentHistory.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync
+  href: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html#Picturepark_SDK_V1_Contract_IDocumentHistoryClient_GetVersionAsync_System_String_System_String_System_Int64_System_Threading_CancellationToken_
+  name: GetVersionAsync
+  nameWithType: IDocumentHistoryClient.GetVersionAsync
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.GetVersionAsync
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync
+  href: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html#Picturepark_SDK_V1_Contract_IDocumentHistoryClient_CompareWithCurrentAsync_System_String_System_String_System_Nullable_System_Int64__System_Threading_CancellationToken_
+  name: CompareWithCurrentAsync
+  nameWithType: IDocumentHistoryClient.CompareWithCurrentAsync
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithCurrentAsync
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistoryDifference}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistoryDifference}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DocumentHistoryDifference>
+  nameWithType: Task<DocumentHistoryDifference>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.DocumentHistoryDifference>
+  nameWithType.vb: Task(Of DocumentHistoryDifference)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.DocumentHistoryDifference)
+  name.vb: Task(Of DocumentHistoryDifference)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.DocumentHistoryDifference
+    name: DocumentHistoryDifference
+    href: Picturepark.SDK.V1.Contract.DocumentHistoryDifference.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.DocumentHistoryDifference
+    name: DocumentHistoryDifference
+    href: Picturepark.SDK.V1.Contract.DocumentHistoryDifference.html
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync
+  href: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html#Picturepark_SDK_V1_Contract_IDocumentHistoryClient_CompareWithVersionAsync_System_String_System_String_System_Int64_System_Nullable_System_Int64__System_Threading_CancellationToken_
+  name: CompareWithVersionAsync
+  nameWithType: IDocumentHistoryClient.CompareWithVersionAsync
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.CompareWithVersionAsync
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html#Picturepark_SDK_V1_Contract_IDocumentHistoryClient_SearchAsync_Picturepark_SDK_V1_Contract_DocumentHistorySearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IDocumentHistoryClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest.html
+  name: DocumentHistorySearchRequest
+  nameWithType: DocumentHistorySearchRequest
+  fullName: Picturepark.SDK.V1.Contract.DocumentHistorySearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistorySearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.DocumentHistorySearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DocumentHistorySearchResult>
+  nameWithType: Task<DocumentHistorySearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.DocumentHistorySearchResult>
+  nameWithType.vb: Task(Of DocumentHistorySearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.DocumentHistorySearchResult)
+  name.vb: Task(Of DocumentHistorySearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.DocumentHistorySearchResult
+    name: DocumentHistorySearchResult
+    href: Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.DocumentHistorySearchResult
+    name: DocumentHistorySearchResult
+    href: Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.html
+  - name: )

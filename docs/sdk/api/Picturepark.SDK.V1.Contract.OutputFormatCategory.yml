@@ -1,0 +1,223 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.OutputFormatCategory
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatCategory
+  id: OutputFormatCategory
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.OutputFormatCategory.Dynamic
+  - Picturepark.SDK.V1.Contract.OutputFormatCategory.Static
+  - Picturepark.SDK.V1.Contract.OutputFormatCategory.Transient
+  langs:
+  - csharp
+  - vb
+  name: OutputFormatCategory
+  nameWithType: OutputFormatCategory
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCategory
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputFormatCategory
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23425
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Describes type of output format
+
+    <br />Static: Static output format (rendering enqueued on content ingestion)
+
+    <br />Dynamic: Dynamic output format (rendered upon download request)
+
+    <br />Transient: Output format implicitly created by output editing operations
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum OutputFormatCategory
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum OutputFormatCategory
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.OutputFormatCategory.Static
+  commentId: F:Picturepark.SDK.V1.Contract.OutputFormatCategory.Static
+  id: Static
+  parent: Picturepark.SDK.V1.Contract.OutputFormatCategory
+  langs:
+  - csharp
+  - vb
+  name: Static
+  nameWithType: OutputFormatCategory.Static
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCategory.Static
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Static
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23429
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Static")]
+
+      Static = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputFormatCategory
+    content.vb: >-
+      <EnumMember(Value:="Static")>
+
+      Static = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Static
+- uid: Picturepark.SDK.V1.Contract.OutputFormatCategory.Dynamic
+  commentId: F:Picturepark.SDK.V1.Contract.OutputFormatCategory.Dynamic
+  id: Dynamic
+  parent: Picturepark.SDK.V1.Contract.OutputFormatCategory
+  langs:
+  - csharp
+  - vb
+  name: Dynamic
+  nameWithType: OutputFormatCategory.Dynamic
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCategory.Dynamic
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Dynamic
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23432
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Dynamic")]
+
+      Dynamic = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputFormatCategory
+    content.vb: >-
+      <EnumMember(Value:="Dynamic")>
+
+      Dynamic = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Dynamic
+- uid: Picturepark.SDK.V1.Contract.OutputFormatCategory.Transient
+  commentId: F:Picturepark.SDK.V1.Contract.OutputFormatCategory.Transient
+  id: Transient
+  parent: Picturepark.SDK.V1.Contract.OutputFormatCategory
+  langs:
+  - csharp
+  - vb
+  name: Transient
+  nameWithType: OutputFormatCategory.Transient
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCategory.Transient
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Transient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23435
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Transient")]
+
+      Transient = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputFormatCategory
+    content.vb: >-
+      <EnumMember(Value:="Transient")>
+
+      Transient = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Transient
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.OutputFormatCategory
+  commentId: T:Picturepark.SDK.V1.Contract.OutputFormatCategory
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputFormatCategory.html
+  name: OutputFormatCategory
+  nameWithType: OutputFormatCategory
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCategory

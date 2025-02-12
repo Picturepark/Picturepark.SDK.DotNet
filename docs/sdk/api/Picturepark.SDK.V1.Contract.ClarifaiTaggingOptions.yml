@@ -1,0 +1,643 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  commentId: T:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  id: ClarifaiTaggingOptions
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language
+  - Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue
+  - Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model
+  - Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson
+  langs:
+  - csharp
+  - vb
+  name: ClarifaiTaggingOptions
+  nameWithType: ClarifaiTaggingOptions
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ClarifaiTaggingOptions
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20371
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Options for clarifai tagging
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class ClarifaiTaggingOptions : TaggingOptionsBase
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class ClarifaiTaggingOptions Inherits TaggingOptionsBase
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.TaggingOptionsBase.TagOutputFormatId
+  - Picturepark.SDK.V1.Contract.TaggingOptionsBase.KeywordLookupCacheName
+  - Picturepark.SDK.V1.Contract.TaggingOptionsBase.TaggingLayerId
+  - Picturepark.SDK.V1.Contract.TaggingOptionsBase.FoundTagsFieldId
+  - Picturepark.SDK.V1.Contract.TaggingOptionsBase.MissingKeywordsFieldId
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model
+  commentId: P:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model
+  id: Model
+  parent: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: ClarifaiTaggingOptions.Model
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Model
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20377
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Override for the model to use
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("model", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Model { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("model", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Model As String
+  overload: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: model
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language
+  commentId: P:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language
+  id: Language
+  parent: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: ClarifaiTaggingOptions.Language
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Language
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20383
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Override for the language to use
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("language", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Language { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("language", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Language As String
+  overload: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: language
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue
+  commentId: P:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue
+  id: MinimumValue
+  parent: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  langs:
+  - csharp
+  - vb
+  name: MinimumValue
+  nameWithType: ClarifaiTaggingOptions.MinimumValue
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MinimumValue
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20389
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Minimum value a concept must have to be considered
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("minimumValue", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string MinimumValue { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("minimumValue", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property MinimumValue As String
+  overload: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: minimumValue
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: ClarifaiTaggingOptions.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20392
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson*
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: ClarifaiTaggingOptions.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20398
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static ClarifaiTaggingOptions FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+    content.vb: Public Shared Function FromJson(data As String) As ClarifaiTaggingOptions
+  overload: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson*
+  nameWithType.vb: ClarifaiTaggingOptions.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  commentId: T:Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TaggingOptionsBase.html
+  name: TaggingOptionsBase
+  nameWithType: TaggingOptionsBase
+  fullName: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+- uid: Picturepark.SDK.V1.Contract.TaggingOptionsBase.TagOutputFormatId
+  commentId: P:Picturepark.SDK.V1.Contract.TaggingOptionsBase.TagOutputFormatId
+  parent: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  href: Picturepark.SDK.V1.Contract.TaggingOptionsBase.html#Picturepark_SDK_V1_Contract_TaggingOptionsBase_TagOutputFormatId
+  name: TagOutputFormatId
+  nameWithType: TaggingOptionsBase.TagOutputFormatId
+  fullName: Picturepark.SDK.V1.Contract.TaggingOptionsBase.TagOutputFormatId
+- uid: Picturepark.SDK.V1.Contract.TaggingOptionsBase.KeywordLookupCacheName
+  commentId: P:Picturepark.SDK.V1.Contract.TaggingOptionsBase.KeywordLookupCacheName
+  parent: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  href: Picturepark.SDK.V1.Contract.TaggingOptionsBase.html#Picturepark_SDK_V1_Contract_TaggingOptionsBase_KeywordLookupCacheName
+  name: KeywordLookupCacheName
+  nameWithType: TaggingOptionsBase.KeywordLookupCacheName
+  fullName: Picturepark.SDK.V1.Contract.TaggingOptionsBase.KeywordLookupCacheName
+- uid: Picturepark.SDK.V1.Contract.TaggingOptionsBase.TaggingLayerId
+  commentId: P:Picturepark.SDK.V1.Contract.TaggingOptionsBase.TaggingLayerId
+  parent: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  href: Picturepark.SDK.V1.Contract.TaggingOptionsBase.html#Picturepark_SDK_V1_Contract_TaggingOptionsBase_TaggingLayerId
+  name: TaggingLayerId
+  nameWithType: TaggingOptionsBase.TaggingLayerId
+  fullName: Picturepark.SDK.V1.Contract.TaggingOptionsBase.TaggingLayerId
+- uid: Picturepark.SDK.V1.Contract.TaggingOptionsBase.FoundTagsFieldId
+  commentId: P:Picturepark.SDK.V1.Contract.TaggingOptionsBase.FoundTagsFieldId
+  parent: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  href: Picturepark.SDK.V1.Contract.TaggingOptionsBase.html#Picturepark_SDK_V1_Contract_TaggingOptionsBase_FoundTagsFieldId
+  name: FoundTagsFieldId
+  nameWithType: TaggingOptionsBase.FoundTagsFieldId
+  fullName: Picturepark.SDK.V1.Contract.TaggingOptionsBase.FoundTagsFieldId
+- uid: Picturepark.SDK.V1.Contract.TaggingOptionsBase.MissingKeywordsFieldId
+  commentId: P:Picturepark.SDK.V1.Contract.TaggingOptionsBase.MissingKeywordsFieldId
+  parent: Picturepark.SDK.V1.Contract.TaggingOptionsBase
+  href: Picturepark.SDK.V1.Contract.TaggingOptionsBase.html#Picturepark_SDK_V1_Contract_TaggingOptionsBase_MissingKeywordsFieldId
+  name: MissingKeywordsFieldId
+  nameWithType: TaggingOptionsBase.MissingKeywordsFieldId
+  fullName: Picturepark.SDK.V1.Contract.TaggingOptionsBase.MissingKeywordsFieldId
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model
+  href: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html#Picturepark_SDK_V1_Contract_ClarifaiTaggingOptions_Model
+  name: Model
+  nameWithType: ClarifaiTaggingOptions.Model
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Model
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language
+  href: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html#Picturepark_SDK_V1_Contract_ClarifaiTaggingOptions_Language
+  name: Language
+  nameWithType: ClarifaiTaggingOptions.Language
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.Language
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue
+  href: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html#Picturepark_SDK_V1_Contract_ClarifaiTaggingOptions_MinimumValue
+  name: MinimumValue
+  nameWithType: ClarifaiTaggingOptions.MinimumValue
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.MinimumValue
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson
+  href: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html#Picturepark_SDK_V1_Contract_ClarifaiTaggingOptions_ToJson
+  name: ToJson
+  nameWithType: ClarifaiTaggingOptions.ToJson
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.ToJson
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson
+  href: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html#Picturepark_SDK_V1_Contract_ClarifaiTaggingOptions_FromJson_System_String_
+  name: FromJson
+  nameWithType: ClarifaiTaggingOptions.FromJson
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.FromJson
+- uid: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  commentId: T:Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html
+  name: ClarifaiTaggingOptions
+  nameWithType: ClarifaiTaggingOptions
+  fullName: Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions

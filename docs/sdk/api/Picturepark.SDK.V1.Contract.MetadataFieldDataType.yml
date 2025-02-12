@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  commentId: T:Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  id: MetadataFieldDataType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.MetadataFieldDataType.Simple
+  - Picturepark.SDK.V1.Contract.MetadataFieldDataType.Tagbox
+  - Picturepark.SDK.V1.Contract.MetadataFieldDataType.TranslatedString
+  langs:
+  - csharp
+  - vb
+  name: MetadataFieldDataType
+  nameWithType: MetadataFieldDataType
+  fullName: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataFieldDataType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43104
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Data types of metadata fields
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum MetadataFieldDataType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum MetadataFieldDataType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.MetadataFieldDataType.Simple
+  commentId: F:Picturepark.SDK.V1.Contract.MetadataFieldDataType.Simple
+  id: Simple
+  parent: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  langs:
+  - csharp
+  - vb
+  name: Simple
+  nameWithType: MetadataFieldDataType.Simple
+  fullName: Picturepark.SDK.V1.Contract.MetadataFieldDataType.Simple
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Simple
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43108
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Simple")]
+
+      Simple = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+    content.vb: >-
+      <EnumMember(Value:="Simple")>
+
+      Simple = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Simple
+- uid: Picturepark.SDK.V1.Contract.MetadataFieldDataType.TranslatedString
+  commentId: F:Picturepark.SDK.V1.Contract.MetadataFieldDataType.TranslatedString
+  id: TranslatedString
+  parent: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  langs:
+  - csharp
+  - vb
+  name: TranslatedString
+  nameWithType: MetadataFieldDataType.TranslatedString
+  fullName: Picturepark.SDK.V1.Contract.MetadataFieldDataType.TranslatedString
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TranslatedString
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43111
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TranslatedString")]
+
+      TranslatedString = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+    content.vb: >-
+      <EnumMember(Value:="TranslatedString")>
+
+      TranslatedString = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TranslatedString
+- uid: Picturepark.SDK.V1.Contract.MetadataFieldDataType.Tagbox
+  commentId: F:Picturepark.SDK.V1.Contract.MetadataFieldDataType.Tagbox
+  id: Tagbox
+  parent: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  langs:
+  - csharp
+  - vb
+  name: Tagbox
+  nameWithType: MetadataFieldDataType.Tagbox
+  fullName: Picturepark.SDK.V1.Contract.MetadataFieldDataType.Tagbox
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Tagbox
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43114
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Tagbox")]
+
+      Tagbox = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+    content.vb: >-
+      <EnumMember(Value:="Tagbox")>
+
+      Tagbox = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Tagbox
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  commentId: T:Picturepark.SDK.V1.Contract.MetadataFieldDataType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MetadataFieldDataType.html
+  name: MetadataFieldDataType
+  nameWithType: MetadataFieldDataType
+  fullName: Picturepark.SDK.V1.Contract.MetadataFieldDataType
