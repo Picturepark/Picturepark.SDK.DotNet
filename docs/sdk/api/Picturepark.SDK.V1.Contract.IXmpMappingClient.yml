@@ -1,0 +1,1269 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  commentId: T:Picturepark.SDK.V1.Contract.IXmpMappingClient
+  id: IXmpMappingClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync(Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.XmpMappingEntry,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IXmpMappingClient
+  nameWithType: IXmpMappingClient
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IXmpMappingClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4423
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IXmpMappingClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IXmpMappingClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync(System.Threading.CancellationToken)
+  id: GetAvailableTargetsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableTargetsAsync(CancellationToken)
+  nameWithType: IXmpMappingClient.GetAvailableTargetsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAvailableTargetsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4439
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets fields available for XMP mapping.
+  example: []
+  syntax:
+    content: Task<XmpMappingTargets> GetAvailableTargetsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingTargets}
+      description: XmpMappingTargets containing both XMP fields and metadata fields that are available for mapping.
+    content.vb: Function GetAvailableTargetsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of XmpMappingTargets)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync(Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync(Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(XmpMappingEntrySearchRequest, CancellationToken)
+  nameWithType: IXmpMappingClient.SearchAsync(XmpMappingEntrySearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync(Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4454
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Searches for XMP mappings
+  example: []
+  syntax:
+    content: Task<XmpMappingEntrySearchResult> SearchAsync(XmpMappingEntrySearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+      description: Search request for getting configured XMP mappings.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult}
+      description: Holds results of search for XMP mappings
+    content.vb: Function SearchAsync(request As XmpMappingEntrySearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of XmpMappingEntrySearchResult)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(XmpMappingEntryCreateRequest, CancellationToken)
+  nameWithType: IXmpMappingClient.CreateAsync(XmpMappingEntryCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4472
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create xmp mapping
+  remarks: Creates new xmp mapping based on the supplied request. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> CreateAsync(XmpMappingEntryCreateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest
+      description: Request containing information needed to create new xmp mapping.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function CreateAsync(request As XmpMappingEntryCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IXmpMappingClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4491
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple xmp mappings
+  remarks: Gets multiple xmp mapping details by the xmp mapping IDs. Can fetch maximum of 100 xmp mappings at once.
+  example: []
+  syntax:
+    content: Task<ICollection<XmpMappingEntry>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Xmp mapping IDs to get information about.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.XmpMappingEntry}}
+      description: Array of XMP mapping entry
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of XmpMappingEntry))
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    description: List of IDs exceeded maximum size
+  nameWithType.vb: IXmpMappingClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.XmpMappingEntry,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.XmpMappingEntry,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.XmpMappingEntry,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, XmpMappingEntry, CancellationToken)
+  nameWithType: IXmpMappingClient.UpdateAsync(string, XmpMappingEntry, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.XmpMappingEntry, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4510
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update xmp mapping
+  remarks: Updates the xmp mapping specified by the ID and based on supplied request. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> UpdateAsync(string id, XmpMappingEntry request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Xmp mapping ID.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntry
+      description: Request containing information needed to update the xmp mapping.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function UpdateAsync(id As String, request As XmpMappingEntry, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IXmpMappingClient.UpdateAsync(String, XmpMappingEntry, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.XmpMappingEntry, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, XmpMappingEntry, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, CancellationToken)
+  nameWithType: IXmpMappingClient.DeleteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4528
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete xmp mapping
+  remarks: Deletes the xmp mapping specified by the ID. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> DeleteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Xmp mapping ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function DeleteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IXmpMappingClient.DeleteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync(String, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IXmpMappingClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4546
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get xmp mapping
+  remarks: Gets the xmp mapping by the xmp mapping ID.
+  example: []
+  syntax:
+    content: Task<XmpMappingEntry> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Xmp mapping ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingEntry}
+      description: XMP mapping entry
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of XmpMappingEntry)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IXmpMappingClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest,System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(XmpMappingEntryCreateManyRequest, CancellationToken)
+  nameWithType: IXmpMappingClient.CreateManyAsync(XmpMappingEntryCreateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4564
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create multiple xmp mappings
+  remarks: Creates new xmp mappings based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> CreateManyAsync(XmpMappingEntryCreateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest
+      description: Request containing information needed to create new xmp mapping.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function CreateManyAsync(request As XmpMappingEntryCreateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest,System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(XmpMappingEntryUpdateManyRequest, CancellationToken)
+  nameWithType: IXmpMappingClient.UpdateManyAsync(XmpMappingEntryUpdateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4582
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update multiple xmp mappings
+  remarks: Updates the xmp mappings specified by the IDs and based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> UpdateManyAsync(XmpMappingEntryUpdateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest
+      description: Request containing information needed to update the xmp mapping.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function UpdateManyAsync(request As XmpMappingEntryUpdateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest,System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(XmpMappingEntryDeleteManyRequest, CancellationToken)
+  nameWithType: IXmpMappingClient.DeleteManyAsync(XmpMappingEntryDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4600
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple xmp mappings
+  remarks: Deletes the xmp mappings specified by the IDs. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> DeleteManyAsync(XmpMappingEntryDeleteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest
+      description: The request with xmp mapping IDs to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function DeleteManyAsync(request As XmpMappingEntryDeleteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_GetAvailableTargetsAsync_System_Threading_CancellationToken_
+  name: GetAvailableTargetsAsync
+  nameWithType: IXmpMappingClient.GetAvailableTargetsAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAvailableTargetsAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingTargets}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingTargets}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<XmpMappingTargets>
+  nameWithType: Task<XmpMappingTargets>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.XmpMappingTargets>
+  nameWithType.vb: Task(Of XmpMappingTargets)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.XmpMappingTargets)
+  name.vb: Task(Of XmpMappingTargets)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingTargets
+    name: XmpMappingTargets
+    href: Picturepark.SDK.V1.Contract.XmpMappingTargets.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingTargets
+    name: XmpMappingTargets
+    href: Picturepark.SDK.V1.Contract.XmpMappingTargets.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_SearchAsync_Picturepark_SDK_V1_Contract_XmpMappingEntrySearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IXmpMappingClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest.html
+  name: XmpMappingEntrySearchRequest
+  nameWithType: XmpMappingEntrySearchRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<XmpMappingEntrySearchResult>
+  nameWithType: Task<XmpMappingEntrySearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult>
+  nameWithType.vb: Task(Of XmpMappingEntrySearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult)
+  name.vb: Task(Of XmpMappingEntrySearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult
+    name: XmpMappingEntrySearchResult
+    href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult
+    name: XmpMappingEntrySearchResult
+    href: Picturepark.SDK.V1.Contract.XmpMappingEntrySearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_CreateAsync_Picturepark_SDK_V1_Contract_XmpMappingEntryCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IXmpMappingClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest.html
+  name: XmpMappingEntryCreateRequest
+  nameWithType: XmpMappingEntryCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html
+  name: RequestSizeLimitExceededException
+  nameWithType: RequestSizeLimitExceededException
+  fullName: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: IXmpMappingClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.XmpMappingEntry}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.XmpMappingEntry}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<XmpMappingEntry>>
+  nameWithType: Task<ICollection<XmpMappingEntry>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.XmpMappingEntry>>
+  nameWithType.vb: Task(Of ICollection(Of XmpMappingEntry))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.XmpMappingEntry))
+  name.vb: Task(Of ICollection(Of XmpMappingEntry))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingEntry
+    name: XmpMappingEntry
+    href: Picturepark.SDK.V1.Contract.XmpMappingEntry.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingEntry
+    name: XmpMappingEntry
+    href: Picturepark.SDK.V1.Contract.XmpMappingEntry.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_XmpMappingEntry_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IXmpMappingClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntry
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntry
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntry.html
+  name: XmpMappingEntry
+  nameWithType: XmpMappingEntry
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntry
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IXmpMappingClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteAsync
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IXmpMappingClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.GetAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingEntry}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.XmpMappingEntry}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<XmpMappingEntry>
+  nameWithType: Task<XmpMappingEntry>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.XmpMappingEntry>
+  nameWithType.vb: Task(Of XmpMappingEntry)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.XmpMappingEntry)
+  name.vb: Task(Of XmpMappingEntry)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingEntry
+    name: XmpMappingEntry
+    href: Picturepark.SDK.V1.Contract.XmpMappingEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.XmpMappingEntry
+    name: XmpMappingEntry
+    href: Picturepark.SDK.V1.Contract.XmpMappingEntry.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_CreateManyAsync_Picturepark_SDK_V1_Contract_XmpMappingEntryCreateManyRequest_System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: IXmpMappingClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.CreateManyAsync
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest.html
+  name: XmpMappingEntryCreateManyRequest
+  nameWithType: XmpMappingEntryCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntryCreateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_XmpMappingEntryUpdateManyRequest_System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: IXmpMappingClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest.html
+  name: XmpMappingEntryUpdateManyRequest
+  nameWithType: XmpMappingEntryUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntryUpdateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html#Picturepark_SDK_V1_Contract_IXmpMappingClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_XmpMappingEntryDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: IXmpMappingClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest.html
+  name: XmpMappingEntryDeleteManyRequest
+  nameWithType: XmpMappingEntryDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.XmpMappingEntryDeleteManyRequest

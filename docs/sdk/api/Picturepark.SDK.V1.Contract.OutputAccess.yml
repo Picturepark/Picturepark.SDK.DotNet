@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.OutputAccess
+  commentId: T:Picturepark.SDK.V1.Contract.OutputAccess
+  id: OutputAccess
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.OutputAccess.Full
+  - Picturepark.SDK.V1.Contract.OutputAccess.None
+  - Picturepark.SDK.V1.Contract.OutputAccess.Preview
+  langs:
+  - csharp
+  - vb
+  name: OutputAccess
+  nameWithType: OutputAccess
+  fullName: Picturepark.SDK.V1.Contract.OutputAccess
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputAccess
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38994
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum OutputAccess
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum OutputAccess
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.OutputAccess.Full
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAccess.Full
+  id: Full
+  parent: Picturepark.SDK.V1.Contract.OutputAccess
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: OutputAccess.Full
+  fullName: Picturepark.SDK.V1.Contract.OutputAccess.Full
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Full
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38998
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Full")]
+
+      Full = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAccess
+    content.vb: >-
+      <EnumMember(Value:="Full")>
+
+      Full = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Full
+- uid: Picturepark.SDK.V1.Contract.OutputAccess.Preview
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAccess.Preview
+  id: Preview
+  parent: Picturepark.SDK.V1.Contract.OutputAccess
+  langs:
+  - csharp
+  - vb
+  name: Preview
+  nameWithType: OutputAccess.Preview
+  fullName: Picturepark.SDK.V1.Contract.OutputAccess.Preview
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Preview
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 39001
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Preview")]
+
+      Preview = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAccess
+    content.vb: >-
+      <EnumMember(Value:="Preview")>
+
+      Preview = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Preview
+- uid: Picturepark.SDK.V1.Contract.OutputAccess.None
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAccess.None
+  id: None
+  parent: Picturepark.SDK.V1.Contract.OutputAccess
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: OutputAccess.None
+  fullName: Picturepark.SDK.V1.Contract.OutputAccess.None
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: None
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 39004
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "None")]
+
+      None = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAccess
+    content.vb: >-
+      <EnumMember(Value:="None")>
+
+      None = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: None
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.OutputAccess
+  commentId: T:Picturepark.SDK.V1.Contract.OutputAccess
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputAccess.html
+  name: OutputAccess
+  nameWithType: OutputAccess
+  fullName: Picturepark.SDK.V1.Contract.OutputAccess

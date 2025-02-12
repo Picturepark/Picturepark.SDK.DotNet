@@ -1,0 +1,1095 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  commentId: T:Picturepark.SDK.V1.CloudManager.CloudManagerService
+  id: CloudManagerService
+  parent: Picturepark.SDK.V1.CloudManager
+  children:
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings)
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.Service
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService.Update
+  langs:
+  - csharp
+  - vb
+  name: CloudManagerService
+  nameWithType: CloudManagerService
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CloudManagerService
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: 'public class CloudManagerService : IDisposable'
+    content.vb: Public Class CloudManagerService Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings)
+  commentId: M:Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings)
+  id: '#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings)'
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: CloudManagerService(ICloudManagerServiceSettings)
+  nameWithType: CloudManagerService.CloudManagerService(ICloudManagerServiceSettings)
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudManagerService(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 14
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.CloudManager.CloudManagerService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Picturepark server URL.
+  example: []
+  syntax:
+    content: public CloudManagerService(ICloudManagerServiceSettings settings)
+    parameters:
+    - id: settings
+      type: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+      description: The service settings.
+    content.vb: Public Sub New(settings As ICloudManagerServiceSettings)
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor*
+  nameWithType.vb: CloudManagerService.New(ICloudManagerServiceSettings)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CloudManagerService.New(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings)
+  name.vb: New(ICloudManagerServiceSettings)
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  commentId: M:Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  id: '#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)'
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: CloudManagerService(ICloudManagerServiceSettings, HttpClient)
+  nameWithType: CloudManagerService.CloudManagerService(ICloudManagerServiceSettings, HttpClient)
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudManagerService(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings, System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 24
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.CloudManager.CloudManagerService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Picturepark server URL.
+  example: []
+  syntax:
+    content: public CloudManagerService(ICloudManagerServiceSettings settings, HttpClient httpClient)
+    parameters:
+    - id: settings
+      type: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+      description: The service settings.
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+      description: The HTTP client.
+    content.vb: Public Sub New(settings As ICloudManagerServiceSettings, httpClient As HttpClient)
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor*
+  nameWithType.vb: CloudManagerService.New(ICloudManagerServiceSettings, HttpClient)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CloudManagerService.New(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings, System.Net.Http.HttpClient)
+  name.vb: New(ICloudManagerServiceSettings, HttpClient)
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer
+  id: Customer
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: Customer
+  nameWithType: CloudManagerService.Customer
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Customer
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 29
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public ICustomerClient Customer { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient
+    content.vb: Public Property Customer As ICustomerClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Service
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.Service
+  id: Service
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: Service
+  nameWithType: CloudManagerService.Service
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Service
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Service
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 31
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IServiceClient Service { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IServiceClient
+    content.vb: Public Property Service As IServiceClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.Service*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Update
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.Update
+  id: Update
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: Update
+  nameWithType: CloudManagerService.Update
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Update
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Update
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 33
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IUpdateClient Update { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+    content.vb: Public Property Update As IUpdateClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.Update*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup
+  id: CloudBackup
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: CloudBackup
+  nameWithType: CloudManagerService.CloudBackup
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CloudBackup
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 35
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public ICloudBackupClient CloudBackup { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient
+    content.vb: Public Property CloudBackup As ICloudBackupClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider
+  id: CustomerServiceProvider
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: CustomerServiceProvider
+  nameWithType: CloudManagerService.CustomerServiceProvider
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerServiceProvider
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 37
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public ICustomerServiceProviderClient CustomerServiceProvider { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ICustomerServiceProviderClient
+    content.vb: Public Property CustomerServiceProvider As ICustomerServiceProviderClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment
+  id: Environment
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: Environment
+  nameWithType: CloudManagerService.Environment
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Environment
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 39
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IEnvironmentClient Environment { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentClient
+    content.vb: Public Property Environment As IEnvironmentClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess
+  id: EnvironmentProcess
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentProcess
+  nameWithType: CloudManagerService.EnvironmentProcess
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EnvironmentProcess
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 41
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IEnvironmentProcessClient EnvironmentProcess { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentProcessClient
+    content.vb: Public Property EnvironmentProcess As IEnvironmentProcessClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance
+  id: Maintenance
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: Maintenance
+  nameWithType: CloudManagerService.Maintenance
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Maintenance
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 43
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IMaintenanceClient Maintenance { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient
+    content.vb: Public Property Maintenance As IMaintenanceClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration
+  id: GlobalConfiguration
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: GlobalConfiguration
+  nameWithType: CloudManagerService.GlobalConfiguration
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GlobalConfiguration
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 45
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IGlobalConfigurationClient GlobalConfiguration { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient
+    content.vb: Public Property GlobalConfiguration As IGlobalConfigurationClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat
+  id: OutputFormat
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: OutputFormat
+  nameWithType: CloudManagerService.OutputFormat
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputFormat
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 47
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public IOutputFormatClient OutputFormat { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient
+    content.vb: Public Property OutputFormat As IOutputFormatClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset
+  commentId: P:Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset
+  id: CustomerAsset
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: CustomerAsset
+  nameWithType: CloudManagerService.CustomerAsset
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerAsset
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 49
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public ICustomerAssetClient CustomerAsset { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+    content.vb: Public Property CustomerAsset As ICustomerAssetClient
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset*
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose
+  commentId: M:Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose
+  id: Dispose
+  parent: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: CloudManagerService.Dispose()
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Dispose
+    path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
+    startLine: 51
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Picturepark.SDK.V1.CloudManager
+  commentId: N:Picturepark.SDK.V1.CloudManager
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager
+  nameWithType: Picturepark.SDK.V1.CloudManager
+  fullName: Picturepark.SDK.V1.CloudManager
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  commentId: T:Picturepark.SDK.V1.CloudManager.CloudManagerService
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html
+  name: CloudManagerService
+  nameWithType: CloudManagerService
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_BaseUrl
+  name: BaseUrl
+  nameWithType: IPictureparkServiceSettings.BaseUrl
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.#ctor
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService__ctor_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_
+  name: CloudManagerService
+  nameWithType: CloudManagerService.CloudManagerService
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudManagerService
+  nameWithType.vb: CloudManagerService.New
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CloudManagerService.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  commentId: T:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html
+  name: ICloudManagerServiceSettings
+  nameWithType: ICloudManagerServiceSettings
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  commentId: T:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html
+  name: IPictureparkServiceSettings
+  nameWithType: IPictureparkServiceSettings
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_Customer
+  name: Customer
+  nameWithType: CloudManagerService.Customer
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Customer
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.html
+  name: ICustomerClient
+  nameWithType: ICustomerClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Service*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.Service
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_Service
+  name: Service
+  nameWithType: CloudManagerService.Service
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Service
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IServiceClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IServiceClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IServiceClient.html
+  name: IServiceClient
+  nameWithType: IServiceClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IServiceClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Update*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.Update
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_Update
+  name: Update
+  nameWithType: CloudManagerService.Update
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Update
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html
+  name: IUpdateClient
+  nameWithType: IUpdateClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_CloudBackup
+  name: CloudBackup
+  nameWithType: CloudManagerService.CloudBackup
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CloudBackup
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.html
+  name: ICloudBackupClient
+  nameWithType: ICloudBackupClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_CustomerServiceProvider
+  name: CustomerServiceProvider
+  nameWithType: CloudManagerService.CustomerServiceProvider
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerServiceProvider
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerServiceProviderClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICustomerServiceProviderClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerServiceProviderClient.html
+  name: ICustomerServiceProviderClient
+  nameWithType: ICustomerServiceProviderClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerServiceProviderClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_Environment
+  name: Environment
+  nameWithType: CloudManagerService.Environment
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Environment
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentClient.html
+  name: IEnvironmentClient
+  nameWithType: IEnvironmentClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_EnvironmentProcess
+  name: EnvironmentProcess
+  nameWithType: CloudManagerService.EnvironmentProcess
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.EnvironmentProcess
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentProcessClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentProcessClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentProcessClient.html
+  name: IEnvironmentProcessClient
+  nameWithType: IEnvironmentProcessClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentProcessClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_Maintenance
+  name: Maintenance
+  nameWithType: CloudManagerService.Maintenance
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Maintenance
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient.html
+  name: IMaintenanceClient
+  nameWithType: IMaintenanceClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_GlobalConfiguration
+  name: GlobalConfiguration
+  nameWithType: CloudManagerService.GlobalConfiguration
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.GlobalConfiguration
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient.html
+  name: IGlobalConfigurationClient
+  nameWithType: IGlobalConfigurationClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_OutputFormat
+  name: OutputFormat
+  nameWithType: CloudManagerService.OutputFormat
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.OutputFormat
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient.html
+  name: IOutputFormatClient
+  nameWithType: IOutputFormatClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_CustomerAsset
+  name: CustomerAsset
+  nameWithType: CloudManagerService.CustomerAsset
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.CustomerAsset
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.html
+  name: ICustomerAssetClient
+  nameWithType: ICustomerAssetClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html#Picturepark_SDK_V1_CloudManager_CloudManagerService_Dispose
+  name: Dispose
+  nameWithType: CloudManagerService.Dispose
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

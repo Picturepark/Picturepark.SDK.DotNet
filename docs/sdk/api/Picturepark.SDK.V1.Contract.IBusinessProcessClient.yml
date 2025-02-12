@@ -1,0 +1,1637 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  commentId: T:Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  id: IBusinessProcessClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync(Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IBusinessProcessClient
+  nameWithType: IBusinessProcessClient
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IBusinessProcessClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IBusinessProcessClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IBusinessProcessClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IBusinessProcessClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get business process
+  example: []
+  syntax:
+    content: Task<BusinessProcess> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The business process id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync(Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync(Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(BusinessProcessCreateRequest, CancellationToken)
+  nameWithType: IBusinessProcessClient.CreateAsync(BusinessProcessCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync(Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 53
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create business process
+  example: []
+  syntax:
+    content: Task<BusinessProcess> CreateAsync(BusinessProcessCreateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest
+      description: The business process create request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function CreateAsync(request As BusinessProcessCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest,System.Threading.CancellationToken)
+  id: ChangeStateAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: ChangeStateAsync(string, BusinessProcessStateChangeRequest, CancellationToken)
+  nameWithType: IBusinessProcessClient.ChangeStateAsync(string, BusinessProcessStateChangeRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync(string, Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ChangeStateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 72
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Change business process state
+  remarks: Only available for business processes created through Create. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> ChangeStateAsync(string id, BusinessProcessStateChangeRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The business process id.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest
+      description: The business process state change request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function ChangeStateAsync(id As String, request As BusinessProcessStateChangeRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.ChangeStateAsync(String, BusinessProcessStateChangeRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync(String, Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest, System.Threading.CancellationToken)
+  name.vb: ChangeStateAsync(String, BusinessProcessStateChangeRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest,System.Threading.CancellationToken)
+  id: UpdateNotificationAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateNotificationAsync(string, BusinessProcessNotificationUpdateRequest, CancellationToken)
+  nameWithType: IBusinessProcessClient.UpdateNotificationAsync(string, BusinessProcessNotificationUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync(string, Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateNotificationAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 90
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update business process notification
+  remarks: Only available for business processes created through Create.
+  example: []
+  syntax:
+    content: Task UpdateNotificationAsync(string id, BusinessProcessNotificationUpdateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The business process id.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest
+      description: The business process notification update request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function UpdateNotificationAsync(id As String, request As BusinessProcessNotificationUpdateRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.UpdateNotificationAsync(String, BusinessProcessNotificationUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync(String, Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateNotificationAsync(String, BusinessProcessNotificationUpdateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync(System.String,System.Threading.CancellationToken)
+  id: CancelAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: CancelAsync(string, CancellationToken)
+  nameWithType: IBusinessProcessClient.CancelAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CancelAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 107
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Cancel business process
+  remarks: Only available if the business process indicates support for cancellation in SupportsCancellation.
+  example: []
+  syntax:
+    content: Task CancelAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The business process id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function CancelAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.CancelAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync(String, System.Threading.CancellationToken)
+  name.vb: CancelAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync(System.String,System.Threading.CancellationToken)
+  id: GetDetailsAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: GetDetailsAsync(string, CancellationToken)
+  nameWithType: IBusinessProcessClient.GetDetailsAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetDetailsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 125
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get details
+  remarks: Gets details of the given business process.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete]
+
+      Task<BusinessProcessDetails> GetDetailsAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: The business process id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessDetails}
+      description: BusinessProcessDetails
+    content.vb: >-
+      <Obsolete>
+
+      Function GetDetailsAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessDetails)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor
+    arguments: []
+  nameWithType.vb: IBusinessProcessClient.GetDetailsAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync(String, System.Threading.CancellationToken)
+  name.vb: GetDetailsAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync(System.String,System.Threading.CancellationToken)
+  id: GetSummaryAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: GetSummaryAsync(string, CancellationToken)
+  nameWithType: IBusinessProcessClient.GetSummaryAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSummaryAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 143
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Returns a summary of the business process.
+
+    <br />Depending on the type of the business process, this can be not available at all or contain just a minimal set of information.
+
+    <br />If business process produces a batch based response, page over successful and failed items using respective endpoints.
+  example: []
+  syntax:
+    content: Task<BusinessProcessSummaryBase> GetSummaryAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Business process id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase}
+      description: BusinessProcessSummaryBase
+    content.vb: Function GetSummaryAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessSummaryBase)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.GetSummaryAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync(String, System.Threading.CancellationToken)
+  name.vb: GetSummaryAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  id: GetSuccessfulItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: GetSuccessfulItemsAsync(string, int, string, CancellationToken)
+  nameWithType: IBusinessProcessClient.GetSuccessfulItemsAsync(string, int, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync(string, int, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSuccessfulItemsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 161
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Gets a page of successful items of a batch based business process.
+
+    <br />Use the page token to fetch next page.
+  example: []
+  syntax:
+    content: Task<BusinessProcessBatch> GetSuccessfulItemsAsync(string id, int limit, string pageToken = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Business process id.
+    - id: limit
+      type: System.Int32
+      description: Number of items to fetch.
+    - id: pageToken
+      type: System.String
+      description: PageToken for paging.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessBatch}
+      description: BusinessProcessBatch
+    content.vb: Function GetSuccessfulItemsAsync(id As String, limit As Integer, pageToken As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessBatch)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.GetSuccessfulItemsAsync(String, Integer, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: GetSuccessfulItemsAsync(String, Integer, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  id: GetFailedItemsAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: GetFailedItemsAsync(string, int, string, CancellationToken)
+  nameWithType: IBusinessProcessClient.GetFailedItemsAsync(string, int, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync(string, int, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetFailedItemsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 179
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Gets a page of failed items of a batch based business process.
+
+    <br />Use the page token to fetch next page.
+  example: []
+  syntax:
+    content: Task<BusinessProcessBatch> GetFailedItemsAsync(string id, int limit, string pageToken = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Business process id.
+    - id: limit
+      type: System.Int32
+      description: Number of items to fetch.
+    - id: pageToken
+      type: System.String
+      description: PageToken for paging.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessBatch}
+      description: BusinessProcessBatch
+    content.vb: Function GetFailedItemsAsync(id As String, limit As Integer, pageToken As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessBatch)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.GetFailedItemsAsync(String, Integer, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync(String, Integer, String, System.Threading.CancellationToken)
+  name.vb: GetFailedItemsAsync(String, Integer, String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(BusinessProcessSearchRequest, CancellationToken)
+  nameWithType: IBusinessProcessClient.SearchAsync(BusinessProcessSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 197
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search
+  remarks: Search for business processes.
+  example: []
+  syntax:
+    content: Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest
+      description: The business process request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessSearchResult}
+      description: BusinessProcessSearchResult
+    content.vb: Function SearchAsync(request As BusinessProcessSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessSearchResult)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: WaitForLifeCyclesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: WaitForLifeCyclesAsync(string, IEnumerable<BusinessProcessLifeCycle>, TimeSpan?, CancellationToken)
+  nameWithType: IBusinessProcessClient.WaitForLifeCyclesAsync(string, IEnumerable<BusinessProcessLifeCycle>, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync(string, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle>, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WaitForLifeCyclesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+    startLine: 17
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.
+  example: []
+  syntax:
+    content: Task<BusinessProcessWaitForLifeCycleResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: processId
+      type: System.String
+      description: The process ID.
+    - id: lifeCycleIds
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle}
+      description: The business process lifecycle IDs to wait for.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout in ms to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult}
+      description: The wait result.
+    content.vb: Function WaitForLifeCyclesAsync(processId As String, lifeCycleIds As IEnumerable(Of BusinessProcessLifeCycle), timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessWaitForLifeCycleResult)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.WaitForLifeCyclesAsync(String, IEnumerable(Of BusinessProcessLifeCycle), TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync(String, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle), System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: WaitForLifeCyclesAsync(String, IEnumerable(Of BusinessProcessLifeCycle), TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: WaitForStatesAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: WaitForStatesAsync(string, IEnumerable<string>, TimeSpan?, CancellationToken)
+  nameWithType: IBusinessProcessClient.WaitForStatesAsync(string, IEnumerable<string>, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync(string, System.Collections.Generic.IEnumerable<string>, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WaitForStatesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+    startLine: 27
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Waits until the business process transitioned into one of the given states or the timeout is reached.
+  example: []
+  syntax:
+    content: Task<BusinessProcessWaitForStateResult> WaitForStatesAsync(string processId, IEnumerable<string> states, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: processId
+      type: System.String
+      description: The process ID.
+    - id: states
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The states to wait for.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout in ms to wait for completion.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult}
+      description: The wait result.
+    content.vb: Function WaitForStatesAsync(processId As String, states As IEnumerable(Of String), timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessWaitForStateResult)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.WaitForStatesAsync(String, IEnumerable(Of String), TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync(String, System.Collections.Generic.IEnumerable(Of String), System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: WaitForStatesAsync(String, IEnumerable(Of String), TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  id: WaitForCompletionAsync(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  langs:
+  - csharp
+  - vb
+  name: WaitForCompletionAsync(string, TimeSpan?, bool, CancellationToken)
+  nameWithType: IBusinessProcessClient.WaitForCompletionAsync(string, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync(string, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WaitForCompletionAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Partials/IBusinessProcessClient.cs
+    startLine: 37
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Waits until the business process is completed or the timeout is reached.
+  example: []
+  syntax:
+    content: Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, bool waitForContinuationCompletion = true, CancellationToken cancellationToken = default)
+    parameters:
+    - id: processId
+      type: System.String
+      description: The process ID.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout in ms to wait for completion.
+    - id: waitForContinuationCompletion
+      type: System.Boolean
+      description: Waits for the completion of the continuation business process (if existing, recursively). Default to true.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult}
+      description: The wait result.
+    content.vb: Function WaitForCompletionAsync(processId As String, timeout As TimeSpan? = Nothing, waitForContinuationCompletion As Boolean = True, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcessWaitForLifeCycleResult)
+  overload: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IBusinessProcessClient.WaitForCompletionAsync(String, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync(String, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: WaitForCompletionAsync(String, TimeSpan?, Boolean, CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IBusinessProcessClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_CreateAsync_Picturepark_SDK_V1_Contract_BusinessProcessCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IBusinessProcessClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest.html
+  name: BusinessProcessCreateRequest
+  nameWithType: BusinessProcessCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_ChangeStateAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_
+  name: ChangeStateAsync
+  nameWithType: IBusinessProcessClient.ChangeStateAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.ChangeStateAsync
+- uid: Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest.html
+  name: BusinessProcessStateChangeRequest
+  nameWithType: BusinessProcessStateChangeRequest
+  fullName: Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_UpdateNotificationAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateNotificationAsync
+  nameWithType: IBusinessProcessClient.UpdateNotificationAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.UpdateNotificationAsync
+- uid: Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest.html
+  name: BusinessProcessNotificationUpdateRequest
+  nameWithType: BusinessProcessNotificationUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_CancelAsync_System_String_System_Threading_CancellationToken_
+  name: CancelAsync
+  nameWithType: IBusinessProcessClient.CancelAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.CancelAsync
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetDetailsAsync_System_String_System_Threading_CancellationToken_
+  name: GetDetailsAsync
+  nameWithType: IBusinessProcessClient.GetDetailsAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetDetailsAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessDetails}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessDetails}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcessDetails>
+  nameWithType: Task<BusinessProcessDetails>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcessDetails>
+  nameWithType.vb: Task(Of BusinessProcessDetails)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcessDetails)
+  name.vb: Task(Of BusinessProcessDetails)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessDetails
+    name: BusinessProcessDetails
+    href: Picturepark.SDK.V1.Contract.BusinessProcessDetails.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessDetails
+    name: BusinessProcessDetails
+    href: Picturepark.SDK.V1.Contract.BusinessProcessDetails.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetSummaryAsync_System_String_System_Threading_CancellationToken_
+  name: GetSummaryAsync
+  nameWithType: IBusinessProcessClient.GetSummaryAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSummaryAsync
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcessSummaryBase>
+  nameWithType: Task<BusinessProcessSummaryBase>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase>
+  nameWithType.vb: Task(Of BusinessProcessSummaryBase)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase)
+  name.vb: Task(Of BusinessProcessSummaryBase)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase
+    name: BusinessProcessSummaryBase
+    href: Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase
+    name: BusinessProcessSummaryBase
+    href: Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetSuccessfulItemsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: GetSuccessfulItemsAsync
+  nameWithType: IBusinessProcessClient.GetSuccessfulItemsAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetSuccessfulItemsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessBatch}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessBatch}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcessBatch>
+  nameWithType: Task<BusinessProcessBatch>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcessBatch>
+  nameWithType.vb: Task(Of BusinessProcessBatch)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcessBatch)
+  name.vb: Task(Of BusinessProcessBatch)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessBatch
+    name: BusinessProcessBatch
+    href: Picturepark.SDK.V1.Contract.BusinessProcessBatch.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessBatch
+    name: BusinessProcessBatch
+    href: Picturepark.SDK.V1.Contract.BusinessProcessBatch.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetFailedItemsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_
+  name: GetFailedItemsAsync
+  nameWithType: IBusinessProcessClient.GetFailedItemsAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.GetFailedItemsAsync
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IBusinessProcessClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest.html
+  name: BusinessProcessSearchRequest
+  nameWithType: BusinessProcessSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcessSearchResult>
+  nameWithType: Task<BusinessProcessSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcessSearchResult>
+  nameWithType.vb: Task(Of BusinessProcessSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcessSearchResult)
+  name.vb: Task(Of BusinessProcessSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessSearchResult
+    name: BusinessProcessSearchResult
+    href: Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessSearchResult
+    name: BusinessProcessSearchResult
+    href: Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForLifeCyclesAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: WaitForLifeCyclesAsync
+  nameWithType: IBusinessProcessClient.WaitForLifeCyclesAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForLifeCyclesAsync
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<BusinessProcessLifeCycle>
+  nameWithType: IEnumerable<BusinessProcessLifeCycle>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle>
+  nameWithType.vb: IEnumerable(Of BusinessProcessLifeCycle)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle)
+  name.vb: IEnumerable(Of BusinessProcessLifeCycle)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle
+    name: BusinessProcessLifeCycle
+    href: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle
+    name: BusinessProcessLifeCycle
+    href: Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html
+  - name: )
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcessWaitForLifeCycleResult>
+  nameWithType: Task<BusinessProcessWaitForLifeCycleResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult>
+  nameWithType.vb: Task(Of BusinessProcessWaitForLifeCycleResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult)
+  name.vb: Task(Of BusinessProcessWaitForLifeCycleResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult
+    name: BusinessProcessWaitForLifeCycleResult
+    href: Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult
+    name: BusinessProcessWaitForLifeCycleResult
+    href: Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForStatesAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: WaitForStatesAsync
+  nameWithType: IBusinessProcessClient.WaitForStatesAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForStatesAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcessWaitForStateResult>
+  nameWithType: Task<BusinessProcessWaitForStateResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult>
+  nameWithType.vb: Task(Of BusinessProcessWaitForStateResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult)
+  name.vb: Task(Of BusinessProcessWaitForStateResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult
+    name: BusinessProcessWaitForStateResult
+    href: Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult
+    name: BusinessProcessWaitForStateResult
+    href: Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: WaitForCompletionAsync
+  nameWithType: IBusinessProcessClient.WaitForCompletionAsync
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient.WaitForCompletionAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

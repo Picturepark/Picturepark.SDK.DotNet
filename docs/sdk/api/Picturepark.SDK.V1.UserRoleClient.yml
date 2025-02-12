@@ -1,0 +1,2322 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.UserRoleClient
+  commentId: T:Picturepark.SDK.V1.UserRoleClient
+  id: UserRoleClient
+  parent: Picturepark.SDK.V1
+  children:
+  - Picturepark.SDK.V1.UserRoleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  - Picturepark.SDK.V1.UserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings
+  - Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString
+  - Picturepark.SDK.V1.UserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: UserRoleClient
+  nameWithType: UserRoleClient
+  fullName: Picturepark.SDK.V1.UserRoleClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserRoleClient
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 45813
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class UserRoleClient : ClientBase, IUserRoleClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class UserRoleClient Inherits ClientBase Implements IUserRoleClient
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.ClientBase
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient
+  inheritedMembers:
+  - Picturepark.SDK.V1.ClientBase.BaseUrl
+  - Picturepark.SDK.V1.ClientBase.CustomerAlias
+  - Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.UserRoleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)
+  id: '#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)'
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: UserRoleClient(IPictureparkServiceSettings, HttpClient)
+  nameWithType: UserRoleClient.UserRoleClient(IPictureparkServiceSettings, HttpClient)
+  fullName: Picturepark.SDK.V1.UserRoleClient.UserRoleClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings, System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 45819
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public UserRoleClient(IPictureparkServiceSettings configuration, HttpClient httpClient)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+    content.vb: Public Sub New(configuration As IPictureparkServiceSettings, httpClient As HttpClient)
+  overload: Picturepark.SDK.V1.UserRoleClient.#ctor*
+  nameWithType.vb: UserRoleClient.New(IPictureparkServiceSettings, HttpClient)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.New(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings, System.Net.Http.HttpClient)
+  name.vb: New(IPictureparkServiceSettings, HttpClient)
+- uid: Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings
+  commentId: P:Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings
+  id: JsonSerializerSettings
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerSettings
+  nameWithType: UserRoleClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonSerializerSettings
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 45832
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected JsonSerializerSettings JsonSerializerSettings { get; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.JsonSerializerSettings
+    content.vb: Protected ReadOnly Property JsonSerializerSettings As JsonSerializerSettings
+  overload: Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings*
+- uid: Picturepark.SDK.V1.UserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(UserRoleSearchRequest, CancellationToken)
+  nameWithType: UserRoleClient.SearchAsync(UserRoleSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 45853
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Search user roles
+  example: []
+  syntax:
+    content: public virtual Task<UserRoleSearchResult> SearchAsync(UserRoleSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleSearchRequest
+      description: User role search request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleSearchResult}
+      description: Result of the user role search
+    content.vb: Public Overridable Function SearchAsync(request As UserRoleSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of UserRoleSearchResult)
+  overload: Picturepark.SDK.V1.UserRoleClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: UserRoleClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 46037
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Get multiple user roles
+  remarks: Gets multiple user role details by the user role IDs. Can fetch maximum of 100 user roles at once.
+  example: []
+  syntax:
+    content: public virtual Task<ICollection<UserRoleDetail>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: User role IDs to get information about.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.UserRoleDetail}}
+      description: Array of Represents a user role, which associates users with user rights.
+    content.vb: Public Overridable Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of UserRoleDetail))
+  overload: Picturepark.SDK.V1.UserRoleClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    description: List of IDs exceeded maximum size
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  nameWithType.vb: UserRoleClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(UserRoleCreateRequest, CancellationToken)
+  nameWithType: UserRoleClient.CreateAsync(UserRoleCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 46218
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Create user role
+  remarks: Creates new user role based on the supplied request.
+  example: []
+  syntax:
+    content: public virtual Task<UserRoleDetail> CreateAsync(UserRoleCreateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleCreateRequest
+      description: Request containing information needed to create new user role.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleDetail}
+      description: Represents a user role, which associates users with user rights.
+    content.vb: Public Overridable Function CreateAsync(request As UserRoleCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of UserRoleDetail)
+  overload: Picturepark.SDK.V1.UserRoleClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)
+  nameWithType: UserRoleClient.CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 46401
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Create multiple user roles
+  remarks: Creates new user roles based on supplied requests.
+  example: []
+  syntax:
+    content: public virtual Task<BulkResponse> CreateManyAsync(UserRoleCreateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest
+      description: Request containing information needed to create new user role.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+      description: Response to a bulk operation
+    content.vb: Public Overridable Function CreateManyAsync(request As UserRoleCreateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BulkResponse)
+  overload: Picturepark.SDK.V1.UserRoleClient.CreateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)
+  nameWithType: UserRoleClient.UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 46584
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Update multiple user roles
+  remarks: Updates the user roles specified by the IDs and based on supplied requests.
+  example: []
+  syntax:
+    content: public virtual Task<BulkResponse> UpdateManyAsync(UserRoleUpdateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest
+      description: Request containing information needed to update the user role.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+      description: Response to a bulk operation
+    content.vb: Public Overridable Function UpdateManyAsync(request As UserRoleUpdateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BulkResponse)
+  overload: Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)
+  nameWithType: UserRoleClient.DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 46767
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Delete multiple user roles
+  remarks: Deletes the user roles specified by the IDs.
+  example: []
+  syntax:
+    content: public virtual Task<BulkResponse> DeleteManyAsync(UserRoleDeleteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest
+      description: The request with user role IDs to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+      description: Response to a bulk operation
+    content.vb: Public Overridable Function DeleteManyAsync(request As UserRoleDeleteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BulkResponse)
+  overload: Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: UserRoleClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 46950
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Get user role
+  remarks: Gets the user role by the user role ID.
+  example: []
+  syntax:
+    content: public virtual Task<UserRoleDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User role ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleDetail}
+      description: Represents a user role, which associates users with user rights.
+    content.vb: Public Overridable Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of UserRoleDetail)
+  overload: Picturepark.SDK.V1.UserRoleClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: UserRoleClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, UserRoleEditable, CancellationToken)
+  nameWithType: UserRoleClient.UpdateAsync(string, UserRoleEditable, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.UserRoleEditable, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 47131
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Update user role
+  remarks: Updates the user role specified by the ID and based on supplied request.
+  example: []
+  syntax:
+    content: public virtual Task<UserRoleDetail> UpdateAsync(string id, UserRoleEditable request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User role ID.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleEditable
+      description: Request containing information needed to update the user role.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleDetail}
+      description: Represents a user role, which associates users with user rights.
+    content.vb: Public Overridable Function UpdateAsync(id As String, request As UserRoleEditable, cancellationToken As CancellationToken = Nothing) As Task(Of UserRoleDetail)
+  overload: Picturepark.SDK.V1.UserRoleClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  nameWithType.vb: UserRoleClient.UpdateAsync(String, UserRoleEditable, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.UserRoleEditable, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, UserRoleEditable, CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, CancellationToken)
+  nameWithType: UserRoleClient.DeleteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.DeleteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 47317
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  summary: Delete user role
+  remarks: Deletes the user role specified by the ID.
+  example: []
+  syntax:
+    content: public virtual Task DeleteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User role ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overridable Function DeleteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.UserRoleClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  implements:
+  - Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: UserRoleClient.DeleteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.DeleteAsync(String, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString
+  commentId: P:Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString
+  id: ReadResponseAsString
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: ReadResponseAsString
+  nameWithType: UserRoleClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadResponseAsString
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 47488
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public bool ReadResponseAsString { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ReadResponseAsString As Boolean
+  overload: Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString*
+- uid: Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  id: ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.UserRoleClient
+  langs:
+  - csharp
+  - vb
+  name: ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  nameWithType: UserRoleClient.ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  fullName: Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadObjectResponseAsync
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 47490
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected virtual Task<UserRoleClient.ObjectResponseResult<T>> ReadObjectResponseAsync<T>(HttpResponseMessage response, IReadOnlyDictionary<string, IEnumerable<string>> headers, CancellationToken cancellationToken)
+    parameters:
+    - id: response
+      type: System.Net.Http.HttpResponseMessage
+    - id: headers
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult{{T}}}
+    content.vb: Protected Overridable Function ReadObjectResponseAsync(Of T)(response As HttpResponseMessage, headers As IReadOnlyDictionary(Of String, IEnumerable(Of String)), cancellationToken As CancellationToken) As Task(Of UserRoleClient.ObjectResponseResult(Of T))
+  overload: Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync*
+  nameWithType.vb: UserRoleClient.ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync(Of T)(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String)), System.Threading.CancellationToken)
+  name.vb: ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+references:
+- uid: Picturepark.SDK.V1
+  commentId: N:Picturepark.SDK.V1
+  href: Picturepark.html
+  name: Picturepark.SDK.V1
+  nameWithType: Picturepark.SDK.V1
+  fullName: Picturepark.SDK.V1
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.ClientBase
+  commentId: T:Picturepark.SDK.V1.ClientBase
+  parent: Picturepark.SDK.V1
+  href: Picturepark.SDK.V1.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.ClientBase
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient
+  commentId: T:Picturepark.SDK.V1.Contract.IUserRoleClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html
+  name: IUserRoleClient
+  nameWithType: IUserRoleClient
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient
+- uid: Picturepark.SDK.V1.ClientBase.BaseUrl
+  commentId: P:Picturepark.SDK.V1.ClientBase.BaseUrl
+  parent: Picturepark.SDK.V1.ClientBase
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl
+  name: BaseUrl
+  nameWithType: ClientBase.BaseUrl
+  fullName: Picturepark.SDK.V1.ClientBase.BaseUrl
+- uid: Picturepark.SDK.V1.ClientBase.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.ClientBase.CustomerAlias
+  parent: Picturepark.SDK.V1.ClientBase
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CustomerAlias
+  name: CustomerAlias
+  nameWithType: ClientBase.CustomerAlias
+  fullName: Picturepark.SDK.V1.ClientBase.CustomerAlias
+- uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.ClientBase
+  isExternal: true
+  href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  name: CreateHttpRequestMessageAsync(CancellationToken)
+  nameWithType: ClientBase.CreateHttpRequestMessageAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.UserRoleClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.#ctor
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_
+  name: UserRoleClient
+  nameWithType: UserRoleClient.UserRoleClient
+  fullName: Picturepark.SDK.V1.UserRoleClient.UserRoleClient
+  nameWithType.vb: UserRoleClient.New
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  commentId: T:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html
+  name: IPictureparkServiceSettings
+  nameWithType: IPictureparkServiceSettings
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_JsonSerializerSettings
+  name: JsonSerializerSettings
+  nameWithType: UserRoleClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.UserRoleClient.JsonSerializerSettings
+- uid: Newtonsoft.Json.JsonSerializerSettings
+  commentId: T:Newtonsoft.Json.JsonSerializerSettings
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializerSettings
+  nameWithType: JsonSerializerSettings
+  fullName: Newtonsoft.Json.JsonSerializerSettings
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.UserRoleClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.SearchAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: UserRoleClient.SearchAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync(UserRoleSearchRequest, CancellationToken)
+  nameWithType: IUserRoleClient.SearchAsync(UserRoleSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+    name: SearchAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleSearchRequest
+    name: UserRoleSearchRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleSearchRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)
+    name: SearchAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleSearchRequest
+    name: UserRoleSearchRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleSearchRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UserRoleSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleSearchRequest.html
+  name: UserRoleSearchRequest
+  nameWithType: UserRoleSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.UserRoleSearchRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserRoleSearchResult>
+  nameWithType: Task<UserRoleSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.UserRoleSearchResult>
+  nameWithType.vb: Task(Of UserRoleSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.UserRoleSearchResult)
+  name.vb: Task(Of UserRoleSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserRoleSearchResult
+    name: UserRoleSearchResult
+    href: Picturepark.SDK.V1.Contract.UserRoleSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserRoleSearchResult
+    name: UserRoleSearchResult
+    href: Picturepark.SDK.V1.Contract.UserRoleSearchResult.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html
+  name: RequestSizeLimitExceededException
+  nameWithType: RequestSizeLimitExceededException
+  fullName: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+- uid: Picturepark.SDK.V1.UserRoleClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.GetManyAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: UserRoleClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.GetManyAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IUserRoleClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  nameWithType.vb: IUserRoleClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+    name: GetManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+    name: GetManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.UserRoleDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.UserRoleDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<UserRoleDetail>>
+  nameWithType: Task<ICollection<UserRoleDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.UserRoleDetail>>
+  nameWithType.vb: Task(Of ICollection(Of UserRoleDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.UserRoleDetail))
+  name.vb: Task(Of ICollection(Of UserRoleDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserRoleDetail
+    name: UserRoleDetail
+    href: Picturepark.SDK.V1.Contract.UserRoleDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserRoleDetail
+    name: UserRoleDetail
+    href: Picturepark.SDK.V1.Contract.UserRoleDetail.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.UserRoleClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.CreateAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: UserRoleClient.CreateAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync(UserRoleCreateRequest, CancellationToken)
+  nameWithType: IUserRoleClient.CreateAsync(UserRoleCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+    name: CreateAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleCreateRequest
+    name: UserRoleCreateRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleCreateRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)
+    name: CreateAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleCreateRequest
+    name: UserRoleCreateRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleCreateRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UserRoleCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleCreateRequest.html
+  name: UserRoleCreateRequest
+  nameWithType: UserRoleCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.UserRoleCreateRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserRoleDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserRoleDetail>
+  nameWithType: Task<UserRoleDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.UserRoleDetail>
+  nameWithType.vb: Task(Of UserRoleDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.UserRoleDetail)
+  name.vb: Task(Of UserRoleDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserRoleDetail
+    name: UserRoleDetail
+    href: Picturepark.SDK.V1.Contract.UserRoleDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserRoleDetail
+    name: UserRoleDetail
+    href: Picturepark.SDK.V1.Contract.UserRoleDetail.html
+  - name: )
+- uid: Picturepark.SDK.V1.UserRoleClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.CreateManyAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: UserRoleClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.CreateManyAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_
+  name: CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)
+  nameWithType: IUserRoleClient.CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+    name: CreateManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest
+    name: UserRoleCreateManyRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)
+    name: CreateManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest
+    name: UserRoleCreateManyRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest.html
+  name: UserRoleCreateManyRequest
+  nameWithType: UserRoleCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BulkResponse>
+  nameWithType: Task<BulkResponse>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BulkResponse>
+  nameWithType.vb: Task(Of BulkResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BulkResponse)
+  name.vb: Task(Of BulkResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BulkResponse
+    name: BulkResponse
+    href: Picturepark.SDK.V1.Contract.BulkResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BulkResponse
+    name: BulkResponse
+    href: Picturepark.SDK.V1.Contract.BulkResponse.html
+  - name: )
+- uid: Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: UserRoleClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_
+  name: UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)
+  nameWithType: IUserRoleClient.UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+    name: UpdateManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest
+    name: UserRoleUpdateManyRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)
+    name: UpdateManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest
+    name: UserRoleUpdateManyRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest.html
+  name: UserRoleUpdateManyRequest
+  nameWithType: UserRoleUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest
+- uid: Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: UserRoleClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)
+  nameWithType: IUserRoleClient.DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+    name: DeleteManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest
+    name: UserRoleDeleteManyRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)
+    name: DeleteManyAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest
+    name: UserRoleDeleteManyRequest
+    href: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest.html
+  name: UserRoleDeleteManyRequest
+  nameWithType: UserRoleDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest
+- uid: Picturepark.SDK.V1.UserRoleClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.GetAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: UserRoleClient.GetAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.GetAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IUserRoleClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IUserRoleClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+    name: GetAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.GetAsync(System.String,System.Threading.CancellationToken)
+    name: GetAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.UserRoleClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.UpdateAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: UserRoleClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_
+  name: UpdateAsync(string, UserRoleEditable, CancellationToken)
+  nameWithType: IUserRoleClient.UpdateAsync(string, UserRoleEditable, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.UserRoleEditable, System.Threading.CancellationToken)
+  nameWithType.vb: IUserRoleClient.UpdateAsync(String, UserRoleEditable, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.UserRoleEditable, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, UserRoleEditable, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserRoleEditable
+    name: UserRoleEditable
+    href: Picturepark.SDK.V1.Contract.UserRoleEditable.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserRoleEditable
+    name: UserRoleEditable
+    href: Picturepark.SDK.V1.Contract.UserRoleEditable.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.UserRoleEditable
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleEditable
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleEditable.html
+  name: UserRoleEditable
+  nameWithType: UserRoleEditable
+  fullName: Picturepark.SDK.V1.Contract.UserRoleEditable
+- uid: Picturepark.SDK.V1.UserRoleClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.DeleteAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: UserRoleClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.DeleteAsync
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserRoleClient
+  isExternal: true
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  name: DeleteAsync(string, CancellationToken)
+  nameWithType: IUserRoleClient.DeleteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IUserRoleClient.DeleteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(String, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.IUserRoleClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_ReadResponseAsString
+  name: ReadResponseAsString
+  nameWithType: UserRoleClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.UserRoleClient.ReadResponseAsString
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync*
+  commentId: Overload:Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync
+  href: Picturepark.SDK.V1.UserRoleClient.html#Picturepark_SDK_V1_UserRoleClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_
+  name: ReadObjectResponseAsync
+  nameWithType: UserRoleClient.ReadObjectResponseAsync
+  fullName: Picturepark.SDK.V1.UserRoleClient.ReadObjectResponseAsync
+- uid: System.Net.Http.HttpResponseMessage
+  commentId: T:System.Net.Http.HttpResponseMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  name: HttpResponseMessage
+  nameWithType: HttpResponseMessage
+  fullName: System.Net.Http.HttpResponseMessage
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, IEnumerable<string>>
+  nameWithType: IReadOnlyDictionary<string, IEnumerable<string>>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>
+  nameWithType.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult{{T}}}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserRoleClient.ObjectResponseResult<T>>
+  nameWithType: Task<UserRoleClient.ObjectResponseResult<T>>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult<T>>
+  nameWithType.vb: Task(Of UserRoleClient.ObjectResponseResult(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult(Of T))
+  name.vb: Task(Of UserRoleClient.ObjectResponseResult(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.UserRoleClient
+    name: UserRoleClient
+    href: Picturepark.SDK.V1.UserRoleClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.UserRoleClient
+    name: UserRoleClient
+    href: Picturepark.SDK.V1.UserRoleClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

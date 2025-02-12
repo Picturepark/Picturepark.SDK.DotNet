@@ -1,0 +1,42 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Providers
+  commentId: N:Picturepark.SDK.V1.Providers
+  id: Picturepark.SDK.V1.Providers
+  children:
+  - Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider`1
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Providers
+  nameWithType: Picturepark.SDK.V1.Providers
+  fullName: Picturepark.SDK.V1.Providers
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1
+references:
+- uid: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider`1
+  commentId: T:Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider`1
+  href: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider-1.html
+  name: SchemaIndexingInfoProvider<T>
+  nameWithType: SchemaIndexingInfoProvider<T>
+  fullName: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider<T>
+  nameWithType.vb: SchemaIndexingInfoProvider(Of T)
+  fullName.vb: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider(Of T)
+  name.vb: SchemaIndexingInfoProvider(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider`1
+    name: SchemaIndexingInfoProvider
+    href: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider`1
+    name: SchemaIndexingInfoProvider
+    href: Picturepark.SDK.V1.Providers.SchemaIndexingInfoProvider-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

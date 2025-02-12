@@ -1,0 +1,648 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.JpegFormat
+  commentId: T:Picturepark.SDK.V1.Contract.JpegFormat
+  id: JpegFormat
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled
+  - Picturepark.SDK.V1.Contract.JpegFormat.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.JpegFormat.Quality
+  - Picturepark.SDK.V1.Contract.JpegFormat.ToJson
+  langs:
+  - csharp
+  - vb
+  name: JpegFormat
+  nameWithType: JpegFormat
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JpegFormat
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33623
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Renders a JPEG image.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class JpegFormat : ImageFormatBase
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class JpegFormat Inherits ImageFormatBase
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Contract.FormatBase
+  - Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase
+  - Picturepark.SDK.V1.Contract.ImageFormatBase
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.ColorProfile
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.ColorTransformationIntent
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.HorizontalResolution
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.VerticalResolution
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.KeepClippingPath
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.ResizeAction
+  - Picturepark.SDK.V1.Contract.ImageFormatBase.Actions
+  - Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase.Extension
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.Quality
+  commentId: P:Picturepark.SDK.V1.Contract.JpegFormat.Quality
+  id: Quality
+  parent: Picturepark.SDK.V1.Contract.JpegFormat
+  langs:
+  - csharp
+  - vb
+  name: Quality
+  nameWithType: JpegFormat.Quality
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.Quality
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Quality
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33629
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Compression quality. Must be in range [0,100] and defaults to 80.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("quality", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public int Quality { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("quality", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Quality As Integer
+  overload: Picturepark.SDK.V1.Contract.JpegFormat.Quality*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: quality
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled
+  commentId: P:Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled
+  id: ChromaSubsamplingEnabled
+  parent: Picturepark.SDK.V1.Contract.JpegFormat
+  langs:
+  - csharp
+  - vb
+  name: ChromaSubsamplingEnabled
+  nameWithType: JpegFormat.ChromaSubsamplingEnabled
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ChromaSubsamplingEnabled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33635
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Whether to use chroma subsampling or not.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("chromaSubsamplingEnabled", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public bool ChromaSubsamplingEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("chromaSubsamplingEnabled", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ChromaSubsamplingEnabled As Boolean
+  overload: Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: chromaSubsamplingEnabled
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.JpegFormat.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.JpegFormat
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: JpegFormat.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33638
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.JpegFormat.ToJson*
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.JpegFormat.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.JpegFormat
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: JpegFormat.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33644
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static JpegFormat FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.JpegFormat
+    content.vb: Public Shared Function FromJson(data As String) As JpegFormat
+  overload: Picturepark.SDK.V1.Contract.JpegFormat.FromJson*
+  nameWithType.vb: JpegFormat.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.JpegFormat.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.FormatBase
+  commentId: T:Picturepark.SDK.V1.Contract.FormatBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FormatBase.html
+  name: FormatBase
+  nameWithType: FormatBase
+  fullName: Picturepark.SDK.V1.Contract.FormatBase
+- uid: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase
+  commentId: T:Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase.html
+  name: FormatWithFixedExtensionBase
+  nameWithType: FormatWithFixedExtensionBase
+  fullName: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase
+  commentId: T:Picturepark.SDK.V1.Contract.ImageFormatBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html
+  name: ImageFormatBase
+  nameWithType: ImageFormatBase
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.ColorProfile
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.ColorProfile
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_ColorProfile
+  name: ColorProfile
+  nameWithType: ImageFormatBase.ColorProfile
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.ColorProfile
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.ColorTransformationIntent
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.ColorTransformationIntent
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_ColorTransformationIntent
+  name: ColorTransformationIntent
+  nameWithType: ImageFormatBase.ColorTransformationIntent
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.ColorTransformationIntent
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.HorizontalResolution
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.HorizontalResolution
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_HorizontalResolution
+  name: HorizontalResolution
+  nameWithType: ImageFormatBase.HorizontalResolution
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.HorizontalResolution
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.VerticalResolution
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.VerticalResolution
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_VerticalResolution
+  name: VerticalResolution
+  nameWithType: ImageFormatBase.VerticalResolution
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.VerticalResolution
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.KeepClippingPath
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.KeepClippingPath
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_KeepClippingPath
+  name: KeepClippingPath
+  nameWithType: ImageFormatBase.KeepClippingPath
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.KeepClippingPath
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.ResizeAction
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.ResizeAction
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_ResizeAction
+  name: ResizeAction
+  nameWithType: ImageFormatBase.ResizeAction
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.ResizeAction
+- uid: Picturepark.SDK.V1.Contract.ImageFormatBase.Actions
+  commentId: P:Picturepark.SDK.V1.Contract.ImageFormatBase.Actions
+  parent: Picturepark.SDK.V1.Contract.ImageFormatBase
+  href: Picturepark.SDK.V1.Contract.ImageFormatBase.html#Picturepark_SDK_V1_Contract_ImageFormatBase_Actions
+  name: Actions
+  nameWithType: ImageFormatBase.Actions
+  fullName: Picturepark.SDK.V1.Contract.ImageFormatBase.Actions
+- uid: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase.Extension
+  commentId: P:Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase.Extension
+  parent: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase
+  href: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase.html#Picturepark_SDK_V1_Contract_FormatWithFixedExtensionBase_Extension
+  name: Extension
+  nameWithType: FormatWithFixedExtensionBase.Extension
+  fullName: Picturepark.SDK.V1.Contract.FormatWithFixedExtensionBase.Extension
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.Quality*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JpegFormat.Quality
+  href: Picturepark.SDK.V1.Contract.JpegFormat.html#Picturepark_SDK_V1_Contract_JpegFormat_Quality
+  name: Quality
+  nameWithType: JpegFormat.Quality
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.Quality
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled
+  href: Picturepark.SDK.V1.Contract.JpegFormat.html#Picturepark_SDK_V1_Contract_JpegFormat_ChromaSubsamplingEnabled
+  name: ChromaSubsamplingEnabled
+  nameWithType: JpegFormat.ChromaSubsamplingEnabled
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.ChromaSubsamplingEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JpegFormat.ToJson
+  href: Picturepark.SDK.V1.Contract.JpegFormat.html#Picturepark_SDK_V1_Contract_JpegFormat_ToJson
+  name: ToJson
+  nameWithType: JpegFormat.ToJson
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.JpegFormat.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.JpegFormat.FromJson
+  href: Picturepark.SDK.V1.Contract.JpegFormat.html#Picturepark_SDK_V1_Contract_JpegFormat_FromJson_System_String_
+  name: FromJson
+  nameWithType: JpegFormat.FromJson
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat.FromJson
+- uid: Picturepark.SDK.V1.Contract.JpegFormat
+  commentId: T:Picturepark.SDK.V1.Contract.JpegFormat
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.JpegFormat.html
+  name: JpegFormat
+  nameWithType: JpegFormat
+  fullName: Picturepark.SDK.V1.Contract.JpegFormat

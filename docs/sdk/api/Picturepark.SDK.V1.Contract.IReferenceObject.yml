@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IReferenceObject
+  commentId: T:Picturepark.SDK.V1.Contract.IReferenceObject
+  id: IReferenceObject
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IReferenceObject.RefId
+  - Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId
+  langs:
+  - csharp
+  - vb
+  name: IReferenceObject
+  nameWithType: IReferenceObject
+  fullName: Picturepark.SDK.V1.Contract.IReferenceObject
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IReferenceObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IReferenceObject
+    path: ../../src/Picturepark.SDK.V1.Contract/IReferenceObject.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public interface IReferenceObject
+    content.vb: Public Interface IReferenceObject
+- uid: Picturepark.SDK.V1.Contract.IReferenceObject.RefId
+  commentId: P:Picturepark.SDK.V1.Contract.IReferenceObject.RefId
+  id: RefId
+  parent: Picturepark.SDK.V1.Contract.IReferenceObject
+  langs:
+  - csharp
+  - vb
+  name: RefId
+  nameWithType: IReferenceObject.RefId
+  fullName: Picturepark.SDK.V1.Contract.IReferenceObject.RefId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IReferenceObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RefId
+    path: ../../src/Picturepark.SDK.V1.Contract/IReferenceObject.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("_refId")]
+
+      string RefId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("_refId")>
+
+      Property RefId As String
+  overload: Picturepark.SDK.V1.Contract.IReferenceObject.RefId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _refId
+- uid: Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId
+  commentId: P:Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId
+  id: RefRequestId
+  parent: Picturepark.SDK.V1.Contract.IReferenceObject
+  langs:
+  - csharp
+  - vb
+  name: RefRequestId
+  nameWithType: IReferenceObject.RefRequestId
+  fullName: Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IReferenceObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RefRequestId
+    path: ../../src/Picturepark.SDK.V1.Contract/IReferenceObject.cs
+    startLine: 9
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("_refRequestId")]
+
+      string RefRequestId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("_refRequestId")>
+
+      Property RefRequestId As String
+  overload: Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _refRequestId
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.IReferenceObject.RefId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IReferenceObject.RefId
+  href: Picturepark.SDK.V1.Contract.IReferenceObject.html#Picturepark_SDK_V1_Contract_IReferenceObject_RefId
+  name: RefId
+  nameWithType: IReferenceObject.RefId
+  fullName: Picturepark.SDK.V1.Contract.IReferenceObject.RefId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId
+  href: Picturepark.SDK.V1.Contract.IReferenceObject.html#Picturepark_SDK_V1_Contract_IReferenceObject_RefRequestId
+  name: RefRequestId
+  nameWithType: IReferenceObject.RefRequestId
+  fullName: Picturepark.SDK.V1.Contract.IReferenceObject.RefRequestId

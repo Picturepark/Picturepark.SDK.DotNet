@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.CommentNotificationReason
+  commentId: T:Picturepark.SDK.V1.Contract.CommentNotificationReason
+  id: CommentNotificationReason
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.CommentNotificationReason.Mentioned
+  - Picturepark.SDK.V1.Contract.CommentNotificationReason.Owned
+  - Picturepark.SDK.V1.Contract.CommentNotificationReason.Replied
+  langs:
+  - csharp
+  - vb
+  name: CommentNotificationReason
+  nameWithType: CommentNotificationReason
+  fullName: Picturepark.SDK.V1.Contract.CommentNotificationReason
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CommentNotificationReason
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31900
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Reason for a comment notification.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum CommentNotificationReason
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum CommentNotificationReason
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.CommentNotificationReason.Owned
+  commentId: F:Picturepark.SDK.V1.Contract.CommentNotificationReason.Owned
+  id: Owned
+  parent: Picturepark.SDK.V1.Contract.CommentNotificationReason
+  langs:
+  - csharp
+  - vb
+  name: Owned
+  nameWithType: CommentNotificationReason.Owned
+  fullName: Picturepark.SDK.V1.Contract.CommentNotificationReason.Owned
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Owned
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31904
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Owned")]
+
+      Owned = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.CommentNotificationReason
+    content.vb: >-
+      <EnumMember(Value:="Owned")>
+
+      Owned = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Owned
+- uid: Picturepark.SDK.V1.Contract.CommentNotificationReason.Replied
+  commentId: F:Picturepark.SDK.V1.Contract.CommentNotificationReason.Replied
+  id: Replied
+  parent: Picturepark.SDK.V1.Contract.CommentNotificationReason
+  langs:
+  - csharp
+  - vb
+  name: Replied
+  nameWithType: CommentNotificationReason.Replied
+  fullName: Picturepark.SDK.V1.Contract.CommentNotificationReason.Replied
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Replied
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31907
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Replied")]
+
+      Replied = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.CommentNotificationReason
+    content.vb: >-
+      <EnumMember(Value:="Replied")>
+
+      Replied = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Replied
+- uid: Picturepark.SDK.V1.Contract.CommentNotificationReason.Mentioned
+  commentId: F:Picturepark.SDK.V1.Contract.CommentNotificationReason.Mentioned
+  id: Mentioned
+  parent: Picturepark.SDK.V1.Contract.CommentNotificationReason
+  langs:
+  - csharp
+  - vb
+  name: Mentioned
+  nameWithType: CommentNotificationReason.Mentioned
+  fullName: Picturepark.SDK.V1.Contract.CommentNotificationReason.Mentioned
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Mentioned
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31910
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Mentioned")]
+
+      Mentioned = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.CommentNotificationReason
+    content.vb: >-
+      <EnumMember(Value:="Mentioned")>
+
+      Mentioned = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Mentioned
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.CommentNotificationReason
+  commentId: T:Picturepark.SDK.V1.Contract.CommentNotificationReason
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.CommentNotificationReason.html
+  name: CommentNotificationReason
+  nameWithType: CommentNotificationReason
+  fullName: Picturepark.SDK.V1.Contract.CommentNotificationReason

@@ -1,0 +1,287 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject
+  commentId: T:Picturepark.SDK.V1.Contract.ITriggerObject
+  id: ITriggerObject
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ITriggerObject.Trigger
+  - Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy
+  - Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn
+  langs:
+  - csharp
+  - vb
+  name: ITriggerObject
+  nameWithType: ITriggerObject
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ITriggerObject
+    path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+    startLine: 5
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public interface ITriggerObject
+    content.vb: Public Interface ITriggerObject
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject.Trigger
+  commentId: P:Picturepark.SDK.V1.Contract.ITriggerObject.Trigger
+  id: Trigger
+  parent: Picturepark.SDK.V1.Contract.ITriggerObject
+  langs:
+  - csharp
+  - vb
+  name: Trigger
+  nameWithType: ITriggerObject.Trigger
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject.Trigger
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Trigger
+    path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("_trigger")]
+
+      bool Trigger { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("_trigger")>
+
+      Property Trigger As Boolean
+  overload: Picturepark.SDK.V1.Contract.ITriggerObject.Trigger*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _trigger
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn
+  commentId: P:Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn
+  id: TriggeredOn
+  parent: Picturepark.SDK.V1.Contract.ITriggerObject
+  langs:
+  - csharp
+  - vb
+  name: TriggeredOn
+  nameWithType: ITriggerObject.TriggeredOn
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TriggeredOn
+    path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("triggeredOn")]
+
+      DateTime? TriggeredOn { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <JsonProperty("triggeredOn")>
+
+      Property TriggeredOn As Date?
+  overload: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: triggeredOn
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy
+  commentId: P:Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy
+  id: TriggeredBy
+  parent: Picturepark.SDK.V1.Contract.ITriggerObject
+  langs:
+  - csharp
+  - vb
+  name: TriggeredBy
+  nameWithType: ITriggerObject.TriggeredBy
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TriggeredBy
+    path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
+    startLine: 13
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("triggeredBy")]
+
+      User TriggeredBy { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.User
+    content.vb: >-
+      <JsonProperty("triggeredBy")>
+
+      Property TriggeredBy As User
+  overload: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: triggeredBy
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject.Trigger*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITriggerObject.Trigger
+  href: Picturepark.SDK.V1.Contract.ITriggerObject.html#Picturepark_SDK_V1_Contract_ITriggerObject_Trigger
+  name: Trigger
+  nameWithType: ITriggerObject.Trigger
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject.Trigger
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn
+  href: Picturepark.SDK.V1.Contract.ITriggerObject.html#Picturepark_SDK_V1_Contract_ITriggerObject_TriggeredOn
+  name: TriggeredOn
+  nameWithType: ITriggerObject.TriggeredOn
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredOn
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy
+  href: Picturepark.SDK.V1.Contract.ITriggerObject.html#Picturepark_SDK_V1_Contract_ITriggerObject_TriggeredBy
+  name: TriggeredBy
+  nameWithType: ITriggerObject.TriggeredBy
+  fullName: Picturepark.SDK.V1.Contract.ITriggerObject.TriggeredBy
+- uid: Picturepark.SDK.V1.Contract.User
+  commentId: T:Picturepark.SDK.V1.Contract.User
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.User.html
+  name: User
+  nameWithType: User
+  fullName: Picturepark.SDK.V1.Contract.User

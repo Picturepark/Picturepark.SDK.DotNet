@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.AuthorizationState
+  commentId: T:Picturepark.SDK.V1.Contract.AuthorizationState
+  id: AuthorizationState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.AuthorizationState.Invited
+  - Picturepark.SDK.V1.Contract.AuthorizationState.Reviewed
+  - Picturepark.SDK.V1.Contract.AuthorizationState.ToBeReviewed
+  - Picturepark.SDK.V1.Contract.AuthorizationState.UserTriggeredDeactivation
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationState
+  nameWithType: AuthorizationState
+  fullName: Picturepark.SDK.V1.Contract.AuthorizationState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AuthorizationState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6113
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: User authorization state
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum AuthorizationState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum AuthorizationState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.AuthorizationState.Reviewed
+  commentId: F:Picturepark.SDK.V1.Contract.AuthorizationState.Reviewed
+  id: Reviewed
+  parent: Picturepark.SDK.V1.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: Reviewed
+  nameWithType: AuthorizationState.Reviewed
+  fullName: Picturepark.SDK.V1.Contract.AuthorizationState.Reviewed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Reviewed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6117
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Reviewed")]
+
+      Reviewed = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="Reviewed")>
+
+      Reviewed = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Reviewed
+- uid: Picturepark.SDK.V1.Contract.AuthorizationState.ToBeReviewed
+  commentId: F:Picturepark.SDK.V1.Contract.AuthorizationState.ToBeReviewed
+  id: ToBeReviewed
+  parent: Picturepark.SDK.V1.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: ToBeReviewed
+  nameWithType: AuthorizationState.ToBeReviewed
+  fullName: Picturepark.SDK.V1.Contract.AuthorizationState.ToBeReviewed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToBeReviewed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6120
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ToBeReviewed")]
+
+      ToBeReviewed = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="ToBeReviewed")>
+
+      ToBeReviewed = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ToBeReviewed
+- uid: Picturepark.SDK.V1.Contract.AuthorizationState.Invited
+  commentId: F:Picturepark.SDK.V1.Contract.AuthorizationState.Invited
+  id: Invited
+  parent: Picturepark.SDK.V1.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: Invited
+  nameWithType: AuthorizationState.Invited
+  fullName: Picturepark.SDK.V1.Contract.AuthorizationState.Invited
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Invited
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6123
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Invited")]
+
+      Invited = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="Invited")>
+
+      Invited = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Invited
+- uid: Picturepark.SDK.V1.Contract.AuthorizationState.UserTriggeredDeactivation
+  commentId: F:Picturepark.SDK.V1.Contract.AuthorizationState.UserTriggeredDeactivation
+  id: UserTriggeredDeactivation
+  parent: Picturepark.SDK.V1.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: UserTriggeredDeactivation
+  nameWithType: AuthorizationState.UserTriggeredDeactivation
+  fullName: Picturepark.SDK.V1.Contract.AuthorizationState.UserTriggeredDeactivation
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserTriggeredDeactivation
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 6126
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserTriggeredDeactivation")]
+
+      UserTriggeredDeactivation = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="UserTriggeredDeactivation")>
+
+      UserTriggeredDeactivation = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserTriggeredDeactivation
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.AuthorizationState
+  commentId: T:Picturepark.SDK.V1.Contract.AuthorizationState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.AuthorizationState.html
+  name: AuthorizationState
+  nameWithType: AuthorizationState
+  fullName: Picturepark.SDK.V1.Contract.AuthorizationState

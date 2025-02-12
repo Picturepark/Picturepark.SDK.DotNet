@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  commentId: T:Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  id: MediaEditorBehavior
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.MediaEditorBehavior.Hide
+  - Picturepark.SDK.V1.Contract.MediaEditorBehavior.Show
+  langs:
+  - csharp
+  - vb
+  name: MediaEditorBehavior
+  nameWithType: MediaEditorBehavior
+  fullName: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MediaEditorBehavior
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28625
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Defines behavior of OutputFormat in Media editor
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum MediaEditorBehavior
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum MediaEditorBehavior
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.MediaEditorBehavior.Show
+  commentId: F:Picturepark.SDK.V1.Contract.MediaEditorBehavior.Show
+  id: Show
+  parent: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  langs:
+  - csharp
+  - vb
+  name: Show
+  nameWithType: MediaEditorBehavior.Show
+  fullName: Picturepark.SDK.V1.Contract.MediaEditorBehavior.Show
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Show
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28629
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Show")]
+
+      Show = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+    content.vb: >-
+      <EnumMember(Value:="Show")>
+
+      Show = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Show
+- uid: Picturepark.SDK.V1.Contract.MediaEditorBehavior.Hide
+  commentId: F:Picturepark.SDK.V1.Contract.MediaEditorBehavior.Hide
+  id: Hide
+  parent: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  langs:
+  - csharp
+  - vb
+  name: Hide
+  nameWithType: MediaEditorBehavior.Hide
+  fullName: Picturepark.SDK.V1.Contract.MediaEditorBehavior.Hide
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Hide
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28632
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Hide")]
+
+      Hide = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+    content.vb: >-
+      <EnumMember(Value:="Hide")>
+
+      Hide = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Hide
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  commentId: T:Picturepark.SDK.V1.Contract.MediaEditorBehavior
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MediaEditorBehavior.html
+  name: MediaEditorBehavior
+  nameWithType: MediaEditorBehavior
+  fullName: Picturepark.SDK.V1.Contract.MediaEditorBehavior

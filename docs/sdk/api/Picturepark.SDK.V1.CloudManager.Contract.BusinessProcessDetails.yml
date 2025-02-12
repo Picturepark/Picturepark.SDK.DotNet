@@ -1,0 +1,616 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  id: BusinessProcessDetails
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson
+  langs:
+  - csharp
+  - vb
+  name: BusinessProcessDetails
+  nameWithType: BusinessProcessDetails
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessProcessDetails
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 1644
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Detailed representation of a business process
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class BusinessProcessDetails : BusinessProcess
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class BusinessProcessDetails Inherits BusinessProcess
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Id
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ProcessDefinitionId
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceId
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceDocType
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.SupportsCancellation
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.BusinessProcessScope
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LifeCycle
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StartDate
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.EndDate
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Finished
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StateHistory
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.CurrentState
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LastReportedProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ContinuationBusinessProcessId
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details
+  id: Details
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  langs:
+  - csharp
+  - vb
+  name: Details
+  nameWithType: BusinessProcessDetails.Details
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Details
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 1650
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Details for the business process.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("details", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public BusinessProcessDetailsDataBase Details { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetailsDataBase
+    content.vb: >-
+      <JsonProperty("details", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Details As BusinessProcessDetailsDataBase
+  overload: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: details
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: BusinessProcessDetails.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 1653
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: BusinessProcessDetails.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 1659
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static BusinessProcessDetails FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+    content.vb: Public Shared Function FromJson(data As String) As BusinessProcessDetails
+  overload: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson*
+  nameWithType.vb: BusinessProcessDetails.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html
+  name: BusinessProcess
+  nameWithType: BusinessProcess
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Id
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Id
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_Id
+  name: Id
+  nameWithType: BusinessProcess.Id
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Id
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ProcessDefinitionId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ProcessDefinitionId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_ProcessDefinitionId
+  name: ProcessDefinitionId
+  nameWithType: BusinessProcess.ProcessDefinitionId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ProcessDefinitionId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_ReferenceId
+  name: ReferenceId
+  nameWithType: BusinessProcess.ReferenceId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceDocType
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceDocType
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_ReferenceDocType
+  name: ReferenceDocType
+  nameWithType: BusinessProcess.ReferenceDocType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ReferenceDocType
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.SupportsCancellation
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.SupportsCancellation
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_SupportsCancellation
+  name: SupportsCancellation
+  nameWithType: BusinessProcess.SupportsCancellation
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.SupportsCancellation
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.BusinessProcessScope
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.BusinessProcessScope
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_BusinessProcessScope
+  name: BusinessProcessScope
+  nameWithType: BusinessProcess.BusinessProcessScope
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.BusinessProcessScope
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LifeCycle
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LifeCycle
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_LifeCycle
+  name: LifeCycle
+  nameWithType: BusinessProcess.LifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LifeCycle
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StartDate
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StartDate
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_StartDate
+  name: StartDate
+  nameWithType: BusinessProcess.StartDate
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StartDate
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.EndDate
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.EndDate
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_EndDate
+  name: EndDate
+  nameWithType: BusinessProcess.EndDate
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.EndDate
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Finished
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Finished
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_Finished
+  name: Finished
+  nameWithType: BusinessProcess.Finished
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.Finished
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StateHistory
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StateHistory
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_StateHistory
+  name: StateHistory
+  nameWithType: BusinessProcess.StateHistory
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.StateHistory
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.CurrentState
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.CurrentState
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_CurrentState
+  name: CurrentState
+  nameWithType: BusinessProcess.CurrentState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.CurrentState
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LastReportedProgress
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LastReportedProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_LastReportedProgress
+  name: LastReportedProgress
+  nameWithType: BusinessProcess.LastReportedProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.LastReportedProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ContinuationBusinessProcessId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ContinuationBusinessProcessId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcess_ContinuationBusinessProcessId
+  name: ContinuationBusinessProcessId
+  nameWithType: BusinessProcess.ContinuationBusinessProcessId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcess.ContinuationBusinessProcessId
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcessDetails_Details
+  name: Details
+  nameWithType: BusinessProcessDetails.Details
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.Details
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetailsDataBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetailsDataBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetailsDataBase.html
+  name: BusinessProcessDetailsDataBase
+  nameWithType: BusinessProcessDetailsDataBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetailsDataBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcessDetails_ToJson
+  name: ToJson
+  nameWithType: BusinessProcessDetails.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessProcessDetails_FromJson_System_String_
+  name: FromJson
+  nameWithType: BusinessProcessDetails.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails.html
+  name: BusinessProcessDetails
+  nameWithType: BusinessProcessDetails
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessDetails

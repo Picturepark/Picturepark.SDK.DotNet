@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Conversion
+  commentId: N:Picturepark.SDK.V1.Conversion
+  id: Picturepark.SDK.V1.Conversion
+  children:
+  - Picturepark.SDK.V1.Conversion.DateFieldConverter
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Conversion
+  nameWithType: Picturepark.SDK.V1.Conversion
+  fullName: Picturepark.SDK.V1.Conversion
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1
+references:
+- uid: Picturepark.SDK.V1.Conversion.DateFieldConverter
+  commentId: T:Picturepark.SDK.V1.Conversion.DateFieldConverter
+  href: Picturepark.SDK.V1.Conversion.DateFieldConverter.html
+  name: DateFieldConverter
+  nameWithType: DateFieldConverter
+  fullName: Picturepark.SDK.V1.Conversion.DateFieldConverter

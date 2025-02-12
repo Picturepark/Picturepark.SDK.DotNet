@@ -1,0 +1,340 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationEventType
+  id: NotificationEventType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.NotificationEventType.Error
+  - Picturepark.SDK.V1.Contract.NotificationEventType.InProgress
+  - Picturepark.SDK.V1.Contract.NotificationEventType.Information
+  - Picturepark.SDK.V1.Contract.NotificationEventType.Pending
+  - Picturepark.SDK.V1.Contract.NotificationEventType.Success
+  - Picturepark.SDK.V1.Contract.NotificationEventType.Warning
+  langs:
+  - csharp
+  - vb
+  name: NotificationEventType
+  nameWithType: NotificationEventType
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotificationEventType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16300
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum NotificationEventType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum NotificationEventType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType.Pending
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationEventType.Pending
+  id: Pending
+  parent: Picturepark.SDK.V1.Contract.NotificationEventType
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: NotificationEventType.Pending
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType.Pending
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Pending
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16304
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Pending")]
+
+      Pending = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <EnumMember(Value:="Pending")>
+
+      Pending = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Pending
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType.InProgress
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationEventType.InProgress
+  id: InProgress
+  parent: Picturepark.SDK.V1.Contract.NotificationEventType
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: NotificationEventType.InProgress
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType.InProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16307
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InProgress")]
+
+      InProgress = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <EnumMember(Value:="InProgress")>
+
+      InProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InProgress
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType.Success
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationEventType.Success
+  id: Success
+  parent: Picturepark.SDK.V1.Contract.NotificationEventType
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: NotificationEventType.Success
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType.Success
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Success
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16310
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Success")]
+
+      Success = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <EnumMember(Value:="Success")>
+
+      Success = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Success
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType.Error
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationEventType.Error
+  id: Error
+  parent: Picturepark.SDK.V1.Contract.NotificationEventType
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: NotificationEventType.Error
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType.Error
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Error
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16313
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Error")]
+
+      Error = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <EnumMember(Value:="Error")>
+
+      Error = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Error
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType.Warning
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationEventType.Warning
+  id: Warning
+  parent: Picturepark.SDK.V1.Contract.NotificationEventType
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: NotificationEventType.Warning
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType.Warning
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Warning
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16316
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Warning")]
+
+      Warning = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <EnumMember(Value:="Warning")>
+
+      Warning = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Warning
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType.Information
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationEventType.Information
+  id: Information
+  parent: Picturepark.SDK.V1.Contract.NotificationEventType
+  langs:
+  - csharp
+  - vb
+  name: Information
+  nameWithType: NotificationEventType.Information
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType.Information
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Information
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 16319
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Information")]
+
+      Information = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationEventType
+    content.vb: >-
+      <EnumMember(Value:="Information")>
+
+      Information = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Information
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.NotificationEventType
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationEventType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationEventType.html
+  name: NotificationEventType
+  nameWithType: NotificationEventType
+  fullName: Picturepark.SDK.V1.Contract.NotificationEventType

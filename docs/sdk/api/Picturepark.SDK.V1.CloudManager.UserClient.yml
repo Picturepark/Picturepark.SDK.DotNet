@@ -1,0 +1,1719 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.UserClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.UserClient
+  id: UserClient
+  parent: Picturepark.SDK.V1.CloudManager
+  children:
+  - Picturepark.SDK.V1.CloudManager.UserClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  - Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings
+  - Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString
+  - Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: UserClient
+  nameWithType: UserClient
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserClient
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21256
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class UserClient : ClientBase, IUserClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class UserClient Inherits ClientBase Implements IUserClient
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.ClientBase
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+  - Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UserClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  id: '#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)'
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: UserClient(ICloudManagerServiceSettings, HttpClient)
+  nameWithType: UserClient.UserClient(ICloudManagerServiceSettings, HttpClient)
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.UserClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings, System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21262
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public UserClient(ICloudManagerServiceSettings configuration, HttpClient httpClient)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+    content.vb: Public Sub New(configuration As ICloudManagerServiceSettings, httpClient As HttpClient)
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.#ctor*
+  nameWithType.vb: UserClient.New(ICloudManagerServiceSettings, HttpClient)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.New(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings, System.Net.Http.HttpClient)
+  name.vb: New(ICloudManagerServiceSettings, HttpClient)
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings
+  commentId: P:Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings
+  id: JsonSerializerSettings
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerSettings
+  nameWithType: UserClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonSerializerSettings
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21275
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: protected JsonSerializerSettings JsonSerializerSettings { get; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.JsonSerializerSettings
+    content.vb: Protected ReadOnly Property JsonSerializerSettings As JsonSerializerSettings
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings*
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: GetUserDeveloperFlagAsync(string, string, CancellationToken)
+  nameWithType: UserClient.GetUserDeveloperFlagAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetUserDeveloperFlagAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21292
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<bool> GetUserDeveloperFlagAsync(string alias, string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: alias
+      type: System.String
+    - id: id
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Overridable Function GetUserDeveloperFlagAsync([alias] As String, id As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  nameWithType.vb: UserClient.GetUserDeveloperFlagAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetUserDeveloperFlagAsync(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  id: UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateUserDeveloperFlagAsync(string, UserDeveloperFlagUpdateRequest, CancellationToken)
+  nameWithType: UserClient.UpdateUserDeveloperFlagAsync(string, UserDeveloperFlagUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync(string, Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateUserDeveloperFlagAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21469
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<bool> UpdateUserDeveloperFlagAsync(string alias, UserDeveloperFlagUpdateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: alias
+      type: System.String
+    - id: request
+      type: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Overridable Function UpdateUserDeveloperFlagAsync([alias] As String, request As UserDeveloperFlagUpdateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  nameWithType.vb: UserClient.UpdateUserDeveloperFlagAsync(String, UserDeveloperFlagUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync(String, Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateUserDeveloperFlagAsync(String, UserDeveloperFlagUpdateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  id: GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: GetAnonymousUserAsync(string, CancellationToken)
+  nameWithType: UserClient.GetAnonymousUserAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAnonymousUserAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21649
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<UserWithRoles> GetAnonymousUserAsync(string alias, CancellationToken cancellationToken = default)
+    parameters:
+    - id: alias
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles}
+    content.vb: Public Overridable Function GetAnonymousUserAsync([alias] As String, cancellationToken As CancellationToken = Nothing) As Task(Of UserWithRoles)
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: UserClient.GetAnonymousUserAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAnonymousUserAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: FindByExternalIdsAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: UserClient.FindByExternalIdsAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FindByExternalIdsAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21822
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<ICollection<string>> FindByExternalIdsAsync(IEnumerable<string> externalIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: externalIds
+      type: System.Collections.Generic.IEnumerable{System.String}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{System.String}}
+    content.vb: Public Overridable Function FindByExternalIdsAsync(externalIds As IEnumerable(Of String), cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of String))
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  nameWithType.vb: UserClient.FindByExternalIdsAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: FindByExternalIdsAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString
+  commentId: P:Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString
+  id: ReadResponseAsString
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: ReadResponseAsString
+  nameWithType: UserClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadResponseAsString
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 22002
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public bool ReadResponseAsString { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ReadResponseAsString As Boolean
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString*
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  id: ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UserClient
+  langs:
+  - csharp
+  - vb
+  name: ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  nameWithType: UserClient.ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadObjectResponseAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 22004
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: protected virtual Task<UserClient.ObjectResponseResult<T>> ReadObjectResponseAsync<T>(HttpResponseMessage response, IReadOnlyDictionary<string, IEnumerable<string>> headers, CancellationToken cancellationToken)
+    parameters:
+    - id: response
+      type: System.Net.Http.HttpResponseMessage
+    - id: headers
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult{{T}}}
+    content.vb: Protected Overridable Function ReadObjectResponseAsync(Of T)(response As HttpResponseMessage, headers As IReadOnlyDictionary(Of String, IEnumerable(Of String)), cancellationToken As CancellationToken) As Task(Of UserClient.ObjectResponseResult(Of T))
+  overload: Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync*
+  nameWithType.vb: UserClient.ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync(Of T)(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String)), System.Threading.CancellationToken)
+  name.vb: ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.CloudManager
+  commentId: N:Picturepark.SDK.V1.CloudManager
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager
+  nameWithType: Picturepark.SDK.V1.CloudManager
+  fullName: Picturepark.SDK.V1.CloudManager
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.ClientBase
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html
+  name: IUserClient
+  nameWithType: IUserClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+  commentId: P:Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+  parent: Picturepark.SDK.V1.CloudManager.ClientBase
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_BaseUrl
+  name: BaseUrl
+  nameWithType: ClientBase.BaseUrl
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.ClientBase
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  name: CreateHttpRequestMessageAsync(CancellationToken)
+  nameWithType: ClientBase.CreateHttpRequestMessageAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.#ctor
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient__ctor_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_
+  name: UserClient
+  nameWithType: UserClient.UserClient
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.UserClient
+  nameWithType.vb: UserClient.New
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  commentId: T:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html
+  name: ICloudManagerServiceSettings
+  nameWithType: ICloudManagerServiceSettings
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_JsonSerializerSettings
+  name: JsonSerializerSettings
+  nameWithType: UserClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.JsonSerializerSettings
+- uid: Newtonsoft.Json.JsonSerializerSettings
+  commentId: T:Newtonsoft.Json.JsonSerializerSettings
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializerSettings
+  nameWithType: JsonSerializerSettings
+  fullName: Newtonsoft.Json.JsonSerializerSettings
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_GetUserDeveloperFlagAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetUserDeveloperFlagAsync
+  nameWithType: UserClient.GetUserDeveloperFlagAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.GetUserDeveloperFlagAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_GetUserDeveloperFlagAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetUserDeveloperFlagAsync(string, string, CancellationToken)
+  nameWithType: IUserClient.GetUserDeveloperFlagAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(string, string, System.Threading.CancellationToken)
+  nameWithType.vb: IUserClient.GetUserDeveloperFlagAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetUserDeveloperFlagAsync(String, String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GetUserDeveloperFlagAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_GetUserDeveloperFlagAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetUserDeveloperFlagAsync(System.String,System.String,System.Threading.CancellationToken)
+    name: GetUserDeveloperFlagAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_GetUserDeveloperFlagAsync_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_UpdateUserDeveloperFlagAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_UserDeveloperFlagUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateUserDeveloperFlagAsync
+  nameWithType: UserClient.UpdateUserDeveloperFlagAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.UpdateUserDeveloperFlagAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_UpdateUserDeveloperFlagAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_UserDeveloperFlagUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateUserDeveloperFlagAsync(string, UserDeveloperFlagUpdateRequest, CancellationToken)
+  nameWithType: IUserClient.UpdateUserDeveloperFlagAsync(string, UserDeveloperFlagUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(string, Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IUserClient.UpdateUserDeveloperFlagAsync(String, UserDeveloperFlagUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(String, Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateUserDeveloperFlagAsync(String, UserDeveloperFlagUpdateRequest, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+    name: UpdateUserDeveloperFlagAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_UpdateUserDeveloperFlagAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_UserDeveloperFlagUpdateRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest
+    name: UserDeveloperFlagUpdateRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.UpdateUserDeveloperFlagAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest,System.Threading.CancellationToken)
+    name: UpdateUserDeveloperFlagAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_UpdateUserDeveloperFlagAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_UserDeveloperFlagUpdateRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest
+    name: UserDeveloperFlagUpdateRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest.html
+  name: UserDeveloperFlagUpdateRequest
+  nameWithType: UserDeveloperFlagUpdateRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_GetAnonymousUserAsync_System_String_System_Threading_CancellationToken_
+  name: GetAnonymousUserAsync
+  nameWithType: UserClient.GetAnonymousUserAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.GetAnonymousUserAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_GetAnonymousUserAsync_System_String_System_Threading_CancellationToken_
+  name: GetAnonymousUserAsync(string, CancellationToken)
+  nameWithType: IUserClient.GetAnonymousUserAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IUserClient.GetAnonymousUserAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAnonymousUserAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+    name: GetAnonymousUserAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_GetAnonymousUserAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.GetAnonymousUserAsync(System.String,System.Threading.CancellationToken)
+    name: GetAnonymousUserAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_GetAnonymousUserAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserWithRoles>
+  nameWithType: Task<UserWithRoles>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles>
+  nameWithType.vb: Task(Of UserWithRoles)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles)
+  name.vb: Task(Of UserWithRoles)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles
+    name: UserWithRoles
+    href: Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles
+    name: UserWithRoles
+    href: Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles.html
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_FindByExternalIdsAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: FindByExternalIdsAsync
+  nameWithType: UserClient.FindByExternalIdsAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.FindByExternalIdsAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUserClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_FindByExternalIdsAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: FindByExternalIdsAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IUserClient.FindByExternalIdsAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  nameWithType.vb: IUserClient.FindByExternalIdsAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: FindByExternalIdsAsync(IEnumerable(Of String), CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+    name: FindByExternalIdsAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_FindByExternalIdsAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.FindByExternalIdsAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+    name: FindByExternalIdsAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUserClient_FindByExternalIdsAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{System.String}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{System.String}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<string>>
+  nameWithType: Task<ICollection<string>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>>
+  nameWithType.vb: Task(Of ICollection(Of String))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of String))
+  name.vb: Task(Of ICollection(Of String))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_ReadResponseAsString
+  name: ReadResponseAsString
+  nameWithType: UserClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.ReadResponseAsString
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html#Picturepark_SDK_V1_CloudManager_UserClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_
+  name: ReadObjectResponseAsync
+  nameWithType: UserClient.ReadObjectResponseAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.ReadObjectResponseAsync
+- uid: System.Net.Http.HttpResponseMessage
+  commentId: T:System.Net.Http.HttpResponseMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  name: HttpResponseMessage
+  nameWithType: HttpResponseMessage
+  fullName: System.Net.Http.HttpResponseMessage
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, IEnumerable<string>>
+  nameWithType: IReadOnlyDictionary<string, IEnumerable<string>>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>
+  nameWithType.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult{{T}}}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserClient.ObjectResponseResult<T>>
+  nameWithType: Task<UserClient.ObjectResponseResult<T>>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult<T>>
+  nameWithType.vb: Task(Of UserClient.ObjectResponseResult(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult(Of T))
+  name.vb: Task(Of UserClient.ObjectResponseResult(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient
+    name: UserClient
+    href: Picturepark.SDK.V1.CloudManager.UserClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient
+    name: UserClient
+    href: Picturepark.SDK.V1.CloudManager.UserClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

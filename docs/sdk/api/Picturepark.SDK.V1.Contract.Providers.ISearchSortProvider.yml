@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  commentId: T:Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  id: ISearchSortProvider
+  parent: Picturepark.SDK.V1.Contract.Providers
+  children:
+  - Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos
+  langs:
+  - csharp
+  - vb
+  name: ISearchSortProvider
+  nameWithType: ISearchSortProvider
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ISearchSortProvider
+    path: ../../src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Providers
+  summary: Helper to define sort-order using annotation
+  example: []
+  syntax:
+    content: public interface ISearchSortProvider
+    content.vb: Public Interface ISearchSortProvider
+- uid: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos
+  commentId: M:Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos
+  id: GetSortInfos
+  parent: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSortInfos()
+  nameWithType: ISearchSortProvider.GetSortInfos()
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetSortInfos
+    path: ../../src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
+    startLine: 13
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.Providers
+  summary: Returns sort information
+  example: []
+  syntax:
+    content: IEnumerable<SortInfo> GetSortInfos()
+    return:
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SortInfo}
+      description: List of <xref href="Picturepark.SDK.V1.Contract.SortInfo" data-throw-if-not-resolved="false"></xref> in the order it should be applied on SearchRequest
+    content.vb: Function GetSortInfos() As IEnumerable(Of SortInfo)
+  overload: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos*
+references:
+- uid: Picturepark.SDK.V1.Contract.Providers
+  commentId: N:Picturepark.SDK.V1.Contract.Providers
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Providers
+  nameWithType: Picturepark.SDK.V1.Contract.Providers
+  fullName: Picturepark.SDK.V1.Contract.Providers
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Providers
+    name: Providers
+    href: Picturepark.SDK.V1.Contract.Providers.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Providers
+    name: Providers
+    href: Picturepark.SDK.V1.Contract.Providers.html
+- uid: Picturepark.SDK.V1.Contract.SortInfo
+  commentId: T:Picturepark.SDK.V1.Contract.SortInfo
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SortInfo.html
+  name: SortInfo
+  nameWithType: SortInfo
+  fullName: Picturepark.SDK.V1.Contract.SortInfo
+- uid: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos
+  href: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.html#Picturepark_SDK_V1_Contract_Providers_ISearchSortProvider_GetSortInfos
+  name: GetSortInfos
+  nameWithType: ISearchSortProvider.GetSortInfos
+  fullName: Picturepark.SDK.V1.Contract.Providers.ISearchSortProvider.GetSortInfos
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SortInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.SortInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<SortInfo>
+  nameWithType: IEnumerable<SortInfo>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.Contract.SortInfo>
+  nameWithType.vb: IEnumerable(Of SortInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.Contract.SortInfo)
+  name.vb: IEnumerable(Of SortInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.SortInfo
+    name: SortInfo
+    href: Picturepark.SDK.V1.Contract.SortInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.SortInfo
+    name: SortInfo
+    href: Picturepark.SDK.V1.Contract.SortInfo.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

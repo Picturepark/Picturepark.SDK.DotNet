@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  id: ListItemResolveBehavior
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.Content
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFields
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFieldsWithHasItems
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueDetail
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueList
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueName
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueThumbnail
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.LinkedListItems
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueDetail
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueList
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueName
+  - Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueThumbnail
+  langs:
+  - csharp
+  - vb
+  name: ListItemResolveBehavior
+  nameWithType: ListItemResolveBehavior
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemResolveBehavior
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6510
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ListItemResolveBehavior
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ListItemResolveBehavior
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.Content
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.Content
+  id: Content
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ListItemResolveBehavior.Content
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.Content
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Content
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6514
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Content")]
+
+      Content = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="Content")>
+
+      Content = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Content
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.LinkedListItems
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.LinkedListItems
+  id: LinkedListItems
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: LinkedListItems
+  nameWithType: ListItemResolveBehavior.LinkedListItems
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.LinkedListItems
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LinkedListItems
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6517
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "LinkedListItems")]
+
+      LinkedListItems = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="LinkedListItems")>
+
+      LinkedListItems = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: LinkedListItems
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueThumbnail
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueThumbnail
+  id: InnerDisplayValueThumbnail
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: InnerDisplayValueThumbnail
+  nameWithType: ListItemResolveBehavior.InnerDisplayValueThumbnail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueThumbnail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InnerDisplayValueThumbnail
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6520
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InnerDisplayValueThumbnail")]
+
+      InnerDisplayValueThumbnail = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="InnerDisplayValueThumbnail")>
+
+      InnerDisplayValueThumbnail = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InnerDisplayValueThumbnail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueList
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueList
+  id: InnerDisplayValueList
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: InnerDisplayValueList
+  nameWithType: ListItemResolveBehavior.InnerDisplayValueList
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueList
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InnerDisplayValueList
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6523
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InnerDisplayValueList")]
+
+      InnerDisplayValueList = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="InnerDisplayValueList")>
+
+      InnerDisplayValueList = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InnerDisplayValueList
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueDetail
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueDetail
+  id: InnerDisplayValueDetail
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: InnerDisplayValueDetail
+  nameWithType: ListItemResolveBehavior.InnerDisplayValueDetail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueDetail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InnerDisplayValueDetail
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6526
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InnerDisplayValueDetail")]
+
+      InnerDisplayValueDetail = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="InnerDisplayValueDetail")>
+
+      InnerDisplayValueDetail = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InnerDisplayValueDetail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueName
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueName
+  id: InnerDisplayValueName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: InnerDisplayValueName
+  nameWithType: ListItemResolveBehavior.InnerDisplayValueName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.InnerDisplayValueName
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InnerDisplayValueName
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6529
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InnerDisplayValueName")]
+
+      InnerDisplayValueName = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="InnerDisplayValueName")>
+
+      InnerDisplayValueName = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InnerDisplayValueName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueThumbnail
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueThumbnail
+  id: OuterDisplayValueThumbnail
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: OuterDisplayValueThumbnail
+  nameWithType: ListItemResolveBehavior.OuterDisplayValueThumbnail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueThumbnail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OuterDisplayValueThumbnail
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6532
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "OuterDisplayValueThumbnail")]
+
+      OuterDisplayValueThumbnail = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="OuterDisplayValueThumbnail")>
+
+      OuterDisplayValueThumbnail = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: OuterDisplayValueThumbnail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueList
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueList
+  id: OuterDisplayValueList
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: OuterDisplayValueList
+  nameWithType: ListItemResolveBehavior.OuterDisplayValueList
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueList
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OuterDisplayValueList
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6535
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "OuterDisplayValueList")]
+
+      OuterDisplayValueList = 7
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="OuterDisplayValueList")>
+
+      OuterDisplayValueList = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: OuterDisplayValueList
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueDetail
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueDetail
+  id: OuterDisplayValueDetail
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: OuterDisplayValueDetail
+  nameWithType: ListItemResolveBehavior.OuterDisplayValueDetail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueDetail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OuterDisplayValueDetail
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6538
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "OuterDisplayValueDetail")]
+
+      OuterDisplayValueDetail = 8
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="OuterDisplayValueDetail")>
+
+      OuterDisplayValueDetail = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: OuterDisplayValueDetail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueName
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueName
+  id: OuterDisplayValueName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: OuterDisplayValueName
+  nameWithType: ListItemResolveBehavior.OuterDisplayValueName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.OuterDisplayValueName
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OuterDisplayValueName
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6541
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "OuterDisplayValueName")]
+
+      OuterDisplayValueName = 9
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="OuterDisplayValueName")>
+
+      OuterDisplayValueName = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: OuterDisplayValueName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFields
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFields
+  id: DynamicViewFields
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: DynamicViewFields
+  nameWithType: ListItemResolveBehavior.DynamicViewFields
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFields
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DynamicViewFields
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6544
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DynamicViewFields")]
+
+      DynamicViewFields = 10
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="DynamicViewFields")>
+
+      DynamicViewFields = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DynamicViewFields
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFieldsWithHasItems
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFieldsWithHasItems
+  id: DynamicViewFieldsWithHasItems
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  langs:
+  - csharp
+  - vb
+  name: DynamicViewFieldsWithHasItems
+  nameWithType: ListItemResolveBehavior.DynamicViewFieldsWithHasItems
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.DynamicViewFieldsWithHasItems
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DynamicViewFieldsWithHasItems
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 6547
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DynamicViewFieldsWithHasItems")]
+
+      DynamicViewFieldsWithHasItems = 11
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+    content.vb: >-
+      <EnumMember(Value:="DynamicViewFieldsWithHasItems")>
+
+      DynamicViewFieldsWithHasItems = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DynamicViewFieldsWithHasItems
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior.html
+  name: ListItemResolveBehavior
+  nameWithType: ListItemResolveBehavior
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ListItemResolveBehavior

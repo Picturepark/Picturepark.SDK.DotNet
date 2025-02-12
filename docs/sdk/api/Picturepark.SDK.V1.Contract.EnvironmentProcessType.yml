@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  commentId: T:Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  id: EnvironmentProcessType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.EnvironmentProcessType.AddMetadataLanguage
+  - Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerBoostValuesUpdate
+  - Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerReshard
+  - Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerUpdate
+  - Picturepark.SDK.V1.Contract.EnvironmentProcessType.EnvironmentUpdate
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentProcessType
+  nameWithType: EnvironmentProcessType
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EnvironmentProcessType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 13461
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum EnvironmentProcessType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum EnvironmentProcessType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType.AddMetadataLanguage
+  commentId: F:Picturepark.SDK.V1.Contract.EnvironmentProcessType.AddMetadataLanguage
+  id: AddMetadataLanguage
+  parent: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  langs:
+  - csharp
+  - vb
+  name: AddMetadataLanguage
+  nameWithType: EnvironmentProcessType.AddMetadataLanguage
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType.AddMetadataLanguage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddMetadataLanguage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 13465
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AddMetadataLanguage")]
+
+      AddMetadataLanguage = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+    content.vb: >-
+      <EnumMember(Value:="AddMetadataLanguage")>
+
+      AddMetadataLanguage = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AddMetadataLanguage
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerUpdate
+  commentId: F:Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerUpdate
+  id: CustomerUpdate
+  parent: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  langs:
+  - csharp
+  - vb
+  name: CustomerUpdate
+  nameWithType: EnvironmentProcessType.CustomerUpdate
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerUpdate
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerUpdate
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 13468
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CustomerUpdate")]
+
+      CustomerUpdate = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+    content.vb: >-
+      <EnumMember(Value:="CustomerUpdate")>
+
+      CustomerUpdate = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CustomerUpdate
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType.EnvironmentUpdate
+  commentId: F:Picturepark.SDK.V1.Contract.EnvironmentProcessType.EnvironmentUpdate
+  id: EnvironmentUpdate
+  parent: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentUpdate
+  nameWithType: EnvironmentProcessType.EnvironmentUpdate
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType.EnvironmentUpdate
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EnvironmentUpdate
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 13471
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "EnvironmentUpdate")]
+
+      EnvironmentUpdate = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+    content.vb: >-
+      <EnumMember(Value:="EnvironmentUpdate")>
+
+      EnvironmentUpdate = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: EnvironmentUpdate
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerBoostValuesUpdate
+  commentId: F:Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerBoostValuesUpdate
+  id: CustomerBoostValuesUpdate
+  parent: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  langs:
+  - csharp
+  - vb
+  name: CustomerBoostValuesUpdate
+  nameWithType: EnvironmentProcessType.CustomerBoostValuesUpdate
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerBoostValuesUpdate
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerBoostValuesUpdate
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 13474
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CustomerBoostValuesUpdate")]
+
+      CustomerBoostValuesUpdate = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+    content.vb: >-
+      <EnumMember(Value:="CustomerBoostValuesUpdate")>
+
+      CustomerBoostValuesUpdate = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CustomerBoostValuesUpdate
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerReshard
+  commentId: F:Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerReshard
+  id: CustomerReshard
+  parent: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  langs:
+  - csharp
+  - vb
+  name: CustomerReshard
+  nameWithType: EnvironmentProcessType.CustomerReshard
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType.CustomerReshard
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerReshard
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 13477
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CustomerReshard")]
+
+      CustomerReshard = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+    content.vb: >-
+      <EnumMember(Value:="CustomerReshard")>
+
+      CustomerReshard = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CustomerReshard
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  commentId: T:Picturepark.SDK.V1.Contract.EnvironmentProcessType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.EnvironmentProcessType.html
+  name: EnvironmentProcessType
+  nameWithType: EnvironmentProcessType
+  fullName: Picturepark.SDK.V1.Contract.EnvironmentProcessType

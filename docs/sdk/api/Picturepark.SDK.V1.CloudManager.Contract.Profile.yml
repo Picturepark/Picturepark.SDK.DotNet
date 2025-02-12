@@ -1,0 +1,264 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.Profile
+  id: Profile
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_low
+  - Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_ltp
+  - Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_main
+  - Picturepark.SDK.V1.CloudManager.Contract.Profile.Mpeg2_aac_low
+  langs:
+  - csharp
+  - vb
+  name: Profile
+  nameWithType: Profile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Profile
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19097
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum Profile
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum Profile
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_low
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_low
+  id: Aac_low
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  langs:
+  - csharp
+  - vb
+  name: Aac_low
+  nameWithType: Profile.Aac_low
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_low
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Aac_low
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19101
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "aac_low")]
+
+      Aac_low = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Profile
+    content.vb: >-
+      <EnumMember(Value:="aac_low")>
+
+      Aac_low = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: aac_low
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile.Mpeg2_aac_low
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Profile.Mpeg2_aac_low
+  id: Mpeg2_aac_low
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  langs:
+  - csharp
+  - vb
+  name: Mpeg2_aac_low
+  nameWithType: Profile.Mpeg2_aac_low
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile.Mpeg2_aac_low
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Mpeg2_aac_low
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19104
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "mpeg2_aac_low")]
+
+      Mpeg2_aac_low = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Profile
+    content.vb: >-
+      <EnumMember(Value:="mpeg2_aac_low")>
+
+      Mpeg2_aac_low = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: mpeg2_aac_low
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_ltp
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_ltp
+  id: Aac_ltp
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  langs:
+  - csharp
+  - vb
+  name: Aac_ltp
+  nameWithType: Profile.Aac_ltp
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_ltp
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Aac_ltp
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19107
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "aac_ltp")]
+
+      Aac_ltp = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Profile
+    content.vb: >-
+      <EnumMember(Value:="aac_ltp")>
+
+      Aac_ltp = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: aac_ltp
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_main
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_main
+  id: Aac_main
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  langs:
+  - csharp
+  - vb
+  name: Aac_main
+  nameWithType: Profile.Aac_main
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile.Aac_main
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Aac_main
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19110
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "aac_main")]
+
+      Aac_main = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Profile
+    content.vb: >-
+      <EnumMember(Value:="aac_main")>
+
+      Aac_main = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: aac_main
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.Profile
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.Profile.html
+  name: Profile
+  nameWithType: Profile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile

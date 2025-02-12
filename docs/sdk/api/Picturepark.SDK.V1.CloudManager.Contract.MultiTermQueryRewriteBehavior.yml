@@ -1,0 +1,348 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  id: MultiTermQueryRewriteBehavior
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScore
+  - Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScoreBoolean
+  - Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ScoringBoolean
+  - Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBlendedFreqsN
+  - Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBoostN
+  - Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsN
+  langs:
+  - csharp
+  - vb
+  name: MultiTermQueryRewriteBehavior
+  nameWithType: MultiTermQueryRewriteBehavior
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MultiTermQueryRewriteBehavior
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20011
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum MultiTermQueryRewriteBehavior
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScore
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScore
+  id: ConstantScore
+  parent: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  langs:
+  - csharp
+  - vb
+  name: ConstantScore
+  nameWithType: MultiTermQueryRewriteBehavior.ConstantScore
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScore
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ConstantScore
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20015
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ConstantScore")]
+
+      ConstantScore = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <EnumMember(Value:="ConstantScore")>
+
+      ConstantScore = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ConstantScore
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScoreBoolean
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScoreBoolean
+  id: ConstantScoreBoolean
+  parent: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  langs:
+  - csharp
+  - vb
+  name: ConstantScoreBoolean
+  nameWithType: MultiTermQueryRewriteBehavior.ConstantScoreBoolean
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ConstantScoreBoolean
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ConstantScoreBoolean
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20018
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ConstantScoreBoolean")]
+
+      ConstantScoreBoolean = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <EnumMember(Value:="ConstantScoreBoolean")>
+
+      ConstantScoreBoolean = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ConstantScoreBoolean
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ScoringBoolean
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ScoringBoolean
+  id: ScoringBoolean
+  parent: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  langs:
+  - csharp
+  - vb
+  name: ScoringBoolean
+  nameWithType: MultiTermQueryRewriteBehavior.ScoringBoolean
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.ScoringBoolean
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ScoringBoolean
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20021
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ScoringBoolean")]
+
+      ScoringBoolean = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <EnumMember(Value:="ScoringBoolean")>
+
+      ScoringBoolean = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ScoringBoolean
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBlendedFreqsN
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBlendedFreqsN
+  id: TopTermsBlendedFreqsN
+  parent: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  langs:
+  - csharp
+  - vb
+  name: TopTermsBlendedFreqsN
+  nameWithType: MultiTermQueryRewriteBehavior.TopTermsBlendedFreqsN
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBlendedFreqsN
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TopTermsBlendedFreqsN
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20024
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TopTermsBlendedFreqsN")]
+
+      TopTermsBlendedFreqsN = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <EnumMember(Value:="TopTermsBlendedFreqsN")>
+
+      TopTermsBlendedFreqsN = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TopTermsBlendedFreqsN
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBoostN
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBoostN
+  id: TopTermsBoostN
+  parent: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  langs:
+  - csharp
+  - vb
+  name: TopTermsBoostN
+  nameWithType: MultiTermQueryRewriteBehavior.TopTermsBoostN
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsBoostN
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TopTermsBoostN
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20027
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TopTermsBoostN")]
+
+      TopTermsBoostN = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <EnumMember(Value:="TopTermsBoostN")>
+
+      TopTermsBoostN = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TopTermsBoostN
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsN
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsN
+  id: TopTermsN
+  parent: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  langs:
+  - csharp
+  - vb
+  name: TopTermsN
+  nameWithType: MultiTermQueryRewriteBehavior.TopTermsN
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.TopTermsN
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TopTermsN
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20030
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TopTermsN")]
+
+      TopTermsN = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+    content.vb: >-
+      <EnumMember(Value:="TopTermsN")>
+
+      TopTermsN = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TopTermsN
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior.html
+  name: MultiTermQueryRewriteBehavior
+  nameWithType: MultiTermQueryRewriteBehavior
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.MultiTermQueryRewriteBehavior

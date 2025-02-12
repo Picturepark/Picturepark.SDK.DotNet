@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  id: BusinessRuleNumberCompareConditionMode
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.Equal
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThan
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThanEqual
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThan
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThanEqual
+  langs:
+  - csharp
+  - vb
+  name: BusinessRuleNumberCompareConditionMode
+  nameWithType: BusinessRuleNumberCompareConditionMode
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessRuleNumberCompareConditionMode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19217
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum BusinessRuleNumberCompareConditionMode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum BusinessRuleNumberCompareConditionMode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThan
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThan
+  id: LessThan
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  langs:
+  - csharp
+  - vb
+  name: LessThan
+  nameWithType: BusinessRuleNumberCompareConditionMode.LessThan
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThan
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LessThan
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19221
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "LessThan")]
+
+      LessThan = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+    content.vb: >-
+      <EnumMember(Value:="LessThan")>
+
+      LessThan = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: LessThan
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThanEqual
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThanEqual
+  id: LessThanEqual
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  langs:
+  - csharp
+  - vb
+  name: LessThanEqual
+  nameWithType: BusinessRuleNumberCompareConditionMode.LessThanEqual
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.LessThanEqual
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LessThanEqual
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19224
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "LessThanEqual")]
+
+      LessThanEqual = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+    content.vb: >-
+      <EnumMember(Value:="LessThanEqual")>
+
+      LessThanEqual = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: LessThanEqual
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.Equal
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.Equal
+  id: Equal
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  langs:
+  - csharp
+  - vb
+  name: Equal
+  nameWithType: BusinessRuleNumberCompareConditionMode.Equal
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.Equal
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Equal
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19227
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Equal")]
+
+      Equal = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+    content.vb: >-
+      <EnumMember(Value:="Equal")>
+
+      Equal = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Equal
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThanEqual
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThanEqual
+  id: GreaterThanEqual
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  langs:
+  - csharp
+  - vb
+  name: GreaterThanEqual
+  nameWithType: BusinessRuleNumberCompareConditionMode.GreaterThanEqual
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThanEqual
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GreaterThanEqual
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19230
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "GreaterThanEqual")]
+
+      GreaterThanEqual = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+    content.vb: >-
+      <EnumMember(Value:="GreaterThanEqual")>
+
+      GreaterThanEqual = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: GreaterThanEqual
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThan
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThan
+  id: GreaterThan
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  langs:
+  - csharp
+  - vb
+  name: GreaterThan
+  nameWithType: BusinessRuleNumberCompareConditionMode.GreaterThan
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.GreaterThan
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GreaterThan
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19233
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "GreaterThan")]
+
+      GreaterThan = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+    content.vb: >-
+      <EnumMember(Value:="GreaterThan")>
+
+      GreaterThan = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: GreaterThan
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode.html
+  name: BusinessRuleNumberCompareConditionMode
+  nameWithType: BusinessRuleNumberCompareConditionMode
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleNumberCompareConditionMode

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.SystemTypes
+  commentId: N:Picturepark.SDK.V1.Contract.SystemTypes
+  id: Picturepark.SDK.V1.Contract.SystemTypes
+  children:
+  - Picturepark.SDK.V1.Contract.SystemTypes.DynamicViewObject
+  - Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  - Picturepark.SDK.V1.Contract.SystemTypes.TreeViewObject
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.SystemTypes
+  nameWithType: Picturepark.SDK.V1.Contract.SystemTypes
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.DynamicViewObject
+  commentId: T:Picturepark.SDK.V1.Contract.SystemTypes.DynamicViewObject
+  href: Picturepark.SDK.V1.Contract.SystemTypes.DynamicViewObject.html
+  name: DynamicViewObject
+  nameWithType: DynamicViewObject
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.DynamicViewObject
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  commentId: T:Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  href: Picturepark.SDK.V1.Contract.SystemTypes.Relation.html
+  name: Relation
+  nameWithType: Relation
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.TreeViewObject
+  commentId: T:Picturepark.SDK.V1.Contract.SystemTypes.TreeViewObject
+  href: Picturepark.SDK.V1.Contract.SystemTypes.TreeViewObject.html
+  name: TreeViewObject
+  nameWithType: TreeViewObject
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.TreeViewObject

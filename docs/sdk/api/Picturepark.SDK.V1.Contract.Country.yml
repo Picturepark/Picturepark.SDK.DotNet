@@ -1,0 +1,581 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Country
+  commentId: T:Picturepark.SDK.V1.Contract.Country
+  id: Country
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.Country.Alpha2
+  - Picturepark.SDK.V1.Contract.Country.Alpha3
+  - Picturepark.SDK.V1.Contract.Country.CountryCode
+  - Picturepark.SDK.V1.Contract.Country.Name
+  - Picturepark.SDK.V1.Contract.Country.Names
+  - Picturepark.SDK.V1.Contract.Country.RegionCode
+  langs:
+  - csharp
+  - vb
+  name: Country
+  nameWithType: Country
+  fullName: Picturepark.SDK.V1.Contract.Country
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Country
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: 'public class Country : ReferenceObject, IReferenceObject'
+    content.vb: Public Class Country Inherits ReferenceObject Implements IReferenceObject
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Contract.ReferenceObject
+  implements:
+  - Picturepark.SDK.V1.Contract.IReferenceObject
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.ReferenceObject.RefId
+  - Picturepark.SDK.V1.Contract.ReferenceObject.RefRequestId
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.Contract.Country.Name
+  commentId: P:Picturepark.SDK.V1.Contract.Country.Name
+  id: Name
+  parent: Picturepark.SDK.V1.Contract.Country
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Country.Name
+  fullName: Picturepark.SDK.V1.Contract.Country.Name
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Name
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Picturepark.SDK.V1.Contract.Country.Name*
+- uid: Picturepark.SDK.V1.Contract.Country.Names
+  commentId: P:Picturepark.SDK.V1.Contract.Country.Names
+  id: Names
+  parent: Picturepark.SDK.V1.Contract.Country
+  langs:
+  - csharp
+  - vb
+  name: Names
+  nameWithType: Country.Names
+  fullName: Picturepark.SDK.V1.Contract.Country.Names
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Names
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public TranslatedStringDictionary Names { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+    content.vb: Public Property Names As TranslatedStringDictionary
+  overload: Picturepark.SDK.V1.Contract.Country.Names*
+- uid: Picturepark.SDK.V1.Contract.Country.RegionCode
+  commentId: P:Picturepark.SDK.V1.Contract.Country.RegionCode
+  id: RegionCode
+  parent: Picturepark.SDK.V1.Contract.Country
+  langs:
+  - csharp
+  - vb
+  name: RegionCode
+  nameWithType: Country.RegionCode
+  fullName: Picturepark.SDK.V1.Contract.Country.RegionCode
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RegionCode
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string RegionCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RegionCode As String
+  overload: Picturepark.SDK.V1.Contract.Country.RegionCode*
+- uid: Picturepark.SDK.V1.Contract.Country.Alpha2
+  commentId: P:Picturepark.SDK.V1.Contract.Country.Alpha2
+  id: Alpha2
+  parent: Picturepark.SDK.V1.Contract.Country
+  langs:
+  - csharp
+  - vb
+  name: Alpha2
+  nameWithType: Country.Alpha2
+  fullName: Picturepark.SDK.V1.Contract.Country.Alpha2
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Alpha2
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 14
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string Alpha2 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Alpha2 As String
+  overload: Picturepark.SDK.V1.Contract.Country.Alpha2*
+- uid: Picturepark.SDK.V1.Contract.Country.Alpha3
+  commentId: P:Picturepark.SDK.V1.Contract.Country.Alpha3
+  id: Alpha3
+  parent: Picturepark.SDK.V1.Contract.Country
+  langs:
+  - csharp
+  - vb
+  name: Alpha3
+  nameWithType: Country.Alpha3
+  fullName: Picturepark.SDK.V1.Contract.Country.Alpha3
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Alpha3
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 16
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string Alpha3 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Alpha3 As String
+  overload: Picturepark.SDK.V1.Contract.Country.Alpha3*
+- uid: Picturepark.SDK.V1.Contract.Country.CountryCode
+  commentId: P:Picturepark.SDK.V1.Contract.Country.CountryCode
+  id: CountryCode
+  parent: Picturepark.SDK.V1.Contract.Country
+  langs:
+  - csharp
+  - vb
+  name: CountryCode
+  nameWithType: Country.CountryCode
+  fullName: Picturepark.SDK.V1.Contract.Country.CountryCode
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CountryCode
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemSchemas/Country.cs
+    startLine: 18
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string CountryCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CountryCode As String
+  overload: Picturepark.SDK.V1.Contract.Country.CountryCode*
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.ReferenceObject
+  commentId: T:Picturepark.SDK.V1.Contract.ReferenceObject
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ReferenceObject.html
+  name: ReferenceObject
+  nameWithType: ReferenceObject
+  fullName: Picturepark.SDK.V1.Contract.ReferenceObject
+- uid: Picturepark.SDK.V1.Contract.IReferenceObject
+  commentId: T:Picturepark.SDK.V1.Contract.IReferenceObject
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IReferenceObject.html
+  name: IReferenceObject
+  nameWithType: IReferenceObject
+  fullName: Picturepark.SDK.V1.Contract.IReferenceObject
+- uid: Picturepark.SDK.V1.Contract.ReferenceObject.RefId
+  commentId: P:Picturepark.SDK.V1.Contract.ReferenceObject.RefId
+  parent: Picturepark.SDK.V1.Contract.ReferenceObject
+  href: Picturepark.SDK.V1.Contract.ReferenceObject.html#Picturepark_SDK_V1_Contract_ReferenceObject_RefId
+  name: RefId
+  nameWithType: ReferenceObject.RefId
+  fullName: Picturepark.SDK.V1.Contract.ReferenceObject.RefId
+- uid: Picturepark.SDK.V1.Contract.ReferenceObject.RefRequestId
+  commentId: P:Picturepark.SDK.V1.Contract.ReferenceObject.RefRequestId
+  parent: Picturepark.SDK.V1.Contract.ReferenceObject
+  href: Picturepark.SDK.V1.Contract.ReferenceObject.html#Picturepark_SDK_V1_Contract_ReferenceObject_RefRequestId
+  name: RefRequestId
+  nameWithType: ReferenceObject.RefRequestId
+  fullName: Picturepark.SDK.V1.Contract.ReferenceObject.RefRequestId
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.Country.Name*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Country.Name
+  href: Picturepark.SDK.V1.Contract.Country.html#Picturepark_SDK_V1_Contract_Country_Name
+  name: Name
+  nameWithType: Country.Name
+  fullName: Picturepark.SDK.V1.Contract.Country.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.Country.Names*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Country.Names
+  href: Picturepark.SDK.V1.Contract.Country.html#Picturepark_SDK_V1_Contract_Country_Names
+  name: Names
+  nameWithType: Country.Names
+  fullName: Picturepark.SDK.V1.Contract.Country.Names
+- uid: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+  commentId: T:Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TranslatedStringDictionary.html
+  name: TranslatedStringDictionary
+  nameWithType: TranslatedStringDictionary
+  fullName: Picturepark.SDK.V1.Contract.TranslatedStringDictionary
+- uid: Picturepark.SDK.V1.Contract.Country.RegionCode*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Country.RegionCode
+  href: Picturepark.SDK.V1.Contract.Country.html#Picturepark_SDK_V1_Contract_Country_RegionCode
+  name: RegionCode
+  nameWithType: Country.RegionCode
+  fullName: Picturepark.SDK.V1.Contract.Country.RegionCode
+- uid: Picturepark.SDK.V1.Contract.Country.Alpha2*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Country.Alpha2
+  href: Picturepark.SDK.V1.Contract.Country.html#Picturepark_SDK_V1_Contract_Country_Alpha2
+  name: Alpha2
+  nameWithType: Country.Alpha2
+  fullName: Picturepark.SDK.V1.Contract.Country.Alpha2
+- uid: Picturepark.SDK.V1.Contract.Country.Alpha3*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Country.Alpha3
+  href: Picturepark.SDK.V1.Contract.Country.html#Picturepark_SDK_V1_Contract_Country_Alpha3
+  name: Alpha3
+  nameWithType: Country.Alpha3
+  fullName: Picturepark.SDK.V1.Contract.Country.Alpha3
+- uid: Picturepark.SDK.V1.Contract.Country.CountryCode*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Country.CountryCode
+  href: Picturepark.SDK.V1.Contract.Country.html#Picturepark_SDK_V1_Contract_Country_CountryCode
+  name: CountryCode
+  nameWithType: Country.CountryCode
+  fullName: Picturepark.SDK.V1.Contract.Country.CountryCode

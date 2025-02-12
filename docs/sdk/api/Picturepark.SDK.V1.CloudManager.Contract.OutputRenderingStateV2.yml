@@ -1,0 +1,264 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  id: OutputRenderingStateV2
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Failed
+  - Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.InProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Renderable
+  - Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Succeeded
+  langs:
+  - csharp
+  - vb
+  name: OutputRenderingStateV2
+  nameWithType: OutputRenderingStateV2
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputRenderingStateV2
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23304
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum OutputRenderingStateV2
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum OutputRenderingStateV2
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Renderable
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Renderable
+  id: Renderable
+  parent: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  langs:
+  - csharp
+  - vb
+  name: Renderable
+  nameWithType: OutputRenderingStateV2.Renderable
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Renderable
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Renderable
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23308
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Renderable")]
+
+      Renderable = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+    content.vb: >-
+      <EnumMember(Value:="Renderable")>
+
+      Renderable = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Renderable
+- uid: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.InProgress
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.InProgress
+  id: InProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: OutputRenderingStateV2.InProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.InProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InProgress
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23311
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InProgress")]
+
+      InProgress = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+    content.vb: >-
+      <EnumMember(Value:="InProgress")>
+
+      InProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Succeeded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Succeeded
+  id: Succeeded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  langs:
+  - csharp
+  - vb
+  name: Succeeded
+  nameWithType: OutputRenderingStateV2.Succeeded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Succeeded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Succeeded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23314
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Succeeded")]
+
+      Succeeded = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+    content.vb: >-
+      <EnumMember(Value:="Succeeded")>
+
+      Succeeded = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Succeeded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Failed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Failed
+  id: Failed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: OutputRenderingStateV2.Failed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.Failed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Failed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 23317
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Failed")]
+
+      Failed = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+    content.vb: >-
+      <EnumMember(Value:="Failed")>
+
+      Failed = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Failed
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2.html
+  name: OutputRenderingStateV2
+  nameWithType: OutputRenderingStateV2
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingStateV2

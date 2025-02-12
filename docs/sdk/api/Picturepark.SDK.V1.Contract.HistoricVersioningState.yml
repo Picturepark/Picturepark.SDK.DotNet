@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.HistoricVersioningState
+  commentId: T:Picturepark.SDK.V1.Contract.HistoricVersioningState
+  id: HistoricVersioningState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.HistoricVersioningState.Disabled
+  - Picturepark.SDK.V1.Contract.HistoricVersioningState.Enabled
+  - Picturepark.SDK.V1.Contract.HistoricVersioningState.Suspended
+  langs:
+  - csharp
+  - vb
+  name: HistoricVersioningState
+  nameWithType: HistoricVersioningState
+  fullName: Picturepark.SDK.V1.Contract.HistoricVersioningState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HistoricVersioningState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28716
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum HistoricVersioningState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum HistoricVersioningState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.HistoricVersioningState.Disabled
+  commentId: F:Picturepark.SDK.V1.Contract.HistoricVersioningState.Disabled
+  id: Disabled
+  parent: Picturepark.SDK.V1.Contract.HistoricVersioningState
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: HistoricVersioningState.Disabled
+  fullName: Picturepark.SDK.V1.Contract.HistoricVersioningState.Disabled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Disabled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28720
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Disabled")]
+
+      Disabled = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.HistoricVersioningState
+    content.vb: >-
+      <EnumMember(Value:="Disabled")>
+
+      Disabled = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Disabled
+- uid: Picturepark.SDK.V1.Contract.HistoricVersioningState.Suspended
+  commentId: F:Picturepark.SDK.V1.Contract.HistoricVersioningState.Suspended
+  id: Suspended
+  parent: Picturepark.SDK.V1.Contract.HistoricVersioningState
+  langs:
+  - csharp
+  - vb
+  name: Suspended
+  nameWithType: HistoricVersioningState.Suspended
+  fullName: Picturepark.SDK.V1.Contract.HistoricVersioningState.Suspended
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Suspended
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28723
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Suspended")]
+
+      Suspended = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.HistoricVersioningState
+    content.vb: >-
+      <EnumMember(Value:="Suspended")>
+
+      Suspended = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Suspended
+- uid: Picturepark.SDK.V1.Contract.HistoricVersioningState.Enabled
+  commentId: F:Picturepark.SDK.V1.Contract.HistoricVersioningState.Enabled
+  id: Enabled
+  parent: Picturepark.SDK.V1.Contract.HistoricVersioningState
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: HistoricVersioningState.Enabled
+  fullName: Picturepark.SDK.V1.Contract.HistoricVersioningState.Enabled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Enabled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28726
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Enabled")]
+
+      Enabled = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.HistoricVersioningState
+    content.vb: >-
+      <EnumMember(Value:="Enabled")>
+
+      Enabled = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Enabled
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.HistoricVersioningState
+  commentId: T:Picturepark.SDK.V1.Contract.HistoricVersioningState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.HistoricVersioningState.html
+  name: HistoricVersioningState
+  nameWithType: HistoricVersioningState
+  fullName: Picturepark.SDK.V1.Contract.HistoricVersioningState

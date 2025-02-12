@@ -1,0 +1,4414 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.MessageCode
+  commentId: T:Picturepark.SDK.V1.Contract.MessageCode
+  id: MessageCode
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingCancelled
+  - Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceeded
+  - Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceededWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.BusinessRuleMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ExternalBusinessProcessMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledWithFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedWithFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressWithFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexActive
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexCancelled
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexClosed
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexCreate
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexDraft
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexInactive
+  - Picturepark.SDK.V1.Contract.MessageCode.IndexReindexInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestCancelled
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestContentCreationInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestDataExtractionInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCancelled
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileDataExtractionInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.NewComment
+  - Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCancelled
+  - Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressDraft
+  - Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.SchemaImportCompletedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.SchemaImportFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.SchemaImportInProgressMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.ShareNewShareMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCancelled
+  - Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCompleted
+  - Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportDraft
+  - Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportFailed
+  - Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportInProgress
+  - Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledWithFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedWithFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressWithFailedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.UserEmailConflictSolved
+  - Picturepark.SDK.V1.Contract.MessageCode.UserLockedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.UserRegisteredMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.UserReviewedMessage
+  - Picturepark.SDK.V1.Contract.MessageCode.UserTriggeredDeactivationRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: MessageCode
+  nameWithType: MessageCode
+  fullName: Picturepark.SDK.V1.Contract.MessageCode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MessageCode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30895
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum MessageCode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum MessageCode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressMessage
+  id: TransferInProgressMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: TransferInProgressMessage
+  nameWithType: MessageCode.TransferInProgressMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferInProgressMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30899
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferInProgressMessage")]
+
+      TransferInProgressMessage = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="TransferInProgressMessage")>
+
+      TransferInProgressMessage = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferInProgressMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedMessage
+  id: TransferCompletedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: TransferCompletedMessage
+  nameWithType: MessageCode.TransferCompletedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferCompletedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30902
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferCompletedMessage")]
+
+      TransferCompletedMessage = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="TransferCompletedMessage")>
+
+      TransferCompletedMessage = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferCompletedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressMessage
+  id: ImportInProgressMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportInProgressMessage
+  nameWithType: MessageCode.ImportInProgressMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportInProgressMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30905
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportInProgressMessage")]
+
+      ImportInProgressMessage = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportInProgressMessage")>
+
+      ImportInProgressMessage = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportInProgressMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedMessage
+  id: ImportCompletedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportCompletedMessage
+  nameWithType: MessageCode.ImportCompletedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCompletedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30908
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCompletedMessage")]
+
+      ImportCompletedMessage = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportCompletedMessage")>
+
+      ImportCompletedMessage = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCompletedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ShareNewShareMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ShareNewShareMessage
+  id: ShareNewShareMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ShareNewShareMessage
+  nameWithType: MessageCode.ShareNewShareMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ShareNewShareMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ShareNewShareMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30911
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ShareNewShareMessage")]
+
+      ShareNewShareMessage = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ShareNewShareMessage")>
+
+      ShareNewShareMessage = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ShareNewShareMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledMessage
+  id: TransferCancelledMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: TransferCancelledMessage
+  nameWithType: MessageCode.TransferCancelledMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferCancelledMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30914
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferCancelledMessage")]
+
+      TransferCancelledMessage = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="TransferCancelledMessage")>
+
+      TransferCancelledMessage = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferCancelledMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledMessage
+  id: ImportCancelledMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportCancelledMessage
+  nameWithType: MessageCode.ImportCancelledMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCancelledMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30917
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCancelledMessage")]
+
+      ImportCancelledMessage = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportCancelledMessage")>
+
+      ImportCancelledMessage = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCancelledMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportFailedMessage
+  id: ImportFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportFailedMessage
+  nameWithType: MessageCode.ImportFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30920
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportFailedMessage")]
+
+      ImportFailedMessage = 7
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportFailedMessage")>
+
+      ImportFailedMessage = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressWithFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressWithFailedMessage
+  id: TransferInProgressWithFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: TransferInProgressWithFailedMessage
+  nameWithType: MessageCode.TransferInProgressWithFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.TransferInProgressWithFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferInProgressWithFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30923
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferInProgressWithFailedMessage")]
+
+      TransferInProgressWithFailedMessage = 8
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="TransferInProgressWithFailedMessage")>
+
+      TransferInProgressWithFailedMessage = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferInProgressWithFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedWithFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedWithFailedMessage
+  id: TransferCompletedWithFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: TransferCompletedWithFailedMessage
+  nameWithType: MessageCode.TransferCompletedWithFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.TransferCompletedWithFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferCompletedWithFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30926
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferCompletedWithFailedMessage")]
+
+      TransferCompletedWithFailedMessage = 9
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="TransferCompletedWithFailedMessage")>
+
+      TransferCompletedWithFailedMessage = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferCompletedWithFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledWithFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledWithFailedMessage
+  id: TransferCancelledWithFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: TransferCancelledWithFailedMessage
+  nameWithType: MessageCode.TransferCancelledWithFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.TransferCancelledWithFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferCancelledWithFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30929
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferCancelledWithFailedMessage")]
+
+      TransferCancelledWithFailedMessage = 10
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="TransferCancelledWithFailedMessage")>
+
+      TransferCancelledWithFailedMessage = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferCancelledWithFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressWithFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressWithFailedMessage
+  id: ImportInProgressWithFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportInProgressWithFailedMessage
+  nameWithType: MessageCode.ImportInProgressWithFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportInProgressWithFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportInProgressWithFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30932
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportInProgressWithFailedMessage")]
+
+      ImportInProgressWithFailedMessage = 11
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportInProgressWithFailedMessage")>
+
+      ImportInProgressWithFailedMessage = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportInProgressWithFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedWithFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedWithFailedMessage
+  id: ImportCompletedWithFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportCompletedWithFailedMessage
+  nameWithType: MessageCode.ImportCompletedWithFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportCompletedWithFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCompletedWithFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30935
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCompletedWithFailedMessage")]
+
+      ImportCompletedWithFailedMessage = 12
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportCompletedWithFailedMessage")>
+
+      ImportCompletedWithFailedMessage = 12
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCompletedWithFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledWithFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledWithFailedMessage
+  id: ImportCancelledWithFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ImportCancelledWithFailedMessage
+  nameWithType: MessageCode.ImportCancelledWithFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ImportCancelledWithFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCancelledWithFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30938
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCancelledWithFailedMessage")]
+
+      ImportCancelledWithFailedMessage = 13
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ImportCancelledWithFailedMessage")>
+
+      ImportCancelledWithFailedMessage = 13
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCancelledWithFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.SchemaImportInProgressMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.SchemaImportInProgressMessage
+  id: SchemaImportInProgressMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: SchemaImportInProgressMessage
+  nameWithType: MessageCode.SchemaImportInProgressMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.SchemaImportInProgressMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaImportInProgressMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30941
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SchemaImportInProgressMessage")]
+
+      SchemaImportInProgressMessage = 14
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="SchemaImportInProgressMessage")>
+
+      SchemaImportInProgressMessage = 14
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SchemaImportInProgressMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.SchemaImportCompletedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.SchemaImportCompletedMessage
+  id: SchemaImportCompletedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: SchemaImportCompletedMessage
+  nameWithType: MessageCode.SchemaImportCompletedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.SchemaImportCompletedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaImportCompletedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30944
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SchemaImportCompletedMessage")]
+
+      SchemaImportCompletedMessage = 15
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="SchemaImportCompletedMessage")>
+
+      SchemaImportCompletedMessage = 15
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SchemaImportCompletedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.SchemaImportFailedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.SchemaImportFailedMessage
+  id: SchemaImportFailedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: SchemaImportFailedMessage
+  nameWithType: MessageCode.SchemaImportFailedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.SchemaImportFailedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaImportFailedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30947
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SchemaImportFailedMessage")]
+
+      SchemaImportFailedMessage = 16
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="SchemaImportFailedMessage")>
+
+      SchemaImportFailedMessage = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SchemaImportFailedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.UserRegisteredMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.UserRegisteredMessage
+  id: UserRegisteredMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: UserRegisteredMessage
+  nameWithType: MessageCode.UserRegisteredMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.UserRegisteredMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserRegisteredMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30950
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserRegisteredMessage")]
+
+      UserRegisteredMessage = 17
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="UserRegisteredMessage")>
+
+      UserRegisteredMessage = 17
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserRegisteredMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.UserLockedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.UserLockedMessage
+  id: UserLockedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: UserLockedMessage
+  nameWithType: MessageCode.UserLockedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.UserLockedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserLockedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30953
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserLockedMessage")]
+
+      UserLockedMessage = 18
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="UserLockedMessage")>
+
+      UserLockedMessage = 18
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserLockedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.UserReviewedMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.UserReviewedMessage
+  id: UserReviewedMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: UserReviewedMessage
+  nameWithType: MessageCode.UserReviewedMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.UserReviewedMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserReviewedMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30956
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserReviewedMessage")]
+
+      UserReviewedMessage = 19
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="UserReviewedMessage")>
+
+      UserReviewedMessage = 19
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserReviewedMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexDraft
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexDraft
+  id: IndexDraft
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexDraft
+  nameWithType: MessageCode.IndexDraft
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexDraft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexDraft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30959
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexDraft")]
+
+      IndexDraft = 20
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexDraft")>
+
+      IndexDraft = 20
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexDraft
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexCreate
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexCreate
+  id: IndexCreate
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexCreate
+  nameWithType: MessageCode.IndexCreate
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexCreate
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexCreate
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30962
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexCreate")]
+
+      IndexCreate = 21
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexCreate")>
+
+      IndexCreate = 21
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexCreate
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexInactive
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexInactive
+  id: IndexInactive
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexInactive
+  nameWithType: MessageCode.IndexInactive
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexInactive
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexInactive
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30965
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexInactive")]
+
+      IndexInactive = 22
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexInactive")>
+
+      IndexInactive = 22
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexInactive
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexActive
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexActive
+  id: IndexActive
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexActive
+  nameWithType: MessageCode.IndexActive
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexActive
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexActive
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30968
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexActive")]
+
+      IndexActive = 23
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexActive")>
+
+      IndexActive = 23
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexActive
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexClosed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexClosed
+  id: IndexClosed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexClosed
+  nameWithType: MessageCode.IndexClosed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexClosed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexClosed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30971
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexClosed")]
+
+      IndexClosed = 24
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexClosed")>
+
+      IndexClosed = 24
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexClosed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexReindexInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexReindexInProgress
+  id: IndexReindexInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexReindexInProgress
+  nameWithType: MessageCode.IndexReindexInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexReindexInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexReindexInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30974
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexReindexInProgress")]
+
+      IndexReindexInProgress = 25
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexReindexInProgress")>
+
+      IndexReindexInProgress = 25
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexReindexInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IndexCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IndexCancelled
+  id: IndexCancelled
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IndexCancelled
+  nameWithType: MessageCode.IndexCancelled
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IndexCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30977
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexCancelled")]
+
+      IndexCancelled = 26
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IndexCancelled")>
+
+      IndexCancelled = 26
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexCancelled
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressDraft
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressDraft
+  id: ReindexProgressDraft
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ReindexProgressDraft
+  nameWithType: MessageCode.ReindexProgressDraft
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressDraft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexProgressDraft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30980
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexProgressDraft")]
+
+      ReindexProgressDraft = 27
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ReindexProgressDraft")>
+
+      ReindexProgressDraft = 27
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexProgressDraft
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressInProgress
+  id: ReindexProgressInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ReindexProgressInProgress
+  nameWithType: MessageCode.ReindexProgressInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexProgressInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30983
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexProgressInProgress")]
+
+      ReindexProgressInProgress = 28
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ReindexProgressInProgress")>
+
+      ReindexProgressInProgress = 28
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexProgressInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompleted
+  id: ReindexProgressCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ReindexProgressCompleted
+  nameWithType: MessageCode.ReindexProgressCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexProgressCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30986
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexProgressCompleted")]
+
+      ReindexProgressCompleted = 29
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ReindexProgressCompleted")>
+
+      ReindexProgressCompleted = 29
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexProgressCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCancelled
+  id: ReindexProgressCancelled
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ReindexProgressCancelled
+  nameWithType: MessageCode.ReindexProgressCancelled
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexProgressCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30989
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexProgressCancelled")]
+
+      ReindexProgressCancelled = 30
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ReindexProgressCancelled")>
+
+      ReindexProgressCancelled = 30
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexProgressCancelled
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressFailed
+  id: ReindexProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ReindexProgressFailed
+  nameWithType: MessageCode.ReindexProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30992
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexProgressFailed")]
+
+      ReindexProgressFailed = 31
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ReindexProgressFailed")>
+
+      ReindexProgressFailed = 31
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompletedWithErrors
+  id: ReindexProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ReindexProgressCompletedWithErrors
+  nameWithType: MessageCode.ReindexProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ReindexProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReindexProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30995
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ReindexProgressCompletedWithErrors")]
+
+      ReindexProgressCompletedWithErrors = 32
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ReindexProgressCompletedWithErrors")>
+
+      ReindexProgressCompletedWithErrors = 32
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ReindexProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditInProgress
+  id: ContentBatchEditInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentBatchEditInProgress
+  nameWithType: MessageCode.ContentBatchEditInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentBatchEditInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 30998
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentBatchEditInProgress")]
+
+      ContentBatchEditInProgress = 33
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentBatchEditInProgress")>
+
+      ContentBatchEditInProgress = 33
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentBatchEditInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditCompleted
+  id: ContentBatchEditCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentBatchEditCompleted
+  nameWithType: MessageCode.ContentBatchEditCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentBatchEditCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31001
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentBatchEditCompleted")]
+
+      ContentBatchEditCompleted = 34
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentBatchEditCompleted")>
+
+      ContentBatchEditCompleted = 34
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentBatchEditCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressFailed
+  id: ContentBatchEditProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentBatchEditProgressFailed
+  nameWithType: MessageCode.ContentBatchEditProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentBatchEditProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31004
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentBatchEditProgressFailed")]
+
+      ContentBatchEditProgressFailed = 35
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentBatchEditProgressFailed")>
+
+      ContentBatchEditProgressFailed = 35
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentBatchEditProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressCompletedWithErrors
+  id: ContentBatchEditProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentBatchEditProgressCompletedWithErrors
+  nameWithType: MessageCode.ContentBatchEditProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentBatchEditProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentBatchEditProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31007
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentBatchEditProgressCompletedWithErrors")]
+
+      ContentBatchEditProgressCompletedWithErrors = 36
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentBatchEditProgressCompletedWithErrors")>
+
+      ContentBatchEditProgressCompletedWithErrors = 36
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentBatchEditProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditInProgress
+  id: ListItemBatchEditInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemBatchEditInProgress
+  nameWithType: MessageCode.ListItemBatchEditInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemBatchEditInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31010
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemBatchEditInProgress")]
+
+      ListItemBatchEditInProgress = 37
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemBatchEditInProgress")>
+
+      ListItemBatchEditInProgress = 37
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemBatchEditInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditCompleted
+  id: ListItemBatchEditCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemBatchEditCompleted
+  nameWithType: MessageCode.ListItemBatchEditCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemBatchEditCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31013
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemBatchEditCompleted")]
+
+      ListItemBatchEditCompleted = 38
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemBatchEditCompleted")>
+
+      ListItemBatchEditCompleted = 38
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemBatchEditCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressFailed
+  id: ListItemBatchEditProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemBatchEditProgressFailed
+  nameWithType: MessageCode.ListItemBatchEditProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemBatchEditProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31016
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemBatchEditProgressFailed")]
+
+      ListItemBatchEditProgressFailed = 39
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemBatchEditProgressFailed")>
+
+      ListItemBatchEditProgressFailed = 39
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemBatchEditProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressCompletedWithErrors
+  id: ListItemBatchEditProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemBatchEditProgressCompletedWithErrors
+  nameWithType: MessageCode.ListItemBatchEditProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemBatchEditProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemBatchEditProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31019
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemBatchEditProgressCompletedWithErrors")]
+
+      ListItemBatchEditProgressCompletedWithErrors = 40
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemBatchEditProgressCompletedWithErrors")>
+
+      ListItemBatchEditProgressCompletedWithErrors = 40
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemBatchEditProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditInProgress
+  id: ContentOwnershipBatchEditInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentOwnershipBatchEditInProgress
+  nameWithType: MessageCode.ContentOwnershipBatchEditInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentOwnershipBatchEditInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31022
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentOwnershipBatchEditInProgress")]
+
+      ContentOwnershipBatchEditInProgress = 41
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentOwnershipBatchEditInProgress")>
+
+      ContentOwnershipBatchEditInProgress = 41
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentOwnershipBatchEditInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditCompleted
+  id: ContentOwnershipBatchEditCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentOwnershipBatchEditCompleted
+  nameWithType: MessageCode.ContentOwnershipBatchEditCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentOwnershipBatchEditCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31025
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentOwnershipBatchEditCompleted")]
+
+      ContentOwnershipBatchEditCompleted = 42
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentOwnershipBatchEditCompleted")>
+
+      ContentOwnershipBatchEditCompleted = 42
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentOwnershipBatchEditCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressFailed
+  id: ContentOwnershipBatchEditProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentOwnershipBatchEditProgressFailed
+  nameWithType: MessageCode.ContentOwnershipBatchEditProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentOwnershipBatchEditProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31028
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentOwnershipBatchEditProgressFailed")]
+
+      ContentOwnershipBatchEditProgressFailed = 43
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentOwnershipBatchEditProgressFailed")>
+
+      ContentOwnershipBatchEditProgressFailed = 43
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentOwnershipBatchEditProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressCompletedWithErrors
+  id: ContentOwnershipBatchEditProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentOwnershipBatchEditProgressCompletedWithErrors
+  nameWithType: MessageCode.ContentOwnershipBatchEditProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentOwnershipBatchEditProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentOwnershipBatchEditProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31031
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentOwnershipBatchEditProgressCompletedWithErrors")]
+
+      ContentOwnershipBatchEditProgressCompletedWithErrors = 44
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentOwnershipBatchEditProgressCompletedWithErrors")>
+
+      ContentOwnershipBatchEditProgressCompletedWithErrors = 44
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentOwnershipBatchEditProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditInProgress
+  id: ContentPermissionsBatchEditInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionsBatchEditInProgress
+  nameWithType: MessageCode.ContentPermissionsBatchEditInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionsBatchEditInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31034
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentPermissionsBatchEditInProgress")]
+
+      ContentPermissionsBatchEditInProgress = 45
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentPermissionsBatchEditInProgress")>
+
+      ContentPermissionsBatchEditInProgress = 45
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentPermissionsBatchEditInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditCompleted
+  id: ContentPermissionsBatchEditCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionsBatchEditCompleted
+  nameWithType: MessageCode.ContentPermissionsBatchEditCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionsBatchEditCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31037
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentPermissionsBatchEditCompleted")]
+
+      ContentPermissionsBatchEditCompleted = 46
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentPermissionsBatchEditCompleted")>
+
+      ContentPermissionsBatchEditCompleted = 46
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentPermissionsBatchEditCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressFailed
+  id: ContentPermissionsBatchEditProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionsBatchEditProgressFailed
+  nameWithType: MessageCode.ContentPermissionsBatchEditProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionsBatchEditProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31040
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentPermissionsBatchEditProgressFailed")]
+
+      ContentPermissionsBatchEditProgressFailed = 47
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentPermissionsBatchEditProgressFailed")>
+
+      ContentPermissionsBatchEditProgressFailed = 47
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentPermissionsBatchEditProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressCompletedWithErrors
+  id: ContentPermissionsBatchEditProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionsBatchEditProgressCompletedWithErrors
+  nameWithType: MessageCode.ContentPermissionsBatchEditProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentPermissionsBatchEditProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionsBatchEditProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31043
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentPermissionsBatchEditProgressCompletedWithErrors")]
+
+      ContentPermissionsBatchEditProgressCompletedWithErrors = 48
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentPermissionsBatchEditProgressCompletedWithErrors")>
+
+      ContentPermissionsBatchEditProgressCompletedWithErrors = 48
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentPermissionsBatchEditProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.UserTriggeredDeactivationRequestMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.UserTriggeredDeactivationRequestMessage
+  id: UserTriggeredDeactivationRequestMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: UserTriggeredDeactivationRequestMessage
+  nameWithType: MessageCode.UserTriggeredDeactivationRequestMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.UserTriggeredDeactivationRequestMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserTriggeredDeactivationRequestMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31046
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserTriggeredDeactivationRequestMessage")]
+
+      UserTriggeredDeactivationRequestMessage = 49
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="UserTriggeredDeactivationRequestMessage")>
+
+      UserTriggeredDeactivationRequestMessage = 49
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserTriggeredDeactivationRequestMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.UserEmailConflictSolved
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.UserEmailConflictSolved
+  id: UserEmailConflictSolved
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: UserEmailConflictSolved
+  nameWithType: MessageCode.UserEmailConflictSolved
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.UserEmailConflictSolved
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserEmailConflictSolved
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31049
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserEmailConflictSolved")]
+
+      UserEmailConflictSolved = 50
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="UserEmailConflictSolved")>
+
+      UserEmailConflictSolved = 50
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserEmailConflictSolved
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyInProgress
+  id: ListItemDeactivateManyInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemDeactivateManyInProgress
+  nameWithType: MessageCode.ListItemDeactivateManyInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemDeactivateManyInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31052
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemDeactivateManyInProgress")]
+
+      ListItemDeactivateManyInProgress = 51
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemDeactivateManyInProgress")>
+
+      ListItemDeactivateManyInProgress = 51
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemDeactivateManyInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyCompleted
+  id: ListItemDeactivateManyCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemDeactivateManyCompleted
+  nameWithType: MessageCode.ListItemDeactivateManyCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemDeactivateManyCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31055
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemDeactivateManyCompleted")]
+
+      ListItemDeactivateManyCompleted = 52
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemDeactivateManyCompleted")>
+
+      ListItemDeactivateManyCompleted = 52
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemDeactivateManyCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressFailed
+  id: ListItemDeactivateManyProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemDeactivateManyProgressFailed
+  nameWithType: MessageCode.ListItemDeactivateManyProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemDeactivateManyProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31058
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemDeactivateManyProgressFailed")]
+
+      ListItemDeactivateManyProgressFailed = 53
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemDeactivateManyProgressFailed")>
+
+      ListItemDeactivateManyProgressFailed = 53
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemDeactivateManyProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressCompletedWithErrors
+  id: ListItemDeactivateManyProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ListItemDeactivateManyProgressCompletedWithErrors
+  nameWithType: MessageCode.ListItemDeactivateManyProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ListItemDeactivateManyProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItemDeactivateManyProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31061
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItemDeactivateManyProgressCompletedWithErrors")]
+
+      ListItemDeactivateManyProgressCompletedWithErrors = 54
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ListItemDeactivateManyProgressCompletedWithErrors")>
+
+      ListItemDeactivateManyProgressCompletedWithErrors = 54
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItemDeactivateManyProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyInProgress
+  id: ContentDeactivateManyInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentDeactivateManyInProgress
+  nameWithType: MessageCode.ContentDeactivateManyInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentDeactivateManyInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31064
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentDeactivateManyInProgress")]
+
+      ContentDeactivateManyInProgress = 55
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentDeactivateManyInProgress")>
+
+      ContentDeactivateManyInProgress = 55
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentDeactivateManyInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyCompleted
+  id: ContentDeactivateManyCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentDeactivateManyCompleted
+  nameWithType: MessageCode.ContentDeactivateManyCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentDeactivateManyCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31067
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentDeactivateManyCompleted")]
+
+      ContentDeactivateManyCompleted = 56
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentDeactivateManyCompleted")>
+
+      ContentDeactivateManyCompleted = 56
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentDeactivateManyCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressFailed
+  id: ContentDeactivateManyProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentDeactivateManyProgressFailed
+  nameWithType: MessageCode.ContentDeactivateManyProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentDeactivateManyProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31070
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentDeactivateManyProgressFailed")]
+
+      ContentDeactivateManyProgressFailed = 57
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentDeactivateManyProgressFailed")>
+
+      ContentDeactivateManyProgressFailed = 57
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentDeactivateManyProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressCompletedWithErrors
+  id: ContentDeactivateManyProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentDeactivateManyProgressCompletedWithErrors
+  nameWithType: MessageCode.ContentDeactivateManyProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentDeactivateManyProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentDeactivateManyProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31073
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentDeactivateManyProgressCompletedWithErrors")]
+
+      ContentDeactivateManyProgressCompletedWithErrors = 58
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentDeactivateManyProgressCompletedWithErrors")>
+
+      ContentDeactivateManyProgressCompletedWithErrors = 58
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentDeactivateManyProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ExternalBusinessProcessMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ExternalBusinessProcessMessage
+  id: ExternalBusinessProcessMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ExternalBusinessProcessMessage
+  nameWithType: MessageCode.ExternalBusinessProcessMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ExternalBusinessProcessMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExternalBusinessProcessMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31076
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ExternalBusinessProcessMessage")]
+
+      ExternalBusinessProcessMessage = 59
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ExternalBusinessProcessMessage")>
+
+      ExternalBusinessProcessMessage = 59
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ExternalBusinessProcessMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsInProgress
+  id: MetadataRelatedItemsInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsInProgress
+  nameWithType: MessageCode.MetadataRelatedItemsInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31079
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsInProgress")]
+
+      MetadataRelatedItemsInProgress = 60
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsInProgress")>
+
+      MetadataRelatedItemsInProgress = 60
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressFailed
+  id: MetadataRelatedItemsProgressFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsProgressFailed
+  nameWithType: MessageCode.MetadataRelatedItemsProgressFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsProgressFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31082
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsProgressFailed")]
+
+      MetadataRelatedItemsProgressFailed = 61
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsProgressFailed")>
+
+      MetadataRelatedItemsProgressFailed = 61
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsProgressFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressCompletedWithErrors
+  id: MetadataRelatedItemsProgressCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsProgressCompletedWithErrors
+  nameWithType: MessageCode.MetadataRelatedItemsProgressCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsProgressCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsProgressCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31085
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsProgressCompletedWithErrors")]
+
+      MetadataRelatedItemsProgressCompletedWithErrors = 62
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsProgressCompletedWithErrors")>
+
+      MetadataRelatedItemsProgressCompletedWithErrors = 62
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsProgressCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsCompleted
+  id: MetadataRelatedItemsCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsCompleted
+  nameWithType: MessageCode.MetadataRelatedItemsCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31088
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsCompleted")]
+
+      MetadataRelatedItemsCompleted = 63
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsCompleted")>
+
+      MetadataRelatedItemsCompleted = 63
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingInProgress
+  id: AutoTaggingInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: AutoTaggingInProgress
+  nameWithType: MessageCode.AutoTaggingInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AutoTaggingInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31091
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AutoTaggingInProgress")]
+
+      AutoTaggingInProgress = 64
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="AutoTaggingInProgress")>
+
+      AutoTaggingInProgress = 64
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AutoTaggingInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceeded
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceeded
+  id: AutoTaggingSucceeded
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: AutoTaggingSucceeded
+  nameWithType: MessageCode.AutoTaggingSucceeded
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceeded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AutoTaggingSucceeded
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31094
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AutoTaggingSucceeded")]
+
+      AutoTaggingSucceeded = 65
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="AutoTaggingSucceeded")>
+
+      AutoTaggingSucceeded = 65
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AutoTaggingSucceeded
+- uid: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceededWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceededWithErrors
+  id: AutoTaggingSucceededWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: AutoTaggingSucceededWithErrors
+  nameWithType: MessageCode.AutoTaggingSucceededWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingSucceededWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AutoTaggingSucceededWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31097
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AutoTaggingSucceededWithErrors")]
+
+      AutoTaggingSucceededWithErrors = 66
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="AutoTaggingSucceededWithErrors")>
+
+      AutoTaggingSucceededWithErrors = 66
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AutoTaggingSucceededWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingFailed
+  id: AutoTaggingFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: AutoTaggingFailed
+  nameWithType: MessageCode.AutoTaggingFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AutoTaggingFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31100
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AutoTaggingFailed")]
+
+      AutoTaggingFailed = 67
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="AutoTaggingFailed")>
+
+      AutoTaggingFailed = 67
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AutoTaggingFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingCancelled
+  id: AutoTaggingCancelled
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: AutoTaggingCancelled
+  nameWithType: MessageCode.AutoTaggingCancelled
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.AutoTaggingCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AutoTaggingCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31103
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "AutoTaggingCancelled")]
+
+      AutoTaggingCancelled = 68
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="AutoTaggingCancelled")>
+
+      AutoTaggingCancelled = 68
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: AutoTaggingCancelled
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyInProgress
+  id: ContentUpdateManyInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentUpdateManyInProgress
+  nameWithType: MessageCode.ContentUpdateManyInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentUpdateManyInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31106
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentUpdateManyInProgress")]
+
+      ContentUpdateManyInProgress = 69
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentUpdateManyInProgress")>
+
+      ContentUpdateManyInProgress = 69
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentUpdateManyInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompleted
+  id: ContentUpdateManyCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentUpdateManyCompleted
+  nameWithType: MessageCode.ContentUpdateManyCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentUpdateManyCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31109
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentUpdateManyCompleted")]
+
+      ContentUpdateManyCompleted = 70
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentUpdateManyCompleted")>
+
+      ContentUpdateManyCompleted = 70
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentUpdateManyCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompletedWithErrors
+  id: ContentUpdateManyCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentUpdateManyCompletedWithErrors
+  nameWithType: MessageCode.ContentUpdateManyCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentUpdateManyCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31112
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentUpdateManyCompletedWithErrors")]
+
+      ContentUpdateManyCompletedWithErrors = 71
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentUpdateManyCompletedWithErrors")>
+
+      ContentUpdateManyCompletedWithErrors = 71
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentUpdateManyCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyFailed
+  id: ContentUpdateManyFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: ContentUpdateManyFailed
+  nameWithType: MessageCode.ContentUpdateManyFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.ContentUpdateManyFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentUpdateManyFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31115
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentUpdateManyFailed")]
+
+      ContentUpdateManyFailed = 72
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="ContentUpdateManyFailed")>
+
+      ContentUpdateManyFailed = 72
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentUpdateManyFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaInProgress
+  id: MetadataRelatedItemsBySchemaInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsBySchemaInProgress
+  nameWithType: MessageCode.MetadataRelatedItemsBySchemaInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsBySchemaInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31118
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsBySchemaInProgress")]
+
+      MetadataRelatedItemsBySchemaInProgress = 73
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsBySchemaInProgress")>
+
+      MetadataRelatedItemsBySchemaInProgress = 73
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsBySchemaInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaFailed
+  id: MetadataRelatedItemsBySchemaFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsBySchemaFailed
+  nameWithType: MessageCode.MetadataRelatedItemsBySchemaFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsBySchemaFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31121
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsBySchemaFailed")]
+
+      MetadataRelatedItemsBySchemaFailed = 74
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsBySchemaFailed")>
+
+      MetadataRelatedItemsBySchemaFailed = 74
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsBySchemaFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompletedWithErrors
+  id: MetadataRelatedItemsBySchemaCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsBySchemaCompletedWithErrors
+  nameWithType: MessageCode.MetadataRelatedItemsBySchemaCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsBySchemaCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31124
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsBySchemaCompletedWithErrors")]
+
+      MetadataRelatedItemsBySchemaCompletedWithErrors = 75
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsBySchemaCompletedWithErrors")>
+
+      MetadataRelatedItemsBySchemaCompletedWithErrors = 75
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsBySchemaCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompleted
+  id: MetadataRelatedItemsBySchemaCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataRelatedItemsBySchemaCompleted
+  nameWithType: MessageCode.MetadataRelatedItemsBySchemaCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataRelatedItemsBySchemaCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataRelatedItemsBySchemaCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31127
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataRelatedItemsBySchemaCompleted")]
+
+      MetadataRelatedItemsBySchemaCompleted = 76
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataRelatedItemsBySchemaCompleted")>
+
+      MetadataRelatedItemsBySchemaCompleted = 76
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataRelatedItemsBySchemaCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateInProgress
+  id: MetadataOutdatedItemsUpdateInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataOutdatedItemsUpdateInProgress
+  nameWithType: MessageCode.MetadataOutdatedItemsUpdateInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataOutdatedItemsUpdateInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31130
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataOutdatedItemsUpdateInProgress")]
+
+      MetadataOutdatedItemsUpdateInProgress = 77
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataOutdatedItemsUpdateInProgress")>
+
+      MetadataOutdatedItemsUpdateInProgress = 77
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataOutdatedItemsUpdateInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompleted
+  id: MetadataOutdatedItemsUpdateCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataOutdatedItemsUpdateCompleted
+  nameWithType: MessageCode.MetadataOutdatedItemsUpdateCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataOutdatedItemsUpdateCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31133
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataOutdatedItemsUpdateCompleted")]
+
+      MetadataOutdatedItemsUpdateCompleted = 78
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataOutdatedItemsUpdateCompleted")>
+
+      MetadataOutdatedItemsUpdateCompleted = 78
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataOutdatedItemsUpdateCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompletedWithErrors
+  id: MetadataOutdatedItemsUpdateCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataOutdatedItemsUpdateCompletedWithErrors
+  nameWithType: MessageCode.MetadataOutdatedItemsUpdateCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataOutdatedItemsUpdateCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31136
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataOutdatedItemsUpdateCompletedWithErrors")]
+
+      MetadataOutdatedItemsUpdateCompletedWithErrors = 79
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataOutdatedItemsUpdateCompletedWithErrors")>
+
+      MetadataOutdatedItemsUpdateCompletedWithErrors = 79
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataOutdatedItemsUpdateCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateFailed
+  id: MetadataOutdatedItemsUpdateFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: MetadataOutdatedItemsUpdateFailed
+  nameWithType: MessageCode.MetadataOutdatedItemsUpdateFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.MetadataOutdatedItemsUpdateFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataOutdatedItemsUpdateFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31139
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataOutdatedItemsUpdateFailed")]
+
+      MetadataOutdatedItemsUpdateFailed = 80
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="MetadataOutdatedItemsUpdateFailed")>
+
+      MetadataOutdatedItemsUpdateFailed = 80
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataOutdatedItemsUpdateFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingInProgress
+  id: BatchRenderingInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: BatchRenderingInProgress
+  nameWithType: MessageCode.BatchRenderingInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchRenderingInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31142
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BatchRenderingInProgress")]
+
+      BatchRenderingInProgress = 81
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="BatchRenderingInProgress")>
+
+      BatchRenderingInProgress = 81
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BatchRenderingInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompleted
+  id: BatchRenderingCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: BatchRenderingCompleted
+  nameWithType: MessageCode.BatchRenderingCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchRenderingCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31145
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BatchRenderingCompleted")]
+
+      BatchRenderingCompleted = 82
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="BatchRenderingCompleted")>
+
+      BatchRenderingCompleted = 82
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BatchRenderingCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompletedWithErrors
+  id: BatchRenderingCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: BatchRenderingCompletedWithErrors
+  nameWithType: MessageCode.BatchRenderingCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchRenderingCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31148
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BatchRenderingCompletedWithErrors")]
+
+      BatchRenderingCompletedWithErrors = 83
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="BatchRenderingCompletedWithErrors")>
+
+      BatchRenderingCompletedWithErrors = 83
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BatchRenderingCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingFailed
+  id: BatchRenderingFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: BatchRenderingFailed
+  nameWithType: MessageCode.BatchRenderingFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.BatchRenderingFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BatchRenderingFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31151
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BatchRenderingFailed")]
+
+      BatchRenderingFailed = 84
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="BatchRenderingFailed")>
+
+      BatchRenderingFailed = 84
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BatchRenderingFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.BusinessRuleMessage
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.BusinessRuleMessage
+  id: BusinessRuleMessage
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: BusinessRuleMessage
+  nameWithType: MessageCode.BusinessRuleMessage
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.BusinessRuleMessage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessRuleMessage
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31154
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BusinessRuleMessage")]
+
+      BusinessRuleMessage = 85
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="BusinessRuleMessage")>
+
+      BusinessRuleMessage = 85
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BusinessRuleMessage
+- uid: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportDraft
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportDraft
+  id: StatisticsExportDraft
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: StatisticsExportDraft
+  nameWithType: MessageCode.StatisticsExportDraft
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportDraft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: StatisticsExportDraft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31157
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "StatisticsExportDraft")]
+
+      StatisticsExportDraft = 86
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="StatisticsExportDraft")>
+
+      StatisticsExportDraft = 86
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: StatisticsExportDraft
+- uid: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportInProgress
+  id: StatisticsExportInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: StatisticsExportInProgress
+  nameWithType: MessageCode.StatisticsExportInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: StatisticsExportInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31160
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "StatisticsExportInProgress")]
+
+      StatisticsExportInProgress = 87
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="StatisticsExportInProgress")>
+
+      StatisticsExportInProgress = 87
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: StatisticsExportInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCompleted
+  id: StatisticsExportCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: StatisticsExportCompleted
+  nameWithType: MessageCode.StatisticsExportCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: StatisticsExportCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31163
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "StatisticsExportCompleted")]
+
+      StatisticsExportCompleted = 88
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="StatisticsExportCompleted")>
+
+      StatisticsExportCompleted = 88
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: StatisticsExportCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportFailed
+  id: StatisticsExportFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: StatisticsExportFailed
+  nameWithType: MessageCode.StatisticsExportFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: StatisticsExportFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31166
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "StatisticsExportFailed")]
+
+      StatisticsExportFailed = 89
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="StatisticsExportFailed")>
+
+      StatisticsExportFailed = 89
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: StatisticsExportFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCancelled
+  id: StatisticsExportCancelled
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: StatisticsExportCancelled
+  nameWithType: MessageCode.StatisticsExportCancelled
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.StatisticsExportCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: StatisticsExportCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31169
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "StatisticsExportCancelled")]
+
+      StatisticsExportCancelled = 90
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="StatisticsExportCancelled")>
+
+      StatisticsExportCancelled = 90
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: StatisticsExportCancelled
+- uid: Picturepark.SDK.V1.Contract.MessageCode.NewComment
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.NewComment
+  id: NewComment
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: NewComment
+  nameWithType: MessageCode.NewComment
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.NewComment
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NewComment
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31172
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NewComment")]
+
+      NewComment = 91
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="NewComment")>
+
+      NewComment = 91
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NewComment
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestDataExtractionInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestDataExtractionInProgress
+  id: IngestDataExtractionInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestDataExtractionInProgress
+  nameWithType: MessageCode.IngestDataExtractionInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestDataExtractionInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestDataExtractionInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31175
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestDataExtractionInProgress")]
+
+      IngestDataExtractionInProgress = 92
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestDataExtractionInProgress")>
+
+      IngestDataExtractionInProgress = 92
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestDataExtractionInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestContentCreationInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestContentCreationInProgress
+  id: IngestContentCreationInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestContentCreationInProgress
+  nameWithType: MessageCode.IngestContentCreationInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestContentCreationInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestContentCreationInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31178
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestContentCreationInProgress")]
+
+      IngestContentCreationInProgress = 93
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestContentCreationInProgress")>
+
+      IngestContentCreationInProgress = 93
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestContentCreationInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestCompleted
+  id: IngestCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestCompleted
+  nameWithType: MessageCode.IngestCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31181
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestCompleted")]
+
+      IngestCompleted = 94
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestCompleted")>
+
+      IngestCompleted = 94
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestFailed
+  id: IngestFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestFailed
+  nameWithType: MessageCode.IngestFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31184
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestFailed")]
+
+      IngestFailed = 95
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestFailed")>
+
+      IngestFailed = 95
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestCompletedWithErrors
+  id: IngestCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestCompletedWithErrors
+  nameWithType: MessageCode.IngestCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31187
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestCompletedWithErrors")]
+
+      IngestCompletedWithErrors = 96
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestCompletedWithErrors")>
+
+      IngestCompletedWithErrors = 96
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestCancelled
+  id: IngestCancelled
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestCancelled
+  nameWithType: MessageCode.IngestCancelled
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31190
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestCancelled")]
+
+      IngestCancelled = 97
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestCancelled")>
+
+      IngestCancelled = 97
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestCancelled
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileDataExtractionInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileDataExtractionInProgress
+  id: IngestReplaceFileDataExtractionInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestReplaceFileDataExtractionInProgress
+  nameWithType: MessageCode.IngestReplaceFileDataExtractionInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileDataExtractionInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestReplaceFileDataExtractionInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31193
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestReplaceFileDataExtractionInProgress")]
+
+      IngestReplaceFileDataExtractionInProgress = 98
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestReplaceFileDataExtractionInProgress")>
+
+      IngestReplaceFileDataExtractionInProgress = 98
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestReplaceFileDataExtractionInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileInProgress
+  id: IngestReplaceFileInProgress
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestReplaceFileInProgress
+  nameWithType: MessageCode.IngestReplaceFileInProgress
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestReplaceFileInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31196
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestReplaceFileInProgress")]
+
+      IngestReplaceFileInProgress = 99
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestReplaceFileInProgress")>
+
+      IngestReplaceFileInProgress = 99
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestReplaceFileInProgress
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCompleted
+  id: IngestReplaceFileCompleted
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestReplaceFileCompleted
+  nameWithType: MessageCode.IngestReplaceFileCompleted
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestReplaceFileCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31199
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestReplaceFileCompleted")]
+
+      IngestReplaceFileCompleted = 100
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestReplaceFileCompleted")>
+
+      IngestReplaceFileCompleted = 100
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestReplaceFileCompleted
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileFailed
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileFailed
+  id: IngestReplaceFileFailed
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestReplaceFileFailed
+  nameWithType: MessageCode.IngestReplaceFileFailed
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestReplaceFileFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31202
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestReplaceFileFailed")]
+
+      IngestReplaceFileFailed = 101
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestReplaceFileFailed")>
+
+      IngestReplaceFileFailed = 101
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestReplaceFileFailed
+- uid: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCancelled
+  id: IngestReplaceFileCancelled
+  parent: Picturepark.SDK.V1.Contract.MessageCode
+  langs:
+  - csharp
+  - vb
+  name: IngestReplaceFileCancelled
+  nameWithType: MessageCode.IngestReplaceFileCancelled
+  fullName: Picturepark.SDK.V1.Contract.MessageCode.IngestReplaceFileCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IngestReplaceFileCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31205
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IngestReplaceFileCancelled")]
+
+      IngestReplaceFileCancelled = 102
+    return:
+      type: Picturepark.SDK.V1.Contract.MessageCode
+    content.vb: >-
+      <EnumMember(Value:="IngestReplaceFileCancelled")>
+
+      IngestReplaceFileCancelled = 102
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IngestReplaceFileCancelled
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.MessageCode
+  commentId: T:Picturepark.SDK.V1.Contract.MessageCode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MessageCode.html
+  name: MessageCode
+  nameWithType: MessageCode
+  fullName: Picturepark.SDK.V1.Contract.MessageCode

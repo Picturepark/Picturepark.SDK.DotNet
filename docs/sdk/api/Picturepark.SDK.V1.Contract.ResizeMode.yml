@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ResizeMode
+  commentId: T:Picturepark.SDK.V1.Contract.ResizeMode
+  id: ResizeMode
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ResizeMode.Fit
+  - Picturepark.SDK.V1.Contract.ResizeMode.Resize
+  - Picturepark.SDK.V1.Contract.ResizeMode.Shrink
+  langs:
+  - csharp
+  - vb
+  name: ResizeMode
+  nameWithType: ResizeMode
+  fullName: Picturepark.SDK.V1.Contract.ResizeMode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ResizeMode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33002
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Specifies how the dimensions of a ResizeAction are applied to the content
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ResizeMode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ResizeMode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ResizeMode.Fit
+  commentId: F:Picturepark.SDK.V1.Contract.ResizeMode.Fit
+  id: Fit
+  parent: Picturepark.SDK.V1.Contract.ResizeMode
+  langs:
+  - csharp
+  - vb
+  name: Fit
+  nameWithType: ResizeMode.Fit
+  fullName: Picturepark.SDK.V1.Contract.ResizeMode.Fit
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Fit
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33006
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Fit")]
+
+      Fit = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.ResizeMode
+    content.vb: >-
+      <EnumMember(Value:="Fit")>
+
+      Fit = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Fit
+- uid: Picturepark.SDK.V1.Contract.ResizeMode.Shrink
+  commentId: F:Picturepark.SDK.V1.Contract.ResizeMode.Shrink
+  id: Shrink
+  parent: Picturepark.SDK.V1.Contract.ResizeMode
+  langs:
+  - csharp
+  - vb
+  name: Shrink
+  nameWithType: ResizeMode.Shrink
+  fullName: Picturepark.SDK.V1.Contract.ResizeMode.Shrink
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Shrink
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33009
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Shrink")]
+
+      Shrink = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.ResizeMode
+    content.vb: >-
+      <EnumMember(Value:="Shrink")>
+
+      Shrink = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Shrink
+- uid: Picturepark.SDK.V1.Contract.ResizeMode.Resize
+  commentId: F:Picturepark.SDK.V1.Contract.ResizeMode.Resize
+  id: Resize
+  parent: Picturepark.SDK.V1.Contract.ResizeMode
+  langs:
+  - csharp
+  - vb
+  name: Resize
+  nameWithType: ResizeMode.Resize
+  fullName: Picturepark.SDK.V1.Contract.ResizeMode.Resize
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Resize
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33012
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Resize")]
+
+      Resize = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.ResizeMode
+    content.vb: >-
+      <EnumMember(Value:="Resize")>
+
+      Resize = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Resize
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ResizeMode
+  commentId: T:Picturepark.SDK.V1.Contract.ResizeMode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ResizeMode.html
+  name: ResizeMode
+  nameWithType: ResizeMode
+  fullName: Picturepark.SDK.V1.Contract.ResizeMode

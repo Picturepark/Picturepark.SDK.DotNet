@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.TransferType
+  commentId: T:Picturepark.SDK.V1.Contract.TransferType
+  id: TransferType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.TransferType.FileUpload
+  - Picturepark.SDK.V1.Contract.TransferType.FileUploadAutoImport
+  - Picturepark.SDK.V1.Contract.TransferType.SchemaImport
+  - Picturepark.SDK.V1.Contract.TransferType.WebDownload
+  langs:
+  - csharp
+  - vb
+  name: TransferType
+  nameWithType: TransferType
+  fullName: Picturepark.SDK.V1.Contract.TransferType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9850
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Type of the transfer
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum TransferType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum TransferType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.TransferType.FileUpload
+  commentId: F:Picturepark.SDK.V1.Contract.TransferType.FileUpload
+  id: FileUpload
+  parent: Picturepark.SDK.V1.Contract.TransferType
+  langs:
+  - csharp
+  - vb
+  name: FileUpload
+  nameWithType: TransferType.FileUpload
+  fullName: Picturepark.SDK.V1.Contract.TransferType.FileUpload
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FileUpload
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9854
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "FileUpload")]
+
+      FileUpload = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferType
+    content.vb: >-
+      <EnumMember(Value:="FileUpload")>
+
+      FileUpload = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: FileUpload
+- uid: Picturepark.SDK.V1.Contract.TransferType.FileUploadAutoImport
+  commentId: F:Picturepark.SDK.V1.Contract.TransferType.FileUploadAutoImport
+  id: FileUploadAutoImport
+  parent: Picturepark.SDK.V1.Contract.TransferType
+  langs:
+  - csharp
+  - vb
+  name: FileUploadAutoImport
+  nameWithType: TransferType.FileUploadAutoImport
+  fullName: Picturepark.SDK.V1.Contract.TransferType.FileUploadAutoImport
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FileUploadAutoImport
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9857
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "FileUploadAutoImport")]
+
+      FileUploadAutoImport = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferType
+    content.vb: >-
+      <EnumMember(Value:="FileUploadAutoImport")>
+
+      FileUploadAutoImport = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: FileUploadAutoImport
+- uid: Picturepark.SDK.V1.Contract.TransferType.WebDownload
+  commentId: F:Picturepark.SDK.V1.Contract.TransferType.WebDownload
+  id: WebDownload
+  parent: Picturepark.SDK.V1.Contract.TransferType
+  langs:
+  - csharp
+  - vb
+  name: WebDownload
+  nameWithType: TransferType.WebDownload
+  fullName: Picturepark.SDK.V1.Contract.TransferType.WebDownload
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WebDownload
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9860
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WebDownload")]
+
+      WebDownload = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferType
+    content.vb: >-
+      <EnumMember(Value:="WebDownload")>
+
+      WebDownload = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WebDownload
+- uid: Picturepark.SDK.V1.Contract.TransferType.SchemaImport
+  commentId: F:Picturepark.SDK.V1.Contract.TransferType.SchemaImport
+  id: SchemaImport
+  parent: Picturepark.SDK.V1.Contract.TransferType
+  langs:
+  - csharp
+  - vb
+  name: SchemaImport
+  nameWithType: TransferType.SchemaImport
+  fullName: Picturepark.SDK.V1.Contract.TransferType.SchemaImport
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaImport
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 9863
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SchemaImport")]
+
+      SchemaImport = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferType
+    content.vb: >-
+      <EnumMember(Value:="SchemaImport")>
+
+      SchemaImport = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SchemaImport
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.TransferType
+  commentId: T:Picturepark.SDK.V1.Contract.TransferType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TransferType.html
+  name: TransferType
+  nameWithType: TransferType
+  fullName: Picturepark.SDK.V1.Contract.TransferType

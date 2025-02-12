@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Extensions
+  commentId: N:Picturepark.SDK.V1.Contract.Extensions
+  id: Picturepark.SDK.V1.Contract.Extensions
+  children:
+  - Picturepark.SDK.V1.Contract.Extensions.ContentDetailExtensions
+  - Picturepark.SDK.V1.Contract.Extensions.MiscExtensions
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.Extensions
+  nameWithType: Picturepark.SDK.V1.Contract.Extensions
+  fullName: Picturepark.SDK.V1.Contract.Extensions
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.Extensions.ContentDetailExtensions
+  commentId: T:Picturepark.SDK.V1.Contract.Extensions.ContentDetailExtensions
+  href: Picturepark.SDK.V1.Contract.Extensions.ContentDetailExtensions.html
+  name: ContentDetailExtensions
+  nameWithType: ContentDetailExtensions
+  fullName: Picturepark.SDK.V1.Contract.Extensions.ContentDetailExtensions
+- uid: Picturepark.SDK.V1.Contract.Extensions.MiscExtensions
+  commentId: T:Picturepark.SDK.V1.Contract.Extensions.MiscExtensions
+  href: Picturepark.SDK.V1.Contract.Extensions.MiscExtensions.html
+  name: MiscExtensions
+  nameWithType: MiscExtensions
+  fullName: Picturepark.SDK.V1.Contract.Extensions.MiscExtensions

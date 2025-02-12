@@ -1,0 +1,804 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.TransferState
+  commentId: T:Picturepark.SDK.V1.Contract.TransferState
+  id: TransferState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.TransferState.Created
+  - Picturepark.SDK.V1.Contract.TransferState.Deleted
+  - Picturepark.SDK.V1.Contract.TransferState.Draft
+  - Picturepark.SDK.V1.Contract.TransferState.FileDeleteInProgress
+  - Picturepark.SDK.V1.Contract.TransferState.ImportCancelled
+  - Picturepark.SDK.V1.Contract.TransferState.ImportCompleted
+  - Picturepark.SDK.V1.Contract.TransferState.ImportCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.TransferState.ImportDone
+  - Picturepark.SDK.V1.Contract.TransferState.ImportFailed
+  - Picturepark.SDK.V1.Contract.TransferState.ImportInProgress
+  - Picturepark.SDK.V1.Contract.TransferState.TransferCleanup
+  - Picturepark.SDK.V1.Contract.TransferState.TransferReady
+  - Picturepark.SDK.V1.Contract.TransferState.UploadCancellationInProgress
+  - Picturepark.SDK.V1.Contract.TransferState.UploadCancelled
+  - Picturepark.SDK.V1.Contract.TransferState.UploadCompleted
+  - Picturepark.SDK.V1.Contract.TransferState.UploadCompletedWithErrors
+  - Picturepark.SDK.V1.Contract.TransferState.UploadInProgress
+  langs:
+  - csharp
+  - vb
+  name: TransferState
+  nameWithType: TransferState
+  fullName: Picturepark.SDK.V1.Contract.TransferState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38157
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Transfer states
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum TransferState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum TransferState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.TransferState.Draft
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: TransferState.Draft
+  fullName: Picturepark.SDK.V1.Contract.TransferState.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38161
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.Contract.TransferState.UploadInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.UploadInProgress
+  id: UploadInProgress
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: UploadInProgress
+  nameWithType: TransferState.UploadInProgress
+  fullName: Picturepark.SDK.V1.Contract.TransferState.UploadInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38164
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UploadInProgress")]
+
+      UploadInProgress = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="UploadInProgress")>
+
+      UploadInProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UploadInProgress
+- uid: Picturepark.SDK.V1.Contract.TransferState.UploadCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.UploadCompleted
+  id: UploadCompleted
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: UploadCompleted
+  nameWithType: TransferState.UploadCompleted
+  fullName: Picturepark.SDK.V1.Contract.TransferState.UploadCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38167
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UploadCompleted")]
+
+      UploadCompleted = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="UploadCompleted")>
+
+      UploadCompleted = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UploadCompleted
+- uid: Picturepark.SDK.V1.Contract.TransferState.ImportInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.ImportInProgress
+  id: ImportInProgress
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: ImportInProgress
+  nameWithType: TransferState.ImportInProgress
+  fullName: Picturepark.SDK.V1.Contract.TransferState.ImportInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38170
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportInProgress")]
+
+      ImportInProgress = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="ImportInProgress")>
+
+      ImportInProgress = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportInProgress
+- uid: Picturepark.SDK.V1.Contract.TransferState.ImportCompleted
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.ImportCompleted
+  id: ImportCompleted
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: ImportCompleted
+  nameWithType: TransferState.ImportCompleted
+  fullName: Picturepark.SDK.V1.Contract.TransferState.ImportCompleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCompleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38173
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCompleted")]
+
+      ImportCompleted = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="ImportCompleted")>
+
+      ImportCompleted = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCompleted
+- uid: Picturepark.SDK.V1.Contract.TransferState.UploadCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.UploadCancelled
+  id: UploadCancelled
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: UploadCancelled
+  nameWithType: TransferState.UploadCancelled
+  fullName: Picturepark.SDK.V1.Contract.TransferState.UploadCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38176
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UploadCancelled")]
+
+      UploadCancelled = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="UploadCancelled")>
+
+      UploadCancelled = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UploadCancelled
+- uid: Picturepark.SDK.V1.Contract.TransferState.ImportCancelled
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.ImportCancelled
+  id: ImportCancelled
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: ImportCancelled
+  nameWithType: TransferState.ImportCancelled
+  fullName: Picturepark.SDK.V1.Contract.TransferState.ImportCancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38179
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCancelled")]
+
+      ImportCancelled = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="ImportCancelled")>
+
+      ImportCancelled = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCancelled
+- uid: Picturepark.SDK.V1.Contract.TransferState.ImportFailed
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.ImportFailed
+  id: ImportFailed
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: ImportFailed
+  nameWithType: TransferState.ImportFailed
+  fullName: Picturepark.SDK.V1.Contract.TransferState.ImportFailed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38182
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportFailed")]
+
+      ImportFailed = 7
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="ImportFailed")>
+
+      ImportFailed = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportFailed
+- uid: Picturepark.SDK.V1.Contract.TransferState.Created
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.Created
+  id: Created
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: TransferState.Created
+  fullName: Picturepark.SDK.V1.Contract.TransferState.Created
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Created
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38185
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Created")]
+
+      Created = 8
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="Created")>
+
+      Created = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Created
+- uid: Picturepark.SDK.V1.Contract.TransferState.Deleted
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.Deleted
+  id: Deleted
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: TransferState.Deleted
+  fullName: Picturepark.SDK.V1.Contract.TransferState.Deleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Deleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38188
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Deleted")]
+
+      Deleted = 9
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="Deleted")>
+
+      Deleted = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Deleted
+- uid: Picturepark.SDK.V1.Contract.TransferState.TransferReady
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.TransferReady
+  id: TransferReady
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: TransferReady
+  nameWithType: TransferState.TransferReady
+  fullName: Picturepark.SDK.V1.Contract.TransferState.TransferReady
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferReady
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38191
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferReady")]
+
+      TransferReady = 10
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="TransferReady")>
+
+      TransferReady = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferReady
+- uid: Picturepark.SDK.V1.Contract.TransferState.FileDeleteInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.FileDeleteInProgress
+  id: FileDeleteInProgress
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: FileDeleteInProgress
+  nameWithType: TransferState.FileDeleteInProgress
+  fullName: Picturepark.SDK.V1.Contract.TransferState.FileDeleteInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FileDeleteInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38194
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "FileDeleteInProgress")]
+
+      FileDeleteInProgress = 11
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="FileDeleteInProgress")>
+
+      FileDeleteInProgress = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: FileDeleteInProgress
+- uid: Picturepark.SDK.V1.Contract.TransferState.TransferCleanup
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.TransferCleanup
+  id: TransferCleanup
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: TransferCleanup
+  nameWithType: TransferState.TransferCleanup
+  fullName: Picturepark.SDK.V1.Contract.TransferState.TransferCleanup
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferCleanup
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38197
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TransferCleanup")]
+
+      TransferCleanup = 12
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="TransferCleanup")>
+
+      TransferCleanup = 12
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TransferCleanup
+- uid: Picturepark.SDK.V1.Contract.TransferState.ImportCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.ImportCompletedWithErrors
+  id: ImportCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: ImportCompletedWithErrors
+  nameWithType: TransferState.ImportCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.TransferState.ImportCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38200
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportCompletedWithErrors")]
+
+      ImportCompletedWithErrors = 13
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="ImportCompletedWithErrors")>
+
+      ImportCompletedWithErrors = 13
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.TransferState.UploadCompletedWithErrors
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.UploadCompletedWithErrors
+  id: UploadCompletedWithErrors
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: UploadCompletedWithErrors
+  nameWithType: TransferState.UploadCompletedWithErrors
+  fullName: Picturepark.SDK.V1.Contract.TransferState.UploadCompletedWithErrors
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadCompletedWithErrors
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38203
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UploadCompletedWithErrors")]
+
+      UploadCompletedWithErrors = 14
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="UploadCompletedWithErrors")>
+
+      UploadCompletedWithErrors = 14
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UploadCompletedWithErrors
+- uid: Picturepark.SDK.V1.Contract.TransferState.UploadCancellationInProgress
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.UploadCancellationInProgress
+  id: UploadCancellationInProgress
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: UploadCancellationInProgress
+  nameWithType: TransferState.UploadCancellationInProgress
+  fullName: Picturepark.SDK.V1.Contract.TransferState.UploadCancellationInProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UploadCancellationInProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38206
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UploadCancellationInProgress")]
+
+      UploadCancellationInProgress = 15
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="UploadCancellationInProgress")>
+
+      UploadCancellationInProgress = 15
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UploadCancellationInProgress
+- uid: Picturepark.SDK.V1.Contract.TransferState.ImportDone
+  commentId: F:Picturepark.SDK.V1.Contract.TransferState.ImportDone
+  id: ImportDone
+  parent: Picturepark.SDK.V1.Contract.TransferState
+  langs:
+  - csharp
+  - vb
+  name: ImportDone
+  nameWithType: TransferState.ImportDone
+  fullName: Picturepark.SDK.V1.Contract.TransferState.ImportDone
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportDone
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 38209
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ImportDone")]
+
+      ImportDone = 16
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferState
+    content.vb: >-
+      <EnumMember(Value:="ImportDone")>
+
+      ImportDone = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ImportDone
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.TransferState
+  commentId: T:Picturepark.SDK.V1.Contract.TransferState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TransferState.html
+  name: TransferState
+  nameWithType: TransferState
+  fullName: Picturepark.SDK.V1.Contract.TransferState

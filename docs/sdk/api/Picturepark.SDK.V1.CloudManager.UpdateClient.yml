@@ -1,0 +1,2631 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.UpdateClient
+  id: UpdateClient
+  parent: Picturepark.SDK.V1.CloudManager
+  children:
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: UpdateClient
+  nameWithType: UpdateClient
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateClient
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19241
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class UpdateClient : ClientBase, IUpdateClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class UpdateClient Inherits ClientBase Implements IUpdateClient
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.ClientBase
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+  - Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)
+  id: '#ctor(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings,System.Net.Http.HttpClient)'
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateClient(ICloudManagerServiceSettings, HttpClient)
+  nameWithType: UpdateClient.UpdateClient(ICloudManagerServiceSettings, HttpClient)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings, System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19247
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public UpdateClient(ICloudManagerServiceSettings configuration, HttpClient httpClient)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+    content.vb: Public Sub New(configuration As ICloudManagerServiceSettings, httpClient As HttpClient)
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.#ctor*
+  nameWithType.vb: UpdateClient.New(ICloudManagerServiceSettings, HttpClient)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.New(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings, System.Net.Http.HttpClient)
+  name.vb: New(ICloudManagerServiceSettings, HttpClient)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings
+  commentId: P:Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings
+  id: JsonSerializerSettings
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerSettings
+  nameWithType: UpdateClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonSerializerSettings
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19260
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: protected JsonSerializerSettings JsonSerializerSettings { get; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.JsonSerializerSettings
+    content.vb: Protected ReadOnly Property JsonSerializerSettings As JsonSerializerSettings
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings*
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  id: GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableEnvironmentUpdateAsync(CancellationToken)
+  nameWithType: UpdateClient.GetAvailableEnvironmentUpdateAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAvailableEnvironmentUpdateAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19277
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<UpdateInfo> GetAvailableEnvironmentUpdateAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo}
+    content.vb: Public Overridable Function GetAvailableEnvironmentUpdateAsync(cancellationToken As CancellationToken = Nothing) As Task(Of UpdateInfo)
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  id: GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: GetEnvironmentVersionAsync(CancellationToken)
+  nameWithType: UpdateClient.GetEnvironmentVersionAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetEnvironmentVersionAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19446
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<VersionInfo> GetEnvironmentVersionAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.VersionInfo}
+    content.vb: Public Overridable Function GetEnvironmentVersionAsync(cancellationToken As CancellationToken = Nothing) As Task(Of VersionInfo)
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+  id: ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: ReactivateEnvironmentAsync(ReactivationEnvironmentRequest, CancellationToken)
+  nameWithType: UpdateClient.ReactivateEnvironmentAsync(ReactivationEnvironmentRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReactivateEnvironmentAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19615
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overridable Function ReactivateEnvironmentAsync(request As ReactivationEnvironmentRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+  id: DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateEnvironmentAsync(DeactivationEnvironmentRequest, CancellationToken)
+  nameWithType: UpdateClient.DeactivateEnvironmentAsync(DeactivationEnvironmentRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeactivateEnvironmentAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19785
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overridable Function DeactivateEnvironmentAsync(request As DeactivationEnvironmentRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+  id: UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateEnvironmentAsync(UpdateEnvironmentRequest, CancellationToken)
+  nameWithType: UpdateClient.UpdateEnvironmentAsync(UpdateEnvironmentRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateEnvironmentAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 19955
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<EnvironmentProcess> UpdateEnvironmentAsync(UpdateEnvironmentRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess}
+    content.vb: Public Overridable Function UpdateEnvironmentAsync(request As UpdateEnvironmentRequest, cancellationToken As CancellationToken = Nothing) As Task(Of EnvironmentProcess)
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  id: GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableCustomerUpdateAsync(string, CancellationToken)
+  nameWithType: UpdateClient.GetAvailableCustomerUpdateAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAvailableCustomerUpdateAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 20131
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<UpdateInfo> GetAvailableCustomerUpdateAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo}
+    content.vb: Public Overridable Function GetAvailableCustomerUpdateAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of UpdateInfo)
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: UpdateClient.GetAvailableCustomerUpdateAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAvailableCustomerUpdateAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  id: GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: GetCustomerVersionsAsync(CancellationToken)
+  nameWithType: UpdateClient.GetCustomerVersionsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetCustomerVersionsAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 20304
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo}}
+    content.vb: Public Overridable Function GetCustomerVersionsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of CustomerVersionInfo))
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  id: GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: GetCustomerVersionAsync(string, CancellationToken)
+  nameWithType: UpdateClient.GetCustomerVersionAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetCustomerVersionAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 20473
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<CustomerVersionInfo> GetCustomerVersionAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo}
+    content.vb: Public Overridable Function GetCustomerVersionAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of CustomerVersionInfo)
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  nameWithType.vb: UpdateClient.GetCustomerVersionAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync(String, System.Threading.CancellationToken)
+  name.vb: GetCustomerVersionAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  id: DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateCustomersAsync(IEnumerable<DeactivationCustomerRequest>, CancellationToken)
+  nameWithType: UpdateClient.DeactivateCustomersAsync(IEnumerable<DeactivationCustomerRequest>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeactivateCustomersAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 20646
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task DeactivateCustomersAsync(IEnumerable<DeactivationCustomerRequest> requests, CancellationToken cancellationToken = default)
+    parameters:
+    - id: requests
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overridable Function DeactivateCustomersAsync(requests As IEnumerable(Of DeactivationCustomerRequest), cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  nameWithType.vb: UpdateClient.DeactivateCustomersAsync(IEnumerable(Of DeactivationCustomerRequest), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest), System.Threading.CancellationToken)
+  name.vb: DeactivateCustomersAsync(IEnumerable(Of DeactivationCustomerRequest), CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  id: ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: ReactivateCustomersAsync(IEnumerable<ReactivationCustomerRequest>, CancellationToken)
+  nameWithType: UpdateClient.ReactivateCustomersAsync(IEnumerable<ReactivationCustomerRequest>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReactivateCustomersAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 20816
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task ReactivateCustomersAsync(IEnumerable<ReactivationCustomerRequest> requests, CancellationToken cancellationToken = default)
+    parameters:
+    - id: requests
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overridable Function ReactivateCustomersAsync(requests As IEnumerable(Of ReactivationCustomerRequest), cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  nameWithType.vb: UpdateClient.ReactivateCustomersAsync(IEnumerable(Of ReactivationCustomerRequest), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest), System.Threading.CancellationToken)
+  name.vb: ReactivateCustomersAsync(IEnumerable(Of ReactivationCustomerRequest), CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  id: UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateCustomersAsync(IEnumerable<UpdateCustomerRequest>, CancellationToken)
+  nameWithType: UpdateClient.UpdateCustomersAsync(IEnumerable<UpdateCustomerRequest>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateCustomersAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 20986
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  example: []
+  syntax:
+    content: public virtual Task<ICollection<EnvironmentProcess>> UpdateCustomersAsync(IEnumerable<UpdateCustomerRequest> requests, CancellationToken cancellationToken = default)
+    parameters:
+    - id: requests
+      type: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess}}
+    content.vb: Public Overridable Function UpdateCustomersAsync(requests As IEnumerable(Of UpdateCustomerRequest), cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of EnvironmentProcess))
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  implements:
+  - Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  nameWithType.vb: UpdateClient.UpdateCustomersAsync(IEnumerable(Of UpdateCustomerRequest), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest), System.Threading.CancellationToken)
+  name.vb: UpdateCustomersAsync(IEnumerable(Of UpdateCustomerRequest), CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString
+  commentId: P:Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString
+  id: ReadResponseAsString
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: ReadResponseAsString
+  nameWithType: UpdateClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadResponseAsString
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21166
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: public bool ReadResponseAsString { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ReadResponseAsString As Boolean
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString*
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  id: ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.UpdateClient
+  langs:
+  - csharp
+  - vb
+  name: ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  nameWithType: UpdateClient.ReadObjectResponseAsync<T>(HttpResponseMessage, IReadOnlyDictionary<string, IEnumerable<string>>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReadObjectResponseAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
+    startLine: 21168
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager
+  syntax:
+    content: protected virtual Task<UpdateClient.ObjectResponseResult<T>> ReadObjectResponseAsync<T>(HttpResponseMessage response, IReadOnlyDictionary<string, IEnumerable<string>> headers, CancellationToken cancellationToken)
+    parameters:
+    - id: response
+      type: System.Net.Http.HttpResponseMessage
+    - id: headers
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult{{T}}}
+    content.vb: Protected Overridable Function ReadObjectResponseAsync(Of T)(response As HttpResponseMessage, headers As IReadOnlyDictionary(Of String, IEnumerable(Of String)), cancellationToken As CancellationToken) As Task(Of UpdateClient.ObjectResponseResult(Of T))
+  overload: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync*
+  nameWithType.vb: UpdateClient.ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync(Of T)(System.Net.Http.HttpResponseMessage, System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String)), System.Threading.CancellationToken)
+  name.vb: ReadObjectResponseAsync(Of T)(HttpResponseMessage, IReadOnlyDictionary(Of String, IEnumerable(Of String)), CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.CloudManager
+  commentId: N:Picturepark.SDK.V1.CloudManager
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager
+  nameWithType: Picturepark.SDK.V1.CloudManager
+  fullName: Picturepark.SDK.V1.CloudManager
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.ClientBase
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html
+  name: IUpdateClient
+  nameWithType: IUpdateClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+  commentId: P:Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+  parent: Picturepark.SDK.V1.CloudManager.ClientBase
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_BaseUrl
+  name: BaseUrl
+  nameWithType: ClientBase.BaseUrl
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase.BaseUrl
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.ClientBase
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  name: CreateHttpRequestMessageAsync(CancellationToken)
+  nameWithType: ClientBase.CreateHttpRequestMessageAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)
+    name: CreateHttpRequestMessageAsync
+    href: Picturepark.SDK.V1.CloudManager.ClientBase.html#Picturepark_SDK_V1_CloudManager_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.#ctor
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient__ctor_Picturepark_SDK_V1_CloudManager_ICloudManagerServiceSettings_System_Net_Http_HttpClient_
+  name: UpdateClient
+  nameWithType: UpdateClient.UpdateClient
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateClient
+  nameWithType.vb: UpdateClient.New
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  commentId: T:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html
+  name: ICloudManagerServiceSettings
+  nameWithType: ICloudManagerServiceSettings
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_JsonSerializerSettings
+  name: JsonSerializerSettings
+  nameWithType: UpdateClient.JsonSerializerSettings
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.JsonSerializerSettings
+- uid: Newtonsoft.Json.JsonSerializerSettings
+  commentId: T:Newtonsoft.Json.JsonSerializerSettings
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializerSettings
+  nameWithType: JsonSerializerSettings
+  fullName: Newtonsoft.Json.JsonSerializerSettings
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_
+  name: GetAvailableEnvironmentUpdateAsync
+  nameWithType: UpdateClient.GetAvailableEnvironmentUpdateAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableEnvironmentUpdateAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_
+  name: GetAvailableEnvironmentUpdateAsync(CancellationToken)
+  nameWithType: IUpdateClient.GetAvailableEnvironmentUpdateAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+    name: GetAvailableEnvironmentUpdateAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)
+    name: GetAvailableEnvironmentUpdateAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UpdateInfo>
+  nameWithType: Task<UpdateInfo>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo>
+  nameWithType.vb: Task(Of UpdateInfo)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo)
+  name.vb: Task(Of UpdateInfo)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo
+    name: UpdateInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo
+    name: UpdateInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_GetEnvironmentVersionAsync_System_Threading_CancellationToken_
+  name: GetEnvironmentVersionAsync
+  nameWithType: UpdateClient.GetEnvironmentVersionAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetEnvironmentVersionAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetEnvironmentVersionAsync_System_Threading_CancellationToken_
+  name: GetEnvironmentVersionAsync(CancellationToken)
+  nameWithType: IUpdateClient.GetEnvironmentVersionAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+    name: GetEnvironmentVersionAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetEnvironmentVersionAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetEnvironmentVersionAsync(System.Threading.CancellationToken)
+    name: GetEnvironmentVersionAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetEnvironmentVersionAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.VersionInfo}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.VersionInfo}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<VersionInfo>
+  nameWithType: Task<VersionInfo>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.VersionInfo>
+  nameWithType.vb: Task(Of VersionInfo)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.VersionInfo)
+  name.vb: Task(Of VersionInfo)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.VersionInfo
+    name: VersionInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.VersionInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.VersionInfo
+    name: VersionInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.VersionInfo.html
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_ReactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_ReactivationEnvironmentRequest_System_Threading_CancellationToken_
+  name: ReactivateEnvironmentAsync
+  nameWithType: UpdateClient.ReactivateEnvironmentAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateEnvironmentAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_ReactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_ReactivationEnvironmentRequest_System_Threading_CancellationToken_
+  name: ReactivateEnvironmentAsync(ReactivationEnvironmentRequest, CancellationToken)
+  nameWithType: IUpdateClient.ReactivateEnvironmentAsync(ReactivationEnvironmentRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+    name: ReactivateEnvironmentAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_ReactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_ReactivationEnvironmentRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest
+    name: ReactivationEnvironmentRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest,System.Threading.CancellationToken)
+    name: ReactivateEnvironmentAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_ReactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_ReactivationEnvironmentRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest
+    name: ReactivationEnvironmentRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest.html
+  name: ReactivationEnvironmentRequest
+  nameWithType: ReactivationEnvironmentRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_DeactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_DeactivationEnvironmentRequest_System_Threading_CancellationToken_
+  name: DeactivateEnvironmentAsync
+  nameWithType: UpdateClient.DeactivateEnvironmentAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateEnvironmentAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_DeactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_DeactivationEnvironmentRequest_System_Threading_CancellationToken_
+  name: DeactivateEnvironmentAsync(DeactivationEnvironmentRequest, CancellationToken)
+  nameWithType: IUpdateClient.DeactivateEnvironmentAsync(DeactivationEnvironmentRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+    name: DeactivateEnvironmentAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_DeactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_DeactivationEnvironmentRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest
+    name: DeactivationEnvironmentRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest,System.Threading.CancellationToken)
+    name: DeactivateEnvironmentAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_DeactivateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_DeactivationEnvironmentRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest
+    name: DeactivationEnvironmentRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest.html
+  name: DeactivationEnvironmentRequest
+  nameWithType: DeactivationEnvironmentRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_UpdateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_System_Threading_CancellationToken_
+  name: UpdateEnvironmentAsync
+  nameWithType: UpdateClient.UpdateEnvironmentAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateEnvironmentAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_UpdateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_System_Threading_CancellationToken_
+  name: UpdateEnvironmentAsync(UpdateEnvironmentRequest, CancellationToken)
+  nameWithType: IUpdateClient.UpdateEnvironmentAsync(UpdateEnvironmentRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+    name: UpdateEnvironmentAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_UpdateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
+    name: UpdateEnvironmentRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateEnvironmentAsync(Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest,System.Threading.CancellationToken)
+    name: UpdateEnvironmentAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_UpdateEnvironmentAsync_Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
+    name: UpdateEnvironmentRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html
+  name: UpdateEnvironmentRequest
+  nameWithType: UpdateEnvironmentRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<EnvironmentProcess>
+  nameWithType: Task<EnvironmentProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess>
+  nameWithType.vb: Task(Of EnvironmentProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess)
+  name.vb: Task(Of EnvironmentProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess
+    name: EnvironmentProcess
+    href: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess
+    name: EnvironmentProcess
+    href: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_
+  name: GetAvailableCustomerUpdateAsync
+  nameWithType: UpdateClient.GetAvailableCustomerUpdateAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetAvailableCustomerUpdateAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_
+  name: GetAvailableCustomerUpdateAsync(string, CancellationToken)
+  nameWithType: IUpdateClient.GetAvailableCustomerUpdateAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IUpdateClient.GetAvailableCustomerUpdateAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAvailableCustomerUpdateAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+    name: GetAvailableCustomerUpdateAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)
+    name: GetAvailableCustomerUpdateAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_GetCustomerVersionsAsync_System_Threading_CancellationToken_
+  name: GetCustomerVersionsAsync
+  nameWithType: UpdateClient.GetCustomerVersionsAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionsAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetCustomerVersionsAsync_System_Threading_CancellationToken_
+  name: GetCustomerVersionsAsync(CancellationToken)
+  nameWithType: IUpdateClient.GetCustomerVersionsAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+    name: GetCustomerVersionsAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetCustomerVersionsAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionsAsync(System.Threading.CancellationToken)
+    name: GetCustomerVersionsAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetCustomerVersionsAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<CustomerVersionInfo>>
+  nameWithType: Task<ICollection<CustomerVersionInfo>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo>>
+  nameWithType.vb: Task(Of ICollection(Of CustomerVersionInfo))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo))
+  name.vb: Task(Of ICollection(Of CustomerVersionInfo))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo
+    name: CustomerVersionInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo
+    name: CustomerVersionInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_GetCustomerVersionAsync_System_String_System_Threading_CancellationToken_
+  name: GetCustomerVersionAsync
+  nameWithType: UpdateClient.GetCustomerVersionAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.GetCustomerVersionAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetCustomerVersionAsync_System_String_System_Threading_CancellationToken_
+  name: GetCustomerVersionAsync(string, CancellationToken)
+  nameWithType: IUpdateClient.GetCustomerVersionAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(string, System.Threading.CancellationToken)
+  nameWithType.vb: IUpdateClient.GetCustomerVersionAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(String, System.Threading.CancellationToken)
+  name.vb: GetCustomerVersionAsync(String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+    name: GetCustomerVersionAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetCustomerVersionAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetCustomerVersionAsync(System.String,System.Threading.CancellationToken)
+    name: GetCustomerVersionAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetCustomerVersionAsync_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CustomerVersionInfo>
+  nameWithType: Task<CustomerVersionInfo>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo>
+  nameWithType.vb: Task(Of CustomerVersionInfo)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo)
+  name.vb: Task(Of CustomerVersionInfo)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo
+    name: CustomerVersionInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo
+    name: CustomerVersionInfo
+    href: Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo.html
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_DeactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_DeactivationCustomerRequest__System_Threading_CancellationToken_
+  name: DeactivateCustomersAsync
+  nameWithType: UpdateClient.DeactivateCustomersAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.DeactivateCustomersAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_DeactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_DeactivationCustomerRequest__System_Threading_CancellationToken_
+  name: DeactivateCustomersAsync(IEnumerable<DeactivationCustomerRequest>, CancellationToken)
+  nameWithType: IUpdateClient.DeactivateCustomersAsync(IEnumerable<DeactivationCustomerRequest>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest>, System.Threading.CancellationToken)
+  nameWithType.vb: IUpdateClient.DeactivateCustomersAsync(IEnumerable(Of DeactivationCustomerRequest), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest), System.Threading.CancellationToken)
+  name.vb: DeactivateCustomersAsync(IEnumerable(Of DeactivationCustomerRequest), CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+    name: DeactivateCustomersAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_DeactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_DeactivationCustomerRequest__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest
+    name: DeactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.DeactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest},System.Threading.CancellationToken)
+    name: DeactivateCustomersAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_DeactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_DeactivationCustomerRequest__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest
+    name: DeactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<DeactivationCustomerRequest>
+  nameWithType: IEnumerable<DeactivationCustomerRequest>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest>
+  nameWithType.vb: IEnumerable(Of DeactivationCustomerRequest)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest)
+  name.vb: IEnumerable(Of DeactivationCustomerRequest)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest
+    name: DeactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest
+    name: DeactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_ReactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ReactivationCustomerRequest__System_Threading_CancellationToken_
+  name: ReactivateCustomersAsync
+  nameWithType: UpdateClient.ReactivateCustomersAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReactivateCustomersAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_ReactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ReactivationCustomerRequest__System_Threading_CancellationToken_
+  name: ReactivateCustomersAsync(IEnumerable<ReactivationCustomerRequest>, CancellationToken)
+  nameWithType: IUpdateClient.ReactivateCustomersAsync(IEnumerable<ReactivationCustomerRequest>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest>, System.Threading.CancellationToken)
+  nameWithType.vb: IUpdateClient.ReactivateCustomersAsync(IEnumerable(Of ReactivationCustomerRequest), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest), System.Threading.CancellationToken)
+  name.vb: ReactivateCustomersAsync(IEnumerable(Of ReactivationCustomerRequest), CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+    name: ReactivateCustomersAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_ReactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ReactivationCustomerRequest__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest
+    name: ReactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.ReactivateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest},System.Threading.CancellationToken)
+    name: ReactivateCustomersAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_ReactivateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ReactivationCustomerRequest__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest
+    name: ReactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ReactivationCustomerRequest>
+  nameWithType: IEnumerable<ReactivationCustomerRequest>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest>
+  nameWithType.vb: IEnumerable(Of ReactivationCustomerRequest)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest)
+  name.vb: IEnumerable(Of ReactivationCustomerRequest)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest
+    name: ReactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest
+    name: ReactivationCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest.html
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_UpdateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest__System_Threading_CancellationToken_
+  name: UpdateCustomersAsync
+  nameWithType: UpdateClient.UpdateCustomersAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.UpdateCustomersAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient
+  isExternal: true
+  href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_UpdateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest__System_Threading_CancellationToken_
+  name: UpdateCustomersAsync(IEnumerable<UpdateCustomerRequest>, CancellationToken)
+  nameWithType: IUpdateClient.UpdateCustomersAsync(IEnumerable<UpdateCustomerRequest>, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest>, System.Threading.CancellationToken)
+  nameWithType.vb: IUpdateClient.UpdateCustomersAsync(IEnumerable(Of UpdateCustomerRequest), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest), System.Threading.CancellationToken)
+  name.vb: UpdateCustomersAsync(IEnumerable(Of UpdateCustomerRequest), CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+    name: UpdateCustomersAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_UpdateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest
+    name: UpdateCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.UpdateCustomersAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest},System.Threading.CancellationToken)
+    name: UpdateCustomersAsync
+    href: Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html#Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_UpdateCustomersAsync_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest
+    name: UpdateCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest}
+  commentId: T:System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<UpdateCustomerRequest>
+  nameWithType: IEnumerable<UpdateCustomerRequest>
+  fullName: System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest>
+  nameWithType.vb: IEnumerable(Of UpdateCustomerRequest)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest)
+  name.vb: IEnumerable(Of UpdateCustomerRequest)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest
+    name: UpdateCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest
+    name: UpdateCustomerRequest
+    href: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<EnvironmentProcess>>
+  nameWithType: Task<ICollection<EnvironmentProcess>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess>>
+  nameWithType.vb: Task(Of ICollection(Of EnvironmentProcess))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess))
+  name.vb: Task(Of ICollection(Of EnvironmentProcess))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess
+    name: EnvironmentProcess
+    href: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess
+    name: EnvironmentProcess
+    href: Picturepark.SDK.V1.CloudManager.Contract.EnvironmentProcess.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_ReadResponseAsString
+  name: ReadResponseAsString
+  nameWithType: UpdateClient.ReadResponseAsString
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadResponseAsString
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html#Picturepark_SDK_V1_CloudManager_UpdateClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_
+  name: ReadObjectResponseAsync
+  nameWithType: UpdateClient.ReadObjectResponseAsync
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ReadObjectResponseAsync
+- uid: System.Net.Http.HttpResponseMessage
+  commentId: T:System.Net.Http.HttpResponseMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  name: HttpResponseMessage
+  nameWithType: HttpResponseMessage
+  fullName: System.Net.Http.HttpResponseMessage
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, IEnumerable<string>>
+  nameWithType: IReadOnlyDictionary<string, IEnumerable<string>>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>>
+  nameWithType.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: IReadOnlyDictionary(Of String, IEnumerable(Of String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult{{T}}}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UpdateClient.ObjectResponseResult<T>>
+  nameWithType: Task<UpdateClient.ObjectResponseResult<T>>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult<T>>
+  nameWithType.vb: Task(Of UpdateClient.ObjectResponseResult(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult(Of T))
+  name.vb: Task(Of UpdateClient.ObjectResponseResult(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient
+    name: UpdateClient
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient
+    name: UpdateClient
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )

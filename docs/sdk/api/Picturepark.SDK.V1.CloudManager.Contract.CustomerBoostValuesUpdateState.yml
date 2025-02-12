@@ -1,0 +1,516 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  id: CustomerBoostValuesUpdateState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesAdded
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesRemoved
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Cancelled
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Draft
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.ExistingBoostValuesUpdated
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Failed
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.InProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesMappingUpdated
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesReindexed
+  - Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Succeeded
+  langs:
+  - csharp
+  - vb
+  name: CustomerBoostValuesUpdateState
+  nameWithType: CustomerBoostValuesUpdateState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerBoostValuesUpdateState
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20971
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum CustomerBoostValuesUpdateState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum CustomerBoostValuesUpdateState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Draft
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: CustomerBoostValuesUpdateState.Draft
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20975
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.InProgress
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.InProgress
+  id: InProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: CustomerBoostValuesUpdateState.InProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.InProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InProgress
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20978
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InProgress")]
+
+      InProgress = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="InProgress")>
+
+      InProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesAdded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesAdded
+  id: BoostValuesAdded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: BoostValuesAdded
+  nameWithType: CustomerBoostValuesUpdateState.BoostValuesAdded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesAdded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BoostValuesAdded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20981
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BoostValuesAdded")]
+
+      BoostValuesAdded = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="BoostValuesAdded")>
+
+      BoostValuesAdded = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BoostValuesAdded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesMappingUpdated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesMappingUpdated
+  id: SearchIndexesMappingUpdated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: SearchIndexesMappingUpdated
+  nameWithType: CustomerBoostValuesUpdateState.SearchIndexesMappingUpdated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesMappingUpdated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchIndexesMappingUpdated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20984
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SearchIndexesMappingUpdated")]
+
+      SearchIndexesMappingUpdated = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="SearchIndexesMappingUpdated")>
+
+      SearchIndexesMappingUpdated = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SearchIndexesMappingUpdated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.ExistingBoostValuesUpdated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.ExistingBoostValuesUpdated
+  id: ExistingBoostValuesUpdated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: ExistingBoostValuesUpdated
+  nameWithType: CustomerBoostValuesUpdateState.ExistingBoostValuesUpdated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.ExistingBoostValuesUpdated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExistingBoostValuesUpdated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20987
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ExistingBoostValuesUpdated")]
+
+      ExistingBoostValuesUpdated = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="ExistingBoostValuesUpdated")>
+
+      ExistingBoostValuesUpdated = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ExistingBoostValuesUpdated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesRemoved
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesRemoved
+  id: BoostValuesRemoved
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: BoostValuesRemoved
+  nameWithType: CustomerBoostValuesUpdateState.BoostValuesRemoved
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.BoostValuesRemoved
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BoostValuesRemoved
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20990
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BoostValuesRemoved")]
+
+      BoostValuesRemoved = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="BoostValuesRemoved")>
+
+      BoostValuesRemoved = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BoostValuesRemoved
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesReindexed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesReindexed
+  id: SearchIndexesReindexed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: SearchIndexesReindexed
+  nameWithType: CustomerBoostValuesUpdateState.SearchIndexesReindexed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.SearchIndexesReindexed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchIndexesReindexed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20993
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SearchIndexesReindexed")]
+
+      SearchIndexesReindexed = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="SearchIndexesReindexed")>
+
+      SearchIndexesReindexed = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SearchIndexesReindexed
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Succeeded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Succeeded
+  id: Succeeded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Succeeded
+  nameWithType: CustomerBoostValuesUpdateState.Succeeded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Succeeded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Succeeded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20996
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Succeeded")]
+
+      Succeeded = 7
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Succeeded")>
+
+      Succeeded = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Succeeded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Cancelled
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Cancelled
+  id: Cancelled
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: CustomerBoostValuesUpdateState.Cancelled
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Cancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cancelled
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20999
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cancelled")]
+
+      Cancelled = 8
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Cancelled")>
+
+      Cancelled = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cancelled
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Failed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Failed
+  id: Failed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: CustomerBoostValuesUpdateState.Failed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.Failed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Failed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 21002
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Failed")]
+
+      Failed = 9
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+    content.vb: >-
+      <EnumMember(Value:="Failed")>
+
+      Failed = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Failed
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState.html
+  name: CustomerBoostValuesUpdateState
+  nameWithType: CustomerBoostValuesUpdateState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerBoostValuesUpdateState

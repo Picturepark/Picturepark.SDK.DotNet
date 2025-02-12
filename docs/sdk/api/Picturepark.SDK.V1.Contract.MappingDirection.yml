@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.MappingDirection
+  commentId: T:Picturepark.SDK.V1.Contract.MappingDirection
+  id: MappingDirection
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.MappingDirection.Both
+  - Picturepark.SDK.V1.Contract.MappingDirection.MetadataToXmp
+  - Picturepark.SDK.V1.Contract.MappingDirection.XmpToMetadata
+  langs:
+  - csharp
+  - vb
+  name: MappingDirection
+  nameWithType: MappingDirection
+  fullName: Picturepark.SDK.V1.Contract.MappingDirection
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MappingDirection
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43342
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Direction of mapping of XMP data
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum MappingDirection
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum MappingDirection
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.MappingDirection.XmpToMetadata
+  commentId: F:Picturepark.SDK.V1.Contract.MappingDirection.XmpToMetadata
+  id: XmpToMetadata
+  parent: Picturepark.SDK.V1.Contract.MappingDirection
+  langs:
+  - csharp
+  - vb
+  name: XmpToMetadata
+  nameWithType: MappingDirection.XmpToMetadata
+  fullName: Picturepark.SDK.V1.Contract.MappingDirection.XmpToMetadata
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: XmpToMetadata
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43346
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "XmpToMetadata")]
+
+      XmpToMetadata = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.MappingDirection
+    content.vb: >-
+      <EnumMember(Value:="XmpToMetadata")>
+
+      XmpToMetadata = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: XmpToMetadata
+- uid: Picturepark.SDK.V1.Contract.MappingDirection.MetadataToXmp
+  commentId: F:Picturepark.SDK.V1.Contract.MappingDirection.MetadataToXmp
+  id: MetadataToXmp
+  parent: Picturepark.SDK.V1.Contract.MappingDirection
+  langs:
+  - csharp
+  - vb
+  name: MetadataToXmp
+  nameWithType: MappingDirection.MetadataToXmp
+  fullName: Picturepark.SDK.V1.Contract.MappingDirection.MetadataToXmp
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataToXmp
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43349
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataToXmp")]
+
+      MetadataToXmp = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.MappingDirection
+    content.vb: >-
+      <EnumMember(Value:="MetadataToXmp")>
+
+      MetadataToXmp = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataToXmp
+- uid: Picturepark.SDK.V1.Contract.MappingDirection.Both
+  commentId: F:Picturepark.SDK.V1.Contract.MappingDirection.Both
+  id: Both
+  parent: Picturepark.SDK.V1.Contract.MappingDirection
+  langs:
+  - csharp
+  - vb
+  name: Both
+  nameWithType: MappingDirection.Both
+  fullName: Picturepark.SDK.V1.Contract.MappingDirection.Both
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Both
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43352
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Both")]
+
+      Both = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.MappingDirection
+    content.vb: >-
+      <EnumMember(Value:="Both")>
+
+      Both = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Both
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.MappingDirection
+  commentId: T:Picturepark.SDK.V1.Contract.MappingDirection
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.MappingDirection.html
+  name: MappingDirection
+  nameWithType: MappingDirection
+  fullName: Picturepark.SDK.V1.Contract.MappingDirection

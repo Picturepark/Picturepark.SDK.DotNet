@@ -1,0 +1,600 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  id: AddMetadataLanguageState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Cancelled
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerExported
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerUpdated
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Draft
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Failed
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.InProgress
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.MasterDataReindexed
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.RedisCacheRestored
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SearchIndexesReindexed
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SortingFallbackApplied
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Succeeded
+  - Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.TranslationsForSystemEntitiesAdded
+  langs:
+  - csharp
+  - vb
+  name: AddMetadataLanguageState
+  nameWithType: AddMetadataLanguageState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddMetadataLanguageState
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20772
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum AddMetadataLanguageState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum AddMetadataLanguageState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Draft
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: AddMetadataLanguageState.Draft
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20776
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.InProgress
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.InProgress
+  id: InProgress
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: AddMetadataLanguageState.InProgress
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.InProgress
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InProgress
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20779
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InProgress")]
+
+      InProgress = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="InProgress")>
+
+      InProgress = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InProgress
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerExported
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerExported
+  id: CustomerExported
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: CustomerExported
+  nameWithType: AddMetadataLanguageState.CustomerExported
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerExported
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerExported
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20782
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CustomerExported")]
+
+      CustomerExported = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="CustomerExported")>
+
+      CustomerExported = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CustomerExported
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerUpdated
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerUpdated
+  id: CustomerUpdated
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: CustomerUpdated
+  nameWithType: AddMetadataLanguageState.CustomerUpdated
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.CustomerUpdated
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerUpdated
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20785
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "CustomerUpdated")]
+
+      CustomerUpdated = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="CustomerUpdated")>
+
+      CustomerUpdated = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: CustomerUpdated
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.MasterDataReindexed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.MasterDataReindexed
+  id: MasterDataReindexed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: MasterDataReindexed
+  nameWithType: AddMetadataLanguageState.MasterDataReindexed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.MasterDataReindexed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MasterDataReindexed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20788
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MasterDataReindexed")]
+
+      MasterDataReindexed = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="MasterDataReindexed")>
+
+      MasterDataReindexed = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MasterDataReindexed
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.RedisCacheRestored
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.RedisCacheRestored
+  id: RedisCacheRestored
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: RedisCacheRestored
+  nameWithType: AddMetadataLanguageState.RedisCacheRestored
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.RedisCacheRestored
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RedisCacheRestored
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20791
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "RedisCacheRestored")]
+
+      RedisCacheRestored = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="RedisCacheRestored")>
+
+      RedisCacheRestored = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: RedisCacheRestored
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.TranslationsForSystemEntitiesAdded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.TranslationsForSystemEntitiesAdded
+  id: TranslationsForSystemEntitiesAdded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: TranslationsForSystemEntitiesAdded
+  nameWithType: AddMetadataLanguageState.TranslationsForSystemEntitiesAdded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.TranslationsForSystemEntitiesAdded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TranslationsForSystemEntitiesAdded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20794
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "TranslationsForSystemEntitiesAdded")]
+
+      TranslationsForSystemEntitiesAdded = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="TranslationsForSystemEntitiesAdded")>
+
+      TranslationsForSystemEntitiesAdded = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: TranslationsForSystemEntitiesAdded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SortingFallbackApplied
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SortingFallbackApplied
+  id: SortingFallbackApplied
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: SortingFallbackApplied
+  nameWithType: AddMetadataLanguageState.SortingFallbackApplied
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SortingFallbackApplied
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SortingFallbackApplied
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20797
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SortingFallbackApplied")]
+
+      SortingFallbackApplied = 7
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="SortingFallbackApplied")>
+
+      SortingFallbackApplied = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SortingFallbackApplied
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SearchIndexesReindexed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SearchIndexesReindexed
+  id: SearchIndexesReindexed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: SearchIndexesReindexed
+  nameWithType: AddMetadataLanguageState.SearchIndexesReindexed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.SearchIndexesReindexed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchIndexesReindexed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20800
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SearchIndexesReindexed")]
+
+      SearchIndexesReindexed = 8
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="SearchIndexesReindexed")>
+
+      SearchIndexesReindexed = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SearchIndexesReindexed
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Succeeded
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Succeeded
+  id: Succeeded
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: Succeeded
+  nameWithType: AddMetadataLanguageState.Succeeded
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Succeeded
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Succeeded
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20803
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Succeeded")]
+
+      Succeeded = 9
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="Succeeded")>
+
+      Succeeded = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Succeeded
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Cancelled
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Cancelled
+  id: Cancelled
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: AddMetadataLanguageState.Cancelled
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Cancelled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Cancelled
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20806
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Cancelled")]
+
+      Cancelled = 10
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="Cancelled")>
+
+      Cancelled = 10
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Cancelled
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Failed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Failed
+  id: Failed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: AddMetadataLanguageState.Failed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.Failed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Failed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 20809
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Failed")]
+
+      Failed = 11
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+    content.vb: >-
+      <EnumMember(Value:="Failed")>
+
+      Failed = 11
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Failed
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState.html
+  name: AddMetadataLanguageState
+  nameWithType: AddMetadataLanguageState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AddMetadataLanguageState

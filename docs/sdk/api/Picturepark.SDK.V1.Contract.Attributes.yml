@@ -1,0 +1,254 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Attributes
+  commentId: N:Picturepark.SDK.V1.Contract.Attributes
+  id: Picturepark.SDK.V1.Contract.Attributes
+  children:
+  - Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDateAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTimeAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTypeAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDescriptionTranslationAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDisplayPatternAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewSortAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewUiSettingsAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkListItemCreateTemplateAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkMaximumLengthAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkNameTranslationAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkPatternAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkReferenceAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkRequiredAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkSearchAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkSortAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkStringAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkSystemSchemaAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkTagboxAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkTranslatedStringAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.PictureparkTreeViewAttribute
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.Attributes
+  nameWithType: Picturepark.SDK.V1.Contract.Attributes
+  fullName: Picturepark.SDK.V1.Contract.Attributes
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+  parent: Picturepark.SDK.V1.Contract.Attributes
+  href: Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute.html
+  name: IPictureparkAttribute
+  nameWithType: IPictureparkAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.html
+  name: PictureparkContentRelationAttribute
+  nameWithType: PictureparkContentRelationAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDateAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateAttribute.html
+  name: PictureparkDateAttribute
+  nameWithType: PictureparkDateAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTimeAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTimeAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTimeAttribute.html
+  name: PictureparkDateTimeAttribute
+  nameWithType: PictureparkDateTimeAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTimeAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTypeAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTypeAttribute
+  parent: Picturepark.SDK.V1.Contract.Attributes
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTypeAttribute.html
+  name: PictureparkDateTypeAttribute
+  nameWithType: PictureparkDateTypeAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTypeAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDescriptionTranslationAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDescriptionTranslationAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDescriptionTranslationAttribute.html
+  name: PictureparkDescriptionTranslationAttribute
+  nameWithType: PictureparkDescriptionTranslationAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDescriptionTranslationAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDisplayPatternAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDisplayPatternAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDisplayPatternAttribute.html
+  name: PictureparkDisplayPatternAttribute
+  nameWithType: PictureparkDisplayPatternAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDisplayPatternAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewAttribute.html
+  name: PictureparkDynamicViewAttribute
+  nameWithType: PictureparkDynamicViewAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewSortAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewSortAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewSortAttribute.html
+  name: PictureparkDynamicViewSortAttribute
+  nameWithType: PictureparkDynamicViewSortAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewSortAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewUiSettingsAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewUiSettingsAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewUiSettingsAttribute.html
+  name: PictureparkDynamicViewUiSettingsAttribute
+  nameWithType: PictureparkDynamicViewUiSettingsAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewUiSettingsAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase
+  parent: Picturepark.SDK.V1.Contract.Attributes
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html
+  name: PictureparkItemFieldUiSettingsAttributeBase
+  nameWithType: PictureparkItemFieldUiSettingsAttributeBase
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkListItemCreateTemplateAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkListItemCreateTemplateAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkListItemCreateTemplateAttribute.html
+  name: PictureparkListItemCreateTemplateAttribute
+  nameWithType: PictureparkListItemCreateTemplateAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkListItemCreateTemplateAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkMaximumLengthAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkMaximumLengthAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkMaximumLengthAttribute.html
+  name: PictureparkMaximumLengthAttribute
+  nameWithType: PictureparkMaximumLengthAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkMaximumLengthAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkNameTranslationAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkNameTranslationAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkNameTranslationAttribute.html
+  name: PictureparkNameTranslationAttribute
+  nameWithType: PictureparkNameTranslationAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkNameTranslationAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkPatternAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkPatternAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkPatternAttribute.html
+  name: PictureparkPatternAttribute
+  nameWithType: PictureparkPatternAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkPatternAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkReferenceAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkReferenceAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkReferenceAttribute.html
+  name: PictureparkReferenceAttribute
+  nameWithType: PictureparkReferenceAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkReferenceAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.html
+  name: PictureparkRelationUiSettingsAttribute
+  nameWithType: PictureparkRelationUiSettingsAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkRequiredAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkRequiredAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkRequiredAttribute.html
+  name: PictureparkRequiredAttribute
+  nameWithType: PictureparkRequiredAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkRequiredAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaAttribute.html
+  name: PictureparkSchemaAttribute
+  nameWithType: PictureparkSchemaAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.html
+  name: PictureparkSchemaIndexingAttribute
+  nameWithType: PictureparkSchemaIndexingAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkSearchAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkSearchAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkSearchAttribute.html
+  name: PictureparkSearchAttribute
+  nameWithType: PictureparkSearchAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkSearchAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkSortAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkSortAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkSortAttribute.html
+  name: PictureparkSortAttribute
+  nameWithType: PictureparkSortAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkSortAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkStringAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkStringAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkStringAttribute.html
+  name: PictureparkStringAttribute
+  nameWithType: PictureparkStringAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkStringAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkSystemSchemaAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkSystemSchemaAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkSystemSchemaAttribute.html
+  name: PictureparkSystemSchemaAttribute
+  nameWithType: PictureparkSystemSchemaAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkSystemSchemaAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkTagboxAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkTagboxAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkTagboxAttribute.html
+  name: PictureparkTagboxAttribute
+  nameWithType: PictureparkTagboxAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkTagboxAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkTranslatedStringAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkTranslatedStringAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkTranslatedStringAttribute.html
+  name: PictureparkTranslatedStringAttribute
+  nameWithType: PictureparkTranslatedStringAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkTranslatedStringAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.PictureparkTreeViewAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.PictureparkTreeViewAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.PictureparkTreeViewAttribute.html
+  name: PictureparkTreeViewAttribute
+  nameWithType: PictureparkTreeViewAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.PictureparkTreeViewAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes
+  commentId: N:Picturepark.SDK.V1.Contract.Attributes
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Attributes
+  nameWithType: Picturepark.SDK.V1.Contract.Attributes
+  fullName: Picturepark.SDK.V1.Contract.Attributes
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes
+    name: Attributes
+    href: Picturepark.SDK.V1.Contract.Attributes.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes
+    name: Attributes
+    href: Picturepark.SDK.V1.Contract.Attributes.html
