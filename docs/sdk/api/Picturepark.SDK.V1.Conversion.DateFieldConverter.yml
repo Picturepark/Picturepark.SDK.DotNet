@@ -1,0 +1,614 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Conversion.DateFieldConverter
+  commentId: T:Picturepark.SDK.V1.Conversion.DateFieldConverter
+  id: DateFieldConverter
+  parent: Picturepark.SDK.V1.Conversion
+  children:
+  - Picturepark.SDK.V1.Conversion.DateFieldConverter.#ctor
+  langs:
+  - csharp
+  - vb
+  name: DateFieldConverter
+  nameWithType: DateFieldConverter
+  fullName: Picturepark.SDK.V1.Conversion.DateFieldConverter
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DateFieldConverter
+    path: ../../src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Conversion
+  syntax:
+    content: 'public class DateFieldConverter : IsoDateTimeConverter'
+    content.vb: Public Class DateFieldConverter Inherits IsoDateTimeConverter
+  inheritance:
+  - System.Object
+  - Newtonsoft.Json.JsonConverter
+  - Newtonsoft.Json.Converters.DateTimeConverterBase
+  - Newtonsoft.Json.Converters.IsoDateTimeConverter
+  inheritedMembers:
+  - Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  - Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  - Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeStyles
+  - Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeFormat
+  - Newtonsoft.Json.Converters.IsoDateTimeConverter.Culture
+  - Newtonsoft.Json.Converters.DateTimeConverterBase.CanConvert(System.Type)
+  - Newtonsoft.Json.JsonConverter.CanRead
+  - Newtonsoft.Json.JsonConverter.CanWrite
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.Conversion.DateFieldConverter.#ctor
+  commentId: M:Picturepark.SDK.V1.Conversion.DateFieldConverter.#ctor
+  id: '#ctor'
+  parent: Picturepark.SDK.V1.Conversion.DateFieldConverter
+  langs:
+  - csharp
+  - vb
+  name: DateFieldConverter()
+  nameWithType: DateFieldConverter.DateFieldConverter()
+  fullName: Picturepark.SDK.V1.Conversion.DateFieldConverter.DateFieldConverter()
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Conversion
+  syntax:
+    content: public DateFieldConverter()
+    content.vb: Public Sub New()
+  overload: Picturepark.SDK.V1.Conversion.DateFieldConverter.#ctor*
+  nameWithType.vb: DateFieldConverter.New()
+  fullName.vb: Picturepark.SDK.V1.Conversion.DateFieldConverter.New()
+  name.vb: New()
+references:
+- uid: Picturepark.SDK.V1.Conversion
+  commentId: N:Picturepark.SDK.V1.Conversion
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Conversion
+  nameWithType: Picturepark.SDK.V1.Conversion
+  fullName: Picturepark.SDK.V1.Conversion
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Conversion
+    name: Conversion
+    href: Picturepark.SDK.V1.Conversion.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Conversion
+    name: Conversion
+    href: Picturepark.SDK.V1.Conversion.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Newtonsoft.Json.JsonConverter
+  commentId: T:Newtonsoft.Json.JsonConverter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonConverter
+  nameWithType: JsonConverter
+  fullName: Newtonsoft.Json.JsonConverter
+- uid: Newtonsoft.Json.Converters.DateTimeConverterBase
+  commentId: T:Newtonsoft.Json.Converters.DateTimeConverterBase
+  parent: Newtonsoft.Json.Converters
+  isExternal: true
+  name: DateTimeConverterBase
+  nameWithType: DateTimeConverterBase
+  fullName: Newtonsoft.Json.Converters.DateTimeConverterBase
+- uid: Newtonsoft.Json.Converters.IsoDateTimeConverter
+  commentId: T:Newtonsoft.Json.Converters.IsoDateTimeConverter
+  parent: Newtonsoft.Json.Converters
+  isExternal: true
+  name: IsoDateTimeConverter
+  nameWithType: IsoDateTimeConverter
+  fullName: Newtonsoft.Json.Converters.IsoDateTimeConverter
+- uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.Converters.IsoDateTimeConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: WriteJson(JsonWriter, object, JsonSerializer)
+  nameWithType: IsoDateTimeConverter.WriteJson(JsonWriter, object, JsonSerializer)
+  fullName: Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: IsoDateTimeConverter.WriteJson(JsonWriter, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.Converters.IsoDateTimeConverter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, object, JsonSerializer)
+  nameWithType: IsoDateTimeConverter.ReadJson(JsonReader, Type, object, JsonSerializer)
+  fullName: Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: IsoDateTimeConverter.ReadJson(JsonReader, Type, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeStyles
+  commentId: P:Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeStyles
+  parent: Newtonsoft.Json.Converters.IsoDateTimeConverter
+  isExternal: true
+  name: DateTimeStyles
+  nameWithType: IsoDateTimeConverter.DateTimeStyles
+  fullName: Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeStyles
+- uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeFormat
+  commentId: P:Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeFormat
+  parent: Newtonsoft.Json.Converters.IsoDateTimeConverter
+  isExternal: true
+  name: DateTimeFormat
+  nameWithType: IsoDateTimeConverter.DateTimeFormat
+  fullName: Newtonsoft.Json.Converters.IsoDateTimeConverter.DateTimeFormat
+- uid: Newtonsoft.Json.Converters.IsoDateTimeConverter.Culture
+  commentId: P:Newtonsoft.Json.Converters.IsoDateTimeConverter.Culture
+  parent: Newtonsoft.Json.Converters.IsoDateTimeConverter
+  isExternal: true
+  name: Culture
+  nameWithType: IsoDateTimeConverter.Culture
+  fullName: Newtonsoft.Json.Converters.IsoDateTimeConverter.Culture
+- uid: Newtonsoft.Json.Converters.DateTimeConverterBase.CanConvert(System.Type)
+  commentId: M:Newtonsoft.Json.Converters.DateTimeConverterBase.CanConvert(System.Type)
+  parent: Newtonsoft.Json.Converters.DateTimeConverterBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: CanConvert(Type)
+  nameWithType: DateTimeConverterBase.CanConvert(Type)
+  fullName: Newtonsoft.Json.Converters.DateTimeConverterBase.CanConvert(System.Type)
+  spec.csharp:
+  - uid: Newtonsoft.Json.Converters.DateTimeConverterBase.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.Converters.DateTimeConverterBase.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter.CanRead
+  commentId: P:Newtonsoft.Json.JsonConverter.CanRead
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanRead
+  nameWithType: JsonConverter.CanRead
+  fullName: Newtonsoft.Json.JsonConverter.CanRead
+- uid: Newtonsoft.Json.JsonConverter.CanWrite
+  commentId: P:Newtonsoft.Json.JsonConverter.CanWrite
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanWrite
+  nameWithType: JsonConverter.CanWrite
+  fullName: Newtonsoft.Json.JsonConverter.CanWrite
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Newtonsoft.Json.Converters
+  commentId: N:Newtonsoft.Json.Converters
+  isExternal: true
+  name: Newtonsoft.Json.Converters
+  nameWithType: Newtonsoft.Json.Converters
+  fullName: Newtonsoft.Json.Converters
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Converters
+    name: Converters
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Converters
+    name: Converters
+    isExternal: true
+- uid: Picturepark.SDK.V1.Conversion.DateFieldConverter.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.Conversion.DateFieldConverter.#ctor
+  href: Picturepark.SDK.V1.Conversion.DateFieldConverter.html#Picturepark_SDK_V1_Conversion_DateFieldConverter__ctor
+  name: DateFieldConverter
+  nameWithType: DateFieldConverter.DateFieldConverter
+  fullName: Picturepark.SDK.V1.Conversion.DateFieldConverter.DateFieldConverter
+  nameWithType.vb: DateFieldConverter.New
+  fullName.vb: Picturepark.SDK.V1.Conversion.DateFieldConverter.New
+  name.vb: New

@@ -1,0 +1,305 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.TraceLevel
+  commentId: T:Picturepark.SDK.V1.Contract.TraceLevel
+  id: TraceLevel
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.TraceLevel.Critical
+  - Picturepark.SDK.V1.Contract.TraceLevel.Error
+  - Picturepark.SDK.V1.Contract.TraceLevel.Information
+  - Picturepark.SDK.V1.Contract.TraceLevel.Verbose
+  - Picturepark.SDK.V1.Contract.TraceLevel.Warning
+  langs:
+  - csharp
+  - vb
+  name: TraceLevel
+  nameWithType: TraceLevel
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TraceLevel
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5738
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      [Flags]
+
+      public enum TraceLevel
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      <Flags>
+
+      Public Enum TraceLevel
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.TraceLevel.Critical
+  commentId: F:Picturepark.SDK.V1.Contract.TraceLevel.Critical
+  id: Critical
+  parent: Picturepark.SDK.V1.Contract.TraceLevel
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: TraceLevel.Critical
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel.Critical
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Critical
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5743
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Critical")]
+
+      Critical = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.TraceLevel
+    content.vb: >-
+      <EnumMember(Value:="Critical")>
+
+      Critical = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Critical
+- uid: Picturepark.SDK.V1.Contract.TraceLevel.Error
+  commentId: F:Picturepark.SDK.V1.Contract.TraceLevel.Error
+  id: Error
+  parent: Picturepark.SDK.V1.Contract.TraceLevel
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: TraceLevel.Error
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel.Error
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Error
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5746
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Error")]
+
+      Error = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.TraceLevel
+    content.vb: >-
+      <EnumMember(Value:="Error")>
+
+      Error = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Error
+- uid: Picturepark.SDK.V1.Contract.TraceLevel.Warning
+  commentId: F:Picturepark.SDK.V1.Contract.TraceLevel.Warning
+  id: Warning
+  parent: Picturepark.SDK.V1.Contract.TraceLevel
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: TraceLevel.Warning
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel.Warning
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Warning
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5749
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Warning")]
+
+      Warning = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.TraceLevel
+    content.vb: >-
+      <EnumMember(Value:="Warning")>
+
+      Warning = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Warning
+- uid: Picturepark.SDK.V1.Contract.TraceLevel.Information
+  commentId: F:Picturepark.SDK.V1.Contract.TraceLevel.Information
+  id: Information
+  parent: Picturepark.SDK.V1.Contract.TraceLevel
+  langs:
+  - csharp
+  - vb
+  name: Information
+  nameWithType: TraceLevel.Information
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel.Information
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Information
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5752
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Information")]
+
+      Information = 8
+    return:
+      type: Picturepark.SDK.V1.Contract.TraceLevel
+    content.vb: >-
+      <EnumMember(Value:="Information")>
+
+      Information = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Information
+- uid: Picturepark.SDK.V1.Contract.TraceLevel.Verbose
+  commentId: F:Picturepark.SDK.V1.Contract.TraceLevel.Verbose
+  id: Verbose
+  parent: Picturepark.SDK.V1.Contract.TraceLevel
+  langs:
+  - csharp
+  - vb
+  name: Verbose
+  nameWithType: TraceLevel.Verbose
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel.Verbose
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Verbose
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5755
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Verbose")]
+
+      Verbose = 16
+    return:
+      type: Picturepark.SDK.V1.Contract.TraceLevel
+    content.vb: >-
+      <EnumMember(Value:="Verbose")>
+
+      Verbose = 16
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Verbose
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.TraceLevel
+  commentId: T:Picturepark.SDK.V1.Contract.TraceLevel
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TraceLevel.html
+  name: TraceLevel
+  nameWithType: TraceLevel
+  fullName: Picturepark.SDK.V1.Contract.TraceLevel

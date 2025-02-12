@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Builders
+  commentId: N:Picturepark.SDK.V1.Builders
+  id: Picturepark.SDK.V1.Builders
+  children:
+  - Picturepark.SDK.V1.Builders.BuilderBase
+  - Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Builders
+  nameWithType: Picturepark.SDK.V1.Builders
+  fullName: Picturepark.SDK.V1.Builders
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1
+references:
+- uid: Picturepark.SDK.V1.Builders.BuilderBase
+  commentId: T:Picturepark.SDK.V1.Builders.BuilderBase
+  parent: Picturepark.SDK.V1.Builders
+  href: Picturepark.SDK.V1.Builders.BuilderBase.html
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: Picturepark.SDK.V1.Builders.BuilderBase
+- uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  commentId: T:Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+  parent: Picturepark.SDK.V1.Builders
+  href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html
+  name: SchemaIndexingInfoBuilder<T>
+  nameWithType: SchemaIndexingInfoBuilder<T>
+  fullName: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder<T>
+  nameWithType.vb: SchemaIndexingInfoBuilder(Of T)
+  fullName.vb: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder(Of T)
+  name.vb: SchemaIndexingInfoBuilder(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    name: SchemaIndexingInfoBuilder
+    href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder`1
+    name: SchemaIndexingInfoBuilder
+    href: Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Builders
+  commentId: N:Picturepark.SDK.V1.Builders
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Builders
+  nameWithType: Picturepark.SDK.V1.Builders
+  fullName: Picturepark.SDK.V1.Builders
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Builders
+    name: Builders
+    href: Picturepark.SDK.V1.Builders.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Builders
+    name: Builders
+    href: Picturepark.SDK.V1.Builders.html

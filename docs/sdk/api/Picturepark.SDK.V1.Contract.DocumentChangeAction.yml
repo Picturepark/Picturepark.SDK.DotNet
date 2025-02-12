@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  commentId: T:Picturepark.SDK.V1.Contract.DocumentChangeAction
+  id: DocumentChangeAction
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.DocumentChangeAction.Activate
+  - Picturepark.SDK.V1.Contract.DocumentChangeAction.Create
+  - Picturepark.SDK.V1.Contract.DocumentChangeAction.Deactivate
+  - Picturepark.SDK.V1.Contract.DocumentChangeAction.Delete
+  - Picturepark.SDK.V1.Contract.DocumentChangeAction.Update
+  langs:
+  - csharp
+  - vb
+  name: DocumentChangeAction
+  nameWithType: DocumentChangeAction
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DocumentChangeAction
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 27805
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum DocumentChangeAction
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum DocumentChangeAction
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction.Create
+  commentId: F:Picturepark.SDK.V1.Contract.DocumentChangeAction.Create
+  id: Create
+  parent: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  langs:
+  - csharp
+  - vb
+  name: Create
+  nameWithType: DocumentChangeAction.Create
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction.Create
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Create
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 27809
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Create")]
+
+      Create = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.DocumentChangeAction
+    content.vb: >-
+      <EnumMember(Value:="Create")>
+
+      Create = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Create
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction.Update
+  commentId: F:Picturepark.SDK.V1.Contract.DocumentChangeAction.Update
+  id: Update
+  parent: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  langs:
+  - csharp
+  - vb
+  name: Update
+  nameWithType: DocumentChangeAction.Update
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction.Update
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Update
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 27812
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Update")]
+
+      Update = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.DocumentChangeAction
+    content.vb: >-
+      <EnumMember(Value:="Update")>
+
+      Update = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Update
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction.Delete
+  commentId: F:Picturepark.SDK.V1.Contract.DocumentChangeAction.Delete
+  id: Delete
+  parent: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  langs:
+  - csharp
+  - vb
+  name: Delete
+  nameWithType: DocumentChangeAction.Delete
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction.Delete
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Delete
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 27815
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Delete")]
+
+      Delete = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.DocumentChangeAction
+    content.vb: >-
+      <EnumMember(Value:="Delete")>
+
+      Delete = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Delete
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction.Activate
+  commentId: F:Picturepark.SDK.V1.Contract.DocumentChangeAction.Activate
+  id: Activate
+  parent: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  langs:
+  - csharp
+  - vb
+  name: Activate
+  nameWithType: DocumentChangeAction.Activate
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction.Activate
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Activate
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 27818
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Activate")]
+
+      Activate = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.DocumentChangeAction
+    content.vb: >-
+      <EnumMember(Value:="Activate")>
+
+      Activate = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Activate
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction.Deactivate
+  commentId: F:Picturepark.SDK.V1.Contract.DocumentChangeAction.Deactivate
+  id: Deactivate
+  parent: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  langs:
+  - csharp
+  - vb
+  name: Deactivate
+  nameWithType: DocumentChangeAction.Deactivate
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction.Deactivate
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Deactivate
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 27821
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Deactivate")]
+
+      Deactivate = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.DocumentChangeAction
+    content.vb: >-
+      <EnumMember(Value:="Deactivate")>
+
+      Deactivate = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Deactivate
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.DocumentChangeAction
+  commentId: T:Picturepark.SDK.V1.Contract.DocumentChangeAction
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DocumentChangeAction.html
+  name: DocumentChangeAction
+  nameWithType: DocumentChangeAction
+  fullName: Picturepark.SDK.V1.Contract.DocumentChangeAction

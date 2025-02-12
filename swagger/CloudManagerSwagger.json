@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark Cloud Manager API V1",
@@ -2732,6 +2732,128 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SnapshotRepositoryArchiveRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotRepository"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/backup/repository/externalMetadata": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_SetExternalMetadata",
+        "requestBody": {
+          "x-name": "updateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotRepositoryMetadataUpdateRequest"
               }
             }
           },
@@ -18247,6 +18369,61 @@
           }
         ]
       },
+      "TreeAggregatorOnlyAllowedInTopLevelAggregationsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregatorInvalidFieldTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregatorInnerAggregationsNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -19875,35 +20052,6 @@
           }
         ]
       },
-      "SchemaFieldTreeViewInvalidMaxRecursionsException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "path": {
-                "type": "string",
-                "nullable": true
-              },
-              "maxRecursions": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
       "SchemaFieldTreeViewTagboxFieldRequiredException": {
         "allOf": [
           {
@@ -19948,6 +20096,35 @@
               },
               "schemaType": {
                 "$ref": "#/components/schemas/SchemaType"
+              }
+            }
+          }
+        ]
+      },
+      "TagboxInUseInTreeViewFieldException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "tagboxFieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "treeViewFieldSchemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "treeViewFieldId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -22728,6 +22905,15 @@
             "items": {
               "$ref": "#/components/schemas/AggregationResult"
             }
+          },
+          "detail": {
+            "description": "Detailed information about the aggregation result item.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AggregationResultItemDetailBase"
+              }
+            ]
           }
         }
       },
@@ -22783,6 +22969,7 @@
             "TermsFilter": "#/components/schemas/TermsFilter",
             "ChildFilter": "#/components/schemas/ChildFilter",
             "ParentFilter": "#/components/schemas/ParentFilter",
+            "TreeFilter": "#/components/schemas/TreeFilter",
             "AggregationFilter": "#/components/schemas/AggregationFilter"
           }
         },
@@ -23284,6 +23471,98 @@
           }
         ]
       },
+      "TreeFilter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          },
+          {
+            "type": "object",
+            "description": "Filters results based on a tree structure and a path.",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "Field to filter on.",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to filter on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationResultItemDetailBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TreeAggregationResultItemDetail": "#/components/schemas/TreeAggregationResultItemDetail"
+          }
+        },
+        "description": "Detail for an AggregationResultItem.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TreeAggregationResultItemDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AggregationResultItemDetailBase"
+          },
+          {
+            "type": "object",
+            "description": "Detail for a tree aggregation result item.",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Path of the item. Use together with TreeFilter.",
+                "nullable": true
+              },
+              "resolvedPathComponents": {
+                "type": "array",
+                "description": "Resolved path components of the path.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/TreeAggregationResultPathComponent"
+                }
+              },
+              "hasChildren": {
+                "type": "boolean",
+                "description": "Indicates if the node contains children."
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregationResultPathComponent": {
+        "type": "object",
+        "description": "Component of a tree path.",
+        "additionalProperties": false,
+        "properties": {
+          "pathComponent": {
+            "type": "string",
+            "description": "Raw path component.",
+            "nullable": true
+          },
+          "displayValue": {
+            "type": "string",
+            "description": "Display value of the path component.",
+            "nullable": true
+          }
+        }
+      },
       "SearchBehaviorBaseResultOfBusinessProcess": {
         "allOf": [
           {
@@ -23471,7 +23750,8 @@
             "NumericRangeAggregator": "#/components/schemas/NumericRangeAggregator",
             "TermsAggregator": "#/components/schemas/TermsAggregator",
             "TermsRelationAggregator": "#/components/schemas/TermsRelationAggregator",
-            "TermsEnumAggregator": "#/components/schemas/TermsEnumAggregator"
+            "TermsEnumAggregator": "#/components/schemas/TermsEnumAggregator",
+            "TreeAggregator": "#/components/schemas/TreeAggregator"
           }
         },
         "description": "It is the base class for all aggregators.",
@@ -23923,6 +24203,53 @@
           }
         ]
       },
+      "TreeAggregator": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AggregatorBase"
+          },
+          {
+            "type": "object",
+            "description": "Aggregator for a FieldTreeView.",
+            "additionalProperties": false,
+            "required": [
+              "field"
+            ],
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "The fields ID to execute the aggregation on.",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to get buckets for.\nRemark: If this is not null, missing items will only be returned if they're a direct child of this path.",
+                "nullable": true
+              },
+              "searchString": {
+                "type": "string",
+                "description": "Search string to filter the buckets.",
+                "nullable": true
+              },
+              "size": {
+                "type": "integer",
+                "description": "The size parameter can be set to define how many buckets should be returned out of the overall list.",
+                "format": "int32",
+                "nullable": true
+              },
+              "sortDirection": {
+                "description": "Sorting for results. If null, sorts by item count.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SortDirection"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
@@ -23958,6 +24285,10 @@
           },
           "isArchived": {
             "type": "boolean"
+          },
+          "externalMetadata": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -24820,6 +25151,11 @@
                 "$ref": "#/components/schemas/ImageOptimizationLicenseState"
               }
             ]
+          },
+          "enableTreeView": {
+            "type": "boolean",
+            "description": "License flag to enable tree view",
+            "nullable": true
           }
         }
       },
@@ -24961,7 +25297,12 @@
           },
           "baseUrl": {
             "type": "string",
-            "description": "Base url for for shares",
+            "description": "Base url for customer",
+            "nullable": true
+          },
+          "contentDeliveryBaseUrl": {
+            "type": "string",
+            "description": "ContentDelivery Base url for shares",
             "nullable": true
           },
           "hostConfiguration": {
@@ -25130,7 +25471,6 @@
           "endTime",
           "endTimeInMilliseconds",
           "repositoryIsArchived",
-          "startTime",
           "startTimeInMilliseconds",
           "entityType",
           "restoreDate"
@@ -25196,7 +25536,8 @@
           "startTime": {
             "type": "string",
             "description": "The snapshot StartTime.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "startTimeInMilliseconds": {
             "type": "integer",
@@ -25455,6 +25796,20 @@
           }
         }
       },
+      "SnapshotRepositoryMetadataUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "repositoryName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "SnapshotRepositorySearchByNameRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -25589,6 +25944,13 @@
           "ownerEmailAddress": {
             "type": "string",
             "nullable": true
+          },
+          "readWriteUserExcludedEmailAddressRegexes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
           "serviceProviders": {
             "type": "array",
@@ -28211,6 +28573,13 @@
             "type": "string",
             "nullable": true
           },
+          "readWriteUserExcludedEmailAddressRegexes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "languageConfiguration": {
             "nullable": true,
             "oneOf": [
@@ -28642,6 +29011,13 @@
           "ownerEmailAddress": {
             "type": "string",
             "nullable": true
+          },
+          "readWriteUserExcludedEmailAddressRegexes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
           "corsAllowedHosts": {
             "type": "array",
@@ -30892,7 +31268,8 @@
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
             "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
-            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent",
+            "CdnStatisticsEvent": "#/components/schemas/CdnStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -31464,6 +31841,72 @@
             }
           }
         ]
+      },
+      "CdnStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "traffic": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CdnTrafficValues"
+                }
+              },
+              "reportedTimeStart": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reportedTimeEnd": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      },
+      "CdnTrafficValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "originBytesFetched",
+          "originBytesReceived",
+          "cdnBytesReceived",
+          "cdnBytesSent",
+          "bytesTotal",
+          "requests"
+        ],
+        "properties": {
+          "originBytesFetched": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "originBytesReceived": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cdnBytesReceived": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cdnBytesSent": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bytesTotal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "requests": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
       },
       "Message": {
         "type": "object",

@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+  commentId: N:Picturepark.SDK.V1.ServiceProvider.Buffer
+  id: Picturepark.SDK.V1.ServiceProvider.Buffer
+  children:
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.ServiceProvider.Buffer
+  nameWithType: Picturepark.SDK.V1.ServiceProvider.Buffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+references:
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html
+  name: EventArgsLiveStreamMessage
+  nameWithType: EventArgsLiveStreamMessage
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html
+  name: LiveStreamBuffer
+  nameWithType: LiveStreamBuffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+  parent: Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue.html
+  name: LiveStreamBufferPriorityQueue
+  nameWithType: LiveStreamBufferPriorityQueue
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBufferPriorityQueue
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.html
+  name: LiveStreamConsumer
+  nameWithType: LiveStreamConsumer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+  commentId: N:Picturepark.SDK.V1.ServiceProvider.Buffer
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.ServiceProvider.Buffer
+  nameWithType: Picturepark.SDK.V1.ServiceProvider.Buffer
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+    name: Buffer
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer
+    name: Buffer
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.html

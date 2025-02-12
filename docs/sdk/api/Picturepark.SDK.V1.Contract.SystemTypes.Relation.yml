@@ -1,0 +1,525 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  commentId: T:Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  id: Relation
+  parent: Picturepark.SDK.V1.Contract.SystemTypes
+  children:
+  - Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId
+  - Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType
+  - Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType
+  - Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId
+  langs:
+  - csharp
+  - vb
+  name: Relation
+  nameWithType: Relation
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Relation
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.SystemTypes
+  syntax:
+    content: public class Relation
+    content.vb: Public Class Relation
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId
+  commentId: P:Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId
+  id: RelationId
+  parent: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  langs:
+  - csharp
+  - vb
+  name: RelationId
+  nameWithType: Relation.RelationId
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RelationId
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.SystemTypes
+  syntax:
+    content: >-
+      [JsonProperty("_relId")]
+
+      public string RelationId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("_relId")>
+
+      Public Property RelationId As String
+  overload: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _relId
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType
+  commentId: P:Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType
+  id: RelationType
+  parent: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  langs:
+  - csharp
+  - vb
+  name: RelationType
+  nameWithType: Relation.RelationType
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RelationType
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+    startLine: 9
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.SystemTypes
+  syntax:
+    content: >-
+      [JsonProperty("_relationType")]
+
+      public string RelationType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("_relationType")>
+
+      Public Property RelationType As String
+  overload: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _relationType
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType
+  commentId: P:Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType
+  id: TargetDocType
+  parent: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  langs:
+  - csharp
+  - vb
+  name: TargetDocType
+  nameWithType: Relation.TargetDocType
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TargetDocType
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.SystemTypes
+  syntax:
+    content: >-
+      [JsonProperty("_targetDocType")]
+
+      public string TargetDocType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("_targetDocType")>
+
+      Public Property TargetDocType As String
+  overload: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _targetDocType
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId
+  commentId: P:Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId
+  id: TargetId
+  parent: Picturepark.SDK.V1.Contract.SystemTypes.Relation
+  langs:
+  - csharp
+  - vb
+  name: TargetId
+  nameWithType: Relation.TargetId
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TargetId
+    path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
+    startLine: 15
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract.SystemTypes
+  syntax:
+    content: >-
+      [JsonProperty("_targetId")]
+
+      public string TargetId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("_targetId")>
+
+      Public Property TargetId As String
+  overload: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: _targetId
+references:
+- uid: Picturepark.SDK.V1.Contract.SystemTypes
+  commentId: N:Picturepark.SDK.V1.Contract.SystemTypes
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.SystemTypes
+  nameWithType: Picturepark.SDK.V1.Contract.SystemTypes
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.SystemTypes
+    name: SystemTypes
+    href: Picturepark.SDK.V1.Contract.SystemTypes.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.SystemTypes
+    name: SystemTypes
+    href: Picturepark.SDK.V1.Contract.SystemTypes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId
+  href: Picturepark.SDK.V1.Contract.SystemTypes.Relation.html#Picturepark_SDK_V1_Contract_SystemTypes_Relation_RelationId
+  name: RelationId
+  nameWithType: Relation.RelationId
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType
+  href: Picturepark.SDK.V1.Contract.SystemTypes.Relation.html#Picturepark_SDK_V1_Contract_SystemTypes_Relation_RelationType
+  name: RelationType
+  nameWithType: Relation.RelationType
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.RelationType
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType
+  href: Picturepark.SDK.V1.Contract.SystemTypes.Relation.html#Picturepark_SDK_V1_Contract_SystemTypes_Relation_TargetDocType
+  name: TargetDocType
+  nameWithType: Relation.TargetDocType
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetDocType
+- uid: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId
+  href: Picturepark.SDK.V1.Contract.SystemTypes.Relation.html#Picturepark_SDK_V1_Contract_SystemTypes_Relation_TargetId
+  name: TargetId
+  nameWithType: Relation.TargetId
+  fullName: Picturepark.SDK.V1.Contract.SystemTypes.Relation.TargetId

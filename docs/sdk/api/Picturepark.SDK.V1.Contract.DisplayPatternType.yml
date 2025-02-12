@@ -1,0 +1,300 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType
+  commentId: T:Picturepark.SDK.V1.Contract.DisplayPatternType
+  id: DisplayPatternType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.DisplayPatternType.Detail
+  - Picturepark.SDK.V1.Contract.DisplayPatternType.DownloadFileName
+  - Picturepark.SDK.V1.Contract.DisplayPatternType.List
+  - Picturepark.SDK.V1.Contract.DisplayPatternType.Name
+  - Picturepark.SDK.V1.Contract.DisplayPatternType.Thumbnail
+  langs:
+  - csharp
+  - vb
+  name: DisplayPatternType
+  nameWithType: DisplayPatternType
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayPatternType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 11969
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The display pattern type
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum DisplayPatternType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum DisplayPatternType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType.Thumbnail
+  commentId: F:Picturepark.SDK.V1.Contract.DisplayPatternType.Thumbnail
+  id: Thumbnail
+  parent: Picturepark.SDK.V1.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: Thumbnail
+  nameWithType: DisplayPatternType.Thumbnail
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType.Thumbnail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Thumbnail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 11973
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Thumbnail")]
+
+      Thumbnail = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="Thumbnail")>
+
+      Thumbnail = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Thumbnail
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType.List
+  commentId: F:Picturepark.SDK.V1.Contract.DisplayPatternType.List
+  id: List
+  parent: Picturepark.SDK.V1.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: List
+  nameWithType: DisplayPatternType.List
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType.List
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: List
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 11976
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "List")]
+
+      List = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="List")>
+
+      List = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: List
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType.Detail
+  commentId: F:Picturepark.SDK.V1.Contract.DisplayPatternType.Detail
+  id: Detail
+  parent: Picturepark.SDK.V1.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: Detail
+  nameWithType: DisplayPatternType.Detail
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType.Detail
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Detail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 11979
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Detail")]
+
+      Detail = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="Detail")>
+
+      Detail = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Detail
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType.Name
+  commentId: F:Picturepark.SDK.V1.Contract.DisplayPatternType.Name
+  id: Name
+  parent: Picturepark.SDK.V1.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: DisplayPatternType.Name
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType.Name
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Name
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 11982
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Name")]
+
+      Name = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="Name")>
+
+      Name = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Name
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType.DownloadFileName
+  commentId: F:Picturepark.SDK.V1.Contract.DisplayPatternType.DownloadFileName
+  id: DownloadFileName
+  parent: Picturepark.SDK.V1.Contract.DisplayPatternType
+  langs:
+  - csharp
+  - vb
+  name: DownloadFileName
+  nameWithType: DisplayPatternType.DownloadFileName
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType.DownloadFileName
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadFileName
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 11985
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DownloadFileName")]
+
+      DownloadFileName = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.DisplayPatternType
+    content.vb: >-
+      <EnumMember(Value:="DownloadFileName")>
+
+      DownloadFileName = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DownloadFileName
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.DisplayPatternType
+  commentId: T:Picturepark.SDK.V1.Contract.DisplayPatternType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DisplayPatternType.html
+  name: DisplayPatternType
+  nameWithType: DisplayPatternType
+  fullName: Picturepark.SDK.V1.Contract.DisplayPatternType

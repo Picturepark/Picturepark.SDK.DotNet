@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.ServiceProvider
+  commentId: N:Picturepark.SDK.V1.ServiceProvider
+  id: Picturepark.SDK.V1.ServiceProvider
+  children:
+  - Picturepark.SDK.V1.ServiceProvider.Configuration
+  - Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.ServiceProvider
+  nameWithType: Picturepark.SDK.V1.ServiceProvider
+  fullName: Picturepark.SDK.V1.ServiceProvider
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+references:
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Configuration
+  parent: Picturepark.SDK.V1.ServiceProvider
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html
+  name: Configuration
+  nameWithType: Configuration
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  href: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.html
+  name: ServiceProviderClient
+  nameWithType: ServiceProviderClient
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+- uid: Picturepark.SDK.V1.ServiceProvider
+  commentId: N:Picturepark.SDK.V1.ServiceProvider
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.ServiceProvider
+  nameWithType: Picturepark.SDK.V1.ServiceProvider
+  fullName: Picturepark.SDK.V1.ServiceProvider
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html

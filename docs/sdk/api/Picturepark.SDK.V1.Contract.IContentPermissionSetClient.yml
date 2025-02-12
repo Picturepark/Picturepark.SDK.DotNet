@@ -1,0 +1,1560 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  commentId: T:Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  id: IContentPermissionSetClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IContentPermissionSetClient
+  nameWithType: IContentPermissionSetClient
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IContentPermissionSetClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 405
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IContentPermissionSetClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IContentPermissionSetClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IContentPermissionSetClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 425
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get content permission set
+  remarks: Gets the content permission set detail information by the content permission set ID.
+  example: []
+  syntax:
+    content: Task<ContentPermissionSetDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Content permission set ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}
+      description: Detail of a content permission set
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of ContentPermissionSetDetail)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, ContentPermissionSetUpdateRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.UpdateAsync(string, ContentPermissionSetUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 444
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update content permission set
+  remarks: Updates the content permission set specified by the ID and based on supplied request.
+  example: []
+  syntax:
+    content: Task<ContentPermissionSetDetail> UpdateAsync(string id, ContentPermissionSetUpdateRequest permissionSet, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Content permission set ID.
+    - id: permissionSet
+      type: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest
+      description: Permission set
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}
+      description: Detail of a content permission set
+    content.vb: Function UpdateAsync(id As String, permissionSet As ContentPermissionSetUpdateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ContentPermissionSetDetail)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.UpdateAsync(String, ContentPermissionSetUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, ContentPermissionSetUpdateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, CancellationToken)
+  nameWithType: IContentPermissionSetClient.DeleteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 461
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete content permission set
+  remarks: Deletes the content permission set specified by the ID.
+  example: []
+  syntax:
+    content: Task DeleteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Content permission set ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.DeleteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync(String, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ContentPermissionSetCreateRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.CreateAsync(ContentPermissionSetCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 479
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create content permission set
+  remarks: Creates new content permission set based on supplied request.
+  example: []
+  syntax:
+    content: Task<ContentPermissionSetDetail> CreateAsync(ContentPermissionSetCreateRequest permissionSet, CancellationToken cancellationToken = default)
+    parameters:
+    - id: permissionSet
+      type: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest
+      description: Permission set
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}
+      description: Detail of a content permission set
+    content.vb: Function CreateAsync(permissionSet As ContentPermissionSetCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ContentPermissionSetDetail)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IContentPermissionSetClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 497
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple content permission sets
+  remarks: Gets multiple content permission set details by the content permission set IDs.
+  example: []
+  syntax:
+    content: Task<ICollection<ContentPermissionSetDetail>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Ids
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}}
+      description: Array of Detail of a content permission set
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of ContentPermissionSetDetail))
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest,System.Threading.CancellationToken)
+  id: TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: TransferOwnershipAsync(string, PermissionSetOwnershipTransferRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.TransferOwnershipAsync(string, PermissionSetOwnershipTransferRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync(string, Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferOwnershipAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 515
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Transfer ownership of content permission set
+  remarks: Transfers ownership of content permission set to supplied user.
+  example: []
+  syntax:
+    content: Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Content permission set ID.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest
+      description: Request to transfer the ownership of a permission set.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function TransferOwnershipAsync(id As String, request As PermissionSetOwnershipTransferRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.TransferOwnershipAsync(String, PermissionSetOwnershipTransferRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync(String, Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest, System.Threading.CancellationToken)
+  name.vb: TransferOwnershipAsync(String, PermissionSetOwnershipTransferRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync(System.String,System.Threading.CancellationToken)
+  id: GetPermissionsAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: GetPermissionsAsync(string, CancellationToken)
+  nameWithType: IContentPermissionSetClient.GetPermissionsAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetPermissionsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 533
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get permissions for content permission set
+  remarks: Returns permissions for the content permission set for the current user.
+  example: []
+  syntax:
+    content: Task<ICollection<PermissionSetRight>> GetPermissionsAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Content permission set ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.PermissionSetRight}}
+      description: Array of Permission set rights
+    content.vb: Function GetPermissionsAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of PermissionSetRight))
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.GetPermissionsAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync(String, System.Threading.CancellationToken)
+  name.vb: GetPermissionsAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest,System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(ContentPermissionSetCreateManyRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.CreateManyAsync(ContentPermissionSetCreateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 551
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create multiple content permission sets
+  remarks: Creates new content permission sets based on supplied requests.
+  example: []
+  syntax:
+    content: Task<BulkResponse> CreateManyAsync(ContentPermissionSetCreateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest
+      description: Request to create multiple content permission sets.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+      description: Response to a bulk operation
+    content.vb: Function CreateManyAsync(request As ContentPermissionSetCreateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BulkResponse)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest,System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(ContentPermissionSetUpdateManyRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.UpdateManyAsync(ContentPermissionSetUpdateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 569
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update multiple content permission sets
+  remarks: Updates the content permission sets specified by the IDs and based on supplied request.
+  example: []
+  syntax:
+    content: Task<BulkResponse> UpdateManyAsync(ContentPermissionSetUpdateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest
+      description: Request to update multiple content permission sets.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+      description: Response to a bulk operation
+    content.vb: Function UpdateManyAsync(request As ContentPermissionSetUpdateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BulkResponse)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest,System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(PermissionSetDeleteManyRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.DeleteManyAsync(PermissionSetDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 587
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple content permission sets
+  remarks: Deletes the content permission sets specified by the IDs.
+  example: []
+  syntax:
+    content: Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest
+      description: Request to delete multiple permission sets.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+      description: Response to a bulk operation
+    content.vb: Function DeleteManyAsync(request As PermissionSetDeleteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BulkResponse)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  id: TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferOwnershipManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 604
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Transfer ownership of multiple content permission sets
+  remarks: Transfers ownership of multiple content permission sets to respective supplied users.
+  example: []
+  syntax:
+    content: Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest
+      description: Request to transfer the ownership of multiple permission sets.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function TransferOwnershipManyAsync(request As PermissionSetOwnershipTransferManyRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetPermissionsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: GetPermissionsManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IContentPermissionSetClient.GetPermissionsManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetPermissionsManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 622
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get permissions for multiple content permission sets
+  remarks: Returns permissions for multiple content permission sets for the current user.
+  example: []
+  syntax:
+    content: Task<ICollection<PermissionSetUserPermissionRights>> GetPermissionsManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Ids
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights}}
+      description: Array of Rights that the current user has on a permission set
+    content.vb: Function GetPermissionsManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of PermissionSetUserPermissionRights))
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IContentPermissionSetClient.GetPermissionsManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetPermissionsManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(PermissionSetSearchRequest, CancellationToken)
+  nameWithType: IContentPermissionSetClient.SearchAsync(PermissionSetSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 640
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search content permission set
+  remarks: Searches content permission sets as specified in the search request.
+  example: []
+  syntax:
+    content: Task<PermissionSetSearchResult> SearchAsync(PermissionSetSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.PermissionSetSearchRequest
+      description: Request to search permission sets.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.PermissionSetSearchResult}
+      description: Result of a permission set search operation
+    content.vb: Function SearchAsync(request As PermissionSetSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of PermissionSetSearchResult)
+  overload: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IContentPermissionSetClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ContentPermissionSetDetail>
+  nameWithType: Task<ContentPermissionSetDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ContentPermissionSetDetail>
+  nameWithType.vb: Task(Of ContentPermissionSetDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ContentPermissionSetDetail)
+  name.vb: Task(Of ContentPermissionSetDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail
+    name: ContentPermissionSetDetail
+    href: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail
+    name: ContentPermissionSetDetail
+    href: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IContentPermissionSetClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest.html
+  name: ContentPermissionSetUpdateRequest
+  nameWithType: ContentPermissionSetUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_DeleteAsync_System_String_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IContentPermissionSetClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_CreateAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IContentPermissionSetClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest.html
+  name: ContentPermissionSetCreateRequest
+  nameWithType: ContentPermissionSetCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: IContentPermissionSetClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ContentPermissionSetDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<ContentPermissionSetDetail>>
+  nameWithType: Task<ICollection<ContentPermissionSetDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.ContentPermissionSetDetail>>
+  nameWithType.vb: Task(Of ICollection(Of ContentPermissionSetDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.ContentPermissionSetDetail))
+  name.vb: Task(Of ICollection(Of ContentPermissionSetDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail
+    name: ContentPermissionSetDetail
+    href: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail
+    name: ContentPermissionSetDetail
+    href: Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_
+  name: TransferOwnershipAsync
+  nameWithType: IContentPermissionSetClient.TransferOwnershipAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipAsync
+- uid: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest
+  commentId: T:Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest.html
+  name: PermissionSetOwnershipTransferRequest
+  nameWithType: PermissionSetOwnershipTransferRequest
+  fullName: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetPermissionsAsync_System_String_System_Threading_CancellationToken_
+  name: GetPermissionsAsync
+  nameWithType: IContentPermissionSetClient.GetPermissionsAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.PermissionSetRight}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.PermissionSetRight}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<PermissionSetRight>>
+  nameWithType: Task<ICollection<PermissionSetRight>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.PermissionSetRight>>
+  nameWithType.vb: Task(Of ICollection(Of PermissionSetRight))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.PermissionSetRight))
+  name.vb: Task(Of ICollection(Of PermissionSetRight))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.PermissionSetRight
+    name: PermissionSetRight
+    href: Picturepark.SDK.V1.Contract.PermissionSetRight.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.PermissionSetRight
+    name: PermissionSetRight
+    href: Picturepark.SDK.V1.Contract.PermissionSetRight.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: IContentPermissionSetClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.CreateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest.html
+  name: ContentPermissionSetCreateManyRequest
+  nameWithType: ContentPermissionSetCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BulkResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BulkResponse>
+  nameWithType: Task<BulkResponse>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BulkResponse>
+  nameWithType.vb: Task(Of BulkResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BulkResponse)
+  name.vb: Task(Of BulkResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BulkResponse
+    name: BulkResponse
+    href: Picturepark.SDK.V1.Contract.BulkResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BulkResponse
+    name: BulkResponse
+    href: Picturepark.SDK.V1.Contract.BulkResponse.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: IContentPermissionSetClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest.html
+  name: ContentPermissionSetUpdateManyRequest
+  nameWithType: ContentPermissionSetUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: IContentPermissionSetClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest.html
+  name: PermissionSetDeleteManyRequest
+  nameWithType: PermissionSetDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_
+  name: TransferOwnershipManyAsync
+  nameWithType: IContentPermissionSetClient.TransferOwnershipManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.TransferOwnershipManyAsync
+- uid: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest.html
+  name: PermissionSetOwnershipTransferManyRequest
+  nameWithType: PermissionSetOwnershipTransferManyRequest
+  fullName: Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetPermissionsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetPermissionsManyAsync
+  nameWithType: IContentPermissionSetClient.GetPermissionsManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.GetPermissionsManyAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<PermissionSetUserPermissionRights>>
+  nameWithType: Task<ICollection<PermissionSetUserPermissionRights>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights>>
+  nameWithType.vb: Task(Of ICollection(Of PermissionSetUserPermissionRights))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights))
+  name.vb: Task(Of ICollection(Of PermissionSetUserPermissionRights))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights
+    name: PermissionSetUserPermissionRights
+    href: Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights
+    name: PermissionSetUserPermissionRights
+    href: Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights.html
+  - name: )
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IContentPermissionSetClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.PermissionSetSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.PermissionSetSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html
+  name: PermissionSetSearchRequest
+  nameWithType: PermissionSetSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.PermissionSetSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.PermissionSetSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.PermissionSetSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PermissionSetSearchResult>
+  nameWithType: Task<PermissionSetSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.PermissionSetSearchResult>
+  nameWithType.vb: Task(Of PermissionSetSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.PermissionSetSearchResult)
+  name.vb: Task(Of PermissionSetSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.PermissionSetSearchResult
+    name: PermissionSetSearchResult
+    href: Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.PermissionSetSearchResult
+    name: PermissionSetSearchResult
+    href: Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html
+  - name: )

@@ -1,0 +1,889 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  id: NodeInfo
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version
+  - Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo
+  langs:
+  - csharp
+  - vb
+  name: NodeInfo
+  nameWithType: NodeInfo
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NodeInfo
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22476
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class NodeInfo
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class NodeInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id
+  id: Id
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: NodeInfo.Id
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Id
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22479
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("id", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Id As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName
+  id: HostName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: HostName
+  nameWithType: NodeInfo.HostName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HostName
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22482
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("hostName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string HostName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("hostName", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property HostName As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: hostName
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime
+  id: LastResponseTime
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: LastResponseTime
+  nameWithType: NodeInfo.LastResponseTime
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LastResponseTime
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22485
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("lastResponseTime", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      public DateTime LastResponseTime { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <JsonProperty("lastResponseTime", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      Public Property LastResponseTime As Date
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastResponseTime
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName
+  id: ServiceName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: ServiceName
+  nameWithType: NodeInfo.ServiceName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ServiceName
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22489
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("serviceName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ServiceName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("serviceName", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ServiceName As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: serviceName
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version
+  id: Version
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: NodeInfo.Version
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Version
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22492
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("version", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Version { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("version", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Version As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: version
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo
+  id: VersionInfo
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: VersionInfo
+  nameWithType: NodeInfo.VersionInfo
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: VersionInfo
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22495
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("versionInfo", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string VersionInfo { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("versionInfo", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property VersionInfo As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: versionInfo
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release
+  id: Release
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: Release
+  nameWithType: NodeInfo.Release
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Release
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22498
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("release", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Release { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("release", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Release As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: release
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel
+  id: LogLevel
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: NodeInfo.LogLevel
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LogLevel
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22501
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("logLevel", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string LogLevel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("logLevel", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property LogLevel As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: logLevel
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: NodeInfo.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22504
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: NodeInfo.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 22510
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static NodeInfo FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+    content.vb: Public Shared Function FromJson(data As String) As NodeInfo
+  overload: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson*
+  nameWithType.vb: NodeInfo.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_Id
+  name: Id
+  nameWithType: NodeInfo.Id
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_HostName
+  name: HostName
+  nameWithType: NodeInfo.HostName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.HostName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_LastResponseTime
+  name: LastResponseTime
+  nameWithType: NodeInfo.LastResponseTime
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LastResponseTime
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_ServiceName
+  name: ServiceName
+  nameWithType: NodeInfo.ServiceName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ServiceName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_Version
+  name: Version
+  nameWithType: NodeInfo.Version
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Version
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_VersionInfo
+  name: VersionInfo
+  nameWithType: NodeInfo.VersionInfo
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.VersionInfo
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_Release
+  name: Release
+  nameWithType: NodeInfo.Release
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.Release
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_LogLevel
+  name: LogLevel
+  nameWithType: NodeInfo.LogLevel
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.LogLevel
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_ToJson
+  name: ToJson
+  nameWithType: NodeInfo.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html#Picturepark_SDK_V1_CloudManager_Contract_NodeInfo_FromJson_System_String_
+  name: FromJson
+  nameWithType: NodeInfo.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.NodeInfo
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo.html
+  name: NodeInfo
+  nameWithType: NodeInfo
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.NodeInfo

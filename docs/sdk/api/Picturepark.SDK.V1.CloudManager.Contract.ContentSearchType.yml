@@ -1,0 +1,222 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  id: ContentSearchType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.FullText
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.Metadata
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.MetadataAndFullText
+  langs:
+  - csharp
+  - vb
+  name: ContentSearchType
+  nameWithType: ContentSearchType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentSearchType
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 12742
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ContentSearchType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ContentSearchType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.Metadata
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.Metadata
+  id: Metadata
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: ContentSearchType.Metadata
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.Metadata
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Metadata
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 12746
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Metadata")]
+
+      Metadata = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+    content.vb: >-
+      <EnumMember(Value:="Metadata")>
+
+      Metadata = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Metadata
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.FullText
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.FullText
+  id: FullText
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  langs:
+  - csharp
+  - vb
+  name: FullText
+  nameWithType: ContentSearchType.FullText
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.FullText
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FullText
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 12749
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "FullText")]
+
+      FullText = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+    content.vb: >-
+      <EnumMember(Value:="FullText")>
+
+      FullText = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: FullText
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.MetadataAndFullText
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.MetadataAndFullText
+  id: MetadataAndFullText
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  langs:
+  - csharp
+  - vb
+  name: MetadataAndFullText
+  nameWithType: ContentSearchType.MetadataAndFullText
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.MetadataAndFullText
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: MetadataAndFullText
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 12752
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "MetadataAndFullText")]
+
+      MetadataAndFullText = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+    content.vb: >-
+      <EnumMember(Value:="MetadataAndFullText")>
+
+      MetadataAndFullText = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: MetadataAndFullText
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType.html
+  name: ContentSearchType
+  nameWithType: ContentSearchType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentSearchType

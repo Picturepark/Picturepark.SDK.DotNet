@@ -1,0 +1,880 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  id: TaggingConfigurationBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson
+  - Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink
+  langs:
+  - csharp
+  - vb
+  name: TaggingConfigurationBase
+  nameWithType: TaggingConfigurationBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TaggingConfigurationBase
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 16993
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonConverter(typeof(JsonInheritanceConverter), new object[] { "kind" })]
+
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public abstract class TaggingConfigurationBase
+    content.vb: >-
+      <JsonConverter(GetType(JsonInheritanceConverter), New Object() { "kind" })>
+
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public MustInherit Class TaggingConfigurationBase
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Picturepark.SDK.V1.CloudManager.Contract.AzureTaggingConfiguration
+  - Picturepark.SDK.V1.CloudManager.Contract.ClarifaiTaggingConfiguration
+  - Picturepark.SDK.V1.CloudManager.Contract.SimulatedTaggingConfiguration
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics
+  id: EnableImageAnalytics
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: EnableImageAnalytics
+  nameWithType: TaggingConfigurationBase.EnableImageAnalytics
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EnableImageAnalytics
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17000
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("enableImageAnalytics", Required = Required.Always)]
+
+      public bool EnableImageAnalytics { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("enableImageAnalytics", Required:=Required.Always)>
+
+      Public Property EnableImageAnalytics As Boolean
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: enableImageAnalytics
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  id: EnableLegacyTaggingBehavior
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: EnableLegacyTaggingBehavior
+  nameWithType: TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: EnableLegacyTaggingBehavior
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17003
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("enableLegacyTaggingBehavior", Required = Required.Always)]
+
+      public bool EnableLegacyTaggingBehavior { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("enableLegacyTaggingBehavior", Required:=Required.Always)>
+
+      Public Property EnableLegacyTaggingBehavior As Boolean
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: enableLegacyTaggingBehavior
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId
+  id: DefaultTagOutputFormatId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: DefaultTagOutputFormatId
+  nameWithType: TaggingConfigurationBase.DefaultTagOutputFormatId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DefaultTagOutputFormatId
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17006
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("defaultTagOutputFormatId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DefaultTagOutputFormatId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("defaultTagOutputFormatId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DefaultTagOutputFormatId As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: defaultTagOutputFormatId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  id: DefaultKeywordLookupCacheName
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: DefaultKeywordLookupCacheName
+  nameWithType: TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DefaultKeywordLookupCacheName
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17009
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("defaultKeywordLookupCacheName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DefaultKeywordLookupCacheName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("defaultKeywordLookupCacheName", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DefaultKeywordLookupCacheName As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: defaultKeywordLookupCacheName
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId
+  id: DefaultTaggingLayerId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: DefaultTaggingLayerId
+  nameWithType: TaggingConfigurationBase.DefaultTaggingLayerId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DefaultTaggingLayerId
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17012
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("defaultTaggingLayerId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DefaultTaggingLayerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("defaultTaggingLayerId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DefaultTaggingLayerId As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: defaultTaggingLayerId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId
+  id: DefaultFoundTagsFieldId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: DefaultFoundTagsFieldId
+  nameWithType: TaggingConfigurationBase.DefaultFoundTagsFieldId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DefaultFoundTagsFieldId
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17015
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("defaultFoundTagsFieldId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DefaultFoundTagsFieldId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("defaultFoundTagsFieldId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DefaultFoundTagsFieldId As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: defaultFoundTagsFieldId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  id: DefaultMissingKeywordsFieldId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: DefaultMissingKeywordsFieldId
+  nameWithType: TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DefaultMissingKeywordsFieldId
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17018
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("defaultMissingKeywordsFieldId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DefaultMissingKeywordsFieldId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("defaultMissingKeywordsFieldId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DefaultMissingKeywordsFieldId As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: defaultMissingKeywordsFieldId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink
+  id: UseDownloadLink
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: UseDownloadLink
+  nameWithType: TaggingConfigurationBase.UseDownloadLink
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UseDownloadLink
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17021
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [JsonProperty("useDownloadLink", Required = Required.Always)]
+
+      public bool UseDownloadLink { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("useDownloadLink", Required:=Required.Always)>
+
+      Public Property UseDownloadLink As Boolean
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: useDownloadLink
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: TaggingConfigurationBase.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17024
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: TaggingConfigurationBase.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 17030
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static TaggingConfigurationBase FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+    content.vb: Public Shared Function FromJson(data As String) As TaggingConfigurationBase
+  overload: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson*
+  nameWithType.vb: TaggingConfigurationBase.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_EnableImageAnalytics
+  name: EnableImageAnalytics
+  nameWithType: TaggingConfigurationBase.EnableImageAnalytics
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableImageAnalytics
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_EnableLegacyTaggingBehavior
+  name: EnableLegacyTaggingBehavior
+  nameWithType: TaggingConfigurationBase.EnableLegacyTaggingBehavior
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.EnableLegacyTaggingBehavior
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_DefaultTagOutputFormatId
+  name: DefaultTagOutputFormatId
+  nameWithType: TaggingConfigurationBase.DefaultTagOutputFormatId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTagOutputFormatId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_DefaultKeywordLookupCacheName
+  name: DefaultKeywordLookupCacheName
+  nameWithType: TaggingConfigurationBase.DefaultKeywordLookupCacheName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultKeywordLookupCacheName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_DefaultTaggingLayerId
+  name: DefaultTaggingLayerId
+  nameWithType: TaggingConfigurationBase.DefaultTaggingLayerId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultTaggingLayerId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_DefaultFoundTagsFieldId
+  name: DefaultFoundTagsFieldId
+  nameWithType: TaggingConfigurationBase.DefaultFoundTagsFieldId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultFoundTagsFieldId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_DefaultMissingKeywordsFieldId
+  name: DefaultMissingKeywordsFieldId
+  nameWithType: TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.DefaultMissingKeywordsFieldId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_UseDownloadLink
+  name: UseDownloadLink
+  nameWithType: TaggingConfigurationBase.UseDownloadLink
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.UseDownloadLink
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_ToJson
+  name: ToJson
+  nameWithType: TaggingConfigurationBase.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html#Picturepark_SDK_V1_CloudManager_Contract_TaggingConfigurationBase_FromJson_System_String_
+  name: FromJson
+  nameWithType: TaggingConfigurationBase.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html
+  name: TaggingConfigurationBase
+  nameWithType: TaggingConfigurationBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase

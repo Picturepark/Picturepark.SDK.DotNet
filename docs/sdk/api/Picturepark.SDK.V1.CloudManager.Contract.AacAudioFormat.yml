@@ -1,0 +1,775 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  id: AacAudioFormat
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate
+  - Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder
+  - Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile
+  - Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson
+  - Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate
+  langs:
+  - csharp
+  - vb
+  name: AacAudioFormat
+  nameWithType: AacAudioFormat
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AacAudioFormat
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19053
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Specifies Aac encoding for the output and additional settings for the encoder.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class AacAudioFormat : AudioFormatBase
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class AacAudioFormat Inherits AudioFormatBase
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+  - Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  - Picturepark.SDK.V1.CloudManager.Contract.AudioFormatBase
+  inheritedMembers:
+  - Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile
+  id: Profile
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  langs:
+  - csharp
+  - vb
+  name: Profile
+  nameWithType: AacAudioFormat.Profile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Profile
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19059
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Gets or sets the encoding profile.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("profile", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public Profile Profile { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Profile
+    content.vb: >-
+      <JsonProperty("profile", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property Profile As Profile
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: profile
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder
+  id: Coder
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  langs:
+  - csharp
+  - vb
+  name: Coder
+  nameWithType: AacAudioFormat.Coder
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Coder
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19066
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Gets or sets the encoding coder.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("coder", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public Coder Coder { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Coder
+    content.vb: >-
+      <JsonProperty("coder", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property Coder As Coder
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: coder
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate
+  id: Bitrate
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  langs:
+  - csharp
+  - vb
+  name: Bitrate
+  nameWithType: AacAudioFormat.Bitrate
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Bitrate
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19073
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Gets or sets the bitrate of the encoding in kbps.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("bitrate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public int? Bitrate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: >-
+      <JsonProperty("bitrate", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Bitrate As Integer?
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: bitrate
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate
+  id: VariableBitRate
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  langs:
+  - csharp
+  - vb
+  name: VariableBitRate
+  nameWithType: AacAudioFormat.VariableBitRate
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: VariableBitRate
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19079
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Gets or sets the encoding variable bit rate (VBR) - 1 is lowest quality and 5 is highest quality.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("variableBitRate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public int? VariableBitRate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: >-
+      <JsonProperty("variableBitRate", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property VariableBitRate As Integer?
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: variableBitRate
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: AacAudioFormat.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19082
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: AacAudioFormat.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19088
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static AacAudioFormat FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+    content.vb: Public Shared Function FromJson(data As String) As AacAudioFormat
+  overload: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson*
+  nameWithType.vb: AacAudioFormat.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html
+  name: FormatBase
+  nameWithType: FormatBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.html
+  name: FormatWithFixedExtensionBase
+  nameWithType: FormatWithFixedExtensionBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AudioFormatBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AudioFormatBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AudioFormatBase.html
+  name: AudioFormatBase
+  nameWithType: AudioFormatBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AudioFormatBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+  parent: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase
+  href: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatWithFixedExtensionBase_Extension
+  name: Extension
+  nameWithType: FormatWithFixedExtensionBase.Extension
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatWithFixedExtensionBase.Extension
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AacAudioFormat_Profile
+  name: Profile
+  nameWithType: AacAudioFormat.Profile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Profile
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Profile
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.Profile
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.Profile.html
+  name: Profile
+  nameWithType: Profile
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Profile
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AacAudioFormat_Coder
+  name: Coder
+  nameWithType: AacAudioFormat.Coder
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Coder
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.Coder
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.Coder.html
+  name: Coder
+  nameWithType: Coder
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Coder
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AacAudioFormat_Bitrate
+  name: Bitrate
+  nameWithType: AacAudioFormat.Bitrate
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.Bitrate
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AacAudioFormat_VariableBitRate
+  name: VariableBitRate
+  nameWithType: AacAudioFormat.VariableBitRate
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.VariableBitRate
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AacAudioFormat_ToJson
+  name: ToJson
+  nameWithType: AacAudioFormat.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html#Picturepark_SDK_V1_CloudManager_Contract_AacAudioFormat_FromJson_System_String_
+  name: FromJson
+  nameWithType: AacAudioFormat.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html
+  name: AacAudioFormat
+  nameWithType: AacAudioFormat
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat

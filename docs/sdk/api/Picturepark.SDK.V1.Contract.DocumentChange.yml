@@ -1,0 +1,724 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.DocumentChange
+  commentId: T:Picturepark.SDK.V1.Contract.DocumentChange
+  id: DocumentChange
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.DocumentChange.Action
+  - Picturepark.SDK.V1.Contract.DocumentChange.DocumentId
+  - Picturepark.SDK.V1.Contract.DocumentChange.DocumentName
+  - Picturepark.SDK.V1.Contract.DocumentChange.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp
+  - Picturepark.SDK.V1.Contract.DocumentChange.ToJson
+  - Picturepark.SDK.V1.Contract.DocumentChange.Version
+  langs:
+  - csharp
+  - vb
+  name: DocumentChange
+  nameWithType: DocumentChange
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DocumentChange
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43663
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class DocumentChange
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class DocumentChange
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.DocumentName
+  commentId: P:Picturepark.SDK.V1.Contract.DocumentChange.DocumentName
+  id: DocumentName
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: DocumentName
+  nameWithType: DocumentChange.DocumentName
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.DocumentName
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DocumentName
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43666
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("documentName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DocumentName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("documentName", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DocumentName As String
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.DocumentName*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: documentName
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.DocumentId
+  commentId: P:Picturepark.SDK.V1.Contract.DocumentChange.DocumentId
+  id: DocumentId
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: DocumentId
+  nameWithType: DocumentChange.DocumentId
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.DocumentId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DocumentId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43669
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("documentId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string DocumentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("documentId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DocumentId As String
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.DocumentId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: documentId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.Version
+  commentId: P:Picturepark.SDK.V1.Contract.DocumentChange.Version
+  id: Version
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: DocumentChange.Version
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.Version
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Version
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43672
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("version", Required = Required.Always)]
+
+      public long Version { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("version", Required:=Required.Always)>
+
+      Public Property Version As Long
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.Version*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: version
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.Action
+  commentId: P:Picturepark.SDK.V1.Contract.DocumentChange.Action
+  id: Action
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: Action
+  nameWithType: DocumentChange.Action
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.Action
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Action
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43675
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("action", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Action { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("action", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Action As String
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.Action*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: action
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp
+  commentId: P:Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp
+  id: TimeStamp
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: TimeStamp
+  nameWithType: DocumentChange.TimeStamp
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TimeStamp
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43678
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [JsonProperty("timeStamp", Required = Required.Always)]
+
+      [Required(AllowEmptyStrings = true)]
+
+      public DateTime TimeStamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <JsonProperty("timeStamp", Required:=Required.Always)>
+
+      <Required(AllowEmptyStrings:=True)>
+
+      Public Property TimeStamp As Date
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timeStamp
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AllowEmptyStrings
+      type: System.Boolean
+      value: true
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.DocumentChange.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: DocumentChange.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43682
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.ToJson*
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.DocumentChange.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.DocumentChange
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: DocumentChange.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43688
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static DocumentChange FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.DocumentChange
+    content.vb: Public Shared Function FromJson(data As String) As DocumentChange
+  overload: Picturepark.SDK.V1.Contract.DocumentChange.FromJson*
+  nameWithType.vb: DocumentChange.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.DocumentChange.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.DocumentName*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.DocumentName
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_DocumentName
+  name: DocumentName
+  nameWithType: DocumentChange.DocumentName
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.DocumentName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.DocumentId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.DocumentId
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_DocumentId
+  name: DocumentId
+  nameWithType: DocumentChange.DocumentId
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.DocumentId
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.Version*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.Version
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_Version
+  name: Version
+  nameWithType: DocumentChange.Version
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.Version
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.Action*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.Action
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_Action
+  name: Action
+  nameWithType: DocumentChange.Action
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.Action
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_TimeStamp
+  name: TimeStamp
+  nameWithType: DocumentChange.TimeStamp
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.TimeStamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.ToJson
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_ToJson
+  name: ToJson
+  nameWithType: DocumentChange.ToJson
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.ToJson
+- uid: Picturepark.SDK.V1.Contract.DocumentChange.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.DocumentChange.FromJson
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html#Picturepark_SDK_V1_Contract_DocumentChange_FromJson_System_String_
+  name: FromJson
+  nameWithType: DocumentChange.FromJson
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange.FromJson
+- uid: Picturepark.SDK.V1.Contract.DocumentChange
+  commentId: T:Picturepark.SDK.V1.Contract.DocumentChange
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DocumentChange.html
+  name: DocumentChange
+  nameWithType: DocumentChange
+  fullName: Picturepark.SDK.V1.Contract.DocumentChange

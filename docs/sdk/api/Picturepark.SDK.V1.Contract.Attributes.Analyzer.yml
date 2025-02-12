@@ -1,0 +1,127 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  commentId: N:Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  id: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  children:
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkEdgeNGramAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkKeywordLowercaseAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkLanguageAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNGramAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNoDiacriticsAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkPathHierarchyAnalyzerAttribute
+  - Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkSimpleAnalyzerAttribute
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  nameWithType: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkAnalyzerAttribute
+  parent: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkAnalyzerAttribute.html
+  name: PictureparkAnalyzerAttribute
+  nameWithType: PictureparkAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkEdgeNGramAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkEdgeNGramAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkEdgeNGramAnalyzerAttribute.html
+  name: PictureparkEdgeNGramAnalyzerAttribute
+  nameWithType: PictureparkEdgeNGramAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkEdgeNGramAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkKeywordLowercaseAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkKeywordLowercaseAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkKeywordLowercaseAnalyzerAttribute.html
+  name: PictureparkKeywordLowercaseAnalyzerAttribute
+  nameWithType: PictureparkKeywordLowercaseAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkKeywordLowercaseAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkLanguageAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkLanguageAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkLanguageAnalyzerAttribute.html
+  name: PictureparkLanguageAnalyzerAttribute
+  nameWithType: PictureparkLanguageAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkLanguageAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNGramAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNGramAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNGramAnalyzerAttribute.html
+  name: PictureparkNGramAnalyzerAttribute
+  nameWithType: PictureparkNGramAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNGramAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNoDiacriticsAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNoDiacriticsAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNoDiacriticsAnalyzerAttribute.html
+  name: PictureparkNoDiacriticsAnalyzerAttribute
+  nameWithType: PictureparkNoDiacriticsAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNoDiacriticsAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkPathHierarchyAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkPathHierarchyAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkPathHierarchyAnalyzerAttribute.html
+  name: PictureparkPathHierarchyAnalyzerAttribute
+  nameWithType: PictureparkPathHierarchyAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkPathHierarchyAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkSimpleAnalyzerAttribute
+  commentId: T:Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkSimpleAnalyzerAttribute
+  href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkSimpleAnalyzerAttribute.html
+  name: PictureparkSimpleAnalyzerAttribute
+  nameWithType: PictureparkSimpleAnalyzerAttribute
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkSimpleAnalyzerAttribute
+- uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  commentId: N:Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  nameWithType: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  fullName: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes
+    name: Attributes
+    href: Picturepark.SDK.V1.Contract.Attributes.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+    name: Analyzer
+    href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes
+    name: Attributes
+    href: Picturepark.SDK.V1.Contract.Attributes.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Attributes.Analyzer
+    name: Analyzer
+    href: Picturepark.SDK.V1.Contract.Attributes.Analyzer.html

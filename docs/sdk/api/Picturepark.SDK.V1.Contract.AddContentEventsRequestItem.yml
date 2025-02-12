@@ -1,0 +1,740 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  commentId: T:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  id: AddContentEventsRequestItem
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp
+  - Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson
+  langs:
+  - csharp
+  - vb
+  name: AddContentEventsRequestItem
+  nameWithType: AddContentEventsRequestItem
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AddContentEventsRequestItem
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40027
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class AddContentEventsRequestItem
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class AddContentEventsRequestItem
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp
+  commentId: P:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp
+  id: Timestamp
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: AddContentEventsRequestItem.Timestamp
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Timestamp
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40033
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("timestamp", Required = Required.Always)]
+
+      [Required]
+
+      public DateTime Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <JsonProperty("timestamp", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Timestamp As Date
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: timestamp
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId
+  commentId: P:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId
+  id: ContentId
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: ContentId
+  nameWithType: AddContentEventsRequestItem.ContentId
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40040
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Specifies content for which the events happened
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentId", Required = Required.Always)]
+
+      [Required]
+
+      public string ContentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("contentId", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property ContentId As String
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId
+  commentId: P:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId
+  id: ApiClientId
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: ApiClientId
+  nameWithType: AddContentEventsRequestItem.ApiClientId
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ApiClientId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40047
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Optionally specify the used ApiClient. Defaults to the API Client sending this request.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("apiClientId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ApiClientId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("apiClientId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ApiClientId As String
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: apiClientId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics
+  commentId: P:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics
+  id: Statistics
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: Statistics
+  nameWithType: AddContentEventsRequestItem.Statistics
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Statistics
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40053
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Data to be added to statistics
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("statistics", Required = Required.Always)]
+
+      [Required]
+
+      public ContentStatisticsDataEditable Statistics { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ContentStatisticsDataEditable
+    content.vb: >-
+      <JsonProperty("statistics", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Statistics As ContentStatisticsDataEditable
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: statistics
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId
+  commentId: P:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId
+  id: ExternalEventTraceId
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: ExternalEventTraceId
+  nameWithType: AddContentEventsRequestItem.ExternalEventTraceId
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExternalEventTraceId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40061
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Optionally specify an additional id under which the supplied data should be tracked. This
+
+    <br />Id is only used internally and cannot be retrieved through API or export.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("externalEventTraceId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string ExternalEventTraceId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("externalEventTraceId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ExternalEventTraceId As String
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: externalEventTraceId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: AddContentEventsRequestItem.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40064
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson*
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: AddContentEventsRequestItem.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40070
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static AddContentEventsRequestItem FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+    content.vb: Public Shared Function FromJson(data As String) As AddContentEventsRequestItem
+  overload: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson*
+  nameWithType.vb: AddContentEventsRequestItem.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_Timestamp
+  name: Timestamp
+  nameWithType: AddContentEventsRequestItem.Timestamp
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Timestamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_ContentId
+  name: ContentId
+  nameWithType: AddContentEventsRequestItem.ContentId
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ContentId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_ApiClientId
+  name: ApiClientId
+  nameWithType: AddContentEventsRequestItem.ApiClientId
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ApiClientId
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_Statistics
+  name: Statistics
+  nameWithType: AddContentEventsRequestItem.Statistics
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.Statistics
+- uid: Picturepark.SDK.V1.Contract.ContentStatisticsDataEditable
+  commentId: T:Picturepark.SDK.V1.Contract.ContentStatisticsDataEditable
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ContentStatisticsDataEditable.html
+  name: ContentStatisticsDataEditable
+  nameWithType: ContentStatisticsDataEditable
+  fullName: Picturepark.SDK.V1.Contract.ContentStatisticsDataEditable
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_ExternalEventTraceId
+  name: ExternalEventTraceId
+  nameWithType: AddContentEventsRequestItem.ExternalEventTraceId
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ExternalEventTraceId
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_ToJson
+  name: ToJson
+  nameWithType: AddContentEventsRequestItem.ToJson
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.ToJson
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html#Picturepark_SDK_V1_Contract_AddContentEventsRequestItem_FromJson_System_String_
+  name: FromJson
+  nameWithType: AddContentEventsRequestItem.FromJson
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.FromJson
+- uid: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  commentId: T:Picturepark.SDK.V1.Contract.AddContentEventsRequestItem
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem.html
+  name: AddContentEventsRequestItem
+  nameWithType: AddContentEventsRequestItem
+  fullName: Picturepark.SDK.V1.Contract.AddContentEventsRequestItem

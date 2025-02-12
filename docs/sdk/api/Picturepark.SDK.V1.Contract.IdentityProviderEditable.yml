@@ -1,0 +1,783 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  commentId: T:Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  id: IdentityProviderEditable
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping
+  - Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId
+  - Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType
+  - Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping
+  - Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson
+  langs:
+  - csharp
+  - vb
+  name: IdentityProviderEditable
+  nameWithType: IdentityProviderEditable
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IdentityProviderEditable
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28012
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class IdentityProviderEditable
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class IdentityProviderEditable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Picturepark.SDK.V1.Contract.IdentityProvider
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping
+  commentId: P:Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping
+  id: ClaimMapping
+  parent: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  langs:
+  - csharp
+  - vb
+  name: ClaimMapping
+  nameWithType: IdentityProviderEditable.ClaimMapping
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ClaimMapping
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28018
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Mapping of identity provider claims to user attributes
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("claimMapping", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<IdpClaimToUserAttributeMapping> ClaimMapping { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping}
+    content.vb: >-
+      <JsonProperty("claimMapping", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ClaimMapping As ICollection(Of IdpClaimToUserAttributeMapping)
+  overload: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: claimMapping
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType
+  commentId: P:Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType
+  id: GroupClaimType
+  parent: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  langs:
+  - csharp
+  - vb
+  name: GroupClaimType
+  nameWithType: IdentityProviderEditable.GroupClaimType
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GroupClaimType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28024
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Name of the identity provider claim that holds group membership information
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("groupClaimType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string GroupClaimType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("groupClaimType", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property GroupClaimType As String
+  overload: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: groupClaimType
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping
+  commentId: P:Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping
+  id: GroupMapping
+  parent: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  langs:
+  - csharp
+  - vb
+  name: GroupMapping
+  nameWithType: IdentityProviderEditable.GroupMapping
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GroupMapping
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28030
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: IdP (AD) group to user role ID mapping
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("groupMapping", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public ICollection<IdpGroupToUserRoleMapping> GroupMapping { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping}
+    content.vb: >-
+      <JsonProperty("groupMapping", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property GroupMapping As ICollection(Of IdpGroupToUserRoleMapping)
+  overload: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: groupMapping
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId
+  commentId: P:Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId
+  id: FallbackUserRoleId
+  parent: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  langs:
+  - csharp
+  - vb
+  name: FallbackUserRoleId
+  nameWithType: IdentityProviderEditable.FallbackUserRoleId
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FallbackUserRoleId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28036
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Optional user role ID that will be assigned to a user is none of the group mappings produce a match
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("fallbackUserRoleId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string FallbackUserRoleId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("fallbackUserRoleId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property FallbackUserRoleId As String
+  overload: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: fallbackUserRoleId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: IdentityProviderEditable.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28039
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson*
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: IdentityProviderEditable.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28045
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static IdentityProviderEditable FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+    content.vb: Public Shared Function FromJson(data As String) As IdentityProviderEditable
+  overload: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson*
+  nameWithType.vb: IdentityProviderEditable.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html#Picturepark_SDK_V1_Contract_IdentityProviderEditable_ClaimMapping
+  name: ClaimMapping
+  nameWithType: IdentityProviderEditable.ClaimMapping
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ClaimMapping
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<IdpClaimToUserAttributeMapping>
+  nameWithType: ICollection<IdpClaimToUserAttributeMapping>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping>
+  nameWithType.vb: ICollection(Of IdpClaimToUserAttributeMapping)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping)
+  name.vb: ICollection(Of IdpClaimToUserAttributeMapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping
+    name: IdpClaimToUserAttributeMapping
+    href: Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping
+    name: IdpClaimToUserAttributeMapping
+    href: Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html#Picturepark_SDK_V1_Contract_IdentityProviderEditable_GroupClaimType
+  name: GroupClaimType
+  nameWithType: IdentityProviderEditable.GroupClaimType
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupClaimType
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html#Picturepark_SDK_V1_Contract_IdentityProviderEditable_GroupMapping
+  name: GroupMapping
+  nameWithType: IdentityProviderEditable.GroupMapping
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.GroupMapping
+- uid: System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping}
+  commentId: T:System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<IdpGroupToUserRoleMapping>
+  nameWithType: ICollection<IdpGroupToUserRoleMapping>
+  fullName: System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping>
+  nameWithType.vb: ICollection(Of IdpGroupToUserRoleMapping)
+  fullName.vb: System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping)
+  name.vb: ICollection(Of IdpGroupToUserRoleMapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping
+    name: IdpGroupToUserRoleMapping
+    href: Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping
+    name: IdpGroupToUserRoleMapping
+    href: Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html#Picturepark_SDK_V1_Contract_IdentityProviderEditable_FallbackUserRoleId
+  name: FallbackUserRoleId
+  nameWithType: IdentityProviderEditable.FallbackUserRoleId
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FallbackUserRoleId
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html#Picturepark_SDK_V1_Contract_IdentityProviderEditable_ToJson
+  name: ToJson
+  nameWithType: IdentityProviderEditable.ToJson
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.ToJson
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html#Picturepark_SDK_V1_Contract_IdentityProviderEditable_FromJson_System_String_
+  name: FromJson
+  nameWithType: IdentityProviderEditable.FromJson
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable.FromJson
+- uid: Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  commentId: T:Picturepark.SDK.V1.Contract.IdentityProviderEditable
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IdentityProviderEditable.html
+  name: IdentityProviderEditable
+  nameWithType: IdentityProviderEditable
+  fullName: Picturepark.SDK.V1.Contract.IdentityProviderEditable

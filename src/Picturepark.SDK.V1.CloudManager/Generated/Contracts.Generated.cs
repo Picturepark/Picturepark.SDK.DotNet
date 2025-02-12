@@ -297,6 +297,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<SnapshotRepository> SetExternalMetadataAsync(SnapshotRepositoryMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepository> Search2Async(SnapshotRepositorySearchByNameRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2262,6 +2273,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemasMetadataProtectionException", typeof(SchemasMetadataProtectionException))]
     [JsonInheritanceAttribute("FilterTemplateRenderingException", typeof(FilterTemplateRenderingException))]
     [JsonInheritanceAttribute("ResolvedLinkedItemsThresholdReachedException", typeof(ResolvedLinkedItemsThresholdReachedException))]
+    [JsonInheritanceAttribute("TreeAggregatorOnlyAllowedInTopLevelAggregationsException", typeof(TreeAggregatorOnlyAllowedInTopLevelAggregationsException))]
+    [JsonInheritanceAttribute("TreeAggregatorInvalidFieldTypeException", typeof(TreeAggregatorInvalidFieldTypeException))]
+    [JsonInheritanceAttribute("TreeAggregatorInnerAggregationsNotAllowedException", typeof(TreeAggregatorInnerAggregationsNotAllowedException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -2332,9 +2346,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException))]
     [JsonInheritanceAttribute("SchemaFieldDynamicViewFieldInvalidFilterTemplateException", typeof(SchemaFieldDynamicViewFieldInvalidFilterTemplateException))]
     [JsonInheritanceAttribute("SchemaFieldTreeViewAtLeastOneLevelRequiredException", typeof(SchemaFieldTreeViewAtLeastOneLevelRequiredException))]
-    [JsonInheritanceAttribute("SchemaFieldTreeViewInvalidMaxRecursionsException", typeof(SchemaFieldTreeViewInvalidMaxRecursionsException))]
     [JsonInheritanceAttribute("SchemaFieldTreeViewTagboxFieldRequiredException", typeof(SchemaFieldTreeViewTagboxFieldRequiredException))]
     [JsonInheritanceAttribute("SchemaFieldTreeViewNotSupportedForSchemaTypeException", typeof(SchemaFieldTreeViewNotSupportedForSchemaTypeException))]
+    [JsonInheritanceAttribute("TagboxInUseInTreeViewFieldException", typeof(TagboxInUseInTreeViewFieldException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -7401,6 +7415,75 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class TreeAggregatorOnlyAllowedInTopLevelAggregationsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeAggregatorOnlyAllowedInTopLevelAggregationsException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeAggregatorOnlyAllowedInTopLevelAggregationsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class TreeAggregatorInvalidFieldTypeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("fieldName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeAggregatorInvalidFieldTypeException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeAggregatorInvalidFieldTypeException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class TreeAggregatorInnerAggregationsNotAllowedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeAggregatorInnerAggregationsNotAllowedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeAggregatorInnerAggregationsNotAllowedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldOverwriteTypeMismatchException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9271,37 +9354,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaFieldTreeViewInvalidMaxRecursionsException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Path { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("maxRecursions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int MaxRecursions { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static SchemaFieldTreeViewInvalidMaxRecursionsException FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewInvalidMaxRecursionsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldTreeViewTagboxFieldRequiredException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9352,6 +9404,37 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTreeViewNotSupportedForSchemaTypeException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class TagboxInUseInTreeViewFieldException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("tagboxFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TagboxFieldId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("treeViewFieldSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TreeViewFieldSchemaId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("treeViewFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TreeViewFieldId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TagboxInUseInTreeViewFieldException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TagboxInUseInTreeViewFieldException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -13027,6 +13110,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
 
+        /// <summary>
+        /// Detailed information about the aggregation result item.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AggregationResultItemDetailBase Detail { get; set; }
+
         public string ToJson()
         {
 
@@ -13099,6 +13188,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("TermsFilter", typeof(TermsFilter))]
     [JsonInheritanceAttribute("ChildFilter", typeof(ChildFilter))]
     [JsonInheritanceAttribute("ParentFilter", typeof(ParentFilter))]
+    [JsonInheritanceAttribute("TreeFilter", typeof(TreeFilter))]
     [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class FilterBase
@@ -13734,6 +13824,135 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     /// <summary>
+    /// Filters results based on a tree structure and a path.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TreeFilter : FilterBase
+    {
+        /// <summary>
+        /// Field to filter on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// Path to filter on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeFilter FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeFilter>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Detail for an AggregationResultItem.
+    /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("TreeAggregationResultItemDetail", typeof(TreeAggregationResultItemDetail))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class AggregationResultItemDetailBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static AggregationResultItemDetailBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItemDetailBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Detail for a tree aggregation result item.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TreeAggregationResultItemDetail : AggregationResultItemDetailBase
+    {
+        /// <summary>
+        /// Path of the item. Use together with TreeFilter.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        /// <summary>
+        /// Resolved path components of the path.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("resolvedPathComponents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<TreeAggregationResultPathComponent> ResolvedPathComponents { get; set; }
+
+        /// <summary>
+        /// Indicates if the node contains children.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("hasChildren", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool HasChildren { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeAggregationResultItemDetail FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeAggregationResultItemDetail>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Component of a tree path.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TreeAggregationResultPathComponent
+    {
+        /// <summary>
+        /// Raw path component.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("pathComponent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PathComponent { get; set; }
+
+        /// <summary>
+        /// Display value of the path component.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("displayValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayValue { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeAggregationResultPathComponent FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeAggregationResultPathComponent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
     /// Base class for search result queries that support SearchBehaviors
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -13964,6 +14183,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("TermsAggregator", typeof(TermsAggregator))]
     [JsonInheritanceAttribute("TermsRelationAggregator", typeof(TermsRelationAggregator))]
     [JsonInheritanceAttribute("TermsEnumAggregator", typeof(TermsEnumAggregator))]
+    [JsonInheritanceAttribute("TreeAggregator", typeof(TreeAggregator))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class AggregatorBase
     {
@@ -14508,6 +14728,60 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
+    /// <summary>
+    /// Aggregator for a FieldTreeView.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TreeAggregator : AggregatorBase
+    {
+        /// <summary>
+        /// The fields ID to execute the aggregation on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// Path to get buckets for.
+        /// <br/>Remark: If this is not null, missing items will only be returned if they're a direct child of this path.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+
+        /// <summary>
+        /// Search string to filter the buckets.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+
+        /// <summary>
+        /// The size parameter can be set to define how many buckets should be returned out of the overall list.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Size { get; set; }
+
+        /// <summary>
+        /// Sorting for results. If null, sorts by item count.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sortDirection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection? SortDirection { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TreeAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TreeAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class SnapshotRepository
     {
@@ -14534,6 +14808,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.Always)]
         public bool IsArchived { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("externalMetadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalMetadata { get; set; }
 
         public string ToJson()
         {
@@ -15518,6 +15795,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("imageOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ImageOptimizationLicenseState ImageOptimization { get; set; }
 
+        /// <summary>
+        /// License flag to enable tree view
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableTreeView", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? EnableTreeView { get; set; }
+
         public string ToJson()
         {
 
@@ -15711,10 +15994,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool ResetServiceProviders { get; set; }
 
         /// <summary>
-        /// Base url for for shares
+        /// Base url for customer
         /// </summary>
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
+
+        /// <summary>
+        /// ContentDelivery Base url for shares
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("contentDeliveryBaseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentDeliveryBaseUrl { get; set; }
 
         /// <summary>
         /// Host configuration
@@ -15992,9 +16281,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>
         /// The snapshot StartTime.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime StartTime { get; set; }
+        [Newtonsoft.Json.JsonProperty("startTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? StartTime { get; set; }
 
         /// <summary>
         /// The snapshot StartTimeInMilliseconds.
@@ -16328,6 +16616,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SnapshotRepositoryMetadataUpdateRequest
+    {
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Value { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RepositoryName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SnapshotRepositoryMetadataUpdateRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryMetadataUpdateRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class SnapshotRepositorySearchByNameRequest
     {
         [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -16435,6 +16747,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("readWriteUserExcludedEmailAddressRegexes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ReadWriteUserExcludedEmailAddressRegexes { get; set; }
 
         [Newtonsoft.Json.JsonProperty("serviceProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<CustomerServiceProvider> ServiceProviders { get; set; }
@@ -19436,6 +19751,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("readWriteUserExcludedEmailAddressRegexes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ReadWriteUserExcludedEmailAddressRegexes { get; set; }
+
         [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LanguageConfiguration LanguageConfiguration { get; set; }
 
@@ -19810,6 +20128,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("readWriteUserExcludedEmailAddressRegexes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ReadWriteUserExcludedEmailAddressRegexes { get; set; }
 
         [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
@@ -22559,6 +22880,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
     [JsonInheritanceAttribute("DataExtractionRepairEvent", typeof(DataExtractionRepairEvent))]
     [JsonInheritanceAttribute("TaggerStatisticsEvent", typeof(TaggerStatisticsEvent))]
+    [JsonInheritanceAttribute("CdnStatisticsEvent", typeof(CdnStatisticsEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ApplicationEvent
     {
@@ -23205,6 +23527,69 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TaggerStatisticsEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CdnStatisticsEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("traffic", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, CdnTrafficValues> Traffic { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("reportedTimeStart", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime ReportedTimeStart { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("reportedTimeEnd", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime ReportedTimeEnd { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CdnStatisticsEvent FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnStatisticsEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CdnTrafficValues
+    {
+        [Newtonsoft.Json.JsonProperty("originBytesFetched", Required = Newtonsoft.Json.Required.Always)]
+        public long OriginBytesFetched { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("originBytesReceived", Required = Newtonsoft.Json.Required.Always)]
+        public long OriginBytesReceived { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("cdnBytesReceived", Required = Newtonsoft.Json.Required.Always)]
+        public long CdnBytesReceived { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("cdnBytesSent", Required = Newtonsoft.Json.Required.Always)]
+        public long CdnBytesSent { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("bytesTotal", Required = Newtonsoft.Json.Required.Always)]
+        public long BytesTotal { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Always)]
+        public long Requests { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CdnTrafficValues FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnTrafficValues>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1.Tests
@@ -21,7 +23,11 @@ namespace Picturepark.SDK.V1.Tests
                 }
             }
 
-            await client.Schema.CreateManyAsync(schemasToCreate, true, TimeSpan.FromMinutes(1));
+            if (schemasToCreate.Any())
+            {
+                var result = await client.Schema.CreateManyAsync(schemasToCreate, true, TimeSpan.FromMinutes(1));
+                result.LifeCycle.Should().Be(BusinessProcessLifeCycle.Succeeded);
+            }
 
             var schemaId = Metadata.ResolveSchemaId(typeof(T));
             return await client.Schema.GetAsync(schemaId);

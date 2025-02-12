@@ -1,0 +1,1123 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  id: PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson
+  langs:
+  - csharp
+  - vb
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PictureparkValidationException
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5229
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      [JsonObject]
+
+      public class PictureparkValidationException : PictureparkBusinessException, ISerializable
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      <JsonObject>
+
+      Public Class PictureparkValidationException Inherits PictureparkBusinessException Implements ISerializable
+  inheritance:
+  - System.Object
+  - System.Exception
+  - Picturepark.SDK.V1.Contract.PictureparkException
+  - Picturepark.SDK.V1.Contract.PictureparkBusinessException
+  derivedClasses:
+  - Picturepark.SDK.V1.Contract.ActivityMappingInvalidException
+  - Picturepark.SDK.V1.Contract.AggregationFieldMissingException
+  - Picturepark.SDK.V1.Contract.AggregationFilterNotSupportedException
+  - Picturepark.SDK.V1.Contract.AggregationNameInvalidException
+  - Picturepark.SDK.V1.Contract.AggregationNameMissingException
+  - Picturepark.SDK.V1.Contract.AggregationPathMissingException
+  - Picturepark.SDK.V1.Contract.AggregationSizeInvalidException
+  - Picturepark.SDK.V1.Contract.AtLeastOneActiveTermsOfServiceMustExistException
+  - Picturepark.SDK.V1.Contract.BusinessProcessCancellationNotSupportedException
+  - Picturepark.SDK.V1.Contract.BusinessProcessSummaryNotBatchBasedException
+  - Picturepark.SDK.V1.Contract.BusinessRuleActionInvalidDocumentTypeException
+  - Picturepark.SDK.V1.Contract.BusinessRuleActionsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleArrayIndexInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleConditionInvalidTriggerPointException
+  - Picturepark.SDK.V1.Contract.BusinessRuleConditionMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleConditionsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleConfigurationValidationException
+  - Picturepark.SDK.V1.Contract.BusinessRuleContentPermissionSetIdsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleDateMathTransformationTimeSpanInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleDictionaryKeyInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleFieldIdInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleFieldPathInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleInvalidVariableNameException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNGramTransformationMaxWordLengthInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNGramTransformationMinWordLengthInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNGramTransformationSizeInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNamedCacheNameInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNotificationInvalidIdException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNotificationNoRecipientsException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNotificationRecipientUserIdMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNotificationRecipientUserRoleIdMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberSequenceIdDuplicationException
+  - Picturepark.SDK.V1.Contract.BusinessRuleNumberSequenceInvalidIdException
+  - Picturepark.SDK.V1.Contract.BusinessRuleOutputFormatIdMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRulePathInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRulePermissionSetIdInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRulePolygonInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleProjectionTransformationsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleRefIdsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleRegularExpressionInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleRuleIdDuplicationException
+  - Picturepark.SDK.V1.Contract.BusinessRuleRuleIdMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleScheduleFilterMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleScheduleInvalidCronExpressionException
+  - Picturepark.SDK.V1.Contract.BusinessRuleScheduleRulesMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleSchemaIdInvalidException
+  - Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleTransferOwnershipTransferUserIdMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleTransformationGroupInputsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleTransformationGroupTransformationsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleTriggerPointMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException
+  - Picturepark.SDK.V1.Contract.BusinessRuleValidationException
+  - Picturepark.SDK.V1.Contract.ChunkSizeOutOfRangeException
+  - Picturepark.SDK.V1.Contract.CollectionModificationNotAllowedException
+  - Picturepark.SDK.V1.Contract.CollectionSizeLimitExceededException
+  - Picturepark.SDK.V1.Contract.CommentOwnershipFailureException
+  - Picturepark.SDK.V1.Contract.CommentReplyContentMismatchException
+  - Picturepark.SDK.V1.Contract.CommentReplyDeletionException
+  - Picturepark.SDK.V1.Contract.CommentReplyParentException
+  - Picturepark.SDK.V1.Contract.ContentFileReplaceTypeMismatchException
+  - Picturepark.SDK.V1.Contract.ContentLayerInvalidException
+  - Picturepark.SDK.V1.Contract.ContentLayerSameRootException
+  - Picturepark.SDK.V1.Contract.ContentPermissionException
+  - Picturepark.SDK.V1.Contract.ContentResolveBehaviorNotSupportedException
+  - Picturepark.SDK.V1.Contract.ContentSchemaChangeException
+  - Picturepark.SDK.V1.Contract.ContentSearchQueryInvalidException
+  - Picturepark.SDK.V1.Contract.ContractMismatchException
+  - Picturepark.SDK.V1.Contract.CoreClusterNotProvidedException
+  - Picturepark.SDK.V1.Contract.CronExpressionInvalidException
+  - Picturepark.SDK.V1.Contract.CustomerAliasHeaderMissingException
+  - Picturepark.SDK.V1.Contract.CustomerAliasInUseException
+  - Picturepark.SDK.V1.Contract.CustomerBoostValuesInvalidException
+  - Picturepark.SDK.V1.Contract.CustomerClonesNotAcceptedException
+  - Picturepark.SDK.V1.Contract.DefaultChannelDeleteException
+  - Picturepark.SDK.V1.Contract.DeleteContentsWithReferencesException
+  - Picturepark.SDK.V1.Contract.DeleteListItemsWithReferencesException
+  - Picturepark.SDK.V1.Contract.DisplayPatternTypeNotSupportedException
+  - Picturepark.SDK.V1.Contract.DisplayValueRerenderingInProgressException
+  - Picturepark.SDK.V1.Contract.DuplicateAggregatorException
+  - Picturepark.SDK.V1.Contract.DuplicateContentDownloadRequestException
+  - Picturepark.SDK.V1.Contract.DuplicateDocumentException
+  - Picturepark.SDK.V1.Contract.DuplicateEmbedConversionPresetException
+  - Picturepark.SDK.V1.Contract.DuplicateMetadataDisplayPatternException
+  - Picturepark.SDK.V1.Contract.DuplicateOutputFormatIdException
+  - Picturepark.SDK.V1.Contract.DuplicateRightException
+  - Picturepark.SDK.V1.Contract.DuplicateSchemaException
+  - Picturepark.SDK.V1.Contract.DuplicateSharedOutputException
+  - Picturepark.SDK.V1.Contract.DuplicatedItemAssignedException
+  - Picturepark.SDK.V1.Contract.DuplicatedSearchBehaviorException
+  - Picturepark.SDK.V1.Contract.EmbedMultiDownloadException
+  - Picturepark.SDK.V1.Contract.EnvironmentProcessAlreadyRunningException
+  - Picturepark.SDK.V1.Contract.FeatureNotEnabledException
+  - Picturepark.SDK.V1.Contract.FileIdDuplicatedException
+  - Picturepark.SDK.V1.Contract.FilterTemplateRenderingException
+  - Picturepark.SDK.V1.Contract.FocalPointCropSizeMissingException
+  - Picturepark.SDK.V1.Contract.ForbiddenHtmlElementsUsedException
+  - Picturepark.SDK.V1.Contract.IllegalAuthorizationStateTransitionException
+  - Picturepark.SDK.V1.Contract.ImageOptimizationLicensingException
+  - Picturepark.SDK.V1.Contract.IndexedFieldThresholdExceededException
+  - Picturepark.SDK.V1.Contract.IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException
+  - Picturepark.SDK.V1.Contract.IngestContainerEmptyException
+  - Picturepark.SDK.V1.Contract.IngestContainerImportAlreadyInProgressException
+  - Picturepark.SDK.V1.Contract.IngestContainerImportRequestValidationFailedException
+  - Picturepark.SDK.V1.Contract.IngestDownloadFailedException
+  - Picturepark.SDK.V1.Contract.IngestFileAlreadyImportedException
+  - Picturepark.SDK.V1.Contract.IngestFileInvalidFileNameOverrideExtensionException
+  - Picturepark.SDK.V1.Contract.IngestUrlInvalidException
+  - Picturepark.SDK.V1.Contract.InvalidArgumentException
+  - Picturepark.SDK.V1.Contract.InvalidChangeCommandFieldNotFoundException
+  - Picturepark.SDK.V1.Contract.InvalidChangeCommandFieldTypeInvalidException
+  - Picturepark.SDK.V1.Contract.InvalidChangeCommandSchemaChangeInvalidException
+  - Picturepark.SDK.V1.Contract.InvalidContentDownloadRequestException
+  - Picturepark.SDK.V1.Contract.InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException
+  - Picturepark.SDK.V1.Contract.InvalidDataTypeException
+  - Picturepark.SDK.V1.Contract.InvalidDateTimeFormatException
+  - Picturepark.SDK.V1.Contract.InvalidLogoFileExtensionException
+  - Picturepark.SDK.V1.Contract.InvalidMetadataException
+  - Picturepark.SDK.V1.Contract.InvalidOperationWithAnonymousUserException
+  - Picturepark.SDK.V1.Contract.InvalidOperationWithAnonymousUserRoleException
+  - Picturepark.SDK.V1.Contract.InvalidSearchFieldInAggregatorException
+  - Picturepark.SDK.V1.Contract.InvalidSortFieldException
+  - Picturepark.SDK.V1.Contract.InvalidStateException
+  - Picturepark.SDK.V1.Contract.InvalidUiBehaviorConfigurationException
+  - Picturepark.SDK.V1.Contract.InvalidUiBehaviorInNonRootAggregatorException
+  - Picturepark.SDK.V1.Contract.ItemIdDuplicatedException
+  - Picturepark.SDK.V1.Contract.LanguageCodeNotExistingException
+  - Picturepark.SDK.V1.Contract.LayerAssignmentInUseWithContentsException
+  - Picturepark.SDK.V1.Contract.LayerAssignmentInvalidException
+  - Picturepark.SDK.V1.Contract.ListItemLayerException
+  - Picturepark.SDK.V1.Contract.ListItemNamedCacheKeyFieldsInvalidException
+  - Picturepark.SDK.V1.Contract.ListItemNamedCacheSchemaIdInvalidException
+  - Picturepark.SDK.V1.Contract.ListItemPermissionException
+  - Picturepark.SDK.V1.Contract.ListItemResolveBehaviorNotSupportedException
+  - Picturepark.SDK.V1.Contract.ListItemSchemaMismatchException
+  - Picturepark.SDK.V1.Contract.MaximumFileSizeExceededException
+  - Picturepark.SDK.V1.Contract.MaximumNumberOfChunksExceededException
+  - Picturepark.SDK.V1.Contract.MissingCustomerDefaultLanguageException
+  - Picturepark.SDK.V1.Contract.MissingDependenciesException
+  - Picturepark.SDK.V1.Contract.MissingDisplayPatternForCustomerDefaultLanguageException
+  - Picturepark.SDK.V1.Contract.NamedCacheConfigurationException
+  - Picturepark.SDK.V1.Contract.NamedCacheNameDuplicationException
+  - Picturepark.SDK.V1.Contract.NamedCacheNameMissingException
+  - Picturepark.SDK.V1.Contract.NestedDisplayContentNotSupportedException
+  - Picturepark.SDK.V1.Contract.NonDefaultTemplateNameNotAllowedException
+  - Picturepark.SDK.V1.Contract.NotSupportedFileExtensionException
+  - Picturepark.SDK.V1.Contract.NotSupportedFileMappingException
+  - Picturepark.SDK.V1.Contract.OnlyAccessibleToRecipientException
+  - Picturepark.SDK.V1.Contract.OriginalOutputFormatModificationNotSupportedException
+  - Picturepark.SDK.V1.Contract.OutdatedMetadataUpdateInProgressException
+  - Picturepark.SDK.V1.Contract.OutputBackupHashMismatchException
+  - Picturepark.SDK.V1.Contract.OutputBackupNotRequestedException
+  - Picturepark.SDK.V1.Contract.OutputEditingNotSupportedException
+  - Picturepark.SDK.V1.Contract.OutputFormatSourceNotDefinedException
+  - Picturepark.SDK.V1.Contract.OutputFormatSourceNotValidForRenderingCategoryException
+  - Picturepark.SDK.V1.Contract.OutputFormatXmpWritebackNotSupportedException
+  - Picturepark.SDK.V1.Contract.OutputFormatsInUseException
+  - Picturepark.SDK.V1.Contract.OwnerTokenInUseException
+  - Picturepark.SDK.V1.Contract.PartialOperationNotSupportedException
+  - Picturepark.SDK.V1.Contract.PermissionOwnershipTransferException
+  - Picturepark.SDK.V1.Contract.PermissionSetAggregateException
+  - Picturepark.SDK.V1.Contract.PermissionSetInUseException
+  - Picturepark.SDK.V1.Contract.PermissionSetValidationException
+  - Picturepark.SDK.V1.Contract.PermissionValidationException
+  - Picturepark.SDK.V1.Contract.PictureparkArgumentNullException
+  - Picturepark.SDK.V1.Contract.PictureparkContradictoryArgumentsException
+  - Picturepark.SDK.V1.Contract.PictureparkTimeoutException
+  - Picturepark.SDK.V1.Contract.RelationSelfReferencingException
+  - Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  - Picturepark.SDK.V1.Contract.ReshardIndexNotAllowedException
+  - Picturepark.SDK.V1.Contract.ReshardNumberOfShardsInvalidException
+  - Picturepark.SDK.V1.Contract.ResolvedLinkedItemsThresholdReachedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldActivityInUseException
+  - Picturepark.SDK.V1.Contract.SchemaFieldAnalyzerInvalidException
+  - Picturepark.SDK.V1.Contract.SchemaFieldDisplayPatternTypeNotSupportedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldDynamicViewFieldInvalidFilterTemplateException
+  - Picturepark.SDK.V1.Contract.SchemaFieldIdAlreadyExistsInSchemaHierarchyException
+  - Picturepark.SDK.V1.Contract.SchemaFieldIdDuplicatedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldIdException
+  - Picturepark.SDK.V1.Contract.SchemaFieldIdPreviouslyUsedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldIdUppercaseException
+  - Picturepark.SDK.V1.Contract.SchemaFieldImportMismatchException
+  - Picturepark.SDK.V1.Contract.SchemaFieldImportRelatedSchemaMismatchException
+  - Picturepark.SDK.V1.Contract.SchemaFieldImportTypeMismatchException
+  - Picturepark.SDK.V1.Contract.SchemaFieldInvalidBoostException
+  - Picturepark.SDK.V1.Contract.SchemaFieldMarkdownNotMultilineException
+  - Picturepark.SDK.V1.Contract.SchemaFieldNotFilterableException
+  - Picturepark.SDK.V1.Contract.SchemaFieldNotRequirableException
+  - Picturepark.SDK.V1.Contract.SchemaFieldNotSearchableException
+  - Picturepark.SDK.V1.Contract.SchemaFieldNotSortableException
+  - Picturepark.SDK.V1.Contract.SchemaFieldNotSupportedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldNumberRangeException
+  - Picturepark.SDK.V1.Contract.SchemaFieldOverwriteIdException
+  - Picturepark.SDK.V1.Contract.SchemaFieldOverwriteTypeMismatchException
+  - Picturepark.SDK.V1.Contract.SchemaFieldReferencedSchemaChangeNotAllowedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldReferencedSchemaSystemSchemaException
+  - Picturepark.SDK.V1.Contract.SchemaFieldRelationMultipleTypesException
+  - Picturepark.SDK.V1.Contract.SchemaFieldRelationRelationTypeIdModificationNotAllowedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldRelationSchemaSystemSchemaException
+  - Picturepark.SDK.V1.Contract.SchemaFieldRelationSchemaTypeUnsupportedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldRelationTargetDocTypeModificationNotAllowedException
+  - Picturepark.SDK.V1.Contract.SchemaFieldSchemaIndexInfoNestingException
+  - Picturepark.SDK.V1.Contract.SchemaFieldSchemaIndexInfoSimpleSearchNestingException
+  - Picturepark.SDK.V1.Contract.SchemaFieldSortableInUseException
+  - Picturepark.SDK.V1.Contract.SchemaFieldTreeViewAtLeastOneLevelRequiredException
+  - Picturepark.SDK.V1.Contract.SchemaFieldTreeViewNotSupportedForSchemaTypeException
+  - Picturepark.SDK.V1.Contract.SchemaFieldTreeViewTagboxFieldRequiredException
+  - Picturepark.SDK.V1.Contract.SchemaFieldTypeChangeException
+  - Picturepark.SDK.V1.Contract.SchemaIdException
+  - Picturepark.SDK.V1.Contract.SchemaIdLowercaseException
+  - Picturepark.SDK.V1.Contract.SchemaImportEmptyException
+  - Picturepark.SDK.V1.Contract.SchemaImportVersionMismatchException
+  - Picturepark.SDK.V1.Contract.SchemaInUseContentException
+  - Picturepark.SDK.V1.Contract.SchemaInUseContentSchemaException
+  - Picturepark.SDK.V1.Contract.SchemaInUseException
+  - Picturepark.SDK.V1.Contract.SchemaInUseFieldException
+  - Picturepark.SDK.V1.Contract.SchemaInUseListItemException
+  - Picturepark.SDK.V1.Contract.SchemaInheritanceFieldIndexDeviationException
+  - Picturepark.SDK.V1.Contract.SchemaInheritanceTypeDeviationException
+  - Picturepark.SDK.V1.Contract.SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException
+  - Picturepark.SDK.V1.Contract.SchemaMetadataProtectionSettingsNotSupportedForStructsException
+  - Picturepark.SDK.V1.Contract.SchemaMissingTypeException
+  - Picturepark.SDK.V1.Contract.SchemaMultipleTypesException
+  - Picturepark.SDK.V1.Contract.SchemaNoContentException
+  - Picturepark.SDK.V1.Contract.SchemaNoLayerException
+  - Picturepark.SDK.V1.Contract.SchemaParentChangeException
+  - Picturepark.SDK.V1.Contract.SchemaPermissionConfigurationException
+  - Picturepark.SDK.V1.Contract.SchemaPermissionException
+  - Picturepark.SDK.V1.Contract.SchemaSortFieldException
+  - Picturepark.SDK.V1.Contract.SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException
+  - Picturepark.SDK.V1.Contract.SchemaValidationException
+  - Picturepark.SDK.V1.Contract.SchemaViewForAllException
+  - Picturepark.SDK.V1.Contract.SchemasMetadataProtectionException
+  - Picturepark.SDK.V1.Contract.SearchStringLeadingWildcardException
+  - Picturepark.SDK.V1.Contract.SearchStringTooLongException
+  - Picturepark.SDK.V1.Contract.SelfReferencingDisplayContentNotSupportedException
+  - Picturepark.SDK.V1.Contract.ShareSizeLimitExceededException
+  - Picturepark.SDK.V1.Contract.SnapshotExistingIndicesNotClosedException
+  - Picturepark.SDK.V1.Contract.SnapshotRetentionTimeTooShortException
+  - Picturepark.SDK.V1.Contract.SortableFieldThresholdExceededException
+  - Picturepark.SDK.V1.Contract.SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException
+  - Picturepark.SDK.V1.Contract.StaticOutputFormatModificationNotSupportedException
+  - Picturepark.SDK.V1.Contract.StatisticsFeatureNotEnabledException
+  - Picturepark.SDK.V1.Contract.SuperAdminRolesNotAssignableToChannelException
+  - Picturepark.SDK.V1.Contract.SystemLayerReferenceInvalidModificationException
+  - Picturepark.SDK.V1.Contract.SystemSchemaInvalidModificationException
+  - Picturepark.SDK.V1.Contract.SystemTemplateModificationNotAllowedException
+  - Picturepark.SDK.V1.Contract.TagboxInUseInTreeViewFieldException
+  - Picturepark.SDK.V1.Contract.TemplateDuplicationException
+  - Picturepark.SDK.V1.Contract.TemplateLanguageCodeNotSupportedException
+  - Picturepark.SDK.V1.Contract.TemplateMediaTypesMissingException
+  - Picturepark.SDK.V1.Contract.TemplateMediaTypesNotSupportedException
+  - Picturepark.SDK.V1.Contract.TreeAggregatorInnerAggregationsNotAllowedException
+  - Picturepark.SDK.V1.Contract.TreeAggregatorInvalidFieldTypeException
+  - Picturepark.SDK.V1.Contract.TreeAggregatorOnlyAllowedInTopLevelAggregationsException
+  - Picturepark.SDK.V1.Contract.UnableToChangeMappedUserRolesForFederatedUserException
+  - Picturepark.SDK.V1.Contract.UnableToCreateOrModifyStaticOutputFormatException
+  - Picturepark.SDK.V1.Contract.UnableToDeleteUserRoleException
+  - Picturepark.SDK.V1.Contract.UnableToMapMultipleClaimTypesIntoSameAttributeException
+  - Picturepark.SDK.V1.Contract.UnsupportedListItemChangeCommandException
+  - Picturepark.SDK.V1.Contract.UserAttributeNotSynchronizableException
+  - Picturepark.SDK.V1.Contract.UserDoesNotSupportLocalLoginException
+  - Picturepark.SDK.V1.Contract.UserEmailAlreadyExistsException
+  - Picturepark.SDK.V1.Contract.UserInactiveOrDeletedException
+  - Picturepark.SDK.V1.Contract.UserNotDeactivatedException
+  - Picturepark.SDK.V1.Contract.UserPropertyChangeNotSupportedException
+  - Picturepark.SDK.V1.Contract.UserUnlockDisallowedException
+  - Picturepark.SDK.V1.Contract.UserWithOwnerTokensArchiveException
+  - Picturepark.SDK.V1.Contract.VirtualDisplayContentNotSupportedException
+  - Picturepark.SDK.V1.Contract.WrongChunkSizeException
+  - Picturepark.SDK.V1.Contract.XmpMappingConfigurationInvalidException
+  - Picturepark.SDK.V1.Contract.XmpMappingFieldInUseException
+  - Picturepark.SDK.V1.Contract.XmpMappingFieldNotFoundException
+  - Picturepark.SDK.V1.Contract.XmpMappingFieldNotSupported
+  - Picturepark.SDK.V1.Contract.XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException
+  - Picturepark.SDK.V1.Contract.XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException
+  - Picturepark.SDK.V1.Contract.XmpMappingSchemaNotAvailableForFileContentSchemaException
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId
+  - Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias
+  - Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId
+  - Picturepark.SDK.V1.Contract.PictureparkException.TraceLevel
+  - Picturepark.SDK.V1.Contract.PictureparkException.TraceId
+  - Picturepark.SDK.V1.Contract.PictureparkException.TraceJobId
+  - Picturepark.SDK.V1.Contract.PictureparkException.HttpStatusCode
+  - Picturepark.SDK.V1.Contract.PictureparkException.ExceptionMessage
+  - Picturepark.SDK.V1.Contract.PictureparkException.CloudName
+  - System.Exception.GetBaseException
+  - System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - System.Exception.GetType
+  - System.Exception.ToString
+  - System.Exception.Data
+  - System.Exception.HelpLink
+  - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Message
+  - System.Exception.Source
+  - System.Exception.StackTrace
+  - System.Exception.TargetSite
+  - System.Exception.SerializeObjectState
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - Picturepark.SDK.V1.Contract.PictureparkException.Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(System.String)
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: PictureparkValidationException.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5234
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson*
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: PictureparkValidationException.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 5240
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static PictureparkValidationException FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    content.vb: Public Shared Function FromJson(data As String) As PictureparkValidationException
+  overload: Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson*
+  nameWithType.vb: PictureparkValidationException.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.PictureparkBusinessException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkBusinessException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkBusinessException.html
+  name: PictureparkBusinessException
+  nameWithType: PictureparkBusinessException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkBusinessException
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId
+  parent: Picturepark.SDK.V1.Contract.PictureparkBusinessException
+  href: Picturepark.SDK.V1.Contract.PictureparkBusinessException.html#Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerId
+  name: CustomerId
+  nameWithType: PictureparkBusinessException.CustomerId
+  fullName: Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId
+- uid: Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias
+  parent: Picturepark.SDK.V1.Contract.PictureparkBusinessException
+  href: Picturepark.SDK.V1.Contract.PictureparkBusinessException.html#Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerAlias
+  name: CustomerAlias
+  nameWithType: PictureparkBusinessException.CustomerAlias
+  fullName: Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias
+- uid: Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId
+  parent: Picturepark.SDK.V1.Contract.PictureparkBusinessException
+  href: Picturepark.SDK.V1.Contract.PictureparkBusinessException.html#Picturepark_SDK_V1_Contract_PictureparkBusinessException_UserId
+  name: UserId
+  nameWithType: PictureparkBusinessException.UserId
+  fullName: Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.TraceLevel
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkException.TraceLevel
+  parent: Picturepark.SDK.V1.Contract.PictureparkException
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html#Picturepark_SDK_V1_Contract_PictureparkException_TraceLevel
+  name: TraceLevel
+  nameWithType: PictureparkException.TraceLevel
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException.TraceLevel
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.TraceId
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkException.TraceId
+  parent: Picturepark.SDK.V1.Contract.PictureparkException
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html#Picturepark_SDK_V1_Contract_PictureparkException_TraceId
+  name: TraceId
+  nameWithType: PictureparkException.TraceId
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException.TraceId
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.TraceJobId
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkException.TraceJobId
+  parent: Picturepark.SDK.V1.Contract.PictureparkException
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html#Picturepark_SDK_V1_Contract_PictureparkException_TraceJobId
+  name: TraceJobId
+  nameWithType: PictureparkException.TraceJobId
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException.TraceJobId
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.HttpStatusCode
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkException.HttpStatusCode
+  parent: Picturepark.SDK.V1.Contract.PictureparkException
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html#Picturepark_SDK_V1_Contract_PictureparkException_HttpStatusCode
+  name: HttpStatusCode
+  nameWithType: PictureparkException.HttpStatusCode
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException.HttpStatusCode
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.ExceptionMessage
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkException.ExceptionMessage
+  parent: Picturepark.SDK.V1.Contract.PictureparkException
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html#Picturepark_SDK_V1_Contract_PictureparkException_ExceptionMessage
+  name: ExceptionMessage
+  nameWithType: PictureparkException.ExceptionMessage
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException.ExceptionMessage
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.CloudName
+  commentId: P:Picturepark.SDK.V1.Contract.PictureparkException.CloudName
+  parent: Picturepark.SDK.V1.Contract.PictureparkException
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html#Picturepark_SDK_V1_Contract_PictureparkException_CloudName
+  name: CloudName
+  nameWithType: PictureparkException.CloudName
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException.CloudName
+- uid: System.Exception.GetBaseException
+  commentId: M:System.Exception.GetBaseException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  name: GetBaseException()
+  nameWithType: Exception.GetBaseException()
+  fullName: System.Exception.GetBaseException()
+  spec.csharp:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+- uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: Exception.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+- uid: System.Exception.GetType
+  commentId: M:System.Exception.GetType
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  name: GetType()
+  nameWithType: Exception.GetType()
+  fullName: System.Exception.GetType()
+  spec.csharp:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+- uid: System.Exception.Data
+  commentId: P:System.Exception.Data
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.data
+  name: Data
+  nameWithType: Exception.Data
+  fullName: System.Exception.Data
+- uid: System.Exception.HelpLink
+  commentId: P:System.Exception.HelpLink
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.helplink
+  name: HelpLink
+  nameWithType: Exception.HelpLink
+  fullName: System.Exception.HelpLink
+- uid: System.Exception.HResult
+  commentId: P:System.Exception.HResult
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.hresult
+  name: HResult
+  nameWithType: Exception.HResult
+  fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.message
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.source
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
+- uid: System.Exception.StackTrace
+  commentId: P:System.Exception.StackTrace
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.stacktrace
+  name: StackTrace
+  nameWithType: Exception.StackTrace
+  fullName: System.Exception.StackTrace
+- uid: System.Exception.TargetSite
+  commentId: P:System.Exception.TargetSite
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.targetsite
+  name: TargetSite
+  nameWithType: Exception.TargetSite
+  fullName: System.Exception.TargetSite
+- uid: System.Exception.SerializeObjectState
+  commentId: E:System.Exception.SerializeObjectState
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.serializeobjectstate
+  name: SerializeObjectState
+  nameWithType: Exception.SerializeObjectState
+  fullName: System.Exception.SerializeObjectState
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.PictureparkException.Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(System.String)
+  commentId: M:Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+  parent: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+  definition: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+  href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html#Picturepark_SDK_V1_Localization_PictureparkExceptionExtensions_GetLocalizedErrorCode_Picturepark_SDK_V1_Contract_PictureparkException_System_String_
+  name: GetLocalizedErrorCode(PictureparkException, string)
+  nameWithType: PictureparkExceptionExtensions.GetLocalizedErrorCode(PictureparkException, string)
+  fullName: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException, string)
+  nameWithType.vb: PictureparkExceptionExtensions.GetLocalizedErrorCode(PictureparkException, String)
+  fullName.vb: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException, String)
+  name.vb: GetLocalizedErrorCode(PictureparkException, String)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+    name: GetLocalizedErrorCode
+    href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html#Picturepark_SDK_V1_Localization_PictureparkExceptionExtensions_GetLocalizedErrorCode_Picturepark_SDK_V1_Contract_PictureparkException_System_String_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.PictureparkException
+    name: PictureparkException
+    href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+    name: GetLocalizedErrorCode
+    href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html#Picturepark_SDK_V1_Localization_PictureparkExceptionExtensions_GetLocalizedErrorCode_Picturepark_SDK_V1_Contract_PictureparkException_System_String_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.PictureparkException
+    name: PictureparkException
+    href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+  commentId: M:Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+  isExternal: true
+  href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html#Picturepark_SDK_V1_Localization_PictureparkExceptionExtensions_GetLocalizedErrorCode_Picturepark_SDK_V1_Contract_PictureparkException_System_String_
+  name: GetLocalizedErrorCode(PictureparkException, string)
+  nameWithType: PictureparkExceptionExtensions.GetLocalizedErrorCode(PictureparkException, string)
+  fullName: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException, string)
+  nameWithType.vb: PictureparkExceptionExtensions.GetLocalizedErrorCode(PictureparkException, String)
+  fullName.vb: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException, String)
+  name.vb: GetLocalizedErrorCode(PictureparkException, String)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+    name: GetLocalizedErrorCode
+    href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html#Picturepark_SDK_V1_Localization_PictureparkExceptionExtensions_GetLocalizedErrorCode_Picturepark_SDK_V1_Contract_PictureparkException_System_String_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.PictureparkException
+    name: PictureparkException
+    href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.GetLocalizedErrorCode(Picturepark.SDK.V1.Contract.PictureparkException,System.String)
+    name: GetLocalizedErrorCode
+    href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html#Picturepark_SDK_V1_Localization_PictureparkExceptionExtensions_GetLocalizedErrorCode_Picturepark_SDK_V1_Contract_PictureparkException_System_String_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.PictureparkException
+    name: PictureparkException
+    href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+  commentId: T:Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+  parent: Picturepark.SDK.V1.Localization
+  href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html
+  name: PictureparkExceptionExtensions
+  nameWithType: PictureparkExceptionExtensions
+  fullName: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+- uid: Picturepark.SDK.V1.Localization
+  commentId: N:Picturepark.SDK.V1.Localization
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Localization
+  nameWithType: Picturepark.SDK.V1.Localization
+  fullName: Picturepark.SDK.V1.Localization
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Localization
+    name: Localization
+    href: Picturepark.SDK.V1.Localization.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Localization
+    name: Localization
+    href: Picturepark.SDK.V1.Localization.html
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html#Picturepark_SDK_V1_Contract_PictureparkValidationException_ToJson
+  name: ToJson
+  nameWithType: PictureparkValidationException.ToJson
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html#Picturepark_SDK_V1_Contract_PictureparkValidationException_FromJson_System_String_
+  name: FromJson
+  nameWithType: PictureparkValidationException.FromJson
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException.FromJson
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException

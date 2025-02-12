@@ -1,6 +1,7 @@
 ﻿#pragma warning disable SA1201 // Elements must appear in the correct order
 
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -398,6 +399,58 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var lastSort = sort.Last();
             lastSort.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field + "Desc");
             lastSort.Direction.Should().Be(SortDirection.Desc);
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldGenerateTreeViewField()
+        {
+            // Arrange & Act
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithTreeView));
+            var schema = schemas.Should().ContainSingle().Which;
+
+            // Assert
+            var viewField = schema.Fields.OfType<FieldTreeView>().Should().ContainSingle().Which;
+
+            viewField.Levels.Should().HaveCount(2);
+            var singleTagboxLevel = viewField.Levels.Should().ContainSingle(x => x.FieldId == "singleTagboxField").Which;
+            singleTagboxLevel.Levels.Should().BeEmpty();
+            singleTagboxLevel.AllowRecursion.Should().BeFalse();
+
+            var multiTagboxLevel = viewField.Levels.Should().ContainSingle(x => x.FieldId == "multiTagboxField").Which;
+            multiTagboxLevel.Levels.Should().BeEmpty();
+            multiTagboxLevel.AllowRecursion.Should().BeTrue();
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class ListWithTreeView
+        {
+            [PictureparkTagbox]
+            public ListWithTreeView SingleTagboxField { get; set; }
+
+            [PictureparkTagbox]
+            public List<ListWithTreeView> MultiTagboxField { get; set; }
+
+            [PictureparkTreeView(typeof(TreeViewLevelProvider))]
+            public TreeViewObject TreeView { get; set; }
+
+            private class TreeViewLevelProvider : ITreeViewLevelProvider
+            {
+                public IReadOnlyList<TreeLevelItem> GetTreeLevels() =>
+                [
+                    new()
+                    {
+                        FieldId = nameof(SingleTagboxField).ToLowerCamelCase(), Levels = [],
+                        AllowRecursion = false
+                    },
+                    new()
+                    {
+                        FieldId = nameof(MultiTagboxField).ToLowerCamelCase(), Levels = [],
+                        AllowRecursion = true
+                    }
+                ];
+            }
         }
 
         [PictureparkSchema(SchemaType.List)]

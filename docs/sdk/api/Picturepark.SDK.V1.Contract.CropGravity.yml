@@ -1,0 +1,466 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.CropGravity
+  commentId: T:Picturepark.SDK.V1.Contract.CropGravity
+  id: CropGravity
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.CropGravity.Center
+  - Picturepark.SDK.V1.Contract.CropGravity.East
+  - Picturepark.SDK.V1.Contract.CropGravity.North
+  - Picturepark.SDK.V1.Contract.CropGravity.NorthEast
+  - Picturepark.SDK.V1.Contract.CropGravity.NorthWest
+  - Picturepark.SDK.V1.Contract.CropGravity.South
+  - Picturepark.SDK.V1.Contract.CropGravity.SouthEast
+  - Picturepark.SDK.V1.Contract.CropGravity.SouthWest
+  - Picturepark.SDK.V1.Contract.CropGravity.West
+  langs:
+  - csharp
+  - vb
+  name: CropGravity
+  nameWithType: CropGravity
+  fullName: Picturepark.SDK.V1.Contract.CropGravity
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CropGravity
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33243
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum CropGravity
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum CropGravity
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.CropGravity.NorthWest
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.NorthWest
+  id: NorthWest
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: NorthWest
+  nameWithType: CropGravity.NorthWest
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.NorthWest
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NorthWest
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33247
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NorthWest")]
+
+      NorthWest = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="NorthWest")>
+
+      NorthWest = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NorthWest
+- uid: Picturepark.SDK.V1.Contract.CropGravity.North
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.North
+  id: North
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: North
+  nameWithType: CropGravity.North
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.North
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: North
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33250
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "North")]
+
+      North = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="North")>
+
+      North = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: North
+- uid: Picturepark.SDK.V1.Contract.CropGravity.NorthEast
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.NorthEast
+  id: NorthEast
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: NorthEast
+  nameWithType: CropGravity.NorthEast
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.NorthEast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NorthEast
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33253
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NorthEast")]
+
+      NorthEast = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="NorthEast")>
+
+      NorthEast = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NorthEast
+- uid: Picturepark.SDK.V1.Contract.CropGravity.East
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.East
+  id: East
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: East
+  nameWithType: CropGravity.East
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.East
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: East
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33256
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "East")]
+
+      East = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="East")>
+
+      East = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: East
+- uid: Picturepark.SDK.V1.Contract.CropGravity.SouthEast
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.SouthEast
+  id: SouthEast
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: SouthEast
+  nameWithType: CropGravity.SouthEast
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.SouthEast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SouthEast
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33259
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SouthEast")]
+
+      SouthEast = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="SouthEast")>
+
+      SouthEast = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SouthEast
+- uid: Picturepark.SDK.V1.Contract.CropGravity.South
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.South
+  id: South
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: South
+  nameWithType: CropGravity.South
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.South
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: South
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33262
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "South")]
+
+      South = 5
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="South")>
+
+      South = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: South
+- uid: Picturepark.SDK.V1.Contract.CropGravity.SouthWest
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.SouthWest
+  id: SouthWest
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: SouthWest
+  nameWithType: CropGravity.SouthWest
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.SouthWest
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SouthWest
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33265
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SouthWest")]
+
+      SouthWest = 6
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="SouthWest")>
+
+      SouthWest = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SouthWest
+- uid: Picturepark.SDK.V1.Contract.CropGravity.West
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.West
+  id: West
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: West
+  nameWithType: CropGravity.West
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.West
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: West
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33268
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "West")]
+
+      West = 7
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="West")>
+
+      West = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: West
+- uid: Picturepark.SDK.V1.Contract.CropGravity.Center
+  commentId: F:Picturepark.SDK.V1.Contract.CropGravity.Center
+  id: Center
+  parent: Picturepark.SDK.V1.Contract.CropGravity
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: CropGravity.Center
+  fullName: Picturepark.SDK.V1.Contract.CropGravity.Center
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Center
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 33271
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Center")]
+
+      Center = 8
+    return:
+      type: Picturepark.SDK.V1.Contract.CropGravity
+    content.vb: >-
+      <EnumMember(Value:="Center")>
+
+      Center = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Center
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.CropGravity
+  commentId: T:Picturepark.SDK.V1.Contract.CropGravity
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.CropGravity.html
+  name: CropGravity
+  nameWithType: CropGravity
+  fullName: Picturepark.SDK.V1.Contract.CropGravity

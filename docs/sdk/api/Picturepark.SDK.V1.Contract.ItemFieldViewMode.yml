@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  commentId: T:Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  id: ItemFieldViewMode
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ItemFieldViewMode.List
+  - Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbLarge
+  - Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbMedium
+  - Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbSmall
+  langs:
+  - csharp
+  - vb
+  name: ItemFieldViewMode
+  nameWithType: ItemFieldViewMode
+  fullName: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ItemFieldViewMode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36819
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The view mode for related items
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ItemFieldViewMode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ItemFieldViewMode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ItemFieldViewMode.List
+  commentId: F:Picturepark.SDK.V1.Contract.ItemFieldViewMode.List
+  id: List
+  parent: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  langs:
+  - csharp
+  - vb
+  name: List
+  nameWithType: ItemFieldViewMode.List
+  fullName: Picturepark.SDK.V1.Contract.ItemFieldViewMode.List
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: List
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36823
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "List")]
+
+      List = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+    content.vb: >-
+      <EnumMember(Value:="List")>
+
+      List = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: List
+- uid: Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbSmall
+  commentId: F:Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbSmall
+  id: ThumbSmall
+  parent: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  langs:
+  - csharp
+  - vb
+  name: ThumbSmall
+  nameWithType: ItemFieldViewMode.ThumbSmall
+  fullName: Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbSmall
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ThumbSmall
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36826
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ThumbSmall")]
+
+      ThumbSmall = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+    content.vb: >-
+      <EnumMember(Value:="ThumbSmall")>
+
+      ThumbSmall = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ThumbSmall
+- uid: Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbMedium
+  commentId: F:Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbMedium
+  id: ThumbMedium
+  parent: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  langs:
+  - csharp
+  - vb
+  name: ThumbMedium
+  nameWithType: ItemFieldViewMode.ThumbMedium
+  fullName: Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbMedium
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ThumbMedium
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36829
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ThumbMedium")]
+
+      ThumbMedium = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+    content.vb: >-
+      <EnumMember(Value:="ThumbMedium")>
+
+      ThumbMedium = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ThumbMedium
+- uid: Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbLarge
+  commentId: F:Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbLarge
+  id: ThumbLarge
+  parent: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  langs:
+  - csharp
+  - vb
+  name: ThumbLarge
+  nameWithType: ItemFieldViewMode.ThumbLarge
+  fullName: Picturepark.SDK.V1.Contract.ItemFieldViewMode.ThumbLarge
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ThumbLarge
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 36832
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ThumbLarge")]
+
+      ThumbLarge = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+    content.vb: >-
+      <EnumMember(Value:="ThumbLarge")>
+
+      ThumbLarge = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ThumbLarge
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  commentId: T:Picturepark.SDK.V1.Contract.ItemFieldViewMode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ItemFieldViewMode.html
+  name: ItemFieldViewMode
+  nameWithType: ItemFieldViewMode
+  fullName: Picturepark.SDK.V1.Contract.ItemFieldViewMode

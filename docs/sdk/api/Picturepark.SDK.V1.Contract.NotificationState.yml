@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.NotificationState
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationState
+  id: NotificationState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.NotificationState.Deleted
+  - Picturepark.SDK.V1.Contract.NotificationState.Draft
+  - Picturepark.SDK.V1.Contract.NotificationState.Null
+  - Picturepark.SDK.V1.Contract.NotificationState.Read
+  - Picturepark.SDK.V1.Contract.NotificationState.Unread
+  langs:
+  - csharp
+  - vb
+  name: NotificationState
+  nameWithType: NotificationState
+  fullName: Picturepark.SDK.V1.Contract.NotificationState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotificationState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31958
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum NotificationState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum NotificationState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.NotificationState.Draft
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationState.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.Contract.NotificationState
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: NotificationState.Draft
+  fullName: Picturepark.SDK.V1.Contract.NotificationState.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31962
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationState
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.Contract.NotificationState.Unread
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationState.Unread
+  id: Unread
+  parent: Picturepark.SDK.V1.Contract.NotificationState
+  langs:
+  - csharp
+  - vb
+  name: Unread
+  nameWithType: NotificationState.Unread
+  fullName: Picturepark.SDK.V1.Contract.NotificationState.Unread
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Unread
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31965
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Unread")]
+
+      Unread = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationState
+    content.vb: >-
+      <EnumMember(Value:="Unread")>
+
+      Unread = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Unread
+- uid: Picturepark.SDK.V1.Contract.NotificationState.Read
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationState.Read
+  id: Read
+  parent: Picturepark.SDK.V1.Contract.NotificationState
+  langs:
+  - csharp
+  - vb
+  name: Read
+  nameWithType: NotificationState.Read
+  fullName: Picturepark.SDK.V1.Contract.NotificationState.Read
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Read
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31968
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Read")]
+
+      Read = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationState
+    content.vb: >-
+      <EnumMember(Value:="Read")>
+
+      Read = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Read
+- uid: Picturepark.SDK.V1.Contract.NotificationState.Deleted
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationState.Deleted
+  id: Deleted
+  parent: Picturepark.SDK.V1.Contract.NotificationState
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: NotificationState.Deleted
+  fullName: Picturepark.SDK.V1.Contract.NotificationState.Deleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Deleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31971
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Deleted")]
+
+      Deleted = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationState
+    content.vb: >-
+      <EnumMember(Value:="Deleted")>
+
+      Deleted = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Deleted
+- uid: Picturepark.SDK.V1.Contract.NotificationState.Null
+  commentId: F:Picturepark.SDK.V1.Contract.NotificationState.Null
+  id: "Null"
+  parent: Picturepark.SDK.V1.Contract.NotificationState
+  langs:
+  - csharp
+  - vb
+  name: "Null"
+  nameWithType: NotificationState.Null
+  fullName: Picturepark.SDK.V1.Contract.NotificationState.Null
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: "Null"
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 31974
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Null")]
+
+      Null = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.NotificationState
+    content.vb: >-
+      <EnumMember(Value:="Null")>
+
+      Null = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: "Null"
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.NotificationState
+  commentId: T:Picturepark.SDK.V1.Contract.NotificationState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.NotificationState.html
+  name: NotificationState
+  nameWithType: NotificationState
+  fullName: Picturepark.SDK.V1.Contract.NotificationState

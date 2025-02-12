@@ -1,0 +1,270 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Results
+  commentId: N:Picturepark.SDK.V1.Contract.Results
+  id: Picturepark.SDK.V1.Contract.Results
+  children:
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow`1
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail`1
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail`1
+  - Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult`1
+  - Picturepark.SDK.V1.Contract.Results.ContentBatchOperationResult
+  - Picturepark.SDK.V1.Contract.Results.ContentBatchOperationWithRequestIdResult
+  - Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+  - Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+  - Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult
+  - Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult
+  - Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult
+  - Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResultWithoutFetch
+  - Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.Results
+  nameWithType: Picturepark.SDK.V1.Contract.Results
+  fullName: Picturepark.SDK.V1.Contract.Results
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html
+  name: BatchOperationResult<T>
+  nameWithType: BatchOperationResult<T>
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResult<T>
+  nameWithType.vb: BatchOperationResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationResult(Of T)
+  name.vb: BatchOperationResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+    name: BatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResult`1
+    name: BatchOperationResult
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase.html
+  name: BatchOperationResultBase
+  nameWithType: BatchOperationResultBase
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultBase
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail`1
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail`1
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail-1.html
+  name: BatchOperationResultDetail<T>
+  nameWithType: BatchOperationResultDetail<T>
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail<T>
+  nameWithType.vb: BatchOperationResultDetail(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail(Of T)
+  name.vb: BatchOperationResultDetail(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail`1
+    name: BatchOperationResultDetail
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail`1
+    name: BatchOperationResultDetail
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetail-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow`1
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow`1
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow-1.html
+  name: BatchOperationResultDetailRow<T>
+  nameWithType: BatchOperationResultDetailRow<T>
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow<T>
+  nameWithType.vb: BatchOperationResultDetailRow(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow(Of T)
+  name.vb: BatchOperationResultDetailRow(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow`1
+    name: BatchOperationResultDetailRow
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow`1
+    name: BatchOperationResultDetailRow
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationResultDetailRow-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult`1
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult`1
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult-1.html
+  name: BatchOperationWithRequestIdResult<T>
+  nameWithType: BatchOperationWithRequestIdResult<T>
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult<T>
+  nameWithType.vb: BatchOperationWithRequestIdResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult(Of T)
+  name.vb: BatchOperationWithRequestIdResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult`1
+    name: BatchOperationWithRequestIdResult
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult`1
+    name: BatchOperationWithRequestIdResult
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail`1
+  commentId: T:Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail`1
+  href: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail-1.html
+  name: BatchOperationWithRequestIdResultDetail<T>
+  nameWithType: BatchOperationWithRequestIdResultDetail<T>
+  fullName: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail<T>
+  nameWithType.vb: BatchOperationWithRequestIdResultDetail(Of T)
+  fullName.vb: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail(Of T)
+  name.vb: BatchOperationWithRequestIdResultDetail(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail`1
+    name: BatchOperationWithRequestIdResultDetail
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail`1
+    name: BatchOperationWithRequestIdResultDetail
+    href: Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResultDetail-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Results.ContentBatchOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.ContentBatchOperationResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.ContentBatchOperationResult.html
+  name: ContentBatchOperationResult
+  nameWithType: ContentBatchOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.ContentBatchOperationResult
+- uid: Picturepark.SDK.V1.Contract.Results.ContentBatchOperationWithRequestIdResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.ContentBatchOperationWithRequestIdResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.ContentBatchOperationWithRequestIdResult.html
+  name: ContentBatchOperationWithRequestIdResult
+  nameWithType: ContentBatchOperationWithRequestIdResult
+  fullName: Picturepark.SDK.V1.Contract.Results.ContentBatchOperationWithRequestIdResult
+- uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult.html
+  name: ListItemBatchOperationResult
+  nameWithType: ListItemBatchOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult
+- uid: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult.html
+  name: ListItemBatchOperationWithRequestIdResult
+  nameWithType: ListItemBatchOperationWithRequestIdResult
+  fullName: Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult
+- uid: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult.html
+  name: OutputFormatBatchOperationResult
+  nameWithType: OutputFormatBatchOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult
+- uid: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult
+  href: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult.html
+  name: OutputFormatDeleteResult
+  nameWithType: OutputFormatDeleteResult
+  fullName: Picturepark.SDK.V1.Contract.Results.OutputFormatDeleteResult
+- uid: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult
+  href: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult.html
+  name: OutputFormatOperationResult
+  nameWithType: OutputFormatOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResult
+- uid: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResultWithoutFetch
+  commentId: T:Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResultWithoutFetch
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResultWithoutFetch.html
+  name: OutputFormatOperationResultWithoutFetch
+  nameWithType: OutputFormatOperationResultWithoutFetch
+  fullName: Picturepark.SDK.V1.Contract.Results.OutputFormatOperationResultWithoutFetch
+- uid: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+  commentId: T:Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+  parent: Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult.html
+  name: SchemaBatchOperationResult
+  nameWithType: SchemaBatchOperationResult
+  fullName: Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult
+- uid: Picturepark.SDK.V1.Contract.Results
+  commentId: N:Picturepark.SDK.V1.Contract.Results
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Results
+  nameWithType: Picturepark.SDK.V1.Contract.Results
+  fullName: Picturepark.SDK.V1.Contract.Results
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Results
+    name: Results
+    href: Picturepark.SDK.V1.Contract.Results.html

@@ -1,0 +1,1353 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService
+  commentId: T:Picturepark.SDK.V1.Contract.IPictureparkService
+  id: IPictureparkService
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess
+  - Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Channel
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Content
+  - Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet
+  - Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate
+  - Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue
+  - Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory
+  - Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Info
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Ingest
+  - Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema
+  - Picturepark.SDK.V1.Contract.IPictureparkService.ListItem
+  - Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Metadata
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Notification
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Output
+  - Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Profile
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Schema
+  - Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet
+  - Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Share
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Statistics
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Template
+  - Picturepark.SDK.V1.Contract.IPictureparkService.Transfer
+  - Picturepark.SDK.V1.Contract.IPictureparkService.User
+  - Picturepark.SDK.V1.Contract.IPictureparkService.UserRole
+  - Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping
+  langs:
+  - csharp
+  - vb
+  name: IPictureparkService
+  nameWithType: IPictureparkService
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IPictureparkService
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: 'public interface IPictureparkService : IDisposable'
+    content.vb: Public Interface IPictureparkService Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Schema
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Schema
+  id: Schema
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Schema
+  nameWithType: IPictureparkService.Schema
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Schema
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Schema
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: ISchemaClient Schema { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ISchemaClient
+    content.vb: ReadOnly Property Schema As ISchemaClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Schema*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Content
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Content
+  id: Content
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: IPictureparkService.Content
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Content
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Content
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IContentClient Content { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IContentClient
+    content.vb: ReadOnly Property Content As IContentClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Content*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Output
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Output
+  id: Output
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: IPictureparkService.Output
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Output
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Output
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 10
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IOutputClient Output { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IOutputClient
+    content.vb: ReadOnly Property Output As IOutputClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Output*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat
+  id: OutputFormat
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: OutputFormat
+  nameWithType: IPictureparkService.OutputFormat
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputFormat
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IOutputFormatClient OutputFormat { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IOutputFormatClient
+    content.vb: ReadOnly Property OutputFormat As IOutputFormatClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess
+  id: BusinessProcess
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: BusinessProcess
+  nameWithType: IPictureparkService.BusinessProcess
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessProcess
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 14
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IBusinessProcessClient BusinessProcess { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+    content.vb: ReadOnly Property BusinessProcess As IBusinessProcessClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory
+  id: DocumentHistory
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: DocumentHistory
+  nameWithType: IPictureparkService.DocumentHistory
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DocumentHistory
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 16
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IDocumentHistoryClient DocumentHistory { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+    content.vb: ReadOnly Property DocumentHistory As IDocumentHistoryClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Info
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Info
+  id: Info
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: IPictureparkService.Info
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Info
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Info
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 18
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IInfoClient Info { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IInfoClient
+    content.vb: ReadOnly Property Info As IInfoClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Info*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema
+  id: JsonSchema
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: JsonSchema
+  nameWithType: IPictureparkService.JsonSchema
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: JsonSchema
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 20
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IJsonSchemaClient JsonSchema { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IJsonSchemaClient
+    content.vb: ReadOnly Property JsonSchema As IJsonSchemaClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.ListItem
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.ListItem
+  id: ListItem
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: ListItem
+  nameWithType: IPictureparkService.ListItem
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.ListItem
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItem
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 22
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IListItemClient ListItem { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IListItemClient
+    content.vb: ReadOnly Property ListItem As IListItemClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.ListItem*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream
+  id: LiveStream
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: LiveStream
+  nameWithType: IPictureparkService.LiveStream
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LiveStream
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 24
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: ILiveStreamClient LiveStream { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ILiveStreamClient
+    content.vb: ReadOnly Property LiveStream As ILiveStreamClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet
+  id: ContentPermissionSet
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionSet
+  nameWithType: IPictureparkService.ContentPermissionSet
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionSet
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 26
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IContentPermissionSetClient ContentPermissionSet { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+    content.vb: ReadOnly Property ContentPermissionSet As IContentPermissionSetClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet
+  id: SchemaPermissionSet
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: SchemaPermissionSet
+  nameWithType: IPictureparkService.SchemaPermissionSet
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaPermissionSet
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 28
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: ISchemaPermissionSetClient SchemaPermissionSet { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ISchemaPermissionSetClient
+    content.vb: ReadOnly Property SchemaPermissionSet As ISchemaPermissionSetClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer
+  id: SchemaTransfer
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: SchemaTransfer
+  nameWithType: IPictureparkService.SchemaTransfer
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaTransfer
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 30
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: ISchemaTransferClient SchemaTransfer { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ISchemaTransferClient
+    content.vb: ReadOnly Property SchemaTransfer As ISchemaTransferClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Share
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Share
+  id: Share
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Share
+  nameWithType: IPictureparkService.Share
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Share
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Share
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 32
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IShareClient Share { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IShareClient
+    content.vb: ReadOnly Property Share As IShareClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Share*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Transfer
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Transfer
+  id: Transfer
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Transfer
+  nameWithType: IPictureparkService.Transfer
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Transfer
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Transfer
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 34
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: ITransferClient Transfer { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ITransferClient
+    content.vb: ReadOnly Property Transfer As ITransferClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Transfer*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.User
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.User
+  id: User
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: IPictureparkService.User
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.User
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: User
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 36
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IUserClient User { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IUserClient
+    content.vb: ReadOnly Property User As IUserClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.User*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.UserRole
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.UserRole
+  id: UserRole
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: UserRole
+  nameWithType: IPictureparkService.UserRole
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.UserRole
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserRole
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 38
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IUserRoleClient UserRole { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IUserRoleClient
+    content.vb: ReadOnly Property UserRole As IUserRoleClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.UserRole*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Profile
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Profile
+  id: Profile
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Profile
+  nameWithType: IPictureparkService.Profile
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Profile
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Profile
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 40
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IProfileClient Profile { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IProfileClient
+    content.vb: ReadOnly Property Profile As IProfileClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Profile*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Channel
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Channel
+  id: Channel
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Channel
+  nameWithType: IPictureparkService.Channel
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Channel
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Channel
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 42
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IChannelClient Channel { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IChannelClient
+    content.vb: ReadOnly Property Channel As IChannelClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Channel*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule
+  id: BusinessRule
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: BusinessRule
+  nameWithType: IPictureparkService.BusinessRule
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BusinessRule
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 44
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IBusinessRuleClient BusinessRule { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IBusinessRuleClient
+    content.vb: ReadOnly Property BusinessRule As IBusinessRuleClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue
+  id: DisplayValue
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: DisplayValue
+  nameWithType: IPictureparkService.DisplayValue
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayValue
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 46
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IDisplayValueClient DisplayValue { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IDisplayValueClient
+    content.vb: ReadOnly Property DisplayValue As IDisplayValueClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Metadata
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Metadata
+  id: Metadata
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: IPictureparkService.Metadata
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Metadata
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Metadata
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 48
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IMetadataClient Metadata { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IMetadataClient
+    content.vb: ReadOnly Property Metadata As IMetadataClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Metadata*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider
+  id: IdentityProvider
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: IdentityProvider
+  nameWithType: IPictureparkService.IdentityProvider
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IdentityProvider
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 50
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IIdentityProviderClient IdentityProvider { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+    content.vb: ReadOnly Property IdentityProvider As IIdentityProviderClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping
+  id: XmpMapping
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: XmpMapping
+  nameWithType: IPictureparkService.XmpMapping
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: XmpMapping
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 52
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IXmpMappingClient XmpMapping { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IXmpMappingClient
+    content.vb: ReadOnly Property XmpMapping As IXmpMappingClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Notification
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Notification
+  id: Notification
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Notification
+  nameWithType: IPictureparkService.Notification
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Notification
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Notification
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 54
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: INotificationClient Notification { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.INotificationClient
+    content.vb: ReadOnly Property Notification As INotificationClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Notification*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Template
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Template
+  id: Template
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Template
+  nameWithType: IPictureparkService.Template
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Template
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Template
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 56
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: ITemplateClient Template { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.ITemplateClient
+    content.vb: ReadOnly Property Template As ITemplateClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Template*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Statistics
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Statistics
+  id: Statistics
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Statistics
+  nameWithType: IPictureparkService.Statistics
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Statistics
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Statistics
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 58
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IStatisticClient Statistics { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IStatisticClient
+    content.vb: ReadOnly Property Statistics As IStatisticClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Statistics*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate
+  id: ConversionPresetTemplate
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: ConversionPresetTemplate
+  nameWithType: IPictureparkService.ConversionPresetTemplate
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ConversionPresetTemplate
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 60
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IConversionPresetTemplateClient ConversionPresetTemplate { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+    content.vb: ReadOnly Property ConversionPresetTemplate As IConversionPresetTemplateClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Ingest
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkService.Ingest
+  id: Ingest
+  parent: Picturepark.SDK.V1.Contract.IPictureparkService
+  langs:
+  - csharp
+  - vb
+  name: Ingest
+  nameWithType: IPictureparkService.Ingest
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Ingest
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Ingest
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkService.cs
+    startLine: 62
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: IIngestClient Ingest { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.IIngestClient
+    content.vb: ReadOnly Property Ingest As IIngestClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkService.Ingest*
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Schema*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Schema
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Schema
+  name: Schema
+  nameWithType: IPictureparkService.Schema
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Schema
+- uid: Picturepark.SDK.V1.Contract.ISchemaClient
+  commentId: T:Picturepark.SDK.V1.Contract.ISchemaClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ISchemaClient.html
+  name: ISchemaClient
+  nameWithType: ISchemaClient
+  fullName: Picturepark.SDK.V1.Contract.ISchemaClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Content*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Content
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Content
+  name: Content
+  nameWithType: IPictureparkService.Content
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Content
+- uid: Picturepark.SDK.V1.Contract.IContentClient
+  commentId: T:Picturepark.SDK.V1.Contract.IContentClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IContentClient.html
+  name: IContentClient
+  nameWithType: IContentClient
+  fullName: Picturepark.SDK.V1.Contract.IContentClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Output*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Output
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Output
+  name: Output
+  nameWithType: IPictureparkService.Output
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Output
+- uid: Picturepark.SDK.V1.Contract.IOutputClient
+  commentId: T:Picturepark.SDK.V1.Contract.IOutputClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IOutputClient.html
+  name: IOutputClient
+  nameWithType: IOutputClient
+  fullName: Picturepark.SDK.V1.Contract.IOutputClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_OutputFormat
+  name: OutputFormat
+  nameWithType: IPictureparkService.OutputFormat
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.OutputFormat
+- uid: Picturepark.SDK.V1.Contract.IOutputFormatClient
+  commentId: T:Picturepark.SDK.V1.Contract.IOutputFormatClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IOutputFormatClient.html
+  name: IOutputFormatClient
+  nameWithType: IOutputFormatClient
+  fullName: Picturepark.SDK.V1.Contract.IOutputFormatClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_BusinessProcess
+  name: BusinessProcess
+  nameWithType: IPictureparkService.BusinessProcess
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessProcess
+- uid: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  commentId: T:Picturepark.SDK.V1.Contract.IBusinessProcessClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IBusinessProcessClient.html
+  name: IBusinessProcessClient
+  nameWithType: IBusinessProcessClient
+  fullName: Picturepark.SDK.V1.Contract.IBusinessProcessClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_DocumentHistory
+  name: DocumentHistory
+  nameWithType: IPictureparkService.DocumentHistory
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.DocumentHistory
+- uid: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  commentId: T:Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html
+  name: IDocumentHistoryClient
+  nameWithType: IDocumentHistoryClient
+  fullName: Picturepark.SDK.V1.Contract.IDocumentHistoryClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Info*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Info
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Info
+  name: Info
+  nameWithType: IPictureparkService.Info
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Info
+- uid: Picturepark.SDK.V1.Contract.IInfoClient
+  commentId: T:Picturepark.SDK.V1.Contract.IInfoClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IInfoClient.html
+  name: IInfoClient
+  nameWithType: IInfoClient
+  fullName: Picturepark.SDK.V1.Contract.IInfoClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_JsonSchema
+  name: JsonSchema
+  nameWithType: IPictureparkService.JsonSchema
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.JsonSchema
+- uid: Picturepark.SDK.V1.Contract.IJsonSchemaClient
+  commentId: T:Picturepark.SDK.V1.Contract.IJsonSchemaClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IJsonSchemaClient.html
+  name: IJsonSchemaClient
+  nameWithType: IJsonSchemaClient
+  fullName: Picturepark.SDK.V1.Contract.IJsonSchemaClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.ListItem*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.ListItem
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_ListItem
+  name: ListItem
+  nameWithType: IPictureparkService.ListItem
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.ListItem
+- uid: Picturepark.SDK.V1.Contract.IListItemClient
+  commentId: T:Picturepark.SDK.V1.Contract.IListItemClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IListItemClient.html
+  name: IListItemClient
+  nameWithType: IListItemClient
+  fullName: Picturepark.SDK.V1.Contract.IListItemClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_LiveStream
+  name: LiveStream
+  nameWithType: IPictureparkService.LiveStream
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.LiveStream
+- uid: Picturepark.SDK.V1.Contract.ILiveStreamClient
+  commentId: T:Picturepark.SDK.V1.Contract.ILiveStreamClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ILiveStreamClient.html
+  name: ILiveStreamClient
+  nameWithType: ILiveStreamClient
+  fullName: Picturepark.SDK.V1.Contract.ILiveStreamClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_ContentPermissionSet
+  name: ContentPermissionSet
+  nameWithType: IPictureparkService.ContentPermissionSet
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.ContentPermissionSet
+- uid: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  commentId: T:Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html
+  name: IContentPermissionSetClient
+  nameWithType: IContentPermissionSetClient
+  fullName: Picturepark.SDK.V1.Contract.IContentPermissionSetClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_SchemaPermissionSet
+  name: SchemaPermissionSet
+  nameWithType: IPictureparkService.SchemaPermissionSet
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaPermissionSet
+- uid: Picturepark.SDK.V1.Contract.ISchemaPermissionSetClient
+  commentId: T:Picturepark.SDK.V1.Contract.ISchemaPermissionSetClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ISchemaPermissionSetClient.html
+  name: ISchemaPermissionSetClient
+  nameWithType: ISchemaPermissionSetClient
+  fullName: Picturepark.SDK.V1.Contract.ISchemaPermissionSetClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_SchemaTransfer
+  name: SchemaTransfer
+  nameWithType: IPictureparkService.SchemaTransfer
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.SchemaTransfer
+- uid: Picturepark.SDK.V1.Contract.ISchemaTransferClient
+  commentId: T:Picturepark.SDK.V1.Contract.ISchemaTransferClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ISchemaTransferClient.html
+  name: ISchemaTransferClient
+  nameWithType: ISchemaTransferClient
+  fullName: Picturepark.SDK.V1.Contract.ISchemaTransferClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Share*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Share
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Share
+  name: Share
+  nameWithType: IPictureparkService.Share
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Share
+- uid: Picturepark.SDK.V1.Contract.IShareClient
+  commentId: T:Picturepark.SDK.V1.Contract.IShareClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IShareClient.html
+  name: IShareClient
+  nameWithType: IShareClient
+  fullName: Picturepark.SDK.V1.Contract.IShareClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Transfer*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Transfer
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Transfer
+  name: Transfer
+  nameWithType: IPictureparkService.Transfer
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Transfer
+- uid: Picturepark.SDK.V1.Contract.ITransferClient
+  commentId: T:Picturepark.SDK.V1.Contract.ITransferClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ITransferClient.html
+  name: ITransferClient
+  nameWithType: ITransferClient
+  fullName: Picturepark.SDK.V1.Contract.ITransferClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.User*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.User
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_User
+  name: User
+  nameWithType: IPictureparkService.User
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.User
+- uid: Picturepark.SDK.V1.Contract.IUserClient
+  commentId: T:Picturepark.SDK.V1.Contract.IUserClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IUserClient.html
+  name: IUserClient
+  nameWithType: IUserClient
+  fullName: Picturepark.SDK.V1.Contract.IUserClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.UserRole*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.UserRole
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_UserRole
+  name: UserRole
+  nameWithType: IPictureparkService.UserRole
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.UserRole
+- uid: Picturepark.SDK.V1.Contract.IUserRoleClient
+  commentId: T:Picturepark.SDK.V1.Contract.IUserRoleClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IUserRoleClient.html
+  name: IUserRoleClient
+  nameWithType: IUserRoleClient
+  fullName: Picturepark.SDK.V1.Contract.IUserRoleClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Profile*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Profile
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Profile
+  name: Profile
+  nameWithType: IPictureparkService.Profile
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Profile
+- uid: Picturepark.SDK.V1.Contract.IProfileClient
+  commentId: T:Picturepark.SDK.V1.Contract.IProfileClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IProfileClient.html
+  name: IProfileClient
+  nameWithType: IProfileClient
+  fullName: Picturepark.SDK.V1.Contract.IProfileClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Channel*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Channel
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Channel
+  name: Channel
+  nameWithType: IPictureparkService.Channel
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Channel
+- uid: Picturepark.SDK.V1.Contract.IChannelClient
+  commentId: T:Picturepark.SDK.V1.Contract.IChannelClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IChannelClient.html
+  name: IChannelClient
+  nameWithType: IChannelClient
+  fullName: Picturepark.SDK.V1.Contract.IChannelClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_BusinessRule
+  name: BusinessRule
+  nameWithType: IPictureparkService.BusinessRule
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.BusinessRule
+- uid: Picturepark.SDK.V1.Contract.IBusinessRuleClient
+  commentId: T:Picturepark.SDK.V1.Contract.IBusinessRuleClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IBusinessRuleClient.html
+  name: IBusinessRuleClient
+  nameWithType: IBusinessRuleClient
+  fullName: Picturepark.SDK.V1.Contract.IBusinessRuleClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_DisplayValue
+  name: DisplayValue
+  nameWithType: IPictureparkService.DisplayValue
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.DisplayValue
+- uid: Picturepark.SDK.V1.Contract.IDisplayValueClient
+  commentId: T:Picturepark.SDK.V1.Contract.IDisplayValueClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IDisplayValueClient.html
+  name: IDisplayValueClient
+  nameWithType: IDisplayValueClient
+  fullName: Picturepark.SDK.V1.Contract.IDisplayValueClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Metadata*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Metadata
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Metadata
+  name: Metadata
+  nameWithType: IPictureparkService.Metadata
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Metadata
+- uid: Picturepark.SDK.V1.Contract.IMetadataClient
+  commentId: T:Picturepark.SDK.V1.Contract.IMetadataClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IMetadataClient.html
+  name: IMetadataClient
+  nameWithType: IMetadataClient
+  fullName: Picturepark.SDK.V1.Contract.IMetadataClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_IdentityProvider
+  name: IdentityProvider
+  nameWithType: IPictureparkService.IdentityProvider
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.IdentityProvider
+- uid: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  commentId: T:Picturepark.SDK.V1.Contract.IIdentityProviderClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IIdentityProviderClient.html
+  name: IIdentityProviderClient
+  nameWithType: IIdentityProviderClient
+  fullName: Picturepark.SDK.V1.Contract.IIdentityProviderClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_XmpMapping
+  name: XmpMapping
+  nameWithType: IPictureparkService.XmpMapping
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.XmpMapping
+- uid: Picturepark.SDK.V1.Contract.IXmpMappingClient
+  commentId: T:Picturepark.SDK.V1.Contract.IXmpMappingClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IXmpMappingClient.html
+  name: IXmpMappingClient
+  nameWithType: IXmpMappingClient
+  fullName: Picturepark.SDK.V1.Contract.IXmpMappingClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Notification*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Notification
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Notification
+  name: Notification
+  nameWithType: IPictureparkService.Notification
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Notification
+- uid: Picturepark.SDK.V1.Contract.INotificationClient
+  commentId: T:Picturepark.SDK.V1.Contract.INotificationClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.INotificationClient.html
+  name: INotificationClient
+  nameWithType: INotificationClient
+  fullName: Picturepark.SDK.V1.Contract.INotificationClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Template*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Template
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Template
+  name: Template
+  nameWithType: IPictureparkService.Template
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Template
+- uid: Picturepark.SDK.V1.Contract.ITemplateClient
+  commentId: T:Picturepark.SDK.V1.Contract.ITemplateClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ITemplateClient.html
+  name: ITemplateClient
+  nameWithType: ITemplateClient
+  fullName: Picturepark.SDK.V1.Contract.ITemplateClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Statistics*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Statistics
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Statistics
+  name: Statistics
+  nameWithType: IPictureparkService.Statistics
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Statistics
+- uid: Picturepark.SDK.V1.Contract.IStatisticClient
+  commentId: T:Picturepark.SDK.V1.Contract.IStatisticClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IStatisticClient.html
+  name: IStatisticClient
+  nameWithType: IStatisticClient
+  fullName: Picturepark.SDK.V1.Contract.IStatisticClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_ConversionPresetTemplate
+  name: ConversionPresetTemplate
+  nameWithType: IPictureparkService.ConversionPresetTemplate
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.ConversionPresetTemplate
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  commentId: T:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html
+  name: IConversionPresetTemplateClient
+  nameWithType: IConversionPresetTemplateClient
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkService.Ingest*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkService.Ingest
+  href: Picturepark.SDK.V1.Contract.IPictureparkService.html#Picturepark_SDK_V1_Contract_IPictureparkService_Ingest
+  name: Ingest
+  nameWithType: IPictureparkService.Ingest
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkService.Ingest
+- uid: Picturepark.SDK.V1.Contract.IIngestClient
+  commentId: T:Picturepark.SDK.V1.Contract.IIngestClient
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  name: IIngestClient
+  nameWithType: IIngestClient
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient

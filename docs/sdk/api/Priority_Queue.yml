@@ -1,0 +1,237 @@
+### YamlMime:ManagedReference
+items:
+- uid: Priority_Queue
+  commentId: N:Priority_Queue
+  id: Priority_Queue
+  children:
+  - Priority_Queue.FastPriorityQueueNode
+  - Priority_Queue.FastPriorityQueue`1
+  - Priority_Queue.GenericPriorityQueueNode`1
+  - Priority_Queue.GenericPriorityQueue`2
+  - Priority_Queue.IPriorityQueue`2
+  - Priority_Queue.SimplePriorityQueue`1
+  - Priority_Queue.SimplePriorityQueue`2
+  - Priority_Queue.StablePriorityQueueNode
+  - Priority_Queue.StablePriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Priority_Queue
+  nameWithType: Priority_Queue
+  fullName: Priority_Queue
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+references:
+- uid: Priority_Queue.FastPriorityQueue`1
+  commentId: T:Priority_Queue.FastPriorityQueue`1
+  href: Priority_Queue.FastPriorityQueue-1.html
+  name: FastPriorityQueue<T>
+  nameWithType: FastPriorityQueue<T>
+  fullName: Priority_Queue.FastPriorityQueue<T>
+  nameWithType.vb: FastPriorityQueue(Of T)
+  fullName.vb: Priority_Queue.FastPriorityQueue(Of T)
+  name.vb: FastPriorityQueue(Of T)
+  spec.csharp:
+  - uid: Priority_Queue.FastPriorityQueue`1
+    name: FastPriorityQueue
+    href: Priority_Queue.FastPriorityQueue-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.FastPriorityQueue`1
+    name: FastPriorityQueue
+    href: Priority_Queue.FastPriorityQueue-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Priority_Queue.FastPriorityQueueNode
+  commentId: T:Priority_Queue.FastPriorityQueueNode
+  parent: Priority_Queue
+  href: Priority_Queue.FastPriorityQueueNode.html
+  name: FastPriorityQueueNode
+  nameWithType: FastPriorityQueueNode
+  fullName: Priority_Queue.FastPriorityQueueNode
+- uid: Priority_Queue.GenericPriorityQueue`2
+  commentId: T:Priority_Queue.GenericPriorityQueue`2
+  href: Priority_Queue.GenericPriorityQueue-2.html
+  name: GenericPriorityQueue<TItem, TPriority>
+  nameWithType: GenericPriorityQueue<TItem, TPriority>
+  fullName: Priority_Queue.GenericPriorityQueue<TItem, TPriority>
+  nameWithType.vb: GenericPriorityQueue(Of TItem, TPriority)
+  fullName.vb: Priority_Queue.GenericPriorityQueue(Of TItem, TPriority)
+  name.vb: GenericPriorityQueue(Of TItem, TPriority)
+  spec.csharp:
+  - uid: Priority_Queue.GenericPriorityQueue`2
+    name: GenericPriorityQueue
+    href: Priority_Queue.GenericPriorityQueue-2.html
+  - name: <
+  - name: TItem
+  - name: ','
+  - name: " "
+  - name: TPriority
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.GenericPriorityQueue`2
+    name: GenericPriorityQueue
+    href: Priority_Queue.GenericPriorityQueue-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: ','
+  - name: " "
+  - name: TPriority
+  - name: )
+- uid: Priority_Queue.GenericPriorityQueueNode`1
+  commentId: T:Priority_Queue.GenericPriorityQueueNode`1
+  href: Priority_Queue.GenericPriorityQueueNode-1.html
+  name: GenericPriorityQueueNode<TPriority>
+  nameWithType: GenericPriorityQueueNode<TPriority>
+  fullName: Priority_Queue.GenericPriorityQueueNode<TPriority>
+  nameWithType.vb: GenericPriorityQueueNode(Of TPriority)
+  fullName.vb: Priority_Queue.GenericPriorityQueueNode(Of TPriority)
+  name.vb: GenericPriorityQueueNode(Of TPriority)
+  spec.csharp:
+  - uid: Priority_Queue.GenericPriorityQueueNode`1
+    name: GenericPriorityQueueNode
+    href: Priority_Queue.GenericPriorityQueueNode-1.html
+  - name: <
+  - name: TPriority
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.GenericPriorityQueueNode`1
+    name: GenericPriorityQueueNode
+    href: Priority_Queue.GenericPriorityQueueNode-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TPriority
+  - name: )
+- uid: Priority_Queue.IPriorityQueue`2
+  commentId: T:Priority_Queue.IPriorityQueue`2
+  href: Priority_Queue.IPriorityQueue-2.html
+  name: IPriorityQueue<TItem, TPriority>
+  nameWithType: IPriorityQueue<TItem, TPriority>
+  fullName: Priority_Queue.IPriorityQueue<TItem, TPriority>
+  nameWithType.vb: IPriorityQueue(Of TItem, TPriority)
+  fullName.vb: Priority_Queue.IPriorityQueue(Of TItem, TPriority)
+  name.vb: IPriorityQueue(Of TItem, TPriority)
+  spec.csharp:
+  - uid: Priority_Queue.IPriorityQueue`2
+    name: IPriorityQueue
+    href: Priority_Queue.IPriorityQueue-2.html
+  - name: <
+  - name: TItem
+  - name: ','
+  - name: " "
+  - name: TPriority
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.IPriorityQueue`2
+    name: IPriorityQueue
+    href: Priority_Queue.IPriorityQueue-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: ','
+  - name: " "
+  - name: TPriority
+  - name: )
+- uid: Priority_Queue.SimplePriorityQueue`2
+  commentId: T:Priority_Queue.SimplePriorityQueue`2
+  href: Priority_Queue.SimplePriorityQueue-2.html
+  name: SimplePriorityQueue<TItem, TPriority>
+  nameWithType: SimplePriorityQueue<TItem, TPriority>
+  fullName: Priority_Queue.SimplePriorityQueue<TItem, TPriority>
+  nameWithType.vb: SimplePriorityQueue(Of TItem, TPriority)
+  fullName.vb: Priority_Queue.SimplePriorityQueue(Of TItem, TPriority)
+  name.vb: SimplePriorityQueue(Of TItem, TPriority)
+  spec.csharp:
+  - uid: Priority_Queue.SimplePriorityQueue`2
+    name: SimplePriorityQueue
+    href: Priority_Queue.SimplePriorityQueue-2.html
+  - name: <
+  - name: TItem
+  - name: ','
+  - name: " "
+  - name: TPriority
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.SimplePriorityQueue`2
+    name: SimplePriorityQueue
+    href: Priority_Queue.SimplePriorityQueue-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: ','
+  - name: " "
+  - name: TPriority
+  - name: )
+- uid: Priority_Queue.SimplePriorityQueue`1
+  commentId: T:Priority_Queue.SimplePriorityQueue`1
+  href: Priority_Queue.SimplePriorityQueue-1.html
+  name: SimplePriorityQueue<TItem>
+  nameWithType: SimplePriorityQueue<TItem>
+  fullName: Priority_Queue.SimplePriorityQueue<TItem>
+  nameWithType.vb: SimplePriorityQueue(Of TItem)
+  fullName.vb: Priority_Queue.SimplePriorityQueue(Of TItem)
+  name.vb: SimplePriorityQueue(Of TItem)
+  spec.csharp:
+  - uid: Priority_Queue.SimplePriorityQueue`1
+    name: SimplePriorityQueue
+    href: Priority_Queue.SimplePriorityQueue-1.html
+  - name: <
+  - name: TItem
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.SimplePriorityQueue`1
+    name: SimplePriorityQueue
+    href: Priority_Queue.SimplePriorityQueue-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: )
+- uid: Priority_Queue.StablePriorityQueue`1
+  commentId: T:Priority_Queue.StablePriorityQueue`1
+  href: Priority_Queue.StablePriorityQueue-1.html
+  name: StablePriorityQueue<T>
+  nameWithType: StablePriorityQueue<T>
+  fullName: Priority_Queue.StablePriorityQueue<T>
+  nameWithType.vb: StablePriorityQueue(Of T)
+  fullName.vb: Priority_Queue.StablePriorityQueue(Of T)
+  name.vb: StablePriorityQueue(Of T)
+  spec.csharp:
+  - uid: Priority_Queue.StablePriorityQueue`1
+    name: StablePriorityQueue
+    href: Priority_Queue.StablePriorityQueue-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Priority_Queue.StablePriorityQueue`1
+    name: StablePriorityQueue
+    href: Priority_Queue.StablePriorityQueue-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Priority_Queue.StablePriorityQueueNode
+  commentId: T:Priority_Queue.StablePriorityQueueNode
+  href: Priority_Queue.StablePriorityQueueNode.html
+  name: StablePriorityQueueNode
+  nameWithType: StablePriorityQueueNode
+  fullName: Priority_Queue.StablePriorityQueueNode
+- uid: Priority_Queue
+  commentId: N:Priority_Queue
+  href: Priority_Queue.html
+  name: Priority_Queue
+  nameWithType: Priority_Queue
+  fullName: Priority_Queue

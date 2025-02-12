@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  id: LicenseBackupOption
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.None
+  - Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseAzureArchiveStorage
+  - Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseSafe
+  langs:
+  - csharp
+  - vb
+  name: LicenseBackupOption
+  nameWithType: LicenseBackupOption
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LicenseBackupOption
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15821
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: License backup option
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum LicenseBackupOption
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum LicenseBackupOption
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.None
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.None
+  id: None
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LicenseBackupOption.None
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.None
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: None
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15825
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "None")]
+
+      None = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+    content.vb: >-
+      <EnumMember(Value:="None")>
+
+      None = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: None
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseSafe
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseSafe
+  id: SuisseSafe
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  langs:
+  - csharp
+  - vb
+  name: SuisseSafe
+  nameWithType: LicenseBackupOption.SuisseSafe
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseSafe
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SuisseSafe
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15828
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SuisseSafe")]
+
+      SuisseSafe = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+    content.vb: >-
+      <EnumMember(Value:="SuisseSafe")>
+
+      SuisseSafe = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SuisseSafe
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseAzureArchiveStorage
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseAzureArchiveStorage
+  id: SuisseAzureArchiveStorage
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  langs:
+  - csharp
+  - vb
+  name: SuisseAzureArchiveStorage
+  nameWithType: LicenseBackupOption.SuisseAzureArchiveStorage
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.SuisseAzureArchiveStorage
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SuisseAzureArchiveStorage
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15831
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SuisseAzureArchiveStorage")]
+
+      SuisseAzureArchiveStorage = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+    content.vb: >-
+      <EnumMember(Value:="SuisseAzureArchiveStorage")>
+
+      SuisseAzureArchiveStorage = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SuisseAzureArchiveStorage
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption.html
+  name: LicenseBackupOption
+  nameWithType: LicenseBackupOption
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LicenseBackupOption

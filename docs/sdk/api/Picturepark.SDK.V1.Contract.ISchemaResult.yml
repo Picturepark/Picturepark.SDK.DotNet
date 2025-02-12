@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ISchemaResult
+  commentId: T:Picturepark.SDK.V1.Contract.ISchemaResult
+  id: ISchemaResult
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ISchemaResult.Schema
+  langs:
+  - csharp
+  - vb
+  name: ISchemaResult
+  nameWithType: ISchemaResult
+  fullName: Picturepark.SDK.V1.Contract.ISchemaResult
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ISchemaResult
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
+    startLine: 2
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public interface ISchemaResult
+    content.vb: Public Interface ISchemaResult
+- uid: Picturepark.SDK.V1.Contract.ISchemaResult.Schema
+  commentId: P:Picturepark.SDK.V1.Contract.ISchemaResult.Schema
+  id: Schema
+  parent: Picturepark.SDK.V1.Contract.ISchemaResult
+  langs:
+  - csharp
+  - vb
+  name: Schema
+  nameWithType: ISchemaResult.Schema
+  fullName: Picturepark.SDK.V1.Contract.ISchemaResult.Schema
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Schema
+    path: ../../src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
+    startLine: 4
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: SchemaDetail Schema { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.SchemaDetail
+    content.vb: Property Schema As SchemaDetail
+  overload: Picturepark.SDK.V1.Contract.ISchemaResult.Schema*
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ISchemaResult.Schema*
+  commentId: Overload:Picturepark.SDK.V1.Contract.ISchemaResult.Schema
+  href: Picturepark.SDK.V1.Contract.ISchemaResult.html#Picturepark_SDK_V1_Contract_ISchemaResult_Schema
+  name: Schema
+  nameWithType: ISchemaResult.Schema
+  fullName: Picturepark.SDK.V1.Contract.ISchemaResult.Schema
+- uid: Picturepark.SDK.V1.Contract.SchemaDetail
+  commentId: T:Picturepark.SDK.V1.Contract.SchemaDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SchemaDetail.html
+  name: SchemaDetail
+  nameWithType: SchemaDetail
+  fullName: Picturepark.SDK.V1.Contract.SchemaDetail

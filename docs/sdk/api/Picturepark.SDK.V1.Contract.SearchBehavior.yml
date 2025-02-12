@@ -1,0 +1,300 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior
+  commentId: T:Picturepark.SDK.V1.Contract.SearchBehavior
+  id: SearchBehavior
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.SearchBehavior.DropInvalidCharactersOnFailure
+  - Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearch
+  - Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearchOr
+  - Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnEveryTerm
+  - Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnSingleTerm
+  langs:
+  - csharp
+  - vb
+  name: SearchBehavior
+  nameWithType: SearchBehavior
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchBehavior
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 17783
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search behaviors
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum SearchBehavior
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum SearchBehavior
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior.DropInvalidCharactersOnFailure
+  commentId: F:Picturepark.SDK.V1.Contract.SearchBehavior.DropInvalidCharactersOnFailure
+  id: DropInvalidCharactersOnFailure
+  parent: Picturepark.SDK.V1.Contract.SearchBehavior
+  langs:
+  - csharp
+  - vb
+  name: DropInvalidCharactersOnFailure
+  nameWithType: SearchBehavior.DropInvalidCharactersOnFailure
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior.DropInvalidCharactersOnFailure
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DropInvalidCharactersOnFailure
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 17787
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "DropInvalidCharactersOnFailure")]
+
+      DropInvalidCharactersOnFailure = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchBehavior
+    content.vb: >-
+      <EnumMember(Value:="DropInvalidCharactersOnFailure")>
+
+      DropInvalidCharactersOnFailure = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: DropInvalidCharactersOnFailure
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnSingleTerm
+  commentId: F:Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnSingleTerm
+  id: WildcardOnSingleTerm
+  parent: Picturepark.SDK.V1.Contract.SearchBehavior
+  langs:
+  - csharp
+  - vb
+  name: WildcardOnSingleTerm
+  nameWithType: SearchBehavior.WildcardOnSingleTerm
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnSingleTerm
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WildcardOnSingleTerm
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 17790
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WildcardOnSingleTerm")]
+
+      WildcardOnSingleTerm = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchBehavior
+    content.vb: >-
+      <EnumMember(Value:="WildcardOnSingleTerm")>
+
+      WildcardOnSingleTerm = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WildcardOnSingleTerm
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearch
+  commentId: F:Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearch
+  id: SimplifiedSearch
+  parent: Picturepark.SDK.V1.Contract.SearchBehavior
+  langs:
+  - csharp
+  - vb
+  name: SimplifiedSearch
+  nameWithType: SearchBehavior.SimplifiedSearch
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearch
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SimplifiedSearch
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 17793
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SimplifiedSearch")]
+
+      SimplifiedSearch = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchBehavior
+    content.vb: >-
+      <EnumMember(Value:="SimplifiedSearch")>
+
+      SimplifiedSearch = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SimplifiedSearch
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnEveryTerm
+  commentId: F:Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnEveryTerm
+  id: WildcardOnEveryTerm
+  parent: Picturepark.SDK.V1.Contract.SearchBehavior
+  langs:
+  - csharp
+  - vb
+  name: WildcardOnEveryTerm
+  nameWithType: SearchBehavior.WildcardOnEveryTerm
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior.WildcardOnEveryTerm
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: WildcardOnEveryTerm
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 17796
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "WildcardOnEveryTerm")]
+
+      WildcardOnEveryTerm = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchBehavior
+    content.vb: >-
+      <EnumMember(Value:="WildcardOnEveryTerm")>
+
+      WildcardOnEveryTerm = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: WildcardOnEveryTerm
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearchOr
+  commentId: F:Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearchOr
+  id: SimplifiedSearchOr
+  parent: Picturepark.SDK.V1.Contract.SearchBehavior
+  langs:
+  - csharp
+  - vb
+  name: SimplifiedSearchOr
+  nameWithType: SearchBehavior.SimplifiedSearchOr
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior.SimplifiedSearchOr
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SimplifiedSearchOr
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 17799
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SimplifiedSearchOr")]
+
+      SimplifiedSearchOr = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchBehavior
+    content.vb: >-
+      <EnumMember(Value:="SimplifiedSearchOr")>
+
+      SimplifiedSearchOr = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SimplifiedSearchOr
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.SearchBehavior
+  commentId: T:Picturepark.SDK.V1.Contract.SearchBehavior
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SearchBehavior.html
+  name: SearchBehavior
+  nameWithType: SearchBehavior
+  fullName: Picturepark.SDK.V1.Contract.SearchBehavior

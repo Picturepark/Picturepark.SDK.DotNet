@@ -1,0 +1,718 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  commentId: T:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  id: AccessTokenAuthClient
+  parent: Picturepark.SDK.V1.Authentication
+  children:
+  - Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.#ctor(System.String,System.String,System.String)
+  - Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl
+  - Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias
+  - Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync
+  langs:
+  - csharp
+  - vb
+  name: AccessTokenAuthClient
+  nameWithType: AccessTokenAuthClient
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AccessTokenAuthClient
+    path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Authentication
+  summary: Provides access token based authentication.
+  example: []
+  syntax:
+    content: 'public class AccessTokenAuthClient : IAuthClient'
+    content.vb: Public Class AccessTokenAuthClient Implements IAuthClient
+  inheritance:
+  - System.Object
+  implements:
+  - Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.#ctor(System.String,System.String,System.String)
+  commentId: M:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.#ctor(System.String,System.String,System.String)
+  id: '#ctor(System.String,System.String,System.String)'
+  parent: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  langs:
+  - csharp
+  - vb
+  name: AccessTokenAuthClient(string, string, string)
+  nameWithType: AccessTokenAuthClient.AccessTokenAuthClient(string, string, string)
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.AccessTokenAuthClient(string, string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+    startLine: 15
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Authentication
+  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.Authentication.AccessTokenAuthClient" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AccessTokenAuthClient(string baseUrl, string accessToken, string customerAlias)
+    parameters:
+    - id: baseUrl
+      type: System.String
+      description: The API base URL.
+    - id: accessToken
+      type: System.String
+      description: The access token.
+    - id: customerAlias
+      type: System.String
+      description: The customer alias.
+    content.vb: Public Sub New(baseUrl As String, accessToken As String, customerAlias As String)
+  overload: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.#ctor*
+  nameWithType.vb: AccessTokenAuthClient.New(String, String, String)
+  fullName.vb: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.New(String, String, String)
+  name.vb: New(String, String, String)
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl
+  commentId: P:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl
+  id: BaseUrl
+  parent: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  langs:
+  - csharp
+  - vb
+  name: BaseUrl
+  nameWithType: AccessTokenAuthClient.BaseUrl
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BaseUrl
+    path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+    startLine: 24
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Authentication
+  summary: Gets the API base URL.
+  example: []
+  syntax:
+    content: public string BaseUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property BaseUrl As String
+  overload: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl*
+  implements:
+  - Picturepark.SDK.V1.Contract.Authentication.IAuthClient.BaseUrl
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias
+  id: CustomerAlias
+  parent: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  langs:
+  - csharp
+  - vb
+  name: CustomerAlias
+  nameWithType: AccessTokenAuthClient.CustomerAlias
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerAlias
+    path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+    startLine: 27
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Authentication
+  summary: Gets the customer alias.
+  example: []
+  syntax:
+    content: public string CustomerAlias { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CustomerAlias As String
+  overload: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias*
+  implements:
+  - Picturepark.SDK.V1.Contract.Authentication.IAuthClient.CustomerAlias
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync
+  commentId: M:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync
+  id: GetAuthenticationHeadersAsync
+  parent: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  langs:
+  - csharp
+  - vb
+  name: GetAuthenticationHeadersAsync()
+  nameWithType: AccessTokenAuthClient.GetAuthenticationHeadersAsync()
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAuthenticationHeadersAsync
+    path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
+    startLine: 31
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1.Authentication
+  summary: Gets the authentication headers.
+  example: []
+  syntax:
+    content: public Task<IDictionary<string, string>> GetAuthenticationHeadersAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IDictionary{System.String,System.String}}
+      description: The headers.
+    content.vb: Public Function GetAuthenticationHeadersAsync() As Task(Of IDictionary(Of String, String))
+  overload: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync*
+  implements:
+  - Picturepark.SDK.V1.Contract.Authentication.IAuthClient.GetAuthenticationHeadersAsync
+references:
+- uid: Picturepark.SDK.V1.Authentication
+  commentId: N:Picturepark.SDK.V1.Authentication
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Authentication
+  nameWithType: Picturepark.SDK.V1.Authentication
+  fullName: Picturepark.SDK.V1.Authentication
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Authentication.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Authentication.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  commentId: T:Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  parent: Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html
+  name: IAuthClient
+  nameWithType: IAuthClient
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.Authentication
+  commentId: N:Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Authentication
+  nameWithType: Picturepark.SDK.V1.Contract.Authentication
+  fullName: Picturepark.SDK.V1.Contract.Authentication
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  commentId: T:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+  href: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.html
+  name: AccessTokenAuthClient
+  nameWithType: AccessTokenAuthClient
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.#ctor
+  href: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.html#Picturepark_SDK_V1_Authentication_AccessTokenAuthClient__ctor_System_String_System_String_System_String_
+  name: AccessTokenAuthClient
+  nameWithType: AccessTokenAuthClient.AccessTokenAuthClient
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.AccessTokenAuthClient
+  nameWithType.vb: AccessTokenAuthClient.New
+  fullName.vb: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl*
+  commentId: Overload:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl
+  href: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.html#Picturepark_SDK_V1_Authentication_AccessTokenAuthClient_BaseUrl
+  name: BaseUrl
+  nameWithType: AccessTokenAuthClient.BaseUrl
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.BaseUrl
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.BaseUrl
+  commentId: P:Picturepark.SDK.V1.Contract.Authentication.IAuthClient.BaseUrl
+  parent: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html#Picturepark_SDK_V1_Contract_Authentication_IAuthClient_BaseUrl
+  name: BaseUrl
+  nameWithType: IAuthClient.BaseUrl
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.BaseUrl
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias*
+  commentId: Overload:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias
+  href: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.html#Picturepark_SDK_V1_Authentication_AccessTokenAuthClient_CustomerAlias
+  name: CustomerAlias
+  nameWithType: AccessTokenAuthClient.CustomerAlias
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.CustomerAlias
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.Contract.Authentication.IAuthClient.CustomerAlias
+  parent: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html#Picturepark_SDK_V1_Contract_Authentication_IAuthClient_CustomerAlias
+  name: CustomerAlias
+  nameWithType: IAuthClient.CustomerAlias
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.CustomerAlias
+- uid: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync*
+  commentId: Overload:Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync
+  href: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.html#Picturepark_SDK_V1_Authentication_AccessTokenAuthClient_GetAuthenticationHeadersAsync
+  name: GetAuthenticationHeadersAsync
+  nameWithType: AccessTokenAuthClient.GetAuthenticationHeadersAsync
+  fullName: Picturepark.SDK.V1.Authentication.AccessTokenAuthClient.GetAuthenticationHeadersAsync
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.GetAuthenticationHeadersAsync
+  commentId: M:Picturepark.SDK.V1.Contract.Authentication.IAuthClient.GetAuthenticationHeadersAsync
+  parent: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html#Picturepark_SDK_V1_Contract_Authentication_IAuthClient_GetAuthenticationHeadersAsync
+  name: GetAuthenticationHeadersAsync()
+  nameWithType: IAuthClient.GetAuthenticationHeadersAsync()
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.GetAuthenticationHeadersAsync()
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.GetAuthenticationHeadersAsync
+    name: GetAuthenticationHeadersAsync
+    href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html#Picturepark_SDK_V1_Contract_Authentication_IAuthClient_GetAuthenticationHeadersAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.GetAuthenticationHeadersAsync
+    name: GetAuthenticationHeadersAsync
+    href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html#Picturepark_SDK_V1_Contract_Authentication_IAuthClient_GetAuthenticationHeadersAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IDictionary{System.String,System.String}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IDictionary{System.String,System.String}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IDictionary<string, string>>
+  nameWithType: Task<IDictionary<string, string>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IDictionary<string, string>>
+  nameWithType.vb: Task(Of IDictionary(Of String, String))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IDictionary(Of String, String))
+  name.vb: Task(Of IDictionary(Of String, String))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

@@ -1,0 +1,1354 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Output
+  commentId: T:Picturepark.SDK.V1.Contract.Output
+  id: Output
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.Output.AttemptsLeft
+  - Picturepark.SDK.V1.Contract.Output.AvailabilityState
+  - Picturepark.SDK.V1.Contract.Output.BackupTimestamp
+  - Picturepark.SDK.V1.Contract.Output.ContentId
+  - Picturepark.SDK.V1.Contract.Output.Detail
+  - Picturepark.SDK.V1.Contract.Output.DynamicRendering
+  - Picturepark.SDK.V1.Contract.Output.FileVersion
+  - Picturepark.SDK.V1.Contract.Output.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.Output.Id
+  - Picturepark.SDK.V1.Contract.Output.OutputFormatCategory
+  - Picturepark.SDK.V1.Contract.Output.OutputFormatId
+  - Picturepark.SDK.V1.Contract.Output.RenderingState
+  - Picturepark.SDK.V1.Contract.Output.RenderingStateV2
+  - Picturepark.SDK.V1.Contract.Output.ToJson
+  langs:
+  - csharp
+  - vb
+  name: Output
+  nameWithType: Output
+  fullName: Picturepark.SDK.V1.Contract.Output
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Output
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23318
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Output
+  example: []
+  syntax:
+    content: >-
+      [JsonConverter(typeof(JsonInheritanceConverter), new object[] { "kind" })]
+
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class Output
+    content.vb: >-
+      <JsonConverter(GetType(JsonInheritanceConverter), New Object() { "kind" })>
+
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class Output
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Picturepark.SDK.V1.Contract.OutputDetail
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.Output.Id
+  commentId: P:Picturepark.SDK.V1.Contract.Output.Id
+  id: Id
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Output.Id
+  fullName: Picturepark.SDK.V1.Contract.Output.Id
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Id
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23326
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The ID of the output. Can be null for dynamic outputs which are not rendered yet.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("id", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Id As String
+  overload: Picturepark.SDK.V1.Contract.Output.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: id
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Output.OutputFormatId
+  commentId: P:Picturepark.SDK.V1.Contract.Output.OutputFormatId
+  id: OutputFormatId
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: OutputFormatId
+  nameWithType: Output.OutputFormatId
+  fullName: Picturepark.SDK.V1.Contract.Output.OutputFormatId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputFormatId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23332
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The ID of the output format this output represents.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("outputFormatId", Required = Required.Always)]
+
+      [Required]
+
+      public string OutputFormatId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("outputFormatId", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property OutputFormatId As String
+  overload: Picturepark.SDK.V1.Contract.Output.OutputFormatId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: outputFormatId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.Output.OutputFormatCategory
+  commentId: P:Picturepark.SDK.V1.Contract.Output.OutputFormatCategory
+  id: OutputFormatCategory
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: OutputFormatCategory
+  nameWithType: Output.OutputFormatCategory
+  fullName: Picturepark.SDK.V1.Contract.Output.OutputFormatCategory
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputFormatCategory
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23339
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Category of OutputFormat which this output represents.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("outputFormatCategory", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public OutputFormatCategory? OutputFormatCategory { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Picturepark.SDK.V1.Contract.OutputFormatCategory}
+    content.vb: >-
+      <JsonProperty("outputFormatCategory", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property OutputFormatCategory As OutputFormatCategory?
+  overload: Picturepark.SDK.V1.Contract.Output.OutputFormatCategory*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: outputFormatCategory
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Output.ContentId
+  commentId: P:Picturepark.SDK.V1.Contract.Output.ContentId
+  id: ContentId
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: ContentId
+  nameWithType: Output.ContentId
+  fullName: Picturepark.SDK.V1.Contract.Output.ContentId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23346
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The ID of the content for which this output has been created.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("contentId", Required = Required.Always)]
+
+      [Required]
+
+      public string ContentId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("contentId", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property ContentId As String
+  overload: Picturepark.SDK.V1.Contract.Output.ContentId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: contentId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.Output.RenderingState
+  commentId: P:Picturepark.SDK.V1.Contract.Output.RenderingState
+  id: RenderingState
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: RenderingState
+  nameWithType: Output.RenderingState
+  fullName: Picturepark.SDK.V1.Contract.Output.RenderingState
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RenderingState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23353
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The rendering state of the output file.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("renderingState", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      [Obsolete("Replaced by RenderingStateV2")]
+
+      public OutputRenderingState? RenderingState { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Picturepark.SDK.V1.Contract.OutputRenderingState}
+    content.vb: >-
+      <JsonProperty("renderingState", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      <Obsolete("Replaced by RenderingStateV2")>
+
+      Public Property RenderingState As OutputRenderingState?
+  overload: Picturepark.SDK.V1.Contract.Output.RenderingState*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: renderingState
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Replaced by RenderingStateV2
+- uid: Picturepark.SDK.V1.Contract.Output.RenderingStateV2
+  commentId: P:Picturepark.SDK.V1.Contract.Output.RenderingStateV2
+  id: RenderingStateV2
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: RenderingStateV2
+  nameWithType: Output.RenderingStateV2
+  fullName: Picturepark.SDK.V1.Contract.Output.RenderingStateV2
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RenderingStateV2
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23361
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The rendering state of the output file. Only null for static outputs which are not rendered ("Skipped" in old RenderingState), such outputs won't be returned in the future.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("renderingStateV2", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public OutputRenderingStateV2? RenderingStateV2 { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Picturepark.SDK.V1.Contract.OutputRenderingStateV2}
+    content.vb: >-
+      <JsonProperty("renderingStateV2", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property RenderingStateV2 As OutputRenderingStateV2?
+  overload: Picturepark.SDK.V1.Contract.Output.RenderingStateV2*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: renderingStateV2
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Output.AvailabilityState
+  commentId: P:Picturepark.SDK.V1.Contract.Output.AvailabilityState
+  id: AvailabilityState
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: AvailabilityState
+  nameWithType: Output.AvailabilityState
+  fullName: Picturepark.SDK.V1.Contract.Output.AvailabilityState
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AvailabilityState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23368
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Describes whether the output is available normally or if it is outdated. Note that this does not take into account failed or not yet performed rendering or similar.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("availabilityState", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public OutputAvailabilityState? AvailabilityState { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{Picturepark.SDK.V1.Contract.OutputAvailabilityState}
+    content.vb: >-
+      <JsonProperty("availabilityState", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Property AvailabilityState As OutputAvailabilityState?
+  overload: Picturepark.SDK.V1.Contract.Output.AvailabilityState*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: availabilityState
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Newtonsoft.Json.Converters.StringEnumConverter
+- uid: Picturepark.SDK.V1.Contract.Output.Detail
+  commentId: P:Picturepark.SDK.V1.Contract.Output.Detail
+  id: Detail
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: Detail
+  nameWithType: Output.Detail
+  fullName: Picturepark.SDK.V1.Contract.Output.Detail
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Detail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23375
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Detail of the output that are format dependent.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("detail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public OutputDataBase Detail { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputDataBase
+    content.vb: >-
+      <JsonProperty("detail", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Detail As OutputDataBase
+  overload: Picturepark.SDK.V1.Contract.Output.Detail*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: detail
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.Output.BackupTimestamp
+  commentId: P:Picturepark.SDK.V1.Contract.Output.BackupTimestamp
+  id: BackupTimestamp
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: BackupTimestamp
+  nameWithType: Output.BackupTimestamp
+  fullName: Picturepark.SDK.V1.Contract.Output.BackupTimestamp
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BackupTimestamp
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23381
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Date and time of the backup of the output file.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("backupTimestamp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [Obsolete("Backup of outputs is implemented differently now")]
+
+      public DateTime? BackupTimestamp { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <JsonProperty("backupTimestamp", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <Obsolete("Backup of outputs is implemented differently now")>
+
+      Public Property BackupTimestamp As Date?
+  overload: Picturepark.SDK.V1.Contract.Output.BackupTimestamp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: backupTimestamp
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Backup of outputs is implemented differently now
+- uid: Picturepark.SDK.V1.Contract.Output.AttemptsLeft
+  commentId: P:Picturepark.SDK.V1.Contract.Output.AttemptsLeft
+  id: AttemptsLeft
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: AttemptsLeft
+  nameWithType: Output.AttemptsLeft
+  fullName: Picturepark.SDK.V1.Contract.Output.AttemptsLeft
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AttemptsLeft
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23388
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Number of rendering retry attempts left.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("attemptsLeft", Required = Required.Always)]
+
+      public int AttemptsLeft { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty("attemptsLeft", Required:=Required.Always)>
+
+      Public Property AttemptsLeft As Integer
+  overload: Picturepark.SDK.V1.Contract.Output.AttemptsLeft*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: attemptsLeft
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.Output.FileVersion
+  commentId: P:Picturepark.SDK.V1.Contract.Output.FileVersion
+  id: FileVersion
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: FileVersion
+  nameWithType: Output.FileVersion
+  fullName: Picturepark.SDK.V1.Contract.Output.FileVersion
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FileVersion
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23394
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("fileVersion", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [Obsolete("Value was less accurate than it might have seemed")]
+
+      public int? FileVersion { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: >-
+      <JsonProperty("fileVersion", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <Obsolete("Value was less accurate than it might have seemed")>
+
+      Public Property FileVersion As Integer?
+  overload: Picturepark.SDK.V1.Contract.Output.FileVersion*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: fileVersion
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Value was less accurate than it might have seemed
+- uid: Picturepark.SDK.V1.Contract.Output.DynamicRendering
+  commentId: P:Picturepark.SDK.V1.Contract.Output.DynamicRendering
+  id: DynamicRendering
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: DynamicRendering
+  nameWithType: Output.DynamicRendering
+  fullName: Picturepark.SDK.V1.Contract.Output.DynamicRendering
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DynamicRendering
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23401
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Whether this Output belongs to a dynamic OutputFormat.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("dynamicRendering", Required = Required.Always)]
+
+      public bool DynamicRendering { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("dynamicRendering", Required:=Required.Always)>
+
+      Public Property DynamicRendering As Boolean
+  overload: Picturepark.SDK.V1.Contract.Output.DynamicRendering*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dynamicRendering
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+- uid: Picturepark.SDK.V1.Contract.Output.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.Output.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: Output.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.Output.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23404
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.Output.ToJson*
+- uid: Picturepark.SDK.V1.Contract.Output.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.Output.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.Output
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: Output.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.Output.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23410
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static Output FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.Output
+    content.vb: Public Shared Function FromJson(data As String) As Output
+  overload: Picturepark.SDK.V1.Contract.Output.FromJson*
+  nameWithType.vb: Output.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.Output.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.Output.Id*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.Id
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_Id
+  name: Id
+  nameWithType: Output.Id
+  fullName: Picturepark.SDK.V1.Contract.Output.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.Output.OutputFormatId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.OutputFormatId
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_OutputFormatId
+  name: OutputFormatId
+  nameWithType: Output.OutputFormatId
+  fullName: Picturepark.SDK.V1.Contract.Output.OutputFormatId
+- uid: Picturepark.SDK.V1.Contract.Output.OutputFormatCategory*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.OutputFormatCategory
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_OutputFormatCategory
+  name: OutputFormatCategory
+  nameWithType: Output.OutputFormatCategory
+  fullName: Picturepark.SDK.V1.Contract.Output.OutputFormatCategory
+- uid: System.Nullable{Picturepark.SDK.V1.Contract.OutputFormatCategory}
+  commentId: T:System.Nullable{Picturepark.SDK.V1.Contract.OutputFormatCategory}
+  parent: System
+  definition: System.Nullable`1
+  href: Picturepark.SDK.V1.Contract.OutputFormatCategory.html
+  name: OutputFormatCategory?
+  nameWithType: OutputFormatCategory?
+  fullName: Picturepark.SDK.V1.Contract.OutputFormatCategory?
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.OutputFormatCategory
+    name: OutputFormatCategory
+    href: Picturepark.SDK.V1.Contract.OutputFormatCategory.html
+  - name: '?'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.OutputFormatCategory
+    name: OutputFormatCategory
+    href: Picturepark.SDK.V1.Contract.OutputFormatCategory.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.Output.ContentId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.ContentId
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_ContentId
+  name: ContentId
+  nameWithType: Output.ContentId
+  fullName: Picturepark.SDK.V1.Contract.Output.ContentId
+- uid: Picturepark.SDK.V1.Contract.Output.RenderingState*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.RenderingState
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_RenderingState
+  name: RenderingState
+  nameWithType: Output.RenderingState
+  fullName: Picturepark.SDK.V1.Contract.Output.RenderingState
+- uid: System.Nullable{Picturepark.SDK.V1.Contract.OutputRenderingState}
+  commentId: T:System.Nullable{Picturepark.SDK.V1.Contract.OutputRenderingState}
+  parent: System
+  definition: System.Nullable`1
+  href: Picturepark.SDK.V1.Contract.OutputRenderingState.html
+  name: OutputRenderingState?
+  nameWithType: OutputRenderingState?
+  fullName: Picturepark.SDK.V1.Contract.OutputRenderingState?
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.OutputRenderingState
+    name: OutputRenderingState
+    href: Picturepark.SDK.V1.Contract.OutputRenderingState.html
+  - name: '?'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.OutputRenderingState
+    name: OutputRenderingState
+    href: Picturepark.SDK.V1.Contract.OutputRenderingState.html
+  - name: '?'
+- uid: Picturepark.SDK.V1.Contract.Output.RenderingStateV2*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.RenderingStateV2
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_RenderingStateV2
+  name: RenderingStateV2
+  nameWithType: Output.RenderingStateV2
+  fullName: Picturepark.SDK.V1.Contract.Output.RenderingStateV2
+- uid: System.Nullable{Picturepark.SDK.V1.Contract.OutputRenderingStateV2}
+  commentId: T:System.Nullable{Picturepark.SDK.V1.Contract.OutputRenderingStateV2}
+  parent: System
+  definition: System.Nullable`1
+  href: Picturepark.SDK.V1.Contract.OutputRenderingStateV2.html
+  name: OutputRenderingStateV2?
+  nameWithType: OutputRenderingStateV2?
+  fullName: Picturepark.SDK.V1.Contract.OutputRenderingStateV2?
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.OutputRenderingStateV2
+    name: OutputRenderingStateV2
+    href: Picturepark.SDK.V1.Contract.OutputRenderingStateV2.html
+  - name: '?'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.OutputRenderingStateV2
+    name: OutputRenderingStateV2
+    href: Picturepark.SDK.V1.Contract.OutputRenderingStateV2.html
+  - name: '?'
+- uid: Picturepark.SDK.V1.Contract.Output.AvailabilityState*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.AvailabilityState
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_AvailabilityState
+  name: AvailabilityState
+  nameWithType: Output.AvailabilityState
+  fullName: Picturepark.SDK.V1.Contract.Output.AvailabilityState
+- uid: System.Nullable{Picturepark.SDK.V1.Contract.OutputAvailabilityState}
+  commentId: T:System.Nullable{Picturepark.SDK.V1.Contract.OutputAvailabilityState}
+  parent: System
+  definition: System.Nullable`1
+  href: Picturepark.SDK.V1.Contract.OutputAvailabilityState.html
+  name: OutputAvailabilityState?
+  nameWithType: OutputAvailabilityState?
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState?
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+    name: OutputAvailabilityState
+    href: Picturepark.SDK.V1.Contract.OutputAvailabilityState.html
+  - name: '?'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+    name: OutputAvailabilityState
+    href: Picturepark.SDK.V1.Contract.OutputAvailabilityState.html
+  - name: '?'
+- uid: Picturepark.SDK.V1.Contract.Output.Detail*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.Detail
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_Detail
+  name: Detail
+  nameWithType: Output.Detail
+  fullName: Picturepark.SDK.V1.Contract.Output.Detail
+- uid: Picturepark.SDK.V1.Contract.OutputDataBase
+  commentId: T:Picturepark.SDK.V1.Contract.OutputDataBase
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputDataBase.html
+  name: OutputDataBase
+  nameWithType: OutputDataBase
+  fullName: Picturepark.SDK.V1.Contract.OutputDataBase
+- uid: Picturepark.SDK.V1.Contract.Output.BackupTimestamp*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.BackupTimestamp
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_BackupTimestamp
+  name: BackupTimestamp
+  nameWithType: Output.BackupTimestamp
+  fullName: Picturepark.SDK.V1.Contract.Output.BackupTimestamp
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: Picturepark.SDK.V1.Contract.Output.AttemptsLeft*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.AttemptsLeft
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_AttemptsLeft
+  name: AttemptsLeft
+  nameWithType: Output.AttemptsLeft
+  fullName: Picturepark.SDK.V1.Contract.Output.AttemptsLeft
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Picturepark.SDK.V1.Contract.Output.FileVersion*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.FileVersion
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_FileVersion
+  name: FileVersion
+  nameWithType: Output.FileVersion
+  fullName: Picturepark.SDK.V1.Contract.Output.FileVersion
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: Picturepark.SDK.V1.Contract.Output.DynamicRendering*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.DynamicRendering
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_DynamicRendering
+  name: DynamicRendering
+  nameWithType: Output.DynamicRendering
+  fullName: Picturepark.SDK.V1.Contract.Output.DynamicRendering
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.Output.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.ToJson
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_ToJson
+  name: ToJson
+  nameWithType: Output.ToJson
+  fullName: Picturepark.SDK.V1.Contract.Output.ToJson
+- uid: Picturepark.SDK.V1.Contract.Output.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.Output.FromJson
+  href: Picturepark.SDK.V1.Contract.Output.html#Picturepark_SDK_V1_Contract_Output_FromJson_System_String_
+  name: FromJson
+  nameWithType: Output.FromJson
+  fullName: Picturepark.SDK.V1.Contract.Output.FromJson
+- uid: Picturepark.SDK.V1.Contract.Output
+  commentId: T:Picturepark.SDK.V1.Contract.Output
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Output.html
+  name: Output
+  nameWithType: Output
+  fullName: Picturepark.SDK.V1.Contract.Output

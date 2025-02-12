@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.SearchIndexState
+  commentId: T:Picturepark.SDK.V1.Contract.SearchIndexState
+  id: SearchIndexState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.SearchIndexState.Green
+  - Picturepark.SDK.V1.Contract.SearchIndexState.Red
+  - Picturepark.SDK.V1.Contract.SearchIndexState.Yellow
+  langs:
+  - csharp
+  - vb
+  name: SearchIndexState
+  nameWithType: SearchIndexState
+  fullName: Picturepark.SDK.V1.Contract.SearchIndexState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchIndexState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28899
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum SearchIndexState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum SearchIndexState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.SearchIndexState.Green
+  commentId: F:Picturepark.SDK.V1.Contract.SearchIndexState.Green
+  id: Green
+  parent: Picturepark.SDK.V1.Contract.SearchIndexState
+  langs:
+  - csharp
+  - vb
+  name: Green
+  nameWithType: SearchIndexState.Green
+  fullName: Picturepark.SDK.V1.Contract.SearchIndexState.Green
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Green
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28903
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Green")]
+
+      Green = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchIndexState
+    content.vb: >-
+      <EnumMember(Value:="Green")>
+
+      Green = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Green
+- uid: Picturepark.SDK.V1.Contract.SearchIndexState.Yellow
+  commentId: F:Picturepark.SDK.V1.Contract.SearchIndexState.Yellow
+  id: Yellow
+  parent: Picturepark.SDK.V1.Contract.SearchIndexState
+  langs:
+  - csharp
+  - vb
+  name: Yellow
+  nameWithType: SearchIndexState.Yellow
+  fullName: Picturepark.SDK.V1.Contract.SearchIndexState.Yellow
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Yellow
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28906
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Yellow")]
+
+      Yellow = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchIndexState
+    content.vb: >-
+      <EnumMember(Value:="Yellow")>
+
+      Yellow = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Yellow
+- uid: Picturepark.SDK.V1.Contract.SearchIndexState.Red
+  commentId: F:Picturepark.SDK.V1.Contract.SearchIndexState.Red
+  id: Red
+  parent: Picturepark.SDK.V1.Contract.SearchIndexState
+  langs:
+  - csharp
+  - vb
+  name: Red
+  nameWithType: SearchIndexState.Red
+  fullName: Picturepark.SDK.V1.Contract.SearchIndexState.Red
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Red
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28909
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Red")]
+
+      Red = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.SearchIndexState
+    content.vb: >-
+      <EnumMember(Value:="Red")>
+
+      Red = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Red
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.SearchIndexState
+  commentId: T:Picturepark.SDK.V1.Contract.SearchIndexState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.SearchIndexState.html
+  name: SearchIndexState
+  nameWithType: SearchIndexState
+  fullName: Picturepark.SDK.V1.Contract.SearchIndexState

@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.XmpFieldDataType
+  commentId: T:Picturepark.SDK.V1.Contract.XmpFieldDataType
+  id: XmpFieldDataType
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.XmpFieldDataType.LangAlt
+  - Picturepark.SDK.V1.Contract.XmpFieldDataType.List
+  - Picturepark.SDK.V1.Contract.XmpFieldDataType.Simple
+  langs:
+  - csharp
+  - vb
+  name: XmpFieldDataType
+  nameWithType: XmpFieldDataType
+  fullName: Picturepark.SDK.V1.Contract.XmpFieldDataType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: XmpFieldDataType
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43037
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Data types of XMP fields
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum XmpFieldDataType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum XmpFieldDataType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.XmpFieldDataType.Simple
+  commentId: F:Picturepark.SDK.V1.Contract.XmpFieldDataType.Simple
+  id: Simple
+  parent: Picturepark.SDK.V1.Contract.XmpFieldDataType
+  langs:
+  - csharp
+  - vb
+  name: Simple
+  nameWithType: XmpFieldDataType.Simple
+  fullName: Picturepark.SDK.V1.Contract.XmpFieldDataType.Simple
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Simple
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43041
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Simple")]
+
+      Simple = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.XmpFieldDataType
+    content.vb: >-
+      <EnumMember(Value:="Simple")>
+
+      Simple = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Simple
+- uid: Picturepark.SDK.V1.Contract.XmpFieldDataType.LangAlt
+  commentId: F:Picturepark.SDK.V1.Contract.XmpFieldDataType.LangAlt
+  id: LangAlt
+  parent: Picturepark.SDK.V1.Contract.XmpFieldDataType
+  langs:
+  - csharp
+  - vb
+  name: LangAlt
+  nameWithType: XmpFieldDataType.LangAlt
+  fullName: Picturepark.SDK.V1.Contract.XmpFieldDataType.LangAlt
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LangAlt
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43044
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "LangAlt")]
+
+      LangAlt = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.XmpFieldDataType
+    content.vb: >-
+      <EnumMember(Value:="LangAlt")>
+
+      LangAlt = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: LangAlt
+- uid: Picturepark.SDK.V1.Contract.XmpFieldDataType.List
+  commentId: F:Picturepark.SDK.V1.Contract.XmpFieldDataType.List
+  id: List
+  parent: Picturepark.SDK.V1.Contract.XmpFieldDataType
+  langs:
+  - csharp
+  - vb
+  name: List
+  nameWithType: XmpFieldDataType.List
+  fullName: Picturepark.SDK.V1.Contract.XmpFieldDataType.List
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: List
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 43047
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "List")]
+
+      List = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.XmpFieldDataType
+    content.vb: >-
+      <EnumMember(Value:="List")>
+
+      List = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: List
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.XmpFieldDataType
+  commentId: T:Picturepark.SDK.V1.Contract.XmpFieldDataType
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.XmpFieldDataType.html
+  name: XmpFieldDataType
+  nameWithType: XmpFieldDataType
+  fullName: Picturepark.SDK.V1.Contract.XmpFieldDataType

@@ -1,0 +1,264 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  id: ContentBackupState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Disabled
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Enabled
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Recovery
+  - Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Resetting
+  langs:
+  - csharp
+  - vb
+  name: ContentBackupState
+  nameWithType: ContentBackupState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentBackupState
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19351
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ContentBackupState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ContentBackupState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Disabled
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Disabled
+  id: Disabled
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: ContentBackupState.Disabled
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Disabled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Disabled
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19355
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Disabled")]
+
+      Disabled = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+    content.vb: >-
+      <EnumMember(Value:="Disabled")>
+
+      Disabled = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Disabled
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Recovery
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Recovery
+  id: Recovery
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  langs:
+  - csharp
+  - vb
+  name: Recovery
+  nameWithType: ContentBackupState.Recovery
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Recovery
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Recovery
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19358
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Recovery")]
+
+      Recovery = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+    content.vb: >-
+      <EnumMember(Value:="Recovery")>
+
+      Recovery = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Recovery
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Enabled
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Enabled
+  id: Enabled
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: ContentBackupState.Enabled
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Enabled
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Enabled
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19361
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Enabled")]
+
+      Enabled = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+    content.vb: >-
+      <EnumMember(Value:="Enabled")>
+
+      Enabled = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Enabled
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Resetting
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Resetting
+  id: Resetting
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  langs:
+  - csharp
+  - vb
+  name: Resetting
+  nameWithType: ContentBackupState.Resetting
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.Resetting
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Resetting
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19364
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Resetting")]
+
+      Resetting = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+    content.vb: >-
+      <EnumMember(Value:="Resetting")>
+
+      Resetting = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Resetting
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.html
+  name: ContentBackupState
+  nameWithType: ContentBackupState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState

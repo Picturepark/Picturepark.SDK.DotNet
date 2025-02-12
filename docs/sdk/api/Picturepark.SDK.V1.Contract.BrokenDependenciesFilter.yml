@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  commentId: T:Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  id: BrokenDependenciesFilter
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All
+  - Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.BrokenOnly
+  - Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.NotBrokenOnly
+  langs:
+  - csharp
+  - vb
+  name: BrokenDependenciesFilter
+  nameWithType: BrokenDependenciesFilter
+  fullName: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BrokenDependenciesFilter
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25463
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Filter items with broken or not broken dependencies
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum BrokenDependenciesFilter
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum BrokenDependenciesFilter
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All
+  commentId: F:Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All
+  id: All
+  parent: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: BrokenDependenciesFilter.All
+  fullName: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: All
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25467
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "All")]
+
+      All = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+    content.vb: >-
+      <EnumMember(Value:="All")>
+
+      All = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: All
+- uid: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.NotBrokenOnly
+  commentId: F:Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.NotBrokenOnly
+  id: NotBrokenOnly
+  parent: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  langs:
+  - csharp
+  - vb
+  name: NotBrokenOnly
+  nameWithType: BrokenDependenciesFilter.NotBrokenOnly
+  fullName: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.NotBrokenOnly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotBrokenOnly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25470
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NotBrokenOnly")]
+
+      NotBrokenOnly = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+    content.vb: >-
+      <EnumMember(Value:="NotBrokenOnly")>
+
+      NotBrokenOnly = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NotBrokenOnly
+- uid: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.BrokenOnly
+  commentId: F:Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.BrokenOnly
+  id: BrokenOnly
+  parent: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  langs:
+  - csharp
+  - vb
+  name: BrokenOnly
+  nameWithType: BrokenDependenciesFilter.BrokenOnly
+  fullName: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.BrokenOnly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BrokenOnly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25473
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "BrokenOnly")]
+
+      BrokenOnly = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+    content.vb: >-
+      <EnumMember(Value:="BrokenOnly")>
+
+      BrokenOnly = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: BrokenOnly
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  commentId: T:Picturepark.SDK.V1.Contract.BrokenDependenciesFilter
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.html
+  name: BrokenDependenciesFilter
+  nameWithType: BrokenDependenciesFilter
+  fullName: Picturepark.SDK.V1.Contract.BrokenDependenciesFilter

@@ -683,6 +683,16 @@ namespace Picturepark.SDK.V1.Conversion
                             Sort = sortInfoAttributes.SelectMany(sia => sia.SortInfos).ToList()
                         };
                     }
+                    else if (property.TypeName == nameof(TreeViewObject))
+                    {
+                        var treeViewAttribute = property.PictureparkAttributes.OfType<PictureparkTreeViewAttribute>().SingleOrDefault()
+                                                   ?? throw new InvalidOperationException($"Property of type {nameof(TreeViewObject)} must be annotated with {nameof(PictureparkTreeViewAttribute)}");
+
+                        field = new FieldTreeView
+                        {
+                            Levels = treeViewAttribute.Levels.ToArray()
+                        };
+                    }
                     else if (property.IsReference)
                     {
                         field = new FieldSingleTagbox
@@ -789,6 +799,9 @@ namespace Picturepark.SDK.V1.Conversion
                     if (attribute is PictureparkDynamicViewSortAttribute)
                         throw new InvalidOperationException($"{nameof(PictureparkDynamicViewSortAttribute)} must only be used on properties of type {nameof(DynamicViewObject)}");
                 }
+
+                if (property.TypeName != nameof(TreeViewObject) && attribute is PictureparkTreeViewAttribute)
+                    throw new InvalidOperationException($"{nameof(PictureparkTreeViewAttribute)} must only be used on properties of type {nameof(TreeViewObject)}");
             }
 
             var fieldName = property.Name;

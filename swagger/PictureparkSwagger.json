@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -35676,6 +35676,61 @@
           }
         ]
       },
+      "TreeAggregatorOnlyAllowedInTopLevelAggregationsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregatorInvalidFieldTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregatorInnerAggregationsNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -37304,35 +37359,6 @@
           }
         ]
       },
-      "SchemaFieldTreeViewInvalidMaxRecursionsException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "path": {
-                "type": "string",
-                "nullable": true
-              },
-              "maxRecursions": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
       "SchemaFieldTreeViewTagboxFieldRequiredException": {
         "allOf": [
           {
@@ -37377,6 +37403,35 @@
               },
               "schemaType": {
                 "$ref": "#/components/schemas/SchemaType"
+              }
+            }
+          }
+        ]
+      },
+      "TagboxInUseInTreeViewFieldException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "tagboxFieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "treeViewFieldSchemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "treeViewFieldId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -40509,6 +40564,15 @@
             "items": {
               "$ref": "#/components/schemas/AggregationResult"
             }
+          },
+          "detail": {
+            "description": "Detailed information about the aggregation result item.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AggregationResultItemDetailBase"
+              }
+            ]
           }
         }
       },
@@ -40564,6 +40628,7 @@
             "TermsFilter": "#/components/schemas/TermsFilter",
             "ChildFilter": "#/components/schemas/ChildFilter",
             "ParentFilter": "#/components/schemas/ParentFilter",
+            "TreeFilter": "#/components/schemas/TreeFilter",
             "AggregationFilter": "#/components/schemas/AggregationFilter"
           }
         },
@@ -41058,6 +41123,98 @@
           }
         ]
       },
+      "TreeFilter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          },
+          {
+            "type": "object",
+            "description": "Filters results based on a tree structure and a path.",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "Field to filter on.",
+                "nullable": true
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to filter on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationResultItemDetailBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TreeAggregationResultItemDetail": "#/components/schemas/TreeAggregationResultItemDetail"
+          }
+        },
+        "description": "Detail for an AggregationResultItem.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TreeAggregationResultItemDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AggregationResultItemDetailBase"
+          },
+          {
+            "type": "object",
+            "description": "Detail for a tree aggregation result item.",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Path of the item. Use together with TreeFilter.",
+                "nullable": true
+              },
+              "resolvedPathComponents": {
+                "type": "array",
+                "description": "Resolved path components of the path.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/TreeAggregationResultPathComponent"
+                }
+              },
+              "hasChildren": {
+                "type": "boolean",
+                "description": "Indicates if the node contains children."
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregationResultPathComponent": {
+        "type": "object",
+        "description": "Component of a tree path.",
+        "additionalProperties": false,
+        "properties": {
+          "pathComponent": {
+            "type": "string",
+            "description": "Raw path component.",
+            "nullable": true
+          },
+          "displayValue": {
+            "type": "string",
+            "description": "Display value of the path component.",
+            "nullable": true
+          }
+        }
+      },
       "SearchBehaviorBaseResultOfBusinessProcess": {
         "allOf": [
           {
@@ -41245,7 +41402,8 @@
             "NumericRangeAggregator": "#/components/schemas/NumericRangeAggregator",
             "TermsAggregator": "#/components/schemas/TermsAggregator",
             "TermsRelationAggregator": "#/components/schemas/TermsRelationAggregator",
-            "TermsEnumAggregator": "#/components/schemas/TermsEnumAggregator"
+            "TermsEnumAggregator": "#/components/schemas/TermsEnumAggregator",
+            "TreeAggregator": "#/components/schemas/TreeAggregator"
           }
         },
         "description": "It is the base class for all aggregators.",
@@ -41692,6 +41850,53 @@
                 "type": "string",
                 "description": "Type of the enum target of the relation. It is used to resolve the enum translation.",
                 "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "TreeAggregator": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AggregatorBase"
+          },
+          {
+            "type": "object",
+            "description": "Aggregator for a FieldTreeView.",
+            "additionalProperties": false,
+            "required": [
+              "field"
+            ],
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "The fields ID to execute the aggregation on.",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to get buckets for.\nRemark: If this is not null, missing items will only be returned if they're a direct child of this path.",
+                "nullable": true
+              },
+              "searchString": {
+                "type": "string",
+                "description": "Search string to filter the buckets.",
+                "nullable": true
+              },
+              "size": {
+                "type": "integer",
+                "description": "The size parameter can be set to define how many buckets should be returned out of the overall list.",
+                "format": "int32",
+                "nullable": true
+              },
+              "sortDirection": {
+                "description": "Sorting for results. If null, sorts by item count.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SortDirection"
+                  }
+                ]
               }
             }
           }
@@ -49762,6 +49967,11 @@
                 "$ref": "#/components/schemas/ImageOptimizationLicenseState"
               }
             ]
+          },
+          "enableTreeView": {
+            "type": "boolean",
+            "description": "License flag for enabling tree view",
+            "nullable": true
           }
         }
       },
@@ -51092,6 +51302,8 @@
           "contentOrLayerSchemaIds": {
             "type": "array",
             "description": "The schema ids (of type Content or Layer) for which the contents are outdated and need to be updated.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use MainDocuments.ContentOrLayerSchemaIds instead. This will be removed in version 11.15.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -51100,10 +51312,30 @@
           "listSchemaIds": {
             "type": "array",
             "description": "The schema ids (of type List) for which the the list items are outdated and need to be updated.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use MainDocuments.ListSchemaIds instead. This will be removed in version 11.15.",
             "nullable": true,
             "items": {
               "type": "string"
             }
+          },
+          "mainDocuments": {
+            "description": "Schema IDs for which main documents need to be touched.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataStatusEntries"
+              }
+            ]
+          },
+          "searchDocuments": {
+            "description": "Schema IDs for which search documents need to be touched.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataStatusEntries"
+              }
+            ]
           },
           "state": {
             "description": "The global state of the Contents and ListItems compared to the schema structure (Green = ok, Red = update needed).",
@@ -51122,6 +51354,29 @@
               "items": {
                 "type": "string"
               }
+            }
+          }
+        }
+      },
+      "MetadataStatusEntries": {
+        "type": "object",
+        "description": "SchemaIDs for which metadata items need to be touched.",
+        "additionalProperties": false,
+        "properties": {
+          "contentOrLayerSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type Content or Layer) that need to be updated.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "listSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type List) that need to be updated.",
+            "nullable": true,
+            "items": {
+              "type": "string"
             }
           }
         }
@@ -56274,7 +56529,7 @@
         "additionalProperties": false,
         "required": [
           "fieldId",
-          "maxRecursions"
+          "allowRecursion"
         ],
         "properties": {
           "fieldId": {
@@ -56282,12 +56537,9 @@
             "description": "ID of the field.\nMust be a tagbox field.",
             "minLength": 1
           },
-          "maxRecursions": {
-            "type": "integer",
-            "description": "Maximum number of recursions allowed if the tagbox references the same schema it is defined in.\nSet to -1 to recurse until no more items are found.",
-            "format": "int32",
-            "maximum": 2147483647.0,
-            "minimum": -1.0
+          "allowRecursion": {
+            "type": "boolean",
+            "description": "Allow recursion if the tagbox references the same schema it is defined in."
           },
           "levels": {
             "type": "array",
@@ -61506,7 +61758,8 @@
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
             "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
-            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent",
+            "CdnStatisticsEvent": "#/components/schemas/CdnStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -62010,6 +62263,72 @@
             }
           }
         ]
+      },
+      "CdnStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "traffic": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/CdnTrafficValues"
+                }
+              },
+              "reportedTimeStart": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reportedTimeEnd": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        ]
+      },
+      "CdnTrafficValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "originBytesFetched",
+          "originBytesReceived",
+          "cdnBytesReceived",
+          "cdnBytesSent",
+          "bytesTotal",
+          "requests"
+        ],
+        "properties": {
+          "originBytesFetched": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "originBytesReceived": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cdnBytesReceived": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cdnBytesSent": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bytesTotal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "requests": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
       },
       "Message": {
         "type": "object",

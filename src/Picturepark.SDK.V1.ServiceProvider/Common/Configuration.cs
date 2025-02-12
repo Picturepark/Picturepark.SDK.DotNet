@@ -27,6 +27,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 
         public string ServiceProviderId { get; set; }
 
+        [Obsolete("NodeId will be removed in a future release")]
         public string NodeId { get; set; }
 
         public JsonSerializerSettings SerializerSettings { get; set; }

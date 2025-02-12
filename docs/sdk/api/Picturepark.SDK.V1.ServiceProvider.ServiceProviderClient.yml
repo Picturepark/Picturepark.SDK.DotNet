@@ -1,0 +1,558 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  id: ServiceProviderClient
+  parent: Picturepark.SDK.V1.ServiceProvider
+  children:
+  - Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration)
+  - Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose
+  - Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver(System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ServiceProviderClient
+  nameWithType: ServiceProviderClient
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ServiceProviderClient
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+    startLine: 13
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: 'public class ServiceProviderClient : IDisposable'
+    content.vb: Public Class ServiceProviderClient Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration)
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration)
+  id: '#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration)'
+  parent: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  langs:
+  - csharp
+  - vb
+  name: ServiceProviderClient(Configuration)
+  nameWithType: ServiceProviderClient.ServiceProviderClient(Configuration)
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.ServiceProviderClient(Picturepark.SDK.V1.ServiceProvider.Configuration)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+    startLine: 28
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public ServiceProviderClient(Configuration configuration)
+    parameters:
+    - id: configuration
+      type: Picturepark.SDK.V1.ServiceProvider.Configuration
+    content.vb: Public Sub New(configuration As Configuration)
+  overload: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.#ctor*
+  nameWithType.vb: ServiceProviderClient.New(Configuration)
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.New(Picturepark.SDK.V1.ServiceProvider.Configuration)
+  name.vb: New(Configuration)
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose
+  id: Dispose
+  parent: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ServiceProviderClient.Dispose()
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Dispose
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+    startLine: 42
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver(System.Int32,System.Int32)
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver(System.Int32,System.Int32)
+  id: GetLiveStreamObserver(System.Int32,System.Int32)
+  parent: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient
+  langs:
+  - csharp
+  - vb
+  name: GetLiveStreamObserver(int, int)
+  nameWithType: ServiceProviderClient.GetLiveStreamObserver(int, int)
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver(int, int)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetLiveStreamObserver
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
+    startLine: 51
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public IObservable<EventPattern<EventArgsLiveStreamMessage>> GetLiveStreamObserver(int bufferSize = 0, int delayMilliseconds = 0)
+    parameters:
+    - id: bufferSize
+      type: System.Int32
+    - id: delayMilliseconds
+      type: System.Int32
+    return:
+      type: System.IObservable{System.Reactive.EventPattern{Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage}}
+    content.vb: Public Function GetLiveStreamObserver(bufferSize As Integer = 0, delayMilliseconds As Integer = 0) As IObservable(Of EventPattern(Of EventArgsLiveStreamMessage))
+  overload: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver*
+  nameWithType.vb: ServiceProviderClient.GetLiveStreamObserver(Integer, Integer)
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver(Integer, Integer)
+  name.vb: GetLiveStreamObserver(Integer, Integer)
+references:
+- uid: Picturepark.SDK.V1.ServiceProvider
+  commentId: N:Picturepark.SDK.V1.ServiceProvider
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.ServiceProvider
+  nameWithType: Picturepark.SDK.V1.ServiceProvider
+  fullName: Picturepark.SDK.V1.ServiceProvider
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.#ctor
+  href: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.html#Picturepark_SDK_V1_ServiceProvider_ServiceProviderClient__ctor_Picturepark_SDK_V1_ServiceProvider_Configuration_
+  name: ServiceProviderClient
+  nameWithType: ServiceProviderClient.ServiceProviderClient
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.ServiceProviderClient
+  nameWithType.vb: ServiceProviderClient.New
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Configuration
+  parent: Picturepark.SDK.V1.ServiceProvider
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html
+  name: Configuration
+  nameWithType: Configuration
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose
+  href: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.html#Picturepark_SDK_V1_ServiceProvider_ServiceProviderClient_Dispose
+  name: Dispose
+  nameWithType: ServiceProviderClient.Dispose
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver
+  href: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.html#Picturepark_SDK_V1_ServiceProvider_ServiceProviderClient_GetLiveStreamObserver_System_Int32_System_Int32_
+  name: GetLiveStreamObserver
+  nameWithType: ServiceProviderClient.GetLiveStreamObserver
+  fullName: Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.GetLiveStreamObserver
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.IObservable{System.Reactive.EventPattern{Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage}}
+  commentId: T:System.IObservable{System.Reactive.EventPattern{Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage}}
+  parent: System
+  definition: System.IObservable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<EventPattern<EventArgsLiveStreamMessage>>
+  nameWithType: IObservable<EventPattern<EventArgsLiveStreamMessage>>
+  fullName: System.IObservable<System.Reactive.EventPattern<Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage>>
+  nameWithType.vb: IObservable(Of EventPattern(Of EventArgsLiveStreamMessage))
+  fullName.vb: System.IObservable(Of System.Reactive.EventPattern(Of Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage))
+  name.vb: IObservable(Of EventPattern(Of EventArgsLiveStreamMessage))
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - uid: System.Reactive.EventPattern`1
+    name: EventPattern
+    isExternal: true
+  - name: <
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+    name: EventArgsLiveStreamMessage
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reactive.EventPattern`1
+    name: EventPattern
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
+    name: EventArgsLiveStreamMessage
+    href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html
+  - name: )
+  - name: )
+- uid: System.IObservable`1
+  commentId: T:System.IObservable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  name: IObservable<T>
+  nameWithType: IObservable<T>
+  fullName: System.IObservable<T>
+  nameWithType.vb: IObservable(Of T)
+  fullName.vb: System.IObservable(Of T)
+  name.vb: IObservable(Of T)
+  spec.csharp:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IObservable`1
+    name: IObservable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iobservable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

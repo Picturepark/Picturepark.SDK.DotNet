@@ -1,0 +1,781 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager
+  commentId: N:Picturepark.SDK.V1.CloudManager
+  id: Picturepark.SDK.V1.CloudManager
+  children:
+  - Picturepark.SDK.V1.CloudManager.BusinessProcessClient
+  - Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CdnClient
+  - Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.ClientBase
+  - Picturepark.SDK.V1.CloudManager.CloudBackupClient
+  - Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CloudManagerService
+  - Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings
+  - Picturepark.SDK.V1.CloudManager.CustomerAssetClient
+  - Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CustomerClient
+  - Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CustomerOperationClient
+  - Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient
+  - Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient
+  - Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.CustomerSettingClient
+  - Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.EnvironmentClient
+  - Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient
+  - Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient
+  - Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  - Picturepark.SDK.V1.CloudManager.MaintenanceClient
+  - Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.OutputFormatClient
+  - Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.ServiceClient
+  - Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.UpdateClient
+  - Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.CloudManager.UserClient
+  - Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.CloudManager
+  nameWithType: Picturepark.SDK.V1.CloudManager
+  fullName: Picturepark.SDK.V1.CloudManager
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+references:
+- uid: Picturepark.SDK.V1.CloudManager.ClientBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.ClientBase
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.CloudManager.ClientBase
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerService
+  commentId: T:Picturepark.SDK.V1.CloudManager.CloudManagerService
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerService.html
+  name: CloudManagerService
+  nameWithType: CloudManagerService
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerService
+- uid: Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings
+  commentId: T:Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings
+  href: Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings.html
+  name: CloudManagerServiceSettings
+  nameWithType: CloudManagerServiceSettings
+  fullName: Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings
+- uid: Picturepark.SDK.V1.CloudManager.BusinessProcessClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.BusinessProcessClient
+  href: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.html
+  name: BusinessProcessClient
+  nameWithType: BusinessProcessClient
+  fullName: Picturepark.SDK.V1.CloudManager.BusinessProcessClient
+- uid: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.html
+  name: BusinessProcessClient.ObjectResponseResult<T>
+  nameWithType: BusinessProcessClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult<T>
+  nameWithType.vb: BusinessProcessClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult(Of T)
+  name.vb: BusinessProcessClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.BusinessProcessClient
+    name: BusinessProcessClient
+    href: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.BusinessProcessClient
+    name: BusinessProcessClient
+    href: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.BusinessProcessClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CdnClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CdnClient
+  href: Picturepark.SDK.V1.CloudManager.CdnClient.html
+  name: CdnClient
+  nameWithType: CdnClient
+  fullName: Picturepark.SDK.V1.CloudManager.CdnClient
+- uid: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CdnClient.html
+  name: CdnClient.ObjectResponseResult<T>
+  nameWithType: CdnClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult<T>
+  nameWithType.vb: CdnClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult(Of T)
+  name.vb: CdnClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CdnClient
+    name: CdnClient
+    href: Picturepark.SDK.V1.CloudManager.CdnClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CdnClient
+    name: CdnClient
+    href: Picturepark.SDK.V1.CloudManager.CdnClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CdnClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CloudBackupClient
+  href: Picturepark.SDK.V1.CloudManager.CloudBackupClient.html
+  name: CloudBackupClient
+  nameWithType: CloudBackupClient
+  fullName: Picturepark.SDK.V1.CloudManager.CloudBackupClient
+- uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CloudBackupClient.html
+  name: CloudBackupClient.ObjectResponseResult<T>
+  nameWithType: CloudBackupClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult<T>
+  nameWithType.vb: CloudBackupClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult(Of T)
+  name.vb: CloudBackupClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient
+    name: CloudBackupClient
+    href: Picturepark.SDK.V1.CloudManager.CloudBackupClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient
+    name: CloudBackupClient
+    href: Picturepark.SDK.V1.CloudManager.CloudBackupClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CloudBackupClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CustomerAssetClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerAssetClient
+  href: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.html
+  name: CustomerAssetClient
+  nameWithType: CustomerAssetClient
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerAssetClient
+- uid: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.html
+  name: CustomerAssetClient.ObjectResponseResult<T>
+  nameWithType: CustomerAssetClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult<T>
+  nameWithType.vb: CustomerAssetClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult(Of T)
+  name.vb: CustomerAssetClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerAssetClient
+    name: CustomerAssetClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerAssetClient
+    name: CustomerAssetClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerAssetClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CustomerClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerClient
+  href: Picturepark.SDK.V1.CloudManager.CustomerClient.html
+  name: CustomerClient
+  nameWithType: CustomerClient
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerClient
+- uid: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CustomerClient.html
+  name: CustomerClient.ObjectResponseResult<T>
+  nameWithType: CustomerClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult<T>
+  nameWithType.vb: CustomerClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult(Of T)
+  name.vb: CustomerClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerClient
+    name: CustomerClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerClient
+    name: CustomerClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CustomerOperationClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerOperationClient
+  href: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.html
+  name: CustomerOperationClient
+  nameWithType: CustomerOperationClient
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerOperationClient
+- uid: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.html
+  name: CustomerOperationClient.ObjectResponseResult<T>
+  nameWithType: CustomerOperationClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult<T>
+  nameWithType.vb: CustomerOperationClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult(Of T)
+  name.vb: CustomerOperationClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerOperationClient
+    name: CustomerOperationClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerOperationClient
+    name: CustomerOperationClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerOperationClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient
+  href: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.html
+  name: CustomerQueuePriorityClient
+  nameWithType: CustomerQueuePriorityClient
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient
+- uid: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.html
+  name: CustomerQueuePriorityClient.ObjectResponseResult<T>
+  nameWithType: CustomerQueuePriorityClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult<T>
+  nameWithType.vb: CustomerQueuePriorityClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult(Of T)
+  name.vb: CustomerQueuePriorityClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient
+    name: CustomerQueuePriorityClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient
+    name: CustomerQueuePriorityClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerQueuePriorityClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient
+  href: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.html
+  name: CustomerServiceProviderClient
+  nameWithType: CustomerServiceProviderClient
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient
+- uid: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.html
+  name: CustomerServiceProviderClient.ObjectResponseResult<T>
+  nameWithType: CustomerServiceProviderClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult<T>
+  nameWithType.vb: CustomerServiceProviderClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult(Of T)
+  name.vb: CustomerServiceProviderClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient
+    name: CustomerServiceProviderClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient
+    name: CustomerServiceProviderClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.CustomerSettingClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerSettingClient
+  href: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.html
+  name: CustomerSettingClient
+  nameWithType: CustomerSettingClient
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerSettingClient
+- uid: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.html
+  name: CustomerSettingClient.ObjectResponseResult<T>
+  nameWithType: CustomerSettingClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult<T>
+  nameWithType.vb: CustomerSettingClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult(Of T)
+  name.vb: CustomerSettingClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerSettingClient
+    name: CustomerSettingClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerSettingClient
+    name: CustomerSettingClient
+    href: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.CustomerSettingClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.EnvironmentClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.EnvironmentClient
+  href: Picturepark.SDK.V1.CloudManager.EnvironmentClient.html
+  name: EnvironmentClient
+  nameWithType: EnvironmentClient
+  fullName: Picturepark.SDK.V1.CloudManager.EnvironmentClient
+- uid: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.EnvironmentClient.html
+  name: EnvironmentClient.ObjectResponseResult<T>
+  nameWithType: EnvironmentClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult<T>
+  nameWithType.vb: EnvironmentClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult(Of T)
+  name.vb: EnvironmentClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentClient
+    name: EnvironmentClient
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentClient
+    name: EnvironmentClient
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient
+  href: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.html
+  name: EnvironmentProcessClient
+  nameWithType: EnvironmentProcessClient
+  fullName: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient
+- uid: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.html
+  name: EnvironmentProcessClient.ObjectResponseResult<T>
+  nameWithType: EnvironmentProcessClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult<T>
+  nameWithType.vb: EnvironmentProcessClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult(Of T)
+  name.vb: EnvironmentProcessClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient
+    name: EnvironmentProcessClient
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient
+    name: EnvironmentProcessClient
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient
+  href: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.html
+  name: GlobalConfigurationClient
+  nameWithType: GlobalConfigurationClient
+  fullName: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient
+- uid: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.html
+  name: GlobalConfigurationClient.ObjectResponseResult<T>
+  nameWithType: GlobalConfigurationClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult<T>
+  nameWithType.vb: GlobalConfigurationClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult(Of T)
+  name.vb: GlobalConfigurationClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient
+    name: GlobalConfigurationClient
+    href: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient
+    name: GlobalConfigurationClient
+    href: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.MaintenanceClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.MaintenanceClient
+  href: Picturepark.SDK.V1.CloudManager.MaintenanceClient.html
+  name: MaintenanceClient
+  nameWithType: MaintenanceClient
+  fullName: Picturepark.SDK.V1.CloudManager.MaintenanceClient
+- uid: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.MaintenanceClient.html
+  name: MaintenanceClient.ObjectResponseResult<T>
+  nameWithType: MaintenanceClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult<T>
+  nameWithType.vb: MaintenanceClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult(Of T)
+  name.vb: MaintenanceClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.MaintenanceClient
+    name: MaintenanceClient
+    href: Picturepark.SDK.V1.CloudManager.MaintenanceClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.MaintenanceClient
+    name: MaintenanceClient
+    href: Picturepark.SDK.V1.CloudManager.MaintenanceClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.MaintenanceClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.OutputFormatClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.OutputFormatClient
+  href: Picturepark.SDK.V1.CloudManager.OutputFormatClient.html
+  name: OutputFormatClient
+  nameWithType: OutputFormatClient
+  fullName: Picturepark.SDK.V1.CloudManager.OutputFormatClient
+- uid: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.OutputFormatClient.html
+  name: OutputFormatClient.ObjectResponseResult<T>
+  nameWithType: OutputFormatClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult<T>
+  nameWithType.vb: OutputFormatClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult(Of T)
+  name.vb: OutputFormatClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.OutputFormatClient
+    name: OutputFormatClient
+    href: Picturepark.SDK.V1.CloudManager.OutputFormatClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.OutputFormatClient
+    name: OutputFormatClient
+    href: Picturepark.SDK.V1.CloudManager.OutputFormatClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.OutputFormatClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.ServiceClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.ServiceClient
+  href: Picturepark.SDK.V1.CloudManager.ServiceClient.html
+  name: ServiceClient
+  nameWithType: ServiceClient
+  fullName: Picturepark.SDK.V1.CloudManager.ServiceClient
+- uid: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.ServiceClient.html
+  name: ServiceClient.ObjectResponseResult<T>
+  nameWithType: ServiceClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult<T>
+  nameWithType.vb: ServiceClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult(Of T)
+  name.vb: ServiceClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.ServiceClient
+    name: ServiceClient
+    href: Picturepark.SDK.V1.CloudManager.ServiceClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.ServiceClient
+    name: ServiceClient
+    href: Picturepark.SDK.V1.CloudManager.ServiceClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.ServiceClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.UpdateClient
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html
+  name: UpdateClient
+  nameWithType: UpdateClient
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient
+- uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.UpdateClient.html
+  name: UpdateClient.ObjectResponseResult<T>
+  nameWithType: UpdateClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult<T>
+  nameWithType.vb: UpdateClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult(Of T)
+  name.vb: UpdateClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient
+    name: UpdateClient
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient
+    name: UpdateClient
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UpdateClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.UserClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.UserClient
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html
+  name: UserClient
+  nameWithType: UserClient
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient
+- uid: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.CloudManager.UserClient.html
+  name: UserClient.ObjectResponseResult<T>
+  nameWithType: UserClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult<T>
+  nameWithType.vb: UserClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult(Of T)
+  name.vb: UserClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient
+    name: UserClient
+    href: Picturepark.SDK.V1.CloudManager.UserClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient
+    name: UserClient
+    href: Picturepark.SDK.V1.CloudManager.UserClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.CloudManager.UserClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  commentId: T:Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+  parent: Picturepark.SDK.V1.CloudManager
+  href: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html
+  name: ICloudManagerServiceSettings
+  nameWithType: ICloudManagerServiceSettings
+  fullName: Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings
+- uid: Picturepark.SDK.V1.CloudManager
+  commentId: N:Picturepark.SDK.V1.CloudManager
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager
+  nameWithType: Picturepark.SDK.V1.CloudManager
+  fullName: Picturepark.SDK.V1.CloudManager
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
