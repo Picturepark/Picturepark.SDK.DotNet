@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  commentId: T:Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  id: OutputAvailabilityState
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.OutputAvailabilityState.Normal
+  - Picturepark.SDK.V1.Contract.OutputAvailabilityState.RerenderRequested
+  - Picturepark.SDK.V1.Contract.OutputAvailabilityState.SourceReplaced
+  - Picturepark.SDK.V1.Contract.OutputAvailabilityState.ToBeDeleted
+  langs:
+  - csharp
+  - vb
+  name: OutputAvailabilityState
+  nameWithType: OutputAvailabilityState
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: OutputAvailabilityState
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23488
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Describes not directly rendering-outcome related state of an Output
+
+    <br />SourceReplaced: The output is derived from a non-current source (e.g. after Original file replacement)
+
+    <br />RerenderRequested: Rerendering has been explicitly requested or an OutputFormat used to produce this Output was edited
+
+    <br />ToBeDeleted: The output is about to be or already has been deleted
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum OutputAvailabilityState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum OutputAvailabilityState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState.Normal
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAvailabilityState.Normal
+  id: Normal
+  parent: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: OutputAvailabilityState.Normal
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState.Normal
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Normal
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23492
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Normal")]
+
+      Normal = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+    content.vb: >-
+      <EnumMember(Value:="Normal")>
+
+      Normal = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Normal
+- uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState.SourceReplaced
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAvailabilityState.SourceReplaced
+  id: SourceReplaced
+  parent: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  langs:
+  - csharp
+  - vb
+  name: SourceReplaced
+  nameWithType: OutputAvailabilityState.SourceReplaced
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState.SourceReplaced
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SourceReplaced
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23495
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SourceReplaced")]
+
+      SourceReplaced = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+    content.vb: >-
+      <EnumMember(Value:="SourceReplaced")>
+
+      SourceReplaced = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SourceReplaced
+- uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState.RerenderRequested
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAvailabilityState.RerenderRequested
+  id: RerenderRequested
+  parent: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  langs:
+  - csharp
+  - vb
+  name: RerenderRequested
+  nameWithType: OutputAvailabilityState.RerenderRequested
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState.RerenderRequested
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RerenderRequested
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23498
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "RerenderRequested")]
+
+      RerenderRequested = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+    content.vb: >-
+      <EnumMember(Value:="RerenderRequested")>
+
+      RerenderRequested = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: RerenderRequested
+- uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState.ToBeDeleted
+  commentId: F:Picturepark.SDK.V1.Contract.OutputAvailabilityState.ToBeDeleted
+  id: ToBeDeleted
+  parent: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  langs:
+  - csharp
+  - vb
+  name: ToBeDeleted
+  nameWithType: OutputAvailabilityState.ToBeDeleted
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState.ToBeDeleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToBeDeleted
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23501
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ToBeDeleted")]
+
+      ToBeDeleted = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+    content.vb: >-
+      <EnumMember(Value:="ToBeDeleted")>
+
+      ToBeDeleted = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ToBeDeleted
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  commentId: T:Picturepark.SDK.V1.Contract.OutputAvailabilityState
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.OutputAvailabilityState.html
+  name: OutputAvailabilityState
+  nameWithType: OutputAvailabilityState
+  fullName: Picturepark.SDK.V1.Contract.OutputAvailabilityState

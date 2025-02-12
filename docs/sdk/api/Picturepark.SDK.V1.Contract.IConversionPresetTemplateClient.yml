@@ -1,0 +1,1236 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  commentId: T:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  id: IConversionPresetTemplateClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IConversionPresetTemplateClient
+  nameWithType: IConversionPresetTemplateClient
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IConversionPresetTemplateClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1364
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IConversionPresetTemplateClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IConversionPresetTemplateClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(ConversionPresetTemplateSearchRequest, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.SearchAsync(ConversionPresetTemplateSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1381
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search conversion preset templates
+  example: []
+  syntax:
+    content: Task<ConversionPresetTemplateSearchResult> SearchAsync(ConversionPresetTemplateSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest
+      description: Conversion preset templates search request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult}
+      description: Result of the conversion preset templates search
+    content.vb: Function SearchAsync(request As ConversionPresetTemplateSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ConversionPresetTemplateSearchResult)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(ConversionPresetTemplateCreateRequest, TimeSpan?, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.CreateAsync(ConversionPresetTemplateCreateRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1400
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create conversion preset template
+  remarks: Creates new conversion preset template based on the supplied request.
+  example: []
+  syntax:
+    content: Task<ConversionPresetTemplateDetail> CreateAsync(ConversionPresetTemplateCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest
+      description: Request containing information needed to create new conversion preset template.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}
+      description: Represents the detail of a conversion preset template
+    content.vb: Function CreateAsync(request As ConversionPresetTemplateCreateRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ConversionPresetTemplateDetail)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1419
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple conversion preset templates
+  remarks: Gets multiple conversion preset template details by the conversion preset template IDs. Can fetch maximum of 100 conversion preset templates at once.
+  example: []
+  syntax:
+    content: Task<ICollection<ConversionPresetTemplateDetail>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Conversion preset template IDs to get information about.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}}
+      description: Array of Represents the detail of a conversion preset template
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of ConversionPresetTemplateDetail))
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+    description: List of IDs exceeded maximum size
+  nameWithType.vb: IConversionPresetTemplateClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, ConversionPresetTemplateUpdateRequest, TimeSpan?, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.UpdateAsync(string, ConversionPresetTemplateUpdateRequest, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1439
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update conversion preset template
+  remarks: Updates the conversion preset template specified by the ID and based on supplied request.
+  example: []
+  syntax:
+    content: Task<ConversionPresetTemplateDetail> UpdateAsync(string id, ConversionPresetTemplateUpdateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Conversion preset template ID.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest
+      description: Request containing information needed to update the conversion preset template.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}
+      description: Represents the detail of a conversion preset template
+    content.vb: Function UpdateAsync(id As String, request As ConversionPresetTemplateUpdateRequest, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ConversionPresetTemplateDetail)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IConversionPresetTemplateClient.UpdateAsync(String, ConversionPresetTemplateUpdateRequest, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, ConversionPresetTemplateUpdateRequest, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, TimeSpan?, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.DeleteAsync(string, TimeSpan?, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync(string, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1457
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete conversion preset template
+  remarks: Deletes the conversion preset template specified by the ID.
+  example: []
+  syntax:
+    content: Task DeleteAsync(string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Conversion preset template ID.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: Timeout
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteAsync(id As String, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IConversionPresetTemplateClient.DeleteAsync(String, TimeSpan?, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync(String, System.TimeSpan?, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, TimeSpan?, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1475
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get conversion preset template
+  remarks: Gets the conversion preset template by the conversion preset template ID.
+  example: []
+  syntax:
+    content: Task<ConversionPresetTemplateDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: Conversion preset template ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}
+      description: Represents the detail of a conversion preset template
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of ConversionPresetTemplateDetail)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IConversionPresetTemplateClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest,System.Threading.CancellationToken)
+  id: CreateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: CreateManyAsync(ConversionPresetTemplateCreateManyRequest, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.CreateManyAsync(ConversionPresetTemplateCreateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1493
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create multiple conversion preset templates
+  remarks: Creates new conversion preset templates based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> CreateManyAsync(ConversionPresetTemplateCreateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest
+      description: Request containing information needed to create new conversion preset template.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function CreateManyAsync(request As ConversionPresetTemplateCreateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest,System.Threading.CancellationToken)
+  id: UpdateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1511
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update multiple conversion preset templates
+  remarks: Updates the conversion preset templates specified by the IDs and based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest
+      description: Request containing information needed to update the conversion preset template.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function UpdateManyAsync(request As ConversionPresetTemplateUpdateManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest,System.Threading.CancellationToken)
+  id: DeleteManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteManyAsync(ConversionPresetTemplateDeleteManyRequest, CancellationToken)
+  nameWithType: IConversionPresetTemplateClient.DeleteManyAsync(ConversionPresetTemplateDeleteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1529
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete multiple conversion preset templates
+  remarks: Deletes the conversion preset templates specified by the IDs. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> DeleteManyAsync(ConversionPresetTemplateDeleteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest
+      description: The request with conversion preset template IDs to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function DeleteManyAsync(request As ConversionPresetTemplateDeleteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_SearchAsync_Picturepark_SDK_V1_Contract_ConversionPresetTemplateSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IConversionPresetTemplateClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest.html
+  name: ConversionPresetTemplateSearchRequest
+  nameWithType: ConversionPresetTemplateSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ConversionPresetTemplateSearchResult>
+  nameWithType: Task<ConversionPresetTemplateSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult>
+  nameWithType.vb: Task(Of ConversionPresetTemplateSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult)
+  name.vb: Task(Of ConversionPresetTemplateSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult
+    name: ConversionPresetTemplateSearchResult
+    href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult
+    name: ConversionPresetTemplateSearchResult
+    href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateSearchResult.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_CreateAsync_Picturepark_SDK_V1_Contract_ConversionPresetTemplateCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IConversionPresetTemplateClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest.html
+  name: ConversionPresetTemplateCreateRequest
+  nameWithType: ConversionPresetTemplateCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateRequest
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ConversionPresetTemplateDetail>
+  nameWithType: Task<ConversionPresetTemplateDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail>
+  nameWithType.vb: Task(Of ConversionPresetTemplateDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail)
+  name.vb: Task(Of ConversionPresetTemplateDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail
+    name: ConversionPresetTemplateDetail
+    href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail
+    name: ConversionPresetTemplateDetail
+    href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail.html
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  commentId: T:Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html
+  name: RequestSizeLimitExceededException
+  nameWithType: RequestSizeLimitExceededException
+  fullName: Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: IConversionPresetTemplateClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<ConversionPresetTemplateDetail>>
+  nameWithType: Task<ICollection<ConversionPresetTemplateDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail>>
+  nameWithType.vb: Task(Of ICollection(Of ConversionPresetTemplateDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail))
+  name.vb: Task(Of ICollection(Of ConversionPresetTemplateDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail
+    name: ConversionPresetTemplateDetail
+    href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail
+    name: ConversionPresetTemplateDetail
+    href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDetail.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ConversionPresetTemplateUpdateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IConversionPresetTemplateClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest.html
+  name: ConversionPresetTemplateUpdateRequest
+  nameWithType: ConversionPresetTemplateUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_DeleteAsync_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IConversionPresetTemplateClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IConversionPresetTemplateClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.GetAsync
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ConversionPresetTemplateCreateManyRequest_System_Threading_CancellationToken_
+  name: CreateManyAsync
+  nameWithType: IConversionPresetTemplateClient.CreateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.CreateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest.html
+  name: ConversionPresetTemplateCreateManyRequest
+  nameWithType: ConversionPresetTemplateCreateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ConversionPresetTemplateCreateManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ConversionPresetTemplateUpdateManyRequest_System_Threading_CancellationToken_
+  name: UpdateManyAsync
+  nameWithType: IConversionPresetTemplateClient.UpdateManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.UpdateManyAsync
+- uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest.html
+  name: ConversionPresetTemplateUpdateManyRequest
+  nameWithType: ConversionPresetTemplateUpdateManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ConversionPresetTemplateUpdateManyRequest
+- uid: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync
+  href: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.html#Picturepark_SDK_V1_Contract_IConversionPresetTemplateClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ConversionPresetTemplateDeleteManyRequest_System_Threading_CancellationToken_
+  name: DeleteManyAsync
+  nameWithType: IConversionPresetTemplateClient.DeleteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IConversionPresetTemplateClient.DeleteManyAsync
+- uid: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest.html
+  name: ConversionPresetTemplateDeleteManyRequest
+  nameWithType: ConversionPresetTemplateDeleteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.ConversionPresetTemplateDeleteManyRequest

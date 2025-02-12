@@ -1,0 +1,488 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  id: ICustomerAssetClient
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ICustomerAssetClient
+  nameWithType: ICustomerAssetClient
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ICustomerAssetClient
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
+    startLine: 7
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Customer asset client endpoints
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface ICustomerAssetClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface ICustomerAssetClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,System.Threading.CancellationToken)
+  id: DeleteLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteLogoAsync(string, LogoKind, CancellationToken)
+  nameWithType: ICustomerAssetClient.DeleteLogoAsync(string, LogoKind, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync(string, Picturepark.SDK.V1.CloudManager.Contract.LogoKind, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteLogoAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 338
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task DeleteLogoAsync(string customerId, LogoKind type, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: type
+      type: Picturepark.SDK.V1.CloudManager.Contract.LogoKind
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteLogoAsync(customerId As String, type As LogoKind, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerAssetClient.DeleteLogoAsync(String, LogoKind, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync(String, Picturepark.SDK.V1.CloudManager.Contract.LogoKind, System.Threading.CancellationToken)
+  name.vb: DeleteLogoAsync(String, LogoKind, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteWatermarkAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteWatermarkAsync(string, string, CancellationToken)
+  nameWithType: ICustomerAssetClient.DeleteWatermarkAsync(string, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteWatermarkAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 349
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  example: []
+  syntax:
+    content: Task DeleteWatermarkAsync(string customerId, string fileName, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: fileName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteWatermarkAsync(customerId As String, fileName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Internal server error
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+    description: Entity not found
+  nameWithType.vb: ICustomerAssetClient.DeleteWatermarkAsync(String, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync(String, String, System.Threading.CancellationToken)
+  name.vb: DeleteWatermarkAsync(String, String, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  id: PutLogoAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.LogoKind,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  langs:
+  - csharp
+  - vb
+  name: PutLogoAsync(string, LogoKind, FileParameter, CancellationToken)
+  nameWithType: ICustomerAssetClient.PutLogoAsync(string, LogoKind, FileParameter, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync(string, Picturepark.SDK.V1.CloudManager.Contract.LogoKind, Picturepark.SDK.V1.CloudManager.Contract.FileParameter, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PutLogoAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
+    startLine: 9
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: Task PutLogoAsync(string customerId, LogoKind type, FileParameter file, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: type
+      type: Picturepark.SDK.V1.CloudManager.Contract.LogoKind
+    - id: file
+      type: Picturepark.SDK.V1.CloudManager.Contract.FileParameter
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function PutLogoAsync(customerId As String, type As LogoKind, file As FileParameter, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync*
+  nameWithType.vb: ICustomerAssetClient.PutLogoAsync(String, LogoKind, FileParameter, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync(String, Picturepark.SDK.V1.CloudManager.Contract.LogoKind, Picturepark.SDK.V1.CloudManager.Contract.FileParameter, System.Threading.CancellationToken)
+  name.vb: PutLogoAsync(String, LogoKind, FileParameter, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  id: PutWatermarkAsync(System.String,Picturepark.SDK.V1.CloudManager.Contract.FileParameter,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient
+  langs:
+  - csharp
+  - vb
+  name: PutWatermarkAsync(string, FileParameter, CancellationToken)
+  nameWithType: ICustomerAssetClient.PutWatermarkAsync(string, FileParameter, CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync(string, Picturepark.SDK.V1.CloudManager.Contract.FileParameter, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: PutWatermarkAsync
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
+    startLine: 15
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: Task PutWatermarkAsync(string customerId, FileParameter file, CancellationToken cancellationToken = default)
+    parameters:
+    - id: customerId
+      type: System.String
+    - id: file
+      type: Picturepark.SDK.V1.CloudManager.Contract.FileParameter
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function PutWatermarkAsync(customerId As String, file As FileParameter, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync*
+  nameWithType.vb: ICustomerAssetClient.PutWatermarkAsync(String, FileParameter, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync(String, Picturepark.SDK.V1.CloudManager.Contract.FileParameter, System.Threading.CancellationToken)
+  name.vb: PutWatermarkAsync(String, FileParameter, CancellationToken)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ApiException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ApiException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerAssetClient_DeleteLogoAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_LogoKind_System_Threading_CancellationToken_
+  name: DeleteLogoAsync
+  nameWithType: ICustomerAssetClient.DeleteLogoAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteLogoAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LogoKind
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.LogoKind
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.LogoKind.html
+  name: LogoKind
+  nameWithType: LogoKind
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LogoKind
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerAssetClient_DeleteWatermarkAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: DeleteWatermarkAsync
+  nameWithType: ICustomerAssetClient.DeleteWatermarkAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.DeleteWatermarkAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerAssetClient_PutLogoAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_LogoKind_Picturepark_SDK_V1_CloudManager_Contract_FileParameter_System_Threading_CancellationToken_
+  name: PutLogoAsync
+  nameWithType: ICustomerAssetClient.PutLogoAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutLogoAsync
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FileParameter
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FileParameter
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.FileParameter.html
+  name: FileParameter
+  nameWithType: FileParameter
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FileParameter
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync
+  href: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICustomerAssetClient_PutWatermarkAsync_System_String_Picturepark_SDK_V1_CloudManager_Contract_FileParameter_System_Threading_CancellationToken_
+  name: PutWatermarkAsync
+  nameWithType: ICustomerAssetClient.PutWatermarkAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICustomerAssetClient.PutWatermarkAsync

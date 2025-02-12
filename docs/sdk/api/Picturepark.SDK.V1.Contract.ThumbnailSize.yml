@@ -1,0 +1,300 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize
+  commentId: T:Picturepark.SDK.V1.Contract.ThumbnailSize
+  id: ThumbnailSize
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ThumbnailSize.ExtraLarge
+  - Picturepark.SDK.V1.Contract.ThumbnailSize.Large
+  - Picturepark.SDK.V1.Contract.ThumbnailSize.Medium
+  - Picturepark.SDK.V1.Contract.ThumbnailSize.Preview
+  - Picturepark.SDK.V1.Contract.ThumbnailSize.Small
+  langs:
+  - csharp
+  - vb
+  name: ThumbnailSize
+  nameWithType: ThumbnailSize
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ThumbnailSize
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23935
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Values that represent thumbnail sizes.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ThumbnailSize
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ThumbnailSize
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize.Small
+  commentId: F:Picturepark.SDK.V1.Contract.ThumbnailSize.Small
+  id: Small
+  parent: Picturepark.SDK.V1.Contract.ThumbnailSize
+  langs:
+  - csharp
+  - vb
+  name: Small
+  nameWithType: ThumbnailSize.Small
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize.Small
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Small
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23939
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Small")]
+
+      Small = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.ThumbnailSize
+    content.vb: >-
+      <EnumMember(Value:="Small")>
+
+      Small = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Small
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize.Medium
+  commentId: F:Picturepark.SDK.V1.Contract.ThumbnailSize.Medium
+  id: Medium
+  parent: Picturepark.SDK.V1.Contract.ThumbnailSize
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: ThumbnailSize.Medium
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize.Medium
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Medium
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23942
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Medium")]
+
+      Medium = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.ThumbnailSize
+    content.vb: >-
+      <EnumMember(Value:="Medium")>
+
+      Medium = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Medium
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize.Large
+  commentId: F:Picturepark.SDK.V1.Contract.ThumbnailSize.Large
+  id: Large
+  parent: Picturepark.SDK.V1.Contract.ThumbnailSize
+  langs:
+  - csharp
+  - vb
+  name: Large
+  nameWithType: ThumbnailSize.Large
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize.Large
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Large
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23945
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Large")]
+
+      Large = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.ThumbnailSize
+    content.vb: >-
+      <EnumMember(Value:="Large")>
+
+      Large = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Large
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize.Preview
+  commentId: F:Picturepark.SDK.V1.Contract.ThumbnailSize.Preview
+  id: Preview
+  parent: Picturepark.SDK.V1.Contract.ThumbnailSize
+  langs:
+  - csharp
+  - vb
+  name: Preview
+  nameWithType: ThumbnailSize.Preview
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize.Preview
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Preview
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23948
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Preview")]
+
+      Preview = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.ThumbnailSize
+    content.vb: >-
+      <EnumMember(Value:="Preview")>
+
+      Preview = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Preview
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize.ExtraLarge
+  commentId: F:Picturepark.SDK.V1.Contract.ThumbnailSize.ExtraLarge
+  id: ExtraLarge
+  parent: Picturepark.SDK.V1.Contract.ThumbnailSize
+  langs:
+  - csharp
+  - vb
+  name: ExtraLarge
+  nameWithType: ThumbnailSize.ExtraLarge
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize.ExtraLarge
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ExtraLarge
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 23951
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ExtraLarge")]
+
+      ExtraLarge = 4
+    return:
+      type: Picturepark.SDK.V1.Contract.ThumbnailSize
+    content.vb: >-
+      <EnumMember(Value:="ExtraLarge")>
+
+      ExtraLarge = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ExtraLarge
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ThumbnailSize
+  commentId: T:Picturepark.SDK.V1.Contract.ThumbnailSize
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ThumbnailSize.html
+  name: ThumbnailSize
+  nameWithType: ThumbnailSize
+  fullName: Picturepark.SDK.V1.Contract.ThumbnailSize

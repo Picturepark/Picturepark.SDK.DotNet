@@ -25,7 +25,7 @@
 - [SchemaPermissionSetClient](api/Picturepark.SDK.V1.SchemaPermissionSetClient.html)
 - [SchemaTransferClient](api/Picturepark.SDK.V1.SchemaTransferClient.html)
 - [ShareClient](api/Picturepark.SDK.V1.ShareClient.html)
-- [StatisticsClient](api/Picturepark.SDK.V1.StatisticsClient.html)
+- [StatisticClient](api/Picturepark.SDK.V1.StatisticClient.html)
 - [TemplateClient](api/Picturepark.SDK.V1.TemplateClient.html)
 - [TransferClient](api/Picturepark.SDK.V1.TransferClient.html)
 - [UserClient](api/Picturepark.SDK.V1.UserClient.html)

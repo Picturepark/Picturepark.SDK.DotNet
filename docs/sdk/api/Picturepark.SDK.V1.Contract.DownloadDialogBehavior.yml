@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  commentId: T:Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  id: DownloadDialogBehavior
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.DownloadDialogBehavior.Hide
+  - Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowAlways
+  - Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowMoreFormats
+  langs:
+  - csharp
+  - vb
+  name: DownloadDialogBehavior
+  nameWithType: DownloadDialogBehavior
+  fullName: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DownloadDialogBehavior
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28555
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Defines behavior of an OutputFormat in DownloadDialog
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum DownloadDialogBehavior
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum DownloadDialogBehavior
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowAlways
+  commentId: F:Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowAlways
+  id: ShowAlways
+  parent: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  langs:
+  - csharp
+  - vb
+  name: ShowAlways
+  nameWithType: DownloadDialogBehavior.ShowAlways
+  fullName: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowAlways
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ShowAlways
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28559
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ShowAlways")]
+
+      ShowAlways = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+    content.vb: >-
+      <EnumMember(Value:="ShowAlways")>
+
+      ShowAlways = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ShowAlways
+- uid: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowMoreFormats
+  commentId: F:Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowMoreFormats
+  id: ShowMoreFormats
+  parent: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  langs:
+  - csharp
+  - vb
+  name: ShowMoreFormats
+  nameWithType: DownloadDialogBehavior.ShowMoreFormats
+  fullName: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.ShowMoreFormats
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ShowMoreFormats
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28562
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ShowMoreFormats")]
+
+      ShowMoreFormats = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+    content.vb: >-
+      <EnumMember(Value:="ShowMoreFormats")>
+
+      ShowMoreFormats = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ShowMoreFormats
+- uid: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.Hide
+  commentId: F:Picturepark.SDK.V1.Contract.DownloadDialogBehavior.Hide
+  id: Hide
+  parent: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  langs:
+  - csharp
+  - vb
+  name: Hide
+  nameWithType: DownloadDialogBehavior.Hide
+  fullName: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.Hide
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Hide
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 28565
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Hide")]
+
+      Hide = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+    content.vb: >-
+      <EnumMember(Value:="Hide")>
+
+      Hide = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Hide
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  commentId: T:Picturepark.SDK.V1.Contract.DownloadDialogBehavior
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DownloadDialogBehavior.html
+  name: DownloadDialogBehavior
+  nameWithType: DownloadDialogBehavior
+  fullName: Picturepark.SDK.V1.Contract.DownloadDialogBehavior

@@ -1,0 +1,739 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration
+  commentId: T:Picturepark.SDK.V1.ServiceProvider.Configuration
+  id: Configuration
+  parent: Picturepark.SDK.V1.ServiceProvider
+  children:
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.#ctor
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.Host
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.Password
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.Port
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl
+  - Picturepark.SDK.V1.ServiceProvider.Configuration.User
+  langs:
+  - csharp
+  - vb
+  name: Configuration
+  nameWithType: Configuration
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Configuration
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public class Configuration
+    content.vb: Public Class Configuration
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.#ctor
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Configuration.#ctor
+  id: '#ctor'
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: Configuration()
+  nameWithType: Configuration.Configuration()
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Configuration()
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 8
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public Configuration()
+    content.vb: Public Sub New()
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.#ctor*
+  nameWithType.vb: Configuration.New()
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Configuration.New()
+  name.vb: New()
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.Port
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.Port
+  id: Port
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: Configuration.Port
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Port
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Port
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 17
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public string Port { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Port As String
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.Port*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.Host
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.Host
+  id: Host
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: Configuration.Host
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Host
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Host
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 19
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public string Host { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Host As String
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.Host*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.User
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.User
+  id: User
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: Configuration.User
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.User
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: User
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 21
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public string User { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property User As String
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.User*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.Password
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.Password
+  id: Password
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: Configuration.Password
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Password
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Password
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 23
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public string Password { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Password As String
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.Password*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl
+  id: UseSsl
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: UseSsl
+  nameWithType: Configuration.UseSsl
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UseSsl
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 25
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public bool UseSsl { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UseSsl As Boolean
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId
+  id: ServiceProviderId
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: ServiceProviderId
+  nameWithType: Configuration.ServiceProviderId
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ServiceProviderId
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 27
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public string ServiceProviderId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServiceProviderId As String
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId
+  id: NodeId
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: NodeId
+  nameWithType: Configuration.NodeId
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NodeId
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 29
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public string NodeId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NodeId As String
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
+  id: SerializerSettings
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: SerializerSettings
+  nameWithType: Configuration.SerializerSettings
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SerializerSettings
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 31
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public JsonSerializerSettings SerializerSettings { get; set; }
+    parameters: []
+    return:
+      type: Newtonsoft.Json.JsonSerializerSettings
+    content.vb: Public Property SerializerSettings As JsonSerializerSettings
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings*
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax
+  id: DefaultQueuePriorityMax
+  parent: Picturepark.SDK.V1.ServiceProvider.Configuration
+  langs:
+  - csharp
+  - vb
+  name: DefaultQueuePriorityMax
+  nameWithType: Configuration.DefaultQueuePriorityMax
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DefaultQueuePriorityMax
+    path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
+    startLine: 33
+  assemblies:
+  - Picturepark.SDK.V1.ServiceProvider
+  namespace: Picturepark.SDK.V1.ServiceProvider
+  syntax:
+    content: public int DefaultQueuePriorityMax { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DefaultQueuePriorityMax As Integer
+  overload: Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax*
+references:
+- uid: Picturepark.SDK.V1.ServiceProvider
+  commentId: N:Picturepark.SDK.V1.ServiceProvider
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.ServiceProvider
+  nameWithType: Picturepark.SDK.V1.ServiceProvider
+  fullName: Picturepark.SDK.V1.ServiceProvider
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ServiceProvider
+    name: ServiceProvider
+    href: Picturepark.SDK.V1.ServiceProvider.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.#ctor
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration__ctor
+  name: Configuration
+  nameWithType: Configuration.Configuration
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Configuration
+  nameWithType.vb: Configuration.New
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Configuration.New
+  name.vb: New
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.Port*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.Port
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_Port
+  name: Port
+  nameWithType: Configuration.Port
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Port
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.Host*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.Host
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_Host
+  name: Host
+  nameWithType: Configuration.Host
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Host
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.User*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.User
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_User
+  name: User
+  nameWithType: Configuration.User
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.User
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.Password*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.Password
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_Password
+  name: Password
+  nameWithType: Configuration.Password
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.Password
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_UseSsl
+  name: UseSsl
+  nameWithType: Configuration.UseSsl
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.UseSsl
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_ServiceProviderId
+  name: ServiceProviderId
+  nameWithType: Configuration.ServiceProviderId
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.ServiceProviderId
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_NodeId
+  name: NodeId
+  nameWithType: Configuration.NodeId
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_SerializerSettings
+  name: SerializerSettings
+  nameWithType: Configuration.SerializerSettings
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
+- uid: Newtonsoft.Json.JsonSerializerSettings
+  commentId: T:Newtonsoft.Json.JsonSerializerSettings
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializerSettings
+  nameWithType: JsonSerializerSettings
+  fullName: Newtonsoft.Json.JsonSerializerSettings
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax
+  href: Picturepark.SDK.V1.ServiceProvider.Configuration.html#Picturepark_SDK_V1_ServiceProvider_Configuration_DefaultQueuePriorityMax
+  name: DefaultQueuePriorityMax
+  nameWithType: Configuration.DefaultQueuePriorityMax
+  fullName: Picturepark.SDK.V1.ServiceProvider.Configuration.DefaultQueuePriorityMax
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

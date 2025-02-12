@@ -1,0 +1,376 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  commentId: T:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  id: IPictureparkServiceSettings
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient
+  - Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  - Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias
+  - Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage
+  - Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout
+  - Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName
+  langs:
+  - csharp
+  - vb
+  name: IPictureparkServiceSettings
+  nameWithType: IPictureparkServiceSettings
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IPictureparkServiceSettings
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 6
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: The Picturepark service settings interface.
+  example: []
+  syntax:
+    content: public interface IPictureparkServiceSettings
+    content.vb: Public Interface IPictureparkServiceSettings
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  id: BaseUrl
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: BaseUrl
+  nameWithType: IPictureparkServiceSettings.BaseUrl
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: BaseUrl
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 9
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets the server URL of the Picturepark authentication server.
+  example: []
+  syntax:
+    content: string BaseUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property BaseUrl As String
+  overload: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout
+  id: HttpTimeout
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: HttpTimeout
+  nameWithType: IPictureparkServiceSettings.HttpTimeout
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: HttpTimeout
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 12
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets the HTTP timeout.
+  example: []
+  syntax:
+    content: TimeSpan HttpTimeout { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property HttpTimeout As TimeSpan
+  overload: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient
+  id: AuthClient
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: AuthClient
+  nameWithType: IPictureparkServiceSettings.AuthClient
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AuthClient
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 15
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets the <xref href="Picturepark.SDK.V1.Contract.Authentication.IAuthClient" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: IAuthClient AuthClient { get; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+    content.vb: ReadOnly Property AuthClient As IAuthClient
+  overload: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias
+  id: CustomerAlias
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: CustomerAlias
+  nameWithType: IPictureparkServiceSettings.CustomerAlias
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CustomerAlias
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 18
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets the customer alias.
+  example: []
+  syntax:
+    content: string CustomerAlias { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property CustomerAlias As String
+  overload: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage
+  id: DisplayLanguage
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: DisplayLanguage
+  nameWithType: IPictureparkServiceSettings.DisplayLanguage
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DisplayLanguage
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 21
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Gets the display language.
+  example: []
+  syntax:
+    content: string DisplayLanguage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property DisplayLanguage As String
+  overload: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage*
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName
+  commentId: P:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName
+  id: IntegrationName
+  parent: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings
+  langs:
+  - csharp
+  - vb
+  name: IntegrationName
+  nameWithType: IPictureparkServiceSettings.IntegrationName
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IntegrationName
+    path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
+    startLine: 24
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get the integration name.
+  example: []
+  syntax:
+    content: string IntegrationName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property IntegrationName As String
+  overload: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName*
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_BaseUrl
+  name: BaseUrl
+  nameWithType: IPictureparkServiceSettings.BaseUrl
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_HttpTimeout
+  name: HttpTimeout
+  nameWithType: IPictureparkServiceSettings.HttpTimeout
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.HttpTimeout
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  commentId: T:Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  parent: Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html
+  name: IAuthClient
+  nameWithType: IAuthClient
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_AuthClient
+  name: AuthClient
+  nameWithType: IPictureparkServiceSettings.AuthClient
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.AuthClient
+- uid: Picturepark.SDK.V1.Contract.Authentication
+  commentId: N:Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Authentication
+  nameWithType: Picturepark.SDK.V1.Contract.Authentication
+  fullName: Picturepark.SDK.V1.Contract.Authentication
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_CustomerAlias
+  name: CustomerAlias
+  nameWithType: IPictureparkServiceSettings.CustomerAlias
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.CustomerAlias
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_DisplayLanguage
+  name: DisplayLanguage
+  nameWithType: IPictureparkServiceSettings.DisplayLanguage
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.DisplayLanguage
+- uid: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName
+  href: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html#Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_IntegrationName
+  name: IntegrationName
+  nameWithType: IPictureparkServiceSettings.IntegrationName
+  fullName: Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.IntegrationName

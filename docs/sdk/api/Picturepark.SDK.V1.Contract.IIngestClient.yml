@@ -1,0 +1,2322 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IIngestClient
+  commentId: T:Picturepark.SDK.V1.Contract.IIngestClient
+  id: IIngestClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync(System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync(System.String,Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.ImportFromUrlsRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync(System.String,Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IIngestClient
+  nameWithType: IIngestClient
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IIngestClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1809
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IIngestClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IIngestClient
+  extensionMethods:
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync(System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync(System.Threading.CancellationToken)
+  id: CreateIngestContainerAsync(System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIngestClient
+  langs:
+  - csharp
+  - vb
+  name: CreateIngestContainerAsync(CancellationToken)
+  nameWithType: IIngestClient.CreateIngestContainerAsync(CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateIngestContainerAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1825
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create ingest container.
+  example: []
+  syntax:
+    content: Task<IngestContainerCreateResult> CreateIngestContainerAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IngestContainerCreateResult}
+      description: Ingest container create result containing container name and SAS token for uploading data.
+    content.vb: Function CreateIngestContainerAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IngestContainerCreateResult)
+  overload: Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync(System.String,Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync(System.String,Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest,System.Threading.CancellationToken)
+  id: ImportAllAsync(System.String,Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIngestClient
+  langs:
+  - csharp
+  - vb
+  name: ImportAllAsync(string, ImportAllFromContainerRequest, CancellationToken)
+  nameWithType: IIngestClient.ImportAllAsync(string, ImportAllFromContainerRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync(string, Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportAllAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1841
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Import all files from the specified container.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> ImportAllAsync(string containerName, ImportAllFromContainerRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: containerName
+      type: System.String
+      description: Container name
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest
+      description: Import request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function ImportAllAsync(containerName As String, request As ImportAllFromContainerRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IIngestClient.ImportAllAsync(String, ImportAllFromContainerRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync(String, Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest, System.Threading.CancellationToken)
+  name.vb: ImportAllAsync(String, ImportAllFromContainerRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync(System.String,Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync(System.String,Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest,System.Threading.CancellationToken)
+  id: ImportPartialAsync(System.String,Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIngestClient
+  langs:
+  - csharp
+  - vb
+  name: ImportPartialAsync(string, ImportPartialFromContainerRequest, CancellationToken)
+  nameWithType: IIngestClient.ImportPartialAsync(string, ImportPartialFromContainerRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync(string, Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportPartialAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1857
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Import specified files from the specified container.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> ImportPartialAsync(string containerName, ImportPartialFromContainerRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: containerName
+      type: System.String
+      description: Container name
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest
+      description: Import request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function ImportPartialAsync(containerName As String, request As ImportPartialFromContainerRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IIngestClient.ImportPartialAsync(String, ImportPartialFromContainerRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync(String, Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest, System.Threading.CancellationToken)
+  name.vb: ImportPartialAsync(String, ImportPartialFromContainerRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.ImportFromUrlsRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.ImportFromUrlsRequest,System.Threading.CancellationToken)
+  id: ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.ImportFromUrlsRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IIngestClient
+  langs:
+  - csharp
+  - vb
+  name: ImportFromUrlsAsync(ImportFromUrlsRequest, CancellationToken)
+  nameWithType: IIngestClient.ImportFromUrlsAsync(ImportFromUrlsRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.ImportFromUrlsRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ImportFromUrlsAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 1872
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Import specified urls.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> ImportFromUrlsAsync(ImportFromUrlsRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.ImportFromUrlsRequest
+      description: Import request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: BusinessProcess
+    content.vb: Function ImportFromUrlsAsync(request As ImportFromUrlsRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_Picturepark_SDK_V1_Contract_IngestFile_Picturepark_SDK_V1_Contract_FileImportWithFileNameOverrideRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: ImportFilesAsync(IIngestClient, IDictionary<IngestFile, FileImportWithFileNameOverrideRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.ImportFilesAsync(IIngestClient, IDictionary<IngestFile, FileImportWithFileNameOverrideRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary<Picturepark.SDK.V1.Contract.IngestFile, Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest>, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.ImportFilesAsync(IIngestClient, IDictionary(Of IngestFile, FileImportWithFileNameOverrideRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary(Of Picturepark.SDK.V1.Contract.IngestFile, Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest), Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: ImportFilesAsync(IIngestClient, IDictionary(Of IngestFile, FileImportWithFileNameOverrideRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_Picturepark_SDK_V1_Contract_IngestFile_Picturepark_SDK_V1_Contract_FileImportWithFileNameOverrideRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest
+    name: FileImportWithFileNameOverrideRequest
+    href: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_Picturepark_SDK_V1_Contract_IngestFile_Picturepark_SDK_V1_Contract_FileImportWithFileNameOverrideRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest
+    name: FileImportWithFileNameOverrideRequest
+    href: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IReadOnlyCollection_Picturepark_SDK_V1_Contract_IngestFile__Picturepark_SDK_V1_Contract_ImportOptions_Picturepark_SDK_V1_Contract_FileImportRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: ImportFilesAsync(IIngestClient, IReadOnlyCollection<IngestFile>, ImportOptions, FileImportRequest, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.ImportFilesAsync(IIngestClient, IReadOnlyCollection<IngestFile>, ImportOptions, FileImportRequest, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IReadOnlyCollection<Picturepark.SDK.V1.Contract.IngestFile>, Picturepark.SDK.V1.Contract.ImportOptions, Picturepark.SDK.V1.Contract.FileImportRequest, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.ImportFilesAsync(IIngestClient, IReadOnlyCollection(Of IngestFile), ImportOptions, FileImportRequest, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IReadOnlyCollection(Of Picturepark.SDK.V1.Contract.IngestFile), Picturepark.SDK.V1.Contract.ImportOptions, Picturepark.SDK.V1.Contract.FileImportRequest, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: ImportFilesAsync(IIngestClient, IReadOnlyCollection(Of IngestFile), ImportOptions, FileImportRequest, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IReadOnlyCollection_Picturepark_SDK_V1_Contract_IngestFile__Picturepark_SDK_V1_Contract_ImportOptions_Picturepark_SDK_V1_Contract_FileImportRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IReadOnlyCollection_Picturepark_SDK_V1_Contract_IngestFile__Picturepark_SDK_V1_Contract_ImportOptions_Picturepark_SDK_V1_Contract_FileImportRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_System_String_Picturepark_SDK_V1_Contract_UrlImportRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: ImportFromUrlsAsync(IIngestClient, IDictionary<string, UrlImportRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.ImportFromUrlsAsync(IIngestClient, IDictionary<string, UrlImportRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary<string, Picturepark.SDK.V1.Contract.UrlImportRequest>, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.ImportFromUrlsAsync(IIngestClient, IDictionary(Of String, UrlImportRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary(Of String, Picturepark.SDK.V1.Contract.UrlImportRequest), Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: ImportFromUrlsAsync(IIngestClient, IDictionary(Of String, UrlImportRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFromUrlsAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_System_String_Picturepark_SDK_V1_Contract_UrlImportRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UrlImportRequest
+    name: UrlImportRequest
+    href: Picturepark.SDK.V1.Contract.UrlImportRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFromUrlsAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_System_String_Picturepark_SDK_V1_Contract_UrlImportRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UrlImportRequest
+    name: UrlImportRequest
+    href: Picturepark.SDK.V1.Contract.UrlImportRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: UploadAndImportFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.AzureBlob.IngestUploadItem>, Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.AzureBlob.IngestUploadItem), Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: UploadAndImportFilesAsync(IIngestClient, IEnumerable<string>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable<string>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<string>, Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of String), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of String), Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of String), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_Picturepark_SDK_V1_AzureBlob_IngestUploadItem_System_Threading_CancellationToken_
+  name: UploadFileAsync(IIngestClient, IngestUploadItem, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFileAsync(IIngestClient, IngestUploadItem, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient, Picturepark.SDK.V1.AzureBlob.IngestUploadItem, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_Picturepark_SDK_V1_AzureBlob_IngestUploadItem_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_Picturepark_SDK_V1_AzureBlob_IngestUploadItem_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_String_System_Threading_CancellationToken_
+  name: UploadFileAsync(IIngestClient, string, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFileAsync(IIngestClient, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient, string, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadFileAsync(IIngestClient, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient, String, System.Threading.CancellationToken)
+  name.vb: UploadFileAsync(IIngestClient, String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  name: UploadFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, IngestUploadOptions, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, IngestUploadOptions, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.AzureBlob.IngestUploadItem>, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), IngestUploadOptions, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.AzureBlob.IngestUploadItem), Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  name.vb: UploadFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), IngestUploadOptions, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  definition: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  name: UploadFilesAsync(IIngestClient, IEnumerable<string>, IngestUploadOptions, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable<string>, IngestUploadOptions, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<string>, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable(Of String), IngestUploadOptions, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of String), Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  name.vb: UploadFilesAsync(IIngestClient, IEnumerable(Of String), IngestUploadOptions, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_Picturepark_SDK_V1_Contract_IngestFile_Picturepark_SDK_V1_Contract_FileImportWithFileNameOverrideRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: ImportFilesAsync(IIngestClient, IDictionary<IngestFile, FileImportWithFileNameOverrideRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.ImportFilesAsync(IIngestClient, IDictionary<IngestFile, FileImportWithFileNameOverrideRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary<Picturepark.SDK.V1.Contract.IngestFile, Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest>, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.ImportFilesAsync(IIngestClient, IDictionary(Of IngestFile, FileImportWithFileNameOverrideRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary(Of Picturepark.SDK.V1.Contract.IngestFile, Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest), Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: ImportFilesAsync(IIngestClient, IDictionary(Of IngestFile, FileImportWithFileNameOverrideRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_Picturepark_SDK_V1_Contract_IngestFile_Picturepark_SDK_V1_Contract_FileImportWithFileNameOverrideRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest
+    name: FileImportWithFileNameOverrideRequest
+    href: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{Picturepark.SDK.V1.Contract.IngestFile,Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_Picturepark_SDK_V1_Contract_IngestFile_Picturepark_SDK_V1_Contract_FileImportWithFileNameOverrideRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest
+    name: FileImportWithFileNameOverrideRequest
+    href: Picturepark.SDK.V1.Contract.FileImportWithFileNameOverrideRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  commentId: T:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  parent: Picturepark.SDK.V1.AzureBlob
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html
+  name: IngestClientExtensions
+  nameWithType: IngestClientExtensions
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IReadOnlyCollection_Picturepark_SDK_V1_Contract_IngestFile__Picturepark_SDK_V1_Contract_ImportOptions_Picturepark_SDK_V1_Contract_FileImportRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: ImportFilesAsync(IIngestClient, IReadOnlyCollection<IngestFile>, ImportOptions, FileImportRequest, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.ImportFilesAsync(IIngestClient, IReadOnlyCollection<IngestFile>, ImportOptions, FileImportRequest, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IReadOnlyCollection<Picturepark.SDK.V1.Contract.IngestFile>, Picturepark.SDK.V1.Contract.ImportOptions, Picturepark.SDK.V1.Contract.FileImportRequest, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.ImportFilesAsync(IIngestClient, IReadOnlyCollection(Of IngestFile), ImportOptions, FileImportRequest, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IReadOnlyCollection(Of Picturepark.SDK.V1.Contract.IngestFile), Picturepark.SDK.V1.Contract.ImportOptions, Picturepark.SDK.V1.Contract.FileImportRequest, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: ImportFilesAsync(IIngestClient, IReadOnlyCollection(Of IngestFile), ImportOptions, FileImportRequest, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IReadOnlyCollection_Picturepark_SDK_V1_Contract_IngestFile__Picturepark_SDK_V1_Contract_ImportOptions_Picturepark_SDK_V1_Contract_FileImportRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IReadOnlyCollection{Picturepark.SDK.V1.Contract.IngestFile},Picturepark.SDK.V1.Contract.ImportOptions,Picturepark.SDK.V1.Contract.FileImportRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IReadOnlyCollection_Picturepark_SDK_V1_Contract_IngestFile__Picturepark_SDK_V1_Contract_ImportOptions_Picturepark_SDK_V1_Contract_FileImportRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IngestFile
+    name: IngestFile
+    href: Picturepark.SDK.V1.Contract.IngestFile.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_System_String_Picturepark_SDK_V1_Contract_UrlImportRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: ImportFromUrlsAsync(IIngestClient, IDictionary<string, UrlImportRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.ImportFromUrlsAsync(IIngestClient, IDictionary<string, UrlImportRequest>, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary<string, Picturepark.SDK.V1.Contract.UrlImportRequest>, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.ImportFromUrlsAsync(IIngestClient, IDictionary(Of String, UrlImportRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IDictionary(Of String, Picturepark.SDK.V1.Contract.UrlImportRequest), Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: ImportFromUrlsAsync(IIngestClient, IDictionary(Of String, UrlImportRequest), ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFromUrlsAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_System_String_Picturepark_SDK_V1_Contract_UrlImportRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UrlImportRequest
+    name: UrlImportRequest
+    href: Picturepark.SDK.V1.Contract.UrlImportRequest.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.ImportFromUrlsAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IDictionary{System.String,Picturepark.SDK.V1.Contract.UrlImportRequest},Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: ImportFromUrlsAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IDictionary_System_String_Picturepark_SDK_V1_Contract_UrlImportRequest__Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UrlImportRequest
+    name: UrlImportRequest
+    href: Picturepark.SDK.V1.Contract.UrlImportRequest.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: UploadAndImportFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.AzureBlob.IngestUploadItem>, Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.AzureBlob.IngestUploadItem), Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  name: UploadAndImportFilesAsync(IIngestClient, IEnumerable<string>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable<string>, FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, bool, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<string>, Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, bool, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of String), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of String), Picturepark.SDK.V1.Contract.FileImportRequest, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, Picturepark.SDK.V1.Contract.ImportOptions, System.TimeSpan?, Boolean, System.Threading.CancellationToken)
+  name.vb: UploadAndImportFilesAsync(IIngestClient, IEnumerable(Of String), FileImportRequest, IngestUploadOptions, ImportOptions, TimeSpan?, Boolean, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadAndImportFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.Contract.FileImportRequest,Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,Picturepark.SDK.V1.Contract.ImportOptions,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)
+    name: UploadAndImportFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadAndImportFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_Contract_FileImportRequest_Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_Picturepark_SDK_V1_Contract_ImportOptions_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.FileImportRequest
+    name: FileImportRequest
+    href: Picturepark.SDK.V1.Contract.FileImportRequest.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ImportOptions
+    name: ImportOptions
+    href: Picturepark.SDK.V1.Contract.ImportOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_Picturepark_SDK_V1_AzureBlob_IngestUploadItem_System_Threading_CancellationToken_
+  name: UploadFileAsync(IIngestClient, IngestUploadItem, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFileAsync(IIngestClient, IngestUploadItem, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient, Picturepark.SDK.V1.AzureBlob.IngestUploadItem, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_Picturepark_SDK_V1_AzureBlob_IngestUploadItem_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,Picturepark.SDK.V1.AzureBlob.IngestUploadItem,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_Picturepark_SDK_V1_AzureBlob_IngestUploadItem_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_String_System_Threading_CancellationToken_
+  name: UploadFileAsync(IIngestClient, string, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFileAsync(IIngestClient, string, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient, string, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadFileAsync(IIngestClient, String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient, String, System.Threading.CancellationToken)
+  name.vb: UploadFileAsync(IIngestClient, String, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFileAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.String,System.Threading.CancellationToken)
+    name: UploadFileAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFileAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  name: UploadFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, IngestUploadOptions, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable<IngestUploadItem>, IngestUploadOptions, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<Picturepark.SDK.V1.AzureBlob.IngestUploadItem>, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), IngestUploadOptions, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of Picturepark.SDK.V1.AzureBlob.IngestUploadItem), Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  name.vb: UploadFilesAsync(IIngestClient, IEnumerable(Of IngestUploadItem), IngestUploadOptions, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.AzureBlob.IngestUploadItem},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_AzureBlob_IngestUploadItem__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+    name: IngestUploadItem
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+  isExternal: true
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  name: UploadFilesAsync(IIngestClient, IEnumerable<string>, IngestUploadOptions, CancellationToken)
+  nameWithType: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable<string>, IngestUploadOptions, CancellationToken)
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable<string>, Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  nameWithType.vb: IngestClientExtensions.UploadFilesAsync(IIngestClient, IEnumerable(Of String), IngestUploadOptions, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient, System.Collections.Generic.IEnumerable(Of String), Picturepark.SDK.V1.AzureBlob.IngestUploadOptions, System.Threading.CancellationToken)
+  name.vb: UploadFilesAsync(IIngestClient, IEnumerable(Of String), IngestUploadOptions, CancellationToken)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.UploadFilesAsync(Picturepark.SDK.V1.Contract.IIngestClient,System.Collections.Generic.IEnumerable{System.String},Picturepark.SDK.V1.AzureBlob.IngestUploadOptions,System.Threading.CancellationToken)
+    name: UploadFilesAsync
+    href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html#Picturepark_SDK_V1_AzureBlob_IngestClientExtensions_UploadFilesAsync_Picturepark_SDK_V1_Contract_IIngestClient_System_Collections_Generic_IEnumerable_System_String__Picturepark_SDK_V1_AzureBlob_IngestUploadOptions_System_Threading_CancellationToken_
+  - name: (
+  - uid: Picturepark.SDK.V1.Contract.IIngestClient
+    name: IIngestClient
+    href: Picturepark.SDK.V1.Contract.IIngestClient.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+    name: IngestUploadOptions
+    href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Picturepark.SDK.V1.AzureBlob
+  commentId: N:Picturepark.SDK.V1.AzureBlob
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.AzureBlob
+  nameWithType: Picturepark.SDK.V1.AzureBlob
+  fullName: Picturepark.SDK.V1.AzureBlob
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.AzureBlob
+    name: AzureBlob
+    href: Picturepark.SDK.V1.AzureBlob.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.AzureBlob
+    name: AzureBlob
+    href: Picturepark.SDK.V1.AzureBlob.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync
+  href: Picturepark.SDK.V1.Contract.IIngestClient.html#Picturepark_SDK_V1_Contract_IIngestClient_CreateIngestContainerAsync_System_Threading_CancellationToken_
+  name: CreateIngestContainerAsync
+  nameWithType: IIngestClient.CreateIngestContainerAsync
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.CreateIngestContainerAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IngestContainerCreateResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IngestContainerCreateResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IngestContainerCreateResult>
+  nameWithType: Task<IngestContainerCreateResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.IngestContainerCreateResult>
+  nameWithType.vb: Task(Of IngestContainerCreateResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.IngestContainerCreateResult)
+  name.vb: Task(Of IngestContainerCreateResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.IngestContainerCreateResult
+    name: IngestContainerCreateResult
+    href: Picturepark.SDK.V1.Contract.IngestContainerCreateResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.IngestContainerCreateResult
+    name: IngestContainerCreateResult
+    href: Picturepark.SDK.V1.Contract.IngestContainerCreateResult.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync
+  href: Picturepark.SDK.V1.Contract.IIngestClient.html#Picturepark_SDK_V1_Contract_IIngestClient_ImportAllAsync_System_String_Picturepark_SDK_V1_Contract_ImportAllFromContainerRequest_System_Threading_CancellationToken_
+  name: ImportAllAsync
+  nameWithType: IIngestClient.ImportAllAsync
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.ImportAllAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest.html
+  name: ImportAllFromContainerRequest
+  nameWithType: ImportAllFromContainerRequest
+  fullName: Picturepark.SDK.V1.Contract.ImportAllFromContainerRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync
+  href: Picturepark.SDK.V1.Contract.IIngestClient.html#Picturepark_SDK_V1_Contract_IIngestClient_ImportPartialAsync_System_String_Picturepark_SDK_V1_Contract_ImportPartialFromContainerRequest_System_Threading_CancellationToken_
+  name: ImportPartialAsync
+  nameWithType: IIngestClient.ImportPartialAsync
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.ImportPartialAsync
+- uid: Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest.html
+  name: ImportPartialFromContainerRequest
+  nameWithType: ImportPartialFromContainerRequest
+  fullName: Picturepark.SDK.V1.Contract.ImportPartialFromContainerRequest
+- uid: Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync
+  href: Picturepark.SDK.V1.Contract.IIngestClient.html#Picturepark_SDK_V1_Contract_IIngestClient_ImportFromUrlsAsync_Picturepark_SDK_V1_Contract_ImportFromUrlsRequest_System_Threading_CancellationToken_
+  name: ImportFromUrlsAsync
+  nameWithType: IIngestClient.ImportFromUrlsAsync
+  fullName: Picturepark.SDK.V1.Contract.IIngestClient.ImportFromUrlsAsync
+- uid: Picturepark.SDK.V1.Contract.ImportFromUrlsRequest
+  commentId: T:Picturepark.SDK.V1.Contract.ImportFromUrlsRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ImportFromUrlsRequest.html
+  name: ImportFromUrlsRequest
+  nameWithType: ImportFromUrlsRequest
+  fullName: Picturepark.SDK.V1.Contract.ImportFromUrlsRequest

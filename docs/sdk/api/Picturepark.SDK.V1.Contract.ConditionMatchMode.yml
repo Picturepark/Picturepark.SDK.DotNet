@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.ConditionMatchMode
+  commentId: T:Picturepark.SDK.V1.Contract.ConditionMatchMode
+  id: ConditionMatchMode
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.ConditionMatchMode.All
+  - Picturepark.SDK.V1.Contract.ConditionMatchMode.Any
+  langs:
+  - csharp
+  - vb
+  name: ConditionMatchMode
+  nameWithType: ConditionMatchMode
+  fullName: Picturepark.SDK.V1.Contract.ConditionMatchMode
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ConditionMatchMode
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19075
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: How a list of values in the condition should be matched during the comparison.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum ConditionMatchMode
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum ConditionMatchMode
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.ConditionMatchMode.All
+  commentId: F:Picturepark.SDK.V1.Contract.ConditionMatchMode.All
+  id: All
+  parent: Picturepark.SDK.V1.Contract.ConditionMatchMode
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: ConditionMatchMode.All
+  fullName: Picturepark.SDK.V1.Contract.ConditionMatchMode.All
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: All
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19079
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "All")]
+
+      All = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.ConditionMatchMode
+    content.vb: >-
+      <EnumMember(Value:="All")>
+
+      All = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: All
+- uid: Picturepark.SDK.V1.Contract.ConditionMatchMode.Any
+  commentId: F:Picturepark.SDK.V1.Contract.ConditionMatchMode.Any
+  id: Any
+  parent: Picturepark.SDK.V1.Contract.ConditionMatchMode
+  langs:
+  - csharp
+  - vb
+  name: Any
+  nameWithType: ConditionMatchMode.Any
+  fullName: Picturepark.SDK.V1.Contract.ConditionMatchMode.Any
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Any
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19082
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Any")]
+
+      Any = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.ConditionMatchMode
+    content.vb: >-
+      <EnumMember(Value:="Any")>
+
+      Any = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Any
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ConditionMatchMode
+  commentId: T:Picturepark.SDK.V1.Contract.ConditionMatchMode
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ConditionMatchMode.html
+  name: ConditionMatchMode
+  nameWithType: ConditionMatchMode
+  fullName: Picturepark.SDK.V1.Contract.ConditionMatchMode

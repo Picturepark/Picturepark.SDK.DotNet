@@ -1,0 +1,516 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  id: TermsRelationAggregatorDocumentType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Content
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ContentPermissionSet
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerAlias
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerId
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ListItem
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Owner
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Schema
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.SchemaPermissionSet
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.User
+  - Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.UserRole
+  langs:
+  - csharp
+  - vb
+  name: TermsRelationAggregatorDocumentType
+  nameWithType: TermsRelationAggregatorDocumentType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TermsRelationAggregatorDocumentType
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14666
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum TermsRelationAggregatorDocumentType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Content
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Content
+  id: Content
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: TermsRelationAggregatorDocumentType.Content
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Content
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Content
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14670
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Content")]
+
+      Content = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="Content")>
+
+      Content = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Content
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ListItem
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ListItem
+  id: ListItem
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: ListItem
+  nameWithType: TermsRelationAggregatorDocumentType.ListItem
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ListItem
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListItem
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14673
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ListItem")]
+
+      ListItem = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="ListItem")>
+
+      ListItem = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ListItem
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Schema
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Schema
+  id: Schema
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: Schema
+  nameWithType: TermsRelationAggregatorDocumentType.Schema
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Schema
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Schema
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14676
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Schema")]
+
+      Schema = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="Schema")>
+
+      Schema = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Schema
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.User
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.User
+  id: User
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: TermsRelationAggregatorDocumentType.User
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.User
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: User
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14679
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "User")]
+
+      User = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="User")>
+
+      User = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: User
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ContentPermissionSet
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ContentPermissionSet
+  id: ContentPermissionSet
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: ContentPermissionSet
+  nameWithType: TermsRelationAggregatorDocumentType.ContentPermissionSet
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.ContentPermissionSet
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ContentPermissionSet
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14682
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ContentPermissionSet")]
+
+      ContentPermissionSet = 4
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="ContentPermissionSet")>
+
+      ContentPermissionSet = 4
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ContentPermissionSet
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Owner
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Owner
+  id: Owner
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: TermsRelationAggregatorDocumentType.Owner
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.Owner
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Owner
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14685
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Owner")]
+
+      Owner = 5
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="Owner")>
+
+      Owner = 5
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Owner
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.UserRole
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.UserRole
+  id: UserRole
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: UserRole
+  nameWithType: TermsRelationAggregatorDocumentType.UserRole
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.UserRole
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserRole
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14688
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserRole")]
+
+      UserRole = 6
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="UserRole")>
+
+      UserRole = 6
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserRole
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.SchemaPermissionSet
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.SchemaPermissionSet
+  id: SchemaPermissionSet
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: SchemaPermissionSet
+  nameWithType: TermsRelationAggregatorDocumentType.SchemaPermissionSet
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.SchemaPermissionSet
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SchemaPermissionSet
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14691
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "SchemaPermissionSet")]
+
+      SchemaPermissionSet = 7
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="SchemaPermissionSet")>
+
+      SchemaPermissionSet = 7
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: SchemaPermissionSet
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerAlias
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerAlias
+  id: IndexCustomerAlias
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: IndexCustomerAlias
+  nameWithType: TermsRelationAggregatorDocumentType.IndexCustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerAlias
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexCustomerAlias
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14694
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexCustomerAlias")]
+
+      IndexCustomerAlias = 8
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="IndexCustomerAlias")>
+
+      IndexCustomerAlias = 8
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexCustomerAlias
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerId
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerId
+  id: IndexCustomerId
+  parent: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  langs:
+  - csharp
+  - vb
+  name: IndexCustomerId
+  nameWithType: TermsRelationAggregatorDocumentType.IndexCustomerId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.IndexCustomerId
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IndexCustomerId
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 14697
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "IndexCustomerId")]
+
+      IndexCustomerId = 9
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+    content.vb: >-
+      <EnumMember(Value:="IndexCustomerId")>
+
+      IndexCustomerId = 9
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: IndexCustomerId
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType.html
+  name: TermsRelationAggregatorDocumentType
+  nameWithType: TermsRelationAggregatorDocumentType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.TermsRelationAggregatorDocumentType

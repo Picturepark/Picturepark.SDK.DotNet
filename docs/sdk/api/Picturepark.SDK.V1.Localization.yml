@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Localization
+  commentId: N:Picturepark.SDK.V1.Localization
+  id: Picturepark.SDK.V1.Localization
+  children:
+  - Picturepark.SDK.V1.Localization.LocalizationService
+  - Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Localization
+  nameWithType: Picturepark.SDK.V1.Localization
+  fullName: Picturepark.SDK.V1.Localization
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Localization
+references:
+- uid: Picturepark.SDK.V1.Localization.LocalizationService
+  commentId: T:Picturepark.SDK.V1.Localization.LocalizationService
+  href: Picturepark.SDK.V1.Localization.LocalizationService.html
+  name: LocalizationService
+  nameWithType: LocalizationService
+  fullName: Picturepark.SDK.V1.Localization.LocalizationService
+- uid: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+  commentId: T:Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+  parent: Picturepark.SDK.V1.Localization
+  href: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions.html
+  name: PictureparkExceptionExtensions
+  nameWithType: PictureparkExceptionExtensions
+  fullName: Picturepark.SDK.V1.Localization.PictureparkExceptionExtensions
+- uid: Picturepark.SDK.V1.Localization
+  commentId: N:Picturepark.SDK.V1.Localization
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Localization
+  nameWithType: Picturepark.SDK.V1.Localization
+  fullName: Picturepark.SDK.V1.Localization
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Localization
+    name: Localization
+    href: Picturepark.SDK.V1.Localization.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Localization
+    name: Localization
+    href: Picturepark.SDK.V1.Localization.html

@@ -1,0 +1,2209 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.IUserClient
+  commentId: T:Picturepark.SDK.V1.Contract.IUserClient
+  id: IUserClient
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync(Picturepark.SDK.V1.Contract.UserAggregationRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync(Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.CreateAsync(Picturepark.SDK.V1.Contract.UserCreateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync(System.String,Picturepark.SDK.V1.Contract.UserDeleteRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.GetAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.InviteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync(Picturepark.SDK.V1.Contract.UserInviteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.ListAsync(Picturepark.SDK.V1.Contract.UserListRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.LockAsync(System.String,Picturepark.SDK.V1.Contract.UserLockRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync(Picturepark.SDK.V1.Contract.UserLockManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync(Picturepark.SDK.V1.Contract.UserReinviteManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync(System.String,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync(System.String,Picturepark.SDK.V1.Contract.UserReviewRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync(Picturepark.SDK.V1.Contract.UserReviewManyRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.SearchAsync(Picturepark.SDK.V1.Contract.UserSearchRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserUpdateRequest,System.Threading.CancellationToken)
+  - Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync(Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IUserClient
+  nameWithType: IUserClient
+  fullName: Picturepark.SDK.V1.Contract.IUserClient
+  type: Interface
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: IUserClient
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4044
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public interface IUserClient
+    content.vb: >-
+      <GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Interface IUserClient
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NSwag
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.IUserClient.GetAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.GetAsync(System.String,System.Threading.CancellationToken)
+  id: GetAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(string, CancellationToken)
+  nameWithType: IUserClient.GetAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.GetAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4061
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get user
+  example: []
+  syntax:
+    content: Task<UserDetail> GetAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to search for.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserDetail}
+      description: Requested user details
+    content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of UserDetail)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.GetAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.GetAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.GetAsync(String, System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserUpdateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserUpdateRequest,System.Threading.CancellationToken)
+  id: UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserUpdateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(string, UserUpdateRequest, CancellationToken)
+  nameWithType: IUserClient.UpdateAsync(string, UserUpdateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync(string, Picturepark.SDK.V1.Contract.UserUpdateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4077
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update user
+  example: []
+  syntax:
+    content: Task<UserDetail> UpdateAsync(string id, UserUpdateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserUpdateRequest
+      description: New user information.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserDetail}
+      description: User details after the update of the user
+    content.vb: Function UpdateAsync(id As String, request As UserUpdateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of UserDetail)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.UpdateAsync(String, UserUpdateRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync(String, Picturepark.SDK.V1.Contract.UserUpdateRequest, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(String, UserUpdateRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.LockAsync(System.String,Picturepark.SDK.V1.Contract.UserLockRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.LockAsync(System.String,Picturepark.SDK.V1.Contract.UserLockRequest,System.Threading.CancellationToken)
+  id: LockAsync(System.String,Picturepark.SDK.V1.Contract.UserLockRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: LockAsync(string, UserLockRequest, CancellationToken)
+  nameWithType: IUserClient.LockAsync(string, UserLockRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.LockAsync(string, Picturepark.SDK.V1.Contract.UserLockRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LockAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4097
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Lock / unlock user
+  remarks: >-
+    Does not affect AuthorizationState of user.
+
+    <br />If User is already in desired state, this will be returned as error.
+  example: []
+  syntax:
+    content: Task LockAsync(string id, UserLockRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserLockRequest
+      description: Request detailing if the user should be locked or unlocked.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function LockAsync(id As String, request As UserLockRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.LockAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.LockAsync(String, UserLockRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.LockAsync(String, Picturepark.SDK.V1.Contract.UserLockRequest, System.Threading.CancellationToken)
+  name.vb: LockAsync(String, UserLockRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync(Picturepark.SDK.V1.Contract.UserLockManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync(Picturepark.SDK.V1.Contract.UserLockManyRequest,System.Threading.CancellationToken)
+  id: LockManyAsync(Picturepark.SDK.V1.Contract.UserLockManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: LockManyAsync(UserLockManyRequest, CancellationToken)
+  nameWithType: IUserClient.LockManyAsync(UserLockManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync(Picturepark.SDK.V1.Contract.UserLockManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LockManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4116
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Change lock state of multiple users
+  remarks: >-
+    Does not affect AuthorizationState of users
+
+    <br />Users which are already in desired state will be returned as errors. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> LockManyAsync(UserLockManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserLockManyRequest
+      description: Information about users to update and the desired lock state
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function LockManyAsync(request As UserLockManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync(System.String,Picturepark.SDK.V1.Contract.UserReviewRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync(System.String,Picturepark.SDK.V1.Contract.UserReviewRequest,System.Threading.CancellationToken)
+  id: ReviewAsync(System.String,Picturepark.SDK.V1.Contract.UserReviewRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: ReviewAsync(string, UserReviewRequest, CancellationToken)
+  nameWithType: IUserClient.ReviewAsync(string, UserReviewRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync(string, Picturepark.SDK.V1.Contract.UserReviewRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReviewAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4135
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Change user's review state
+  remarks: Users with AuthorizationState != ToBeReviewed are considered reviewed.
+  example: []
+  syntax:
+    content: Task ReviewAsync(string id, UserReviewRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserReviewRequest
+      description: Request detailing if the user should be set as _reviewed_ or _to be reviewed_.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function ReviewAsync(id As String, request As UserReviewRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.ReviewAsync(String, UserReviewRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync(String, Picturepark.SDK.V1.Contract.UserReviewRequest, System.Threading.CancellationToken)
+  name.vb: ReviewAsync(String, UserReviewRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync(Picturepark.SDK.V1.Contract.UserReviewManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync(Picturepark.SDK.V1.Contract.UserReviewManyRequest,System.Threading.CancellationToken)
+  id: ReviewManyAsync(Picturepark.SDK.V1.Contract.UserReviewManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: ReviewManyAsync(UserReviewManyRequest, CancellationToken)
+  nameWithType: IUserClient.ReviewManyAsync(UserReviewManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync(Picturepark.SDK.V1.Contract.UserReviewManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReviewManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4153
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Change Review state of multiple users
+  remarks: Users with AuthorizationState != ToBeReviewed are considered reviewed. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> ReviewManyAsync(UserReviewManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserReviewManyRequest
+      description: Information about users to update and the desired review state
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function ReviewManyAsync(request As UserReviewManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.InviteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.InviteAsync(System.String,System.Threading.CancellationToken)
+  id: InviteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: InviteAsync(string, CancellationToken)
+  nameWithType: IUserClient.InviteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.InviteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InviteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4171
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Invite user
+  remarks: Formally invites a user, e.g. sends an invitation email. Transitions AuthorizationState to Invited, implicitly reviews user.
+  example: []
+  syntax:
+    content: Task InviteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function InviteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.InviteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.InviteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.InviteAsync(String, System.Threading.CancellationToken)
+  name.vb: InviteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync(Picturepark.SDK.V1.Contract.UserInviteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync(Picturepark.SDK.V1.Contract.UserInviteManyRequest,System.Threading.CancellationToken)
+  id: InviteManyAsync(Picturepark.SDK.V1.Contract.UserInviteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: InviteManyAsync(UserInviteManyRequest, CancellationToken)
+  nameWithType: IUserClient.InviteManyAsync(UserInviteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync(Picturepark.SDK.V1.Contract.UserInviteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InviteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4189
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Invite multiple users
+  remarks: Formally invites users, e.g. sends an invitation email. Transitions to Invited, implicitly reviews user. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> InviteManyAsync(UserInviteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserInviteManyRequest
+      description: Information about users to invite
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function InviteManyAsync(request As UserInviteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync(System.String,System.Threading.CancellationToken)
+  id: ReinviteAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: ReinviteAsync(string, CancellationToken)
+  nameWithType: IUserClient.ReinviteAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReinviteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4207
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Reinvite user
+  remarks: Formally re-invites a user, e.g. sends an invitation email.
+  example: []
+  syntax:
+    content: Task ReinviteAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function ReinviteAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.ReinviteAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync(String, System.Threading.CancellationToken)
+  name.vb: ReinviteAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync(Picturepark.SDK.V1.Contract.UserReinviteManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync(Picturepark.SDK.V1.Contract.UserReinviteManyRequest,System.Threading.CancellationToken)
+  id: ReInviteManyAsync(Picturepark.SDK.V1.Contract.UserReinviteManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: ReInviteManyAsync(UserReinviteManyRequest, CancellationToken)
+  nameWithType: IUserClient.ReInviteManyAsync(UserReinviteManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync(Picturepark.SDK.V1.Contract.UserReinviteManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ReInviteManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4225
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Reinvite users
+  remarks: Formally re-invites users, e.g. sends an invitation email. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.
+  example: []
+  syntax:
+    content: Task<BusinessProcess> ReInviteManyAsync(UserReinviteManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserReinviteManyRequest
+      description: Information about users to reinvite
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function ReInviteManyAsync(request As UserReinviteManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync(Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync(Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest,System.Threading.CancellationToken)
+  id: AssignUserRolesAsync(Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: AssignUserRolesAsync(UserRoleAssignManyRequest, CancellationToken)
+  nameWithType: IUserClient.AssignUserRolesAsync(UserRoleAssignManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync(Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AssignUserRolesAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4240
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Assign or unassign userRoles
+  example: []
+  syntax:
+    content: Task<BusinessProcess> AssignUserRolesAsync(UserRoleAssignManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest
+      description: Information about users to modify and kind of operation
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function AssignUserRolesAsync(request As UserRoleAssignManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync(System.String,Picturepark.SDK.V1.Contract.UserDeleteRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync(System.String,Picturepark.SDK.V1.Contract.UserDeleteRequest,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,Picturepark.SDK.V1.Contract.UserDeleteRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(string, UserDeleteRequest, CancellationToken)
+  nameWithType: IUserClient.DeleteAsync(string, UserDeleteRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync(string, Picturepark.SDK.V1.Contract.UserDeleteRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DeleteAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4256
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Delete user
+  example: []
+  syntax:
+    content: Task DeleteAsync(string id, UserDeleteRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserDeleteRequest
+      description: Request with details about deletion
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function DeleteAsync(id As String, request As UserDeleteRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.DeleteAsync(String, UserDeleteRequest, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync(String, Picturepark.SDK.V1.Contract.UserDeleteRequest, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(String, UserDeleteRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync(System.String,System.Threading.CancellationToken)
+  id: ArchiveAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: ArchiveAsync(string, CancellationToken)
+  nameWithType: IUserClient.ArchiveAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ArchiveAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4275
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Archive user
+  remarks: >-
+    Only deleted users can be archived. If a user, before being deleted, was an owner of contents, schemas or permissions sets, the archiving through this endpoint won't be possible:
+
+    <br />            in such a case the archiving will be executed automatically by the system after the retention time is passed.
+  example: []
+  syntax:
+    content: Task ArchiveAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function ArchiveAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.ArchiveAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync(String, System.Threading.CancellationToken)
+  name.vb: ArchiveAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync(System.String,System.Threading.CancellationToken)
+  id: RestoreAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: RestoreAsync(string, CancellationToken)
+  nameWithType: IUserClient.RestoreAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RestoreAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4293
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Restore user
+  remarks: Restores previously deleted user, who was not cleaned up yet.
+  example: []
+  syntax:
+    content: Task RestoreAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function RestoreAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.RestoreAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync(String, System.Threading.CancellationToken)
+  name.vb: RestoreAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync(System.String,System.Threading.CancellationToken)
+  id: CancelDeletionRequestAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: CancelDeletionRequestAsync(string, CancellationToken)
+  nameWithType: IUserClient.CancelDeletionRequestAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CancelDeletionRequestAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4308
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Cancels a user triggered deletion request and returns user to _Reviewed_ state.
+  example: []
+  syntax:
+    content: Task CancelDeletionRequestAsync(string id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.String
+      description: User ID to action on.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task
+      description: OK
+    content.vb: Function CancelDeletionRequestAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.CancelDeletionRequestAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync(String, System.Threading.CancellationToken)
+  name.vb: CancelDeletionRequestAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync(System.String,System.Threading.CancellationToken)
+  id: GetByOwnerTokenAsync(System.String,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: GetByOwnerTokenAsync(string, CancellationToken)
+  nameWithType: IUserClient.GetByOwnerTokenAsync(string, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetByOwnerTokenAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4323
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get user by owner token
+  example: []
+  syntax:
+    content: Task<UserDetail> GetByOwnerTokenAsync(string tokenId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: tokenId
+      type: System.String
+      description: ID of the owner token.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserDetail}
+      description: User details of the user referenced by the owner token
+    content.vb: Function GetByOwnerTokenAsync(tokenId As String, cancellationToken As CancellationToken = Nothing) As Task(Of UserDetail)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.GetByOwnerTokenAsync(String, CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync(String, System.Threading.CancellationToken)
+  name.vb: GetByOwnerTokenAsync(String, CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.CreateAsync(Picturepark.SDK.V1.Contract.UserCreateRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.CreateAsync(Picturepark.SDK.V1.Contract.UserCreateRequest,System.Threading.CancellationToken)
+  id: CreateAsync(Picturepark.SDK.V1.Contract.UserCreateRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(UserCreateRequest, CancellationToken)
+  nameWithType: IUserClient.CreateAsync(UserCreateRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.CreateAsync(Picturepark.SDK.V1.Contract.UserCreateRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CreateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4341
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Create user
+  remarks: User will not be invited.
+  example: []
+  syntax:
+    content: Task<UserDetail> CreateAsync(UserCreateRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserCreateRequest
+      description: Requested user information.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserDetail}
+      description: Newly created user
+    content.vb: Function CreateAsync(request As UserCreateRequest, cancellationToken As CancellationToken = Nothing) As Task(Of UserDetail)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.CreateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: GetManyAsync(IEnumerable<string>, CancellationToken)
+  nameWithType: IUserClient.GetManyAsync(IEnumerable<string>, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync(System.Collections.Generic.IEnumerable<string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GetManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4359
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Get multiple users
+  remarks: Can fetch 100 users at most.
+  example: []
+  syntax:
+    content: Task<ICollection<UserDetail>> GetManyAsync(IEnumerable<string> ids = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: User IDs.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.UserDetail}}
+      description: Details of all the users who were found
+    content.vb: Function GetManyAsync(ids As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of ICollection(Of UserDetail))
+  overload: Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+  nameWithType.vb: IUserClient.GetManyAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: GetManyAsync(IEnumerable(Of String), CancellationToken)
+- uid: Picturepark.SDK.V1.Contract.IUserClient.SearchAsync(Picturepark.SDK.V1.Contract.UserSearchRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.SearchAsync(Picturepark.SDK.V1.Contract.UserSearchRequest,System.Threading.CancellationToken)
+  id: SearchAsync(Picturepark.SDK.V1.Contract.UserSearchRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: SearchAsync(UserSearchRequest, CancellationToken)
+  nameWithType: IUserClient.SearchAsync(UserSearchRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.SearchAsync(Picturepark.SDK.V1.Contract.UserSearchRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: SearchAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4374
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Search users
+  example: []
+  syntax:
+    content: Task<UserSearchResult> SearchAsync(UserSearchRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserSearchRequest
+      description: User search request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserSearchResult}
+      description: Result of the user search
+    content.vb: Function SearchAsync(request As UserSearchRequest, cancellationToken As CancellationToken = Nothing) As Task(Of UserSearchResult)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.SearchAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync(Picturepark.SDK.V1.Contract.UserAggregationRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync(Picturepark.SDK.V1.Contract.UserAggregationRequest,System.Threading.CancellationToken)
+  id: AggregateAsync(Picturepark.SDK.V1.Contract.UserAggregationRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: AggregateAsync(UserAggregationRequest, CancellationToken)
+  nameWithType: IUserClient.AggregateAsync(UserAggregationRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync(Picturepark.SDK.V1.Contract.UserAggregationRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AggregateAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4389
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Aggregate users
+  example: []
+  syntax:
+    content: Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserAggregationRequest
+      description: User aggregation request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+      description: Aggregation based on the request
+    content.vb: Function AggregateAsync(request As UserAggregationRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ObjectAggregationResult)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync(Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync(Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest,System.Threading.CancellationToken)
+  id: UpdateIdentityProviderManyAsync(Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest, CancellationToken)
+  nameWithType: IUserClient.UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync(Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UpdateIdentityProviderManyAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4404
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Update identity provider on multiple users
+  example: []
+  syntax:
+    content: Task<BusinessProcess> UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest
+      description: User update identity provider request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+      description: Business process
+    content.vb: Function UpdateIdentityProviderManyAsync(request As UserUpdateIdentityProviderManyRequest, cancellationToken As CancellationToken = Nothing) As Task(Of BusinessProcess)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ListAsync(Picturepark.SDK.V1.Contract.UserListRequest,System.Threading.CancellationToken)
+  commentId: M:Picturepark.SDK.V1.Contract.IUserClient.ListAsync(Picturepark.SDK.V1.Contract.UserListRequest,System.Threading.CancellationToken)
+  id: ListAsync(Picturepark.SDK.V1.Contract.UserListRequest,System.Threading.CancellationToken)
+  parent: Picturepark.SDK.V1.Contract.IUserClient
+  langs:
+  - csharp
+  - vb
+  name: ListAsync(UserListRequest, CancellationToken)
+  nameWithType: IUserClient.ListAsync(UserListRequest, CancellationToken)
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ListAsync(Picturepark.SDK.V1.Contract.UserListRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ListAsync
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 4419
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: List users, result contains only essential info about user. Requires the `ListUsers` or the `ManageUsers` UserRight.
+  example: []
+  syntax:
+    content: Task<UserListResult> ListAsync(UserListRequest request, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: Picturepark.SDK.V1.Contract.UserListRequest
+      description: User list request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+    return:
+      type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserListResult}
+      description: Result of the list users
+    content.vb: Function ListAsync(request As UserListRequest, cancellationToken As CancellationToken = Nothing) As Task(Of UserListResult)
+  overload: Picturepark.SDK.V1.Contract.IUserClient.ListAsync*
+  exceptions:
+  - type: Picturepark.SDK.V1.Contract.ApiException
+    commentId: T:Picturepark.SDK.V1.Contract.ApiException
+    description: A server side error occurred.
+  - type: Picturepark.SDK.V1.Contract.PictureparkValidationException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+    description: Validation exception
+  - type: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+    description: Forbidden
+  - type: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+    description: Entity not found
+  - type: Picturepark.SDK.V1.Contract.PictureparkConflictException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+    description: Version conflict
+  - type: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+    description: Too many requests
+  - type: Picturepark.SDK.V1.Contract.PictureparkException
+    commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+    description: Internal server error
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.ApiException
+  commentId: T:Picturepark.SDK.V1.Contract.ApiException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.ApiException.html
+  name: ApiException
+  nameWithType: ApiException
+  fullName: Picturepark.SDK.V1.Contract.ApiException
+- uid: Picturepark.SDK.V1.Contract.PictureparkValidationException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkValidationException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkValidationException.html
+  name: PictureparkValidationException
+  nameWithType: PictureparkValidationException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkValidationException
+- uid: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html
+  name: PictureparkForbiddenException
+  nameWithType: PictureparkForbiddenException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkForbiddenException
+- uid: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html
+  name: PictureparkNotFoundException
+  nameWithType: PictureparkNotFoundException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkNotFoundException
+- uid: Picturepark.SDK.V1.Contract.PictureparkConflictException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkConflictException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkConflictException.html
+  name: PictureparkConflictException
+  nameWithType: PictureparkConflictException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkConflictException
+- uid: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException.html
+  name: PictureparkTooManyRequestsException
+  nameWithType: PictureparkTooManyRequestsException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkTooManyRequestsException
+- uid: Picturepark.SDK.V1.Contract.PictureparkException
+  commentId: T:Picturepark.SDK.V1.Contract.PictureparkException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.PictureparkException.html
+  name: PictureparkException
+  nameWithType: PictureparkException
+  fullName: Picturepark.SDK.V1.Contract.PictureparkException
+- uid: Picturepark.SDK.V1.Contract.IUserClient.GetAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.GetAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetAsync_System_String_System_Threading_CancellationToken_
+  name: GetAsync
+  nameWithType: IUserClient.GetAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserDetail}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserDetail}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserDetail>
+  nameWithType: Task<UserDetail>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.UserDetail>
+  nameWithType.vb: Task(Of UserDetail)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.UserDetail)
+  name.vb: Task(Of UserDetail)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserDetail
+    name: UserDetail
+    href: Picturepark.SDK.V1.Contract.UserDetail.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserDetail
+    name: UserDetail
+    href: Picturepark.SDK.V1.Contract.UserDetail.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserUpdateRequest_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: IUserClient.UpdateAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.UpdateAsync
+- uid: Picturepark.SDK.V1.Contract.UserUpdateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserUpdateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserUpdateRequest.html
+  name: UserUpdateRequest
+  nameWithType: UserUpdateRequest
+  fullName: Picturepark.SDK.V1.Contract.UserUpdateRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.LockAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.LockAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_LockAsync_System_String_Picturepark_SDK_V1_Contract_UserLockRequest_System_Threading_CancellationToken_
+  name: LockAsync
+  nameWithType: IUserClient.LockAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.LockAsync
+- uid: Picturepark.SDK.V1.Contract.UserLockRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserLockRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserLockRequest.html
+  name: UserLockRequest
+  nameWithType: UserLockRequest
+  fullName: Picturepark.SDK.V1.Contract.UserLockRequest
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_LockManyAsync_Picturepark_SDK_V1_Contract_UserLockManyRequest_System_Threading_CancellationToken_
+  name: LockManyAsync
+  nameWithType: IUserClient.LockManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.LockManyAsync
+- uid: Picturepark.SDK.V1.Contract.UserLockManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserLockManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserLockManyRequest.html
+  name: UserLockManyRequest
+  nameWithType: UserLockManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserLockManyRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.BusinessProcess}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<BusinessProcess>
+  nameWithType: Task<BusinessProcess>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.BusinessProcess>
+  nameWithType.vb: Task(Of BusinessProcess)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.BusinessProcess)
+  name.vb: Task(Of BusinessProcess)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.BusinessProcess
+    name: BusinessProcess
+    href: Picturepark.SDK.V1.Contract.BusinessProcess.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_ReviewAsync_System_String_Picturepark_SDK_V1_Contract_UserReviewRequest_System_Threading_CancellationToken_
+  name: ReviewAsync
+  nameWithType: IUserClient.ReviewAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReviewAsync
+- uid: Picturepark.SDK.V1.Contract.UserReviewRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserReviewRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserReviewRequest.html
+  name: UserReviewRequest
+  nameWithType: UserReviewRequest
+  fullName: Picturepark.SDK.V1.Contract.UserReviewRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_ReviewManyAsync_Picturepark_SDK_V1_Contract_UserReviewManyRequest_System_Threading_CancellationToken_
+  name: ReviewManyAsync
+  nameWithType: IUserClient.ReviewManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReviewManyAsync
+- uid: Picturepark.SDK.V1.Contract.UserReviewManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserReviewManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserReviewManyRequest.html
+  name: UserReviewManyRequest
+  nameWithType: UserReviewManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserReviewManyRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.InviteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.InviteAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_InviteAsync_System_String_System_Threading_CancellationToken_
+  name: InviteAsync
+  nameWithType: IUserClient.InviteAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.InviteAsync
+- uid: Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_InviteManyAsync_Picturepark_SDK_V1_Contract_UserInviteManyRequest_System_Threading_CancellationToken_
+  name: InviteManyAsync
+  nameWithType: IUserClient.InviteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.InviteManyAsync
+- uid: Picturepark.SDK.V1.Contract.UserInviteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserInviteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserInviteManyRequest.html
+  name: UserInviteManyRequest
+  nameWithType: UserInviteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserInviteManyRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_ReinviteAsync_System_String_System_Threading_CancellationToken_
+  name: ReinviteAsync
+  nameWithType: IUserClient.ReinviteAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReinviteAsync
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_ReInviteManyAsync_Picturepark_SDK_V1_Contract_UserReinviteManyRequest_System_Threading_CancellationToken_
+  name: ReInviteManyAsync
+  nameWithType: IUserClient.ReInviteManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ReInviteManyAsync
+- uid: Picturepark.SDK.V1.Contract.UserReinviteManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserReinviteManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserReinviteManyRequest.html
+  name: UserReinviteManyRequest
+  nameWithType: UserReinviteManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserReinviteManyRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_AssignUserRolesAsync_Picturepark_SDK_V1_Contract_UserRoleAssignManyRequest_System_Threading_CancellationToken_
+  name: AssignUserRolesAsync
+  nameWithType: IUserClient.AssignUserRolesAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.AssignUserRolesAsync
+- uid: Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest.html
+  name: UserRoleAssignManyRequest
+  nameWithType: UserRoleAssignManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_DeleteAsync_System_String_Picturepark_SDK_V1_Contract_UserDeleteRequest_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: IUserClient.DeleteAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.DeleteAsync
+- uid: Picturepark.SDK.V1.Contract.UserDeleteRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserDeleteRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserDeleteRequest.html
+  name: UserDeleteRequest
+  nameWithType: UserDeleteRequest
+  fullName: Picturepark.SDK.V1.Contract.UserDeleteRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_ArchiveAsync_System_String_System_Threading_CancellationToken_
+  name: ArchiveAsync
+  nameWithType: IUserClient.ArchiveAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ArchiveAsync
+- uid: Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_RestoreAsync_System_String_System_Threading_CancellationToken_
+  name: RestoreAsync
+  nameWithType: IUserClient.RestoreAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.RestoreAsync
+- uid: Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_CancelDeletionRequestAsync_System_String_System_Threading_CancellationToken_
+  name: CancelDeletionRequestAsync
+  nameWithType: IUserClient.CancelDeletionRequestAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.CancelDeletionRequestAsync
+- uid: Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetByOwnerTokenAsync_System_String_System_Threading_CancellationToken_
+  name: GetByOwnerTokenAsync
+  nameWithType: IUserClient.GetByOwnerTokenAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.GetByOwnerTokenAsync
+- uid: Picturepark.SDK.V1.Contract.IUserClient.CreateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.CreateAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_CreateAsync_Picturepark_SDK_V1_Contract_UserCreateRequest_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IUserClient.CreateAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.CreateAsync
+- uid: Picturepark.SDK.V1.Contract.UserCreateRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserCreateRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserCreateRequest.html
+  name: UserCreateRequest
+  nameWithType: UserCreateRequest
+  fullName: Picturepark.SDK.V1.Contract.UserCreateRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: GetManyAsync
+  nameWithType: IUserClient.GetManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.GetManyAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.UserDetail}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.ICollection{Picturepark.SDK.V1.Contract.UserDetail}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ICollection<UserDetail>>
+  nameWithType: Task<ICollection<UserDetail>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Picturepark.SDK.V1.Contract.UserDetail>>
+  nameWithType.vb: Task(Of ICollection(Of UserDetail))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.ICollection(Of Picturepark.SDK.V1.Contract.UserDetail))
+  name.vb: Task(Of ICollection(Of UserDetail))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserDetail
+    name: UserDetail
+    href: Picturepark.SDK.V1.Contract.UserDetail.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserDetail
+    name: UserDetail
+    href: Picturepark.SDK.V1.Contract.UserDetail.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Picturepark.SDK.V1.Contract.IUserClient.SearchAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.SearchAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_SearchAsync_Picturepark_SDK_V1_Contract_UserSearchRequest_System_Threading_CancellationToken_
+  name: SearchAsync
+  nameWithType: IUserClient.SearchAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.SearchAsync
+- uid: Picturepark.SDK.V1.Contract.UserSearchRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserSearchRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserSearchRequest.html
+  name: UserSearchRequest
+  nameWithType: UserSearchRequest
+  fullName: Picturepark.SDK.V1.Contract.UserSearchRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserSearchResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserSearchResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserSearchResult>
+  nameWithType: Task<UserSearchResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.UserSearchResult>
+  nameWithType.vb: Task(Of UserSearchResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.UserSearchResult)
+  name.vb: Task(Of UserSearchResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserSearchResult
+    name: UserSearchResult
+    href: Picturepark.SDK.V1.Contract.UserSearchResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserSearchResult
+    name: UserSearchResult
+    href: Picturepark.SDK.V1.Contract.UserSearchResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_AggregateAsync_Picturepark_SDK_V1_Contract_UserAggregationRequest_System_Threading_CancellationToken_
+  name: AggregateAsync
+  nameWithType: IUserClient.AggregateAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.AggregateAsync
+- uid: Picturepark.SDK.V1.Contract.UserAggregationRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserAggregationRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserAggregationRequest.html
+  name: UserAggregationRequest
+  nameWithType: UserAggregationRequest
+  fullName: Picturepark.SDK.V1.Contract.UserAggregationRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.ObjectAggregationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ObjectAggregationResult>
+  nameWithType: Task<ObjectAggregationResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.ObjectAggregationResult>
+  nameWithType.vb: Task(Of ObjectAggregationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.ObjectAggregationResult)
+  name.vb: Task(Of ObjectAggregationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.ObjectAggregationResult
+    name: ObjectAggregationResult
+    href: Picturepark.SDK.V1.Contract.ObjectAggregationResult.html
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_UpdateIdentityProviderManyAsync_Picturepark_SDK_V1_Contract_UserUpdateIdentityProviderManyRequest_System_Threading_CancellationToken_
+  name: UpdateIdentityProviderManyAsync
+  nameWithType: IUserClient.UpdateIdentityProviderManyAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.UpdateIdentityProviderManyAsync
+- uid: Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest.html
+  name: UserUpdateIdentityProviderManyRequest
+  nameWithType: UserUpdateIdentityProviderManyRequest
+  fullName: Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest
+- uid: Picturepark.SDK.V1.Contract.IUserClient.ListAsync*
+  commentId: Overload:Picturepark.SDK.V1.Contract.IUserClient.ListAsync
+  href: Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_ListAsync_Picturepark_SDK_V1_Contract_UserListRequest_System_Threading_CancellationToken_
+  name: ListAsync
+  nameWithType: IUserClient.ListAsync
+  fullName: Picturepark.SDK.V1.Contract.IUserClient.ListAsync
+- uid: Picturepark.SDK.V1.Contract.UserListRequest
+  commentId: T:Picturepark.SDK.V1.Contract.UserListRequest
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserListRequest.html
+  name: UserListRequest
+  nameWithType: UserListRequest
+  fullName: Picturepark.SDK.V1.Contract.UserListRequest
+- uid: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserListResult}
+  commentId: T:System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.UserListResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserListResult>
+  nameWithType: Task<UserListResult>
+  fullName: System.Threading.Tasks.Task<Picturepark.SDK.V1.Contract.UserListResult>
+  nameWithType.vb: Task(Of UserListResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Picturepark.SDK.V1.Contract.UserListResult)
+  name.vb: Task(Of UserListResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Picturepark.SDK.V1.Contract.UserListResult
+    name: UserListResult
+    href: Picturepark.SDK.V1.Contract.UserListResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Picturepark.SDK.V1.Contract.UserListResult
+    name: UserListResult
+    href: Picturepark.SDK.V1.Contract.UserListResult.html
+  - name: )

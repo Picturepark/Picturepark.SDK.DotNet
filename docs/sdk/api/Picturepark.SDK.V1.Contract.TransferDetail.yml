@@ -1,0 +1,1074 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.TransferDetail
+  commentId: T:Picturepark.SDK.V1.Contract.TransferDetail
+  id: TransferDetail
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.TransferDetail.Audit
+  - Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount
+  - Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount
+  - Picturepark.SDK.V1.Contract.TransferDetail.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.TransferDetail.ItemCount
+  - Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress
+  - Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled
+  - Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed
+  - Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp
+  - Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp
+  - Picturepark.SDK.V1.Contract.TransferDetail.ToJson
+  langs:
+  - csharp
+  - vb
+  name: TransferDetail
+  nameWithType: TransferDetail
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: TransferDetail
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40571
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Represents a transfer and includes detailed information.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class TransferDetail : Transfer
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class TransferDetail Inherits Transfer
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Contract.Transfer
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.Transfer.Id
+  - Picturepark.SDK.V1.Contract.Transfer.Name
+  - Picturepark.SDK.V1.Contract.Transfer.State
+  - Picturepark.SDK.V1.Contract.Transfer.TransferType
+  - Picturepark.SDK.V1.Contract.Transfer.BusinessProcessId
+  - Picturepark.SDK.V1.Contract.Transfer.FileTransferCount
+  - Picturepark.SDK.V1.Contract.Transfer.CollectionId
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.Audit
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.Audit
+  id: Audit
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: Audit
+  nameWithType: TransferDetail.Audit
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.Audit
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Audit
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40577
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Audit information.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("audit", Required = Required.Always)]
+
+      [Required]
+
+      public UserAudit Audit { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.Contract.UserAudit
+    content.vb: >-
+      <JsonProperty("audit", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Audit As UserAudit
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.Audit*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: audit
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress
+  id: ItemProgress
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: ItemProgress
+  nameWithType: TransferDetail.ItemProgress
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ItemProgress
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40584
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Number of items processed.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("itemProgress", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long ItemProgress { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("itemProgress", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ItemProgress As Long
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: itemProgress
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemCount
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.ItemCount
+  id: ItemCount
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: ItemCount
+  nameWithType: TransferDetail.ItemCount
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemCount
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ItemCount
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40590
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Total number of items.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("itemCount", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long ItemCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("itemCount", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ItemCount As Long
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.ItemCount*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: itemCount
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount
+  id: FileUploadInProgressCount
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: FileUploadInProgressCount
+  nameWithType: TransferDetail.FileUploadInProgressCount
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FileUploadInProgressCount
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40596
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Number of items currently being uploaded.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("fileUploadInProgressCount", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long FileUploadInProgressCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("fileUploadInProgressCount", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property FileUploadInProgressCount As Long
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: fileUploadInProgressCount
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount
+  id: DataExtractionInProgressCount
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: DataExtractionInProgressCount
+  nameWithType: TransferDetail.DataExtractionInProgressCount
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: DataExtractionInProgressCount
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40602
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Number of items currently being processed in data extraction.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("dataExtractionInProgressCount", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long DataExtractionInProgressCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("dataExtractionInProgressCount", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property DataExtractionInProgressCount As Long
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dataExtractionInProgressCount
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed
+  id: ItemsFailed
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: ItemsFailed
+  nameWithType: TransferDetail.ItemsFailed
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ItemsFailed
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40608
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Number of items failed.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("itemsFailed", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long ItemsFailed { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("itemsFailed", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ItemsFailed As Long
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: itemsFailed
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled
+  id: ItemsCancelled
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: ItemsCancelled
+  nameWithType: TransferDetail.ItemsCancelled
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ItemsCancelled
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40614
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Number of items cancelled.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("itemsCancelled", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public long ItemsCancelled { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <JsonProperty("itemsCancelled", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property ItemsCancelled As Long
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: itemsCancelled
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp
+  id: LastDataExtractionProgressTimeStamp
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: LastDataExtractionProgressTimeStamp
+  nameWithType: TransferDetail.LastDataExtractionProgressTimeStamp
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LastDataExtractionProgressTimeStamp
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40620
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Time stamp of last progress update from data extraction.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("lastDataExtractionProgressTimeStamp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public DateTime? LastDataExtractionProgressTimeStamp { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <JsonProperty("lastDataExtractionProgressTimeStamp", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property LastDataExtractionProgressTimeStamp As Date?
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastDataExtractionProgressTimeStamp
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp
+  commentId: P:Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp
+  id: LastFileUploadProgressTimeStamp
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: LastFileUploadProgressTimeStamp
+  nameWithType: TransferDetail.LastFileUploadProgressTimeStamp
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LastFileUploadProgressTimeStamp
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40626
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Time stamp of last progress update from upload.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("lastFileUploadProgressTimeStamp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public DateTime? LastFileUploadProgressTimeStamp { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <JsonProperty("lastFileUploadProgressTimeStamp", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property LastFileUploadProgressTimeStamp As Date?
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: lastFileUploadProgressTimeStamp
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.TransferDetail.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: TransferDetail.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40629
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.ToJson*
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.TransferDetail.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.TransferDetail
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: TransferDetail.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 40635
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static TransferDetail FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.TransferDetail
+    content.vb: Public Shared Function FromJson(data As String) As TransferDetail
+  overload: Picturepark.SDK.V1.Contract.TransferDetail.FromJson*
+  nameWithType.vb: TransferDetail.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.TransferDetail.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.Transfer
+  commentId: T:Picturepark.SDK.V1.Contract.Transfer
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.Transfer.html
+  name: Transfer
+  nameWithType: Transfer
+  fullName: Picturepark.SDK.V1.Contract.Transfer
+- uid: Picturepark.SDK.V1.Contract.Transfer.Id
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.Id
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_Id
+  name: Id
+  nameWithType: Transfer.Id
+  fullName: Picturepark.SDK.V1.Contract.Transfer.Id
+- uid: Picturepark.SDK.V1.Contract.Transfer.Name
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.Name
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_Name
+  name: Name
+  nameWithType: Transfer.Name
+  fullName: Picturepark.SDK.V1.Contract.Transfer.Name
+- uid: Picturepark.SDK.V1.Contract.Transfer.State
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.State
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_State
+  name: State
+  nameWithType: Transfer.State
+  fullName: Picturepark.SDK.V1.Contract.Transfer.State
+- uid: Picturepark.SDK.V1.Contract.Transfer.TransferType
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.TransferType
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_TransferType
+  name: TransferType
+  nameWithType: Transfer.TransferType
+  fullName: Picturepark.SDK.V1.Contract.Transfer.TransferType
+- uid: Picturepark.SDK.V1.Contract.Transfer.BusinessProcessId
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.BusinessProcessId
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_BusinessProcessId
+  name: BusinessProcessId
+  nameWithType: Transfer.BusinessProcessId
+  fullName: Picturepark.SDK.V1.Contract.Transfer.BusinessProcessId
+- uid: Picturepark.SDK.V1.Contract.Transfer.FileTransferCount
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.FileTransferCount
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_FileTransferCount
+  name: FileTransferCount
+  nameWithType: Transfer.FileTransferCount
+  fullName: Picturepark.SDK.V1.Contract.Transfer.FileTransferCount
+- uid: Picturepark.SDK.V1.Contract.Transfer.CollectionId
+  commentId: P:Picturepark.SDK.V1.Contract.Transfer.CollectionId
+  parent: Picturepark.SDK.V1.Contract.Transfer
+  href: Picturepark.SDK.V1.Contract.Transfer.html#Picturepark_SDK_V1_Contract_Transfer_CollectionId
+  name: CollectionId
+  nameWithType: Transfer.CollectionId
+  fullName: Picturepark.SDK.V1.Contract.Transfer.CollectionId
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.Audit*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.Audit
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_Audit
+  name: Audit
+  nameWithType: TransferDetail.Audit
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.Audit
+- uid: Picturepark.SDK.V1.Contract.UserAudit
+  commentId: T:Picturepark.SDK.V1.Contract.UserAudit
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.UserAudit.html
+  name: UserAudit
+  nameWithType: UserAudit
+  fullName: Picturepark.SDK.V1.Contract.UserAudit
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_ItemProgress
+  name: ItemProgress
+  nameWithType: TransferDetail.ItemProgress
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemProgress
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemCount*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.ItemCount
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_ItemCount
+  name: ItemCount
+  nameWithType: TransferDetail.ItemCount
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemCount
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_FileUploadInProgressCount
+  name: FileUploadInProgressCount
+  nameWithType: TransferDetail.FileUploadInProgressCount
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.FileUploadInProgressCount
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_DataExtractionInProgressCount
+  name: DataExtractionInProgressCount
+  nameWithType: TransferDetail.DataExtractionInProgressCount
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.DataExtractionInProgressCount
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_ItemsFailed
+  name: ItemsFailed
+  nameWithType: TransferDetail.ItemsFailed
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemsFailed
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_ItemsCancelled
+  name: ItemsCancelled
+  nameWithType: TransferDetail.ItemsCancelled
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ItemsCancelled
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_LastDataExtractionProgressTimeStamp
+  name: LastDataExtractionProgressTimeStamp
+  nameWithType: TransferDetail.LastDataExtractionProgressTimeStamp
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.LastDataExtractionProgressTimeStamp
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_LastFileUploadProgressTimeStamp
+  name: LastFileUploadProgressTimeStamp
+  nameWithType: TransferDetail.LastFileUploadProgressTimeStamp
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.LastFileUploadProgressTimeStamp
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.ToJson
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_ToJson
+  name: ToJson
+  nameWithType: TransferDetail.ToJson
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.ToJson
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.TransferDetail.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.TransferDetail.FromJson
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html#Picturepark_SDK_V1_Contract_TransferDetail_FromJson_System_String_
+  name: FromJson
+  nameWithType: TransferDetail.FromJson
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail.FromJson
+- uid: Picturepark.SDK.V1.Contract.TransferDetail
+  commentId: T:Picturepark.SDK.V1.Contract.TransferDetail
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.TransferDetail.html
+  name: TransferDetail
+  nameWithType: TransferDetail
+  fullName: Picturepark.SDK.V1.Contract.TransferDetail

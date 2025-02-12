@@ -1,0 +1,710 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  commentId: T:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  id: AssignTagboxItemsInLayerAction
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson(System.String)
+  - Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId
+  - Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache
+  - Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds
+  - Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace
+  - Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson
+  langs:
+  - csharp
+  - vb
+  name: AssignTagboxItemsInLayerAction
+  nameWithType: AssignTagboxItemsInLayerAction
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AssignTagboxItemsInLayerAction
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20242
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Assigns a set of list item ids to all multi tag boxes in a layer where the
+
+    <br />filter defined on the tagbox does allow assignment of the ID.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class AssignTagboxItemsInLayerAction : BusinessRuleAction
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class AssignTagboxItemsInLayerAction Inherits BusinessRuleAction
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.Contract.BusinessRuleAction
+  inheritedMembers:
+  - Picturepark.SDK.V1.Contract.BusinessRuleAction.TraceRefId
+  - Picturepark.SDK.V1.Contract.BusinessRuleAction.Names
+  - Picturepark.SDK.V1.Contract.BusinessRuleAction.Description
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache
+  commentId: P:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache
+  id: NamedCache
+  parent: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  langs:
+  - csharp
+  - vb
+  name: NamedCache
+  nameWithType: AssignTagboxItemsInLayerAction.NamedCache
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NamedCache
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20248
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("namedCache", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      [Obsolete("Use LayerId property directly instead")]
+
+      public string NamedCache { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("namedCache", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      <Obsolete("Use LayerId property directly instead")>
+
+      Public Property NamedCache As String
+  overload: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: namedCache
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use LayerId property directly instead
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId
+  commentId: P:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId
+  id: LayerId
+  parent: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  langs:
+  - csharp
+  - vb
+  name: LayerId
+  nameWithType: AssignTagboxItemsInLayerAction.LayerId
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LayerId
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20255
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: ID of layer to assign items in.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("layerId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public string LayerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("layerId", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property LayerId As String
+  overload: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: layerId
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds
+  commentId: P:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds
+  id: RefIds
+  parent: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  langs:
+  - csharp
+  - vb
+  name: RefIds
+  nameWithType: AssignTagboxItemsInLayerAction.RefIds
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: RefIds
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20261
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: List of refIds of the items that should be assigned.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("refIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+
+      public object RefIds { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: >-
+      <JsonProperty("refIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property RefIds As Object
+  overload: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: refIds
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 0
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace
+  commentId: P:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace
+  id: Replace
+  parent: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  langs:
+  - csharp
+  - vb
+  name: Replace
+  nameWithType: AssignTagboxItemsInLayerAction.Replace
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Replace
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20268
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: >-
+    Indicates where the assignment should be additive to the already assigned tags
+
+    <br />or if existing tags should be replaced.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("replace", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public bool Replace { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty("replace", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Replace As Boolean
+  overload: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: replace
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: AssignTagboxItemsInLayerAction.ToJson()
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20271
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson*
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: AssignTagboxItemsInLayerAction.FromJson(string)
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 20277
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: public static AssignTagboxItemsInLayerAction FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+    content.vb: Public Shared Function FromJson(data As String) As AssignTagboxItemsInLayerAction
+  overload: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson*
+  nameWithType.vb: AssignTagboxItemsInLayerAction.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleAction
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleAction
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessRuleAction.html
+  name: BusinessRuleAction
+  nameWithType: BusinessRuleAction
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleAction
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleAction.TraceRefId
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleAction.TraceRefId
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleAction
+  href: Picturepark.SDK.V1.Contract.BusinessRuleAction.html#Picturepark_SDK_V1_Contract_BusinessRuleAction_TraceRefId
+  name: TraceRefId
+  nameWithType: BusinessRuleAction.TraceRefId
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleAction.TraceRefId
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleAction.Names
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleAction.Names
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleAction
+  href: Picturepark.SDK.V1.Contract.BusinessRuleAction.html#Picturepark_SDK_V1_Contract_BusinessRuleAction_Names
+  name: Names
+  nameWithType: BusinessRuleAction.Names
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleAction.Names
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleAction.Description
+  commentId: P:Picturepark.SDK.V1.Contract.BusinessRuleAction.Description
+  parent: Picturepark.SDK.V1.Contract.BusinessRuleAction
+  href: Picturepark.SDK.V1.Contract.BusinessRuleAction.html#Picturepark_SDK_V1_Contract_BusinessRuleAction_Description
+  name: Description
+  nameWithType: BusinessRuleAction.Description
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleAction.Description
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html#Picturepark_SDK_V1_Contract_AssignTagboxItemsInLayerAction_NamedCache
+  name: NamedCache
+  nameWithType: AssignTagboxItemsInLayerAction.NamedCache
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.NamedCache
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html#Picturepark_SDK_V1_Contract_AssignTagboxItemsInLayerAction_LayerId
+  name: LayerId
+  nameWithType: AssignTagboxItemsInLayerAction.LayerId
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.LayerId
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html#Picturepark_SDK_V1_Contract_AssignTagboxItemsInLayerAction_RefIds
+  name: RefIds
+  nameWithType: AssignTagboxItemsInLayerAction.RefIds
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.RefIds
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html#Picturepark_SDK_V1_Contract_AssignTagboxItemsInLayerAction_Replace
+  name: Replace
+  nameWithType: AssignTagboxItemsInLayerAction.Replace
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.Replace
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html#Picturepark_SDK_V1_Contract_AssignTagboxItemsInLayerAction_ToJson
+  name: ToJson
+  nameWithType: AssignTagboxItemsInLayerAction.ToJson
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.ToJson
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html#Picturepark_SDK_V1_Contract_AssignTagboxItemsInLayerAction_FromJson_System_String_
+  name: FromJson
+  nameWithType: AssignTagboxItemsInLayerAction.FromJson
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.FromJson
+- uid: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  commentId: T:Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html
+  name: AssignTagboxItemsInLayerAction
+  nameWithType: AssignTagboxItemsInLayerAction
+  fullName: Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction

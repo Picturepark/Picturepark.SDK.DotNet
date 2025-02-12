@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  id: CompressionType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Lzw
+  - Picturepark.SDK.V1.CloudManager.Contract.CompressionType.None
+  - Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Rle
+  - Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Zip
+  langs:
+  - csharp
+  - vb
+  name: CompressionType
+  nameWithType: CompressionType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: CompressionType
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18798
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Available compression types.
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum CompressionType
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum CompressionType
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.None
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CompressionType.None
+  id: None
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CompressionType.None
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.None
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: None
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18802
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "None")]
+
+      None = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+    content.vb: >-
+      <EnumMember(Value:="None")>
+
+      None = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: None
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Lzw
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Lzw
+  id: Lzw
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  langs:
+  - csharp
+  - vb
+  name: Lzw
+  nameWithType: CompressionType.Lzw
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Lzw
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Lzw
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18805
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Lzw")]
+
+      Lzw = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+    content.vb: >-
+      <EnumMember(Value:="Lzw")>
+
+      Lzw = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Lzw
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Rle
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Rle
+  id: Rle
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  langs:
+  - csharp
+  - vb
+  name: Rle
+  nameWithType: CompressionType.Rle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Rle
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Rle
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18808
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Rle")]
+
+      Rle = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+    content.vb: >-
+      <EnumMember(Value:="Rle")>
+
+      Rle = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Rle
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Zip
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Zip
+  id: Zip
+  parent: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  langs:
+  - csharp
+  - vb
+  name: Zip
+  nameWithType: CompressionType.Zip
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.Zip
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Zip
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 18811
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Zip")]
+
+      Zip = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+    content.vb: >-
+      <EnumMember(Value:="Zip")>
+
+      Zip = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Zip
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.CompressionType
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.CompressionType.html
+  name: CompressionType
+  nameWithType: CompressionType
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CompressionType

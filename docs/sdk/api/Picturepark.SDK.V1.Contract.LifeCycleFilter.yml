@@ -1,0 +1,256 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  commentId: T:Picturepark.SDK.V1.Contract.LifeCycleFilter
+  id: LifeCycleFilter
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveInactiveOnly
+  - Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveOnly
+  - Picturepark.SDK.V1.Contract.LifeCycleFilter.All
+  - Picturepark.SDK.V1.Contract.LifeCycleFilter.InactiveOnly
+  langs:
+  - csharp
+  - vb
+  name: LifeCycleFilter
+  nameWithType: LifeCycleFilter
+  fullName: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LifeCycleFilter
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25442
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum LifeCycleFilter
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum LifeCycleFilter
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveOnly
+  commentId: F:Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveOnly
+  id: ActiveOnly
+  parent: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  langs:
+  - csharp
+  - vb
+  name: ActiveOnly
+  nameWithType: LifeCycleFilter.ActiveOnly
+  fullName: Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveOnly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ActiveOnly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25446
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ActiveOnly")]
+
+      ActiveOnly = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.LifeCycleFilter
+    content.vb: >-
+      <EnumMember(Value:="ActiveOnly")>
+
+      ActiveOnly = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ActiveOnly
+- uid: Picturepark.SDK.V1.Contract.LifeCycleFilter.All
+  commentId: F:Picturepark.SDK.V1.Contract.LifeCycleFilter.All
+  id: All
+  parent: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: LifeCycleFilter.All
+  fullName: Picturepark.SDK.V1.Contract.LifeCycleFilter.All
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: All
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25449
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "All")]
+
+      All = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.LifeCycleFilter
+    content.vb: >-
+      <EnumMember(Value:="All")>
+
+      All = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: All
+- uid: Picturepark.SDK.V1.Contract.LifeCycleFilter.InactiveOnly
+  commentId: F:Picturepark.SDK.V1.Contract.LifeCycleFilter.InactiveOnly
+  id: InactiveOnly
+  parent: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  langs:
+  - csharp
+  - vb
+  name: InactiveOnly
+  nameWithType: LifeCycleFilter.InactiveOnly
+  fullName: Picturepark.SDK.V1.Contract.LifeCycleFilter.InactiveOnly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: InactiveOnly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25452
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "InactiveOnly")]
+
+      InactiveOnly = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.LifeCycleFilter
+    content.vb: >-
+      <EnumMember(Value:="InactiveOnly")>
+
+      InactiveOnly = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: InactiveOnly
+- uid: Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveInactiveOnly
+  commentId: F:Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveInactiveOnly
+  id: ActiveInactiveOnly
+  parent: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  langs:
+  - csharp
+  - vb
+  name: ActiveInactiveOnly
+  nameWithType: LifeCycleFilter.ActiveInactiveOnly
+  fullName: Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveInactiveOnly
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ActiveInactiveOnly
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 25455
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ActiveInactiveOnly")]
+
+      ActiveInactiveOnly = 3
+    return:
+      type: Picturepark.SDK.V1.Contract.LifeCycleFilter
+    content.vb: >-
+      <EnumMember(Value:="ActiveInactiveOnly")>
+
+      ActiveInactiveOnly = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ActiveInactiveOnly
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.LifeCycleFilter
+  commentId: T:Picturepark.SDK.V1.Contract.LifeCycleFilter
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.LifeCycleFilter.html
+  name: LifeCycleFilter
+  nameWithType: LifeCycleFilter
+  fullName: Picturepark.SDK.V1.Contract.LifeCycleFilter

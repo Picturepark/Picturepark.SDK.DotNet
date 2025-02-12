@@ -1,0 +1,216 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.LookupItemsMatch
+  commentId: T:Picturepark.SDK.V1.Contract.LookupItemsMatch
+  id: LookupItemsMatch
+  parent: Picturepark.SDK.V1.Contract
+  children:
+  - Picturepark.SDK.V1.Contract.LookupItemsMatch.All
+  - Picturepark.SDK.V1.Contract.LookupItemsMatch.Found
+  - Picturepark.SDK.V1.Contract.LookupItemsMatch.NotFound
+  langs:
+  - csharp
+  - vb
+  name: LookupItemsMatch
+  nameWithType: LookupItemsMatch
+  fullName: Picturepark.SDK.V1.Contract.LookupItemsMatch
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LookupItemsMatch
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19761
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  summary: How should happen the match on a lookup cache
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum LookupItemsMatch
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum LookupItemsMatch
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.Contract.LookupItemsMatch.Found
+  commentId: F:Picturepark.SDK.V1.Contract.LookupItemsMatch.Found
+  id: Found
+  parent: Picturepark.SDK.V1.Contract.LookupItemsMatch
+  langs:
+  - csharp
+  - vb
+  name: Found
+  nameWithType: LookupItemsMatch.Found
+  fullName: Picturepark.SDK.V1.Contract.LookupItemsMatch.Found
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Found
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19765
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Found")]
+
+      Found = 0
+    return:
+      type: Picturepark.SDK.V1.Contract.LookupItemsMatch
+    content.vb: >-
+      <EnumMember(Value:="Found")>
+
+      Found = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Found
+- uid: Picturepark.SDK.V1.Contract.LookupItemsMatch.NotFound
+  commentId: F:Picturepark.SDK.V1.Contract.LookupItemsMatch.NotFound
+  id: NotFound
+  parent: Picturepark.SDK.V1.Contract.LookupItemsMatch
+  langs:
+  - csharp
+  - vb
+  name: NotFound
+  nameWithType: LookupItemsMatch.NotFound
+  fullName: Picturepark.SDK.V1.Contract.LookupItemsMatch.NotFound
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: NotFound
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19768
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "NotFound")]
+
+      NotFound = 1
+    return:
+      type: Picturepark.SDK.V1.Contract.LookupItemsMatch
+    content.vb: >-
+      <EnumMember(Value:="NotFound")>
+
+      NotFound = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: NotFound
+- uid: Picturepark.SDK.V1.Contract.LookupItemsMatch.All
+  commentId: F:Picturepark.SDK.V1.Contract.LookupItemsMatch.All
+  id: All
+  parent: Picturepark.SDK.V1.Contract.LookupItemsMatch
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: LookupItemsMatch.All
+  fullName: Picturepark.SDK.V1.Contract.LookupItemsMatch.All
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: All
+    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
+    startLine: 19771
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+  namespace: Picturepark.SDK.V1.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "All")]
+
+      All = 2
+    return:
+      type: Picturepark.SDK.V1.Contract.LookupItemsMatch
+    content.vb: >-
+      <EnumMember(Value:="All")>
+
+      All = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: All
+references:
+- uid: Picturepark.SDK.V1.Contract
+  commentId: N:Picturepark.SDK.V1.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract
+  nameWithType: Picturepark.SDK.V1.Contract
+  fullName: Picturepark.SDK.V1.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+- uid: Picturepark.SDK.V1.Contract.LookupItemsMatch
+  commentId: T:Picturepark.SDK.V1.Contract.LookupItemsMatch
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.LookupItemsMatch.html
+  name: LookupItemsMatch
+  nameWithType: LookupItemsMatch
+  fullName: Picturepark.SDK.V1.Contract.LookupItemsMatch

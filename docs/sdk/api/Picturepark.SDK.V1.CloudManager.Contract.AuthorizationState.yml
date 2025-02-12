@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  id: AuthorizationState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Invited
+  - Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Reviewed
+  - Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.ToBeReviewed
+  - Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.UserTriggeredDeactivation
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationState
+  nameWithType: AuthorizationState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: AuthorizationState
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 2910
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: User authorization state
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum AuthorizationState
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum AuthorizationState
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Reviewed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Reviewed
+  id: Reviewed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: Reviewed
+  nameWithType: AuthorizationState.Reviewed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Reviewed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Reviewed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 2914
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Reviewed")]
+
+      Reviewed = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="Reviewed")>
+
+      Reviewed = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Reviewed
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.ToBeReviewed
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.ToBeReviewed
+  id: ToBeReviewed
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: ToBeReviewed
+  nameWithType: AuthorizationState.ToBeReviewed
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.ToBeReviewed
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToBeReviewed
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 2917
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "ToBeReviewed")]
+
+      ToBeReviewed = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="ToBeReviewed")>
+
+      ToBeReviewed = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: ToBeReviewed
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Invited
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Invited
+  id: Invited
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: Invited
+  nameWithType: AuthorizationState.Invited
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.Invited
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Invited
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 2920
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Invited")]
+
+      Invited = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="Invited")>
+
+      Invited = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Invited
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.UserTriggeredDeactivation
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.UserTriggeredDeactivation
+  id: UserTriggeredDeactivation
+  parent: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  langs:
+  - csharp
+  - vb
+  name: UserTriggeredDeactivation
+  nameWithType: AuthorizationState.UserTriggeredDeactivation
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.UserTriggeredDeactivation
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: UserTriggeredDeactivation
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 2923
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "UserTriggeredDeactivation")]
+
+      UserTriggeredDeactivation = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+    content.vb: >-
+      <EnumMember(Value:="UserTriggeredDeactivation")>
+
+      UserTriggeredDeactivation = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: UserTriggeredDeactivation
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.html
+  name: AuthorizationState
+  nameWithType: AuthorizationState
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState

@@ -1,0 +1,1279 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1
+  commentId: N:Picturepark.SDK.V1
+  id: Picturepark.SDK.V1
+  children:
+  - Picturepark.SDK.V1.BusinessProcessClient
+  - Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.BusinessRuleClient
+  - Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.ChannelClient
+  - Picturepark.SDK.V1.ChannelClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.ClientBase
+  - Picturepark.SDK.V1.ContentClient
+  - Picturepark.SDK.V1.ContentClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.ContentPermissionSetClient
+  - Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.ConversionPresetTemplateClient
+  - Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.DisplayValueClient
+  - Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.DocumentHistoryClient
+  - Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.FileResponseExtensions
+  - Picturepark.SDK.V1.IdentityProviderClient
+  - Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.InfoClient
+  - Picturepark.SDK.V1.InfoClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.IngestClient
+  - Picturepark.SDK.V1.IngestClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.JsonSchemaClient
+  - Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.ListItemClient
+  - Picturepark.SDK.V1.ListItemClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.LiveStreamClient
+  - Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.MetadataClient
+  - Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.NotificationClient
+  - Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.OutputClient
+  - Picturepark.SDK.V1.OutputClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.OutputFormatClient
+  - Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.PermissionClient
+  - Picturepark.SDK.V1.PictureparkRetryHandler
+  - Picturepark.SDK.V1.PictureparkService
+  - Picturepark.SDK.V1.ProfileClient
+  - Picturepark.SDK.V1.ProfileClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.SchemaClient
+  - Picturepark.SDK.V1.SchemaClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.SchemaPermissionSetClient
+  - Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.SchemaTransferClient
+  - Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.ShareClient
+  - Picturepark.SDK.V1.ShareClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.StatisticClient
+  - Picturepark.SDK.V1.StatisticClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.StreamExtensions
+  - Picturepark.SDK.V1.TemplateClient
+  - Picturepark.SDK.V1.TemplateClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.TransferClient
+  - Picturepark.SDK.V1.TransferClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.UserClient
+  - Picturepark.SDK.V1.UserClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.UserRoleClient
+  - Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+  - Picturepark.SDK.V1.XmpMappingClient
+  - Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult`1
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1
+  nameWithType: Picturepark.SDK.V1
+  fullName: Picturepark.SDK.V1
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1
+references:
+- uid: Picturepark.SDK.V1.ClientBase
+  commentId: T:Picturepark.SDK.V1.ClientBase
+  parent: Picturepark.SDK.V1
+  href: Picturepark.SDK.V1.ClientBase.html
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Picturepark.SDK.V1.ClientBase
+- uid: Picturepark.SDK.V1.FileResponseExtensions
+  commentId: T:Picturepark.SDK.V1.FileResponseExtensions
+  parent: Picturepark.SDK.V1
+  href: Picturepark.SDK.V1.FileResponseExtensions.html
+  name: FileResponseExtensions
+  nameWithType: FileResponseExtensions
+  fullName: Picturepark.SDK.V1.FileResponseExtensions
+- uid: Picturepark.SDK.V1.BusinessProcessClient
+  commentId: T:Picturepark.SDK.V1.BusinessProcessClient
+  href: Picturepark.SDK.V1.BusinessProcessClient.html
+  name: BusinessProcessClient
+  nameWithType: BusinessProcessClient
+  fullName: Picturepark.SDK.V1.BusinessProcessClient
+- uid: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.BusinessProcessClient.html
+  name: BusinessProcessClient.ObjectResponseResult<T>
+  nameWithType: BusinessProcessClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult<T>
+  nameWithType.vb: BusinessProcessClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult(Of T)
+  name.vb: BusinessProcessClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.BusinessProcessClient
+    name: BusinessProcessClient
+    href: Picturepark.SDK.V1.BusinessProcessClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.BusinessProcessClient
+    name: BusinessProcessClient
+    href: Picturepark.SDK.V1.BusinessProcessClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.BusinessProcessClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.BusinessRuleClient
+  commentId: T:Picturepark.SDK.V1.BusinessRuleClient
+  href: Picturepark.SDK.V1.BusinessRuleClient.html
+  name: BusinessRuleClient
+  nameWithType: BusinessRuleClient
+  fullName: Picturepark.SDK.V1.BusinessRuleClient
+- uid: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.BusinessRuleClient.html
+  name: BusinessRuleClient.ObjectResponseResult<T>
+  nameWithType: BusinessRuleClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult<T>
+  nameWithType.vb: BusinessRuleClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult(Of T)
+  name.vb: BusinessRuleClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.BusinessRuleClient
+    name: BusinessRuleClient
+    href: Picturepark.SDK.V1.BusinessRuleClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.BusinessRuleClient
+    name: BusinessRuleClient
+    href: Picturepark.SDK.V1.BusinessRuleClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.BusinessRuleClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ChannelClient
+  commentId: T:Picturepark.SDK.V1.ChannelClient
+  href: Picturepark.SDK.V1.ChannelClient.html
+  name: ChannelClient
+  nameWithType: ChannelClient
+  fullName: Picturepark.SDK.V1.ChannelClient
+- uid: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ChannelClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ChannelClient.html
+  name: ChannelClient.ObjectResponseResult<T>
+  nameWithType: ChannelClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult<T>
+  nameWithType.vb: ChannelClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult(Of T)
+  name.vb: ChannelClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ChannelClient
+    name: ChannelClient
+    href: Picturepark.SDK.V1.ChannelClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ChannelClient
+    name: ChannelClient
+    href: Picturepark.SDK.V1.ChannelClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ChannelClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ContentPermissionSetClient
+  commentId: T:Picturepark.SDK.V1.ContentPermissionSetClient
+  href: Picturepark.SDK.V1.ContentPermissionSetClient.html
+  name: ContentPermissionSetClient
+  nameWithType: ContentPermissionSetClient
+  fullName: Picturepark.SDK.V1.ContentPermissionSetClient
+- uid: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ContentPermissionSetClient.html
+  name: ContentPermissionSetClient.ObjectResponseResult<T>
+  nameWithType: ContentPermissionSetClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult<T>
+  nameWithType.vb: ContentPermissionSetClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult(Of T)
+  name.vb: ContentPermissionSetClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ContentPermissionSetClient
+    name: ContentPermissionSetClient
+    href: Picturepark.SDK.V1.ContentPermissionSetClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ContentPermissionSetClient
+    name: ContentPermissionSetClient
+    href: Picturepark.SDK.V1.ContentPermissionSetClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ContentPermissionSetClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ContentClient
+  commentId: T:Picturepark.SDK.V1.ContentClient
+  href: Picturepark.SDK.V1.ContentClient.html
+  name: ContentClient
+  nameWithType: ContentClient
+  fullName: Picturepark.SDK.V1.ContentClient
+- uid: Picturepark.SDK.V1.ContentClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ContentClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ContentClient.html
+  name: ContentClient.ObjectResponseResult<T>
+  nameWithType: ContentClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ContentClient.ObjectResponseResult<T>
+  nameWithType.vb: ContentClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ContentClient.ObjectResponseResult(Of T)
+  name.vb: ContentClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ContentClient
+    name: ContentClient
+    href: Picturepark.SDK.V1.ContentClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ContentClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ContentClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ContentClient
+    name: ContentClient
+    href: Picturepark.SDK.V1.ContentClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ContentClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ContentClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ConversionPresetTemplateClient
+  commentId: T:Picturepark.SDK.V1.ConversionPresetTemplateClient
+  href: Picturepark.SDK.V1.ConversionPresetTemplateClient.html
+  name: ConversionPresetTemplateClient
+  nameWithType: ConversionPresetTemplateClient
+  fullName: Picturepark.SDK.V1.ConversionPresetTemplateClient
+- uid: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ConversionPresetTemplateClient.html
+  name: ConversionPresetTemplateClient.ObjectResponseResult<T>
+  nameWithType: ConversionPresetTemplateClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult<T>
+  nameWithType.vb: ConversionPresetTemplateClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult(Of T)
+  name.vb: ConversionPresetTemplateClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ConversionPresetTemplateClient
+    name: ConversionPresetTemplateClient
+    href: Picturepark.SDK.V1.ConversionPresetTemplateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ConversionPresetTemplateClient
+    name: ConversionPresetTemplateClient
+    href: Picturepark.SDK.V1.ConversionPresetTemplateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ConversionPresetTemplateClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.DisplayValueClient
+  commentId: T:Picturepark.SDK.V1.DisplayValueClient
+  href: Picturepark.SDK.V1.DisplayValueClient.html
+  name: DisplayValueClient
+  nameWithType: DisplayValueClient
+  fullName: Picturepark.SDK.V1.DisplayValueClient
+- uid: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.DisplayValueClient.html
+  name: DisplayValueClient.ObjectResponseResult<T>
+  nameWithType: DisplayValueClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult<T>
+  nameWithType.vb: DisplayValueClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult(Of T)
+  name.vb: DisplayValueClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.DisplayValueClient
+    name: DisplayValueClient
+    href: Picturepark.SDK.V1.DisplayValueClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.DisplayValueClient
+    name: DisplayValueClient
+    href: Picturepark.SDK.V1.DisplayValueClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.DisplayValueClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.DocumentHistoryClient
+  commentId: T:Picturepark.SDK.V1.DocumentHistoryClient
+  href: Picturepark.SDK.V1.DocumentHistoryClient.html
+  name: DocumentHistoryClient
+  nameWithType: DocumentHistoryClient
+  fullName: Picturepark.SDK.V1.DocumentHistoryClient
+- uid: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.DocumentHistoryClient.html
+  name: DocumentHistoryClient.ObjectResponseResult<T>
+  nameWithType: DocumentHistoryClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult<T>
+  nameWithType.vb: DocumentHistoryClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult(Of T)
+  name.vb: DocumentHistoryClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.DocumentHistoryClient
+    name: DocumentHistoryClient
+    href: Picturepark.SDK.V1.DocumentHistoryClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.DocumentHistoryClient
+    name: DocumentHistoryClient
+    href: Picturepark.SDK.V1.DocumentHistoryClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.DocumentHistoryClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.IdentityProviderClient
+  commentId: T:Picturepark.SDK.V1.IdentityProviderClient
+  href: Picturepark.SDK.V1.IdentityProviderClient.html
+  name: IdentityProviderClient
+  nameWithType: IdentityProviderClient
+  fullName: Picturepark.SDK.V1.IdentityProviderClient
+- uid: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.IdentityProviderClient.html
+  name: IdentityProviderClient.ObjectResponseResult<T>
+  nameWithType: IdentityProviderClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult<T>
+  nameWithType.vb: IdentityProviderClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult(Of T)
+  name.vb: IdentityProviderClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.IdentityProviderClient
+    name: IdentityProviderClient
+    href: Picturepark.SDK.V1.IdentityProviderClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.IdentityProviderClient
+    name: IdentityProviderClient
+    href: Picturepark.SDK.V1.IdentityProviderClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.InfoClient
+  commentId: T:Picturepark.SDK.V1.InfoClient
+  href: Picturepark.SDK.V1.InfoClient.html
+  name: InfoClient
+  nameWithType: InfoClient
+  fullName: Picturepark.SDK.V1.InfoClient
+- uid: Picturepark.SDK.V1.InfoClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.InfoClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.InfoClient.html
+  name: InfoClient.ObjectResponseResult<T>
+  nameWithType: InfoClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.InfoClient.ObjectResponseResult<T>
+  nameWithType.vb: InfoClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.InfoClient.ObjectResponseResult(Of T)
+  name.vb: InfoClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.InfoClient
+    name: InfoClient
+    href: Picturepark.SDK.V1.InfoClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.InfoClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.InfoClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.InfoClient
+    name: InfoClient
+    href: Picturepark.SDK.V1.InfoClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.InfoClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.InfoClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.IngestClient
+  commentId: T:Picturepark.SDK.V1.IngestClient
+  href: Picturepark.SDK.V1.IngestClient.html
+  name: IngestClient
+  nameWithType: IngestClient
+  fullName: Picturepark.SDK.V1.IngestClient
+- uid: Picturepark.SDK.V1.IngestClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.IngestClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.IngestClient.html
+  name: IngestClient.ObjectResponseResult<T>
+  nameWithType: IngestClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.IngestClient.ObjectResponseResult<T>
+  nameWithType.vb: IngestClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.IngestClient.ObjectResponseResult(Of T)
+  name.vb: IngestClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.IngestClient
+    name: IngestClient
+    href: Picturepark.SDK.V1.IngestClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.IngestClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.IngestClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.IngestClient
+    name: IngestClient
+    href: Picturepark.SDK.V1.IngestClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.IngestClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.IngestClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.JsonSchemaClient
+  commentId: T:Picturepark.SDK.V1.JsonSchemaClient
+  href: Picturepark.SDK.V1.JsonSchemaClient.html
+  name: JsonSchemaClient
+  nameWithType: JsonSchemaClient
+  fullName: Picturepark.SDK.V1.JsonSchemaClient
+- uid: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.JsonSchemaClient.html
+  name: JsonSchemaClient.ObjectResponseResult<T>
+  nameWithType: JsonSchemaClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult<T>
+  nameWithType.vb: JsonSchemaClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult(Of T)
+  name.vb: JsonSchemaClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.JsonSchemaClient
+    name: JsonSchemaClient
+    href: Picturepark.SDK.V1.JsonSchemaClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.JsonSchemaClient
+    name: JsonSchemaClient
+    href: Picturepark.SDK.V1.JsonSchemaClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.JsonSchemaClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ListItemClient
+  commentId: T:Picturepark.SDK.V1.ListItemClient
+  href: Picturepark.SDK.V1.ListItemClient.html
+  name: ListItemClient
+  nameWithType: ListItemClient
+  fullName: Picturepark.SDK.V1.ListItemClient
+- uid: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ListItemClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ListItemClient.html
+  name: ListItemClient.ObjectResponseResult<T>
+  nameWithType: ListItemClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult<T>
+  nameWithType.vb: ListItemClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult(Of T)
+  name.vb: ListItemClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ListItemClient
+    name: ListItemClient
+    href: Picturepark.SDK.V1.ListItemClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ListItemClient
+    name: ListItemClient
+    href: Picturepark.SDK.V1.ListItemClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ListItemClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.LiveStreamClient
+  commentId: T:Picturepark.SDK.V1.LiveStreamClient
+  href: Picturepark.SDK.V1.LiveStreamClient.html
+  name: LiveStreamClient
+  nameWithType: LiveStreamClient
+  fullName: Picturepark.SDK.V1.LiveStreamClient
+- uid: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.LiveStreamClient.html
+  name: LiveStreamClient.ObjectResponseResult<T>
+  nameWithType: LiveStreamClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult<T>
+  nameWithType.vb: LiveStreamClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult(Of T)
+  name.vb: LiveStreamClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.LiveStreamClient
+    name: LiveStreamClient
+    href: Picturepark.SDK.V1.LiveStreamClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.LiveStreamClient
+    name: LiveStreamClient
+    href: Picturepark.SDK.V1.LiveStreamClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.LiveStreamClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.MetadataClient
+  commentId: T:Picturepark.SDK.V1.MetadataClient
+  href: Picturepark.SDK.V1.MetadataClient.html
+  name: MetadataClient
+  nameWithType: MetadataClient
+  fullName: Picturepark.SDK.V1.MetadataClient
+- uid: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.MetadataClient.html
+  name: MetadataClient.ObjectResponseResult<T>
+  nameWithType: MetadataClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult<T>
+  nameWithType.vb: MetadataClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult(Of T)
+  name.vb: MetadataClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.MetadataClient
+    name: MetadataClient
+    href: Picturepark.SDK.V1.MetadataClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.MetadataClient
+    name: MetadataClient
+    href: Picturepark.SDK.V1.MetadataClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.MetadataClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.NotificationClient
+  commentId: T:Picturepark.SDK.V1.NotificationClient
+  href: Picturepark.SDK.V1.NotificationClient.html
+  name: NotificationClient
+  nameWithType: NotificationClient
+  fullName: Picturepark.SDK.V1.NotificationClient
+- uid: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.NotificationClient.html
+  name: NotificationClient.ObjectResponseResult<T>
+  nameWithType: NotificationClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult<T>
+  nameWithType.vb: NotificationClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult(Of T)
+  name.vb: NotificationClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.NotificationClient
+    name: NotificationClient
+    href: Picturepark.SDK.V1.NotificationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.NotificationClient
+    name: NotificationClient
+    href: Picturepark.SDK.V1.NotificationClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.NotificationClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.OutputFormatClient
+  commentId: T:Picturepark.SDK.V1.OutputFormatClient
+  href: Picturepark.SDK.V1.OutputFormatClient.html
+  name: OutputFormatClient
+  nameWithType: OutputFormatClient
+  fullName: Picturepark.SDK.V1.OutputFormatClient
+- uid: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.OutputFormatClient.html
+  name: OutputFormatClient.ObjectResponseResult<T>
+  nameWithType: OutputFormatClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult<T>
+  nameWithType.vb: OutputFormatClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult(Of T)
+  name.vb: OutputFormatClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.OutputFormatClient
+    name: OutputFormatClient
+    href: Picturepark.SDK.V1.OutputFormatClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.OutputFormatClient
+    name: OutputFormatClient
+    href: Picturepark.SDK.V1.OutputFormatClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.OutputFormatClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.OutputClient
+  commentId: T:Picturepark.SDK.V1.OutputClient
+  href: Picturepark.SDK.V1.OutputClient.html
+  name: OutputClient
+  nameWithType: OutputClient
+  fullName: Picturepark.SDK.V1.OutputClient
+- uid: Picturepark.SDK.V1.OutputClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.OutputClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.OutputClient.html
+  name: OutputClient.ObjectResponseResult<T>
+  nameWithType: OutputClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.OutputClient.ObjectResponseResult<T>
+  nameWithType.vb: OutputClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.OutputClient.ObjectResponseResult(Of T)
+  name.vb: OutputClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.OutputClient
+    name: OutputClient
+    href: Picturepark.SDK.V1.OutputClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.OutputClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.OutputClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.OutputClient
+    name: OutputClient
+    href: Picturepark.SDK.V1.OutputClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.OutputClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.OutputClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ProfileClient
+  commentId: T:Picturepark.SDK.V1.ProfileClient
+  href: Picturepark.SDK.V1.ProfileClient.html
+  name: ProfileClient
+  nameWithType: ProfileClient
+  fullName: Picturepark.SDK.V1.ProfileClient
+- uid: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ProfileClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ProfileClient.html
+  name: ProfileClient.ObjectResponseResult<T>
+  nameWithType: ProfileClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult<T>
+  nameWithType.vb: ProfileClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult(Of T)
+  name.vb: ProfileClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ProfileClient
+    name: ProfileClient
+    href: Picturepark.SDK.V1.ProfileClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ProfileClient
+    name: ProfileClient
+    href: Picturepark.SDK.V1.ProfileClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ProfileClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.SchemaPermissionSetClient
+  commentId: T:Picturepark.SDK.V1.SchemaPermissionSetClient
+  href: Picturepark.SDK.V1.SchemaPermissionSetClient.html
+  name: SchemaPermissionSetClient
+  nameWithType: SchemaPermissionSetClient
+  fullName: Picturepark.SDK.V1.SchemaPermissionSetClient
+- uid: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.SchemaPermissionSetClient.html
+  name: SchemaPermissionSetClient.ObjectResponseResult<T>
+  nameWithType: SchemaPermissionSetClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult<T>
+  nameWithType.vb: SchemaPermissionSetClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult(Of T)
+  name.vb: SchemaPermissionSetClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.SchemaPermissionSetClient
+    name: SchemaPermissionSetClient
+    href: Picturepark.SDK.V1.SchemaPermissionSetClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.SchemaPermissionSetClient
+    name: SchemaPermissionSetClient
+    href: Picturepark.SDK.V1.SchemaPermissionSetClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.SchemaPermissionSetClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.SchemaClient
+  commentId: T:Picturepark.SDK.V1.SchemaClient
+  href: Picturepark.SDK.V1.SchemaClient.html
+  name: SchemaClient
+  nameWithType: SchemaClient
+  fullName: Picturepark.SDK.V1.SchemaClient
+- uid: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.SchemaClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.SchemaClient.html
+  name: SchemaClient.ObjectResponseResult<T>
+  nameWithType: SchemaClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult<T>
+  nameWithType.vb: SchemaClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult(Of T)
+  name.vb: SchemaClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.SchemaClient
+    name: SchemaClient
+    href: Picturepark.SDK.V1.SchemaClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.SchemaClient
+    name: SchemaClient
+    href: Picturepark.SDK.V1.SchemaClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.SchemaClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.SchemaTransferClient
+  commentId: T:Picturepark.SDK.V1.SchemaTransferClient
+  href: Picturepark.SDK.V1.SchemaTransferClient.html
+  name: SchemaTransferClient
+  nameWithType: SchemaTransferClient
+  fullName: Picturepark.SDK.V1.SchemaTransferClient
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.SchemaTransferClient.html
+  name: SchemaTransferClient.ObjectResponseResult<T>
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T)
+  name.vb: SchemaTransferClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.SchemaTransferClient
+    name: SchemaTransferClient
+    href: Picturepark.SDK.V1.SchemaTransferClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.SchemaTransferClient
+    name: SchemaTransferClient
+    href: Picturepark.SDK.V1.SchemaTransferClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.ShareClient
+  commentId: T:Picturepark.SDK.V1.ShareClient
+  href: Picturepark.SDK.V1.ShareClient.html
+  name: ShareClient
+  nameWithType: ShareClient
+  fullName: Picturepark.SDK.V1.ShareClient
+- uid: Picturepark.SDK.V1.ShareClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.ShareClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.ShareClient.html
+  name: ShareClient.ObjectResponseResult<T>
+  nameWithType: ShareClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.ShareClient.ObjectResponseResult<T>
+  nameWithType.vb: ShareClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.ShareClient.ObjectResponseResult(Of T)
+  name.vb: ShareClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.ShareClient
+    name: ShareClient
+    href: Picturepark.SDK.V1.ShareClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ShareClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ShareClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.ShareClient
+    name: ShareClient
+    href: Picturepark.SDK.V1.ShareClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.ShareClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.ShareClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.StatisticClient
+  commentId: T:Picturepark.SDK.V1.StatisticClient
+  href: Picturepark.SDK.V1.StatisticClient.html
+  name: StatisticClient
+  nameWithType: StatisticClient
+  fullName: Picturepark.SDK.V1.StatisticClient
+- uid: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.StatisticClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.StatisticClient.html
+  name: StatisticClient.ObjectResponseResult<T>
+  nameWithType: StatisticClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult<T>
+  nameWithType.vb: StatisticClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult(Of T)
+  name.vb: StatisticClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.StatisticClient
+    name: StatisticClient
+    href: Picturepark.SDK.V1.StatisticClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.StatisticClient
+    name: StatisticClient
+    href: Picturepark.SDK.V1.StatisticClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.StatisticClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.TemplateClient
+  commentId: T:Picturepark.SDK.V1.TemplateClient
+  href: Picturepark.SDK.V1.TemplateClient.html
+  name: TemplateClient
+  nameWithType: TemplateClient
+  fullName: Picturepark.SDK.V1.TemplateClient
+- uid: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.TemplateClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.TemplateClient.html
+  name: TemplateClient.ObjectResponseResult<T>
+  nameWithType: TemplateClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult<T>
+  nameWithType.vb: TemplateClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult(Of T)
+  name.vb: TemplateClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.TemplateClient
+    name: TemplateClient
+    href: Picturepark.SDK.V1.TemplateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.TemplateClient
+    name: TemplateClient
+    href: Picturepark.SDK.V1.TemplateClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.TemplateClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.TransferClient
+  commentId: T:Picturepark.SDK.V1.TransferClient
+  href: Picturepark.SDK.V1.TransferClient.html
+  name: TransferClient
+  nameWithType: TransferClient
+  fullName: Picturepark.SDK.V1.TransferClient
+- uid: Picturepark.SDK.V1.TransferClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.TransferClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.TransferClient.html
+  name: TransferClient.ObjectResponseResult<T>
+  nameWithType: TransferClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.TransferClient.ObjectResponseResult<T>
+  nameWithType.vb: TransferClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.TransferClient.ObjectResponseResult(Of T)
+  name.vb: TransferClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.TransferClient
+    name: TransferClient
+    href: Picturepark.SDK.V1.TransferClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.TransferClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.TransferClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.TransferClient
+    name: TransferClient
+    href: Picturepark.SDK.V1.TransferClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.TransferClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.TransferClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.UserRoleClient
+  commentId: T:Picturepark.SDK.V1.UserRoleClient
+  href: Picturepark.SDK.V1.UserRoleClient.html
+  name: UserRoleClient
+  nameWithType: UserRoleClient
+  fullName: Picturepark.SDK.V1.UserRoleClient
+- uid: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.UserRoleClient.html
+  name: UserRoleClient.ObjectResponseResult<T>
+  nameWithType: UserRoleClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult<T>
+  nameWithType.vb: UserRoleClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult(Of T)
+  name.vb: UserRoleClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.UserRoleClient
+    name: UserRoleClient
+    href: Picturepark.SDK.V1.UserRoleClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.UserRoleClient
+    name: UserRoleClient
+    href: Picturepark.SDK.V1.UserRoleClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.UserRoleClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.UserClient
+  commentId: T:Picturepark.SDK.V1.UserClient
+  href: Picturepark.SDK.V1.UserClient.html
+  name: UserClient
+  nameWithType: UserClient
+  fullName: Picturepark.SDK.V1.UserClient
+- uid: Picturepark.SDK.V1.UserClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.UserClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.UserClient.html
+  name: UserClient.ObjectResponseResult<T>
+  nameWithType: UserClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.UserClient.ObjectResponseResult<T>
+  nameWithType.vb: UserClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.UserClient.ObjectResponseResult(Of T)
+  name.vb: UserClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.UserClient
+    name: UserClient
+    href: Picturepark.SDK.V1.UserClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.UserClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.UserClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.UserClient
+    name: UserClient
+    href: Picturepark.SDK.V1.UserClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.UserClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.UserClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.XmpMappingClient
+  commentId: T:Picturepark.SDK.V1.XmpMappingClient
+  href: Picturepark.SDK.V1.XmpMappingClient.html
+  name: XmpMappingClient
+  nameWithType: XmpMappingClient
+  fullName: Picturepark.SDK.V1.XmpMappingClient
+- uid: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult`1
+  href: Picturepark.SDK.V1.XmpMappingClient.html
+  name: XmpMappingClient.ObjectResponseResult<T>
+  nameWithType: XmpMappingClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult<T>
+  nameWithType.vb: XmpMappingClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult(Of T)
+  name.vb: XmpMappingClient.ObjectResponseResult(Of T)
+  spec.csharp:
+  - uid: Picturepark.SDK.V1.XmpMappingClient
+    name: XmpMappingClient
+    href: Picturepark.SDK.V1.XmpMappingClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Picturepark.SDK.V1.XmpMappingClient
+    name: XmpMappingClient
+    href: Picturepark.SDK.V1.XmpMappingClient.html
+  - name: .
+  - uid: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult`1
+    name: ObjectResponseResult
+    href: Picturepark.SDK.V1.XmpMappingClient.ObjectResponseResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Picturepark.SDK.V1.PermissionClient
+  commentId: T:Picturepark.SDK.V1.PermissionClient
+  href: Picturepark.SDK.V1.PermissionClient.html
+  name: PermissionClient
+  nameWithType: PermissionClient
+  fullName: Picturepark.SDK.V1.PermissionClient
+- uid: Picturepark.SDK.V1.PictureparkRetryHandler
+  commentId: T:Picturepark.SDK.V1.PictureparkRetryHandler
+  href: Picturepark.SDK.V1.PictureparkRetryHandler.html
+  name: PictureparkRetryHandler
+  nameWithType: PictureparkRetryHandler
+  fullName: Picturepark.SDK.V1.PictureparkRetryHandler
+- uid: Picturepark.SDK.V1.PictureparkService
+  commentId: T:Picturepark.SDK.V1.PictureparkService
+  href: Picturepark.SDK.V1.PictureparkService.html
+  name: PictureparkService
+  nameWithType: PictureparkService
+  fullName: Picturepark.SDK.V1.PictureparkService
+- uid: Picturepark.SDK.V1.StreamExtensions
+  commentId: T:Picturepark.SDK.V1.StreamExtensions
+  href: Picturepark.SDK.V1.StreamExtensions.html
+  name: StreamExtensions
+  nameWithType: StreamExtensions
+  fullName: Picturepark.SDK.V1.StreamExtensions
+- uid: Picturepark.SDK.V1
+  commentId: N:Picturepark.SDK.V1
+  href: Picturepark.html
+  name: Picturepark.SDK.V1
+  nameWithType: Picturepark.SDK.V1
+  fullName: Picturepark.SDK.V1
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html

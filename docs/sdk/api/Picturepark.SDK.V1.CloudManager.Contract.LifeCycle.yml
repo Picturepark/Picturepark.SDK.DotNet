@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  id: LifeCycle
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Active
+  - Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Deleted
+  - Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Draft
+  - Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Inactive
+  langs:
+  - csharp
+  - vb
+  name: LifeCycle
+  nameWithType: LifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: LifeCycle
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15740
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Lifecycle
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum LifeCycle
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum LifeCycle
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Draft
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Draft
+  id: Draft
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Draft
+  nameWithType: LifeCycle.Draft
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Draft
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Draft
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15744
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Draft")]
+
+      Draft = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Draft")>
+
+      Draft = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Draft
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Active
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Active
+  id: Active
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: LifeCycle.Active
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Active
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Active
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15747
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Active")]
+
+      Active = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Active")>
+
+      Active = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Active
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Inactive
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Inactive
+  id: Inactive
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Inactive
+  nameWithType: LifeCycle.Inactive
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Inactive
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Inactive
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15750
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Inactive")]
+
+      Inactive = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Inactive")>
+
+      Inactive = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Inactive
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Deleted
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Deleted
+  id: Deleted
+  parent: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: LifeCycle.Deleted
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.Deleted
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Deleted
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 15753
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "Deleted")]
+
+      Deleted = 3
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+    content.vb: >-
+      <EnumMember(Value:="Deleted")>
+
+      Deleted = 3
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: Deleted
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.LifeCycle
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle.html
+  name: LifeCycle
+  nameWithType: LifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.LifeCycle

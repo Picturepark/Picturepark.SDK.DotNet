@@ -1,0 +1,433 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  commentId: T:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  id: SchemaTransferClient.ObjectResponseResult`1
+  parent: Picturepark.SDK.V1
+  children:
+  - Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.#ctor(`0,System.String)
+  - Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Object
+  - Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Text
+  langs:
+  - csharp
+  - vb
+  name: SchemaTransferClient.ObjectResponseResult<T>
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>
+  type: Struct
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ObjectResponseResult
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 38145
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: protected struct SchemaTransferClient.ObjectResponseResult<T>
+    typeParameters:
+    - id: T
+    content.vb: Protected Structure SchemaTransferClient.ObjectResponseResult(Of T)
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T)
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T)
+  name.vb: SchemaTransferClient.ObjectResponseResult(Of T)
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.#ctor(`0,System.String)
+  commentId: M:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.#ctor(`0,System.String)
+  id: '#ctor(`0,System.String)'
+  parent: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  langs:
+  - csharp
+  - vb
+  name: ObjectResponseResult(T, string)
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>.ObjectResponseResult(T, string)
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>.ObjectResponseResult(T, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: .ctor
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 38147
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public ObjectResponseResult(T responseObject, string responseText)
+    parameters:
+    - id: responseObject
+      type: '{T}'
+    - id: responseText
+      type: System.String
+    content.vb: Public Sub New(responseObject As T, responseText As String)
+  overload: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.#ctor*
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T).New(T, String)
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T).New(T, String)
+  name.vb: New(T, String)
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Object
+  commentId: P:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Object
+  id: Object
+  parent: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  langs:
+  - csharp
+  - vb
+  name: Object
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>.Object
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>.Object
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Object
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 38153
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public readonly T Object { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property [Object] As T
+  overload: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Object*
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T).Object
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T).Object
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Text
+  commentId: P:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Text
+  id: Text
+  parent: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>.Text
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>.Text
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Text
+    path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
+    startLine: 38155
+  assemblies:
+  - Picturepark.SDK.V1
+  namespace: Picturepark.SDK.V1
+  syntax:
+    content: public readonly string Text { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Text As String
+  overload: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Text*
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T).Text
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T).Text
+references:
+- uid: Picturepark.SDK.V1
+  commentId: N:Picturepark.SDK.V1
+  href: Picturepark.html
+  name: Picturepark.SDK.V1
+  nameWithType: Picturepark.SDK.V1
+  fullName: Picturepark.SDK.V1
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.#ctor*
+  commentId: Overload:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.#ctor
+  href: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult-1.html#Picturepark_SDK_V1_SchemaTransferClient_ObjectResponseResult_1__ctor__0_System_String_
+  name: ObjectResponseResult
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>.ObjectResponseResult
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>.ObjectResponseResult
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T).New
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T).New
+  name.vb: New
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Object*
+  commentId: Overload:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Object
+  href: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult-1.html#Picturepark_SDK_V1_SchemaTransferClient_ObjectResponseResult_1_Object
+  name: Object
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>.Object
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>.Object
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T).Object
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T).Object
+- uid: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Text*
+  commentId: Overload:Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult`1.Text
+  href: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult-1.html#Picturepark_SDK_V1_SchemaTransferClient_ObjectResponseResult_1_Text
+  name: Text
+  nameWithType: SchemaTransferClient.ObjectResponseResult<T>.Text
+  fullName: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult<T>.Text
+  nameWithType.vb: SchemaTransferClient.ObjectResponseResult(Of T).Text
+  fullName.vb: Picturepark.SDK.V1.SchemaTransferClient.ObjectResponseResult(Of T).Text

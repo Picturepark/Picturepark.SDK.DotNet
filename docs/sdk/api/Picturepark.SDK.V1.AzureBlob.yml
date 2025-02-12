@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.AzureBlob
+  commentId: N:Picturepark.SDK.V1.AzureBlob
+  id: Picturepark.SDK.V1.AzureBlob
+  children:
+  - Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  - Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+  - Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.AzureBlob
+  nameWithType: Picturepark.SDK.V1.AzureBlob
+  fullName: Picturepark.SDK.V1.AzureBlob
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.AzureBlob
+references:
+- uid: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  commentId: T:Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+  parent: Picturepark.SDK.V1.AzureBlob
+  href: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions.html
+  name: IngestClientExtensions
+  nameWithType: IngestClientExtensions
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestClientExtensions
+- uid: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+  commentId: T:Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+  parent: Picturepark.SDK.V1.AzureBlob
+  href: Picturepark.SDK.V1.AzureBlob.IngestUploadItem.html
+  name: IngestUploadItem
+  nameWithType: IngestUploadItem
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestUploadItem
+- uid: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+  commentId: T:Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+  parent: Picturepark.SDK.V1.AzureBlob
+  href: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions.html
+  name: IngestUploadOptions
+  nameWithType: IngestUploadOptions
+  fullName: Picturepark.SDK.V1.AzureBlob.IngestUploadOptions
+- uid: Picturepark.SDK.V1.AzureBlob
+  commentId: N:Picturepark.SDK.V1.AzureBlob
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.AzureBlob
+  nameWithType: Picturepark.SDK.V1.AzureBlob
+  fullName: Picturepark.SDK.V1.AzureBlob
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.AzureBlob
+    name: AzureBlob
+    href: Picturepark.SDK.V1.AzureBlob.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.AzureBlob
+    name: AzureBlob
+    href: Picturepark.SDK.V1.AzureBlob.html

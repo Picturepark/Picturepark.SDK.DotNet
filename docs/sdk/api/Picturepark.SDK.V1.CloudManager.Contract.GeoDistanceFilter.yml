@@ -1,0 +1,640 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  id: GeoDistanceFilter
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance
+  - Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field
+  - Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson(System.String)
+  - Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location
+  - Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson
+  langs:
+  - csharp
+  - vb
+  name: GeoDistanceFilter
+  nameWithType: GeoDistanceFilter
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  type: Class
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: GeoDistanceFilter
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 13498
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Filters within the radius of the distance from a location
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public class GeoDistanceFilter : FilterBase
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Class GeoDistanceFilter Inherits FilterBase
+  inheritance:
+  - System.Object
+  - Picturepark.SDK.V1.CloudManager.Contract.FilterBase
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field
+  id: Field
+  parent: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  langs:
+  - csharp
+  - vb
+  name: Field
+  nameWithType: GeoDistanceFilter.Field
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Field
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 13505
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: >-
+    The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+
+    <br />(i.e. personLayer.address.street).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("field", Required = Required.Always)]
+
+      [Required]
+
+      public string Field { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty("field", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Field As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: field
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location
+  id: Location
+  parent: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: GeoDistanceFilter.Location
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Location
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 13512
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: The point of origin to calculate the distance from (latitude/longitude).
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("location", Required = Required.Always)]
+
+      [Required]
+
+      public GeoLocation Location { get; set; }
+    parameters: []
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.GeoLocation
+    content.vb: >-
+      <JsonProperty("location", Required:=Required.Always)>
+
+      <Required>
+
+      Public Property Location As GeoLocation
+  overload: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: location
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance
+  id: Distance
+  parent: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  langs:
+  - csharp
+  - vb
+  name: Distance
+  nameWithType: GeoDistanceFilter.Distance
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance
+  type: Property
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Distance
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 13519
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: The distance in meters from the point of origin.
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("distance", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+
+      public double Distance { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <JsonProperty("distance", Required:=Required.DisallowNull, NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public Property Distance As Double
+  overload: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: distance
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 3
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson
+  id: ToJson
+  parent: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  langs:
+  - csharp
+  - vb
+  name: ToJson()
+  nameWithType: GeoDistanceFilter.ToJson()
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson()
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: ToJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 13522
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public string ToJson()
+    return:
+      type: System.String
+    content.vb: Public Function ToJson() As String
+  overload: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson*
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson(System.String)
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson(System.String)
+  id: FromJson(System.String)
+  parent: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  langs:
+  - csharp
+  - vb
+  name: FromJson(string)
+  nameWithType: GeoDistanceFilter.FromJson(string)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson(string)
+  type: Method
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: FromJson
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 13528
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: public static GeoDistanceFilter FromJson(string data)
+    parameters:
+    - id: data
+      type: System.String
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+    content.vb: Public Shared Function FromJson(data As String) As GeoDistanceFilter
+  overload: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson*
+  nameWithType.vb: GeoDistanceFilter.FromJson(String)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson(String)
+  name.vb: FromJson(String)
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Picturepark.SDK.V1.CloudManager.Contract.FilterBase
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FilterBase
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.FilterBase.html
+  name: FilterBase
+  nameWithType: FilterBase
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.FilterBase
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.html#Picturepark_SDK_V1_CloudManager_Contract_GeoDistanceFilter_Field
+  name: Field
+  nameWithType: GeoDistanceFilter.Field
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Field
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.html#Picturepark_SDK_V1_CloudManager_Contract_GeoDistanceFilter_Location
+  name: Location
+  nameWithType: GeoDistanceFilter.Location
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Location
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoLocation
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.GeoLocation
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoLocation.html
+  name: GeoLocation
+  nameWithType: GeoLocation
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoLocation
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.html#Picturepark_SDK_V1_CloudManager_Contract_GeoDistanceFilter_Distance
+  name: Distance
+  nameWithType: GeoDistanceFilter.Distance
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.Distance
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.html#Picturepark_SDK_V1_CloudManager_Contract_GeoDistanceFilter_ToJson
+  name: ToJson
+  nameWithType: GeoDistanceFilter.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson*
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.html#Picturepark_SDK_V1_CloudManager_Contract_GeoDistanceFilter_FromJson_System_String_
+  name: FromJson
+  nameWithType: GeoDistanceFilter.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter.html
+  name: GeoDistanceFilter
+  nameWithType: GeoDistanceFilter
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.GeoDistanceFilter

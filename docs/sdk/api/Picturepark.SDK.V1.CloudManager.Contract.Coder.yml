@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.Coder
+  id: Coder
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  children:
+  - Picturepark.SDK.V1.CloudManager.Contract.Coder.Anmr
+  - Picturepark.SDK.V1.CloudManager.Contract.Coder.Fast
+  - Picturepark.SDK.V1.CloudManager.Contract.Coder.Twoloop
+  langs:
+  - csharp
+  - vb
+  name: Coder
+  nameWithType: Coder
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  type: Enum
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Coder
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19118
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  summary: Audio coders
+  example: []
+  syntax:
+    content: >-
+      [GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+
+      public enum Coder
+    content.vb: >-
+      <GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")>
+
+      Public Enum Coder
+  attributes:
+  - type: System.CodeDom.Compiler.GeneratedCodeAttribute
+    ctor: System.CodeDom.Compiler.GeneratedCodeAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: NJsonSchema
+    - type: System.String
+      value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Coder.Twoloop
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Coder.Twoloop
+  id: Twoloop
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  langs:
+  - csharp
+  - vb
+  name: Twoloop
+  nameWithType: Coder.Twoloop
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Coder.Twoloop
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Twoloop
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19122
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "twoloop")]
+
+      Twoloop = 0
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Coder
+    content.vb: >-
+      <EnumMember(Value:="twoloop")>
+
+      Twoloop = 0
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: twoloop
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Coder.Anmr
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Coder.Anmr
+  id: Anmr
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  langs:
+  - csharp
+  - vb
+  name: Anmr
+  nameWithType: Coder.Anmr
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Coder.Anmr
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Anmr
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19125
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "anmr")]
+
+      Anmr = 1
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Coder
+    content.vb: >-
+      <EnumMember(Value:="anmr")>
+
+      Anmr = 1
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: anmr
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Coder.Fast
+  commentId: F:Picturepark.SDK.V1.CloudManager.Contract.Coder.Fast
+  id: Fast
+  parent: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  langs:
+  - csharp
+  - vb
+  name: Fast
+  nameWithType: Coder.Fast
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Coder.Fast
+  type: Field
+  source:
+    remote:
+      path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+      branch: 11.14.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+    id: Fast
+    path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
+    startLine: 19128
+  assemblies:
+  - Picturepark.SDK.V1.CloudManager
+  namespace: Picturepark.SDK.V1.CloudManager.Contract
+  syntax:
+    content: >-
+      [EnumMember(Value = "fast")]
+
+      Fast = 2
+    return:
+      type: Picturepark.SDK.V1.CloudManager.Contract.Coder
+    content.vb: >-
+      <EnumMember(Value:="fast")>
+
+      Fast = 2
+  attributes:
+  - type: System.Runtime.Serialization.EnumMemberAttribute
+    ctor: System.Runtime.Serialization.EnumMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Value
+      type: System.String
+      value: fast
+references:
+- uid: Picturepark.SDK.V1.CloudManager.Contract
+  commentId: N:Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.CloudManager.Contract
+  nameWithType: Picturepark.SDK.V1.CloudManager.Contract
+  fullName: Picturepark.SDK.V1.CloudManager.Contract
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager
+    name: CloudManager
+    href: Picturepark.SDK.V1.CloudManager.html
+  - name: .
+  - uid: Picturepark.SDK.V1.CloudManager.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.CloudManager.Contract.html
+- uid: Picturepark.SDK.V1.CloudManager.Contract.Coder
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.Coder
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.Coder.html
+  name: Coder
+  nameWithType: Coder
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.Coder

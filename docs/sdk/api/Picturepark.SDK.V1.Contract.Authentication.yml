@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: Picturepark.SDK.V1.Contract.Authentication
+  commentId: N:Picturepark.SDK.V1.Contract.Authentication
+  id: Picturepark.SDK.V1.Contract.Authentication
+  children:
+  - Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  langs:
+  - csharp
+  - vb
+  name: Picturepark.SDK.V1.Contract.Authentication
+  nameWithType: Picturepark.SDK.V1.Contract.Authentication
+  fullName: Picturepark.SDK.V1.Contract.Authentication
+  type: Namespace
+  assemblies:
+  - Picturepark.SDK.V1.Contract
+references:
+- uid: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  commentId: T:Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+  parent: Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.SDK.V1.Contract.Authentication.IAuthClient.html
+  name: IAuthClient
+  nameWithType: IAuthClient
+  fullName: Picturepark.SDK.V1.Contract.Authentication.IAuthClient
+- uid: Picturepark.SDK.V1.Contract.Authentication
+  commentId: N:Picturepark.SDK.V1.Contract.Authentication
+  href: Picturepark.html
+  name: Picturepark.SDK.V1.Contract.Authentication
+  nameWithType: Picturepark.SDK.V1.Contract.Authentication
+  fullName: Picturepark.SDK.V1.Contract.Authentication
+  spec.csharp:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
+  spec.vb:
+  - uid: Picturepark
+    name: Picturepark
+    href: Picturepark.html
+  - name: .
+  - uid: Picturepark.SDK
+    name: SDK
+    href: Picturepark.SDK.html
+  - name: .
+  - uid: Picturepark.SDK.V1
+    name: V1
+    href: Picturepark.SDK.V1.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract
+    name: Contract
+    href: Picturepark.SDK.V1.Contract.html
+  - name: .
+  - uid: Picturepark.SDK.V1.Contract.Authentication
+    name: Authentication
+    href: Picturepark.SDK.V1.Contract.Authentication.html
