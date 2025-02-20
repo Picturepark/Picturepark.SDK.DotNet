@@ -9,12 +9,12 @@ namespace Picturepark.SDK.V1.ServiceProvider.Buffer
     public class LiveStreamConsumer
     {
         private readonly Configuration _configuration;
-        private readonly IModel _model;
+        private readonly IChannel _channel;
 
-        public LiveStreamConsumer(Configuration configuration, IModel model)
+        public LiveStreamConsumer(Configuration configuration, IChannel channel)
         {
             _configuration = configuration;
-            _model = model;
+            _channel = channel;
         }
 
         public event EventHandler<EventArgsLiveStreamMessage> Received;
@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1.ServiceProvider.Buffer
                 Created = message.Timestamp,
                 Received = DateTime.Now,
                 Message = message,
-                Model = _model,
+                Channel = _channel,
                 Tag = e.DeliveryTag
             };
 
