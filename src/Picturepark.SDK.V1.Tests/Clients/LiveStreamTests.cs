@@ -29,9 +29,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request = new LiveStreamSearchRequest
             {
-                Limit = 100,
-                From = time - TimeSpan.FromSeconds(10), // handle potential clock skew
-                ScopeType = "DocumentChange"
+                Limit = 1000,
+                From = time,
+                To = createdUser.Audit.ModificationDate.ToLocalTime(),
+                ScopeType = "DocumentChange",
             };
 
             // Give some time for the live stream event to be processed
