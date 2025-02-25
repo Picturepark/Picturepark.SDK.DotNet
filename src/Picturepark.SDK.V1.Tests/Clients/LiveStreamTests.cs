@@ -24,13 +24,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReturnSearchResultsCorrectly()
         {
             // Arrange
-            var time = DateTimeOffset.Now;
             var createdUser = await _fixture.Users.Create();
 
             var request = new LiveStreamSearchRequest
             {
                 Limit = 1000,
-                From = time.UtcDateTime.AddSeconds(-5),
+                From = createdUser.Audit.ModificationDate.AddSeconds(-5),
                 To = createdUser.Audit.ModificationDate.AddSeconds(5),
                 ScopeType = "DocumentChange",
             };
