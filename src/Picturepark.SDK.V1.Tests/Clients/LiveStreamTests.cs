@@ -24,18 +24,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReturnSearchResultsCorrectly()
         {
             // Arrange
-            var time = DateTime.Now;
             var createdUser = await _fixture.Users.Create();
 
             var request = new LiveStreamSearchRequest
             {
-                Limit = 100,
-                From = time - TimeSpan.FromSeconds(10), // handle potential clock skew
-                ScopeType = "DocumentChange"
+                Limit = 1000,
+                From = createdUser.Audit.ModificationDate.AddSeconds(-5),
+                To = createdUser.Audit.ModificationDate.AddSeconds(5),
+                ScopeType = "DocumentChange",
             };
 
             // Give some time for the live stream event to be processed
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            await Task.Delay(TimeSpan.FromSeconds(20));
 
             // Act
             var result = await _client.LiveStream.SearchAsync(request);
