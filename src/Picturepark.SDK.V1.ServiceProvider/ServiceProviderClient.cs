@@ -7,11 +7,13 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Net.Security;
 using System.Security.Authentication;
+using System.Threading;
+using System.Threading.Tasks;
 using RabbitMQ.Client.Exceptions;
 
 namespace Picturepark.SDK.V1.ServiceProvider
 {
-    public class ServiceProviderClient : IDisposable
+    public class ServiceProviderClient : IAsyncDisposable
     {
         private const string DefaultExchangeName = "pp.livestream";
         private const string DefaultQueueName = "pp.livestream.messages";
@@ -21,8 +23,8 @@ namespace Picturepark.SDK.V1.ServiceProvider
         private readonly LiveStreamBuffer _liveStreamBuffer;
 
         private IConnection _connection;
-        private IModel _liveStreamModel;
-        private IModel _requestMessageModel;
+        private IChannel _liveStreamChannel;
+        private IChannel _requestMessageChannel;
 
         private LiveStreamConsumer _liveStreamConsumer;
 
@@ -32,41 +34,29 @@ namespace Picturepark.SDK.V1.ServiceProvider
 
             _factory = CreateConnectionFactory(configuration);
 
-            _connection = _factory.CreateConnection();
-            _liveStreamModel = _connection.CreateModel();
-            _requestMessageModel = _connection.CreateModel();
-
             _liveStreamBuffer = new LiveStreamBuffer(new LiveStreamBufferPriorityQueue());
             _liveStreamBuffer.Start();
         }
 
-        public void Dispose()
+        public async ValueTask DisposeAsync()
         {
-            ////_liveStreamConsumer.Stop();
-            _liveStreamModel.Close();
-            _requestMessageModel.Close();
+            await _liveStreamChannel.CloseAsync();
+            await _requestMessageChannel.CloseAsync();
             _liveStreamBuffer.Stop();
-            _connection.Close();
+            await _connection.CloseAsync();
         }
 
-        public IObservable<EventPattern<EventArgsLiveStreamMessage>> GetLiveStreamObserver(int bufferSize = 0, int delayMilliseconds = 0)
+        public async Task<IObservable<EventPattern<EventArgsLiveStreamMessage>>> GetLiveStreamObserver(
+            int bufferSize = 0, int delayMilliseconds = 0, CancellationToken cancellationToken = default)
         {
             // buffer
             _liveStreamBuffer.BufferHoldBackTimeMilliseconds = delayMilliseconds;
 
-#pragma warning disable CS0618 // Type or member is obsolete
-            var queueName = $"{DefaultExchangeName}.{_configuration.NodeId}";
-#pragma warning restore CS0618 // Type or member is obsolete
-            var isUnprotectedProvider = TryDeclareExchangeAndBindQueue(queueName);
-            if (!isUnprotectedProvider)
-            {
-                _connection = _factory.CreateConnection();
-                _liveStreamModel = _connection.CreateModel();
-                _requestMessageModel = _connection.CreateModel();
-                queueName = DefaultQueueName;
-            }
+            _connection = await _factory.CreateConnectionAsync(cancellationToken);
+            _liveStreamChannel = await _connection.CreateChannelAsync(cancellationToken: cancellationToken);
+            _requestMessageChannel = await _connection.CreateChannelAsync(cancellationToken: cancellationToken);
 
-            _liveStreamModel.BasicQos(0, (ushort)bufferSize, false);
+            await _liveStreamChannel.BasicQosAsync(0, (ushort)bufferSize, false, cancellationToken);
 
             // create observable
             var result = Observable.FromEventPattern<EventArgsLiveStreamMessage>(
@@ -75,34 +65,19 @@ namespace Picturepark.SDK.V1.ServiceProvider
             );
 
             // create consumer for RabbitMQ events
-            _liveStreamConsumer = new LiveStreamConsumer(_configuration, _liveStreamModel);
+            _liveStreamConsumer = new LiveStreamConsumer(_configuration, _liveStreamChannel);
             _liveStreamConsumer.Received += (_, e) => { _liveStreamBuffer.Enqueue(e); };
 
             // consumer
-            var consumer = new EventingBasicConsumer(_requestMessageModel);
-            consumer.Received += (o, e) => { _liveStreamConsumer.OnReceived(o, e); };
-            _liveStreamModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
+            var consumer = new AsyncEventingBasicConsumer(_requestMessageChannel);
+            consumer.ReceivedAsync += (o, e) =>
+            {
+                _liveStreamConsumer.OnReceived(o, e);
+                return Task.CompletedTask;
+            };
+            await _liveStreamChannel.BasicConsumeAsync(queue: DefaultQueueName, autoAck: false, consumer: consumer, cancellationToken);
 
             return result;
-        }
-
-        private bool TryDeclareExchangeAndBindQueue(string queueName)
-        {
-            try
-            {
-                _liveStreamModel.ExchangeDeclare(DefaultExchangeName, ExchangeType.Fanout);
-
-                var args = new Dictionary<string, object> { { "x-max-priority", _configuration.DefaultQueuePriorityMax } };
-
-                // queue
-                var queueDeclareOk = _liveStreamModel.QueueDeclare(queueName, true, false, false, args);
-                _liveStreamModel.QueueBind(queueDeclareOk, DefaultExchangeName, string.Empty, null);
-                return true;
-            }
-            catch (OperationInterruptedException ex) when (ex.ShutdownReason.ReplyCode == 403)
-            {
-                return false;
-            }
         }
 
         private ConnectionFactory CreateConnectionFactory(Configuration configuration)
@@ -125,7 +100,8 @@ namespace Picturepark.SDK.V1.ServiceProvider
                     Version = SslProtocols.Tls12,
                     Enabled = true,
                     ServerName = factory.HostName,
-                    AcceptablePolicyErrors = SslPolicyErrors.RemoteCertificateNameMismatch | SslPolicyErrors.RemoteCertificateChainErrors
+                    AcceptablePolicyErrors = SslPolicyErrors.RemoteCertificateNameMismatch |
+                                             SslPolicyErrors.RemoteCertificateChainErrors
                 };
             }
 
