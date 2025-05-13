@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/FastPriorityQueueNode.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FastPriorityQueueNode
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/FastPriorityQueueNode.cs
     startLine: 2
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/FastPriorityQueueNode.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Priority
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/FastPriorityQueueNode.cs
     startLine: 8
@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/FastPriorityQueueNode.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: QueueIndex
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/FastPriorityQueueNode.cs
     startLine: 13

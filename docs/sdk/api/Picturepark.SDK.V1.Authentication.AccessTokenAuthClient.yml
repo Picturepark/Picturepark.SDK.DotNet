@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AccessTokenAuthClient
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
     startLine: 7
@@ -58,8 +58,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
     startLine: 15
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
     startLine: 24
@@ -132,8 +132,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CustomerAlias
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
     startLine: 27
@@ -165,8 +165,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetAuthenticationHeadersAsync
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
     startLine: 31

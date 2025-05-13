@@ -28,8 +28,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GenericPriorityQueue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 13
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 25
@@ -111,8 +111,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Count
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 43
@@ -149,8 +149,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MaxSize
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 55
@@ -185,8 +185,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Clear
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 70
@@ -220,8 +220,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Contains
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 82
@@ -257,8 +257,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Enqueue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 107
@@ -301,8 +301,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Dequeue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 243
@@ -340,8 +340,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Resize
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 268
@@ -379,8 +379,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: First
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 296
@@ -419,8 +419,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UpdatePriority
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 320
@@ -463,8 +463,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Remove
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 359
@@ -503,8 +503,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetEnumerator
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 390
@@ -536,8 +536,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IsValidQueue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/GenericPriorityQueue.cs
     startLine: 405

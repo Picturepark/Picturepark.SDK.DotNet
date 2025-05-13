@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Relation
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
     startLine: 4
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RelationId
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
     startLine: 6
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RelationType
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
     startLine: 9
@@ -136,8 +136,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TargetDocType
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
     startLine: 12
@@ -177,8 +177,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TargetId
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/Relation.cs
     startLine: 15

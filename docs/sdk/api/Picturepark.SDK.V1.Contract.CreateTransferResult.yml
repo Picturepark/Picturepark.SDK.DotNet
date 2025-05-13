@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateTransferResult
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
     startLine: 5
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
     startLine: 10
@@ -93,8 +93,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Transfer
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
     startLine: 17
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FileUploads
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/CreateTransferResult.cs
     startLine: 20
