@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SchemaIndexingInfoBuilder
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 11
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 16
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 21
@@ -127,8 +127,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 26
@@ -161,8 +161,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Build
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 32
@@ -191,8 +191,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AddIndex
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 37
@@ -225,8 +225,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AddIndexWithSimpleSearch
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 43
@@ -261,8 +261,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AddIndexes
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 55
@@ -297,8 +297,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AddDefaultIndexes
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 63
@@ -333,8 +333,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AddIndexes
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 81
@@ -371,8 +371,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AddDefaultIndexes
     path: ../../src/Picturepark.SDK.V1/Builders/SchemaIndexingInfoBuilder.cs
     startLine: 99

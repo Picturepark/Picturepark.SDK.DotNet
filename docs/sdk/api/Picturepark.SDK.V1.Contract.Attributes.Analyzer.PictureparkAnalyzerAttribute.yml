@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkAnalyzerAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
     startLine: 4
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SimpleSearch
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
     startLine: 6
@@ -128,8 +128,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Index
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
     startLine: 8
@@ -157,8 +157,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateAnalyzer
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkAnalyzerAttribute.cs
     startLine: 12

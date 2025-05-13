@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IFilterProvider
     path: ../../src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
     startLine: 2
@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetFilter
     path: ../../src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
     startLine: 4

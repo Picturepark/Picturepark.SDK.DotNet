@@ -15,8 +15,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSortAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkSortAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSortAttribute.cs
     startLine: 7

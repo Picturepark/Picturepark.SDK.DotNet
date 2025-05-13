@@ -282,6 +282,7 @@ items:
   - Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaBase
   - Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithErrorBase
   - Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithHasItems
+  - Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithQueryError
   - Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithRenderingError
   - Picturepark.SDK.V1.CloudManager.Contract.ElasticMultiTermQueryRewrite
   - Picturepark.SDK.V1.CloudManager.Contract.ElasticVersionUpdateException
@@ -6555,6 +6556,13 @@ references:
   name: DynamicViewFieldMetaWithErrorBase
   nameWithType: DynamicViewFieldMetaWithErrorBase
   fullName: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithErrorBase
+- uid: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithQueryError
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithQueryError
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithQueryError.html
+  name: DynamicViewFieldMetaWithQueryError
+  nameWithType: DynamicViewFieldMetaWithQueryError
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithQueryError
 - uid: Picturepark.SDK.V1.CloudManager.Contract.JsonInheritanceConverter
   commentId: T:Picturepark.SDK.V1.CloudManager.Contract.JsonInheritanceConverter
   parent: Picturepark.SDK.V1.CloudManager.Contract

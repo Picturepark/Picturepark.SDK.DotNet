@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/PictureparkExceptionExtensions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkExceptionExtensions
     path: ../../src/Picturepark.SDK.V1.Localization/PictureparkExceptionExtensions.cs
     startLine: 5
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/PictureparkExceptionExtensions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetLocalizedErrorCode
     path: ../../src/Picturepark.SDK.V1.Localization/PictureparkExceptionExtensions.cs
     startLine: 11

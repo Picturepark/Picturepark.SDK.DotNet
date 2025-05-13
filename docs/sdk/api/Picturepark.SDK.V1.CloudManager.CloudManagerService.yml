@@ -29,8 +29,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CloudManagerService
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 8
@@ -66,8 +66,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 14
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 24
@@ -139,8 +139,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Customer
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 29
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Service
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 31
@@ -197,8 +197,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Update
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 33
@@ -226,8 +226,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CloudBackup
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 35
@@ -255,8 +255,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CustomerServiceProvider
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 37
@@ -284,8 +284,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Environment
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 39
@@ -313,8 +313,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EnvironmentProcess
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 41
@@ -342,8 +342,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Maintenance
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 43
@@ -371,8 +371,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GlobalConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 45
@@ -400,8 +400,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OutputFormat
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 47
@@ -429,8 +429,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CustomerAsset
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 49
@@ -458,8 +458,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Dispose
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerService.cs
     startLine: 51

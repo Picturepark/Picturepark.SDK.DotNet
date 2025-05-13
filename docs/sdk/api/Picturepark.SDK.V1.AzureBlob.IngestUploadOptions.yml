@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadOptions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IngestUploadOptions
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadOptions.cs
     startLine: 7
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadOptions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ConcurrentUploads
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadOptions.cs
     startLine: 13
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadOptions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BlobUploadOptions
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadOptions.cs
     startLine: 19

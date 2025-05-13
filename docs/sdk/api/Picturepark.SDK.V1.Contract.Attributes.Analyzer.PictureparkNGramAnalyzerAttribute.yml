@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkNGramAnalyzerAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkNGramAnalyzerAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkNGramAnalyzerAttribute.cs
     startLine: 4
@@ -108,8 +108,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkNGramAnalyzerAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateAnalyzer
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkNGramAnalyzerAttribute.cs
     startLine: 7

@@ -5,7 +5,7 @@ items:
   id: LiveStreamConsumer
   parent: Picturepark.SDK.V1.ServiceProvider.Buffer
   children:
-  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IModel)
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IChannel)
   - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.OnReceived(System.Object,RabbitMQ.Client.Events.BasicDeliverEventArgs)
   - Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.Received
   langs:
@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LiveStreamConsumer
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 8
@@ -39,22 +39,22 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IModel)
-  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IModel)
-  id: '#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IModel)'
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IChannel)
+  commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IChannel)
+  id: '#ctor(Picturepark.SDK.V1.ServiceProvider.Configuration,RabbitMQ.Client.IChannel)'
   parent: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer
   langs:
   - csharp
   - vb
-  name: LiveStreamConsumer(Configuration, IModel)
-  nameWithType: LiveStreamConsumer.LiveStreamConsumer(Configuration, IModel)
-  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.LiveStreamConsumer(Picturepark.SDK.V1.ServiceProvider.Configuration, RabbitMQ.Client.IModel)
+  name: LiveStreamConsumer(Configuration, IChannel)
+  nameWithType: LiveStreamConsumer.LiveStreamConsumer(Configuration, IChannel)
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.LiveStreamConsumer(Picturepark.SDK.V1.ServiceProvider.Configuration, RabbitMQ.Client.IChannel)
   type: Constructor
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 13
@@ -62,17 +62,17 @@ items:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
   syntax:
-    content: public LiveStreamConsumer(Configuration configuration, IModel model)
+    content: public LiveStreamConsumer(Configuration configuration, IChannel channel)
     parameters:
     - id: configuration
       type: Picturepark.SDK.V1.ServiceProvider.Configuration
-    - id: model
-      type: RabbitMQ.Client.IModel
-    content.vb: Public Sub New(configuration As Configuration, model As IModel)
+    - id: channel
+      type: RabbitMQ.Client.IChannel
+    content.vb: Public Sub New(configuration As Configuration, channel As IChannel)
   overload: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor*
-  nameWithType.vb: LiveStreamConsumer.New(Configuration, IModel)
-  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.New(Picturepark.SDK.V1.ServiceProvider.Configuration, RabbitMQ.Client.IModel)
-  name.vb: New(Configuration, IModel)
+  nameWithType.vb: LiveStreamConsumer.New(Configuration, IChannel)
+  fullName.vb: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.New(Picturepark.SDK.V1.ServiceProvider.Configuration, RabbitMQ.Client.IChannel)
+  name.vb: New(Configuration, IChannel)
 - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.Received
   commentId: E:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.Received
   id: Received
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Received
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 19
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OnReceived
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 21
@@ -420,7 +420,7 @@ references:
   fullName: System
 - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor*
   commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.#ctor
-  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamConsumer__ctor_Picturepark_SDK_V1_ServiceProvider_Configuration_RabbitMQ_Client_IModel_
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.html#Picturepark_SDK_V1_ServiceProvider_Buffer_LiveStreamConsumer__ctor_Picturepark_SDK_V1_ServiceProvider_Configuration_RabbitMQ_Client_IChannel_
   name: LiveStreamConsumer
   nameWithType: LiveStreamConsumer.LiveStreamConsumer
   fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.LiveStreamConsumer
@@ -434,13 +434,13 @@ references:
   name: Configuration
   nameWithType: Configuration
   fullName: Picturepark.SDK.V1.ServiceProvider.Configuration
-- uid: RabbitMQ.Client.IModel
-  commentId: T:RabbitMQ.Client.IModel
+- uid: RabbitMQ.Client.IChannel
+  commentId: T:RabbitMQ.Client.IChannel
   parent: RabbitMQ.Client
   isExternal: true
-  name: IModel
-  nameWithType: IModel
-  fullName: RabbitMQ.Client.IModel
+  name: IChannel
+  nameWithType: IChannel
+  fullName: RabbitMQ.Client.IChannel
 - uid: Picturepark.SDK.V1.ServiceProvider
   commentId: N:Picturepark.SDK.V1.ServiceProvider
   href: Picturepark.html
