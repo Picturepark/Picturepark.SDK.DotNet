@@ -1,6 +1,7 @@
 ﻿using Picturepark.SDK.V1.Contract;
 using RabbitMQ.Client;
 using System;
+using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.ServiceProvider.Buffer
 {
@@ -12,18 +13,18 @@ namespace Picturepark.SDK.V1.ServiceProvider.Buffer
 
         public LiveStreamMessage Message { get; set; }
 
-        public IModel Model { get; set; }
+        public IChannel Channel { get; set; }
 
         public ulong Tag { get; set; }
 
-        public void Ack()
+        public async Task Ack()
         {
-            Model.BasicAck(Tag, false);
+            await Channel.BasicAckAsync(Tag, false);
         }
 
-        public void Nack(bool requeue = false)
+        public async Task Nack(bool requeue = false)
         {
-            Model.BasicNack(Tag, false, requeue);
+            await Channel.BasicNackAsync(Tag, false, requeue);
         }
     }
 }

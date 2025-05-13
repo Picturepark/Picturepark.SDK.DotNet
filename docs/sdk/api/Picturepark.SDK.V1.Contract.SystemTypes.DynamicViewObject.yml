@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/DynamicViewObject.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DynamicViewObject
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/DynamicViewObject.cs
     startLine: 9
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/SystemTypes/DynamicViewObject.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Meta
     path: ../../src/Picturepark.SDK.V1.Contract/SystemTypes/DynamicViewObject.cs
     startLine: 23

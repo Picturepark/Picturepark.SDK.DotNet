@@ -53,6 +53,10 @@ Links:
 | `11.12.x`   | `11.12.x`, `11.11.x`   |
 | `11.13.x`   | `11.13.x`, `11.12.x`   |
 | `11.14.x`   | `11.14.x`, `11.13.x`   |
+| `11.15.x`   | `11.15.x`, `11.14.x`   |
+
+## Reporting issues or getting assistance
+Please reach out to our support team at [support@picturepark.com](mailto:support@picturepark.com).
 
 ## SDK Development
 

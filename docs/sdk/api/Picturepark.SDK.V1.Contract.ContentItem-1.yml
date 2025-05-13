@@ -29,8 +29,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentItem
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 4
@@ -69,8 +69,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Id
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 7
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Content
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 10
@@ -135,8 +135,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Audit
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 13
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentPermissionSetIds
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 16
@@ -201,8 +201,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentSchemaId
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 19
@@ -234,8 +234,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentType
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 22
@@ -267,8 +267,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DisplayValues
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 26
@@ -302,8 +302,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LayerSchemaIds
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 29
@@ -335,8 +335,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Metadata
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 32
@@ -368,8 +368,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Outputs
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 35
@@ -401,8 +401,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OwnerTokenId
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 38
@@ -434,8 +434,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Owner
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 41
@@ -467,8 +467,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LifeCycle
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 44
@@ -500,8 +500,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentRights
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ContentItem.cs
     startLine: 47

@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/FileResponseExtensions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FileResponseExtensions
     path: ../../src/Picturepark.SDK.V1/FileResponseExtensions.cs
     startLine: 6
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/FileResponseExtensions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetFileName
     path: ../../src/Picturepark.SDK.V1/FileResponseExtensions.cs
     startLine: 8

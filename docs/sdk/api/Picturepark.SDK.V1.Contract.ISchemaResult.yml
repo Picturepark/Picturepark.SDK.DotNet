@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ISchemaResult
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
     startLine: 2
@@ -41,8 +41,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Schema
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/ISchemaResult.cs
     startLine: 4

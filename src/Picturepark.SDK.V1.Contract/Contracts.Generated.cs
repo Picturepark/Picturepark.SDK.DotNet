@@ -44917,6 +44917,7 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("DynamicViewFieldMeta", typeof(DynamicViewFieldMeta))]
     [JsonInheritanceAttribute("DynamicViewFieldMetaWithRenderingError", typeof(DynamicViewFieldMetaWithRenderingError))]
+    [JsonInheritanceAttribute("DynamicViewFieldMetaWithQueryError", typeof(DynamicViewFieldMetaWithQueryError))]
     [JsonInheritanceAttribute("DynamicViewFieldMetaWithHasItems", typeof(DynamicViewFieldMetaWithHasItems))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class DynamicViewFieldMetaBase
@@ -45005,6 +45006,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithErrorBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Meta information for a dynamic view field when elastic query exception occured
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class DynamicViewFieldMetaWithQueryError : DynamicViewFieldMetaWithErrorBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static DynamicViewFieldMetaWithQueryError FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithQueryError>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
