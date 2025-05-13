@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ListItemNotFoundException
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 6369
@@ -101,8 +101,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ListItemIds
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 6373
@@ -149,8 +149,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 6376
@@ -177,8 +177,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 6382

@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BusinessRuleNumberCompareConditionMode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 19217
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LessThan
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 19221
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LessThanEqual
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 19224
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Equal
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 19227
@@ -182,8 +182,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GreaterThanEqual
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 19230
@@ -223,8 +223,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GreaterThan
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 19233

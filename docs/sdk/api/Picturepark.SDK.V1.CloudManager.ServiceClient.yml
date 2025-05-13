@@ -31,8 +31,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ServiceClient
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17110
@@ -85,8 +85,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17116
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: JsonSerializerSettings
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17129
@@ -148,8 +148,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ShutdownAllAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17146
@@ -208,8 +208,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RestartAllAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17309
@@ -268,8 +268,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ShutdownAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17472
@@ -335,8 +335,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RestartAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17644
@@ -402,8 +402,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SetLogLevelAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17816
@@ -464,8 +464,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EnableLoggingDiagnosticsAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 17986
@@ -531,8 +531,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PingActiveNodesAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 18159
@@ -591,8 +591,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetActiveNodesAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 18322
@@ -651,8 +651,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DeleteNodeInfosAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 18491
@@ -711,8 +711,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DumpCachesAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 18655
@@ -771,8 +771,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: InvalidateAllCachesAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 18819
@@ -831,8 +831,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RecycleElasticClientsAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 18983
@@ -891,8 +891,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReadResponseAsString
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 19151
@@ -920,8 +920,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReadObjectResponseAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Clients.Generated.cs
     startLine: 19153

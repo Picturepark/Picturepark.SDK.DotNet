@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MetadataState
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 28969
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UpToDate
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 28973
@@ -100,8 +100,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Outdated
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 28976
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UpdateInProgress
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 28979

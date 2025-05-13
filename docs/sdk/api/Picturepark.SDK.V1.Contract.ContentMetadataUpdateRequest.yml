@@ -24,8 +24,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentMetadataUpdateRequest
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
     startLine: 5
@@ -77,8 +77,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LayerSchemaIds
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24030
@@ -130,8 +130,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Content
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24039
@@ -187,8 +187,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Metadata
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24048
@@ -244,8 +244,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LayerSchemasUpdateOptions
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24059
@@ -322,8 +322,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LayerFieldsUpdateOptions
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24070
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentFieldsUpdateOptions
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24081
@@ -470,8 +470,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24086
@@ -498,8 +498,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 24092
@@ -532,8 +532,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LayerMergeUpdate
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ContentMetadataUpdateRequest.cs
     startLine: 17

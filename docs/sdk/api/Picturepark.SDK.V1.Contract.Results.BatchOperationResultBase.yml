@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BatchOperationResultBase
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
     startLine: 7
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
     startLine: 11
@@ -90,8 +90,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BusinessProcessId
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
     startLine: 17
@@ -119,8 +119,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FetchItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
     startLine: 19

@@ -405,6 +405,7 @@ items:
   - Picturepark.SDK.V1.Contract.DynamicViewFieldMetaBase
   - Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithErrorBase
   - Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithHasItems
+  - Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithQueryError
   - Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithRenderingError
   - Picturepark.SDK.V1.Contract.DynamicViewFieldUiSettings
   - Picturepark.SDK.V1.Contract.EdgeNGramAnalyzer
@@ -10148,6 +10149,13 @@ references:
   name: DynamicViewFieldMetaWithErrorBase
   nameWithType: DynamicViewFieldMetaWithErrorBase
   fullName: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithErrorBase
+- uid: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithQueryError
+  commentId: T:Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithQueryError
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithQueryError.html
+  name: DynamicViewFieldMetaWithQueryError
+  nameWithType: DynamicViewFieldMetaWithQueryError
+  fullName: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithQueryError
 - uid: Picturepark.SDK.V1.Contract.JsonInheritanceConverter
   commentId: T:Picturepark.SDK.V1.Contract.JsonInheritanceConverter
   parent: Picturepark.SDK.V1.Contract

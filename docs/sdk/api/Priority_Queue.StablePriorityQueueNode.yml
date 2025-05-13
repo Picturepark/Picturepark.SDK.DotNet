@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/StablePriorityQueueNode.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: StablePriorityQueueNode
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/StablePriorityQueueNode.cs
     startLine: 2
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/StablePriorityQueueNode.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: InsertionIndex
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/StablePriorityQueueNode.cs
     startLine: 7

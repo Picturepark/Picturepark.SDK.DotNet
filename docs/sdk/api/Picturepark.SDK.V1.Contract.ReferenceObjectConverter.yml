@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReferenceObjectConverter
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
     startLine: 9
@@ -56,8 +56,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CanWrite
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
     startLine: 17
@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CanRead
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
     startLine: 20
@@ -120,8 +120,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: WriteJson
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
     startLine: 34
@@ -162,8 +162,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReadJson
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
     startLine: 39
@@ -210,8 +210,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CanConvert
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
     startLine: 48
