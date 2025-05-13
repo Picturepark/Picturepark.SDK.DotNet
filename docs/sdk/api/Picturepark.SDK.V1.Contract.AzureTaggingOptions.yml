@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AzureTaggingOptions
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ApiUrl
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -131,7 +131,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ApiKey
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -181,7 +181,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LanguageCode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -231,7 +231,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MinimumValue
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -281,7 +281,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EnableTagging
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -331,7 +331,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EnableObjectDetection
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -381,7 +381,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EnableOcr
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -431,7 +431,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -459,7 +459,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs

@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Notification
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -76,7 +76,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Id
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -128,7 +128,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RecipientUserId
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -176,7 +176,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReferenceDocType
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -224,7 +224,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReferenceId
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -272,7 +272,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Audit
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -320,7 +320,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TitleCode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -385,7 +385,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MessageCode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -450,7 +450,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Detail
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -498,7 +498,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: State
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -563,7 +563,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EventType
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -628,7 +628,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -656,7 +656,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs

@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkDisplayPatternAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -148,7 +148,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -184,7 +184,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Type
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -213,7 +213,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TemplateEngine
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -242,7 +242,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DisplayPattern
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -271,7 +271,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Language
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs

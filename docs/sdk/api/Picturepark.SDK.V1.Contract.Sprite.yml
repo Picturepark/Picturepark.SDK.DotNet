@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Sprite
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -74,7 +74,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Width
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Height
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -168,7 +168,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Y
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -215,7 +215,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: X
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -262,7 +262,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Start
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -320,7 +320,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: End
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -378,7 +378,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -406,7 +406,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs

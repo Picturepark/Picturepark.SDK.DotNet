@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FileLocations
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AbsoluteSourcePath
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UploadAs
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -163,7 +163,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Identifier
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -197,7 +197,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: op_Implicit
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -231,7 +231,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToString
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs

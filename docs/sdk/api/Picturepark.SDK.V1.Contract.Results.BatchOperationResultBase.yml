@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BatchOperationResultBase
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BusinessProcessId
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
@@ -119,7 +119,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FetchItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultBase.cs

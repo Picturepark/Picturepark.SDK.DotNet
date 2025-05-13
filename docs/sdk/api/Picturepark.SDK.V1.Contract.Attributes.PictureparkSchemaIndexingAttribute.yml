@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkSchemaIndexingAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
@@ -107,7 +107,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
@@ -139,7 +139,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
@@ -171,7 +171,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SchemaIndexingInfo
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkSchemaIndexingAttribute.cs

@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LocalizationService
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetLocalizedErrorCode
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetLocalizedText
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -161,7 +161,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetLocalizedText
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -215,7 +215,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetLocalizedText
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetLocalizedText
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -320,7 +320,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetDateTimeLocalizedDisplayValue
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs
@@ -364,7 +364,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Localization/LocalizationService.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReplaceDateTimeLocalizedDisplayValueInObject
     path: ../../src/Picturepark.SDK.V1.Localization/LocalizationService.cs

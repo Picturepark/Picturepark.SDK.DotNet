@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OutputFormatBatchOperationResult
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Empty
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FetchDetail
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
