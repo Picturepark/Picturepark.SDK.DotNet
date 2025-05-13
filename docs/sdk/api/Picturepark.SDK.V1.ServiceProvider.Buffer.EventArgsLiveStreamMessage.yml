@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EventArgsLiveStreamMessage
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Created
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -88,7 +88,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Received
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -117,7 +117,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Message
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Channel
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -175,7 +175,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Tag
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -204,7 +204,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Ack
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
@@ -232,7 +232,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Nack
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs

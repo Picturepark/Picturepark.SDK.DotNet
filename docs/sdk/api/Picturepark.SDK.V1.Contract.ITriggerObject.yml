@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ITriggerObject
     path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
@@ -43,7 +43,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Trigger
     path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
@@ -84,7 +84,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TriggeredOn
     path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ITriggerObject.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TriggeredBy
     path: ../../src/Picturepark.SDK.V1.Contract/ITriggerObject.cs

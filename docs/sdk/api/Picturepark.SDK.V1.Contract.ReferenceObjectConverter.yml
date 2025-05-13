@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReferenceObjectConverter
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CanWrite
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
@@ -88,7 +88,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CanRead
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: WriteJson
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReadJson
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
@@ -210,7 +210,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CanConvert
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObjectConverter.cs

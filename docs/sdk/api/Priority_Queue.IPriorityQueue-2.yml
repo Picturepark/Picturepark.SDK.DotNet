@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IPriorityQueue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Enqueue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Dequeue
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -133,7 +133,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Clear
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -163,7 +163,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Contains
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -198,7 +198,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Remove
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -231,7 +231,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UpdatePriority
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: First
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
@@ -299,7 +299,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Count
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/OptimizedPriorityQueue/IPriorityQueue.cs

@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IAuthClient
     path: ../../src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
@@ -45,7 +45,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
@@ -76,7 +76,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CustomerAlias
     path: ../../src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
@@ -107,7 +107,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetAuthenticationHeadersAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Authentication/IAuthClient.cs

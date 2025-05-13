@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ICustomerAssetClient
     path: ../../src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DeleteLogoAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DeleteWatermarkAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -190,7 +190,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PutLogoAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
@@ -230,7 +230,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
-      branch: release-prep/PP9-21763-regenerate-docs
+      branch: 11.15.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PutWatermarkAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Partials/ICustomerAssetClient.cs
