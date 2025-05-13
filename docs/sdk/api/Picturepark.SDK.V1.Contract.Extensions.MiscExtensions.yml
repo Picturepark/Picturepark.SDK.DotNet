@@ -16,8 +16,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Extensions/MiscExtensions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MiscExtensions
     path: ../../src/Picturepark.SDK.V1.Contract/Extensions/MiscExtensions.cs
     startLine: 4
@@ -52,8 +52,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Extensions/MiscExtensions.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: JoinByDot
     path: ../../src/Picturepark.SDK.V1.Contract/Extensions/MiscExtensions.cs
     startLine: 6

@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkItemFieldUiSettingsAttributeBase
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
     startLine: 7
@@ -98,8 +98,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
     startLine: 16
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: View
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
     startLine: 31
@@ -173,8 +173,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MaxListRows
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
     startLine: 36
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MaxThumbRows
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
     startLine: 41
@@ -235,8 +235,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ShowRelatedContentOnDownload
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkItemFieldUiSettingsAttributeBase.cs
     startLine: 46

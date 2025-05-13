@@ -25,8 +25,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Configuration
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 6
@@ -60,8 +60,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 8
@@ -89,8 +89,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Port
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 17
@@ -118,8 +118,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Host
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 19
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: User
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 21
@@ -176,8 +176,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Password
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 23
@@ -205,8 +205,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UseSsl
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 25
@@ -234,8 +234,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ServiceProviderId
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 27
@@ -263,8 +263,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: NodeId
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
     startLine: 29
@@ -272,12 +272,24 @@ items:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider
   syntax:
-    content: public string NodeId { get; set; }
+    content: >-
+      [Obsolete("NodeId will be removed in a future release")]
+
+      public string NodeId { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property NodeId As String
+    content.vb: >-
+      <Obsolete("NodeId will be removed in a future release")>
+
+      Public Property NodeId As String
   overload: Picturepark.SDK.V1.ServiceProvider.Configuration.NodeId*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NodeId will be removed in a future release
 - uid: Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
   commentId: P:Picturepark.SDK.V1.ServiceProvider.Configuration.SerializerSettings
   id: SerializerSettings
@@ -292,11 +304,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SerializerSettings
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-    startLine: 31
+    startLine: 32
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider
@@ -321,11 +333,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DefaultQueuePriorityMax
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider

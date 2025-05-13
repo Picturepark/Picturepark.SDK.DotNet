@@ -46,8 +46,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkService
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 10
@@ -84,8 +84,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 17
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Schema
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 31
@@ -154,8 +154,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Content
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 33
@@ -186,8 +186,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Output
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 35
@@ -218,8 +218,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OutputFormat
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 37
@@ -250,8 +250,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BusinessProcess
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 39
@@ -282,8 +282,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DocumentHistory
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 41
@@ -314,8 +314,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: JsonSchema
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 43
@@ -346,8 +346,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ListItem
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 45
@@ -378,8 +378,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LiveStream
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 47
@@ -410,8 +410,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ContentPermissionSet
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 49
@@ -442,8 +442,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SchemaPermissionSet
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 51
@@ -474,8 +474,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Share
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 53
@@ -506,8 +506,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Transfer
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 55
@@ -550,8 +550,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: User
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 58
@@ -582,8 +582,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UserRole
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 60
@@ -614,8 +614,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Profile
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 62
@@ -646,8 +646,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SchemaTransfer
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 64
@@ -678,8 +678,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Info
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 66
@@ -710,8 +710,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Channel
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 68
@@ -742,8 +742,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BusinessRule
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 70
@@ -774,8 +774,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DisplayValue
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 72
@@ -806,8 +806,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Metadata
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 74
@@ -838,8 +838,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IdentityProvider
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 76
@@ -870,8 +870,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: XmpMapping
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 78
@@ -902,8 +902,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Notification
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 80
@@ -934,8 +934,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Template
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 82
@@ -966,8 +966,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Statistics
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 84
@@ -998,8 +998,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ConversionPresetTemplate
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 86
@@ -1030,8 +1030,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Ingest
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 88
@@ -1062,8 +1062,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Dispose
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
     startLine: 90

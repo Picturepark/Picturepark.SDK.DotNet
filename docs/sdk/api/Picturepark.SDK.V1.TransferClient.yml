@@ -42,8 +42,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TransferClient
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 11
@@ -106,8 +106,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 43481
@@ -140,8 +140,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: JsonSerializerSettings
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 43494
@@ -169,8 +169,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 43519
@@ -245,8 +245,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 43700
@@ -320,8 +320,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DeleteAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 43881
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ImportAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 44060
@@ -408,7 +408,9 @@ items:
   remarks: >-
     This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.
 
-    <br /><br />Wait for completion on the Business process ID that is returned to wait for import completion.
+    <br />            
+
+    <br />Wait for completion on the Business process ID that is returned to wait for import completion.
 
     <br />Note: Before attempting to import a Transfer, the transfer has to be in the TransferReady state.
   example: []
@@ -480,8 +482,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PartialImportAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 44254
@@ -492,9 +494,13 @@ items:
   remarks: >-
     This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.
 
-    <br /><br />Wait for completion on the Business process ID that is returned to wait for import completion.
+    <br />            
 
-    <br /><br />Transfer will transition to state ImportDone if no files of the transfer remain for import.
+    <br />Wait for completion on the Business process ID that is returned to wait for import completion.
+
+    <br />            
+
+    <br />Transfer will transition to state ImportDone if no files of the transfer remain for import.
 
     <br />Transfer will transition to state TransferReady if any files of the transfer remain for import.
   example: []
@@ -566,8 +572,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CancelAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 44443
@@ -645,8 +651,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SearchAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 44616
@@ -717,8 +723,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetFileAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 44797
@@ -792,8 +798,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SearchFilesAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 44975
@@ -864,8 +870,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DeleteFilesAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 45155
@@ -935,8 +941,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GetBlacklistAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 45337
@@ -949,7 +955,9 @@ items:
 
     <br />A filename matching an item on the blacklist will be skipped during uploading.
 
-    <br /><br />The client is responsibly for matching uploaded files against the blacklist
+    <br />            
+
+    <br />The client is responsibly for matching uploaded files against the blacklist
 
     <br />when creating the transfer. Otherwise, during transfer creation some items might get skipped
 
@@ -1014,8 +1022,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 45527
@@ -1026,11 +1034,15 @@ items:
   remarks: >-
     Uploads the specified chunk data.
 
-    <br /><br />Use `Content-Type: application/octet-stream` for uploading chunked data.
+    <br />            
+
+    <br />Use `Content-Type: application/octet-stream` for uploading chunked data.
 
     <br />The chunk data should be contained in the body of your request.
 
-    <br /><br />To upload a file, it is recommended to use a single chunk that has the same size as the file. This is only possible if you're using
+    <br />            
+
+    <br />To upload a file, it is recommended to use a single chunk that has the same size as the file. This is only possible if you're using
 
     <br />the octet-stream upload method. If you choose to use formdata upload or multiple chunks per file, the file must be chunked into
 
@@ -1119,8 +1131,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReadResponseAsString
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 45723
@@ -1148,8 +1160,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ReadObjectResponseAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 45725
@@ -1188,8 +1200,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 19
@@ -1224,8 +1236,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SearchFilesByTransferIdAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 29
@@ -1267,8 +1279,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UploadFilesAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 69
@@ -1319,8 +1331,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UploadFilesAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 88
@@ -1371,8 +1383,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ImportAndWaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 182
@@ -1417,8 +1429,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateAndWaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 193
@@ -1460,8 +1472,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateAndWaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 208
@@ -1512,8 +1524,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CancelTransferAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 233
@@ -1571,8 +1583,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ImportTransferAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 236
@@ -1633,8 +1645,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 239
@@ -1710,8 +1722,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/TransferClient.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1/Partial/TransferClient.cs
     startLine: 248

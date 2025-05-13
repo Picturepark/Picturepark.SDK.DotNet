@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BatchOperationWithRequestIdResultDetail
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
     startLine: 7
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SucceededItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
     startLine: 22
@@ -93,8 +93,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FailedItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
     startLine: 24
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SucceededIds
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
     startLine: 26
@@ -155,8 +155,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: release-prep/PP9-21763-regenerate-docs
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FailedIds
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
     startLine: 28
