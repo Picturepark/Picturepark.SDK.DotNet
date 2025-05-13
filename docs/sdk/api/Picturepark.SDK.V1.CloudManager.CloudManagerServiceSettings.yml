@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CloudManagerServiceSettings
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 6
@@ -60,8 +60,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 10
@@ -95,8 +95,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 18
@@ -130,8 +130,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 27
@@ -168,8 +168,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 34
@@ -201,8 +201,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: HttpTimeout
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 37
@@ -234,8 +234,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AuthClient
     path: ../../src/Picturepark.SDK.V1.CloudManager/CloudManagerServiceSettings.cs
     startLine: 40

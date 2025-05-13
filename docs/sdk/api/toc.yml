@@ -1182,6 +1182,9 @@ items:
   - uid: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithHasItems
     name: DynamicViewFieldMetaWithHasItems
     type: Class
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithQueryError
+    name: DynamicViewFieldMetaWithQueryError
+    type: Class
   - uid: Picturepark.SDK.V1.CloudManager.Contract.DynamicViewFieldMetaWithRenderingError
     name: DynamicViewFieldMetaWithRenderingError
     type: Class
@@ -4020,6 +4023,9 @@ items:
     type: Class
   - uid: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithHasItems
     name: DynamicViewFieldMetaWithHasItems
+    type: Class
+  - uid: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithQueryError
+    name: DynamicViewFieldMetaWithQueryError
     type: Class
   - uid: Picturepark.SDK.V1.Contract.DynamicViewFieldMetaWithRenderingError
     name: DynamicViewFieldMetaWithRenderingError

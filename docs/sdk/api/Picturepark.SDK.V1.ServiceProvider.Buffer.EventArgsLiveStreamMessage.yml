@@ -6,9 +6,9 @@ items:
   parent: Picturepark.SDK.V1.ServiceProvider.Buffer
   children:
   - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel
   - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created
   - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message
-  - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
   - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)
   - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received
   - Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
@@ -22,11 +22,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EventArgsLiveStreamMessage
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 6
+    startLine: 7
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
@@ -59,11 +59,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Created
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
@@ -88,11 +88,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Received
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 10
+    startLine: 11
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
@@ -117,11 +117,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Message
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
@@ -132,35 +132,35 @@ items:
       type: Picturepark.SDK.V1.Contract.LiveStreamMessage
     content.vb: Public Property Message As LiveStreamMessage
   overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message*
-- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
-  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
-  id: Model
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel
+  commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel
+  id: Channel
   parent: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage
   langs:
   - csharp
   - vb
-  name: Model
-  nameWithType: EventArgsLiveStreamMessage.Model
-  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
+  name: Channel
+  nameWithType: EventArgsLiveStreamMessage.Channel
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel
   type: Property
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
-    id: Model
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+    id: Channel
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
   syntax:
-    content: public IModel Model { get; set; }
+    content: public IChannel Channel { get; set; }
     parameters: []
     return:
-      type: RabbitMQ.Client.IModel
-    content.vb: Public Property Model As IModel
-  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model*
+      type: RabbitMQ.Client.IChannel
+    content.vb: Public Property Channel As IChannel
+  overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel*
 - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
   commentId: P:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag
   id: Tag
@@ -175,11 +175,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Tag
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 16
+    startLine: 17
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
@@ -204,17 +204,19 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Ack
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
   syntax:
-    content: public void Ack()
-    content.vb: Public Sub Ack()
+    content: public Task Ack()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function Ack() As Task
   overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack*
 - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)
   commentId: M:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)
@@ -230,20 +232,22 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Nack
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - Picturepark.SDK.V1.ServiceProvider
   namespace: Picturepark.SDK.V1.ServiceProvider.Buffer
   syntax:
-    content: public void Nack(bool requeue = false)
+    content: public Task Nack(bool requeue = false)
     parameters:
     - id: requeue
       type: System.Boolean
-    content.vb: Public Sub Nack(requeue As Boolean = False)
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function Nack(requeue As Boolean = False) As Task
   overload: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack*
   nameWithType.vb: EventArgsLiveStreamMessage.Nack(Boolean)
   fullName.vb: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(Boolean)
@@ -622,19 +626,19 @@ references:
   - uid: Picturepark.SDK.V1.Contract
     name: Contract
     href: Picturepark.SDK.V1.Contract.html
-- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model*
-  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
-  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Model
-  name: Model
-  nameWithType: EventArgsLiveStreamMessage.Model
-  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model
-- uid: RabbitMQ.Client.IModel
-  commentId: T:RabbitMQ.Client.IModel
+- uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel*
+  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel
+  href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Channel
+  name: Channel
+  nameWithType: EventArgsLiveStreamMessage.Channel
+  fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Channel
+- uid: RabbitMQ.Client.IChannel
+  commentId: T:RabbitMQ.Client.IChannel
   parent: RabbitMQ.Client
   isExternal: true
-  name: IModel
-  nameWithType: IModel
-  fullName: RabbitMQ.Client.IModel
+  name: IChannel
+  nameWithType: IChannel
+  fullName: RabbitMQ.Client.IChannel
 - uid: RabbitMQ.Client
   commentId: N:RabbitMQ.Client
   isExternal: true
@@ -680,6 +684,51 @@ references:
   name: Ack
   nameWithType: EventArgsLiveStreamMessage.Ack
   fullName: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
 - uid: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack*
   commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack
   href: Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html#Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Nack_System_Boolean_

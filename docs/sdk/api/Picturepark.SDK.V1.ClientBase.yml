@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/ClientBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ClientBase
     path: ../../src/Picturepark.SDK.V1/ClientBase.cs
     startLine: 9
@@ -86,8 +86,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/ClientBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/ClientBase.cs
     startLine: 15
@@ -121,8 +121,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/ClientBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1/ClientBase.cs
     startLine: 21
@@ -152,8 +152,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/ClientBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CustomerAlias
     path: ../../src/Picturepark.SDK.V1/ClientBase.cs
     startLine: 24
@@ -183,8 +183,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/ClientBase.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CreateHttpRequestMessageAsync
     path: ../../src/Picturepark.SDK.V1/ClientBase.cs
     startLine: 26

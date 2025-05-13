@@ -17,8 +17,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkTreeViewAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: PictureparkTreeViewAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkTreeViewAttribute.cs
     startLine: 10
@@ -105,8 +105,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkTreeViewAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkTreeViewAttribute.cs
     startLine: 18
@@ -144,8 +144,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkTreeViewAttribute.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Levels
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkTreeViewAttribute.cs
     startLine: 29

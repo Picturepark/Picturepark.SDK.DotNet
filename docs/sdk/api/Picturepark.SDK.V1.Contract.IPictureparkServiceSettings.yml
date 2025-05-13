@@ -21,8 +21,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IPictureparkServiceSettings
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 6
@@ -48,8 +48,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 9
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: HttpTimeout
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 12
@@ -110,8 +110,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AuthClient
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 15
@@ -141,8 +141,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: CustomerAlias
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 18
@@ -172,8 +172,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DisplayLanguage
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 21
@@ -203,8 +203,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IntegrationName
     path: ../../src/Picturepark.SDK.V1.Contract/IPictureparkServiceSettings.cs
     startLine: 24

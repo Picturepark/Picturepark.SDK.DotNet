@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DisplayValueDictionary
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
     startLine: 2
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 23826
@@ -125,8 +125,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 23832
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Name
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
     startLine: 7
@@ -190,8 +190,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Detail
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
     startLine: 12
@@ -221,8 +221,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: List
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
     startLine: 17
@@ -252,8 +252,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Thumbnail
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
     startLine: 22
@@ -283,8 +283,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
-      branch: 11.14.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
+      branch: 11.15.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DownloadFileName
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DisplayValueDictionary.cs
     startLine: 30
