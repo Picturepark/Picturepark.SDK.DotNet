@@ -1720,7 +1720,7 @@ namespace Picturepark.SDK.V1.Contract
         /// Get identity provider
         /// </summary>
         /// <param name="id">Identity provider ID.</param>
-        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -1739,7 +1739,7 @@ namespace Picturepark.SDK.V1.Contract
         /// </remarks>
         /// <param name="id">Identity provider ID.</param>
         /// <param name="provider">Update request</param>
-        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -22358,7 +22358,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class User
     {
         /// <summary>
-        /// User's Picturepark ID.
+        /// User's Fotoware Alto ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -27971,7 +27971,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Represents an identity provider defined in IdentityServer and its Picturepark configuration
+    /// Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class IdentityProvider : IdentityProviderEditable
@@ -38849,7 +38849,7 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<MailRecipient> MailRecipients { get; set; } = new System.Collections.Generic.List<MailRecipient>();
 
         /// <summary>
-        /// List of recipients that exist in Picturepark.
+        /// List of recipients that exist in Fotoware Alto.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("internalRecipients", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -39347,7 +39347,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ShareBasicCreateRequest : ShareBaseCreateRequest
     {
         /// <summary>
-        /// List of external mail recipients which are no Picturepark users.
+        /// List of external mail recipients which are no Fotoware Alto users.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipientEmails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserEmail> RecipientEmails { get; set; }
@@ -41831,7 +41831,7 @@ namespace Picturepark.SDK.V1.Contract
         public UserAddress Address { get; set; }
 
         /// <summary>
-        /// Identity provider that governs this user or null for Picturepark's own IdentityServer.
+        /// Identity provider that governs this user or null for Fotoware Alto's own IdentityServer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdentityProviderId { get; set; }
@@ -41863,7 +41863,7 @@ namespace Picturepark.SDK.V1.Contract
         public LifeCycle LifeCycle { get; set; }
 
         /// <summary>
-        /// Support user is a user created for Picturepark support personnel.
+        /// Support user is a user created for Fotoware support personnel.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSupportUser { get; set; }
@@ -42005,7 +42005,7 @@ namespace Picturepark.SDK.V1.Contract
         public UserAddress Address { get; set; }
 
         /// <summary>
-        /// Identity provider that governs this user or null for Picturepark's own IdentityServer.
+        /// Identity provider that governs this user or null for Fotoware Alto's own IdentityServer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdentityProviderId { get; set; }
@@ -42508,7 +42508,7 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
 
         /// <summary>
-        /// User's Picturepark ID.
+        /// User's Fotoware Alto ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -42556,7 +42556,7 @@ namespace Picturepark.SDK.V1.Contract
         public bool IsLocked { get; set; }
 
         /// <summary>
-        /// A support user is a user created for Picturepark support personnel.
+        /// A support user is a user created for Fotoware support personnel.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSupportUser { get; set; }
