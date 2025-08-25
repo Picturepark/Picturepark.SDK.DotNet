@@ -84,7 +84,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: List of external mail recipients which are no Picturepark users.
+  summary: List of external mail recipients which are no Fotoware Alto users.
   example: []
   syntax:
     content: >-

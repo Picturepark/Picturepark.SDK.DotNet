@@ -20392,7 +20392,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Contract.IdentityProvider",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.IdentityProvider.yml\" sourcestartlinenumber=\"1\">Represents an identity provider defined in IdentityServer and its Picturepark configuration</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.IdentityProvider.yml\" sourcestartlinenumber=\"1\">Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration</p>\n"
     },
     {
       "type": "ManagedReference",

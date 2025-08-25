@@ -291,7 +291,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: Identity provider that governs this user or null for Picturepark's own IdentityServer.
+  summary: Identity provider that governs this user or null for Fotoware Alto's own IdentityServer.
   example: []
   syntax:
     content: >-

@@ -28,7 +28,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+  summary: Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration
   example: []
   syntax:
     content: >-

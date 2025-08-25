@@ -139,7 +139,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: User's Picturepark ID.
+  summary: User's Fotoware Alto ID.
   example: []
   syntax:
     content: >-
@@ -528,7 +528,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: A support user is a user created for Picturepark support personnel.
+  summary: A support user is a user created for Fotoware support personnel.
   example: []
   syntax:
     content: >-
