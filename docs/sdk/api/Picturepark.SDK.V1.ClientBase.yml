@@ -129,7 +129,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
-  summary: Gets the base URL of the Picturepark API.
+  summary: Gets the base URL of the Fotoware Alto API.
   example: []
   syntax:
     content: public string BaseUrl { get; }

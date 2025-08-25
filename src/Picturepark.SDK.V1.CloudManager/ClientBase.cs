@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.CloudManager
             _settings = settings;
         }
 
-        /// <summary>Gets the base URL of the Picturepark API.</summary>
+        /// <summary>Gets the base URL of the Fotoware Alto API.</summary>
         public string BaseUrl => _settings.BaseUrl;
 
         protected async Task<HttpRequestMessage> CreateHttpRequestMessageAsync(CancellationToken cancellationToken)

@@ -3,10 +3,10 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    /// <summary>The Picturepark service settings interface.</summary>
+    /// <summary>The Fotoware Alto service settings interface.</summary>
     public interface IPictureparkServiceSettings
     {
-        /// <summary>Gets the server URL of the Picturepark authentication server.</summary>
+        /// <summary>Gets the server URL of the Fotoware Alto authentication server.</summary>
         string BaseUrl { get; }
 
         /// <summary>Gets the HTTP timeout.</summary>

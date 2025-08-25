@@ -74,7 +74,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager
-  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.CloudManager.CloudManagerService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Picturepark server URL.
+  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.CloudManager.CloudManagerService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Fotoware Alto server URL.
   example: []
   syntax:
     content: public CloudManagerService(ICloudManagerServiceSettings settings)
@@ -109,7 +109,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager
-  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.CloudManager.CloudManagerService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Picturepark server URL.
+  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.CloudManager.CloudManagerService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Fotoware Alto server URL.
   example: []
   syntax:
     content: public CloudManagerService(ICloudManagerServiceSettings settings, HttpClient httpClient)
