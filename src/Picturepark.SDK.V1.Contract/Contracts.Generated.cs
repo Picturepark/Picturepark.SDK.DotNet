@@ -28092,7 +28092,7 @@ namespace Picturepark.SDK.V1.Contract
         public string Group { get; set; }
 
         /// <summary>
-        /// User role ID as defined in CP
+        /// User role ID as defined in Fotoware Alto
         /// </summary>
         [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserRoleId { get; set; }
