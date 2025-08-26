@@ -24,7 +24,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ColorTransformationIntent
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32937
+    startLine: 32939
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -65,7 +65,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RelativeColorimetricBpc
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32941
+    startLine: 32943
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -106,7 +106,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AbsoluteColorimetric
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32944
+    startLine: 32946
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -147,7 +147,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Perceptual
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32947
+    startLine: 32949
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -188,7 +188,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RelativeColorimetric
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32950
+    startLine: 32952
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -229,7 +229,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Saturation
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32953
+    startLine: 32955
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

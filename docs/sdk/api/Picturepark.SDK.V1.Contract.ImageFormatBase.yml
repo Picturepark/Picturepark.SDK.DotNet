@@ -28,7 +28,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ImageFormatBase
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32773
+    startLine: 32775
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -88,7 +88,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ColorProfile
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32779
+    startLine: 32781
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -147,7 +147,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ColorTransformationIntent
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32786
+    startLine: 32788
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -206,7 +206,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: HorizontalResolution
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32793
+    startLine: 32795
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -256,7 +256,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: VerticalResolution
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32799
+    startLine: 32801
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -306,7 +306,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: KeepClippingPath
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32805
+    startLine: 32807
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -356,7 +356,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ResizeAction
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32811
+    startLine: 32813
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -406,7 +406,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Actions
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32817
+    startLine: 32819
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -456,7 +456,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32820
+    startLine: 32822
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -484,7 +484,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 32826
+    startLine: 32828
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

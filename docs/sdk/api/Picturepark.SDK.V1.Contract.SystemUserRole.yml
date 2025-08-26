@@ -20,7 +20,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SystemUserRole
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34709
+    startLine: 34711
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -61,7 +61,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Administrator
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34713
+    startLine: 34715
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

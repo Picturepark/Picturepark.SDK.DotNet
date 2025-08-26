@@ -50318,7 +50318,7 @@
         "properties": {
           "items": {
             "type": "object",
-            "description": "Items to import.",
+            "description": "Dictionary of items to import.\nKey is a valid public URL for download of a file.\nValue is the UrlImportRequest object corresponding to the url",
             "nullable": true,
             "additionalProperties": {
               "$ref": "#/components/schemas/UrlImportRequest"

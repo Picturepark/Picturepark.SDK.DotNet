@@ -29198,7 +29198,9 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ImportFromUrlsRequest
     {
         /// <summary>
-        /// Items to import.
+        /// Dictionary of items to import.
+        /// <br/>Key is a valid public URL for download of a file.
+        /// <br/>Value is the UrlImportRequest object corresponding to the url
         /// </summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, UrlImportRequest> Items { get; set; }
