@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ResizeMode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 33002
+    startLine: 33004
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Fit
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 33006
+    startLine: 33008
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -104,7 +104,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Shrink
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 33009
+    startLine: 33011
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -145,7 +145,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Resize
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 33012
+    startLine: 33014
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

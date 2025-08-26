@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OutputAccess
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 38994
+    startLine: 38996
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -61,7 +61,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Full
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 38998
+    startLine: 39000
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -102,7 +102,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Preview
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 39001
+    startLine: 39003
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -143,7 +143,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: None
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 39004
+    startLine: 39006
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

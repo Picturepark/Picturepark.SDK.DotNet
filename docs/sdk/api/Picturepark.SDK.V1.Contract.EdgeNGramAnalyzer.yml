@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: EdgeNGramAnalyzer
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36286
+    startLine: 36288
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -75,7 +75,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Type
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36292
+    startLine: 36294
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -134,7 +134,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FieldSuffix
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36299
+    startLine: 36301
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -184,7 +184,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36302
+    startLine: 36304
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -212,7 +212,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36308
+    startLine: 36310
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

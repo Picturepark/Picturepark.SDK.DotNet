@@ -30,7 +30,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Localization
   namespace: Picturepark.SDK.V1.Localization
-  summary: Provides methods to translate texts from the Picturepark backend.
+  summary: Provides methods to translate texts from the Fotoware Alto backend.
   example: []
   syntax:
     content: public class LocalizationService

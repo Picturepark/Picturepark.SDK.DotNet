@@ -53,7 +53,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract.Authentication
-  summary: Gets the server URL of the Picturepark authentication server.
+  summary: Gets the server URL of the Fotoware Alto authentication server.
   example: []
   syntax:
     content: string BaseUrl { get; }

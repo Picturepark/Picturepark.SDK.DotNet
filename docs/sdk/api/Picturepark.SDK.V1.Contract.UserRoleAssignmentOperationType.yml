@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UserRoleAssignmentOperationType
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 42262
+    startLine: 42264
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Add
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 42266
+    startLine: 42268
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -104,7 +104,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Remove
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 42269
+    startLine: 42271
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -145,7 +145,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Update
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 42272
+    startLine: 42274
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.AzureBlob;
 public static class IngestClientExtensions
 {
     /// <summary>
-    /// Uploads files from local filesystem and imports them into Content Platform.
+    /// Uploads files from local filesystem and imports them into Fotoware Alto.
     /// </summary>
     /// <param name="client">Ingest client</param>
     /// <param name="filePaths">Path to files</param>
@@ -45,7 +45,7 @@ public static class IngestClientExtensions
     }
 
     /// <summary>
-    /// Uploads items and imports them into Content Platform.
+    /// Uploads items and imports them into Fotoware Alto.
     /// </summary>
     /// <param name="client">Ingest client</param>
     /// <param name="items">Items to upload</param>
@@ -197,7 +197,7 @@ public static class IngestClientExtensions
     }
 
     /// <summary>
-    /// Imports files from container into Content Platform.
+    /// Imports files from container into Fotoware Alto.
     /// </summary>
     /// <param name="client">Ingest client</param>
     /// <param name="files">Files to import</param>
@@ -235,7 +235,7 @@ public static class IngestClientExtensions
     }
 
     /// <summary>
-    /// Imports files from container into Content Platform allowing assignment of different metadata for each file.
+    /// Imports files from container into Fotoware Alto allowing assignment of different metadata for each file.
     /// </summary>
     /// <param name="client">Ingest client</param>
     /// <param name="requests">Request for each file</param>
@@ -287,7 +287,7 @@ public static class IngestClientExtensions
     }
 
     /// <summary>
-    /// Imports specified URLs into Content Platform.
+    /// Imports specified URLs into Fotoware Alto.
     /// </summary>
     /// <param name="client">Ingest client</param>
     /// <param name="requests">Requests</param>

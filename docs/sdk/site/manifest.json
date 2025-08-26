@@ -358,7 +358,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings.yml\" sourcestartlinenumber=\"1\">The Picturepark service settings.</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings.yml\" sourcestartlinenumber=\"1\">The Fotoware Alto service settings.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -12160,7 +12160,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.yml\" sourcestartlinenumber=\"1\">The Picturepark service settings interface.</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.yml\" sourcestartlinenumber=\"1\">The Fotoware Alto service settings interface.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -13000,7 +13000,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute.yml\" sourcestartlinenumber=\"1\">Marker interface for Picturepark specific .NET attributes.</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.Attributes.IPictureparkAttribute.yml\" sourcestartlinenumber=\"1\">Marker interface for Fotoware Alto specific .NET attributes.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -20182,7 +20182,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Contract.IPictureparkServiceSettings",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.yml\" sourcestartlinenumber=\"1\">The Picturepark service settings interface.</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.yml\" sourcestartlinenumber=\"1\">The Fotoware Alto service settings interface.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -20392,7 +20392,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Contract.IdentityProvider",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.IdentityProvider.yml\" sourcestartlinenumber=\"1\">Represents an identity provider defined in IdentityServer and its Picturepark configuration</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.IdentityProvider.yml\" sourcestartlinenumber=\"1\">Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -25138,7 +25138,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Contract.PictureparkServiceSettings",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.PictureparkServiceSettings.yml\" sourcestartlinenumber=\"1\">The Picturepark service settings.</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.PictureparkServiceSettings.yml\" sourcestartlinenumber=\"1\">The Fotoware Alto service settings.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -31648,7 +31648,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Localization.LocalizationService",
-      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Localization.LocalizationService.yml\" sourcestartlinenumber=\"1\">Provides methods to translate texts from the Picturepark backend.</p>\n"
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Localization.LocalizationService.yml\" sourcestartlinenumber=\"1\">Provides methods to translate texts from the Fotoware Alto backend.</p>\n"
     },
     {
       "type": "ManagedReference",

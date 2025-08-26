@@ -23,7 +23,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract.Attributes
-  summary: Marker interface for Picturepark specific .NET attributes.
+  summary: Marker interface for Fotoware Alto specific .NET attributes.
   example: []
   syntax:
     content: public interface IPictureparkAttribute

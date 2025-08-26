@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ItemFieldViewMode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36819
+    startLine: 36821
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -64,7 +64,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: List
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36823
+    startLine: 36825
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -105,7 +105,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ThumbSmall
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36826
+    startLine: 36828
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -146,7 +146,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ThumbMedium
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36829
+    startLine: 36831
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -187,7 +187,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ThumbLarge
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36832
+    startLine: 36834
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

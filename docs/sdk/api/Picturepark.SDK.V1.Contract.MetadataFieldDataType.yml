@@ -22,7 +22,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MetadataFieldDataType
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 43104
+    startLine: 43106
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Simple
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 43108
+    startLine: 43110
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -104,7 +104,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TranslatedString
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 43111
+    startLine: 43113
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -145,7 +145,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Tagbox
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 43114
+    startLine: 43116
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

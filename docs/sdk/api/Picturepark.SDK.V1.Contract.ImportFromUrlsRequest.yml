@@ -74,11 +74,16 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Items
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 29202
+    startLine: 29204
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: Items to import.
+  summary: >-
+    Dictionary of items to import.
+
+    <br />Key is a valid public URL for download of a file.
+
+    <br />Value is the UrlImportRequest object corresponding to the url
   example: []
   syntax:
     content: >-
@@ -124,7 +129,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Options
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 29208
+    startLine: 29210
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -178,7 +183,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 29212
+    startLine: 29214
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -206,7 +211,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 29218
+    startLine: 29220
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

@@ -126,7 +126,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: User role ID as defined in CP
+  summary: User role ID as defined in Fotoware Alto
   example: []
   syntax:
     content: >-

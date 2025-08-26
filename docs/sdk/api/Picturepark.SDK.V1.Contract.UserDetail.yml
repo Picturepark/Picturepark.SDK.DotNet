@@ -94,7 +94,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: UserRoles
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41811
+    startLine: 41813
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -144,7 +144,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Comment
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41817
+    startLine: 41819
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -194,7 +194,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LanguageCode
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41823
+    startLine: 41825
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -244,7 +244,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Address
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41829
+    startLine: 41831
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -294,11 +294,11 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IdentityProviderId
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41835
+    startLine: 41837
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: Identity provider that governs this user or null for Picturepark's own IdentityServer.
+  summary: Identity provider that governs this user or null for Fotoware Alto's own IdentityServer.
   example: []
   syntax:
     content: >-
@@ -344,7 +344,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: OwnerTokens
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41841
+    startLine: 41843
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -394,7 +394,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: AuthorizationState
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41847
+    startLine: 41849
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -453,7 +453,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IsLocked
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41854
+    startLine: 41856
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -503,7 +503,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LifeCycle
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41860
+    startLine: 41862
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -562,11 +562,11 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IsSupportUser
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41867
+    startLine: 41869
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: Support user is a user created for Picturepark support personnel.
+  summary: Support user is a user created for Fotoware support personnel.
   example: []
   syntax:
     content: >-
@@ -612,7 +612,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IsAnonymousUser
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41873
+    startLine: 41875
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -662,7 +662,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IsReadOnly
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41879
+    startLine: 41881
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -712,7 +712,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IsFederated
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41885
+    startLine: 41887
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -762,7 +762,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Audit
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41891
+    startLine: 41893
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -812,7 +812,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: LastActivity
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41897
+    startLine: 41899
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -862,7 +862,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41900
+    startLine: 41902
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -890,7 +890,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 41906
+    startLine: 41908
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

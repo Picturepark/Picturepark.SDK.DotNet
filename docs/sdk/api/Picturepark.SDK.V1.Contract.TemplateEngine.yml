@@ -20,7 +20,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: TemplateEngine
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 35375
+    startLine: 35377
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -61,7 +61,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: DotLiquid
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 35379
+    startLine: 35381
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

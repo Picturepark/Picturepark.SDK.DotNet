@@ -24,7 +24,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: NotificationState
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 31958
+    startLine: 31960
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Draft
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 31962
+    startLine: 31964
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -104,7 +104,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Unread
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 31965
+    startLine: 31967
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -145,7 +145,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Read
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 31968
+    startLine: 31970
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -186,7 +186,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Deleted
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 31971
+    startLine: 31973
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -227,7 +227,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: "Null"
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 31974
+    startLine: 31976
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

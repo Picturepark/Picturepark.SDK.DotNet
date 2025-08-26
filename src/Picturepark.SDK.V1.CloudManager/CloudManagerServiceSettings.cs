@@ -3,7 +3,7 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
-    /// <summary>The Picturepark service settings.</summary>
+    /// <summary>The Fotoware Alto service settings.</summary>
     public class CloudManagerServiceSettings : ICloudManagerServiceSettings
     {
         /// <summary>Initializes a new instance of the <see cref="CloudManagerServiceSettings"/> class.</summary>
@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1.CloudManager
             AuthClient = authClient;
         }
 
-        /// <summary>Gets the server URL of the Picturepark server.</summary>
+        /// <summary>Gets the server URL of the Fotoware Alto server.</summary>
         public string BaseUrl { get; set; }
 
         /// <summary>Gets or sets the HTTP timeout.</summary>

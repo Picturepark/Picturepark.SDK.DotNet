@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Profile
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34017
+    startLine: 34019
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -62,7 +62,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Aac_low
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34021
+    startLine: 34023
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -103,7 +103,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Mpeg2_aac_low
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34024
+    startLine: 34026
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -144,7 +144,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Aac_ltp
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34027
+    startLine: 34029
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -185,7 +185,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Aac_main
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 34030
+    startLine: 34032
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

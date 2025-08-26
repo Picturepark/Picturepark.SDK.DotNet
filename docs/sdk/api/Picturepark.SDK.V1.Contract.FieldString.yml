@@ -31,7 +31,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FieldString
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36172
+    startLine: 36174
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -95,7 +95,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Template
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36178
+    startLine: 36180
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -145,7 +145,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Pattern
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36184
+    startLine: 36186
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -195,7 +195,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MinimumLength
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36190
+    startLine: 36192
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -245,7 +245,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MaximumLength
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36196
+    startLine: 36198
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -295,7 +295,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: IndexAnalyzers
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36203
+    startLine: 36205
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -348,7 +348,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: SimpleSearchAnalyzers
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36210
+    startLine: 36212
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -401,7 +401,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: MultiLine
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36216
+    startLine: 36218
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -451,7 +451,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: GrantedValues
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36222
+    startLine: 36224
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -501,7 +501,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: Boost
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36228
+    startLine: 36230
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -551,7 +551,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: RenderingType
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36234
+    startLine: 36236
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -610,7 +610,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36238
+    startLine: 36240
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -638,7 +638,7 @@ items:
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 36244
+    startLine: 36246
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

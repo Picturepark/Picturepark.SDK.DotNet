@@ -79,7 +79,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
-  summary: User's Picturepark ID.
+  summary: User's Fotoware Alto ID.
   example: []
   syntax:
     content: >-

@@ -92,7 +92,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
-  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.PictureparkService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Picturepark server URL.
+  summary: Initializes a new instance of the <xref href="Picturepark.SDK.V1.PictureparkService" data-throw-if-not-resolved="false"></xref> class and uses the <xref href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.BaseUrl" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">settings</code> as Fotoware Alto server URL.
   example: []
   syntax:
     content: public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient = null)

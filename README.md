@@ -1,4 +1,4 @@
-# Picturepark Content Platform .NET SDK
+# Fotoware Alto .NET SDK
 ## Picturepark.Sdk.DotNet
 
 [![Build status](https://img.shields.io/appveyor/ci/Picturepark/picturepark-sdk-dotnet.svg?label=build)](https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet)
@@ -17,7 +17,7 @@ Links:
 **Public APIs**:
 
 - **[Picturepark.SDK.V1](https://www.nuget.org/packages/Picturepark.SDK.V1) (.NET Standard 2.0):** 
-    - Client implementations to access the Picturepark server
+    - Client implementations to access the Fotoware Alto server
     - [Getting started](docs/README.md)
     - [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/api/Picturepark.SDK.V1.html)
 - **[Picturepark.SDK.V1.Contract](https://www.nuget.org/packages/Picturepark.SDK.V1.Contract) (.NET Standard 2.0):** 
@@ -36,7 +36,7 @@ Links:
 
 ## Compatibility matrix
 
-| SDK version | Picturepark CP version |
+| SDK version | Fotoware Alto version |
 |-------------|------------------------|
 | `11.0.x`    | `11.0.x`               |
 | `11.1.x`    | `11.1.x`               |
