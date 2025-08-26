@@ -12,6 +12,8 @@ Links:
 - [API Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/api/index.html)
 - [Getting started](docs/README.md)
 
+> **Note:** The platform has been renamed from Picturepark Content Platform to **Fotoware Alto**, but the project name remains **Picturepark**. You may encounter both names in documentation, code, and resources.
+
 ## NuGet Packages
 
 **Public APIs**:
