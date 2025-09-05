@@ -63150,11 +63150,11 @@
     },
     {
       "name": "Ingest",
-      "description": "Endpoints to ingest data.\r\n\r\nTo ingest a set of files into Fotoware Alto:\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to ingest data.\r\n\r\nTo ingest a set of files into Fotoware Alto:\r\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "JsonSchema",
-      "description": "Endpoint to work with json schemas.\r\n\r\nYou are able to fetch a [Json Schema](http://json-schema.org/) from a schema in Fotoware Alto.\nWith a Json schema you are able to validate your metadata before saving it.\r\n\r\nCurrently Draft 4 is supported. http://json-schema.org/specification-links.html#draft-4\r\n"
+      "description": "Endpoint to work with json schemas.\r\n\r\nYou are able to fetch a [Json Schema](http://json-schema.org/) from a schema in Fotoware Alto.\r\nWith a Json schema you are able to validate your metadata before saving it.\r\n\r\nCurrently Draft 4 is supported. http://json-schema.org/specification-links.html#draft-4\r\n"
     },
     {
       "name": "ListItem",
@@ -63210,7 +63210,7 @@
     },
     {
       "name": "Transfer",
-      "description": "Endpoints to work with transfers.\r\n\r\nNote: These endpoints are deprecated and will be removed in future release. Please use [Ingest](#tag/Ingest) endpoints for new projects and consider switching existing code to use Ingest endpoints as well.\r\n\r\nTo import a set of files into Fotoware Alto:\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to work with transfers.\r\n\r\nNote: These endpoints are deprecated and will be removed in future release. Please use [Ingest](#tag/Ingest) endpoints for new projects and consider switching existing code to use Ingest endpoints as well.\r\n\r\nTo import a set of files into Fotoware Alto:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "UserRole",
@@ -63218,7 +63218,7 @@
     },
     {
       "name": "User",
-      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n- AuthorizationState.Reviewed: User is allowed to log in\r\n- AuthorizationState.ToBeReviewed: User cannot access Fotoware Alto, needs to be invited or reviewed first\n- AuthorizationState.Invited: User did not log in since last invitation\r\n- AuthorizationState.UserTriggeredDeactivation: User requested deactivation of account\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
+      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n- AuthorizationState.Reviewed: User is allowed to log in\r\n- AuthorizationState.ToBeReviewed: User cannot access Fotoware Alto, needs to be invited or reviewed first\r\n- AuthorizationState.Invited: User did not log in since last invitation\r\n- AuthorizationState.UserTriggeredDeactivation: User requested deactivation of account\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
     },
     {
       "name": "XmpMapping",
