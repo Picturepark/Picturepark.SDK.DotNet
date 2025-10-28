@@ -135,7 +135,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: List of recipients that exist in Picturepark.
+  summary: List of recipients that exist in Fotoware Alto.
   example: []
   syntax:
     content: >-

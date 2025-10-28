@@ -29,7 +29,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager
-  summary: The Picturepark service settings.
+  summary: The Fotoware Alto service settings.
   example: []
   syntax:
     content: 'public class CloudManagerServiceSettings : ICloudManagerServiceSettings'
@@ -176,7 +176,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager
-  summary: Gets the server URL of the Picturepark server.
+  summary: Gets the server URL of the Fotoware Alto server.
   example: []
   syntax:
     content: public string BaseUrl { get; set; }

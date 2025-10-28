@@ -2,7 +2,7 @@
   <Import Project="..\common.props" />
 
   <PropertyGroup>
-    <Description>Picturepark .NET SDK: The client implementations to access the Picturepark backend.</Description>
+    <Description>Fotoware Alto .NET SDK: The client implementations to access the Fotoware Alto backend.</Description>
     <AssemblyTitle>Picturepark.SDK.V1</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

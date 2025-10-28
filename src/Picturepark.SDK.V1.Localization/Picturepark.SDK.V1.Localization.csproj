@@ -2,7 +2,7 @@
   <Import Project="..\common.props" />
 
   <PropertyGroup>
-    <Description>Picturepark .NET SDK Localization: Provides translations for exception codes and texts.</Description>
+    <Description>Fotoware Alto .NET SDK Localization: Provides translations for exception codes and texts.</Description>
     <AssemblyTitle>Picturepark.SDK.V1.Localization</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

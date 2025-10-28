@@ -283,7 +283,7 @@ items:
       description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
     return:
       type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
-      description: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+      description: Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration
     content.vb: Public Overridable Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of IdentityProvider)
   overload: Picturepark.SDK.V1.IdentityProviderClient.GetAsync*
   exceptions:
@@ -352,7 +352,7 @@ items:
       description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
     return:
       type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
-      description: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+      description: Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration
     content.vb: Public Overridable Function UpdateAsync(id As String, provider As IdentityProviderEditable, cancellationToken As CancellationToken = Nothing) As Task(Of IdentityProvider)
   overload: Picturepark.SDK.V1.IdentityProviderClient.UpdateAsync*
   exceptions:

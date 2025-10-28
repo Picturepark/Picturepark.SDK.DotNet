@@ -35,7 +35,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: The Picturepark service settings.
+  summary: The Fotoware Alto service settings.
   example: []
   syntax:
     content: 'public class PictureparkServiceSettings : IPictureparkServiceSettings'
@@ -347,7 +347,7 @@ items:
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
-  summary: Gets the server URL of the Picturepark server.
+  summary: Gets the server URL of the Fotoware Alto server.
   example: []
   syntax:
     content: public string BaseUrl { get; set; }
