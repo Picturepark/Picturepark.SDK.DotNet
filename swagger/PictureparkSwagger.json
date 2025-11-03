@@ -51299,26 +51299,6 @@
           "state"
         ],
         "properties": {
-          "contentOrLayerSchemaIds": {
-            "type": "array",
-            "description": "The schema ids (of type Content or Layer) for which the contents are outdated and need to be updated.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use MainDocuments.ContentOrLayerSchemaIds instead. This will be removed in version 11.15.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "listSchemaIds": {
-            "type": "array",
-            "description": "The schema ids (of type List) for which the the list items are outdated and need to be updated.",
-            "deprecated": true,
-            "x-deprecatedMessage": "Use MainDocuments.ListSchemaIds instead. This will be removed in version 11.15.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "mainDocuments": {
             "description": "Schema IDs for which main documents need to be touched.",
             "nullable": true,

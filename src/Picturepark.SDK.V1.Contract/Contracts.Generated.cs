@@ -30437,20 +30437,6 @@ namespace Picturepark.SDK.V1.Contract
     public partial class MetadataStatus
     {
         /// <summary>
-        /// The schema ids (of type Content or Layer) for which the contents are outdated and need to be updated.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("contentOrLayerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.Obsolete("Use MainDocuments.ContentOrLayerSchemaIds instead. This will be removed in version 11.15.")]
-        public System.Collections.Generic.ICollection<string> ContentOrLayerSchemaIds { get; set; }
-
-        /// <summary>
-        /// The schema ids (of type List) for which the the list items are outdated and need to be updated.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("listSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.Obsolete("Use MainDocuments.ListSchemaIds instead. This will be removed in version 11.15.")]
-        public System.Collections.Generic.ICollection<string> ListSchemaIds { get; set; }
-
-        /// <summary>
         /// Schema IDs for which main documents need to be touched.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mainDocuments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

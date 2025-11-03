@@ -19,14 +19,11 @@ internal sealed class Cp1113BackwardsCompatibleMetadataClient : IMetadataClient
     {
         var status = await _metadataClientImplementation.GetStatusAsync(cancellationToken);
 
-        if (status.ListSchemaIds is not null && status.ContentOrLayerSchemaIds is not null)
+        status.MainDocuments ??= new MetadataStatusEntries
         {
-            status.MainDocuments ??= new MetadataStatusEntries
-            {
-                ListSchemaIds = status.ListSchemaIds,
-                ContentOrLayerSchemaIds = status.ContentOrLayerSchemaIds
-            };
-        }
+            ListSchemaIds = Array.Empty<string>(),
+            ContentOrLayerSchemaIds = Array.Empty<string>()
+        };
 
         status.SearchDocuments ??= new MetadataStatusEntries
         {
