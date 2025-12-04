@@ -18,7 +18,7 @@ namespace Picturepark.SDK.V1
             _settings = settings;
         }
 
-        /// <summary>Gets the base URL of the Picturepark API.</summary>
+        /// <summary>Gets the base URL of the Fotoware Alto API.</summary>
         public string BaseUrl => _settings.BaseUrl;
 
         /// <summary>Gets the used customer alias.</summary>

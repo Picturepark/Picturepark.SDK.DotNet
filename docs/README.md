@@ -5,11 +5,11 @@ Please refer to [SDK Documentation](https://picturepark.github.io/Picturepark.SD
 
 ## Usage in .NET
 
-Install the Picturepark SDK NuGet package in your .NET project (supports .NET 4.5+ and .NET Standard 1.3+): 
+Install the Fotoware Alto SDK NuGet package in your .NET project (supports .NET 4.5+ and .NET Standard 1.3+):
 
     Install-Package Picturepark.SDK.V1
     
-Create a new `PictureparkService` instance and access remote Picturepark server as follows: 
+Create a new `PictureparkService` instance and access remote Fotoware Alto server as follows: 
 
 ```csharp
 var authClient = new AccessTokenAuthClient("https://api.mypcpserver.com", "AccessToken", "CustomerAlias");
@@ -34,7 +34,7 @@ using (var client = new PictureparkService(settings, httpClient))
 
 ### Usage in ASP.NET Core
 
-Register the Picturepark .NET service classes in the ASP.NET Core dependency injection system (`Startup.cs`): 
+Register the Fotoware Alto .NET service classes in the ASP.NET Core dependency injection system (`Startup.cs`): 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

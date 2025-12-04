@@ -32,7 +32,7 @@ namespace Picturepark.SDK.V1.Conversion
 
         public static string ResolveSchemaId(Type contract) => Metadata.ResolveSchemaId(contract);
 
-        /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
+        /// <summary>Converts a .NET type and its dependencies to a list of Fotoware Alto schema definitions.</summary>
         /// <param name="type">The type to generate definitions for.</param>
         /// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
         /// <returns>List of schemas</returns>
@@ -41,7 +41,7 @@ namespace Picturepark.SDK.V1.Conversion
             return GenerateAsync(type, new List<SchemaDetail>(), generateRelatedSchemas);
         }
 
-        /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
+        /// <summary>Converts a .NET type and its dependencies to a list of Fotoware Alto schema definitions.</summary>
         /// <param name="type">The type to generate definitions for.</param>
         /// <param name="schemaDetails">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependent schemas (used to exclude existing schemas).</param>
         /// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>

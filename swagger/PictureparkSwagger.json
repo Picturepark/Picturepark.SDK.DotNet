@@ -2,10 +2,10 @@
   "x-generator": "NSwag v14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
-    "title": "Picturepark API V1",
-    "description": "# Getting started\r\nWelcome to the reference for the Picturepark Content Platform REST API.\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client. You can create clients via an Identity Server (IDS) interface directly from Content platform.\r\n\r\nGo to `Settings` / `API Clients` (https://{{customerHost}}/Settings/APIClients) and create a new API Client based on your desired authentication flow.\r\n\r\n### Client attributes\r\n\r\n| Attribute      | Description |\r\n| -------------- | ----------- |\r\n| **Allowed scopes** | Scopes which the client is allowed to access. Use can find scope name beside the respective API endpoints. |\r\n| **Redirect Uris**  | Which URI's is IDS allowed to send the authentication information to. |\r\n| **Urls (masks) safe to load** | IDS has to load some information from the CP customer instance like customer terms of service or logos. This lists the paths which are safe to load by IDS. Usually similar to Redirect Uris. |\r\n| **Allowed CORS origins** | Adds to the list of origins allowed to access the IDS authentication API. |\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n\r\n| Flow         | Description |\r\n| ------------ | ----------- |\r\n| **Hybrid**   | Interactive user authentication with server based validation |\r\n| **Password** | Server to server, create access tokens that do not expire |\r\n| **Authorization code** with PKCE | Interactive user authentication recommended for SPA's |\r\n| **Implicit** | Not recommended anymore, used mostly in legacy SPA's |\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular\r\n- HTML5 Fetch: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-fetch\r\n- .NET: https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs\r\n\r\n### Access token lifetime\r\nFor **Implicit**, **Hybrid** and **Authentication code** flows, the access tokens are short-lived (1 hour). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Password** flow, you can create an access token that never expires.\r\nGo to `Settings` / `API Clients` in Content platform (https://{{customerHost}}/Settings/APIClients) and click on Tokens beside the respective client (or create a new client).\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: https://ids-cp-ch.picturepark.com\r\n- Stage: https://identity.current-picturepark.com\r\n- POC: https://identity.poc-picturepark.com\r\n- Preview: https://identity.preview-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes      |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, contact Picturepark sales (sales@picturepark.com).\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter\r\n- ChildFilter\r\n- ParentFilter",
+    "title": "Fotoware Alto API V1",
+    "description": "\r\n# Getting started\r\n\r\nWelcome to the reference for the Fotoware Alto REST API.\r\n\r\n> **Note:** The platform has been renamed from Picturepark Content Platform to **Fotoware Alto**, but the project name remains **Picturepark**. You may encounter both names in documentation, code, and resources.\r\n\r\n## Client registration\r\nTo use the Fotoware Alto API, you need first to create a new API Client. You can create clients via an Identity Server (IDS) interface directly from Fotoware Alto.\r\n\r\nGo to `Settings` / `API Clients` (https://{{customerHost}}/Settings/APIClients) and create a new API Client based on your desired authentication flow.\r\n\r\n### Client attributes\r\n\r\n| Attribute      | Description |\r\n| -------------- | ----------- |\r\n| **Allowed scopes** | Scopes which the client is allowed to access. Use can find scope name beside the respective API endpoints. |\r\n| **Redirect Uris**  | Which URI's is IDS allowed to send the authentication information to. |\r\n| **Urls (masks) safe to load** | IDS has to load some information from the Fotoware Alto customer instance like customer terms of service or logos. This lists the paths which are safe to load by IDS. Usually similar to Redirect Uris. |\r\n| **Allowed CORS origins** | Adds to the list of origins allowed to access the IDS authentication API. |\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n\r\n| Flow         | Description |\r\n| ------------ | ----------- |\r\n| **Hybrid**   | Interactive user authentication with server based validation |\r\n| **Password** | Server to server, create access tokens that do not expire |\r\n| **Authorization code** with PKCE | Interactive user authentication recommended for SPA's |\r\n| **Implicit** | Not recommended anymore, used mostly in legacy SPA's |\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular\r\n- HTML5 Fetch: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-fetch\r\n- .NET: https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs\r\n\r\n### Access token lifetime\r\nFor **Implicit**, **Hybrid** and **Authentication code** flows, the access tokens are short-lived (1 hour). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Password** flow, you can create an access token that never expires.\r\nGo to `Settings` / `API Clients` in Fotoware Alto (https://{{customerHost}}/Settings/APIClients) and click on Tokens beside the respective client (or create a new client).\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: https://ids-cp-ch.picturepark.com\r\n- Stage: https://identity.current-picturepark.com\r\n- POC: https://identity.poc-picturepark.com\r\n- Preview: https://identity.preview-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes      |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Fotoware Alto API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Fotoware Alto API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, contact Fotoware Alto sales (sales@picturepark.com).\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Fotoware Alto to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter\r\n- ChildFilter\r\n- ParentFilter",
     "contact": {
-      "name": "Picturepark sales",
+      "name": "Fotoware Alto sales",
       "url": "https://www.picturepark.com",
       "email": "sales@picturepark.com"
     },
@@ -11995,7 +11995,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Represents an identity provider defined in IdentityServer and its Picturepark configuration",
+            "description": "Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration",
             "content": {
               "application/json": {
                 "schema": {
@@ -12113,7 +12113,7 @@
         },
         "responses": {
           "200": {
-            "description": "Represents an identity provider defined in IdentityServer and its Picturepark configuration",
+            "description": "Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration",
             "content": {
               "application/json": {
                 "schema": {
@@ -45062,7 +45062,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "User's Picturepark ID.",
+            "description": "User's Fotoware Alto ID.",
             "minLength": 1
           },
           "firstName": {
@@ -49393,7 +49393,7 @@
           },
           {
             "type": "object",
-            "description": "Represents an identity provider defined in IdentityServer and its Picturepark configuration",
+            "description": "Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration",
             "additionalProperties": false,
             "required": [
               "id"
@@ -49477,7 +49477,7 @@
           },
           "userRoleId": {
             "type": "string",
-            "description": "User role ID as defined in CP",
+            "description": "User role ID as defined in Fotoware Alto",
             "nullable": true
           }
         }
@@ -58014,7 +58014,7 @@
               },
               "internalRecipients": {
                 "type": "array",
-                "description": "List of recipients that exist in Picturepark.",
+                "description": "List of recipients that exist in Fotoware Alto.",
                 "items": {
                   "$ref": "#/components/schemas/InternalRecipient"
                 }
@@ -58403,7 +58403,7 @@
             "properties": {
               "recipientEmails": {
                 "type": "array",
-                "description": "List of external mail recipients which are no Picturepark users.",
+                "description": "List of external mail recipients which are no Fotoware Alto users.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/UserEmail"
@@ -60313,7 +60313,7 @@
               },
               "identityProviderId": {
                 "type": "string",
-                "description": "Identity provider that governs this user or null for Picturepark's own IdentityServer.",
+                "description": "Identity provider that governs this user or null for Fotoware Alto's own IdentityServer.",
                 "nullable": true
               },
               "ownerTokens": {
@@ -60346,7 +60346,7 @@
               },
               "isSupportUser": {
                 "type": "boolean",
-                "description": "Support user is a user created for Picturepark support personnel."
+                "description": "Support user is a user created for Fotoware support personnel."
               },
               "isAnonymousUser": {
                 "type": "boolean",
@@ -60459,7 +60459,7 @@
               },
               "identityProviderId": {
                 "type": "string",
-                "description": "Identity provider that governs this user or null for Picturepark's own IdentityServer.",
+                "description": "Identity provider that governs this user or null for Fotoware Alto's own IdentityServer.",
                 "nullable": true
               }
             }
@@ -60818,7 +60818,7 @@
           },
           "id": {
             "type": "string",
-            "description": "User's Picturepark ID.",
+            "description": "User's Fotoware Alto ID.",
             "minLength": 1
           },
           "firstName": {
@@ -60858,7 +60858,7 @@
           },
           "isSupportUser": {
             "type": "boolean",
-            "description": "A support user is a user created for Picturepark support personnel."
+            "description": "A support user is a user created for Fotoware support personnel."
           },
           "isReadOnly": {
             "type": "boolean",
@@ -63051,13 +63051,13 @@
     "securitySchemes": {
       "Bearer": {
         "type": "oauth2",
-        "description": "Picturepark uses Bearer authentication scheme. User of the API has to specify a Bearer token in Authorization header of the request.",
+        "description": "Fotoware Alto uses Bearer authentication scheme. User of the API has to specify a Bearer token in Authorization header of the request.",
         "name": "Authorization",
         "in": "header",
         "flows": {
           "password": {
             "scopes": {
-              "picturepark_api": "Required to access the Picturepark API",
+              "picturepark_api": "Required to access the Fotoware Alto API",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
               "businessrule_read": "Read business rules",
@@ -63150,11 +63150,11 @@
     },
     {
       "name": "Ingest",
-      "description": "Endpoints to ingest data.\r\n\r\nTo ingest a set of files into Content Platform:\r\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to ingest data.\r\n\r\nTo ingest a set of files into Fotoware Alto:\r\n\r\n1. Create an ingest container\r\n2. Use the Azure Blob SDK to upload files into container using provided SAS token\r\n3. Trigger import using either /v1/ingest/{container}/import/all or /v1/ingest/{container}/import/partial (allows to specify metadata and other information for each item directly)\r\n4. Use WaitForCompletion on BusinessProcess to wait for completion of import.\r\n\r\nAn even easier way is using the /v1/ingest/import/fromUrls endpoint which will use HTTP downloads to ingest files.\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/IngestTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "JsonSchema",
-      "description": "Endpoint to work with json schemas.\r\n\r\nYou are able to fetch a [Json Schema](http://json-schema.org/) from a schema in Picturepark.\r\nWith a Json schema you are able to validate your metadata before saving it.\r\n\r\nCurrently Draft 4 is supported. http://json-schema.org/specification-links.html#draft-4\r\n"
+      "description": "Endpoint to work with json schemas.\r\n\r\nYou are able to fetch a [Json Schema](http://json-schema.org/) from a schema in Fotoware Alto.\r\nWith a Json schema you are able to validate your metadata before saving it.\r\n\r\nCurrently Draft 4 is supported. http://json-schema.org/specification-links.html#draft-4\r\n"
     },
     {
       "name": "ListItem",
@@ -63210,7 +63210,7 @@
     },
     {
       "name": "Transfer",
-      "description": "Endpoints to work with transfers.\r\n\r\nNote: These endpoints are deprecated and will be removed in future release. Please use [Ingest](#tag/Ingest) endpoints for new projects and consider switching existing code to use Ingest endpoints as well.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
+      "description": "Endpoints to work with transfers.\r\n\r\nNote: These endpoints are deprecated and will be removed in future release. Please use [Ingest](#tag/Ingest) endpoints for new projects and consider switching existing code to use Ingest endpoints as well.\r\n\r\nTo import a set of files into Fotoware Alto:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "UserRole",
@@ -63218,7 +63218,7 @@
     },
     {
       "name": "User",
-      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n- AuthorizationState.Reviewed: User is allowed to log in\r\n- AuthorizationState.ToBeReviewed: User cannot access Picturepark, needs to be invited or reviewed first\r\n- AuthorizationState.Invited: User did not log in since last invitation\r\n- AuthorizationState.UserTriggeredDeactivation: User requested deactivation of account\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
+      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n- AuthorizationState.Reviewed: User is allowed to log in\r\n- AuthorizationState.ToBeReviewed: User cannot access Fotoware Alto, needs to be invited or reviewed first\r\n- AuthorizationState.Invited: User did not log in since last invitation\r\n- AuthorizationState.UserTriggeredDeactivation: User requested deactivation of account\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
     },
     {
       "name": "XmpMapping",

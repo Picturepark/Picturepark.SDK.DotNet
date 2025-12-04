@@ -2,7 +2,7 @@
   <Import Project="..\common.props" />
 
   <PropertyGroup>
-    <Description>Picturepark .NET SDK CloudManager: Manage Picturepark backend instances.</Description>
+    <Description>Fotoware Alto .NET SDK CloudManager: Manage Fotoware Alto backend instances.</Description>
     <AssemblyTitle>Picturepark.SDK.V1.CloudManager</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

@@ -15640,7 +15640,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial class User
     {
         /// <summary>
-        /// User's Picturepark ID.
+        /// User's Fotoware Alto ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20336,7 +20336,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
 
         /// <summary>
-        /// User's Picturepark ID.
+        /// User's Fotoware Alto ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20384,7 +20384,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool IsLocked { get; set; }
 
         /// <summary>
-        /// A support user is a user created for Picturepark support personnel.
+        /// A support user is a user created for Fotoware support personnel.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSupportUser { get; set; }

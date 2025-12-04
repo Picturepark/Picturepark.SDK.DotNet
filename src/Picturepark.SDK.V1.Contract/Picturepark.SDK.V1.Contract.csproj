@@ -2,7 +2,7 @@
   <Import Project="..\common.props" />
 
   <PropertyGroup>
-    <Description>Picturepark .NET SDK Contracts: The SDK's contracts (DTOs and client interfaces).</Description>
+    <Description>Fotoware Alto .NET SDK Contracts: The SDK's contracts (DTOs and client interfaces).</Description>
     <AssemblyTitle>Picturepark.SDK.V1.Contract</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

@@ -37,8 +37,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ITransferClient
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 7
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3652
@@ -150,8 +150,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3668
@@ -223,8 +223,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DeleteAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3687
@@ -297,8 +297,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3710
@@ -381,8 +381,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PartialImportAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3735
@@ -469,8 +469,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CancelAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3755
@@ -546,8 +546,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3771
@@ -616,8 +616,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetFileAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3787
@@ -689,8 +689,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchFilesAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3803
@@ -759,8 +759,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DeleteFilesAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3818
@@ -828,8 +828,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetBlacklistAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3841
@@ -907,8 +907,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 3873
@@ -1014,8 +1014,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchFilesByTransferIdAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 13
@@ -1065,8 +1065,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFilesAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 23
@@ -1125,8 +1125,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFilesAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 33
@@ -1185,8 +1185,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportAndWaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 42
@@ -1239,8 +1239,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAndWaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 50
@@ -1290,8 +1290,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAndWaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 60
@@ -1350,8 +1350,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CancelTransferAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 77
@@ -1419,8 +1419,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportTransferAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 90
@@ -1491,8 +1491,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 108
@@ -1578,8 +1578,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/ITransferClient.cs
     startLine: 134

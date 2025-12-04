@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: EventArgsLiveStreamMessage
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 7
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Created
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 9
@@ -88,8 +88,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Received
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 11
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Message
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 13
@@ -146,8 +146,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Channel
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 15
@@ -175,8 +175,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Tag
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 17
@@ -204,8 +204,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Ack
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 19
@@ -232,8 +232,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Nack
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/EventArgsLiveStreamMessage.cs
     startLine: 24
