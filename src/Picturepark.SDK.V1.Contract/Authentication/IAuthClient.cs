@@ -6,7 +6,7 @@ namespace Picturepark.SDK.V1.Contract.Authentication
     /// <summary>Retrieves access tokens for authentication.</summary>
     public interface IAuthClient
     {
-        /// <summary>Gets the server URL of the Picturepark authentication server.</summary>
+        /// <summary>Gets the server URL of the Fotoware Alto authentication server.</summary>
         string BaseUrl { get; }
 
         /// <summary>Gets the customer alias.</summary>

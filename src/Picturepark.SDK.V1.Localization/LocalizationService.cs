@@ -14,7 +14,7 @@ using Template = DotLiquid.Template;
 
 namespace Picturepark.SDK.V1.Localization
 {
-    /// <summary>Provides methods to translate texts from the Picturepark backend.</summary>
+    /// <summary>Provides methods to translate texts from the Fotoware Alto backend.</summary>
     public class LocalizationService
     {
         private const string CatalogName = "picturepark";

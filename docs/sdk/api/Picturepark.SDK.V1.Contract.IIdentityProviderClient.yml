@@ -20,8 +20,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IIdentityProviderClient
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 1679
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAllAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 1698
@@ -117,8 +117,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAllBasicInfosAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 1715
@@ -175,8 +175,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 1730
@@ -196,7 +196,7 @@ items:
       description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
     return:
       type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
-      description: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+      description: Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration
     content.vb: Function GetAsync(id As String, cancellationToken As CancellationToken = Nothing) As Task(Of IdentityProvider)
   overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.GetAsync*
   exceptions:
@@ -238,8 +238,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 1749
@@ -263,7 +263,7 @@ items:
       description: A cancellation token that can be used by other objects or threads to receive notice of cancellation.
     return:
       type: System.Threading.Tasks.Task{Picturepark.SDK.V1.Contract.IdentityProvider}
-      description: Represents an identity provider defined in IdentityServer and its Picturepark configuration
+      description: Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration
     content.vb: Function UpdateAsync(id As String, provider As IdentityProviderEditable, cancellationToken As CancellationToken = Nothing) As Task(Of IdentityProvider)
   overload: Picturepark.SDK.V1.Contract.IIdentityProviderClient.UpdateAsync*
   exceptions:
@@ -305,8 +305,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSynchronizableAttributesAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 1766

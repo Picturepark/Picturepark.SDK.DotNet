@@ -18,15 +18,15 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ICloudManagerServiceSettings
     path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
     startLine: 6
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager
-  summary: The Picturepark service settings interface.
+  summary: The Fotoware Alto service settings interface.
   example: []
   syntax:
     content: public interface ICloudManagerServiceSettings
@@ -45,15 +45,15 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
     startLine: 9
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager
-  summary: Gets the server URL of the Picturepark authentication server.
+  summary: Gets the server URL of the Fotoware Alto authentication server.
   example: []
   syntax:
     content: string BaseUrl { get; }
@@ -76,8 +76,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: HttpTimeout
     path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
     startLine: 12
@@ -107,8 +107,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: AuthClient
     path: ../../src/Picturepark.SDK.V1.CloudManager/ICloudManagerServiceSettings.cs
     startLine: 15

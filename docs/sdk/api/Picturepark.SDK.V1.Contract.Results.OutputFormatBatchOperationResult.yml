@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OutputFormatBatchOperationResult
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
     startLine: 5
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
     startLine: 9
@@ -97,8 +97,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Empty
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
     startLine: 22
@@ -126,8 +126,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FetchDetail
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatBatchOperationResult.cs
     startLine: 24

@@ -19938,7 +19938,7 @@ namespace Picturepark.SDK.V1
         /// Get identity provider
         /// </summary>
         /// <param name="id">Identity provider ID.</param>
-        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -20119,7 +20119,7 @@ namespace Picturepark.SDK.V1
         /// </remarks>
         /// <param name="id">Identity provider ID.</param>
         /// <param name="provider">Update request</param>
-        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Fotoware Alto configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
