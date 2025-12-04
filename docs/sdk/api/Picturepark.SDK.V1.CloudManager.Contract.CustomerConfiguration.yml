@@ -110,8 +110,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CustomerConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19593
@@ -159,8 +159,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Id
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19596
@@ -207,8 +207,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LifelineId
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19599
@@ -255,8 +255,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Namespace
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19602
@@ -303,8 +303,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Alias
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19605
@@ -351,8 +351,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Name
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19608
@@ -399,8 +399,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MainCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19611
@@ -447,8 +447,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UserCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19614
@@ -495,8 +495,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MailCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19617
@@ -543,8 +543,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TransferCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19620
@@ -591,8 +591,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ShareCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19623
@@ -639,8 +639,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OutputCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19626
@@ -687,8 +687,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OutputFormatCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19629
@@ -735,8 +735,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ChannelCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19632
@@ -783,8 +783,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: NotificationCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19635
@@ -831,8 +831,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessProcessCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19638
@@ -879,8 +879,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ListItemCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19641
@@ -927,8 +927,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContentCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19644
@@ -975,8 +975,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DisplayValueCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19647
@@ -1023,8 +1023,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TokenCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19650
@@ -1071,8 +1071,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DocumentHistoryCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19653
@@ -1119,8 +1119,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DocumentHistorySteadyCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19656
@@ -1167,8 +1167,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LiveStreamCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19659
@@ -1215,8 +1215,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CacheCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19662
@@ -1263,8 +1263,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SchemaCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19665
@@ -1311,8 +1311,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReferenceCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19668
@@ -1359,8 +1359,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: StatisticsCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19671
@@ -1407,8 +1407,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessRuleCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19674
@@ -1455,8 +1455,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MetadataItemCollectionCatalog
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19677
@@ -1503,8 +1503,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContractVersion
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19680
@@ -1551,8 +1551,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: HostConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19683
@@ -1599,8 +1599,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UseSsl
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19686
@@ -1654,8 +1654,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: EnableQueryDetails
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19690
@@ -1699,8 +1699,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ServiceProviders
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19693
@@ -1747,8 +1747,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SupportContactEmailAddress
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19696
@@ -1795,8 +1795,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19699
@@ -1843,8 +1843,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContentDeliveryBaseUrl
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19702
@@ -1891,8 +1891,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CdnConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19705
@@ -1939,8 +1939,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TaggingConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19708
@@ -1987,8 +1987,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ElasticSearchNumberOfShards
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19711
@@ -2032,8 +2032,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ElasticSearchNumberOfReplicas
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19714
@@ -2077,8 +2077,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ElasticSearchNumberOfRoutingShards
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19717
@@ -2122,8 +2122,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RootContentSearchIndexNumberOfShards
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19720
@@ -2167,8 +2167,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RootContentSearchIndexNumberOfReplicas
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19723
@@ -2212,8 +2212,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RootContentSearchIndexNumberOfRoutingShards
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19726
@@ -2257,8 +2257,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RootListItemSearchIndexNumberOfShards
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19729
@@ -2302,8 +2302,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RootListItemSearchIndexNumberOfReplicas
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19732
@@ -2347,8 +2347,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RootListItemSearchIndexNumberOfRoutingShards
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19735
@@ -2392,8 +2392,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IndexedFieldThreshold
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19738
@@ -2437,8 +2437,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SortableFieldThreshold
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19741
@@ -2482,8 +2482,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CorsAllowedHosts
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19744
@@ -2530,8 +2530,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: NoReplyEmailAddress
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19747
@@ -2578,8 +2578,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OwnerEmailAddress
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19750
@@ -2626,8 +2626,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadWriteUserExcludedEmailAddressRegexes
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19753
@@ -2674,8 +2674,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LanguageConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19756
@@ -2722,8 +2722,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RedisDatabaseIndex
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19759
@@ -2767,8 +2767,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LifeCycle
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19762
@@ -2832,8 +2832,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SnapshotEnabled
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19767
@@ -2877,8 +2877,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SnapshotRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19770
@@ -2933,8 +2933,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SnapshotFullbackupScheduleTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19774
@@ -2989,8 +2989,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContentRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19778
@@ -3045,8 +3045,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ListItemRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19782
@@ -3101,8 +3101,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UserRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19786
@@ -3157,8 +3157,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OwnerTokenRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19790
@@ -3213,8 +3213,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RollingIndexCreationScheduleTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19794
@@ -3269,8 +3269,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DocumentHistoryRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19798
@@ -3325,8 +3325,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LiveStreamRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19802
@@ -3381,8 +3381,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SuccessfulTransferRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19806
@@ -3437,8 +3437,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IncompleteTransferRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19810
@@ -3493,8 +3493,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReplacedOriginalsRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19814
@@ -3549,8 +3549,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportCollectionRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19818
@@ -3605,8 +3605,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: EditCollectionRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19822
@@ -3661,8 +3661,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: NotificationEventCollectionRetentionTime
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19826
@@ -3717,8 +3717,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DeactivationMessage
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19830
@@ -3765,8 +3765,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ServiceAdminUserId
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19833
@@ -3813,8 +3813,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContentBackupState
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19836
@@ -3879,8 +3879,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ApiLimits
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19841
@@ -3927,8 +3927,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ApiClientLimits
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19844
@@ -3975,8 +3975,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DefaultContentPermissionSetIds
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19847
@@ -4023,8 +4023,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BoostValues
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19850
@@ -4071,8 +4071,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: EnableSupportUserRegistrationEmailNotification
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19853
@@ -4116,8 +4116,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: EnableSupportUserRegistrationNotification
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19856
@@ -4161,8 +4161,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IsClone
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19859
@@ -4206,8 +4206,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DefaultUserRoleId
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19862
@@ -4254,8 +4254,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SkipSignUpCaptcha
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19865
@@ -4299,8 +4299,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LicenseInformation
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19868
@@ -4347,8 +4347,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ActivityMapping
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19871
@@ -4395,8 +4395,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IdsAccentColor
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19874
@@ -4443,8 +4443,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BffDevMode
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19877
@@ -4488,8 +4488,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: StorageSiloName
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19880
@@ -4536,8 +4536,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DisableIdsRegisterLink
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19883
@@ -4581,8 +4581,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: AnonymousUserExternalId
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19886
@@ -4629,8 +4629,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: AnonymousUserRoleId
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19889
@@ -4677,8 +4677,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ElasticSearchMultiTermQueryRewrite
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19892
@@ -4725,8 +4725,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19895
@@ -4753,8 +4753,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 19901

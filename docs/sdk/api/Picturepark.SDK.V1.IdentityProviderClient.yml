@@ -24,8 +24,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IdentityProviderClient
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 19558
@@ -79,8 +79,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 19564
@@ -113,8 +113,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: JsonSerializerSettings
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 19577
@@ -142,8 +142,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAllAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 19600
@@ -202,8 +202,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAllBasicInfosAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 19775
@@ -262,8 +262,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 19948
@@ -327,8 +327,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 20129
@@ -396,8 +396,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSynchronizableAttributesAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 20315
@@ -456,8 +456,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadResponseAsString
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 20488
@@ -485,8 +485,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadObjectResponseAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
     startLine: 20490

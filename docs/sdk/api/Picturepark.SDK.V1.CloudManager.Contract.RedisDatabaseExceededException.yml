@@ -22,8 +22,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RedisDatabaseExceededException
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5768
@@ -99,8 +99,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CustomerId
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5772
@@ -147,8 +147,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CustomerCount
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5775
@@ -195,8 +195,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MaxCount
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5778
@@ -243,8 +243,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: StartIndex
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5781
@@ -291,8 +291,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RedisDatabaseCount
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5784
@@ -339,8 +339,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5787
@@ -367,8 +367,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
     startLine: 5793

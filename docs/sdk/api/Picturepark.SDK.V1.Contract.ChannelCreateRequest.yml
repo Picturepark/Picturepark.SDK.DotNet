@@ -29,8 +29,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ChannelCreateRequest
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21864
@@ -78,8 +78,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Id
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21870
@@ -128,8 +128,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Sort
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21876
@@ -178,8 +178,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SortOrder
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21882
@@ -225,8 +225,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SortFields
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21888
@@ -279,8 +279,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Names
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21895
@@ -333,8 +333,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchIndexId
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21902
@@ -383,8 +383,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GrantedUserRoleIds
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21908
@@ -433,8 +433,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Aggregations
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21914
@@ -483,8 +483,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Filter
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21920
@@ -533,8 +533,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ExtendedSimpleSearchFields
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21926
@@ -583,8 +583,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MissingResultsDisplayPatterns
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21932
@@ -633,8 +633,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ViewForAll
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21938
@@ -680,8 +680,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21941
@@ -708,8 +708,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
     startLine: 21947
