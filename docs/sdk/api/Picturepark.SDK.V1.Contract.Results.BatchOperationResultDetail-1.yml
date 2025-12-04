@@ -19,8 +19,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BatchOperationResultDetail
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
     startLine: 7
@@ -59,8 +59,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SucceededItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
     startLine: 22
@@ -93,8 +93,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FailedItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
     startLine: 24
@@ -124,8 +124,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SucceededIds
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
     startLine: 26
@@ -155,8 +155,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FailedIds
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationResultDetail.cs
     startLine: 28

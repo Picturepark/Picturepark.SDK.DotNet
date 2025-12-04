@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LiveStreamConsumer
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 8
@@ -53,8 +53,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 13
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Received
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 19
@@ -114,8 +114,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OnReceived
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Buffer/LiveStreamConsumer.cs
     startLine: 21
