@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/TriggerObject.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TriggerObject
     path: ../../src/Picturepark.SDK.V1.Contract/TriggerObject.cs
     startLine: 5
@@ -54,8 +54,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/TriggerObject.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Trigger
     path: ../../src/Picturepark.SDK.V1.Contract/TriggerObject.cs
     startLine: 7
@@ -102,8 +102,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/TriggerObject.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TriggeredOn
     path: ../../src/Picturepark.SDK.V1.Contract/TriggerObject.cs
     startLine: 10
@@ -150,8 +150,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/TriggerObject.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TriggeredBy
     path: ../../src/Picturepark.SDK.V1.Contract/TriggerObject.cs
     startLine: 13
