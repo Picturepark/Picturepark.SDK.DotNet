@@ -18,8 +18,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ServiceProviderClient
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
     startLine: 15
@@ -55,8 +55,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
     startLine: 30
@@ -87,8 +87,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DisposeAsync
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
     startLine: 40
@@ -122,8 +122,8 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
-      branch: 11.15.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet
+      branch: 11.16.x
+      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetLiveStreamObserver
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/ServiceProviderClient.cs
     startLine: 48
