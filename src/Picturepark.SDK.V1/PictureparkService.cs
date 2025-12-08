@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
-using Picturepark.SDK.V1.Compatibility;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Partial;
 
@@ -130,7 +129,7 @@ public class PictureparkService : IPictureparkService
         BusinessRule = new BusinessRuleClient(settings, httpClient);
         OutputFormat = new OutputFormatClient(BusinessProcess, settings, httpClient);
         DisplayValue = new DisplayValueClient(settings, httpClient);
-        Metadata = new Cp1113BackwardsCompatibleMetadataClient(new MetadataClient(settings, httpClient));
+        Metadata = new MetadataClient(settings, httpClient);
         IdentityProvider = new IdentityProviderClient(settings, httpClient);
         XmpMapping = new XmpMappingClient(settings, httpClient);
         Notification = new NotificationClient(settings, httpClient);
