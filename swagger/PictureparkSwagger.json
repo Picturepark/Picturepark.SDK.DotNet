@@ -38909,6 +38909,17 @@
           }
         ]
       },
+      "BusinessRuleShareNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
         "allOf": [
           {
@@ -43107,7 +43118,8 @@
             "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction",
             "GetNumberFromNumberSequenceAction": "#/components/schemas/GetNumberFromNumberSequenceAction",
             "EnqueueTransferOwnershipAction": "#/components/schemas/EnqueueTransferOwnershipAction",
-            "EnqueueCreateEmbedAction": "#/components/schemas/EnqueueCreateEmbedAction"
+            "EnqueueCreateEmbedAction": "#/components/schemas/EnqueueCreateEmbedAction",
+            "EnqueueShareContentAction": "#/components/schemas/EnqueueShareContentAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -43751,6 +43763,39 @@
                 "type": "string",
                 "description": "Optional variable name to store in the url of the embed that will be created.",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "EnqueueShareContentAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Enqueue sharing of a content item",
+            "additionalProperties": false,
+            "properties": {
+              "shareName": {
+                "type": "string",
+                "description": "Name of the share where content will be added. If a share with the same name already exists, content will be added to that share. Otherwise, a new share will be created with this name if AllowShareCreation is enabled. The new share name will get a number at the end.",
+                "nullable": true
+              },
+              "outputFormatIds": {
+                "description": "Output format IDs that will be added to the share. Can be a single string (e.g., \"Original\") or an array of strings (e.g., [\"Original\", \"Preview\"]).\nCommon output formats include: Original, Preview, ThumbnailSmall, ThumbnailMedium, ThumbnailLarge, Pdf.",
+                "nullable": true
+              },
+              "maxContentInShare": {
+                "type": "integer",
+                "description": "Maximum number of content items allowed in a single share. Cannot exceed 970 (if a higher value is specified, it will be set to 970). When a share reaches this limit, new content will be added to a new share if AllowShareCreation is enabled.",
+                "format": "int32",
+                "nullable": true
+              },
+              "allowShareCreation": {
+                "type": "boolean",
+                "description": "If enabled, new shares will be created when all existing shares with the same name have reached MaxContentInShare. If disabled, content will be skipped when no share with available space exists."
               }
             }
           }

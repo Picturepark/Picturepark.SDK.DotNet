@@ -21602,6 +21602,17 @@
           }
         ]
       },
+      "BusinessRuleShareNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
         "allOf": [
           {
