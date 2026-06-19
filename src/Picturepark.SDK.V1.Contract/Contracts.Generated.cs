@@ -5630,6 +5630,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleScheduleInvalidCronExpressionException", typeof(BusinessRuleScheduleInvalidCronExpressionException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleFilterMissingException", typeof(BusinessRuleScheduleFilterMissingException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleRulesMissingException", typeof(BusinessRuleScheduleRulesMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleShareNameMissingException", typeof(BusinessRuleShareNameMissingException))]
     [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
@@ -14616,6 +14617,26 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleShareNameMissingException : PictureparkValidationException
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessRuleShareNameMissingException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleShareNameMissingException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessRuleStringContainsConditionValuesToMatchMissingException : PictureparkValidationException
     {
 
@@ -19926,6 +19947,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("GetNumberFromNumberSequenceAction", typeof(GetNumberFromNumberSequenceAction))]
     [JsonInheritanceAttribute("EnqueueTransferOwnershipAction", typeof(EnqueueTransferOwnershipAction))]
     [JsonInheritanceAttribute("EnqueueCreateEmbedAction", typeof(EnqueueCreateEmbedAction))]
+    [JsonInheritanceAttribute("EnqueueShareContentAction", typeof(EnqueueShareContentAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class BusinessRuleAction
     {
@@ -20770,6 +20792,52 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueCreateEmbedAction>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Enqueue sharing of a content item
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class EnqueueShareContentAction : BusinessRuleAction
+    {
+        /// <summary>
+        /// Name of the share where content will be added. If a share with the same name already exists, content will be added to that share. Otherwise, a new share will be created with this name if AllowShareCreation is enabled. The new share name will get a number at the end.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("shareName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareName { get; set; }
+
+        /// <summary>
+        /// Output format IDs that will be added to the share. Can be a single string (e.g., "Original") or an array of strings (e.g., ["Original", "Preview"]).
+        /// <br/>Common output formats include: Original, Preview, ThumbnailSmall, ThumbnailMedium, ThumbnailLarge, Pdf.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object OutputFormatIds { get; set; }
+
+        /// <summary>
+        /// Maximum number of content items allowed in a single share. Cannot exceed 970 (if a higher value is specified, it will be set to 970). When a share reaches this limit, new content will be added to a new share if AllowShareCreation is enabled.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("maxContentInShare", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxContentInShare { get; set; }
+
+        /// <summary>
+        /// If enabled, new shares will be created when all existing shares with the same name have reached MaxContentInShare. If disabled, content will be skipped when no share with available space exists.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("allowShareCreation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool AllowShareCreation { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static EnqueueShareContentAction FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueShareContentAction>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
