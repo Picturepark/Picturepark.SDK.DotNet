@@ -24832,11 +24832,7 @@
           },
           "certificateConfiguration": {
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/HostCertificateConfiguration"
-              }
-            ]
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
           }
         }
       },
@@ -27453,10 +27449,12 @@
             "properties": {
               "x": {
                 "type": "integer",
+                "description": "X-Coordinate of top left point of the cropping rectangle.",
                 "format": "int32"
               },
               "y": {
                 "type": "integer",
+                "description": "Y-Coordinate of top left point of the cropping rectangle.",
                 "format": "int32"
               }
             }
@@ -27475,10 +27473,12 @@
             "properties": {
               "height": {
                 "type": "integer",
+                "description": "Height of the cropping rectangle.",
                 "format": "int32"
               },
               "width": {
                 "type": "integer",
+                "description": "Width of the cropping rectangle.",
                 "format": "int32"
               }
             }
@@ -27496,7 +27496,12 @@
             "additionalProperties": false,
             "properties": {
               "gravity": {
-                "$ref": "#/components/schemas/CropGravity"
+                "description": "Gravity of the cropping rectangle.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropGravity"
+                  }
+                ]
               }
             }
           }
@@ -27514,10 +27519,12 @@
             "properties": {
               "x": {
                 "type": "number",
+                "description": "Relative horizontal position of center for crop. 0.5 designates the center of the image.",
                 "format": "float"
               },
               "y": {
                 "type": "number",
+                "description": "Relative vertical position of center for crop. 0.5 designates the center of the image.",
                 "format": "float"
               }
             }
@@ -30133,11 +30140,7 @@
             "properties": {
               "function": {
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueuePriorityMathFunctionAndArguments"
-                  }
-                ]
+                "$ref": "#/components/schemas/QueuePriorityMathFunctionAndArguments"
               }
             }
           }
@@ -31179,10 +31182,6 @@
           }
         }
       },
-      "DataDictionary": {
-        "type": "object",
-        "additionalProperties": {}
-      },
       "LiveStreamMessage": {
         "allOf": [
           {
@@ -31994,10 +31993,6 @@
       "TupleOfStringAndString": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "item1",
-          "item2"
-        ],
         "properties": {
           "item1": {
             "type": "string",
@@ -32688,6 +32683,10 @@
             "additionalProperties": false
           }
         ]
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
       }
     }
   }
