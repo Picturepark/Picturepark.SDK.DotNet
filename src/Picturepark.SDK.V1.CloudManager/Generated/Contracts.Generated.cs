@@ -16766,6 +16766,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("customerUserAndRoleAdministratorSupportEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerUserAndRoleAdministratorSupportEmail { get; set; }
+
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
 
@@ -19718,6 +19721,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("customerUserAndRoleAdministratorSupportEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerUserAndRoleAdministratorSupportEmail { get; set; }
+
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
 
@@ -20146,6 +20152,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("customerUserAndRoleAdministratorSupportEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerUserAndRoleAdministratorSupportEmail { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ownerEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerEmailAddress { get; set; }
