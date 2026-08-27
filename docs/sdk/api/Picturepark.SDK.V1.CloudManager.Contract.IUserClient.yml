@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IUserClient
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetUserDeveloperFlagAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateUserDeveloperFlagAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAnonymousUserAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -251,7 +251,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FindByExternalIdsAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs

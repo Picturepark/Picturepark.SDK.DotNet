@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BatchOperationWithRequestIdResultDetail
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SucceededItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FailedItems
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SucceededIds
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FailedIds
     path: ../../src/Picturepark.SDK.V1.Contract/Results/BatchOperationWithRequestIdResultDetail.cs

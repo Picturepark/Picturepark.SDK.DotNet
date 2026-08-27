@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IngestClientExtensions
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadAndImportFilesAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadAndImportFilesAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -182,7 +182,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFilesAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -231,7 +231,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFilesAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -280,7 +280,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -326,7 +326,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadFileAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -369,7 +369,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportFilesAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -427,7 +427,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportFilesAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
@@ -482,7 +482,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ImportFromUrlsAsync
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestClientExtensions.cs

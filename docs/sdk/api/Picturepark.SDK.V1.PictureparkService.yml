@@ -46,11 +46,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkService
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -84,11 +84,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 17
+    startLine: 16
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -122,11 +122,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Schema
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 31
+    startLine: 30
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -154,11 +154,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Content
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 33
+    startLine: 32
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -186,11 +186,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Output
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 35
+    startLine: 34
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -218,11 +218,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OutputFormat
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 37
+    startLine: 36
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -250,11 +250,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessProcess
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -282,11 +282,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DocumentHistory
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 41
+    startLine: 40
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -314,11 +314,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: JsonSchema
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 43
+    startLine: 42
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -346,11 +346,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ListItem
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 45
+    startLine: 44
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -378,11 +378,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LiveStream
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 47
+    startLine: 46
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -410,11 +410,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContentPermissionSet
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 49
+    startLine: 48
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -442,11 +442,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SchemaPermissionSet
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 51
+    startLine: 50
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -474,11 +474,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Share
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 53
+    startLine: 52
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -506,11 +506,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Transfer
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 55
+    startLine: 54
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -550,11 +550,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: User
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 58
+    startLine: 57
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -582,11 +582,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UserRole
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 60
+    startLine: 59
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -614,11 +614,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Profile
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 62
+    startLine: 61
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -646,11 +646,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SchemaTransfer
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 64
+    startLine: 63
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -678,11 +678,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Info
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 66
+    startLine: 65
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -710,11 +710,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Channel
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 68
+    startLine: 67
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -742,11 +742,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessRule
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 70
+    startLine: 69
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -774,11 +774,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DisplayValue
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 72
+    startLine: 71
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -806,11 +806,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Metadata
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 74
+    startLine: 73
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -838,11 +838,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IdentityProvider
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 76
+    startLine: 75
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -870,11 +870,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: XmpMapping
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 78
+    startLine: 77
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -902,11 +902,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Notification
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 80
+    startLine: 79
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -934,11 +934,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Template
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 82
+    startLine: 81
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -966,11 +966,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Statistics
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 84
+    startLine: 83
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -998,11 +998,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ConversionPresetTemplate
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 86
+    startLine: 85
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -1030,11 +1030,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Ingest
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 88
+    startLine: 87
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1
@@ -1062,11 +1062,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/PictureparkService.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Dispose
     path: ../../src/Picturepark.SDK.V1/PictureparkService.cs
-    startLine: 90
+    startLine: 89
   assemblies:
   - Picturepark.SDK.V1
   namespace: Picturepark.SDK.V1

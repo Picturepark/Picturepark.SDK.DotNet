@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObject.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReferenceObject
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObject.cs
@@ -68,7 +68,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObject.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RefId
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObject.cs
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/ReferenceObject.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RefRequestId
     path: ../../src/Picturepark.SDK.V1.Contract/ReferenceObject.cs
