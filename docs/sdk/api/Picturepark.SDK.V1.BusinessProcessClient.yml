@@ -35,7 +35,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessProcessClient
     path: ../../src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: JsonSerializerSettings
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -153,7 +153,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -280,7 +280,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ChangeStateAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -349,7 +349,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateNotificationAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -417,7 +417,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CancelAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -482,7 +482,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForStatesCoreAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -552,7 +552,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForLifeCyclesCoreAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -622,7 +622,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForCompletionCoreAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -703,7 +703,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetDetailsAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -779,7 +779,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSummaryAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -849,7 +849,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSuccessfulItemsAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -923,7 +923,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetFailedItemsAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -997,7 +997,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1060,7 +1060,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadResponseAsString
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1089,7 +1089,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadObjectResponseAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1129,7 +1129,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForLifeCyclesAsync
     path: ../../src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
@@ -1185,7 +1185,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForStatesAsync
     path: ../../src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
@@ -1241,7 +1241,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForCompletionAsync
     path: ../../src/Picturepark.SDK.V1/Partial/BusinessProcessClient.cs

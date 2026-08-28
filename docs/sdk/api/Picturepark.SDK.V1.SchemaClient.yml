@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SchemaClient
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -105,7 +105,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -139,7 +139,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: JsonSerializerSettings
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -168,7 +168,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -237,7 +237,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -323,7 +323,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DeleteAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -406,7 +406,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ExistsCoreAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -470,7 +470,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FieldExistsAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -542,7 +542,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetReferencedAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -614,7 +614,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TransferOwnershipAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -688,7 +688,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -765,7 +765,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetManyAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -837,7 +837,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateManyCoreAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -907,7 +907,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateManyCoreAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -974,7 +974,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetManyReferencedAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1042,7 +1042,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TransferOwnershipManyAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1108,7 +1108,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1171,7 +1171,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAggregationFieldsAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1236,7 +1236,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAggregationFieldsManyAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1301,7 +1301,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetFilterFieldsAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1366,7 +1366,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetFilterFieldsManyAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1431,7 +1431,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSortFieldsBySchemaTypesAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1496,7 +1496,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadResponseAsString
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1525,7 +1525,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ReadObjectResponseAsync
     path: ../../src/Picturepark.SDK.V1/Generated/Clients.Generated.cs
@@ -1565,7 +1565,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1603,7 +1603,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GenerateSchemasAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1653,7 +1653,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateOrUpdateAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1702,7 +1702,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1751,7 +1751,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateManyAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1800,7 +1800,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateManyAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1843,7 +1843,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1890,7 +1890,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1943,7 +1943,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateManyAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -1986,7 +1986,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateManyAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -2035,7 +2035,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ExistsAsync
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs
@@ -2082,7 +2082,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Partial/SchemaClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: WaitForBusinessProcessAndReturnResult
     path: ../../src/Picturepark.SDK.V1/Partial/SchemaClient.cs

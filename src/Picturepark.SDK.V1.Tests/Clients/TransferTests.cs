@@ -350,7 +350,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var urls = new[]
             {
-                "https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png"
+                "https://demo.picturepark.com/v/7rpkgGab"
             };
 
             var createTransferResult = await CreateWebTransferAsync(urls);

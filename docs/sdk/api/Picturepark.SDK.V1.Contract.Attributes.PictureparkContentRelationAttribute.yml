@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkContentRelationAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
@@ -144,7 +144,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
@@ -178,7 +178,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
@@ -210,7 +210,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TargetDocType
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
@@ -239,7 +239,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Filter
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
@@ -268,7 +268,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Name
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkContentRelationAttribute.cs

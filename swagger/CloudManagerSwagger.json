@@ -21602,6 +21602,17 @@
           }
         ]
       },
+      "BusinessRuleShareNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
         "allOf": [
           {
@@ -25941,6 +25952,10 @@
             "type": "string",
             "nullable": true
           },
+          "customerUserAndRoleAdministratorSupportEmail": {
+            "type": "string",
+            "nullable": true
+          },
           "ownerEmailAddress": {
             "type": "string",
             "nullable": true
@@ -28490,6 +28505,10 @@
             "type": "string",
             "nullable": true
           },
+          "customerUserAndRoleAdministratorSupportEmail": {
+            "type": "string",
+            "nullable": true
+          },
           "baseUrl": {
             "type": "string",
             "nullable": true
@@ -29005,6 +29024,10 @@
             "nullable": true
           },
           "supportContactEmailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerUserAndRoleAdministratorSupportEmail": {
             "type": "string",
             "nullable": true
           },

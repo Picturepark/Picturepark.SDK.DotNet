@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkStringAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkStringAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkStringAttribute.cs
@@ -106,7 +106,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkStringAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MultiLine
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkStringAttribute.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkStringAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: RenderingType
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkStringAttribute.cs

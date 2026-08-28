@@ -163,6 +163,7 @@ items:
   - Picturepark.SDK.V1.Contract.BusinessRuleScheduleRulesMissingException
   - Picturepark.SDK.V1.Contract.BusinessRuleSchemaIdInvalidException
   - Picturepark.SDK.V1.Contract.BusinessRuleScript
+  - Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
   - Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   - Picturepark.SDK.V1.Contract.BusinessRuleTraceLog
   - Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchRequest
@@ -416,6 +417,7 @@ items:
   - Picturepark.SDK.V1.Contract.EmbedContent
   - Picturepark.SDK.V1.Contract.EmbedMultiDownloadException
   - Picturepark.SDK.V1.Contract.EnqueueCreateEmbedAction
+  - Picturepark.SDK.V1.Contract.EnqueueShareContentAction
   - Picturepark.SDK.V1.Contract.EnqueueTaggingAction
   - Picturepark.SDK.V1.Contract.EnqueueTransferOwnershipAction
   - Picturepark.SDK.V1.Contract.EnvironmentDeactivationException
@@ -4234,6 +4236,13 @@ references:
   name: BusinessRuleScheduleRulesMissingException
   nameWithType: BusinessRuleScheduleRulesMissingException
   fullName: Picturepark.SDK.V1.Contract.BusinessRuleScheduleRulesMissingException
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html
+  name: BusinessRuleShareNameMissingException
+  nameWithType: BusinessRuleShareNameMissingException
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
 - uid: Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   parent: Picturepark.SDK.V1.Contract
@@ -5655,6 +5664,13 @@ references:
   name: EnqueueCreateEmbedAction
   nameWithType: EnqueueCreateEmbedAction
   fullName: Picturepark.SDK.V1.Contract.EnqueueCreateEmbedAction
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction
+  commentId: T:Picturepark.SDK.V1.Contract.EnqueueShareContentAction
+  parent: Picturepark.SDK.V1.Contract
+  href: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html
+  name: EnqueueShareContentAction
+  nameWithType: EnqueueShareContentAction
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction
 - uid: Picturepark.SDK.V1.Contract.BusinessRuleScript
   commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleScript
   parent: Picturepark.SDK.V1.Contract

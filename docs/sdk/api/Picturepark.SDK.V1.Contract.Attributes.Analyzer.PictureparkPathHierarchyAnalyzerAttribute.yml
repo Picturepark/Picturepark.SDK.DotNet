@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkPathHierarchyAnalyzerAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkPathHierarchyAnalyzerAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkPathHierarchyAnalyzerAttribute.cs
@@ -108,7 +108,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkPathHierarchyAnalyzerAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAnalyzer
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/Analyzer/PictureparkPathHierarchyAnalyzerAttribute.cs

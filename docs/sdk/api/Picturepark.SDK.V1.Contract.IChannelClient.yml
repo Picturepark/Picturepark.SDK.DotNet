@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IChannelClient
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAllAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CreateAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -182,7 +182,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -246,7 +246,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -313,7 +313,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DeleteAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -377,7 +377,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAggregationFieldsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -434,7 +434,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSortFieldsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -491,7 +491,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetFilterFieldsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -548,7 +548,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetChannelsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/IChannelClient.cs
