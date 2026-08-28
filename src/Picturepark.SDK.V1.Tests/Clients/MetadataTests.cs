@@ -50,7 +50,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var metadataStatus = await _client.Metadata.GetStatusAsync();
             metadataStatus.State.Should().Be(MetadataState.Outdated);
             metadataStatus.MainDocuments.ContentOrLayerSchemaIds.Should().Contain(schemaId);
-            metadataStatus.ContentOrLayerSchemaIds.Should().Contain(schemaId);
             metadataStatus.FieldIdsToCleanup.Should().ContainKey(schemaId.ToLowerCamelCase());
             metadataStatus.FieldIdsToCleanup[schemaId.ToLowerCamelCase()].Should().Contain("name");
 
@@ -65,7 +64,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             metadataStatus = await _client.Metadata.GetStatusAsync();
             metadataStatus.State.Should().Be(MetadataState.UpToDate);
             metadataStatus.MainDocuments.ContentOrLayerSchemaIds.Should().NotContain(schemaId);
-            metadataStatus.ContentOrLayerSchemaIds.Should().NotContain(schemaId);
             metadataStatus.FieldIdsToCleanup.Should().NotContainKey(schemaId.ToLower());
         }
 

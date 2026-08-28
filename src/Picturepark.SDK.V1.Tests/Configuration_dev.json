@@ -1,7 +1,7 @@
 ﻿{
-	"Server": "",
-	"CustomerAlias": "",
-	"AccessToken": "",
+	"Server": "http://localhost:8085",
+	"CustomerAlias": "YourCustomerAlias",
+	"AccessToken": "Create-Token-In-API-Clients-Menu",
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",

@@ -207,7 +207,7 @@ public class IngestTests : IClassFixture<ClientFixture>
     public async Task Should_import_urls()
     {
         // Arrange
-        const string url = "https://upload.wikimedia.org/wikipedia/commons/1/19/Atlantis_Kennedy_Space_Center_Visitor_Complex_2.jpg";
+        const string url = "https://demo.picturepark.com/v/7rpkgGab";
 
         // Act
         var result = await _fixture.Client.Ingest.ImportFromUrlsAsync(

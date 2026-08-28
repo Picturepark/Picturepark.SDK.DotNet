@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Configuration
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Port
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -118,7 +118,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Host
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -147,7 +147,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: User
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -176,7 +176,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Password
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -205,7 +205,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UseSsl
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -234,7 +234,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ServiceProviderId
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -263,7 +263,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: NodeId
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -304,7 +304,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SerializerSettings
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
@@ -333,7 +333,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DefaultQueuePriorityMax
     path: ../../src/Picturepark.SDK.V1.ServiceProvider/Common/Configuration.cs

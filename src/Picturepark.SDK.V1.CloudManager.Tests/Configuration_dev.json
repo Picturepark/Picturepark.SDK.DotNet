@@ -1,7 +1,7 @@
 ﻿{
-	"Server": "https://devnext-api.preview-picturepark.com",
-	"CustomerAlias": "",
-	"AccessToken": "",
+	"Server": "http://localhost:8083",
+    "CustomerAlias": "YourCustomerAlias",
+    "AccessToken": "Create-Token-In-API-Clients-Menu",
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",
