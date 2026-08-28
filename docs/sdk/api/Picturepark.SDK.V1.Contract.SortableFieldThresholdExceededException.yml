@@ -20,11 +20,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SortableFieldThresholdExceededException
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 10983
+    startLine: 10984
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -104,11 +104,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SchemaIds
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 10987
+    startLine: 10988
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -152,11 +152,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SortableFieldCount
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 10990
+    startLine: 10991
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -200,11 +200,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SortableFieldThreshold
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 10993
+    startLine: 10994
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -248,11 +248,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 10996
+    startLine: 10997
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -276,11 +276,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 11002
+    startLine: 11003
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

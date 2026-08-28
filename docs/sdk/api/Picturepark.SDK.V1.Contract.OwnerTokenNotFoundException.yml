@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OwnerTokenNotFoundException
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 7588
+    startLine: 7589
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -103,11 +103,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OwnerTokenUserIds
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 7592
+    startLine: 7593
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -151,11 +151,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 7595
+    startLine: 7596
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -179,11 +179,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 7601
+    startLine: 7602
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

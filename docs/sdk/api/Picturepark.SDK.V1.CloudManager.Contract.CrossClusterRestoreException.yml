@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CrossClusterRestoreException
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 10149
+    startLine: 10150
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -99,11 +99,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Exceptions
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 10153
+    startLine: 10154
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -147,11 +147,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 10156
+    startLine: 10157
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -175,11 +175,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 10162
+    startLine: 10163
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract

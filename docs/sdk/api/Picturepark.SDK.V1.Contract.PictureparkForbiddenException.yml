@@ -17,11 +17,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkForbiddenException
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 5800
+    startLine: 5801
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -105,11 +105,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 5805
+    startLine: 5806
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -133,11 +133,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 5811
+    startLine: 5812
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract

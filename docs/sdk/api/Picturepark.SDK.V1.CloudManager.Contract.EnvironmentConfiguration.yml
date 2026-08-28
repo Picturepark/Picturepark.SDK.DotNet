@@ -21,11 +21,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: EnvironmentConfiguration
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21926
+    startLine: 21956
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -70,11 +70,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Id
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21932
+    startLine: 21962
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -120,11 +120,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ContractVersion
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21938
+    startLine: 21968
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -170,11 +170,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LifeCycle
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21944
+    startLine: 21974
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -237,11 +237,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DeactivationMessage
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21952
+    startLine: 21982
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -287,11 +287,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21955
+    startLine: 21985
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract
@@ -315,11 +315,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-    startLine: 21961
+    startLine: 21991
   assemblies:
   - Picturepark.SDK.V1.CloudManager
   namespace: Picturepark.SDK.V1.CloudManager.Contract

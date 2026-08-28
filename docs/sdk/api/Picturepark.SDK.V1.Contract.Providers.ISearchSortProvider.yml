@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ISearchSortProvider
     path: ../../src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
@@ -43,7 +43,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSortInfos
     path: ../../src/Picturepark.SDK.V1.Contract/Providers/ISearchSortProvider.cs

@@ -8745,6 +8745,41 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleSchemaIdInvalidException.ToJson
   nameWithType: BusinessRuleSchemaIdInvalidException.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
+  name: BusinessRuleShareNameMissingException
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
+  nameWithType: BusinessRuleShareNameMissingException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson(System.String)
+  name: FromJson(string)
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessRuleShareNameMissingException_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson(System.String)
+  name.vb: FromJson(String)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson(string)
+  fullName.vb: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson(String)
+  nameWithType: BusinessRuleShareNameMissingException.FromJson(string)
+  nameWithType.vb: BusinessRuleShareNameMissingException.FromJson(String)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessRuleShareNameMissingException_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.FromJson
+  nameWithType: BusinessRuleShareNameMissingException.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessRuleShareNameMissingException_ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.ToJson()
+  nameWithType: BusinessRuleShareNameMissingException.ToJson()
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_CloudManager_Contract_BusinessRuleShareNameMissingException_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.ToJson
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.ToJson
+  nameWithType: BusinessRuleShareNameMissingException.ToJson
 - uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   name: BusinessRuleStringContainsConditionValuesToMatchMissingException
   href: api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException.html
@@ -14268,6 +14303,19 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CorsAllowedHosts
   nameWithType: CustomerConfiguration.CorsAllowedHosts
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
+  name: CustomerUserAndRoleAdministratorSupportEmail
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_CustomerUserAndRoleAdministratorSupportEmail
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
+  nameWithType: CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail*
+  name: CustomerUserAndRoleAdministratorSupportEmail
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_CustomerUserAndRoleAdministratorSupportEmail_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
+  nameWithType: CustomerConfiguration.CustomerUserAndRoleAdministratorSupportEmail
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.DeactivationMessage
   name: DeactivationMessage
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfiguration_DeactivationMessage
@@ -15447,6 +15495,19 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerSettings
   nameWithType: CustomerCreateRequest.CustomerSettings
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  name: CustomerUserAndRoleAdministratorSupportEmail
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerCreateRequest_CustomerUserAndRoleAdministratorSupportEmail
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  nameWithType: CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail*
+  name: CustomerUserAndRoleAdministratorSupportEmail
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerCreateRequest_CustomerUserAndRoleAdministratorSupportEmail_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  nameWithType: CustomerCreateRequest.CustomerUserAndRoleAdministratorSupportEmail
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.DefaultUserRoleId
   name: DefaultUserRoleId
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerCreateRequest_DefaultUserRoleId
@@ -17971,6 +18032,19 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CorsAllowedHosts
   nameWithType: CustomerUpdateRequest.CorsAllowedHosts
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  name: CustomerUserAndRoleAdministratorSupportEmail
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerUpdateRequest_CustomerUserAndRoleAdministratorSupportEmail
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  nameWithType: CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail*
+  name: CustomerUserAndRoleAdministratorSupportEmail
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerUpdateRequest_CustomerUserAndRoleAdministratorSupportEmail_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
+  nameWithType: CustomerUpdateRequest.CustomerUserAndRoleAdministratorSupportEmail
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.DefaultContentPermissionSetIds
   name: DefaultContentPermissionSetIds
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerUpdateRequest_DefaultContentPermissionSetIds
@@ -70534,6 +70608,41 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.Contract.BusinessRuleScript.ToJson
   nameWithType: BusinessRuleScript.ToJson
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
+  name: BusinessRuleShareNameMissingException
+  href: api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html
+  commentId: T:Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
+  nameWithType: BusinessRuleShareNameMissingException
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson(System.String)
+  name: FromJson(string)
+  href: api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_Contract_BusinessRuleShareNameMissingException_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson(System.String)
+  name.vb: FromJson(String)
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson(string)
+  fullName.vb: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson(String)
+  nameWithType: BusinessRuleShareNameMissingException.FromJson(string)
+  nameWithType.vb: BusinessRuleShareNameMissingException.FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_Contract_BusinessRuleShareNameMissingException_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.FromJson
+  nameWithType: BusinessRuleShareNameMissingException.FromJson
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_Contract_BusinessRuleShareNameMissingException_ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.ToJson
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.ToJson()
+  nameWithType: BusinessRuleShareNameMissingException.ToJson()
+- uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html#Picturepark_SDK_V1_Contract_BusinessRuleShareNameMissingException_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.ToJson
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.ToJson
+  nameWithType: BusinessRuleShareNameMissingException.ToJson
 - uid: Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   name: BusinessRuleStringContainsConditionValuesToMatchMissingException
   href: api/Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException.html
@@ -87388,6 +87497,93 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.Contract.EnqueueCreateEmbedAction.ToJson
   nameWithType: EnqueueCreateEmbedAction.ToJson
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction
+  name: EnqueueShareContentAction
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html
+  commentId: T:Picturepark.SDK.V1.Contract.EnqueueShareContentAction
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction
+  nameWithType: EnqueueShareContentAction
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.AllowShareCreation
+  name: AllowShareCreation
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_AllowShareCreation
+  commentId: P:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.AllowShareCreation
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.AllowShareCreation
+  nameWithType: EnqueueShareContentAction.AllowShareCreation
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.AllowShareCreation*
+  name: AllowShareCreation
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_AllowShareCreation_
+  commentId: Overload:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.AllowShareCreation
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.AllowShareCreation
+  nameWithType: EnqueueShareContentAction.AllowShareCreation
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson(System.String)
+  name: FromJson(string)
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson(System.String)
+  name.vb: FromJson(String)
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson(string)
+  fullName.vb: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson(String)
+  nameWithType: EnqueueShareContentAction.FromJson(string)
+  nameWithType.vb: EnqueueShareContentAction.FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.FromJson
+  nameWithType: EnqueueShareContentAction.FromJson
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.MaxContentInShare
+  name: MaxContentInShare
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_MaxContentInShare
+  commentId: P:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.MaxContentInShare
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.MaxContentInShare
+  nameWithType: EnqueueShareContentAction.MaxContentInShare
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.MaxContentInShare*
+  name: MaxContentInShare
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_MaxContentInShare_
+  commentId: Overload:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.MaxContentInShare
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.MaxContentInShare
+  nameWithType: EnqueueShareContentAction.MaxContentInShare
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.OutputFormatIds
+  name: OutputFormatIds
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_OutputFormatIds
+  commentId: P:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.OutputFormatIds
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.OutputFormatIds
+  nameWithType: EnqueueShareContentAction.OutputFormatIds
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.OutputFormatIds*
+  name: OutputFormatIds
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_OutputFormatIds_
+  commentId: Overload:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.OutputFormatIds
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.OutputFormatIds
+  nameWithType: EnqueueShareContentAction.OutputFormatIds
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ShareName
+  name: ShareName
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_ShareName
+  commentId: P:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ShareName
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ShareName
+  nameWithType: EnqueueShareContentAction.ShareName
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ShareName*
+  name: ShareName
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_ShareName_
+  commentId: Overload:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ShareName
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ShareName
+  nameWithType: EnqueueShareContentAction.ShareName
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ToJson
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ToJson()
+  nameWithType: EnqueueShareContentAction.ToJson()
+- uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html#Picturepark_SDK_V1_Contract_EnqueueShareContentAction_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ToJson
+  isSpec: "True"
+  fullName: Picturepark.SDK.V1.Contract.EnqueueShareContentAction.ToJson
+  nameWithType: EnqueueShareContentAction.ToJson
 - uid: Picturepark.SDK.V1.Contract.EnqueueTaggingAction
   name: EnqueueTaggingAction
   href: api/Picturepark.SDK.V1.Contract.EnqueueTaggingAction.html
@@ -108694,19 +108890,6 @@ references:
   commentId: T:Picturepark.SDK.V1.Contract.MetadataStatus
   fullName: Picturepark.SDK.V1.Contract.MetadataStatus
   nameWithType: MetadataStatus
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  name: ContentOrLayerSchemaIds
-  href: api/Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ContentOrLayerSchemaIds
-  commentId: P:Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  nameWithType: MetadataStatus.ContentOrLayerSchemaIds
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds*
-  name: ContentOrLayerSchemaIds
-  href: api/Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ContentOrLayerSchemaIds_
-  commentId: Overload:Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  isSpec: "True"
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  nameWithType: MetadataStatus.ContentOrLayerSchemaIds
 - uid: Picturepark.SDK.V1.Contract.MetadataStatus.FieldIdsToCleanup
   name: FieldIdsToCleanup
   href: api/Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_FieldIdsToCleanup
@@ -108736,19 +108919,6 @@ references:
   isSpec: "True"
   fullName: Picturepark.SDK.V1.Contract.MetadataStatus.FromJson
   nameWithType: MetadataStatus.FromJson
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  name: ListSchemaIds
-  href: api/Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ListSchemaIds
-  commentId: P:Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  nameWithType: MetadataStatus.ListSchemaIds
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds*
-  name: ListSchemaIds
-  href: api/Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ListSchemaIds_
-  commentId: Overload:Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  isSpec: "True"
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  nameWithType: MetadataStatus.ListSchemaIds
 - uid: Picturepark.SDK.V1.Contract.MetadataStatus.MainDocuments
   name: MainDocuments
   href: api/Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_MainDocuments

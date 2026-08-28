@@ -5,10 +5,8 @@ items:
   id: MetadataStatus
   parent: Picturepark.SDK.V1.Contract
   children:
-  - Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
   - Picturepark.SDK.V1.Contract.MetadataStatus.FieldIdsToCleanup
   - Picturepark.SDK.V1.Contract.MetadataStatus.FromJson(System.String)
-  - Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
   - Picturepark.SDK.V1.Contract.MetadataStatus.MainDocuments
   - Picturepark.SDK.V1.Contract.MetadataStatus.SearchDocuments
   - Picturepark.SDK.V1.Contract.MetadataStatus.State
@@ -23,11 +21,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MetadataStatus
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30435
+    startLine: 30503
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -60,124 +58,6 @@ items:
       value: NJsonSchema
     - type: System.String
       value: 13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  commentId: P:Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  id: ContentOrLayerSchemaIds
-  parent: Picturepark.SDK.V1.Contract.MetadataStatus
-  langs:
-  - csharp
-  - vb
-  name: ContentOrLayerSchemaIds
-  nameWithType: MetadataStatus.ContentOrLayerSchemaIds
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  type: Property
-  source:
-    remote:
-      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
-    id: ContentOrLayerSchemaIds
-    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30441
-  assemblies:
-  - Picturepark.SDK.V1.Contract
-  namespace: Picturepark.SDK.V1.Contract
-  summary: The schema ids (of type Content or Layer) for which the contents are outdated and need to be updated.
-  example: []
-  syntax:
-    content: >-
-      [JsonProperty("contentOrLayerSchemaIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-
-      [Obsolete("Use MainDocuments.ContentOrLayerSchemaIds instead. This will be removed in version 11.15.")]
-
-      public ICollection<string> ContentOrLayerSchemaIds { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.ICollection{System.String}
-    content.vb: >-
-      <JsonProperty("contentOrLayerSchemaIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
-
-      <Obsolete("Use MainDocuments.ContentOrLayerSchemaIds instead. This will be removed in version 11.15.")>
-
-      Public Property ContentOrLayerSchemaIds As ICollection(Of String)
-  overload: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds*
-  attributes:
-  - type: Newtonsoft.Json.JsonPropertyAttribute
-    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: contentOrLayerSchemaIds
-    namedArguments:
-    - name: Required
-      type: Newtonsoft.Json.Required
-      value: 0
-    - name: NullValueHandling
-      type: Newtonsoft.Json.NullValueHandling
-      value: 1
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Use MainDocuments.ContentOrLayerSchemaIds instead. This will be removed in version 11.15.
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  commentId: P:Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  id: ListSchemaIds
-  parent: Picturepark.SDK.V1.Contract.MetadataStatus
-  langs:
-  - csharp
-  - vb
-  name: ListSchemaIds
-  nameWithType: MetadataStatus.ListSchemaIds
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  type: Property
-  source:
-    remote:
-      path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
-      repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
-    id: ListSchemaIds
-    path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30448
-  assemblies:
-  - Picturepark.SDK.V1.Contract
-  namespace: Picturepark.SDK.V1.Contract
-  summary: The schema ids (of type List) for which the the list items are outdated and need to be updated.
-  example: []
-  syntax:
-    content: >-
-      [JsonProperty("listSchemaIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-
-      [Obsolete("Use MainDocuments.ListSchemaIds instead. This will be removed in version 11.15.")]
-
-      public ICollection<string> ListSchemaIds { get; set; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.ICollection{System.String}
-    content.vb: >-
-      <JsonProperty("listSchemaIds", Required:=Required.Default, NullValueHandling:=NullValueHandling.Ignore)>
-
-      <Obsolete("Use MainDocuments.ListSchemaIds instead. This will be removed in version 11.15.")>
-
-      Public Property ListSchemaIds As ICollection(Of String)
-  overload: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds*
-  attributes:
-  - type: Newtonsoft.Json.JsonPropertyAttribute
-    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: listSchemaIds
-    namedArguments:
-    - name: Required
-      type: Newtonsoft.Json.Required
-      value: 0
-    - name: NullValueHandling
-      type: Newtonsoft.Json.NullValueHandling
-      value: 1
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Use MainDocuments.ListSchemaIds instead. This will be removed in version 11.15.
 - uid: Picturepark.SDK.V1.Contract.MetadataStatus.MainDocuments
   commentId: P:Picturepark.SDK.V1.Contract.MetadataStatus.MainDocuments
   id: MainDocuments
@@ -192,11 +72,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: MainDocuments
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30455
+    startLine: 30509
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -242,11 +122,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchDocuments
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30461
+    startLine: 30515
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -292,11 +172,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: State
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30467
+    startLine: 30521
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -359,11 +239,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FieldIdsToCleanup
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30475
+    startLine: 30529
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -409,11 +289,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30478
+    startLine: 30532
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -437,11 +317,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 30484
+    startLine: 30538
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -733,118 +613,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds*
-  commentId: Overload:Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-  href: Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ContentOrLayerSchemaIds
-  name: ContentOrLayerSchemaIds
-  nameWithType: MetadataStatus.ContentOrLayerSchemaIds
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ContentOrLayerSchemaIds
-- uid: System.Collections.Generic.ICollection{System.String}
-  commentId: T:System.Collections.Generic.ICollection{System.String}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.ICollection`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
-  name: ICollection<string>
-  nameWithType: ICollection<string>
-  fullName: System.Collections.Generic.ICollection<string>
-  nameWithType.vb: ICollection(Of String)
-  fullName.vb: System.Collections.Generic.ICollection(Of String)
-  name.vb: ICollection(Of String)
-  spec.csharp:
-  - uid: System.Collections.Generic.ICollection`1
-    name: ICollection
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.ICollection`1
-    name: ICollection
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: System.Collections.Generic.ICollection`1
-  commentId: T:System.Collections.Generic.ICollection`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
-  name: ICollection<T>
-  nameWithType: ICollection<T>
-  fullName: System.Collections.Generic.ICollection<T>
-  nameWithType.vb: ICollection(Of T)
-  fullName.vb: System.Collections.Generic.ICollection(Of T)
-  name.vb: ICollection(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.ICollection`1
-    name: ICollection
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.ICollection`1
-    name: ICollection
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds*
-  commentId: Overload:Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
-  href: Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ListSchemaIds
-  name: ListSchemaIds
-  nameWithType: MetadataStatus.ListSchemaIds
-  fullName: Picturepark.SDK.V1.Contract.MetadataStatus.ListSchemaIds
 - uid: Picturepark.SDK.V1.Contract.MetadataStatus.MainDocuments*
   commentId: Overload:Picturepark.SDK.V1.Contract.MetadataStatus.MainDocuments
   href: Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_MainDocuments
@@ -978,6 +746,43 @@ references:
   - name: " "
   - name: TValue
   - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Picturepark.SDK.V1.Contract.MetadataStatus.ToJson*
   commentId: Overload:Picturepark.SDK.V1.Contract.MetadataStatus.ToJson
   href: Picturepark.SDK.V1.Contract.MetadataStatus.html#Picturepark_SDK_V1_Contract_MetadataStatus_ToJson

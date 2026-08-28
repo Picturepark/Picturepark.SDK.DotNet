@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IStatisticClient
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetSingleContentStatisticsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ExportContentStatisticsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -184,7 +184,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ResolveDownloadLinkAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: AddContentEventsAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs

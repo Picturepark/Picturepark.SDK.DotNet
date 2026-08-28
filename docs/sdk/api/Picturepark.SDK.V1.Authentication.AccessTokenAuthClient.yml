@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: AccessTokenAuthClient
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BaseUrl
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CustomerAlias
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
@@ -165,7 +165,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetAuthenticationHeadersAsync
     path: ../../src/Picturepark.SDK.V1/Authentication/AccessTokenAuthClient.cs

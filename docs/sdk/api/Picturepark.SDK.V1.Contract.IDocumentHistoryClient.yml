@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IDocumentHistoryClient
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetCurrentAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetVersionAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -196,7 +196,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CompareWithCurrentAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: CompareWithVersionAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -339,7 +339,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: SearchAsync
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs

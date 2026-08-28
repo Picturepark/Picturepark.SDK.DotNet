@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessProcessScope
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: System
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: User
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs

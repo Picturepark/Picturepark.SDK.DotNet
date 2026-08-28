@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IngestUploadItem
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FileName
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
@@ -129,7 +129,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OpenStream
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
@@ -160,7 +160,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LeaveStreamOpen
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
@@ -191,7 +191,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Deconstruct
     path: ../../src/Picturepark.SDK.V1.AzureBlob/IngestUploadItem.cs

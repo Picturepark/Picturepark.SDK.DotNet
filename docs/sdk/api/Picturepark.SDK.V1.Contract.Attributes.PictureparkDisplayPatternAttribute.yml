@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkDisplayPatternAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -110,7 +110,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -148,7 +148,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -184,7 +184,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Type
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -213,7 +213,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: TemplateEngine
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -242,7 +242,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DisplayPattern
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
@@ -271,7 +271,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Language
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDisplayPatternAttribute.cs

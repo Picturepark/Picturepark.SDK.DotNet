@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkValidationException
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -91,6 +91,7 @@ items:
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleScheduleInvalidCronExpressionException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleScheduleRulesMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleSchemaIdInvalidException
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleTransferOwnershipTransferUserIdMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleTransformationGroupInputsMissingException
@@ -377,7 +378,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -405,7 +406,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs

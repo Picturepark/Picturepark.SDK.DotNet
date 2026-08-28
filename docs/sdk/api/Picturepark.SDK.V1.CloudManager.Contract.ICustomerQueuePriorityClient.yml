@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ICustomerQueuePriorityClient
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetEffectiveAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetCustomAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetEffectiveForQueueAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -253,7 +253,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetCustomForQueueAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -318,7 +318,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -383,7 +383,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ResetAllQueueConfigurationsAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -446,7 +446,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UpdateForQueueAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
@@ -513,7 +513,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ResetQueueAsync
     path: ../../src/Picturepark.SDK.V1.CloudManager/Generated/Contracts.Generated.cs

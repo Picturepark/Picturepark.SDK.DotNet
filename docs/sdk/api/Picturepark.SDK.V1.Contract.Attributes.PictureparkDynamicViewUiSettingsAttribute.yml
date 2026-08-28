@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: PictureparkDynamicViewUiSettingsAttribute
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
@@ -111,7 +111,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
@@ -193,7 +193,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
@@ -234,7 +234,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Attributes/PictureparkDynamicViewUiSettingsAttribute.cs
