@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DateFieldConverter
     path: ../../src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1/Conversion/DateFieldConverter.cs

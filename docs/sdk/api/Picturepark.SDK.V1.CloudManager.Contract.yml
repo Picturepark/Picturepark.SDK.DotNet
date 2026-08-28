@@ -116,6 +116,7 @@ items:
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleScheduleInvalidCronExpressionException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleScheduleRulesMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleSchemaIdInvalidException
+  - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleTransferOwnershipTransferUserIdMissingException
   - Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleTransformationGroupInputsMissingException
@@ -3693,6 +3694,13 @@ references:
   name: BusinessRuleScheduleRulesMissingException
   nameWithType: BusinessRuleScheduleRulesMissingException
   fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleScheduleRulesMissingException
+- uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
+  parent: Picturepark.SDK.V1.CloudManager.Contract
+  href: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html
+  name: BusinessRuleShareNameMissingException
+  nameWithType: BusinessRuleShareNameMissingException
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
 - uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   commentId: T:Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
   parent: Picturepark.SDK.V1.CloudManager.Contract
