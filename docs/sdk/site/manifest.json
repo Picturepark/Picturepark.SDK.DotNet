@@ -1930,6 +1930,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException.yml",
       "output": {
         ".html": {
@@ -15146,6 +15160,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException.yml",
       "output": {
         ".html": {
@@ -18685,6 +18713,20 @@
       "IsMRef": true,
       "Title": "Picturepark.SDK.V1.Contract.EnqueueCreateEmbedAction",
       "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.EnqueueCreateEmbedAction.yml\" sourcestartlinenumber=\"1\">Enqueue creation of an embed</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Picturepark.SDK.V1.Contract.EnqueueShareContentAction",
+      "Summary": "<p sourcefile=\"api/Picturepark.SDK.V1.Contract.EnqueueShareContentAction.yml\" sourcestartlinenumber=\"1\">Enqueue sharing of a content item</p>\n"
     },
     {
       "type": "ManagedReference",

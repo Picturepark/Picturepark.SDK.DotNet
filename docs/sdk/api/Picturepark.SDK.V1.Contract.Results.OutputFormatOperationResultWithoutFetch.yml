@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OutputFormatOperationResultWithoutFetch
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: LifeCycle
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: BusinessProcessId
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: OutputFormatId
     path: ../../src/Picturepark.SDK.V1.Contract/Results/OutputFormatOperationResultWithoutFetch.cs

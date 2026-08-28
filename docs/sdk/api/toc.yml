@@ -684,6 +684,9 @@ items:
   - uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleSchemaIdInvalidException
     name: BusinessRuleSchemaIdInvalidException
     type: Class
+  - uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleShareNameMissingException
+    name: BusinessRuleShareNameMissingException
+    type: Class
   - uid: Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
     name: BusinessRuleStringContainsConditionValuesToMatchMissingException
     type: Class
@@ -3298,6 +3301,9 @@ items:
   - uid: Picturepark.SDK.V1.Contract.BusinessRuleScript
     name: BusinessRuleScript
     type: Class
+  - uid: Picturepark.SDK.V1.Contract.BusinessRuleShareNameMissingException
+    name: BusinessRuleShareNameMissingException
+    type: Class
   - uid: Picturepark.SDK.V1.Contract.BusinessRuleStringContainsConditionValuesToMatchMissingException
     name: BusinessRuleStringContainsConditionValuesToMatchMissingException
     type: Class
@@ -4056,6 +4062,9 @@ items:
     type: Class
   - uid: Picturepark.SDK.V1.Contract.EnqueueCreateEmbedAction
     name: EnqueueCreateEmbedAction
+    type: Class
+  - uid: Picturepark.SDK.V1.Contract.EnqueueShareContentAction
+    name: EnqueueShareContentAction
     type: Class
   - uid: Picturepark.SDK.V1.Contract.EnqueueTaggingAction
     name: EnqueueTaggingAction

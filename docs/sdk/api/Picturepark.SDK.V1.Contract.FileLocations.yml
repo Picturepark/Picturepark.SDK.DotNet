@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FileLocations
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: .ctor
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: AbsoluteSourcePath
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: UploadAs
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -163,7 +163,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Identifier
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -197,7 +197,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: op_Implicit
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
@@ -231,7 +231,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToString
     path: ../../src/Picturepark.SDK.V1.Contract/Contract/FileLocations.cs

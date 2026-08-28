@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: DataDictionary
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
@@ -96,11 +96,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: ToJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 43612
+    startLine: 43666
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -124,11 +124,11 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: FromJson
     path: ../../src/Picturepark.SDK.V1.Contract/Contracts.Generated.cs
-    startLine: 43618
+    startLine: 43672
   assemblies:
   - Picturepark.SDK.V1.Contract
   namespace: Picturepark.SDK.V1.Contract
@@ -158,7 +158,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Get
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
@@ -199,7 +199,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: Get
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
@@ -237,7 +237,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetList
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
@@ -275,7 +275,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetList
     path: ../../src/Picturepark.SDK.V1.Contract/Partials/DataDictionary.cs

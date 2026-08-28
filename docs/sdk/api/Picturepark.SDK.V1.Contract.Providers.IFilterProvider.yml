@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: IFilterProvider
     path: ../../src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
@@ -41,7 +41,7 @@ items:
   source:
     remote:
       path: src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
-      branch: 11.16.x
+      branch: 11.17.x
       repo: https://github.com/Picturepark/Picturepark.SDK.DotNet.git
     id: GetFilter
     path: ../../src/Picturepark.SDK.V1.Contract/Providers/IFilterProvider.cs
